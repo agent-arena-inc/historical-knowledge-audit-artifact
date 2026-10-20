@@ -1,5 +1,6 @@
 PYTHON ?= python3
-SOURCE_ROOT ?= ../case_source
+SOURCE_ROOT ?= $(if $(wildcard data/cases),data/cases,../AgentArena/demos)
+VERIFY_MODE := $(if $(wildcard data/annotations/private_sample_key.csv),,--release-mode)
 
 .PHONY: manifest instruments table verify all
 
@@ -13,6 +14,6 @@ table:
 	$(PYTHON) scripts/reproduce_provisional_table.py --source-root "$(SOURCE_ROOT)"
 
 verify:
-	$(PYTHON) scripts/verify_artifact.py --source-root "$(SOURCE_ROOT)"
+	$(PYTHON) scripts/verify_artifact.py $(VERIFY_MODE) --source-root "$(SOURCE_ROOT)"
 
 all: manifest instruments table verify
