@@ -14,6 +14,10 @@ simulation service.
 - [x] Anonymous release checks and exclusion of active coder materials.
 - [x] One-command, dependency-free Level-1 recomputation (`make all`).
 - [x] Continuous verification on pushes and pull requests.
+- [x] Conservative proposal-correction memo and technical-appendix scaffold.
+- [x] Organizational-inference table with candidate conclusions and explicit
+      pending fields.
+- [x] Model-provenance gap inventory.
 
 ## Required before Stage 1 submission
 
