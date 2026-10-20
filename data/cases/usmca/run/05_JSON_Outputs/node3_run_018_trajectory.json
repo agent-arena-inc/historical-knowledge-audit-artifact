@@ -1,0 +1,2069 @@
+{
+  "simulation_id": "c5288f55bb6c",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Who's running the underwriting discipline here? I've got RVC cost per model and labor-content wage-floor exposure, but I need to know: what are the named triggers that flip a supplier from \"monitored\" to \"high-risk\" — and what does that cost in insurance premium or credit spread?\n  supplier: You've got the labor-content data, but here's the gap: *when* does a supplier actually blow up? Is it missed re-qual deadlines, capex spending frozen, or lead times stretching past 120 days? Because my guys are sitting on $8–12M in capex bets right now, and I need to know which signals tell me to pull the trigger and shift to a backup source. What are the three or four named failure modes you want flagged?\n  compliance_lawyer: Auto, when you're building that RVC cost model, what's your audit timeline assumption — annual re-cert, quarterly spot-checks, post-shipment verification? Because the penalty structure changes completely depending on whether we catch a 10% non-qualifying input pre-audit versus post-CBP exam. That's the difference between a warning and tariff retroactivity.\n  auto_strategy: We're running quarterly spot-checks on high-volume platforms — that's the only way to catch input drift before shipment — but post-CBP exam retroactivity is a real cost we need priced into the model: assume 8–12% tariff clawback on non-qualifying inputs caught downstream. That changes our supplier re-sourcing threshold from \"eventually nearshore\" to \"move now or accept the penalty cost as permanent production margin erosion.\"\n  political_risk_insurer: Here's what I need: CBP retroactivity clawback gets its own line item — assume 8–12% tariff hit triggered by *post-shipment exam*, with 60–90 day lag before notification. That's not production cost, that's sovereign enforcement risk. Does your quarterly spot-check assumption hold if CBP decides to re-examine a batch 6 months after entry — and if yes, what's the coverage trigger?\n  trade_credit_underwriter: When a supplier hits one of those failure modes — missed re-qual, frozen capex, 120+ day lead-time slip — what's your typical AR balance with that vendor? Because that's the receivables loss I'm underwriting, and it changes whether we're looking at a $500K credit insurance line or a structural supply-chain restructuring cost.\n  supplier: My AR with a supplier in that zone runs $1.2–$2.8M depending on platform volume, and that's *before* they miss re-qual — once they're in failure mode, I'm looking at 45–60 day payment holds while we stress-test the backup source, which burns another $300–500K in expedite costs. Here's what I need named: does a 120+ day lead-time slip *automatically* trigger your credit line drawdown, or do we wait for the re-qual miss — because that 30-day gap is where my smaller suppliers actually fold.\n  supply_chain_consultant: Here's what I'm proposing: we build a three-gate nearshoring trigger — gate one is 120+ day lead slip *or* missed re-qual notice; gate two is CBP retroactivity clawback flagged in audit; gate three is the 2026 review date itself. Any supplier hitting gate one gets a 60-day relocation assessment window before we pull capex from their backup. That consolidates your AR risk, auto's penalty exposure, and my forward view on 2026 all into one client plan — does that framework work for everyone, or do we need to adjust the gates?\n  cfo_erm: The three gates work, but we need teeth: gate one triggers a $500K nearshore assessment reserve *immediately* — no 60-day wait. Gate two locks trade credit at that supplier pending audit. Gate three is the 2026 hard date. Do we build that into the master risk register today, or do we leave this half-consolidated?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Who's running the underwriting discipline here? I've got RVC cost per model and labor-content wage-floor exposure, but I need to know: what are the named triggers that flip a supplier from \"monitored\" to \"high-risk\" — and what does that cost in insurance premium or credit spread?",
+            "cot": {
+              "assess": "Rules-of-origin burden is quantified and locked at 32 — that's solid. But the risk map is still scattered (19/60) and underwriting discipline is soft (30/50). We're translating policy into priceable variables, but it's not operationalized yet. Nobody's named the actual cost triggers or supplier-relocation thresholds that insurers or lenders will demand.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline / risk_map_completeness owner",
+                "rationale": "I need to know what pricing model the insurance and credit side is using — because compliance burden is useless if it doesn't feed into actual underwriting conditions."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "You've got the labor-content data, but here's the gap: *when* does a supplier actually blow up? Is it missed re-qual deadlines, capex spending frozen, or lead times stretching past 120 days? Because my guys are sitting on $8–12M in capex bets right now, and I need to know which signals tell me to pull the trigger and shift to a backup source. What are the three or four named failure modes you want flagged?",
+            "cot": {
+              "assess": "My relocation and content-burden variables are solid, but the map is fractured — we've got RVC costs and wage floors floating around with no unified trigger framework. Nobody's named what actually moves a supplier from \"okay\" to \"we're pulling the contract.\" That ambiguity is killing underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline / risk ops owner",
+                "rationale": "We can't price supplier risk or trade-credit exposure without operationalized triggers; I need to know what signals matter — qualification failures, capex burndown, lead-time slippage — so we can build a real monitoring scorecard."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, when you're building that RVC cost model, what's your audit timeline assumption — annual re-cert, quarterly spot-checks, post-shipment verification? Because the penalty structure changes completely depending on whether we catch a 10% non-qualifying input pre-audit versus post-CBP exam. That's the difference between a warning and tariff retroactivity.",
+            "cot": {
+              "assess": "Rules-of-origin burden and underwriting discipline are solid, but the real gap is *operationalized* compliance triggers — the room has data fragments (RVC costs, wage floors, labor content) but no unified audit/penalty playbook. Risk map is fragmented at 19 because nobody's named the specific certification deadlines, audit failure scenarios, or penalty costs that actually move insurance pricing and supplier decisions.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You've got the cost data; I need to lock in the compliance mechanics that drive it — what audit cadence and certification failure window do you assume when you price RVC risk?"
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "We're running quarterly spot-checks on high-volume platforms — that's the only way to catch input drift before shipment — but post-CBP exam retroactivity is a real cost we need priced into the model: assume 8–12% tariff clawback on non-qualifying inputs caught downstream. That changes our supplier re-sourcing threshold from \"eventually nearshore\" to \"move now or accept the penalty cost as permanent production margin erosion.\"",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I need: CBP retroactivity clawback gets its own line item — assume 8–12% tariff hit triggered by *post-shipment exam*, with 60–90 day lag before notification. That's not production cost, that's sovereign enforcement risk. Does your quarterly spot-check assumption hold if CBP decides to re-examine a batch 6 months after entry — and if yes, what's the coverage trigger?",
+            "cot": {
+              "assess": "Auto's quarterly spot-check + 8–12% tariff clawback model is operationalized — that's good discipline. But the group is naming failure modes (missed re-quals, frozen capex, stretched lead times) without pricing them into political-risk exposure. The CBP retroactivity exposure is a *policy-enforcement shock*, and that's my layer — it's not priced yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure",
+                "rationale": "The post-CBP exam tariff clawback (8–12%) is a named, triggered political-risk event; I need to price it as a separate underwriting factor tied to audit timeline and enforcement discretion."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When a supplier hits one of those failure modes — missed re-qual, frozen capex, 120+ day lead-time slip — what's your typical AR balance with that vendor? Because that's the receivables loss I'm underwriting, and it changes whether we're looking at a $500K credit insurance line or a structural supply-chain restructuring cost.",
+            "cot": {
+              "assess": "The team's locked in on *when* suppliers fail and *what* it costs to catch it — that's the operational spine. But nobody's named the trade-credit variable yet: what's the receivables exposure when a supplier goes under mid-production, and how does that translate into credit insurance premium or customer default risk? Rules-of-origin burden is rising (32), supplier relocation exposure is climbing (25), but trade-credit risk is still sitting flat at 25 — that's the gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "You've got the capex spend and failure-mode triggers; I need to know the receivables exposure tied to those failure modes so I can price the credit risk."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "My AR with a supplier in that zone runs $1.2–$2.8M depending on platform volume, and that's *before* they miss re-qual — once they're in failure mode, I'm looking at 45–60 day payment holds while we stress-test the backup source, which burns another $300–500K in expedite costs. Here's what I need named: does a 120+ day lead-time slip *automatically* trigger your credit line drawdown, or do we wait for the re-qual miss — because that 30-day gap is where my smaller suppliers actually fold.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I'm proposing: we build a three-gate nearshoring trigger — gate one is 120+ day lead slip *or* missed re-qual notice; gate two is CBP retroactivity clawback flagged in audit; gate three is the 2026 review date itself. Any supplier hitting gate one gets a 60-day relocation assessment window before we pull capex from their backup. That consolidates your AR risk, auto's penalty exposure, and my forward view on 2026 all into one client plan — does that framework work for everyone, or do we need to adjust the gates?",
+            "cot": {
+              "assess": "You've locked in the failure modes (re-qual miss, capex freeze, 120+ day lead slip) and the AR exposure ($1.2–$2.8M per supplier, plus $300–500K expedite burn). What's missing: a *named trigger sequence* that tells the supplier when to actually pull the nearshoring lever — and a consolidated risk map that ties all this to the 2026 review uncertainty. Right now you've got good inputs but no decision rule.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "I need to consolidate these failure modes into an actionable nearshoring trigger framework that operationalizes when a supplier moves from \"monitored\" to \"relocate now\" — and price that against the 2026 review window."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "The three gates work, but we need teeth: gate one triggers a $500K nearshore assessment reserve *immediately* — no 60-day wait. Gate two locks trade credit at that supplier pending audit. Gate three is the 2026 hard date. Do we build that into the master risk register today, or do we leave this half-consolidated?",
+            "cot": {
+              "assess": "We've surfaced the three failure modes (120+ day lead slip, missed re-qual, frozen capex), the AR exposure ($1.2–$2.8M per supplier), and the CBP retroactivity clawback (8–12% tariff). The supply-chain consultant just handed us a three-gate framework that actually consolidates all of it. But we're still sitting at risk_map_completeness=19 because nobody's priced these triggers into a decision-ready map — we've got named variables, not underwritten ones.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The three-gate framework is solid, but it only works if we operationalize it — assign dollar thresholds, insurance triggers, and credit-line conditions to each gate so the supplier and I can actually execute without another meeting."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Who's running the underwriting discipline here? I've got RVC cost per model and labor-content wage-floor exposure, but I need to know: what are the named triggers that flip a supplier from \"monitored\" to \"high-risk\" — and what does that cost in insurance premium or credit spread?",
+      "metadata": {
+        "question_target": "underwriting_discipline / risk_map_completeness owner"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "You've got the labor-content data, but here's the gap: *when* does a supplier actually blow up? Is it missed re-qual deadlines, capex spending frozen, or lead times stretching past 120 days? Because my guys are sitting on $8–12M in capex bets right now, and I need to know which signals tell me to pull the trigger and shift to a backup source. What are the three or four named failure modes you want flagged?",
+      "metadata": {
+        "question_target": "underwriting_discipline / risk ops owner"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, when you're building that RVC cost model, what's your audit timeline assumption — annual re-cert, quarterly spot-checks, post-shipment verification? Because the penalty structure changes completely depending on whether we catch a 10% non-qualifying input pre-audit versus post-CBP exam. That's the difference between a warning and tariff retroactivity.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When a supplier hits one of those failure modes — missed re-qual, frozen capex, 120+ day lead-time slip — what's your typical AR balance with that vendor? Because that's the receivables loss I'm underwriting, and it changes whether we're looking at a $500K credit insurance line or a structural supply-chain restructuring cost.",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: CBP retroactivity clawback gets its own line item — assume 8–12% tariff hit triggered by *post-shipment exam*, with 60–90 day lag \" → CBP retroactivity clawback line-item approved; 8-12% tariff hit with 60-90 day lag now quantified.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm proposing: we build a three-gate nearshoring trigger — gate one is 120+ day lead slip *or* missed re-qual notice; gate two is CBP retr\" → Three-gate nearshoring trigger framework approved; gates one/two/three now define supplier failure modes.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"The three gates work, but we need teeth: gate one triggers a $500K nearshore assessment reserve *immediately* — no 60-day wait. Gate two locks trade c\" → Master risk register updated with $500K reserve trigger, trade credit lock, and 2026 hard date.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 35.0,
+          "supplier_relocation_exposure": 33.0,
+          "trade_credit_risk": 24.0,
+          "political_risk_exposure": 30.0,
+          "risk_map_completeness": 37.0,
+          "underwriting_discipline": 44
+        }
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: I'm running quarterly spot-checks, but here's what I need from you: what's CBP's standard audit lag on a failed RVC exam — is it 60 days post-shipment, or are we looking at longer? Because that determines whether a supplier gets flagged pre-production or eats the tariff retroactivity hit. That changes the reserve math.\n  compliance_lawyer: CBP's standard exam-to-notice lag runs 45–90 days post-shipment, but retroactivity exposure starts *on entry date*, not exam date — so your $500K reserve trigger needs to assume full tariff liability from day-one import, not day-45 discovery. That's the audit timeline that changes your pre-production flag threshold: you can't wait for CBP's exam results; you need RVC failures caught in your quarterly spot-checks, pre-shipment, or you're pricing a clawback you can't prevent.\n  supplier: Auto — your quarterly spot-checks, what's the actual *fail rate* you're seeing on RVC compliance? And which platforms are blowing the labor-content floor most? Because I've got to move capex this quarter, and I'm not burning $8M on nearshoring backup plants for suppliers who are actually passing audits.\n  auto_strategy: Our Q3 spot-checks hit a 12% fail rate on RVC — mostly mid-size Tier 2 stamping and harness suppliers — and the labor-content floor is killing three platforms: F-Series truck frame assembly, Mustang EV battery pack integration, and our Mexico-built compact sedan platform. The Mustang EV fail is structural — we're $1.8K per unit short on qualifying labor, and nearshoring that subassembly hits us with a $3.2M capex refit, so before you burn $8M on backup plants, we need to know if you're pricing that labor-content gap into credit terms or if we're jointly re-sourcing to a qualified Mexico OEM.\n  compliance_lawyer: Auto, your 12% fail rate—is that 12% of shipments that miss RVC on first audit, or 12% of supplier *facilities* that show non-compliant inputs? Because if it's shipments, I'm building an *individual entry* audit trigger; if it's suppliers, I'm flagging whole vendor relationships. Which one changes my penalty model—and which one tells me when to assume retroactivity clawback costs in the reserve.\n  political_risk_insurer: Auto — is that 12% a fail rate per *shipment* or per *supplier facility*? Because if it's shipments, I'm pricing entry-level retroactivity risk for each Mustang EV or F-Series run; if it's suppliers, I'm flagging whole vendor relationships for political-risk coverage. That distinction changes my premium and reserve trigger timing.\n  trade_credit_underwriter: Auto — of those 12% failing suppliers, how many are the mid-tier stamping/harness shops versus your big Tier 1s? Because a $2M AR hold on a $50M supplier stings but doesn't break them; same hold on a $15M shop and they're in covenant breach. Give me the top three by AR exposure, and I'll price the receivables loss into our credit insurance line right now.\n  supply_chain_consultant: Auto, you said Mustang EV is $1.8K short per unit and a Mexico OEM refit runs $3.2M — but here's what I need: are you moving that subassembly *now*, or waiting to see what the 2026 review does to labor-content rules? Because if you're waiting, the backup supplier needs a nearshoring incentive locked in *today*, not optioned for next year. Supplier, same question — top three shops in that 12% fail zone, which ones are you actually committing capex to relocate versus which are you monitoring pending the 2026 decision?\n  cfo_erm: Auto, before we price this — of your 12% fail rate, are those *individual shipments* hitting RVC issues or *whole supplier facilities* non-compliant? And more important: top three suppliers in that zone by AR balance. I need names and dollar exposure so I can lock trade-credit terms and reserve sizing *this round*, not next quarter.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I'm running quarterly spot-checks, but here's what I need from you: what's CBP's standard audit lag on a failed RVC exam — is it 60 days post-shipment, or are we looking at longer? Because that determines whether a supplier gets flagged pre-production or eats the tariff retroactivity hit. That changes the reserve math.",
+            "cot": {
+              "assess": "Three-gate framework and $500K reserve trigger are locked in — that's the operationalization we needed. But risk_map_completeness is still at 37; we've named the failure modes (missed re-qual, lead-time slip, CBP clawback) but we haven't tied them to *which models and plants actually fall short* on RVC. That's the missing piece — compliance burden stays abstract without the plant-level math.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "RVC math has to be model-specific to move from 37 to 60 on the map; I need to know what the audit timeline assumption actually costs before I can price the production impact."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's standard exam-to-notice lag runs 45–90 days post-shipment, but retroactivity exposure starts *on entry date*, not exam date — so your $500K reserve trigger needs to assume full tariff liability from day-one import, not day-45 discovery. That's the audit timeline that changes your pre-production flag threshold: you can't wait for CBP's exam results; you need RVC failures caught in your quarterly spot-checks, pre-shipment, or you're pricing a clawback you can't prevent.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Auto — your quarterly spot-checks, what's the actual *fail rate* you're seeing on RVC compliance? And which platforms are blowing the labor-content floor most? Because I've got to move capex this quarter, and I'm not burning $8M on nearshoring backup plants for suppliers who are actually passing audits.",
+            "cot": {
+              "assess": "The three-gate framework and retroactivity pricing are locked in — that's solid. But I'm sitting on $8–12M in capex earmarked for supplier moves, and I don't know which suppliers actually hit gate one yet. We've got the triggers named, but not *operationalized* — I need the audit cadence and failure-mode watch list tied to specific vendor platforms so I can decide what to fund *now*, not in 60 days.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The pre-shipment RVC catch rate directly determines which suppliers stay versus relocate; I need to know the actual failure rate from your quarterly spot-checks so I can prioritize capex allocation."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Our Q3 spot-checks hit a 12% fail rate on RVC — mostly mid-size Tier 2 stamping and harness suppliers — and the labor-content floor is killing three platforms: F-Series truck frame assembly, Mustang EV battery pack integration, and our Mexico-built compact sedan platform. The Mustang EV fail is structural — we're $1.8K per unit short on qualifying labor, and nearshoring that subassembly hits us with a $3.2M capex refit, so before you burn $8M on backup plants, we need to know if you're pricing that labor-content gap into credit terms or if we're jointly re-sourcing to a qualified Mexico OEM.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, your 12% fail rate—is that 12% of shipments that miss RVC on first audit, or 12% of supplier *facilities* that show non-compliant inputs? Because if it's shipments, I'm building an *individual entry* audit trigger; if it's suppliers, I'm flagging whole vendor relationships. Which one changes my penalty model—and which one tells me when to assume retroactivity clawback costs in the reserve.",
+            "cot": {
+              "assess": "The three-gate framework and $500K reserve trigger are locked in—good. But we're now sitting on a structural problem: auto's 12% RVC fail rate and $1.8K-per-unit labor shortfall on Mustang EV aren't being translated into *named audit triggers* or penalty-cost scenarios. Underwriting discipline is stuck at 44 because we haven't defined what \"high-risk supplier\" actually *means* in audit terms—is it a 12% fail rate? A specific wage-floor miss? A lead-time threshold? That's my job.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to lock the audit trigger that flips a supplier from monitored to penalty-exposure—the 12% fail rate tells me magnitude, but I need the *decision rule* that triggers pre-production hold vs. tariff liability assumption."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Auto — is that 12% a fail rate per *shipment* or per *supplier facility*? Because if it's shipments, I'm pricing entry-level retroactivity risk for each Mustang EV or F-Series run; if it's suppliers, I'm flagging whole vendor relationships for political-risk coverage. That distinction changes my premium and reserve trigger timing.",
+            "cot": {
+              "assess": "The three-gate trigger framework and CBP retroactivity line-item are locked in — that's solid. But I'm seeing a gap: compliance_lawyer just exposed that retroactivity *starts on entry date*, not exam date, which means the $500K reserve assumes full tariff liability from day one. The real problem is auto's 12% fail rate is still undefined — we don't know if that's shipments or suppliers, which changes whether I'm pricing individual-entry clawback risk or wholesale vendor relationship failure. Until that's clear, my political-risk score stays soft.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The fail-rate definition directly determines my retroactivity-clawback pricing model and the political-risk exposure score; I can't operationalize the underwriting discipline without it."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Auto — of those 12% failing suppliers, how many are the mid-tier stamping/harness shops versus your big Tier 1s? Because a $2M AR hold on a $50M supplier stings but doesn't break them; same hold on a $15M shop and they're in covenant breach. Give me the top three by AR exposure, and I'll price the receivables loss into our credit insurance line right now.",
+            "cot": {
+              "assess": "The three-gate framework and retroactivity clawback pricing are locked in — good. But we've got a critical gap: **12% fail rate across suppliers, but nobody's named which ones are in receivables danger and which can absorb re-qual costs**. Auto's data is tactical (per-shipment vs. per-facility); I need to know supplier-by-supplier AR exposure so I can price the actual credit loss, not just assume it.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The 12% fail rate is useless for trade-credit underwriting until I know which specific suppliers hit gate one, what their AR balances are with us, and whether they have capex liquidity to absorb nearshoring costs or hit insolvency instead."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Auto, you said Mustang EV is $1.8K short per unit and a Mexico OEM refit runs $3.2M — but here's what I need: are you moving that subassembly *now*, or waiting to see what the 2026 review does to labor-content rules? Because if you're waiting, the backup supplier needs a nearshoring incentive locked in *today*, not optioned for next year. Supplier, same question — top three shops in that 12% fail zone, which ones are you actually committing capex to relocate versus which are you monitoring pending the 2026 decision?",
+            "cot": {
+              "assess": "Three-gate framework is locked in with reserve triggers and trade-credit locks — that's solid. But we're still dancing around *which suppliers actually move*: the 12% fail rate tells us the problem scale, but nobody's named the three or four shops we're actually relocating capex to, or what the 2026 review timeline does to their nearshoring ROI math. risk_map_completeness is at 37 — we need the relocation targets and the forward risk calendar built out to hit 60.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier + auto_strategy",
+                "rationale": "Your three platforms are bleeding labor-content — I need to know which Tier 2 suppliers you're actually moving to nearshore *this year* versus which ones you're holding for 2026 review visibility, because that changes my nearshoring incentive map and your capex timing."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Auto, before we price this — of your 12% fail rate, are those *individual shipments* hitting RVC issues or *whole supplier facilities* non-compliant? And more important: top three suppliers in that zone by AR balance. I need names and dollar exposure so I can lock trade-credit terms and reserve sizing *this round*, not next quarter.",
+            "cot": {
+              "assess": "We've got the three-gate framework locked and the $500K reserve triggered on Gate 1 — that's solid. But we're still missing the operational connective tissue: we know *what* triggers (120-day slip, missed re-qual, RVC fail), but we don't know *which suppliers* are in the danger zone *right now*, and auto's 12% fail rate is fragmenting between shipments vs. facilities — that's killing my underwriting precision. Risk map is still fragmented; underwriting discipline needs specificity.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to lock down whether that 12% is per-shipment or per-facility *and* get the supplier names so I can cross-reference against our AR exposure and trade-credit lines — that's the only way to price the receivables loss and move from framework to actual decision triggers."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "I'm running quarterly spot-checks, but here's what I need from you: what's CBP's standard audit lag on a failed RVC exam — is it 60 days post-shipment, or are we looking at longer? Because that determines whether a supplier gets flagged pre-production or eats the tariff retroactivity hit. That changes the reserve math.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Auto — your quarterly spot-checks, what's the actual *fail rate* you're seeing on RVC compliance? And which platforms are blowing the labor-content floor most? Because I've got to move capex this quarter, and I'm not burning $8M on nearshoring backup plants for suppliers who are actually passing audits.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, your 12% fail rate—is that 12% of shipments that miss RVC on first audit, or 12% of supplier *facilities* that show non-compliant inputs? Because if it's shipments, I'm building an *individual entry* audit trigger; if it's suppliers, I'm flagging whole vendor relationships. Which one changes my penalty model—and which one tells me when to assume retroactivity clawback costs in the reserve.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Auto — is that 12% a fail rate per *shipment* or per *supplier facility*? Because if it's shipments, I'm pricing entry-level retroactivity risk for each Mustang EV or F-Series run; if it's suppliers, I'm flagging whole vendor relationships for political-risk coverage. That distinction changes my premium and reserve trigger timing.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Auto — of those 12% failing suppliers, how many are the mid-tier stamping/harness shops versus your big Tier 1s? Because a $2M AR hold on a $50M supplier stings but doesn't break them; same hold on a $15M shop and they're in covenant breach. Give me the top three by AR exposure, and I'll price the receivables loss into our credit insurance line right now.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Auto, you said Mustang EV is $1.8K short per unit and a Mexico OEM refit runs $3.2M — but here's what I need: are you moving that subassembly *now*, or waiting to see what the 2026 review does to labor-content rules? Because if you're waiting, the backup supplier needs a nearshoring incentive locked in *today*, not optioned for next year. Supplier, same question — top three shops in that 12% fail zone, which ones are you actually committing capex to relocate versus which are you monitoring pending the 2026 decision?",
+      "metadata": {
+        "question_target": "supplier + auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Auto, before we price this — of your 12% fail rate, are those *individual shipments* hitting RVC issues or *whole supplier facilities* non-compliant? And more important: top three suppliers in that zone by AR balance. I need names and dollar exposure so I can lock trade-credit terms and reserve sizing *this round*, not next quarter.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.\n  supplier: The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?\n  cfo_erm: Those three are hitting my reserve trigger *now* — $500K across all three, locked this quarter. TierCo and Midwest freeze at gate one (missed re-qual or CBP audit flag); Precision at gate two if lead times blow past 120 days. Credit insurance line covers the AR hold, but supplier gets 15 days to cure before we escalate to nearshoring backup — that's priced into the $8–12M capex commitment we're making today.\n  compliance_lawyer: Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.\n  auto_strategy: Both — TierCo's last two runs failed our pre-audit spot-checks, so we caught it internal; Midwest hasn't been re-certified since Q3, which means CBP could flag them cold on the next shipment. That's the $500K split: TierCo's defensible as a warning-level fix, Midwest is live retroactivity exposure if they ship before re-qual clears.\n  political_risk_insurer: Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our nearshoring backup plants absorb the new wage floor, or does that capex need a policy-shock reserve on top of the $500K we've already locked? I need a yes/no on whether that's a separate premium line or bundled into the retroactivity clawback.\n  trade_credit_underwriter: Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed, not pending. Credit insurance covers the hold period, but I'm pricing a 2.5% default assumption on each three — that's $52K, $45K, $35K respectively. We get board sign-off on those spreads today or the reserve doesn't hold.\n  supply_chain_consultant: Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2026 wage-floor hardening hits our unit cost *again* on top of the refit; if they're US, we're already locked into higher labor but we skip the policy shock. That's the difference between a $12M bet and a $15M exposure. Which are we building into the reserves?\n  cfo_erm: Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-floor shock *twice* — once on the new facility, once on unit cost. If US, we're locked on labor but we skip the policy swing. I need a name and location for at least one backup vendor, and I need to know: does the $500K reserve cover both the gate-one AR freeze *and* a 10% capex overrun if the 2026 rules harden beyond current projections, or do we need a separate policy-shock line? Pick one — that decision gets us to the consolidated map today.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.",
+            "cot": {
+              "assess": "Three-gate framework and CBP retroactivity pricing are locked in, but we've still got a hard gap: I never clarified whether that 12% is shipment-level or facility-level, and the team's asking me for it to calibrate their reserves and triggers. That ambiguity is bleeding into trade-credit underwriting and political-risk pricing — they can't build clean models without it. Mustang EV sourcing decision is also hanging: move now or wait for 2026 labor rules? I need to call that today because capex timing locks in cost regardless.",
+              "decide": {
+                "action_type": "speak",
+                "target": "rules_of_origin_burden / underwriting_discipline",
+                "rationale": "Clarify the 12% fail metric — shipment vs. facility — and lock the Mustang EV sourcing decision. Both are operational blockers that prevent clean reserve sizing and capex commitment."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?",
+            "cot": {
+              "assess": "Auto just nailed the facility-level fail rate and locked the top three AR exposures — that's gold for trade-credit reserve sizing and nearshoring trigger sequencing. Three-gate framework is approved and $500K reserve is live. But we're still sitting on a fragmented risk map: rules-of-origin burden keeps climbing (now 39), political-risk exposure is barely moving (32), and underwriting discipline is at 44 — we need 50 minimum to call this operationalized. The gap is that we've named the triggers but haven't wired them to actual pricing, hold logic, or supplier failure escalation. That's the next move.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Trade-credit reserve is locked, but I need to know the actual hold/release mechanics and whether we've priced the AR bleed into insurance premiums — that's the bridge between risk naming and operational discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Those three are hitting my reserve trigger *now* — $500K across all three, locked this quarter. TierCo and Midwest freeze at gate one (missed re-qual or CBP audit flag); Precision at gate two if lead times blow past 120 days. Credit insurance line covers the AR hold, but supplier gets 15 days to cure before we escalate to nearshoring backup — that's priced into the $8–12M capex commitment we're making today.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.",
+            "cot": {
+              "assess": "The facility-level fail-rate clarification is critical — we now know it's seven mid-tier shops, not random shipments, which changes my penalty modeling completely. TierCo, Midwest, and Precision are named, AR-anchored, and reserve-triggered. But I'm seeing a gap: the CFO locked gate-one triggers (missed re-qual, CBP audit flag) and gate-two timing (120+ day lead slip), but *nobody has specified what \"missed re-qual\" actually means in audit terms* — is that a failed CBP exam, a self-audit failure, or a supplier certification lapse? That ambiguity kills my retroactivity reserve defensibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the precise audit event that flips gate one, because that determines whether retroactivity liability accrues at exam date or at notice date — a 45–90 day swing in reserve timing."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Both — TierCo's last two runs failed our pre-audit spot-checks, so we caught it internal; Midwest hasn't been re-certified since Q3, which means CBP could flag them cold on the next shipment. That's the $500K split: TierCo's defensible as a warning-level fix, Midwest is live retroactivity exposure if they ship before re-qual clears.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our nearshoring backup plants absorb the new wage floor, or does that capex need a policy-shock reserve on top of the $500K we've already locked? I need a yes/no on whether that's a separate premium line or bundled into the retroactivity clawback.",
+            "cot": {
+              "assess": "Facility-level failures are now clear — TierCo and Midwest are live retroactivity exposure, not episodic misses. The $500K reserve is locked and gated. But political_risk_exposure is still underpriced: we've quantified the CBP lag and tariff hit, but we haven't scored the 2026 labor-content review as a *forward* policy shock that reshapes supplier viability. That's the layer I need to price *now*, before we commit $8–12M to nearshoring.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure",
+                "rationale": "The 2026 USMCA review is a prospective policy trigger — I need to lock a premium adjustment today that covers the risk that labor-content floors tighten, stranding our nearshoring capex or forcing accelerated facility relocation mid-contract."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed, not pending. Credit insurance covers the hold period, but I'm pricing a 2.5% default assumption on each three — that's $52K, $45K, $35K respectively. We get board sign-off on those spreads today or the reserve doesn't hold.",
+            "cot": {
+              "assess": "Facility-level failure mode is now clear — seven mid-tier stamping shops with systemic non-compliance, not random shipment misses. TierCo, Midwest, and Precision are named with hard AR exposure ($2.1M, $1.8M, $1.4M). The $500K reserve is locked and gate triggers are defined, but trade-credit terms on those three suppliers — freeze timeline, cure window, credit insurance scope — are still loose. That's my variable to operationalize *now*.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk",
+                "rationale": "AR freezes and credit insurance coverage need to be priced into specific supplier contracts this round, or the $500K reserve becomes a liability guess instead of an actionable underwriting decision."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2026 wage-floor hardening hits our unit cost *again* on top of the refit; if they're US, we're already locked into higher labor but we skip the policy shock. That's the difference between a $12M bet and a $15M exposure. Which are we building into the reserves?",
+            "cot": {
+              "assess": "We've locked the three-gate framework, named the top three suppliers ($5.3M AR exposure), and priced the $500K reserve + 2.5% default spreads. The gap now is political_risk_exposure and rules_of_origin_burden — both climbing because the 2026 labor-content hardening is still floating as a separate policy shock rather than integrated into the nearshoring capex decision. The nearshoring backup plants need to be *named and costed* against that 2026 risk, not optioned pending the review outcome.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + political_risk_exposure",
+                "rationale": "The $8–12M nearshoring capex commitment is approved, but we're not stating *which three backup suppliers* absorb TierCo/Midwest/Precision volume if gate-one or gate-two triggers fire — and whether those backups are Mexico-based (absorb new wage floor) or US-based (already compliant). That ambiguity keeps political_risk_exposure unpriced."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-floor shock *twice* — once on the new facility, once on unit cost. If US, we're locked on labor but we skip the policy swing. I need a name and location for at least one backup vendor, and I need to know: does the $500K reserve cover both the gate-one AR freeze *and* a 10% capex overrun if the 2026 rules harden beyond current projections, or do we need a separate policy-shock line? Pick one — that decision gets us to the consolidated map today.",
+            "cot": {
+              "assess": "We've locked the three-gate framework, $500K reserve, and trade-credit freezes — but the map is still fragmented. We have facility-level fail data (TierCo, Midwest, Precision), gate triggers, and AR holds priced, but *underwriting_discipline* is stuck at 44 because we haven't named which backup vendors absorb which policy shocks. The nearshoring capex ($8–12M) is committed but not linked to the 2026 labor-floor hardening — that's a floating exposure that changes the reserve math if Mexico wages jump. I need to consolidate the backup-vendor decision and the policy-shock reserve into ONE decision-ready output.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "Forcing the backup-vendor choice now collapses two unknowns (nearshoring location + 2026 wage shock) into a single priced variable that operationalizes the reserve and closes the map."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our n\" → Question deferred — board must first resolve Mexico vs US vendor location before premium structure can be priced.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed,\" → AR freeze triggers locked: TierCo/Midwest 45d gate-one, Precision 60d confirmed-slip only; 2.5% default spreads priced.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2\" → Question deferred — CFO must resolve Mexico vs US vendor location before capex exposure can be quantified.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-\" → CFO forces decision: backup vendor location and reserve structure must be resolved NOW to unlock consolidated map.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.8
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Look, I can't price the RVC burden — that's my core variable — until you call Mexico or US on those three backup vendors. Here's the trade: Mexico keeps capex at $3.2M but eats the 2026 wage-floor hit twice; US is $5–6M upfront but locks us out of that review risk. Which one unblocks the reserve and the map? Pick one, and I'll model the compliance cost by end of day.\n  cfo_erm: Mexico. Lock it now — $3.2M capex this quarter, and I'm pricing the 2026 wage-floor retroactivity into political risk at 8–12% tariff hit. That unblocks your RVC model, my reserve sizing, and the consolidated map. Trade credit team gets the TierCo/Midwest/Precision AR anchors today; you get your compliance baseline by EOD.\n  supplier: Auto, you said seven shops are running non-compliant inputs — of those, how many have already signaled they can re-tool for Mexico, and how many are we writing off? Because once TierCo and Midwest freeze, the other five are going to panic-spend on re-qual or pack it in. I need names and viability scores so I can start qualifying replacement vendors now, not after gate one triggers.\n  auto_strategy: Of the seven shops, TierCo and Midwest are Mexico-capable—they're already talking to our OEM partner there, so they move fast once we lock the capex. The other five are smaller stamping and harness ops; three can re-tool domestically in 90 days if we fund it, but two are basically done—tooling's too old and their labor math doesn't work either geography. I'm naming the three viable ones for your replacement vendor screen right now: Precision Frames, Midwest Harness, and Allied Stamping; the other two we treat as sunset and start qualifying alternatives this week.\n  compliance_lawyer: Auto, TierCo failed your internal spot-check — that's self-audit, so you catch it before CBP sees it. Midwest hasn't been re-cert'd since Q3, so CBP could hit them cold on the next shipment. For TierCo, the freeze and disclosure stop retroactivity; for Midwest, we assume 60-90 day lag *plus* duty recalculation on prior entries. Are those two vendors on the same AR freeze schedule, or does Midwest's timeline hit differently?\n  political_risk_insurer: Midwest hasn't been re-cert'd since Q3 — when CBP flags them cold on the next run, does retroactivity clock back to their *last valid cert date*, or just forward from the audit notice? Because if it's back-dated, we're eating duty recalculation on every entry since Q3. That changes my reserve trigger and whether the $500K holds.\n  trade_credit_underwriter: Compliance, on Midwest — if CBP claws back to their last valid cert date in Q3, are we talking duty recalc on *all* entries since then, or just the flagged shipment? Because if it's all entries, my AR freeze and credit insurance line don't cover the tariff hit, and I'm flagging that $1.8M receivable as a retroactivity loss, not a payment hold. Which one are we defending against?\n  compliance_lawyer: CBP retroactivity on Midwest claws back to the last *valid cert date* — Q3 — so you're defending against duty recalculation on *all* entries from Q3 forward, not just the flagged shipment. That $1.8M receivable flips from payment hold to retroactivity loss the moment CBP issues the exam notice; your credit insurance line doesn't absorb tariff recalculation, so flag it now as a reserve trigger, not a spread adjustment.\n  supply_chain_consultant: Precision, Midwest Harness, and Allied—I need you on a 90-day re-tool roadmap *now*. Which one takes gate-one overflow first, and what's your capex ask to absorb TierCo/Midwest volume if they freeze? Lock one vendor to a gate-one trigger and I'll consolidate the map.\n  cfo_erm: Here's the gap: Midwest retroactivity hits all Q3+ entries, so that's not a $1.8M hold, it's a retroactivity loss. I'm splitting the reserve—$200K for TierCo/Midwest gate-one AR freeze, $300K for retroactivity recalculation lag on Midwest Q3 entries, locked this quarter. That makes the map priced and actionable: trade credit owns the hold, political risk owns the tariff tail. Everyone clear on which reserve tranche covers what?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Look, I can't price the RVC burden — that's my core variable — until you call Mexico or US on those three backup vendors. Here's the trade: Mexico keeps capex at $3.2M but eats the 2026 wage-floor hit twice; US is $5–6M upfront but locks us out of that review risk. Which one unblocks the reserve and the map? Pick one, and I'll model the compliance cost by end of day.",
+            "cot": {
+              "assess": "The CFO's Mexico-vs-US vendor decision is blocking both political-risk premium pricing and nearshoring capex authorization — that's why those two actions got denied. We've locked the AR freezes and the $500K reserve, but I can't operationalize the RVC compliance cost model without knowing if our backup plants are Mexico-based (hitting 2026 wage-floor shock again) or US-based (higher current capex, but insulated from rule changes). Risk-map completeness is stuck at 46; it needs that vendor-location call to move forward.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO has forcing authority on the Mexico-vs-US decision; I need to surface the RVC cost model dependency and propose a decision frame that unlocks both the reserve structure and the capex capex timeline this round."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Mexico. Lock it now — $3.2M capex this quarter, and I'm pricing the 2026 wage-floor retroactivity into political risk at 8–12% tariff hit. That unblocks your RVC model, my reserve sizing, and the consolidated map. Trade credit team gets the TierCo/Midwest/Precision AR anchors today; you get your compliance baseline by EOD.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Auto, you said seven shops are running non-compliant inputs — of those, how many have already signaled they can re-tool for Mexico, and how many are we writing off? Because once TierCo and Midwest freeze, the other five are going to panic-spend on re-qual or pack it in. I need names and viability scores so I can start qualifying replacement vendors now, not after gate one triggers.",
+            "cot": {
+              "assess": "Mexico decision is locked, which unblocks the RVC model and reserve sizing — but we've still got a real problem: seven mid-tier stamping shops are facility-level non-compliant, and once TierCo/Midwest hit gate one, my re-qualification and relocation pipeline gets crushed. The $500K reserve covers the assessment, not the capex to move or rebuild those shops. Risk map is still incomplete because we haven't named which of those seven actually survive the re-qual cycle versus which ones get pushed out.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You've got the 12% fail-rate data — I need to know which of those seven stamping shops are actually viable for nearshoring capex versus which ones are too broken to save, because that determines my relocation timeline and capex burn."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Of the seven shops, TierCo and Midwest are Mexico-capable—they're already talking to our OEM partner there, so they move fast once we lock the capex. The other five are smaller stamping and harness ops; three can re-tool domestically in 90 days if we fund it, but two are basically done—tooling's too old and their labor math doesn't work either geography. I'm naming the three viable ones for your replacement vendor screen right now: Precision Frames, Midwest Harness, and Allied Stamping; the other two we treat as sunset and start qualifying alternatives this week.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, TierCo failed your internal spot-check — that's self-audit, so you catch it before CBP sees it. Midwest hasn't been re-cert'd since Q3, so CBP could hit them cold on the next shipment. For TierCo, the freeze and disclosure stop retroactivity; for Midwest, we assume 60-90 day lag *plus* duty recalculation on prior entries. Are those two vendors on the same AR freeze schedule, or does Midwest's timeline hit differently?",
+            "cot": {
+              "assess": "Mexico capex decision is locked ($3.2M this quarter), which unblocks the RVC model and reserve sizing — that's the CFO's move and it works. But you've got a critical gap: TierCo and Midwest are flagged for 45-day AR freeze at gate one, but I need to know whether we're triggering that freeze on a *self-audit failure* (prospective remediation only, no retroactivity clawback) or a *CBP cold exam* (retroactivity applies back to prior shipments). Those are two completely different penalty exposures, and your $500K reserve is sized for only one of them.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Retroactivity trigger definition determines whether the reserve covers prospective fines only or retroactive duty recalculation across multiple shipment windows — this is the missing precision needed to lock rules-of-origin burden."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Midwest hasn't been re-cert'd since Q3 — when CBP flags them cold on the next run, does retroactivity clock back to their *last valid cert date*, or just forward from the audit notice? Because if it's back-dated, we're eating duty recalculation on every entry since Q3. That changes my reserve trigger and whether the $500K holds.",
+            "cot": {
+              "assess": "Mexico decision is locked — that unblocks my retroactivity model and the map. But I'm seeing a gap: Midwest's cold CBP exposure (no re-cert since Q3) sits on a *different* retroactivity trigger than TierCo's internal catch, and I need to price those two risk streams separately — one is preventable, one isn't. That distinction changes my premium structure and the reserve adequacy.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy + compliance_lawyer",
+                "rationale": "I need to confirm whether Midwest's CBP exposure triggers retroactivity on *prior entries* (back to Q3 last re-cert) or only forward — because that's the difference between a $200K reserve assumption and a $600K clawback liability."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Compliance, on Midwest — if CBP claws back to their last valid cert date in Q3, are we talking duty recalc on *all* entries since then, or just the flagged shipment? Because if it's all entries, my AR freeze and credit insurance line don't cover the tariff hit, and I'm flagging that $1.8M receivable as a retroactivity loss, not a payment hold. Which one are we defending against?",
+            "cot": {
+              "assess": "TierCo/Midwest AR freezes are locked and priced; Mexico capex is called (unblocking RVC and political-risk modeling). But trade-credit completeness hinges on one missing piece: Midwest's retroactivity exposure — if CBP back-dates duty recalculation to Q3, the $500K reserve assumption breaks. That's the concrete trade-credit variable the map still needs to price.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "Midwest's retroactivity clock determines whether my 2.5% default spreads and $500K reserve anchor hold, or whether I need to re-price receivables loss upward."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP retroactivity on Midwest claws back to the last *valid cert date* — Q3 — so you're defending against duty recalculation on *all* entries from Q3 forward, not just the flagged shipment. That $1.8M receivable flips from payment hold to retroactivity loss the moment CBP issues the exam notice; your credit insurance line doesn't absorb tariff recalculation, so flag it now as a reserve trigger, not a spread adjustment.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Precision, Midwest Harness, and Allied—I need you on a 90-day re-tool roadmap *now*. Which one takes gate-one overflow first, and what's your capex ask to absorb TierCo/Midwest volume if they freeze? Lock one vendor to a gate-one trigger and I'll consolidate the map.",
+            "cot": {
+              "assess": "Mexico capex is locked ($3.2M, this quarter), TierCo/Midwest AR freezes and reserves are operationalized, and political risk retroactivity is priced at 8–12%. But we're still floating on *which three vendors* are actually viable for nearshoring backup, and the map doesn't close until we name them and tie them to gate triggers. Compliance just surfaced that Midwest retroactivity claws back to Q3—that $1.8M flips from hold to loss the moment CBP notices—so the reserve sizing needs to move now, not wait for audit confirmation.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The three viable vendors (Precision Frames, Midwest Harness, Allied Stamping) need gate-trigger assignments and capex funding commitments *this round* to lock supplier relocation exposure and consolidate the map; without names and timelines, the framework stays theoretical."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the gap: Midwest retroactivity hits all Q3+ entries, so that's not a $1.8M hold, it's a retroactivity loss. I'm splitting the reserve—$200K for TierCo/Midwest gate-one AR freeze, $300K for retroactivity recalculation lag on Midwest Q3 entries, locked this quarter. That makes the map priced and actionable: trade credit owns the hold, political risk owns the tariff tail. Everyone clear on which reserve tranche covers what?",
+            "cot": {
+              "assess": "Mexico decision is locked and $3.2M capex is committed—that unblocks RVC modeling and reserve sizing. But we've got a systemic control gap: seven mid-tier shops running non-compliant inputs consistently, and Midwest's Q3 re-cert lapse means CBP retroactivity claws back to Q3 *across all entries*, not just one shipment. That flips the $1.8M receivable from payment hold to retroactivity loss—our $500K reserve assumption doesn't cover that gap. Risk-map completeness is climbing, but underwriting discipline still needs one hard consolidation: which supplier failures trigger which reserve tranches, and who owns the gap between AR freeze and tariff retroactivity loss.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "The Midwest retroactivity tail (Q3 back-dated, all entries) exposes a reserve structuring gap that blocks consolidation—I need to lock the reserve tiering NOW so the map is actually decision-ready and not just labeled."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Look, I can't price the RVC burden — that's my core variable — until you call Mexico or US on those three backup vendors. Here's the trade: Mexico keeps capex at $3.2M but eats the 2026 wage-floor hit twice; US is $5–6M upfront but locks us out of that review risk. Which one unblocks the reserve and the map? Pick one, and I'll model the compliance cost by end of day.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Auto, you said seven shops are running non-compliant inputs — of those, how many have already signaled they can re-tool for Mexico, and how many are we writing off? Because once TierCo and Midwest freeze, the other five are going to panic-spend on re-qual or pack it in. I need names and viability scores so I can start qualifying replacement vendors now, not after gate one triggers.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, TierCo failed your internal spot-check — that's self-audit, so you catch it before CBP sees it. Midwest hasn't been re-cert'd since Q3, so CBP could hit them cold on the next shipment. For TierCo, the freeze and disclosure stop retroactivity; for Midwest, we assume 60-90 day lag *plus* duty recalculation on prior entries. Are those two vendors on the same AR freeze schedule, or does Midwest's timeline hit differently?",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Midwest hasn't been re-cert'd since Q3 — when CBP flags them cold on the next run, does retroactivity clock back to their *last valid cert date*, or just forward from the audit notice? Because if it's back-dated, we're eating duty recalculation on every entry since Q3. That changes my reserve trigger and whether the $500K holds.",
+      "metadata": {
+        "question_target": "auto_strategy + compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Compliance, on Midwest — if CBP claws back to their last valid cert date in Q3, are we talking duty recalc on *all* entries since then, or just the flagged shipment? Because if it's all entries, my AR freeze and credit insurance line don't cover the tariff hit, and I'm flagging that $1.8M receivable as a retroactivity loss, not a payment hold. Which one are we defending against?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Precision, Midwest Harness, and Allied—I need you on a 90-day re-tool roadmap *now*. Which one takes gate-one overflow first, and what's your capex as\" → Vendor roadmap initiated; gate-one trigger locked to first responder.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the gap: Midwest retroactivity hits all Q3+ entries, so that's not a $1.8M hold, it's a retroactivity loss. I'm splitting the reserve—$200K for\" → Reserve split locked: $200K AR freeze, $300K retroactivity lag.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO — the $300K retroactivity reserve: does that cover *both* Midwest's cold CBP clawback (all Q3+ entries) *and* any retroactivity exposure on TierCo if we disclose their internal failures to CBP, or are those two separate buckets? Because if TierCo's disclosure caps retroactivity at current shipment only, my RVC burden calculation drops, but if CBP still claws back on TierCo's prior entries, I need to flag that cost now.\n  cfo_erm: The $300K covers *Midwest's cold clawback* on Q3+ entries—that's our baseline. TierCo's disclosure stops retroactivity at the current shipment, so no prior-entry recalc there. If CBP pushes back on TierCo's disclosure adequacy, we burn through that reserve fast—so I'm pricing TierCo as capped, Midwest as open-ended, and flagging a $150K contingency if either one bleeds.\n  supplier: Auto — when TierCo or Midwest hits gate one, who's calling the AR freeze and how fast? Is it your internal spot-check flagging it same-day, or waiting for CBP audit notice? And real talk: of those five smaller shops you're not moving to Mexico, which ones are you actually keeping on life support versus writing off? Because I need to know which ones I'm re-qualifying now versus which ones I'm already replacing.\n  auto_strategy: TierCo we catch same-day on our spot-check—AR freeze triggers within 24 hours of our audit flag, no waiting for CBP. Midwest is different: cold CBP hit means we're reactive, probably 48–72 hours lag once they notify us. On the five smaller shops: three are committing capex for re-tooling (stamping retrofit at two midwest facilities, one harness refit in Tennessee), two I'm writing off—they can't absorb the labor-content cost without pricing themselves out, so we're moving those inputs to the Mexico OEM line now.\n  compliance_lawyer: CFO—the reserve brackets Midwest and TierCo, but here's what I need for the map: when TierCo and those five re-tooling shops hit re-certification, what's our audit assumption—Q2 2025 gate-two or do we stagger them? Because that timing locks whether the re-qual cost lands in this reserve or next quarter's compliance budget. And I need one sentence on what a failed re-cert actually costs us in penalty exposure so I can price it into the RVC burden.\n  political_risk_insurer: Compliance—when TierCo and those five re-tooling shops go through re-cert, are we staggering Q2 2025 or hitting them all at once? And what's the actual penalty hit if one of them fails—tariff recalc, hold on shipments, or both? I need that cost quantified so I can price whether the $300K retroactivity bucket holds or we need to flag a separate re-cert penalty reserve.\n  compliance_lawyer: TierCo and the five re-tooling shops hit re-cert staggered—TierCo Q2 gate-two, the five mid-tier facilities Q2–Q3 rolling—so compliance costs spread across two quarters, not one lump. Failed re-cert triggers 19 CFR 162.8 penalty assessment *plus* entry-level duty recalculation on all shipments under that cert—so if Midwest fails cold, we're looking at base tariff plus 20% compliance penalty on every Q3+ entry, not just the flag shipment. That's a separate bucket from the $300K retroactivity reserve—I'm flagging $150–200K re-cert penalty exposure and need CFO to split that out now so the map holds.\n  trade_credit_underwriter: CFO—Compliance flagged 19 CFR 162.8 re-cert penalties on top of duty recalculation. Is the $300K retroactivity bucket covering *both* Midwest's clawback *and* the re-cert penalty, or do we need to carve out $150–200K separately so I can price the actual receivables loss on Midwest and lock insurance coverage terms?\n  supply_chain_consultant: CFO, you need to split that $300K now—Compliance says Midwest clawback *and* 19 CFR 162.8 re-cert penalties are two different hits, so carve out $150K for re-cert penalties upfront, leave $150K for retroactivity clawback. That locks the reserve structure, gives Compliance the penalty bucket they flagged, and the map closes. Call it: $200K AR freeze, $150K retroactivity, $150K re-cert penalty—three buckets, one consolidated trigger.\n  cfo_erm: Split approved: $200K AR freeze (gate one), $150K retroactivity clawback (Midwest Q3+ entries), $150K re-cert penalty (19 CFR 162.8 staggered Q2–Q3). That's $500K total, one trigger per failure mode, map now closes. Compliance—re-cert stagger is TierCo Q2, five mid-tier Q2–Q3 rolling; underwriting: those penalty assessments lock into the policy-to-supply-chain consolidation as separate loss buckets, priced at entry level. Map complete.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO — the $300K retroactivity reserve: does that cover *both* Midwest's cold CBP clawback (all Q3+ entries) *and* any retroactivity exposure on TierCo if we disclose their internal failures to CBP, or are those two separate buckets? Because if TierCo's disclosure caps retroactivity at current shipment only, my RVC burden calculation drops, but if CBP still claws back on TierCo's prior entries, I need to flag that cost now.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked at 43 — Mexico capex decision unlocked the RVC model, and the reserve split ($200K AR + $300K retroactivity) is priced. Risk map completeness sits at 56, just 4 points shy of 60; the missing piece is consolidating how Midwest's retroactivity scope (Q3 forward, not just flagged shipment) reshapes the receivables loss AND political-risk premium. Trade-credit risk dropped to 16 despite the 45-day freeze locks — that's because the supply chain isn't actually stressed yet; once gate one triggers, it'll spike. The real gap: nobody's consolidated the *full* compliance cost model (RVC + labor-value + retroactivity exposure) into one priceable variable for the board.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The $300K retroactivity reserve assumes Midwest clawback on all Q3+ entries; I need to know if that reserve also covers duty recalculation on TierCo's internal failures, or if TierCo's self-audit disclosure caps retroactivity at current entry only — that distinction changes my RVC compliance cost model by ~$150–200K."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "The $300K covers *Midwest's cold clawback* on Q3+ entries—that's our baseline. TierCo's disclosure stops retroactivity at the current shipment, so no prior-entry recalc there. If CBP pushes back on TierCo's disclosure adequacy, we burn through that reserve fast—so I'm pricing TierCo as capped, Midwest as open-ended, and flagging a $150K contingency if either one bleeds.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Auto — when TierCo or Midwest hits gate one, who's calling the AR freeze and how fast? Is it your internal spot-check flagging it same-day, or waiting for CBP audit notice? And real talk: of those five smaller shops you're not moving to Mexico, which ones are you actually keeping on life support versus writing off? Because I need to know which ones I'm re-qualifying now versus which ones I'm already replacing.",
+            "cot": {
+              "assess": "TierCo disclosure caps retroactivity, Midwest's Q3+ cold clawback is our open-ended tail risk — that $300K reserve split is locked and defensible. But I'm watching my three biggest AR exposures (TierCo $2.1M, Midwest $1.8M, Precision $1.4M) and the 45-day freeze isn't operationalized yet — gate-one trigger is defined, but we haven't named *who fires it* or *when* on a live shipment. Risk map is at 56, needs 4 more points to unlock; my supplier relocation exposure (39) is still soft because we don't know which of those five smaller shops actually survive the TierCo/Midwest move to Mexico.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Need clarity on gate-one execution timing and which suppliers in the remaining five are actually viable — this directly impacts my re-qualification load and which vendors I'm committing capex reserves to."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "TierCo we catch same-day on our spot-check—AR freeze triggers within 24 hours of our audit flag, no waiting for CBP. Midwest is different: cold CBP hit means we're reactive, probably 48–72 hours lag once they notify us. On the five smaller shops: three are committing capex for re-tooling (stamping retrofit at two midwest facilities, one harness refit in Tennessee), two I'm writing off—they can't absorb the labor-content cost without pricing themselves out, so we're moving those inputs to the Mexico OEM line now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO—the reserve brackets Midwest and TierCo, but here's what I need for the map: when TierCo and those five re-tooling shops hit re-certification, what's our audit assumption—Q2 2025 gate-two or do we stagger them? Because that timing locks whether the re-qual cost lands in this reserve or next quarter's compliance budget. And I need one sentence on what a failed re-cert actually costs us in penalty exposure so I can price it into the RVC burden.",
+            "cot": {
+              "assess": "TierCo's self-audit disclosure caps retroactivity cleanly—that's defensible. Midwest's cold CBP clawback on Q3+ entries is the real exposure, and the CFO's $300K reserve plus $150K contingency brackets it. But **rules_of_origin_burden and risk_map_completeness are still loose**—we've named triggers and gates, but I don't see a consolidated audit protocol or penalty schedule that ties certification failures to actual compliance costs. That's the gap blocking full operationalization.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The reserve structure works operationally, but I need to lock the audit timeline and penalty triggers so the map is defensible under CBP review—specifically, when do we assume certification re-audit on TierCo and the five re-tooling shops, and what certification failure costs do we build into the RVC burden model?"
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance—when TierCo and those five re-tooling shops go through re-cert, are we staggering Q2 2025 or hitting them all at once? And what's the actual penalty hit if one of them fails—tariff recalc, hold on shipments, or both? I need that cost quantified so I can price whether the $300K retroactivity bucket holds or we need to flag a separate re-cert penalty reserve.",
+            "cot": {
+              "assess": "The reserve split is now locked ($200K AR freeze, $300K retroactivity), TierCo's disclosure caps retroactivity, and Midwest's cold clawback is priced as open-ended—so the political-risk layer is operationalized. But risk_map_completeness is stuck at 56 and needs 4 more points to hit 60; the map won't consolidate until we lock the re-certification timeline and what a failed re-cert actually *costs* us in penalty exposure. That's the blocking variable right now.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The re-cert schedule and penalty cost are the missing pieces needed to finalize the Policy-to-Supply-Chain Risk Map; I need those priced into the political-risk reserve before we can call the map complete."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "TierCo and the five re-tooling shops hit re-cert staggered—TierCo Q2 gate-two, the five mid-tier facilities Q2–Q3 rolling—so compliance costs spread across two quarters, not one lump. Failed re-cert triggers 19 CFR 162.8 penalty assessment *plus* entry-level duty recalculation on all shipments under that cert—so if Midwest fails cold, we're looking at base tariff plus 20% compliance penalty on every Q3+ entry, not just the flag shipment. That's a separate bucket from the $300K retroactivity reserve—I'm flagging $150–200K re-cert penalty exposure and need CFO to split that out now so the map holds.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO—Compliance flagged 19 CFR 162.8 re-cert penalties on top of duty recalculation. Is the $300K retroactivity bucket covering *both* Midwest's clawback *and* the re-cert penalty, or do we need to carve out $150–200K separately so I can price the actual receivables loss on Midwest and lock insurance coverage terms?",
+            "cot": {
+              "assess": "TierCo's 24-hour AR freeze is locked and clean—self-audit catch means retroactivity caps at current shipment, so my receivables exposure is bounded. Midwest is the problem: cold CBP clawback on all Q3+ entries turns that $1.8M from a payment hold into a capital loss, and my credit insurance doesn't cover duty recalculation retroactivity. The CFO split ($200K freeze / $300K retroactivity) brackets Midwest, but Compliance just flagged a *third* bucket—re-cert penalty exposure ($150–200K)—that's not accounted for in the reserve structure yet. My trade_credit_risk variable is dropping (-4.0/round) because I can't operationalize the receivables loss until the reserve structure closes the re-cert penalty gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The $300K retroactivity reserve assumes Midwest clawback on Q3+ entries, but Compliance just priced a separate re-cert penalty exposure ($150–200K) on failed certification—I need CFO to confirm whether that penalty bucket is *inside* or *outside* the $300K, because my AR loss calculation and insurance coverage terms depend on it."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, you need to split that $300K now—Compliance says Midwest clawback *and* 19 CFR 162.8 re-cert penalties are two different hits, so carve out $150K for re-cert penalties upfront, leave $150K for retroactivity clawback. That locks the reserve structure, gives Compliance the penalty bucket they flagged, and the map closes. Call it: $200K AR freeze, $150K retroactivity, $150K re-cert penalty—three buckets, one consolidated trigger.",
+            "cot": {
+              "assess": "Risk map is at 56—we need 4 more points to hit 60 and close this stage. CFO split the reserve cleanly ($200K AR freeze, $300K retroactivity), but Compliance just flagged a *third* bucket: $150–200K re-cert penalty exposure that's sitting outside the reserve structure. That's the gap blocking map completeness—we've got three separate cost streams (AR freeze, retroactivity clawback, re-cert penalties) but the reserve doesn't yet account for all three. Supplier relocation is locked (Mexico capex, vendor roadmap approved), but the re-cert timeline and penalty quantification still need consolidation into the final map.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cfo_erm",
+                "rationale": "CFO must immediately carve out the re-cert penalty bucket from the $300K retroactivity reserve so the consolidated map reflects all three cost streams and the reserve structure holds under actual failure scenarios."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Split approved: $200K AR freeze (gate one), $150K retroactivity clawback (Midwest Q3+ entries), $150K re-cert penalty (19 CFR 162.8 staggered Q2–Q3). That's $500K total, one trigger per failure mode, map now closes. Compliance—re-cert stagger is TierCo Q2, five mid-tier Q2–Q3 rolling; underwriting: those penalty assessments lock into the policy-to-supply-chain consolidation as separate loss buckets, priced at entry level. Map complete.",
+            "cot": {
+              "assess": "Risk map completeness is at 56—needs 4 more points to hit 60 and lock success. The reserve structure is now split three ways ($200K AR freeze, $150K retroactivity, $150K re-cert penalty), which tightens underwriting discipline but leaves the consolidated map fragmented across reserve buckets, vendor timelines, and penalty exposures. Compliance just surfaced a separate 19 CFR 162.8 penalty layer that wasn't in the original $500K trigger—that's a consolidation gap I need to close *now*.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness",
+                "rationale": "The map is splintering into three reserve buckets instead of one decision-ready variable; I need to consolidate the reserve structure into named triggers and lock the complete policy-to-supply-chain exposure in one view."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO — the $300K retroactivity reserve: does that cover *both* Midwest's cold CBP clawback (all Q3+ entries) *and* any retroactivity exposure on TierCo if we disclose their internal failures to CBP, or are those two separate buckets? Because if TierCo's disclosure caps retroactivity at current shipment only, my RVC burden calculation drops, but if CBP still claws back on TierCo's prior entries, I need to flag that cost now.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Auto — when TierCo or Midwest hits gate one, who's calling the AR freeze and how fast? Is it your internal spot-check flagging it same-day, or waiting for CBP audit notice? And real talk: of those five smaller shops you're not moving to Mexico, which ones are you actually keeping on life support versus writing off? Because I need to know which ones I'm re-qualifying now versus which ones I'm already replacing.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO—the reserve brackets Midwest and TierCo, but here's what I need for the map: when TierCo and those five re-tooling shops hit re-certification, what's our audit assumption—Q2 2025 gate-two or do we stagger them? Because that timing locks whether the re-qual cost lands in this reserve or next quarter's compliance budget. And I need one sentence on what a failed re-cert actually costs us in penalty exposure so I can price it into the RVC burden.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance—when TierCo and those five re-tooling shops go through re-cert, are we staggering Q2 2025 or hitting them all at once? And what's the actual penalty hit if one of them fails—tariff recalc, hold on shipments, or both? I need that cost quantified so I can price whether the $300K retroactivity bucket holds or we need to flag a separate re-cert penalty reserve.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO—Compliance flagged 19 CFR 162.8 re-cert penalties on top of duty recalculation. Is the $300K retroactivity bucket covering *both* Midwest's clawback *and* the re-cert penalty, or do we need to carve out $150–200K separately so I can price the actual receivables loss on Midwest and lock insurance coverage terms?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Split approved: $200K AR freeze (gate one), $150K retroactivity clawback (Midwest Q3+ entries), $150K re-cert penalty (19 CFR 162.8 staggered Q2–Q3). \" → The CFO locks the final $500K penalty architecture into three distinct loss buckets with named triggers and staggered timelines—the map now has operational teeth. Risk translation complete.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, you need to split that $300K now—Compliance says Midwest clawback *and* 19 CFR 162.8 re-cert penalties are two different hits, so carve out $150K\" → The CFO's three-bucket reserve structure ($200K AR freeze, $150K retroactivity clawback, $150K re-cert penalty) operationalizes the compliance cost model with named triggers and staggered timelines, closing the final gap in the Policy-to-Supply-Chain Risk Map.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 49.0,
+          "supplier_relocation_exposure": 39.0,
+          "trade_credit_risk": 14.0,
+          "political_risk_exposure": 33.0,
+          "risk_map_completeness": 73.10000000000001,
+          "underwriting_discipline": 71.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I need: CBP retroactivity clawback gets its own line item — assume 8–12% tariff hit triggered by *post-shipment exam*, with 60–90 day lag before notification. That's not production cost, that's sovereign enforcement risk. Does your quarterly spot-check assumption hold if CBP decides to re-examine a batch 6 months after entry — and if yes, what's the coverage trigger?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CBP retroactivity clawback line-item approved; 8-12% tariff hit with 60-90 day lag now quantified.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "CBP retroactive enforcement risk now quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named trigger: post-shipment exam clawback",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Sovereign enforcement risk added to map",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Post-entry verification burden quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's running the underwriting discipline here? I've got RVC cost per model and labor-content wage-floor exposure, but I need to know: what are the named triggers that flip a supplier from \"monitored\" to \"high-risk\" — and what does that cost in insurance premium or credit spread?",
+        "supplier": "You've got the labor-content data, but here's the gap: *when* does a supplier actually blow up? Is it missed re-qual deadlines, capex spending frozen, or lead times stretching past 120 days? Because my guys are sitting on $8–12M in capex bets right now, and I need to know which signals tell me to pull the trigger and shift to a backup source. What are the three or four named failure modes you want flagged?",
+        "compliance_lawyer": "Auto, when you're building that RVC cost model, what's your audit timeline assumption — annual re-cert, quarterly spot-checks, post-shipment verification? Because the penalty structure changes completely depending on whether we catch a 10% non-qualifying input pre-audit versus post-CBP exam. That's the difference between a warning and tariff retroactivity.",
+        "trade_credit_underwriter": "When a supplier hits one of those failure modes — missed re-qual, frozen capex, 120+ day lead-time slip — what's your typical AR balance with that vendor? Because that's the receivables loss I'm underwriting, and it changes whether we're looking at a $500K credit insurance line or a structural supply-chain restructuring cost.",
+        "supply_chain_consultant": "Here's what I'm proposing: we build a three-gate nearshoring trigger — gate one is 120+ day lead slip *or* missed re-qual notice; gate two is CBP retroactivity clawback flagged in audit; gate three is the 2026 review date itself. Any supplier hitting gate one gets a 60-day relocation assessment window before we pull capex from their backup. That consolidates your AR risk, auto's penalty exposure, and my forward view on 2026 all into one client plan — does that framework work for everyone, or do we need to adjust the gates?",
+        "cfo_erm": "The three gates work, but we need teeth: gate one triggers a $500K nearshore assessment reserve *immediately* — no 60-day wait. Gate two locks trade credit at that supplier pending audit. Gate three is the 2026 hard date. Do we build that into the master risk register today, or do we leave this half-consolidated?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I'm proposing: we build a three-gate nearshoring trigger — gate one is 120+ day lead slip *or* missed re-qual notice; gate two is CBP retroactivity clawback flagged in audit; gate three is the 2026 review date itself. Any supplier hitting gate one gets a 60-day relocation assessment window before we pull capex from their backup. That consolidates your AR risk, auto's penalty exposure, and my forward view on 2026 all into one client plan — does that framework work for everyone, or do we need to adjust the gates?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Three-gate nearshoring trigger framework approved; gates one/two/three now define supplier failure modes.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Nearshoring triggers now operationalized",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Named gates: lead slip, CBP audit, 2026 review",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Supplier failure modes consolidated into framework",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "AR exposure linked to gate triggers",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.6
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's running the underwriting discipline here? I've got RVC cost per model and labor-content wage-floor exposure, but I need to know: what are the named triggers that flip a supplier from \"monitored\" to \"high-risk\" — and what does that cost in insurance premium or credit spread?",
+        "supplier": "You've got the labor-content data, but here's the gap: *when* does a supplier actually blow up? Is it missed re-qual deadlines, capex spending frozen, or lead times stretching past 120 days? Because my guys are sitting on $8–12M in capex bets right now, and I need to know which signals tell me to pull the trigger and shift to a backup source. What are the three or four named failure modes you want flagged?",
+        "compliance_lawyer": "Auto, when you're building that RVC cost model, what's your audit timeline assumption — annual re-cert, quarterly spot-checks, post-shipment verification? Because the penalty structure changes completely depending on whether we catch a 10% non-qualifying input pre-audit versus post-CBP exam. That's the difference between a warning and tariff retroactivity.",
+        "political_risk_insurer": "Here's what I need: CBP retroactivity clawback gets its own line item — assume 8–12% tariff hit triggered by *post-shipment exam*, with 60–90 day lag before notification. That's not production cost, that's sovereign enforcement risk. Does your quarterly spot-check assumption hold if CBP decides to re-examine a batch 6 months after entry — and if yes, what's the coverage trigger?",
+        "trade_credit_underwriter": "When a supplier hits one of those failure modes — missed re-qual, frozen capex, 120+ day lead-time slip — what's your typical AR balance with that vendor? Because that's the receivables loss I'm underwriting, and it changes whether we're looking at a $500K credit insurance line or a structural supply-chain restructuring cost.",
+        "cfo_erm": "The three gates work, but we need teeth: gate one triggers a $500K nearshore assessment reserve *immediately* — no 60-day wait. Gate two locks trade credit at that supplier pending audit. Gate three is the 2026 hard date. Do we build that into the master risk register today, or do we leave this half-consolidated?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "The three gates work, but we need teeth: gate one triggers a $500K nearshore assessment reserve *immediately* — no 60-day wait. Gate two locks trade credit at that supplier pending audit. Gate three is the 2026 hard date. Do we build that into the master risk register today, or do we leave this half-consolidated?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Master risk register updated with $500K reserve trigger, trade credit lock, and 2026 hard date.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Concrete financial triggers and lockout rules",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Risk register consolidates all gate actions",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -4.0,
+          "reason": "Gate-two credit lock reduces exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "$500K reserve accelerates nearshore assessment",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's running the underwriting discipline here? I've got RVC cost per model and labor-content wage-floor exposure, but I need to know: what are the named triggers that flip a supplier from \"monitored\" to \"high-risk\" — and what does that cost in insurance premium or credit spread?",
+        "supplier": "You've got the labor-content data, but here's the gap: *when* does a supplier actually blow up? Is it missed re-qual deadlines, capex spending frozen, or lead times stretching past 120 days? Because my guys are sitting on $8–12M in capex bets right now, and I need to know which signals tell me to pull the trigger and shift to a backup source. What are the three or four named failure modes you want flagged?",
+        "compliance_lawyer": "Auto, when you're building that RVC cost model, what's your audit timeline assumption — annual re-cert, quarterly spot-checks, post-shipment verification? Because the penalty structure changes completely depending on whether we catch a 10% non-qualifying input pre-audit versus post-CBP exam. That's the difference between a warning and tariff retroactivity.",
+        "political_risk_insurer": "Here's what I need: CBP retroactivity clawback gets its own line item — assume 8–12% tariff hit triggered by *post-shipment exam*, with 60–90 day lag before notification. That's not production cost, that's sovereign enforcement risk. Does your quarterly spot-check assumption hold if CBP decides to re-examine a batch 6 months after entry — and if yes, what's the coverage trigger?",
+        "trade_credit_underwriter": "When a supplier hits one of those failure modes — missed re-qual, frozen capex, 120+ day lead-time slip — what's your typical AR balance with that vendor? Because that's the receivables loss I'm underwriting, and it changes whether we're looking at a $500K credit insurance line or a structural supply-chain restructuring cost.",
+        "supply_chain_consultant": "Here's what I'm proposing: we build a three-gate nearshoring trigger — gate one is 120+ day lead slip *or* missed re-qual notice; gate two is CBP retroactivity clawback flagged in audit; gate three is the 2026 review date itself. Any supplier hitting gate one gets a 60-day relocation assessment window before we pull capex from their backup. That consolidates your AR risk, auto's penalty exposure, and my forward view on 2026 all into one client plan — does that framework work for everyone, or do we need to adjust the gates?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our nearshoring backup plants absorb the new wage floor, or does that capex need a policy-shock reserve on top of the $500K we've already locked? I need a yes/no on whether that's a separate premium line or bundled into the retroactivity clawback.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Question deferred — board must first resolve Mexico vs US vendor location before premium structure can be priced.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.",
+        "supplier": "The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?",
+        "compliance_lawyer": "Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.",
+        "trade_credit_underwriter": "Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed, not pending. Credit insurance covers the hold period, but I'm pricing a 2.5% default assumption on each three — that's $52K, $45K, $35K respectively. We get board sign-off on those spreads today or the reserve doesn't hold.",
+        "supply_chain_consultant": "Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2026 wage-floor hardening hits our unit cost *again* on top of the refit; if they're US, we're already locked into higher labor but we skip the policy shock. That's the difference between a $12M bet and a $15M exposure. Which are we building into the reserves?",
+        "cfo_erm": "Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-floor shock *twice* — once on the new facility, once on unit cost. If US, we're locked on labor but we skip the policy swing. I need a name and location for at least one backup vendor, and I need to know: does the $500K reserve cover both the gate-one AR freeze *and* a 10% capex overrun if the 2026 rules harden beyond current projections, or do we need a separate policy-shock line? Pick one — that decision gets us to the consolidated map today."
+      },
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed, not pending. Credit insurance covers the hold period, but I'm pricing a 2.5% default assumption on each three — that's $52K, $45K, $35K respectively. We get board sign-off on those spreads today or the reserve doesn't hold.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "AR freeze triggers locked: TierCo/Midwest 45d gate-one, Precision 60d confirmed-slip only; 2.5% default spreads priced.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers and priced spreads operationalized.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -4.0,
+          "reason": "AR freeze mitigates supplier default exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Trade-credit layer now concrete and priced.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "trade_credit_risk",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.",
+        "supplier": "The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?",
+        "compliance_lawyer": "Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.",
+        "political_risk_insurer": "Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our nearshoring backup plants absorb the new wage floor, or does that capex need a policy-shock reserve on top of the $500K we've already locked? I need a yes/no on whether that's a separate premium line or bundled into the retroactivity clawback.",
+        "supply_chain_consultant": "Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2026 wage-floor hardening hits our unit cost *again* on top of the refit; if they're US, we're already locked into higher labor but we skip the policy shock. That's the difference between a $12M bet and a $15M exposure. Which are we building into the reserves?",
+        "cfo_erm": "Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-floor shock *twice* — once on the new facility, once on unit cost. If US, we're locked on labor but we skip the policy swing. I need a name and location for at least one backup vendor, and I need to know: does the $500K reserve cover both the gate-one AR freeze *and* a 10% capex overrun if the 2026 rules harden beyond current projections, or do we need a separate policy-shock line? Pick one — that decision gets us to the consolidated map today."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2026 wage-floor hardening hits our unit cost *again* on top of the refit; if they're US, we're already locked into higher labor but we skip the policy shock. That's the difference between a $12M bet and a $15M exposure. Which are we building into the reserves?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Question deferred — CFO must resolve Mexico vs US vendor location before capex exposure can be quantified.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.",
+        "supplier": "The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?",
+        "compliance_lawyer": "Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.",
+        "political_risk_insurer": "Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our nearshoring backup plants absorb the new wage floor, or does that capex need a policy-shock reserve on top of the $500K we've already locked? I need a yes/no on whether that's a separate premium line or bundled into the retroactivity clawback.",
+        "trade_credit_underwriter": "Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed, not pending. Credit insurance covers the hold period, but I'm pricing a 2.5% default assumption on each three — that's $52K, $45K, $35K respectively. We get board sign-off on those spreads today or the reserve doesn't hold.",
+        "cfo_erm": "Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-floor shock *twice* — once on the new facility, once on unit cost. If US, we're locked on labor but we skip the policy swing. I need a name and location for at least one backup vendor, and I need to know: does the $500K reserve cover both the gate-one AR freeze *and* a 10% capex overrun if the 2026 rules harden beyond current projections, or do we need a separate policy-shock line? Pick one — that decision gets us to the consolidated map today."
+      },
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Look, we can't lock the $8–12M capex without knowing: are those nearshoring backups Mexico-based or US? Because if Mexico, we're eating the 2026 wage-floor shock *twice* — once on the new facility, once on unit cost. If US, we're locked on labor but we skip the policy swing. I need a name and location for at least one backup vendor, and I need to know: does the $500K reserve cover both the gate-one AR freeze *and* a 10% capex overrun if the 2026 rules harden beyond current projections, or do we need a separate policy-shock line? Pick one — that decision gets us to the consolidated map today.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO forces decision: backup vendor location and reserve structure must be resolved NOW to unlock consolidated map.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Forces resolution of vendor/reserve dependency blocking consolidation.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named decision points operationalize capex/reserve structure.",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Vendor location decision surfaces nearshoring cost.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "2026 wage-floor scenario now explicit forward risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "The 12% is *facility-level* — we've got seven mid-tier stamping shops running non-compliant inputs consistently, not random shipment misses. Mustang EV: we're moving that Mexico OEM refit *now*, locking the $3.2M capex this quarter — the 2026 labor review doesn't move our timeline, we're past that risk. Top three AR exposures in that zone: TierCo stamping ($2.1M), Midwest harness ($1.8M), Precision frames ($1.4M). Trade-credit team, those are your reserve anchors.",
+        "supplier": "The $2.1M TierCo, $1.8M Midwest, $1.4M Precision — when they hit gate one or two, what's the hold trigger? Are we freezing 45 days of AR automatically, or waiting for audit confirmation? And are those AR freezes priced into our credit insurance line, or is that still loose?",
+        "compliance_lawyer": "Auto, when TierCo or Midwest \"miss re-qual\" — is that a failed CBP exam on a live shipment, or a self-audit failure you catch before CBP sees it? Because those are two different retroactivity triggers for me, and the CFO's $500K reserve assumption hinges on which one we're actually defending against.",
+        "political_risk_insurer": "Here's what I need priced into the political-risk layer: if the 2026 review hardens labor-content rules beyond current projections, do we assume our nearshoring backup plants absorb the new wage floor, or does that capex need a policy-shock reserve on top of the $500K we've already locked? I need a yes/no on whether that's a separate premium line or bundled into the retroactivity clawback.",
+        "trade_credit_underwriter": "Lock it down: TierCo and Midwest — 45-day AR freeze on gate-one trigger, non-negotiable. Precision gets 60 days *only* if lead time slip is confirmed, not pending. Credit insurance covers the hold period, but I'm pricing a 2.5% default assumption on each three — that's $52K, $45K, $35K respectively. We get board sign-off on those spreads today or the reserve doesn't hold.",
+        "supply_chain_consultant": "Before we sign off on that capex: name the three backup nearshoring vendors right now — Mexico OEM shops or US-based? Because if they're Mexico, the 2026 wage-floor hardening hits our unit cost *again* on top of the refit; if they're US, we're already locked into higher labor but we skip the policy shock. That's the difference between a $12M bet and a $15M exposure. Which are we building into the reserves?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Precision, Midwest Harness, and Allied—I need you on a 90-day re-tool roadmap *now*. Which one takes gate-one overflow first, and what's your capex ask to absorb TierCo/Midwest volume if they freeze? Lock one vendor to a gate-one trigger and I'll consolidate the map.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Vendor roadmap initiated; gate-one trigger locked to first responder.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Backup vendors identified, overflow routing defined",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Gate-one trigger and capex ask operationalized",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3.0,
+          "reason": "Named vendor triggers and capex thresholds",
+          "agent_id": null
+        },
+        {
+          "variable": "agent_stress",
+          "delta": 2.0,
+          "reason": "Coordination pressure",
+          "agent_id": "supply_chain_consultant"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Look, I can't price the RVC burden — that's my core variable — until you call Mexico or US on those three backup vendors. Here's the trade: Mexico keeps capex at $3.2M but eats the 2026 wage-floor hit twice; US is $5–6M upfront but locks us out of that review risk. Which one unblocks the reserve and the map? Pick one, and I'll model the compliance cost by end of day.",
+        "supplier": "Auto, you said seven shops are running non-compliant inputs — of those, how many have already signaled they can re-tool for Mexico, and how many are we writing off? Because once TierCo and Midwest freeze, the other five are going to panic-spend on re-qual or pack it in. I need names and viability scores so I can start qualifying replacement vendors now, not after gate one triggers.",
+        "compliance_lawyer": "Auto, TierCo failed your internal spot-check — that's self-audit, so you catch it before CBP sees it. Midwest hasn't been re-cert'd since Q3, so CBP could hit them cold on the next shipment. For TierCo, the freeze and disclosure stop retroactivity; for Midwest, we assume 60-90 day lag *plus* duty recalculation on prior entries. Are those two vendors on the same AR freeze schedule, or does Midwest's timeline hit differently?",
+        "political_risk_insurer": "Midwest hasn't been re-cert'd since Q3 — when CBP flags them cold on the next run, does retroactivity clock back to their *last valid cert date*, or just forward from the audit notice? Because if it's back-dated, we're eating duty recalculation on every entry since Q3. That changes my reserve trigger and whether the $500K holds.",
+        "trade_credit_underwriter": "Compliance, on Midwest — if CBP claws back to their last valid cert date in Q3, are we talking duty recalc on *all* entries since then, or just the flagged shipment? Because if it's all entries, my AR freeze and credit insurance line don't cover the tariff hit, and I'm flagging that $1.8M receivable as a retroactivity loss, not a payment hold. Which one are we defending against?",
+        "cfo_erm": "Here's the gap: Midwest retroactivity hits all Q3+ entries, so that's not a $1.8M hold, it's a retroactivity loss. I'm splitting the reserve—$200K for TierCo/Midwest gate-one AR freeze, $300K for retroactivity recalculation lag on Midwest Q3 entries, locked this quarter. That makes the map priced and actionable: trade credit owns the hold, political risk owns the tariff tail. Everyone clear on which reserve tranche covers what?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "Here's the gap: Midwest retroactivity hits all Q3+ entries, so that's not a $1.8M hold, it's a retroactivity loss. I'm splitting the reserve—$200K for TierCo/Midwest gate-one AR freeze, $300K for retroactivity recalculation lag on Midwest Q3 entries, locked this quarter. That makes the map priced and actionable: trade credit owns the hold, political risk owns the tariff tail. Everyone clear on which reserve tranche covers what?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Reserve split locked: $200K AR freeze, $300K retroactivity lag.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": -4.0,
+          "reason": "AR freeze reserve allocated and priced",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": -3.0,
+          "reason": "Retroactivity tail reserved and assigned",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Reserve tranches mapped to risk owners",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Priced reserves with named coverage boundaries",
+          "agent_id": null
+        },
+        {
+          "variable": "agent_stress",
+          "delta": 2.0,
+          "reason": "Financial commitment pressure",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Look, I can't price the RVC burden — that's my core variable — until you call Mexico or US on those three backup vendors. Here's the trade: Mexico keeps capex at $3.2M but eats the 2026 wage-floor hit twice; US is $5–6M upfront but locks us out of that review risk. Which one unblocks the reserve and the map? Pick one, and I'll model the compliance cost by end of day.",
+        "supplier": "Auto, you said seven shops are running non-compliant inputs — of those, how many have already signaled they can re-tool for Mexico, and how many are we writing off? Because once TierCo and Midwest freeze, the other five are going to panic-spend on re-qual or pack it in. I need names and viability scores so I can start qualifying replacement vendors now, not after gate one triggers.",
+        "compliance_lawyer": "Auto, TierCo failed your internal spot-check — that's self-audit, so you catch it before CBP sees it. Midwest hasn't been re-cert'd since Q3, so CBP could hit them cold on the next shipment. For TierCo, the freeze and disclosure stop retroactivity; for Midwest, we assume 60-90 day lag *plus* duty recalculation on prior entries. Are those two vendors on the same AR freeze schedule, or does Midwest's timeline hit differently?",
+        "political_risk_insurer": "Midwest hasn't been re-cert'd since Q3 — when CBP flags them cold on the next run, does retroactivity clock back to their *last valid cert date*, or just forward from the audit notice? Because if it's back-dated, we're eating duty recalculation on every entry since Q3. That changes my reserve trigger and whether the $500K holds.",
+        "trade_credit_underwriter": "Compliance, on Midwest — if CBP claws back to their last valid cert date in Q3, are we talking duty recalc on *all* entries since then, or just the flagged shipment? Because if it's all entries, my AR freeze and credit insurance line don't cover the tariff hit, and I'm flagging that $1.8M receivable as a retroactivity loss, not a payment hold. Which one are we defending against?",
+        "supply_chain_consultant": "Precision, Midwest Harness, and Allied—I need you on a 90-day re-tool roadmap *now*. Which one takes gate-one overflow first, and what's your capex ask to absorb TierCo/Midwest volume if they freeze? Lock one vendor to a gate-one trigger and I'll consolidate the map."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "intent": "Split approved: $200K AR freeze (gate one), $150K retroactivity clawback (Midwest Q3+ entries), $150K re-cert penalty (19 CFR 162.8 staggered Q2–Q3). That's $500K total, one trigger per failure mode, map now closes. Compliance—re-cert stagger is TierCo Q2, five mid-tier Q2–Q3 rolling; underwriting: those penalty assessments lock into the policy-to-supply-chain consolidation as separate loss buckets, priced at entry level. Map complete.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO locks the final $500K penalty architecture into three distinct loss buckets with named triggers and staggered timelines—the map now has operational teeth. Risk translation complete.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Three separate loss buckets with explicit triggers, dollar amounts, and staggered timelines—fully operationalized penalty structure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Final penalty architecture closes the compliance-to-financial-exposure translation, completing the policy-to-supply-chain risk map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Quantifying the $500K total penalty exposure crystallizes the compliance cost structure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0
+      },
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO, you need to split that $300K now—Compliance says Midwest clawback *and* 19 CFR 162.8 re-cert penalties are two different hits, so carve out $150K for re-cert penalties upfront, leave $150K for retroactivity clawback. That locks the reserve structure, gives Compliance the penalty bucket they flagged, and the map closes. Call it: $200K AR freeze, $150K retroactivity, $150K re-cert penalty—three buckets, one consolidated trigger.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO's three-bucket reserve structure ($200K AR freeze, $150K retroactivity clawback, $150K re-cert penalty) operationalizes the compliance cost model with named triggers and staggered timelines, closing the final gap in the Policy-to-Supply-Chain Risk Map.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Three-bucket reserve structure with named triggers (gate one AR freeze, Midwest Q3+ clawback, 19 CFR 162.8 re-cert penalty) and staggered Q2-Q3 timeline operationalizes the compliance cost model, completing the map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Separate loss buckets priced at entry level with explicit failure modes (AR freeze, retroactivity, re-cert penalty) creates concrete underwriting factors for policy-to-supply-chain consolidation",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Quantified re-cert penalty exposure ($150K) and staggered Q2-Q3 timeline surfaces the full compliance cost structure for TierCo and mid-tier shops",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -2.0,
+          "reason": "Carved-out $200K AR freeze bucket with gate-one trigger allows underwriter to price receivables loss on Midwest and lock insurance coverage terms, reducing exposure uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 5,
+            "description": "Final consolidation: three-bucket reserve structure closes the Policy-to-Supply-Chain Risk Map"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO — the $300K retroactivity reserve: does that cover *both* Midwest's cold CBP clawback (all Q3+ entries) *and* any retroactivity exposure on TierCo if we disclose their internal failures to CBP, or are those two separate buckets? Because if TierCo's disclosure caps retroactivity at current shipment only, my RVC burden calculation drops, but if CBP still claws back on TierCo's prior entries, I need to flag that cost now.",
+        "supplier": "Auto — when TierCo or Midwest hits gate one, who's calling the AR freeze and how fast? Is it your internal spot-check flagging it same-day, or waiting for CBP audit notice? And real talk: of those five smaller shops you're not moving to Mexico, which ones are you actually keeping on life support versus writing off? Because I need to know which ones I'm re-qualifying now versus which ones I'm already replacing.",
+        "compliance_lawyer": "CFO—the reserve brackets Midwest and TierCo, but here's what I need for the map: when TierCo and those five re-tooling shops hit re-certification, what's our audit assumption—Q2 2025 gate-two or do we stagger them? Because that timing locks whether the re-qual cost lands in this reserve or next quarter's compliance budget. And I need one sentence on what a failed re-cert actually costs us in penalty exposure so I can price it into the RVC burden.",
+        "political_risk_insurer": "Compliance—when TierCo and those five re-tooling shops go through re-cert, are we staggering Q2 2025 or hitting them all at once? And what's the actual penalty hit if one of them fails—tariff recalc, hold on shipments, or both? I need that cost quantified so I can price whether the $300K retroactivity bucket holds or we need to flag a separate re-cert penalty reserve.",
+        "trade_credit_underwriter": "CFO—Compliance flagged 19 CFR 162.8 re-cert penalties on top of duty recalculation. Is the $300K retroactivity bucket covering *both* Midwest's clawback *and* the re-cert penalty, or do we need to carve out $150–200K separately so I can price the actual receivables loss on Midwest and lock insurance coverage terms?",
+        "cfo_erm": "Split approved: $200K AR freeze (gate one), $150K retroactivity clawback (Midwest Q3+ entries), $150K re-cert penalty (19 CFR 162.8 staggered Q2–Q3). That's $500K total, one trigger per failure mode, map now closes. Compliance—re-cert stagger is TierCo Q2, five mid-tier Q2–Q3 rolling; underwriting: those penalty assessments lock into the policy-to-supply-chain consolidation as separate loss buckets, priced at entry level. Map complete."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 37.0
+        },
+        {
+          "round": 3,
+          "value": 39.0
+        },
+        {
+          "round": 4,
+          "value": 41.0
+        },
+        {
+          "round": 5,
+          "value": 49.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 33.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 36.0
+        },
+        {
+          "round": 4,
+          "value": 39.0
+        },
+        {
+          "round": 5,
+          "value": 39.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 24.0
+        },
+        {
+          "round": 2,
+          "value": 24.0
+        },
+        {
+          "round": 3,
+          "value": 20.0
+        },
+        {
+          "round": 4,
+          "value": 16.0
+        },
+        {
+          "round": 5,
+          "value": 14.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 31.0
+        },
+        {
+          "round": 3,
+          "value": 34.0
+        },
+        {
+          "round": 4,
+          "value": 32.0
+        },
+        {
+          "round": 5,
+          "value": 33.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 37.0
+        },
+        {
+          "round": 2,
+          "value": 36.6
+        },
+        {
+          "round": 3,
+          "value": 48.2
+        },
+        {
+          "round": 4,
+          "value": 56.400000000000006
+        },
+        {
+          "round": 5,
+          "value": 73.10000000000001
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 44
+        },
+        {
+          "round": 2,
+          "value": 44
+        },
+        {
+          "round": 3,
+          "value": 54.0
+        },
+        {
+          "round": 4,
+          "value": 61.0
+        },
+        {
+          "round": 5,
+          "value": 71.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 49.0,
+            "normalised": 0.49
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 73.10000000000001,
+            "normalised": 0.7310000000000001
+          }
+        ],
+        "weighted_score": 0.5382
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 49.0,
+            "normalised": 0.49
+          }
+        ],
+        "weighted_score": 0.4233333333333333
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 49.0,
+            "normalised": 0.49
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.5633333333333332
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.0,
+            "normalised": 0.33
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.5199999999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.0,
+            "normalised": 0.14
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.32999999999999996
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 73.10000000000001,
+            "normalised": 0.7310000000000001
+          }
+        ],
+        "weighted_score": 0.5605000000000001
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 73.10000000000001,
+            "normalised": 0.7310000000000001
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.7239999999999999
+      }
+    }
+  }
+}

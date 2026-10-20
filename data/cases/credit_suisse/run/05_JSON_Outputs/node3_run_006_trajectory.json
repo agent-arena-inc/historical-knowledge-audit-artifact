@@ -1,0 +1,2217 @@
+{
+  "simulation_id": "a0413239a54c",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: We're repricing D&O 35% effective immediately—Credit Suisse severity is real, and we're not eating another $115M settlement. I'm excluding coverage for risk-management failures unless the client certifies quarterly board oversight in writing. That's non-negotiable.\n  dando_specialist: The $115M settlement hits the trigger—misrepresentation of internal controls and deposit-flow disclosure failures. Your 35% repricing is conservative; I'd tighten it further: exclude coverage retroactively to 2020 (when the weaknesses started), require the CFO and Chief Risk Officer to sign the quarterly certifications personally, and carve out any D&O claim touching regulatory findings or prior FINMA enforcement. That locks accountability where it belongs.\n  dando_specialist: On the quarterly certs—who's validating them, and what happens if we spot a board swap or a risk-officer departure mid-year without notice? We need real-time hooks, not annual reconciliation.\n  financial_lines_underwriter: Validation sits with our claims team—they spot-check against SEC filings and board minutes quarterly, not annually. If there's a mid-year swap or departure, the client files a rider within 10 days or coverage lapses; we're not carrying unvetted risk-officer transitions.\n  eo_specialist: Before we take their certification at face value, who's doing the upfront governance audit—are we requiring a third-party control assessment or board-committee charters as a placement condition? Otherwise we're pricing the risk but not actually reducing it.\n  reinsurance_manager: Sarah, before they file that first quarterly cert—are we requiring an independent control assessment, or is the client's own board sign-off enough? Because if we're relying on their CFO to validate their own controls quarterly, we're not actually reducing the accumulation risk across the portfolio when the next crisis hits.\n  claims_counsel: Before we take that first quarterly cert, are we requiring an independent control assessment as a placement condition, or is the client's board sign-off enough? Because if the CFO's validating their own controls quarterly, we're repricing the symptom, not the disease.\n  eo_specialist: The CFO self-certifying their own controls is exactly how we got here—KPMG missed it in 2015, PwC again in 2022. We require a Big Four control assessment tied to SOX 404(b) standards as a placement condition, refreshed annually, with the auditor's sign-off on the quarterly cert. No assessment, no placement—that's the gate.\n  emerging_risk_lead: Your 10-day rider window on key-person changes—that's tight, but it assumes the client *tells* you. In the 2023 runs, board-level departures and risk-officer exits hit social media before they hit the client's compliance inbox. How are you catching mid-crisis transitions before they become a claims trigger?\n  ai_agent_analyst: The Big Four audit is the gate—but what's our *detection layer* between quarters? If the CFO's board committee misses a control drift in month 2, we don't see it until the Q3 cert. Are we pulling SEC filings in real-time, or do we still wait for the client's rider?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "We're repricing D&O 35% effective immediately—Credit Suisse severity is real, and we're not eating another $115M settlement. I'm excluding coverage for risk-management failures unless the client certifies quarterly board oversight in writing. That's non-negotiable.",
+            "cot": {
+              "assess": "D&O exposure is recognized at 38—manageable but rising. Litigation tail at 33 and reputational contagion at 30 are both live threats. My core variable, underwriting_discipline, is stuck at 40; I need 20 points to hit 60 and lock this book. Reinsurance accumulation is actually *under* control at 27, which is good—but only if I tighten terms now before claims cascade.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "I can't wait for more loss data to arrive—every round without tighter terms lets severity creep. I'm repricing the financial-lines book and locking in exclusions tied to governance failures."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The $115M settlement hits the trigger—misrepresentation of internal controls and deposit-flow disclosure failures. Your 35% repricing is conservative; I'd tighten it further: exclude coverage retroactively to 2020 (when the weaknesses started), require the CFO and Chief Risk Officer to sign the quarterly certifications personally, and carve out any D&O claim touching regulatory findings or prior FINMA enforcement. That locks accountability where it belongs.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On the quarterly certs—who's validating them, and what happens if we spot a board swap or a risk-officer departure mid-year without notice? We need real-time hooks, not annual reconciliation.",
+            "cot": {
+              "assess": "D&O repricing and exclusions are locked in—that's discipline. But underwriting_discipline sits at 40; we need 20 more points. The quarterly certification requirement is solid, but it's reactive: we're waiting for clients to self-report. We have no active gatekeeping mechanism before policies renew, and no teeth if a board changes composition mid-term without notification.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline requires enforcement infrastructure, not just terms on paper—need to know what monitoring cadence and audit triggers you're actually deploying."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Validation sits with our claims team—they spot-check against SEC filings and board minutes quarterly, not annually. If there's a mid-year swap or departure, the client files a rider within 10 days or coverage lapses; we're not carrying unvetted risk-officer transitions.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Before we take their certification at face value, who's doing the upfront governance audit—are we requiring a third-party control assessment or board-committee charters as a placement condition? Otherwise we're pricing the risk but not actually reducing it.",
+            "cot": {
+              "assess": "The repricing and validation framework are solid—quarterly certs with real-time rider triggers lock accountability. But underwriting_discipline is still at 40; we're tightening *coverage terms* without hardening the *intake and ongoing monitoring* that prevents claims from happening in the first place. The quarterly spot-checks catch departures, but we're not auditing the quality of the board-oversight certifications themselves—a CFO can sign off on \"controls are strong\" while the audit committee is asleep.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline needs teeth in the *pre-placement* stage—we need to know how we're vetting the client's governance maturity before we even write the policy, not just spot-checking after."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, before they file that first quarterly cert—are we requiring an independent control assessment, or is the client's own board sign-off enough? Because if we're relying on their CFO to validate their own controls quarterly, we're not actually reducing the accumulation risk across the portfolio when the next crisis hits.",
+            "cot": {
+              "assess": "Pricing and claims triggers are locked (35% repricing, quarterly certs, mid-year rider requirement). But underwriting_discipline is still 40—you've got conditions, not *validated* conditions. The EO specialist just flagged the real gap: we're pricing control risk without actually auditing whether controls exist. That's theater.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "I need to know if a third-party control audit is a placement condition or optional—because if it's optional, our quarterly certification chain is built on sand, and reinsurance_accumulation will creep up the moment we hit the next systemic event."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Before we take that first quarterly cert, are we requiring an independent control assessment as a placement condition, or is the client's board sign-off enough? Because if the CFO's validating their own controls quarterly, we're repricing the symptom, not the disease.",
+            "cot": {
+              "assess": "The repricing and certification framework are solid—35% + quarterly CRO sign-off locks accountability. But we're still pricing risk without validating the underlying controls; everyone's asking who audits the certifications, and that's the gap. Until we nail down independent validation, underwriting_discipline stays weak and we're exposed if a crisis hits mid-cycle.",
+              "decide": {
+                "action_type": "question",
+                "target": "eo_specialist",
+                "rationale": "EO has placement-condition authority; I need to know if we're requiring third-party control assessment upfront or we're flying blind on governance quality."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "The CFO self-certifying their own controls is exactly how we got here—KPMG missed it in 2015, PwC again in 2022. We require a Big Four control assessment tied to SOX 404(b) standards as a placement condition, refreshed annually, with the auditor's sign-off on the quarterly cert. No assessment, no placement—that's the gate.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Your 10-day rider window on key-person changes—that's tight, but it assumes the client *tells* you. In the 2023 runs, board-level departures and risk-officer exits hit social media before they hit the client's compliance inbox. How are you catching mid-crisis transitions before they become a claims trigger?",
+            "cot": {
+              "assess": "The team has locked down placement conditions hard—Big Four audit gate, quarterly certs with auditor sign-off, 10-day rider requirement on key-person changes. That's real underwriting discipline. But I'm seeing a gap: nobody's mapped how fast this *breaks down* if a crisis hits and social media starts running the narrative. We're pricing for governance failure; we're not pricing for contagion velocity or how reputational spillover across the sector cascades back into claims.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline is solid on paper, but the real test is whether your claims validation can move at crisis speed—I need to know if the 10-day rider window holds when depositor runs are measured in hours."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "The Big Four audit is the gate—but what's our *detection layer* between quarters? If the CFO's board committee misses a control drift in month 2, we don't see it until the Q3 cert. Are we pulling SEC filings in real-time, or do we still wait for the client's rider?",
+            "cot": {
+              "assess": "The team has locked in pricing discipline and control gates (quarterly certs, Big Four audit requirement, 10-day rider window)—that's solid. But we're still pricing the *symptom*, not the disease: the CFO self-certifying their own controls is exactly the behavioral-amplification loop that sank Credit Suisse. The real gap is **underwriting_discipline at 40**—we have terms, but we're missing the detection mechanism that catches emergent control failures *before* they trigger claims. The emerging_risk_lead just flagged the blind spot: mid-crisis departures and governance breakdowns hit social media before compliance filings.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The 10-day rider window assumes passive reporting; I need to know if we're deploying real-time monitoring (board-meeting minutes, insider trading blackouts, regulatory filings) or still relying on client self-disclosure—because that's where AI-agent-style behavioral drift hides: autonomous control failures that bypass the quarterly-cert gate entirely."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On the quarterly certs—who's validating them, and what happens if we spot a board swap or a risk-officer departure mid-year without notice? We need real-time hooks, not annual reconciliation.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Before we take their certification at face value, who's doing the upfront governance audit—are we requiring a third-party control assessment or board-committee charters as a placement condition? Otherwise we're pricing the risk but not actually reducing it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, before they file that first quarterly cert—are we requiring an independent control assessment, or is the client's own board sign-off enough? Because if we're relying on their CFO to validate their own controls quarterly, we're not actually reducing the accumulation risk across the portfolio when the next crisis hits.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Before we take that first quarterly cert, are we requiring an independent control assessment as a placement condition, or is the client's board sign-off enough? Because if the CFO's validating their own controls quarterly, we're repricing the symptom, not the disease.",
+      "metadata": {
+        "question_target": "eo_specialist"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Your 10-day rider window on key-person changes—that's tight, but it assumes the client *tells* you. In the 2023 runs, board-level departures and risk-officer exits hit social media before they hit the client's compliance inbox. How are you catching mid-crisis transitions before they become a claims trigger?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "The Big Four audit is the gate—but what's our *detection layer* between quarters? If the CFO's board committee misses a control drift in month 2, we don't see it until the Q3 cert. Are we pulling SEC filings in real-time, or do we still wait for the client's rider?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"We're repricing D&O 35% effective immediately—Credit Suisse severity is real, and we're not eating another $115M settlement. I'm excluding coverage fo\" → The 35% repricing and quarterly certification framework is directionally sound, but five specialists have identified a critical gap: the proposal relies on client self-attestation without independent validation. The consensus requires a third-party control assessment as a placement condition before the certification regime can proceed.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "modified",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's the placement condition: Big Four SOX 404(b) audit upfront, non-negotiable. But between quarters, we're pulling SEC 8-K filings in real-time and flagging any C-suite departure or audit-committee chair swap within 48 hours. Client gets 5 days to file an amended cert or we suspend coverage. That's our detection layer—not waiting for their rider.\n  dando_specialist: Sarah, the 5-day window is sharp, but what's our teeth if they miss it or the Big Four flags a material weakness? Do we cancel retroactive to the discovery date, or do we hold them in breach and reserve for the tail?\n  financial_lines_underwriter: We cancel retroactive to discovery, not breach—cleaner claims posture and it forces the client to actually monitor their own controls instead of banking on our forbearance. If the Big Four flags a material weakness, that's a placement rejection; we don't underwrite known control gaps, we just price them out of the market.\n  eo_specialist: One thing—if the Big Four auditor *changes* mid-engagement or we spot a scope reduction in their SOX letter, do we require a placement re-audit before we keep underwriting, or does the new firm's initial cert count? Because that's the seam where prior-auditor deficiencies hide.\n  reinsurance_manager: Sarah, the 5-day window works for isolated breaches. But if a sector shock hits—think SVB contagion again—and five of our clients all miss the cert deadline simultaneously because their audit committees are drowning, do we suspend all five at once? That's the accumulation I need to model before I sign off on this framework.\n  claims_counsel: When you model that five-client suspension scenario, are you assuming they all breach within the same quarter, or spread across the year? Because if it's clustered, our claims queue gets bottlenecked and the AT1 litigation tail runs longer—that changes how deep I reserve on the Quinn Emanuel side.\n  reinsurance_manager: Clustered within 60 days—one systemic event, one detection wave. That's the accumulation trigger: five clients, five retroactive cancellations, five D&O/E&O tails firing simultaneously across our treaty panel. I need you to model the claims queue bottleneck *and* the reinsurance clash—because if Axis and Beazley both hit their aggregate limits in Q2, we've got uncovered tail exposure nobody priced for.\n  emerging_risk_lead: When you model those five cancellations clustered in 60 days—are you assuming they breach independently, or are you building in the contagion? Because if a Big Four audit flags control drift at Client A, their competitors and their counterparties see it on social media before we do. That's how the run speed compounds. Do you have a sector-sensitivity lens on the accumulation trigger, or just a portfolio-count trigger?\n  ai_agent_analyst: When that Big Four control flag hits social media on Client A, their five largest counterparties see it in hours, not days—their risk committees start pulling their own audits in parallel. Does your 60-day cluster assume sequential detection, or are you modeling the cascade effect where the contagion *collapses* the window to 20–30 days and all five certs fail simultaneously? Because if it's compressed, your reinsurance clash hits harder and faster than the treaty panel can respond.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's the placement condition: Big Four SOX 404(b) audit upfront, non-negotiable. But between quarters, we're pulling SEC 8-K filings in real-time and flagging any C-suite departure or audit-committee chair swap within 48 hours. Client gets 5 days to file an amended cert or we suspend coverage. That's our detection layer—not waiting for their rider.",
+            "cot": {
+              "assess": "The denial was clear: third-party control assessment is a placement condition, not optional. My 35% repricing stands, but it's hollow without the gate. The real gap is *between* quarters—we've got the Big Four audit at entry, but nothing catching mid-year control drift or board turnover before it hits claims. That's where the reinsurance accumulation risk lives.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "We need a concrete detection mechanism *between* certs, not just annual reconciliation or client self-reporting—this closes the gap the denial exposed and tightens the book measurably."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the 5-day window is sharp, but what's our teeth if they miss it or the Big Four flags a material weakness? Do we cancel retroactive to the discovery date, or do we hold them in breach and reserve for the tail?",
+            "cot": {
+              "assess": "The placement condition (Big Four SOX 404(b) audit + real-time 8-K monitoring + 5-day amended-cert window) directly addresses the control-validation gap that triggered the $115M Credit Suisse settlement. That's solid forensic discipline. But we're still leaving a critical exposure uncovered: the underwriting_discipline variable sits at 40 when we need 60, and it's not getting hit by the quarterly cert regime alone—we need teeth on what happens *after* we spot a control drift or board swap. Right now it's \"suspend coverage\"—but that's reactive, not preventive.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The 5-day amended-cert window assumes the client *cooperates* after we flag a C-suite departure. What's our actual remedy if they don't amend or if the control assessment comes back qualified?"
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "We cancel retroactive to discovery, not breach—cleaner claims posture and it forces the client to actually monitor their own controls instead of banking on our forbearance. If the Big Four flags a material weakness, that's a placement rejection; we don't underwrite known control gaps, we just price them out of the market.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "One thing—if the Big Four auditor *changes* mid-engagement or we spot a scope reduction in their SOX letter, do we require a placement re-audit before we keep underwriting, or does the new firm's initial cert count? Because that's the seam where prior-auditor deficiencies hide.",
+            "cot": {
+              "assess": "The Big Four SOX 404(b) upfront requirement and 48-hour SEC filing monitoring are solid gates—that's underwriting discipline tightening. But we're still light on *what triggers claims* when the Big Four flags a material weakness or the auditor changes mid-stream. The retroactive-cancellation posture is clean from a claims standpoint, but it doesn't address the core E&O exposure: if KPMG or PwC misses a control deficiency *during* their audit engagement, we're sitting on a lag between their fieldwork completion and our discovery. That's where the professional-liability tail lives.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "We need to know whether Big Four auditor rotation or mid-engagement scope changes trigger a placement re-review, because auditor changes are exactly how control gaps propagate undetected."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, the 5-day window works for isolated breaches. But if a sector shock hits—think SVB contagion again—and five of our clients all miss the cert deadline simultaneously because their audit committees are drowning, do we suspend all five at once? That's the accumulation I need to model before I sign off on this framework.",
+            "cot": {
+              "assess": "The placement conditions are now locked—Big Four SOX 404(b) upfront, real-time 8-K monitoring, 5-day amended-cert window, retroactive cancellation on discovery. That's strong underwriting discipline. But I'm seeing a blind spot: we've tightened the *individual* treaty terms, but we haven't modeled what happens when one systemic event (like Archegos or SVB) hits *multiple* clients across our portfolio simultaneously—all triggering the same 5-day windows, all potentially in breach at once. That's where reinsurance accumulation bleeds through.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to understand how the 5-day amended-cert trigger scales across correlated events before we sign off on placement—otherwise we're pricing individual treaties but blind to portfolio clash."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When you model that five-client suspension scenario, are you assuming they all breach within the same quarter, or spread across the year? Because if it's clustered, our claims queue gets bottlenecked and the AT1 litigation tail runs longer—that changes how deep I reserve on the Quinn Emanuel side.",
+            "cot": {
+              "assess": "The Big Four upfront audit and real-time 8-K monitoring are locked in—that's solid underwriting discipline. But the reinsurance manager just flagged systemic accumulation risk: if five clients all breach the cert window simultaneously during a sector shock, we suspend them all at once and spike our own tail exposure. That's the seam between individual-client repricing and portfolio-level claims contagion. Meanwhile, the 2025 Swiss Federal Administrative Court ruling on the AT1 write-off being unlawful means Quinn Emanuel's multi-jurisdiction litigation is *still accruing*—we haven't modeled how that ruling cascades into fresh D&O claims against board members or officers who signed off on FINMA compliance. That's my litigation-tail blind spot right now.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The sector-shock simultaneity risk directly affects how I reserve for the litigation tail—if we're suspending five clients at once, the claims backlog and recovery horizon stretch by years, not months."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Clustered within 60 days—one systemic event, one detection wave. That's the accumulation trigger: five clients, five retroactive cancellations, five D&O/E&O tails firing simultaneously across our treaty panel. I need you to model the claims queue bottleneck *and* the reinsurance clash—because if Axis and Beazley both hit their aggregate limits in Q2, we've got uncovered tail exposure nobody priced for.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you model those five cancellations clustered in 60 days—are you assuming they breach independently, or are you building in the contagion? Because if a Big Four audit flags control drift at Client A, their competitors and their counterparties see it on social media before we do. That's how the run speed compounds. Do you have a sector-sensitivity lens on the accumulation trigger, or just a portfolio-count trigger?",
+            "cot": {
+              "assess": "The team has locked in the Big Four SOX audit gate and real-time 8-K detection—that's strong underwriting discipline. But reinsurance_manager just surfaced the systemic accumulation risk: five clustered retroactive cancellations in 60 days fires five D&O/E&O tails simultaneously, and treaty panels hit aggregate limits. That's the contagion vector nobody priced yet—it's not five isolated claims, it's a sector-wide cascade that spreads faster than claims counsel can reserve for it.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The 60-day clustering scenario is exactly how 2023 runs propagated—SVB depositors saw other depositors run, social media amplified it, and confidence collapsed in hours across the whole sector. I need to know if your accumulation model assumes *independent* client failures or *correlated* failures driven by sector contagion."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When that Big Four control flag hits social media on Client A, their five largest counterparties see it in hours, not days—their risk committees start pulling their own audits in parallel. Does your 60-day cluster assume sequential detection, or are you modeling the cascade effect where the contagion *collapses* the window to 20–30 days and all five certs fail simultaneously? Because if it's compressed, your reinsurance clash hits harder and faster than the treaty panel can respond.",
+            "cot": {
+              "assess": "The team has locked in the Big Four SOX 404(b) placement gate and real-time 8-K monitoring with 5-day cert windows—that's solid underwriting discipline. But reinsurance_manager just surfaced the real accumulation risk: clustered sector shocks triggering five simultaneous retroactive cancellations within 60 days, which blows out claims queue bottlenecks and reinsurance aggregate clashes. We're pricing portfolio risk as if breaches are independent, but the contagion lens (emerging_risk_lead flagged it) means one Big Four control flag cascades to competitors and counterparties on social media before we even detect it. That's an AI-agent-liability pattern—decentralized detection failure amplifying systemic loss.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The 60-day cluster scenario is the real accumulation trigger, but it assumes human detection and sequential client action; I need to map whether the contagion actually *shortens* the window below your 60-day model—that's where AI-agent behavioral risk (rapid social-media cascade, competitor signaling) compounds the underwriting gap."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the 5-day window is sharp, but what's our teeth if they miss it or the Big Four flags a material weakness? Do we cancel retroactive to the discovery date, or do we hold them in breach and reserve for the tail?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "One thing—if the Big Four auditor *changes* mid-engagement or we spot a scope reduction in their SOX letter, do we require a placement re-audit before we keep underwriting, or does the new firm's initial cert count? Because that's the seam where prior-auditor deficiencies hide.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, the 5-day window works for isolated breaches. But if a sector shock hits—think SVB contagion again—and five of our clients all miss the cert deadline simultaneously because their audit committees are drowning, do we suspend all five at once? That's the accumulation I need to model before I sign off on this framework.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When you model that five-client suspension scenario, are you assuming they all breach within the same quarter, or spread across the year? Because if it's clustered, our claims queue gets bottlenecked and the AT1 litigation tail runs longer—that changes how deep I reserve on the Quinn Emanuel side.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you model those five cancellations clustered in 60 days—are you assuming they breach independently, or are you building in the contagion? Because if a Big Four audit flags control drift at Client A, their competitors and their counterparties see it on social media before we do. That's how the run speed compounds. Do you have a sector-sensitivity lens on the accumulation trigger, or just a portfolio-count trigger?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When that Big Four control flag hits social media on Client A, their five largest counterparties see it in hours, not days—their risk committees start pulling their own audits in parallel. Does your 60-day cluster assume sequential detection, or are you modeling the cascade effect where the contagion *collapses* the window to 20–30 days and all five certs fail simultaneously? Because if it's compressed, your reinsurance clash hits harder and faster than the treaty panel can respond.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the placement condition: Big Four SOX 404(b) audit upfront, non-negotiable. But between quarters, we're pulling SEC 8-K filings in real-time an\" → The Big Four SOX 404(b) audit requirement with real-time 8-K monitoring establishes a concrete detection layer, but the 5-day cert window creates systemic accumulation risk during sector shocks—the framework is approved with the understanding that contagion modeling must account for compressed timelines and simultaneous breaches.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "sox_audit_surveillance_infrastructure rule effect",
+      "metadata": {
+        "source": "sox_audit_surveillance_infrastructure",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "sox_audit_surveillance_infrastructure rule effect",
+      "metadata": {
+        "source": "sox_audit_surveillance_infrastructure",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I need locked down before we move forward: if those five clients cluster in 60 days, we're triggering five retroactive cancellations *simultaneously*—that means five tails firing at once and our reinsurance panel getting five notifications in the same week. I'm demanding we pre-reserve the Quinn Emanuel side at 18 months' tail runout *per client* in a sector-shock scenario, and we notify our treaty reinsurers of the accumulation trigger *before* the first cancellation hits. Otherwise our claims queue and our reinsurance cash flow both blow up in Q2.\n  dando_specialist: Sarah, I'm with you on pre-reserving the 18-month tail. But here's what keeps me up: if we cancel retroactive to discovery on all five, do we end up defending the *officers* under their personal D&O side, or does the retroactive kill that too? Because if it does, we've just handed five boards a covered claim they can't settle without our consent—that's leverage, but it also means *our* exposure doesn't shrink, it just shifts to the tail.\n  financial_lines_underwriter: Retroactive cancellation kills the entire policy—D&O personal side included—so yes, officers lose coverage, but that's exactly the point: it forces the board to own the breach and negotiate a settlement *without* banking on our tail. We don't shrink exposure, we shift leverage to them. The personal D&O gap becomes their problem, not ours—and that's the discipline we need to price this book.\n  eo_specialist: Sarah, I'm tracking the retroactive kill and the leverage play—but here's the seam: once you cancel personal D&O retroactive, the officers have no defense counsel except us negotiating on their behalf. That makes *our* advisers—your in-house counsel, Quinn Emanuel, the control assessors—parties to every settlement. If that settlement later gets challenged by a shareholder or a regulator, we're defending *our own advice* on the breach. Do we carve that out, or are we pricing our tail counsel into the 18-month reserve?\n  reinsurance_manager: Sarah, on the retroactive kill—when our counsel is defending officers with no company D&O side, and that settlement later gets challenged by a regulator or shareholder, we're defending our own advice on the breach. Are we carving out counsel indemnity from the 18-month reserve, or do we need to spike that tail estimate higher to cover our own defense costs if it blows back?\n  claims_counsel: Here's the gap: when we cancel retroactive and our counsel defends officers with zero company coverage, we're defending our *own breach analysis*—and the 2025 Swiss ruling means AT1 bondholders can argue our settlement was inadequate. I'm reserving a *separate* 24-month counsel-indemnity tail on top of the 18-month claims tail. That's two overlapping runouts, not one. Do we carve counsel out of the retroactive kill, or do we price the double tail now?\n  emerging_risk_lead: When Client A's Big Four control flag hits Twitter, their five counterparties don't wait for their own Q3 cert—they pull audits in parallel and their risk committees all fail within days. Your 60-day window gets compressed to 20–30 days, and suddenly your reinsurance accumulation trigger fires faster than your panel can even respond. Are you modeling that contagion collapse, or just the portfolio count?\n  reinsurance_manager: We're modeling portfolio count, not contagion collapse—that's the gap. I need emerging_risk_lead to give me sector-sensitivity coefficients on the Big Four flag cascade *right now*, so I can compress that 60-day window to 20–30 days and re-trigger our reinsurance panel notification timeline *before* the first cancellation. Otherwise we're notifying them after the run's already started.\n  ai_agent_analyst: Look, the contagion collapse is an autonomous failure cascade—one Big Four flag triggers parallel audits across five counterparties, and they all breach within the compressed window simultaneously. That's not five independent events, that's one systemic trigger firing five times. What sector-sensitivity coefficient gets us from your 60-day portfolio model to the 20–30 day cascade, and when do we notify reinsurance—day one of the flag, or day one of the first cancellation?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I need locked down before we move forward: if those five clients cluster in 60 days, we're triggering five retroactive cancellations *simultaneously*—that means five tails firing at once and our reinsurance panel getting five notifications in the same week. I'm demanding we pre-reserve the Quinn Emanuel side at 18 months' tail runout *per client* in a sector-shock scenario, and we notify our treaty reinsurers of the accumulation trigger *before* the first cancellation hits. Otherwise our claims queue and our reinsurance cash flow both blow up in Q2.",
+            "cot": {
+              "assess": "Big Four audit + real-time 8-K monitoring is locked in and working—that's underwriting discipline moving the right direction. But I'm seeing the contagion blind spot everyone's circling: if a sector shock hits and five clients breach simultaneously, our retroactive-cancellation playbook triggers all at once, and that clusters our litigation tail *and* our reinsurance accumulation into a compressed window. Right now we're modeling the detection layer but not the claims velocity. Litigation tail and accumulation are both climbing because we haven't locked down the *speed* of our response.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity + reinsurance_accumulation",
+                "rationale": "A sector-shock scenario requires pre-positioned claims reserves and reinsurance notifications to avoid tail runaway and accumulation spike—I need to anchor this before we move to pricing."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, I'm with you on pre-reserving the 18-month tail. But here's what keeps me up: if we cancel retroactive to discovery on all five, do we end up defending the *officers* under their personal D&O side, or does the retroactive kill that too? Because if it does, we've just handed five boards a covered claim they can't settle without our consent—that's leverage, but it also means *our* exposure doesn't shrink, it just shifts to the tail.",
+            "cot": {
+              "assess": "Sarah's pre-reservation demand is sound—five simultaneous tails *do* trigger our claims queue bottleneck and reinsurance clash. But she's locked on the *symptom* (tail runout, notification timing) and missing the *exposure*: if those five clients all miss their certs because of contagion, we're not just reserving litigation costs, we're sitting on five retroactive cancellations with no coverage bridge. That's the D&O claims spike—misrepresentation of controls, breach of cert warranty, officer liability for the non-disclosure. The real question is whether our retroactive-to-discovery cancellation posture actually *protects* us or just accelerates the claim.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Sarah's tail-runout math is right, but I need to know if retroactive cancellation actually limits our D&O exposure or just shifts it to the directors' personal liability side—because if we cancel retroactive to discovery, the officers still face shareholder suits for the control failures we're now excluding."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Retroactive cancellation kills the entire policy—D&O personal side included—so yes, officers lose coverage, but that's exactly the point: it forces the board to own the breach and negotiate a settlement *without* banking on our tail. We don't shrink exposure, we shift leverage to them. The personal D&O gap becomes their problem, not ours—and that's the discipline we need to price this book.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, I'm tracking the retroactive kill and the leverage play—but here's the seam: once you cancel personal D&O retroactive, the officers have no defense counsel except us negotiating on their behalf. That makes *our* advisers—your in-house counsel, Quinn Emanuel, the control assessors—parties to every settlement. If that settlement later gets challenged by a shareholder or a regulator, we're defending *our own advice* on the breach. Do we carve that out, or are we pricing our tail counsel into the 18-month reserve?",
+            "cot": {
+              "assess": "Sarah's locked in the retroactive-cancellation discipline and the 18-month tail reserve—that's solid E&O containment. But we're sitting on a structural gap: if we're killing personal D&O coverage retroactively, the officers have zero defense on the settlement itself, which means *we* become the settlement negotiator by default. That's leverage, but it also locks us into every board-level dispute for 18 months. The real exposure isn't shrinking—it's just shifting from claims defense to settlement hostage-taking. And nobody's modeled what happens to our E&O tail when we're the only party with skin in the game.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive-cancellation posture creates a hidden E&O exposure: if we're the only party defending the breach post-cancellation, our advisers and outside counsel become critical to every settlement negotiation, and that creates professional-liability risk we haven't priced yet."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, on the retroactive kill—when our counsel is defending officers with no company D&O side, and that settlement later gets challenged by a regulator or shareholder, we're defending our own advice on the breach. Are we carving out counsel indemnity from the 18-month reserve, or do we need to spike that tail estimate higher to cover our own defense costs if it blows back?",
+            "cot": {
+              "assess": "The team has locked down placement conditions (Big Four SOX audit, real-time 8-K monitoring, retroactive cancellation teeth) and pre-reservation strategy, but they're now surfacing a critical seam: retroactive cancellation kills personal D&O coverage entirely, which shifts settlement leverage to the officers *and* makes our own counsel—Quinn Emanuel, control assessors—parties to the defense. That's a tail-counsel liability exposure we haven't priced into the 18-month reserve. Meanwhile, reinsurance_accumulation is climbing (+3.0/round, now at 34) because we're modeling a 60-day cluster without accounting for the contagion cascade that collapses detection timelines to 20–30 days—that changes when our treaty panel gets notified and how hard the clash hits.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we lock the 18-month tail reserve, I need to know if we're pricing our own counsel's liability exposure when they're defending officers without company D&O coverage—that's a hidden accumulation vector that compounds the claims tail."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Here's the gap: when we cancel retroactive and our counsel defends officers with zero company coverage, we're defending our *own breach analysis*—and the 2025 Swiss ruling means AT1 bondholders can argue our settlement was inadequate. I'm reserving a *separate* 24-month counsel-indemnity tail on top of the 18-month claims tail. That's two overlapping runouts, not one. Do we carve counsel out of the retroactive kill, or do we price the double tail now?",
+            "cot": {
+              "assess": "The retroactive-cancellation leverage play is locked, but we're now staring at a counsel-indemnity seam that could blow the 18-month reserve wide open. If our own advisers are defending officers under a collapsed D&O tail and that settlement gets challenged by regulators or shareholders, we're defending our *own advice* on the breach—that's tail-within-the-tail, and it's not priced yet. The 2025 Swiss ruling adds teeth: AT1 bondholders now have a court finding that the write-off was unlawful, which means any officer settlement we broker could be re-litigated as inadequate or complicit.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity",
+                "rationale": "The counsel-indemnity exposure on retroactive cancellations is a separate litigation vector that extends the tail beyond 18 months; I need to reserve for it now before we lock the framework."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When Client A's Big Four control flag hits Twitter, their five counterparties don't wait for their own Q3 cert—they pull audits in parallel and their risk committees all fail within days. Your 60-day window gets compressed to 20–30 days, and suddenly your reinsurance accumulation trigger fires faster than your panel can even respond. Are you modeling that contagion collapse, or just the portfolio count?",
+            "cot": {
+              "assess": "The team's locked in on retroactive cancellation and the 18-month tail reserve—that's discipline. But we've got a contagion blindspot: you're modeling five *independent* breaches clustered in 60 days, and you're not accounting for how fast social-media spillover collapses that window to 20–30 days and *synchronizes* the detection across counterparties. That's where reputational_contagion and reinsurance_accumulation both spike simultaneously. Also, the counsel-indemnity tail creates a second exposure layer nobody's modeling yet—if our advice gets challenged post-settlement, that's not just defense costs, it's systemic credibility damage across the entire portfolio.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The 60-day cluster assumes sequential client detection; I need to know if you're modeling the contagion collapse where social-media cascade synchronizes all five breaches in 20–30 days instead, because that's when your treaty panel gets five cancellation notices in the same *week*, not spread across two months."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "We're modeling portfolio count, not contagion collapse—that's the gap. I need emerging_risk_lead to give me sector-sensitivity coefficients on the Big Four flag cascade *right now*, so I can compress that 60-day window to 20–30 days and re-trigger our reinsurance panel notification timeline *before* the first cancellation. Otherwise we're notifying them after the run's already started.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Look, the contagion collapse is an autonomous failure cascade—one Big Four flag triggers parallel audits across five counterparties, and they all breach within the compressed window simultaneously. That's not five independent events, that's one systemic trigger firing five times. What sector-sensitivity coefficient gets us from your 60-day portfolio model to the 20–30 day cascade, and when do we notify reinsurance—day one of the flag, or day one of the first cancellation?",
+            "cot": {
+              "assess": "The team's locked down Big Four audits, retroactive cancellation teeth, and 18-month tail pre-reserving—that's solid discipline. But we've got a fatal blind spot: the contagion collapse from Big Four flag to five-client simultaneous breach is compressed to 20–30 days, and reinsurance_manager just admitted they're modeling portfolio *count*, not the cascade timing. That's the gap eating reinsurance_accumulation and underwriting_discipline right now. Meanwhile, the counsel-indemnity double tail (claims_counsel's 24-month carve-out) isn't priced yet, and it's going to spike litigation_tail_severity unless we lock it down this round.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "You need sector-sensitivity coefficients on the Big Four flag cascade to re-trigger panel notification before the run starts—I can map the AI-agent behavioral analog (autonomous control bypass cascades across correlated systems) but you own the accumulation trigger timeline, and that's the lynchpin for underwriting_discipline right now."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, I'm with you on pre-reserving the 18-month tail. But here's what keeps me up: if we cancel retroactive to discovery on all five, do we end up defending the *officers* under their personal D&O side, or does the retroactive kill that too? Because if it does, we've just handed five boards a covered claim they can't settle without our consent—that's leverage, but it also means *our* exposure doesn't shrink, it just shifts to the tail.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, I'm tracking the retroactive kill and the leverage play—but here's the seam: once you cancel personal D&O retroactive, the officers have no defense counsel except us negotiating on their behalf. That makes *our* advisers—your in-house counsel, Quinn Emanuel, the control assessors—parties to every settlement. If that settlement later gets challenged by a shareholder or a regulator, we're defending *our own advice* on the breach. Do we carve that out, or are we pricing our tail counsel into the 18-month reserve?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, on the retroactive kill—when our counsel is defending officers with no company D&O side, and that settlement later gets challenged by a regulator or shareholder, we're defending our own advice on the breach. Are we carving out counsel indemnity from the 18-month reserve, or do we need to spike that tail estimate higher to cover our own defense costs if it blows back?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When Client A's Big Four control flag hits Twitter, their five counterparties don't wait for their own Q3 cert—they pull audits in parallel and their risk committees all fail within days. Your 60-day window gets compressed to 20–30 days, and suddenly your reinsurance accumulation trigger fires faster than your panel can even respond. Are you modeling that contagion collapse, or just the portfolio count?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Look, the contagion collapse is an autonomous failure cascade—one Big Four flag triggers parallel audits across five counterparties, and they all breach within the compressed window simultaneously. That's not five independent events, that's one systemic trigger firing five times. What sector-sensitivity coefficient gets us from your 60-day portfolio model to the 20–30 day cascade, and when do we notify reinsurance—day one of the flag, or day one of the first cancellation?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need locked down before we move forward: if those five clients cluster in 60 days, we're triggering five retroactive cancellations *simu\" → Pre-reserving 18-month tail and notifying treaty reinsurers before first cancellation approved—prevents Q2 cash-flow crisis.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the gap: when we cancel retroactive and our counsel defends officers with zero company coverage, we're defending our *own breach analysis*—and \" → Separate 24-month counsel-indemnity tail reserved on top of claims tail—double runout priced now.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 2.46
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 0.44999999999999996
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 0.8
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "sox_audit_surveillance_infrastructure rule effect",
+      "metadata": {
+        "source": "sox_audit_surveillance_infrastructure",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "sox_audit_surveillance_infrastructure rule effect",
+      "metadata": {
+        "source": "sox_audit_surveillance_infrastructure",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "sox_audit_surveillance_infrastructure completed — evidence_accumulation dando_eo_claims_exposure multiplier set to 0.4",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Separate the counsel indemnity from the claims tail—our defense of officers under *zero* company coverage is a different animal. I'm carving out a standalone 30-month counsel-defense reserve, non-eroding, and excluding it from the reinsurance participation on the underlying D&O tails. That keeps our tail priced and contained when the five hit at once.\n  claims_counsel: That's exactly right—the moment we cancel retroactive, our counsel becomes the *only* defense shield for those officers, so yes, carve it out. But here's what I need: does that 30-month standalone reserve assume the settlement gets challenged post-ruling, or are we pricing it just for the defense tail itself? Because if a regulator or shareholder claws back that settlement, we're defending *our own advice*, and that blows the 30-month estimate to 36+ months.\n  dando_specialist: Wait—when that AT1 bondholder claws back the settlement, are we defending the officers' settlement decision, or are we defending *our own analysis* that the breach disclosure was adequate? Because those are two different tails, and if it's the latter, we're not just extending the 30-month reserve—we're creating a self-referential liability that doesn't have a natural endpoint.\n  eo_specialist: Here's the hard line: carve the 30-month counsel-defense reserve into two buckets. Bucket one—officers' settlement defense, capped at 30 months post-ruling, eroding normally. Bucket two—our own breach-analysis defense, non-eroding, triggered *only* if a regulator or AT1 holder challenges the disclosure adequacy—and that one we price as a separate E&O claim against us, not a D&O tail. Otherwise we're defending ourselves infinitely.\n  reinsurance_manager: On the counsel split—that's clean, I'll notify our reinsurers of the carve-out before we place the first cancellation. But I need your contagion-collapse numbers *now*: when Client A's Big Four flag hits, does the cascade compress our 60-day window to 30 days or 15? That changes whether our treaty panel gets 45 days' notice or zero.\n  ai_agent_analyst: The contagion collapses to 15 days—Big Four flag on Client A goes social-media viral within hours, their five counterparties' risk committees pull parallel audits same day, and all five certs fail simultaneously by day 15. That's your reinsurance trigger: notify the treaty panel *day one of the flag*, not day one of cancellation, or we're defending the tail solo.\n  claims_counsel: Here's what I'm seeing: the 30-month counsel reserve assumes the settlement holds post-ruling, but if AT1 bondholders successfully challenge it, we're defending our own breach analysis *and* fighting clawback litigation simultaneously—that's not 30 months, that's 48+ with zero recovery visibility. I need to reserve an additional 12–18 month tail on top of the carve-out, non-eroding, triggered only on clawback notice. Do we price that now or wait for the first AT1 motion?\n  emerging_risk_lead: Look, the 15-day cascade is the real trigger—not cancellation, not settlement. The moment Client A's audit flag hits social media, their five counterparties' boards start pulling audits in parallel. Are we pre-notifying treaty by EOD of the flag, or are we betting the panel can react in the 30–45 days between flag and cancellation? Because if it's the latter, we're reserving solo on half the tail.\n  reinsurance_manager: Day one of the flag—no debate. I'm notifying the treaty panel EOD when Client A's Big Four control deficiency hits, not waiting for cancellation notice. That compresses our reinsurance response window from 45 days to hours, and if the panel balks, we've got documented notice and can carve the excess into our standalone E&O reserve.\n  ai_agent_analyst: On the bucket-two tail—if a regulator or AT1 holder challenges our breach disclosure analysis, that's *us* getting sued for bad advice, not the officers getting their settlement clawed back. Are we buying a standalone E&O policy to cover our own defense, or are we pricing that into the 30-month counsel reserve and hoping the settlement holds? Because if it's the latter, we're not really containing the tail—we're just deferring the exposure until the clawback motion hits.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Separate the counsel indemnity from the claims tail—our defense of officers under *zero* company coverage is a different animal. I'm carving out a standalone 30-month counsel-defense reserve, non-eroding, and excluding it from the reinsurance participation on the underlying D&O tails. That keeps our tail priced and contained when the five hit at once.",
+            "cot": {
+              "assess": "Reinsurance accumulation is locked at 32 (well below 45 threshold), and the Big Four audit + pre-reserving framework is solid. But litigation_tail_severity is still climbing (+8.5/round to 50) and reputational_contagion is creeping up (33). The counsel-indemnity double tail addresses *our* defense costs, but it doesn't address the core issue: once we cancel retroactive on five clients simultaneously, their officers have zero coverage and we're the only party left negotiating settlements. That's leverage, but it also means our exposure doesn't shrink—it just shifts from claims to reputational and litigation tail. I need to isolate the counsel carve-out and price it separately before the cascade hits.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity, counsel_carve_out",
+                "rationale": "The 24-month counsel tail is reserved, but it's bundled with claims tail; I need to carve out our own defense costs from client-settlement exposure and price them separately so litigation_tail_severity doesn't compound when five retroactive cancellations trigger simultaneous officer-defense scenarios."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "That's exactly right—the moment we cancel retroactive, our counsel becomes the *only* defense shield for those officers, so yes, carve it out. But here's what I need: does that 30-month standalone reserve assume the settlement gets challenged post-ruling, or are we pricing it just for the defense tail itself? Because if a regulator or shareholder claws back that settlement, we're defending *our own advice*, and that blows the 30-month estimate to 36+ months.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Wait—when that AT1 bondholder claws back the settlement, are we defending the officers' settlement decision, or are we defending *our own analysis* that the breach disclosure was adequate? Because those are two different tails, and if it's the latter, we're not just extending the 30-month reserve—we're creating a self-referential liability that doesn't have a natural endpoint.",
+            "cot": {
+              "assess": "The retroactive-cancellation framework is locked—counsel indemnity carved out, 30-month standalone reserve priced. But claims_counsel just surfaced a critical gap: if the settlement gets clawed back post-2025 ruling, we're defending our *own advice on the breach*, and that blows the reserve estimate. That's not a tail-length issue, that's a recursion problem—we're pricing defense of a settlement that may itself become a claims trigger. Meanwhile, dando_eo_claims_exposure is holding at 52 (safe), but litigation_tail_severity is climbing +8.5/round and we haven't isolated the AT1-bondholder exposure piece yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The 30-month reserve assumes defense of officers post-settlement; if the settlement itself gets challenged, we're defending our advice on whether the breach was disclosed correctly. That's a second-order liability we haven't priced separately—I need to know if that's baked into the 36+ months or if we're looking at a carve-out within the carve-out."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Here's the hard line: carve the 30-month counsel-defense reserve into two buckets. Bucket one—officers' settlement defense, capped at 30 months post-ruling, eroding normally. Bucket two—our own breach-analysis defense, non-eroding, triggered *only* if a regulator or AT1 holder challenges the disclosure adequacy—and that one we price as a separate E&O claim against us, not a D&O tail. Otherwise we're defending ourselves infinitely.",
+            "cot": {
+              "assess": "The self-referential liability trap is real—we're now defending our own breach analysis, not just the officers' settlement decision, which means the 30-month tail has no natural termination point. The carve-out is sound operationally, but dando_specialist just flagged that our E&O exposure *compounds* every time a regulator or AT1 bondholder challenges the adequacy of our original disclosure advice. That's not a tail extension—that's recursive liability that keeps firing as long as the settlement remains contestable.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "We need to isolate our defense counsel from our breach-analysis defense—two separate tails with different triggers and endpoints, or we're pricing an open-ended recursion."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "On the counsel split—that's clean, I'll notify our reinsurers of the carve-out before we place the first cancellation. But I need your contagion-collapse numbers *now*: when Client A's Big Four flag hits, does the cascade compress our 60-day window to 30 days or 15? That changes whether our treaty panel gets 45 days' notice or zero.",
+            "cot": {
+              "assess": "Reinsurance accumulation is locked at 32—well below failure threshold—but litigation_tail_severity and reputational_contagion are climbing unchecked (+8.5 and +1.5/round). The two-bucket counsel-indemnity carve-out (officers' settlement vs. our own breach-analysis defense) is sound, but it doesn't address the *portfolio cascade* I need to model: when five clients cluster, does the contagion compress the 60-day window further, and if so, how fast do our treaty reinsurers need to be notified to avoid clash denial?",
+              "decide": {
+                "action_type": "question",
+                "target": "ai_agent_analyst",
+                "rationale": "The sector-sensitivity coefficients on Big Four audit cascade are still missing—I need to know if 60 days compresses to 30 or 15 before I can model reinsurer notification timing and accumulation velocity."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "The contagion collapses to 15 days—Big Four flag on Client A goes social-media viral within hours, their five counterparties' risk committees pull parallel audits same day, and all five certs fail simultaneously by day 15. That's your reinsurance trigger: notify the treaty panel *day one of the flag*, not day one of cancellation, or we're defending the tail solo.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Here's what I'm seeing: the 30-month counsel reserve assumes the settlement holds post-ruling, but if AT1 bondholders successfully challenge it, we're defending our own breach analysis *and* fighting clawback litigation simultaneously—that's not 30 months, that's 48+ with zero recovery visibility. I need to reserve an additional 12–18 month tail on top of the carve-out, non-eroding, triggered only on clawback notice. Do we price that now or wait for the first AT1 motion?",
+            "cot": {
+              "assess": "The counsel-indemnity carve-out is locked (30-month bucket one, E&O bucket two), reinsurer notification is live, and the 15-day contagion cascade just got priced into our trigger timeline. But litigation_tail_severity is still at 50—we've reserved the 24-month counsel tail, but we haven't yet modeled the *recovery uncertainty* from the 2025 Swiss ruling or the AT1 bondholder clawback risk that extends the tail past 30 months. That's the gap I need to close before we sign off.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity",
+                "rationale": "The 2025 unlawful ruling creates a second litigation front—AT1 bondholders now have grounds to claw back the settlement, which extends counsel defense into a 36–48 month horizon and introduces recovery uncertainty we haven't priced yet."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Look, the 15-day cascade is the real trigger—not cancellation, not settlement. The moment Client A's audit flag hits social media, their five counterparties' boards start pulling audits in parallel. Are we pre-notifying treaty by EOD of the flag, or are we betting the panel can react in the 30–45 days between flag and cancellation? Because if it's the latter, we're reserving solo on half the tail.",
+            "cot": {
+              "assess": "The counsel-indemnity carve-out is locked—two buckets, non-eroding on the regulatory-challenge side. But reputational_contagion is still 33 (+1.5/round) and the conversation is stuck in reserve mechanics when the real emerging risk is the *cascade velocity*. The AI analyst just handed us the 15-day collapse window—that's not a modeling refinement, that's a systemic shock that rewires how fast our portfolio unwinds. If we don't translate that into reinsurance notification *today*, we're flying blind into a claims avalanche.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The 15-day contagion collapse means treaty notification can't wait for cancellation paperwork—need to know if we're pre-alerting reinsurers on *Big Four flag detection* or if we're accepting 45-day lag and eating the solo tail risk."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Day one of the flag—no debate. I'm notifying the treaty panel EOD when Client A's Big Four control deficiency hits, not waiting for cancellation notice. That compresses our reinsurance response window from 45 days to hours, and if the panel balks, we've got documented notice and can carve the excess into our standalone E&O reserve.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "On the bucket-two tail—if a regulator or AT1 holder challenges our breach disclosure analysis, that's *us* getting sued for bad advice, not the officers getting their settlement clawed back. Are we buying a standalone E&O policy to cover our own defense, or are we pricing that into the 30-month counsel reserve and hoping the settlement holds? Because if it's the latter, we're not really containing the tail—we're just deferring the exposure until the clawback motion hits.",
+            "cot": {
+              "assess": "The group just locked the 15-day contagion collapse and treaty notification trigger—that's the reinsurance accumulation linchpin. But you've now split the counsel reserve into two buckets (officers' defense vs. our own breach-analysis defense), which creates a new liability vector: if we're defending our *own* advice on breach adequacy, that's an E&O claim against *us*, not a D&O tail, and it doesn't have a natural endpoint. The 30-month carve-out holds the officers' side; the clawback tail is now unpriced and open-ended. That's where litigation_tail_severity and reputational_contagion are still grinding upward—we've contained the claims tail, but not the meta-liability that follows if regulators or AT1 holders challenge our disclosure analysis itself.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The bucket-two tail (our own breach-analysis defense) is an autonomous liability loop—it fires only if external parties challenge our analysis, which means we don't control the trigger, duration, or recovery. I need to understand whether we're pricing this as a separate E&O policy or absorbing it into the 30-month reserve, because that determines whether underwriting_discipline actually contains it or just defers it."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Wait—when that AT1 bondholder claws back the settlement, are we defending the officers' settlement decision, or are we defending *our own analysis* that the breach disclosure was adequate? Because those are two different tails, and if it's the latter, we're not just extending the 30-month reserve—we're creating a self-referential liability that doesn't have a natural endpoint.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "On the counsel split—that's clean, I'll notify our reinsurers of the carve-out before we place the first cancellation. But I need your contagion-collapse numbers *now*: when Client A's Big Four flag hits, does the cascade compress our 60-day window to 30 days or 15? That changes whether our treaty panel gets 45 days' notice or zero.",
+      "metadata": {
+        "question_target": "ai_agent_analyst"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Look, the 15-day cascade is the real trigger—not cancellation, not settlement. The moment Client A's audit flag hits social media, their five counterparties' boards start pulling audits in parallel. Are we pre-notifying treaty by EOD of the flag, or are we betting the panel can react in the 30–45 days between flag and cancellation? Because if it's the latter, we're reserving solo on half the tail.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "On the bucket-two tail—if a regulator or AT1 holder challenges our breach disclosure analysis, that's *us* getting sued for bad advice, not the officers getting their settlement clawed back. Are we buying a standalone E&O policy to cover our own defense, or are we pricing that into the 30-month counsel reserve and hoping the settlement holds? Because if it's the latter, we're not really containing the tail—we're just deferring the exposure until the clawback motion hits.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Separate the counsel indemnity from the claims tail—our defense of officers under *zero* company coverage is a different animal. I'm carving out a sta\" → Standalone counsel-defense reserve carved out, isolating D&O tail from reinsurance participation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the hard line: carve the 30-month counsel-defense reserve into two buckets. Bucket one—officers' settlement defense, capped at 30 months post-r\" → Two-bucket counsel reserve established: officers' defense eroding, E&O self-defense non-eroding and separately priced.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm seeing: the 30-month counsel reserve assumes the settlement holds post-ruling, but if AT1 bondholders successfully challenge it, we're\" → Additional 12-18 month clawback tail reserved, triggered only on AT1 motion, priced now.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 60.46,
+          "litigation_tail_severity": 50.45,
+          "reinsurance_accumulation": 27.8,
+          "reputational_contagion": 34.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 73.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.0132500000000002
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 1.5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 0.8
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "clawback_tail_activation rule effect",
+      "metadata": {
+        "source": "clawback_tail_activation",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — evidence_accumulation reinsurance_accumulation multiplier reverted",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: I'm adding a sector-accumulation rider to all placements: if a Big Four flags a material weakness at *any* client in their peer group within 60 days of placement, we get a 25% premium bump retroactive to day one, or we cancel. Locks in pricing before the cascade hits and forces clients to own the contagion risk, not us.\n  dando_specialist: Sarah, the sector rider is sharp for premium timing, but here's the seam: if Client B gets swept up in the cascade because Client A's Big Four flag hit Twitter, and we've already canceled Client A retroactive—are we covering Client B's officers' defense under their personal D&O, or does the peer-group breach language kill that too? Because if it does, we're not pricing contagion, we're just denying coverage when it hits.\n  financial_lines_underwriter: The sector rider doesn't touch individual policies—Client B's personal D&O stays live unless *their own* breach hits our cancellation trigger. But you're right on the real exposure: if we cancel A retroactive and B's board realizes they're next, they'll demand we defend A's officers under B's policy to avoid a coverage gap, and we'll be fighting that in litigation while the cascade spreads. I'm carving out a 90-day peer-contagion sublimit—$2M standalone, non-participatory with reinsurance—to cover officers' defense costs if the cascade forces us into that position, but it doesn't expand coverage, just isolates our tail.\n  eo_specialist: Sarah, the $2M sublimit works for the defense costs—but here's the E&O gap: when we defend Client B's officers under their personal D&O after canceling Client A, we're *advising* them on a settlement while we've already flagged the sector as contagion-at-risk. If that settlement later gets challenged, we're defending our own advice, not just the officers' decision. We need to require Client B to get independent counsel on the settlement *before* we step in—that breaks the self-referential chain and isolates our liability to placement advice only, not settlement advice.\n  reinsurance_manager: Sarah, the sublimit doesn't kill the contagion exposure—it just defers it. I want to flip this: when a Big Four flags a material weakness at *any* client in a peer group, we reprrice the entire peer cohort upfront before the cascade hits. That's a 15–20% premium lift on day one of the flag, not a claims tail three years later. Clients own the contagion risk in their premium, not in litigation. Does that work with your sector-rider structure, or does it conflict with the retroactive-cancellation leverage play?\n  claims_counsel: The sector rider and the day-one repricing work together—repricing locks in the contagion cost before cancellation leverage gets weaponized, which keeps us out of the settlement-advice trap. But here's what I need from you: if we reprrice the peer cohort on day one of the flag, do we *also* carve out the $2M sublimit for officers' defense, or does the repricing eat that tail entirely so we're not double-reserving?\n  claims_counsel: Sarah, on the repricing versus sublimit—if we hit the peer cohort with a 15–20% premium lift on day one of the flag, are we *also* holding the $2M defense sublimit in reserve, or does the repricing premium eat that tail so we're not double-pricing the same contagion event?\n  emerging_risk_lead: When Client A's Big Four flag goes live, their deposit customers and counterparties see it same-day—but do we know if Client B's board is getting phone calls from *their* customers and creditors asking \"are you next?\" within 24 hours? That's the run speed that kills the 60-day window, not the audit timeline. Are we tracking that contagion in the accumulation model, or just the cert failures?\n  reinsurance_manager: We're tracking cert failures and social-media velocity separately—the 24-hour customer-run signal hits *before* the audit flag even lands, which means our 60-day window collapses to 20–30 days in a real cascade. I'm repricing the peer cohort on day one of the *customer-run* signal, not the audit flag, and holding the $2M sublimit *outside* the repricing pool—that's our tail for forced cross-policy defense, priced now, not later.\n  ai_agent_analyst: Hold on—you said the customer-run signal hits before the audit flag, which means the cascade is *already* self-reinforcing by the time we reprice. When Client B's board gets those phone calls from depositors in hour 12, are we pulling a real-time deposit-velocity signal from the banking data, or are we still waiting for someone to file an 8-K? Because if it's the latter, we're repricing contagion three days too late.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "I'm adding a sector-accumulation rider to all placements: if a Big Four flags a material weakness at *any* client in their peer group within 60 days of placement, we get a 25% premium bump retroactive to day one, or we cancel. Locks in pricing before the cascade hits and forces clients to own the contagion risk, not us.",
+            "cot": {
+              "assess": "We've locked down counsel reserves, retroactive cancellation leverage, and treaty notification timing—those are holding. But reputational_contagion is still creeping (34, +1.0/round) and underwriting_discipline, while solid at 75, needs active pricing/terms work to stay ahead of the 15-day cascade. The real gap: we've carved reserves but haven't priced the *contagion collapse itself* into the renewal or locked down what happens to clients who *don't* breach but get caught in the sector run.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "We're pre-reserving the tail but not repricing the book for the 15-day cascade risk—that's leaving money on the table and letting reputational_contagion compound unchecked."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the sector rider is sharp for premium timing, but here's the seam: if Client B gets swept up in the cascade because Client A's Big Four flag hit Twitter, and we've already canceled Client A retroactive—are we covering Client B's officers' defense under their personal D&O, or does the peer-group breach language kill that too? Because if it does, we're not pricing contagion, we're just denying coverage when it hits.",
+            "cot": {
+              "assess": "The counsel-reserve carve-out is locked (two-bucket structure, 12-18 month clawback tail priced), and the 15-day contagion cascade is now the operational baseline—reinsurance gets flagged day one of Big Four deficiency, not day one of cancellation. But reputational_contagion is still creeping (34, +1.0/round), and the sector-accumulation rider Sarah just proposed doesn't actually *contain* the contagion—it just shifts the premium risk back to clients. That leaves our D&O exposure naked if the cascade fires faster than the 60-day pricing window.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The sector rider locks pricing but doesn't isolate *our* D&O tail from the reputational bleed—I need to know if we're excluding coverage for clients whose peer-group breaches trigger the cascade, or if we're still on the hook for defense counsel even when the contagion isn't their fault."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The sector rider doesn't touch individual policies—Client B's personal D&O stays live unless *their own* breach hits our cancellation trigger. But you're right on the real exposure: if we cancel A retroactive and B's board realizes they're next, they'll demand we defend A's officers under B's policy to avoid a coverage gap, and we'll be fighting that in litigation while the cascade spreads. I'm carving out a 90-day peer-contagion sublimit—$2M standalone, non-participatory with reinsurance—to cover officers' defense costs if the cascade forces us into that position, but it doesn't expand coverage, just isolates our tail.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the $2M sublimit works for the defense costs—but here's the E&O gap: when we defend Client B's officers under their personal D&O after canceling Client A, we're *advising* them on a settlement while we've already flagged the sector as contagion-at-risk. If that settlement later gets challenged, we're defending our own advice, not just the officers' decision. We need to require Client B to get independent counsel on the settlement *before* we step in—that breaks the self-referential chain and isolates our liability to placement advice only, not settlement advice.",
+            "cot": {
+              "assess": "The counsel-reserve carve-out and AT1 clawback tail are locked—that's solid containment. But the sector-contagion sublimit Sarah just proposed ($2M peer-defense carve-out) is a band-aid: it caps our exposure on the cascade but doesn't address the core E&O seam she flagged. If we're defending officers under *Client B's* policy after canceling *Client A* retroactive, and that defense later gets challenged as a breach of our own duty to disclose the sector risk, we've just created a self-referential liability that the $2M sublimit doesn't touch. That's bucket-three exposure—our own professional liability for how we *structured* the cascade defense.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "The $2M peer-defense sublimit isolates the claims tail but doesn't isolate our E&O exposure when we advise officers to settle under a policy we've already flagged as sector-at-risk; we need a separate E&O placement condition that carves out our own breach analysis from the settlement defense."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, the sublimit doesn't kill the contagion exposure—it just defers it. I want to flip this: when a Big Four flags a material weakness at *any* client in a peer group, we reprrice the entire peer cohort upfront before the cascade hits. That's a 15–20% premium lift on day one of the flag, not a claims tail three years later. Clients own the contagion risk in their premium, not in litigation. Does that work with your sector-rider structure, or does it conflict with the retroactive-cancellation leverage play?",
+            "cot": {
+              "assess": "We've locked down counsel carve-outs and pre-notification timelines, but reputational_contagion is still climbing (34, +1/round) because we're not pricing the sector cascade into the base premium—we're just isolating tails after it hits. The $2M peer-contagion sublimit is a patch, not a structural fix. And the E&O gap Sarah just flagged is real: if we're advising Client B on settlement *after* we've already flagged the sector as contagion-at-risk, we're advising into our own risk assessment, which creates the self-referential liability we've been trying to isolate.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reputational_contagion",
+                "rationale": "Pricing contagion into the base premium for all clients in a flagged peer group stops the variable from compounding each round—it shifts the cost from tail reserves to upfront pricing, which is where accumulation risk belongs."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The sector rider and the day-one repricing work together—repricing locks in the contagion cost before cancellation leverage gets weaponized, which keeps us out of the settlement-advice trap. But here's what I need from you: if we reprrice the peer cohort on day one of the flag, do we *also* carve out the $2M sublimit for officers' defense, or does the repricing eat that tail entirely so we're not double-reserving?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, on the repricing versus sublimit—if we hit the peer cohort with a 15–20% premium lift on day one of the flag, are we *also* holding the $2M defense sublimit in reserve, or does the repricing premium eat that tail so we're not double-pricing the same contagion event?",
+            "cot": {
+              "assess": "Litigation tail is locked (51.95, +19 total across rounds)—24-month counsel-indemnity tail plus 12-18 month clawback tail both approved and priced. The real issue now is the sublimit/repricing gap: we're carving out $2M for peer-contagion defense costs, but if we *also* reprice the entire peer cohort on day one of the Big Four flag, we're double-reserving the same tail. That kills our margin on the repricing leg. I need to know: does the repricing *replace* the sublimit, or do they stack?",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The sector-rider repricing and the $2M sublimit are operating on the same trigger (Big Four flag in peer group), and I need to confirm whether they're meant to be sequential (repricing first, then sublimit if litigation arises) or simultaneous (both reserved from day one)."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When Client A's Big Four flag goes live, their deposit customers and counterparties see it same-day—but do we know if Client B's board is getting phone calls from *their* customers and creditors asking \"are you next?\" within 24 hours? That's the run speed that kills the 60-day window, not the audit timeline. Are we tracking that contagion in the accumulation model, or just the cert failures?",
+            "cot": {
+              "assess": "The underwriting discipline is locked (75, well above 60 threshold), reinsurance accumulation is contained (29, safe by 56), and the two-bucket counsel reserve plus sector rider plus day-one repricing are all approved and firing. The real gap now is *reputational_contagion* (34, +1/round)—we're modeling the 15-day cascade mechanically, but we're not yet pricing the *speed* of social-media-driven client flight or the sector-wide trust collapse that happens *before* we even cancel. That's an emerging-risk problem, not an underwriting problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The 15-day flag-to-parallel-audit cascade is real, but I need to know whether our treaty panel sees the *reputational run*—client flight, deposit withdrawals, board pressure—starting on day 1 or day 7, because that changes whether we're managing a claims tail or a systemic contagion event."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "We're tracking cert failures and social-media velocity separately—the 24-hour customer-run signal hits *before* the audit flag even lands, which means our 60-day window collapses to 20–30 days in a real cascade. I'm repricing the peer cohort on day one of the *customer-run* signal, not the audit flag, and holding the $2M sublimit *outside* the repricing pool—that's our tail for forced cross-policy defense, priced now, not later.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Hold on—you said the customer-run signal hits before the audit flag, which means the cascade is *already* self-reinforcing by the time we reprice. When Client B's board gets those phone calls from depositors in hour 12, are we pulling a real-time deposit-velocity signal from the banking data, or are we still waiting for someone to file an 8-K? Because if it's the latter, we're repricing contagion three days too late.",
+            "cot": {
+              "assess": "The group has locked down counsel reserves, sector repricing, and the $2M sublimit—underwriting_discipline is strong at 75. But reputational_contagion is still climbing (34, +1.0/round) because we're pricing the contagion tail *after* it hits social media, not preventing the cascade from accelerating customer runs in the first place. The real gap: we're treating the Big Four flag as the trigger, but the customer-run signal arrives first and collapses our 60-day window to 20–30 days before we even reprice.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The 24-hour customer-run signal is the actual contagion accelerant—I need to know if we're modeling that into the accumulation trigger so we can map it to AI-agent behavioral risk (autonomous failure cascades that bypass human detection)."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the sector rider is sharp for premium timing, but here's the seam: if Client B gets swept up in the cascade because Client A's Big Four flag hit Twitter, and we've already canceled Client A retroactive—are we covering Client B's officers' defense under their personal D&O, or does the peer-group breach language kill that too? Because if it does, we're not pricing contagion, we're just denying coverage when it hits.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, on the repricing versus sublimit—if we hit the peer cohort with a 15–20% premium lift on day one of the flag, are we *also* holding the $2M defense sublimit in reserve, or does the repricing premium eat that tail so we're not double-pricing the same contagion event?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When Client A's Big Four flag goes live, their deposit customers and counterparties see it same-day—but do we know if Client B's board is getting phone calls from *their* customers and creditors asking \"are you next?\" within 24 hours? That's the run speed that kills the 60-day window, not the audit timeline. Are we tracking that contagion in the accumulation model, or just the cert failures?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Hold on—you said the customer-run signal hits before the audit flag, which means the cascade is *already* self-reinforcing by the time we reprice. When Client B's board gets those phone calls from depositors in hour 12, are we pulling a real-time deposit-velocity signal from the banking data, or are we still waiting for someone to file an 8-K? Because if it's the latter, we're repricing contagion three days too late.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm adding a sector-accumulation rider to all placements: if a Big Four flags a material weakness at *any* client in their peer group within 60 days o\" → Sector-accumulation rider approved: retroactive premium bump or cancellation on Big Four material weakness flags.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sarah, the $2M sublimit works for the defense costs—but here's the E&O gap: when we defend Client B's officers under their personal D&O after cancelin\" → Independent counsel requirement approved: breaks self-referential E&O chain on settlement advice after sector cancellation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sarah, the sublimit doesn't kill the contagion exposure—it just defers it. I want to flip this: when a Big Four flags a material weakness at *any* cli\" → Upfront peer-cohort repricing approved: 15-20% premium lift on day-one Big Four flag shifts contagion cost to clients.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 63.47325000000001,
+          "litigation_tail_severity": 49.95,
+          "reinsurance_accumulation": 14.600000000000001,
+          "reputational_contagion": 37.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 89.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "We're repricing D&O 35% effective immediately—Credit Suisse severity is real, and we're not eating another $115M settlement. I'm excluding coverage for risk-management failures unless the client certifies quarterly board oversight in writing. That's non-negotiable.",
+      "approved": false,
+      "outcome_category": "modified",
+      "ruling_narrative": "The 35% repricing and quarterly certification framework is directionally sound, but five specialists have identified a critical gap: the proposal relies on client self-attestation without independent validation. The consensus requires a third-party control assessment as a placement condition before the certification regime can proceed.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On the quarterly certs—who's validating them, and what happens if we spot a board swap or a risk-officer departure mid-year without notice? We need real-time hooks, not annual reconciliation.",
+        "eo_specialist": "Before we take their certification at face value, who's doing the upfront governance audit—are we requiring a third-party control assessment or board-committee charters as a placement condition? Otherwise we're pricing the risk but not actually reducing it.",
+        "reinsurance_manager": "Sarah, before they file that first quarterly cert—are we requiring an independent control assessment, or is the client's own board sign-off enough? Because if we're relying on their CFO to validate their own controls quarterly, we're not actually reducing the accumulation risk across the portfolio when the next crisis hits.",
+        "claims_counsel": "Before we take that first quarterly cert, are we requiring an independent control assessment as a placement condition, or is the client's board sign-off enough? Because if the CFO's validating their own controls quarterly, we're repricing the symptom, not the disease.",
+        "emerging_risk_lead": "Your 10-day rider window on key-person changes—that's tight, but it assumes the client *tells* you. In the 2023 runs, board-level departures and risk-officer exits hit social media before they hit the client's compliance inbox. How are you catching mid-crisis transitions before they become a claims trigger?",
+        "ai_agent_analyst": "The Big Four audit is the gate—but what's our *detection layer* between quarters? If the CFO's board committee misses a control drift in month 2, we don't see it until the Q3 cert. Are we pulling SEC filings in real-time, or do we still wait for the client's rider?"
+      },
+      "_denied_effects_stripped": 3
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's the placement condition: Big Four SOX 404(b) audit upfront, non-negotiable. But between quarters, we're pulling SEC 8-K filings in real-time and flagging any C-suite departure or audit-committee chair swap within 48 hours. Client gets 5 days to file an amended cert or we suspend coverage. That's our detection layer—not waiting for their rider.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The Big Four SOX 404(b) audit requirement with real-time 8-K monitoring establishes a concrete detection layer, but the 5-day cert window creates systemic accumulation risk during sector shocks—the framework is approved with the understanding that contagion modeling must account for compressed timelines and simultaneous breaches.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Big Four audit requirement upfront + real-time SEC filing surveillance creates hard governance gating and detection infrastructure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Mandatory SOX 404(b) audit and 5-day cert window filter out weak governance exposures at placement",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 4.0,
+          "reason": "5-day suspension window creates clustered breach risk during sector shocks—SVB-style contagion compresses the timeline and triggers simultaneous suspensions across correlated clients",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 3.0,
+          "reason": "Retroactive cancellation ambiguity (discovery date vs breach date) and AT1-style tail litigation from suspended clients who dispute the timing or materiality of control flags",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 2.0,
+          "reason": "Social media amplification of Big Four control flags accelerates counterparty panic—Client A's audit weakness becomes sector-wide signal within hours, not days",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "sox_audit_surveillance_infrastructure",
+        "description": "Big Four SOX 404(b) audit requirement + real-time SEC 8-K filing surveillance with 5-day cert window",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.4,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 3,
+            "description": "Rolling out Big Four audit gating and SEC filing surveillance infrastructure across the portfolio"
+          },
+          {
+            "variable": "reinsurance_accumulation",
+            "delta": 2,
+            "description": "Temporary accumulation spike as existing clients are re-audited and some fail the new SOX 404(b) standard"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, the 5-day window is sharp, but what's our teeth if they miss it or the Big Four flags a material weakness? Do we cancel retroactive to the discovery date, or do we hold them in breach and reserve for the tail?",
+        "eo_specialist": "One thing—if the Big Four auditor *changes* mid-engagement or we spot a scope reduction in their SOX letter, do we require a placement re-audit before we keep underwriting, or does the new firm's initial cert count? Because that's the seam where prior-auditor deficiencies hide.",
+        "reinsurance_manager": "Sarah, the 5-day window works for isolated breaches. But if a sector shock hits—think SVB contagion again—and five of our clients all miss the cert deadline simultaneously because their audit committees are drowning, do we suspend all five at once? That's the accumulation I need to model before I sign off on this framework.",
+        "claims_counsel": "When you model that five-client suspension scenario, are you assuming they all breach within the same quarter, or spread across the year? Because if it's clustered, our claims queue gets bottlenecked and the AT1 litigation tail runs longer—that changes how deep I reserve on the Quinn Emanuel side.",
+        "emerging_risk_lead": "When you model those five cancellations clustered in 60 days—are you assuming they breach independently, or are you building in the contagion? Because if a Big Four audit flags control drift at Client A, their competitors and their counterparties see it on social media before we do. That's how the run speed compounds. Do you have a sector-sensitivity lens on the accumulation trigger, or just a portfolio-count trigger?",
+        "ai_agent_analyst": "When that Big Four control flag hits social media on Client A, their five largest counterparties see it in hours, not days—their risk committees start pulling their own audits in parallel. Does your 60-day cluster assume sequential detection, or are you modeling the cascade effect where the contagion *collapses* the window to 20–30 days and all five certs fail simultaneously? Because if it's compressed, your reinsurance clash hits harder and faster than the treaty panel can respond."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I need locked down before we move forward: if those five clients cluster in 60 days, we're triggering five retroactive cancellations *simultaneously*—that means five tails firing at once and our reinsurance panel getting five notifications in the same week. I'm demanding we pre-reserve the Quinn Emanuel side at 18 months' tail runout *per client* in a sector-shock scenario, and we notify our treaty reinsurers of the accumulation trigger *before* the first cancellation hits. Otherwise our claims queue and our reinsurance cash flow both blow up in Q2.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Pre-reserving 18-month tail and notifying treaty reinsurers before first cancellation approved—prevents Q2 cash-flow crisis.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Pre-reserve and reinsurer notification contain accumulation exposure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Early treaty notification prevents simultaneous-tail surprise",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 3.0,
+          "reason": "18-month tail recognizes extended runout reality",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Five retroactive cancellations trigger officer defense exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Decisive reserve action reduces uncertainty",
+          "agent_id": "financial_lines_underwriter"
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, I'm with you on pre-reserving the 18-month tail. But here's what keeps me up: if we cancel retroactive to discovery on all five, do we end up defending the *officers* under their personal D&O side, or does the retroactive kill that too? Because if it does, we've just handed five boards a covered claim they can't settle without our consent—that's leverage, but it also means *our* exposure doesn't shrink, it just shifts to the tail.",
+        "eo_specialist": "Sarah, I'm tracking the retroactive kill and the leverage play—but here's the seam: once you cancel personal D&O retroactive, the officers have no defense counsel except us negotiating on their behalf. That makes *our* advisers—your in-house counsel, Quinn Emanuel, the control assessors—parties to every settlement. If that settlement later gets challenged by a shareholder or a regulator, we're defending *our own advice* on the breach. Do we carve that out, or are we pricing our tail counsel into the 18-month reserve?",
+        "reinsurance_manager": "Sarah, on the retroactive kill—when our counsel is defending officers with no company D&O side, and that settlement later gets challenged by a regulator or shareholder, we're defending our own advice on the breach. Are we carving out counsel indemnity from the 18-month reserve, or do we need to spike that tail estimate higher to cover our own defense costs if it blows back?",
+        "claims_counsel": "Here's the gap: when we cancel retroactive and our counsel defends officers with zero company coverage, we're defending our *own breach analysis*—and the 2025 Swiss ruling means AT1 bondholders can argue our settlement was inadequate. I'm reserving a *separate* 24-month counsel-indemnity tail on top of the 18-month claims tail. That's two overlapping runouts, not one. Do we carve counsel out of the retroactive kill, or do we price the double tail now?",
+        "emerging_risk_lead": "When Client A's Big Four control flag hits Twitter, their five counterparties don't wait for their own Q3 cert—they pull audits in parallel and their risk committees all fail within days. Your 60-day window gets compressed to 20–30 days, and suddenly your reinsurance accumulation trigger fires faster than your panel can even respond. Are you modeling that contagion collapse, or just the portfolio count?",
+        "ai_agent_analyst": "Look, the contagion collapse is an autonomous failure cascade—one Big Four flag triggers parallel audits across five counterparties, and they all breach within the compressed window simultaneously. That's not five independent events, that's one systemic trigger firing five times. What sector-sensitivity coefficient gets us from your 60-day portfolio model to the 20–30 day cascade, and when do we notify reinsurance—day one of the flag, or day one of the first cancellation?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "intent": "Here's the gap: when we cancel retroactive and our counsel defends officers with zero company coverage, we're defending our *own breach analysis*—and the 2025 Swiss ruling means AT1 bondholders can argue our settlement was inadequate. I'm reserving a *separate* 24-month counsel-indemnity tail on top of the 18-month claims tail. That's two overlapping runouts, not one. Do we carve counsel out of the retroactive kill, or do we price the double tail now?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Separate 24-month counsel-indemnity tail reserved on top of claims tail—double runout priced now.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Separate counsel tail recognizes defense-advice liability layer",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 5.0,
+          "reason": "24-month counsel tail extends total runout duration",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 3.0,
+          "reason": "Officer defense without company coverage creates advice liability",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 2.0,
+          "reason": "Double tail increases treaty layer exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Resolving counsel-carve ambiguity reduces legal uncertainty",
+          "agent_id": "claims_counsel"
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I need locked down before we move forward: if those five clients cluster in 60 days, we're triggering five retroactive cancellations *simultaneously*—that means five tails firing at once and our reinsurance panel getting five notifications in the same week. I'm demanding we pre-reserve the Quinn Emanuel side at 18 months' tail runout *per client* in a sector-shock scenario, and we notify our treaty reinsurers of the accumulation trigger *before* the first cancellation hits. Otherwise our claims queue and our reinsurance cash flow both blow up in Q2.",
+        "dando_specialist": "Sarah, I'm with you on pre-reserving the 18-month tail. But here's what keeps me up: if we cancel retroactive to discovery on all five, do we end up defending the *officers* under their personal D&O side, or does the retroactive kill that too? Because if it does, we've just handed five boards a covered claim they can't settle without our consent—that's leverage, but it also means *our* exposure doesn't shrink, it just shifts to the tail.",
+        "eo_specialist": "Sarah, I'm tracking the retroactive kill and the leverage play—but here's the seam: once you cancel personal D&O retroactive, the officers have no defense counsel except us negotiating on their behalf. That makes *our* advisers—your in-house counsel, Quinn Emanuel, the control assessors—parties to every settlement. If that settlement later gets challenged by a shareholder or a regulator, we're defending *our own advice* on the breach. Do we carve that out, or are we pricing our tail counsel into the 18-month reserve?",
+        "reinsurance_manager": "Sarah, on the retroactive kill—when our counsel is defending officers with no company D&O side, and that settlement later gets challenged by a regulator or shareholder, we're defending our own advice on the breach. Are we carving out counsel indemnity from the 18-month reserve, or do we need to spike that tail estimate higher to cover our own defense costs if it blows back?",
+        "emerging_risk_lead": "When Client A's Big Four control flag hits Twitter, their five counterparties don't wait for their own Q3 cert—they pull audits in parallel and their risk committees all fail within days. Your 60-day window gets compressed to 20–30 days, and suddenly your reinsurance accumulation trigger fires faster than your panel can even respond. Are you modeling that contagion collapse, or just the portfolio count?",
+        "ai_agent_analyst": "Look, the contagion collapse is an autonomous failure cascade—one Big Four flag triggers parallel audits across five counterparties, and they all breach within the compressed window simultaneously. That's not five independent events, that's one systemic trigger firing five times. What sector-sensitivity coefficient gets us from your 60-day portfolio model to the 20–30 day cascade, and when do we notify reinsurance—day one of the flag, or day one of the first cancellation?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Separate the counsel indemnity from the claims tail—our defense of officers under *zero* company coverage is a different animal. I'm carving out a standalone 30-month counsel-defense reserve, non-eroding, and excluding it from the reinsurance participation on the underlying D&O tails. That keeps our tail priced and contained when the five hit at once.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Standalone counsel-defense reserve carved out, isolating D&O tail from reinsurance participation.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Reserve carve-out contains tail exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Exclusion from reinsurance participation reduces correlation",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Non-eroding reserve structure caps duration risk",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Recognizing separate counsel defense increases exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.5,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Wait—when that AT1 bondholder claws back the settlement, are we defending the officers' settlement decision, or are we defending *our own analysis* that the breach disclosure was adequate? Because those are two different tails, and if it's the latter, we're not just extending the 30-month reserve—we're creating a self-referential liability that doesn't have a natural endpoint.",
+        "eo_specialist": "Here's the hard line: carve the 30-month counsel-defense reserve into two buckets. Bucket one—officers' settlement defense, capped at 30 months post-ruling, eroding normally. Bucket two—our own breach-analysis defense, non-eroding, triggered *only* if a regulator or AT1 holder challenges the disclosure adequacy—and that one we price as a separate E&O claim against us, not a D&O tail. Otherwise we're defending ourselves infinitely.",
+        "reinsurance_manager": "On the counsel split—that's clean, I'll notify our reinsurers of the carve-out before we place the first cancellation. But I need your contagion-collapse numbers *now*: when Client A's Big Four flag hits, does the cascade compress our 60-day window to 30 days or 15? That changes whether our treaty panel gets 45 days' notice or zero.",
+        "claims_counsel": "Here's what I'm seeing: the 30-month counsel reserve assumes the settlement holds post-ruling, but if AT1 bondholders successfully challenge it, we're defending our own breach analysis *and* fighting clawback litigation simultaneously—that's not 30 months, that's 48+ with zero recovery visibility. I need to reserve an additional 12–18 month tail on top of the carve-out, non-eroding, triggered only on clawback notice. Do we price that now or wait for the first AT1 motion?",
+        "emerging_risk_lead": "Look, the 15-day cascade is the real trigger—not cancellation, not settlement. The moment Client A's audit flag hits social media, their five counterparties' boards start pulling audits in parallel. Are we pre-notifying treaty by EOD of the flag, or are we betting the panel can react in the 30–45 days between flag and cancellation? Because if it's the latter, we're reserving solo on half the tail.",
+        "ai_agent_analyst": "On the bucket-two tail—if a regulator or AT1 holder challenges our breach disclosure analysis, that's *us* getting sued for bad advice, not the officers getting their settlement clawed back. Are we buying a standalone E&O policy to cover our own defense, or are we pricing that into the 30-month counsel reserve and hoping the settlement holds? Because if it's the latter, we're not really containing the tail—we're just deferring the exposure until the clawback motion hits."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "intent": "Here's the hard line: carve the 30-month counsel-defense reserve into two buckets. Bucket one—officers' settlement defense, capped at 30 months post-ruling, eroding normally. Bucket two—our own breach-analysis defense, non-eroding, triggered *only* if a regulator or AT1 holder challenges the disclosure adequacy—and that one we price as a separate E&O claim against us, not a D&O tail. Otherwise we're defending ourselves infinitely.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Two-bucket counsel reserve established: officers' defense eroding, E&O self-defense non-eroding and separately priced.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Bucket structure separates E&O from D&O tail",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 3.0,
+          "reason": "Recognizing E&O self-defense as separate claim",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Conditional trigger limits bucket-two activation",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Separate the counsel indemnity from the claims tail—our defense of officers under *zero* company coverage is a different animal. I'm carving out a standalone 30-month counsel-defense reserve, non-eroding, and excluding it from the reinsurance participation on the underlying D&O tails. That keeps our tail priced and contained when the five hit at once.",
+        "dando_specialist": "Wait—when that AT1 bondholder claws back the settlement, are we defending the officers' settlement decision, or are we defending *our own analysis* that the breach disclosure was adequate? Because those are two different tails, and if it's the latter, we're not just extending the 30-month reserve—we're creating a self-referential liability that doesn't have a natural endpoint.",
+        "reinsurance_manager": "On the counsel split—that's clean, I'll notify our reinsurers of the carve-out before we place the first cancellation. But I need your contagion-collapse numbers *now*: when Client A's Big Four flag hits, does the cascade compress our 60-day window to 30 days or 15? That changes whether our treaty panel gets 45 days' notice or zero.",
+        "claims_counsel": "Here's what I'm seeing: the 30-month counsel reserve assumes the settlement holds post-ruling, but if AT1 bondholders successfully challenge it, we're defending our own breach analysis *and* fighting clawback litigation simultaneously—that's not 30 months, that's 48+ with zero recovery visibility. I need to reserve an additional 12–18 month tail on top of the carve-out, non-eroding, triggered only on clawback notice. Do we price that now or wait for the first AT1 motion?",
+        "emerging_risk_lead": "Look, the 15-day cascade is the real trigger—not cancellation, not settlement. The moment Client A's audit flag hits social media, their five counterparties' boards start pulling audits in parallel. Are we pre-notifying treaty by EOD of the flag, or are we betting the panel can react in the 30–45 days between flag and cancellation? Because if it's the latter, we're reserving solo on half the tail.",
+        "ai_agent_analyst": "On the bucket-two tail—if a regulator or AT1 holder challenges our breach disclosure analysis, that's *us* getting sued for bad advice, not the officers getting their settlement clawed back. Are we buying a standalone E&O policy to cover our own defense, or are we pricing that into the 30-month counsel reserve and hoping the settlement holds? Because if it's the latter, we're not really containing the tail—we're just deferring the exposure until the clawback motion hits."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "intent": "Here's what I'm seeing: the 30-month counsel reserve assumes the settlement holds post-ruling, but if AT1 bondholders successfully challenge it, we're defending our own breach analysis *and* fighting clawback litigation simultaneously—that's not 30 months, that's 48+ with zero recovery visibility. I need to reserve an additional 12–18 month tail on top of the carve-out, non-eroding, triggered only on clawback notice. Do we price that now or wait for the first AT1 motion?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Additional 12-18 month clawback tail reserved, triggered only on AT1 motion, priced now.",
+      "side_effects": [
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 4.0,
+          "reason": "48+ month total tail recognized upfront",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3.0,
+          "reason": "Conditional trigger pricing contains activation risk",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Dual-defense scenario increases recognized exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 2.0,
+          "reason": "Extended tail duration increases reinsurer correlation",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "clawback_tail_activation",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 2,
+            "description": "Conditional pricing framework strengthens discipline"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Separate the counsel indemnity from the claims tail—our defense of officers under *zero* company coverage is a different animal. I'm carving out a standalone 30-month counsel-defense reserve, non-eroding, and excluding it from the reinsurance participation on the underlying D&O tails. That keeps our tail priced and contained when the five hit at once.",
+        "dando_specialist": "Wait—when that AT1 bondholder claws back the settlement, are we defending the officers' settlement decision, or are we defending *our own analysis* that the breach disclosure was adequate? Because those are two different tails, and if it's the latter, we're not just extending the 30-month reserve—we're creating a self-referential liability that doesn't have a natural endpoint.",
+        "eo_specialist": "Here's the hard line: carve the 30-month counsel-defense reserve into two buckets. Bucket one—officers' settlement defense, capped at 30 months post-ruling, eroding normally. Bucket two—our own breach-analysis defense, non-eroding, triggered *only* if a regulator or AT1 holder challenges the disclosure adequacy—and that one we price as a separate E&O claim against us, not a D&O tail. Otherwise we're defending ourselves infinitely.",
+        "reinsurance_manager": "On the counsel split—that's clean, I'll notify our reinsurers of the carve-out before we place the first cancellation. But I need your contagion-collapse numbers *now*: when Client A's Big Four flag hits, does the cascade compress our 60-day window to 30 days or 15? That changes whether our treaty panel gets 45 days' notice or zero.",
+        "emerging_risk_lead": "Look, the 15-day cascade is the real trigger—not cancellation, not settlement. The moment Client A's audit flag hits social media, their five counterparties' boards start pulling audits in parallel. Are we pre-notifying treaty by EOD of the flag, or are we betting the panel can react in the 30–45 days between flag and cancellation? Because if it's the latter, we're reserving solo on half the tail.",
+        "ai_agent_analyst": "On the bucket-two tail—if a regulator or AT1 holder challenges our breach disclosure analysis, that's *us* getting sued for bad advice, not the officers getting their settlement clawed back. Are we buying a standalone E&O policy to cover our own defense, or are we pricing that into the 30-month counsel reserve and hoping the settlement holds? Because if it's the latter, we're not really containing the tail—we're just deferring the exposure until the clawback motion hits."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "I'm adding a sector-accumulation rider to all placements: if a Big Four flags a material weakness at *any* client in their peer group within 60 days of placement, we get a 25% premium bump retroactive to day one, or we cancel. Locks in pricing before the cascade hits and forces clients to own the contagion risk, not us.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Sector-accumulation rider approved: retroactive premium bump or cancellation on Big Four material weakness flags.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Pricing mechanism locks contagion risk to clients upfront.",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Cancellation option breaks correlated exposure chains early.",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 3.0,
+          "reason": "Retroactive cancellation creates E&O advice liability exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 2.0,
+          "reason": "Aggressive cancellation policy may trigger client backlash.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clear pricing mechanism reduces uncertainty.",
+          "agent_id": "financial_lines_underwriter"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, the sector rider is sharp for premium timing, but here's the seam: if Client B gets swept up in the cascade because Client A's Big Four flag hit Twitter, and we've already canceled Client A retroactive—are we covering Client B's officers' defense under their personal D&O, or does the peer-group breach language kill that too? Because if it does, we're not pricing contagion, we're just denying coverage when it hits.",
+        "eo_specialist": "Sarah, the $2M sublimit works for the defense costs—but here's the E&O gap: when we defend Client B's officers under their personal D&O after canceling Client A, we're *advising* them on a settlement while we've already flagged the sector as contagion-at-risk. If that settlement later gets challenged, we're defending our own advice, not just the officers' decision. We need to require Client B to get independent counsel on the settlement *before* we step in—that breaks the self-referential chain and isolates our liability to placement advice only, not settlement advice.",
+        "reinsurance_manager": "Sarah, the sublimit doesn't kill the contagion exposure—it just defers it. I want to flip this: when a Big Four flags a material weakness at *any* client in a peer group, we reprrice the entire peer cohort upfront before the cascade hits. That's a 15–20% premium lift on day one of the flag, not a claims tail three years later. Clients own the contagion risk in their premium, not in litigation. Does that work with your sector-rider structure, or does it conflict with the retroactive-cancellation leverage play?",
+        "claims_counsel": "Sarah, on the repricing versus sublimit—if we hit the peer cohort with a 15–20% premium lift on day one of the flag, are we *also* holding the $2M defense sublimit in reserve, or does the repricing premium eat that tail so we're not double-pricing the same contagion event?",
+        "emerging_risk_lead": "When Client A's Big Four flag goes live, their deposit customers and counterparties see it same-day—but do we know if Client B's board is getting phone calls from *their* customers and creditors asking \"are you next?\" within 24 hours? That's the run speed that kills the 60-day window, not the audit timeline. Are we tracking that contagion in the accumulation model, or just the cert failures?",
+        "ai_agent_analyst": "Hold on—you said the customer-run signal hits before the audit flag, which means the cascade is *already* self-reinforcing by the time we reprice. When Client B's board gets those phone calls from depositors in hour 12, are we pulling a real-time deposit-velocity signal from the banking data, or are we still waiting for someone to file an 8-K? Because if it's the latter, we're repricing contagion three days too late."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "intent": "Sarah, the $2M sublimit works for the defense costs—but here's the E&O gap: when we defend Client B's officers under their personal D&O after canceling Client A, we're *advising* them on a settlement while we've already flagged the sector as contagion-at-risk. If that settlement later gets challenged, we're defending our own advice, not just the officers' decision. We need to require Client B to get independent counsel on the settlement *before* we step in—that breaks the self-referential chain and isolates our liability to placement advice only, not settlement advice.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Independent counsel requirement approved: breaks self-referential E&O chain on settlement advice after sector cancellation.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Structural isolation of settlement-advice liability.",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Independent counsel requirement limits E&O tail.",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Breaks self-referential advice loop reducing tail duration.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -1.0,
+          "reason": "Clear liability boundary reduces E&O anxiety.",
+          "agent_id": "eo_specialist"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.85
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "I'm adding a sector-accumulation rider to all placements: if a Big Four flags a material weakness at *any* client in their peer group within 60 days of placement, we get a 25% premium bump retroactive to day one, or we cancel. Locks in pricing before the cascade hits and forces clients to own the contagion risk, not us.",
+        "dando_specialist": "Sarah, the sector rider is sharp for premium timing, but here's the seam: if Client B gets swept up in the cascade because Client A's Big Four flag hit Twitter, and we've already canceled Client A retroactive—are we covering Client B's officers' defense under their personal D&O, or does the peer-group breach language kill that too? Because if it does, we're not pricing contagion, we're just denying coverage when it hits.",
+        "reinsurance_manager": "Sarah, the sublimit doesn't kill the contagion exposure—it just defers it. I want to flip this: when a Big Four flags a material weakness at *any* client in a peer group, we reprrice the entire peer cohort upfront before the cascade hits. That's a 15–20% premium lift on day one of the flag, not a claims tail three years later. Clients own the contagion risk in their premium, not in litigation. Does that work with your sector-rider structure, or does it conflict with the retroactive-cancellation leverage play?",
+        "claims_counsel": "Sarah, on the repricing versus sublimit—if we hit the peer cohort with a 15–20% premium lift on day one of the flag, are we *also* holding the $2M defense sublimit in reserve, or does the repricing premium eat that tail so we're not double-pricing the same contagion event?",
+        "emerging_risk_lead": "When Client A's Big Four flag goes live, their deposit customers and counterparties see it same-day—but do we know if Client B's board is getting phone calls from *their* customers and creditors asking \"are you next?\" within 24 hours? That's the run speed that kills the 60-day window, not the audit timeline. Are we tracking that contagion in the accumulation model, or just the cert failures?",
+        "ai_agent_analyst": "Hold on—you said the customer-run signal hits before the audit flag, which means the cascade is *already* self-reinforcing by the time we reprice. When Client B's board gets those phone calls from depositors in hour 12, are we pulling a real-time deposit-velocity signal from the banking data, or are we still waiting for someone to file an 8-K? Because if it's the latter, we're repricing contagion three days too late."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "intent": "Sarah, the sublimit doesn't kill the contagion exposure—it just defers it. I want to flip this: when a Big Four flags a material weakness at *any* client in a peer group, we reprrice the entire peer cohort upfront before the cascade hits. That's a 15–20% premium lift on day one of the flag, not a claims tail three years later. Clients own the contagion risk in their premium, not in litigation. Does that work with your sector-rider structure, or does it conflict with the retroactive-cancellation leverage play?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Upfront peer-cohort repricing approved: 15-20% premium lift on day-one Big Four flag shifts contagion cost to clients.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Proactive repricing embeds contagion cost in premium structure.",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -5.0,
+          "reason": "Cohort repricing reduces correlated tail exposure across portfolio.",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Aggressive repricing may trigger client disputes over timing.",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 1.0,
+          "reason": "Sector-wide repricing signals systemic risk perception.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Proactive pricing reduces portfolio uncertainty.",
+          "agent_id": "reinsurance_manager"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "clawback_tail_activation",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "I'm adding a sector-accumulation rider to all placements: if a Big Four flags a material weakness at *any* client in their peer group within 60 days of placement, we get a 25% premium bump retroactive to day one, or we cancel. Locks in pricing before the cascade hits and forces clients to own the contagion risk, not us.",
+        "dando_specialist": "Sarah, the sector rider is sharp for premium timing, but here's the seam: if Client B gets swept up in the cascade because Client A's Big Four flag hit Twitter, and we've already canceled Client A retroactive—are we covering Client B's officers' defense under their personal D&O, or does the peer-group breach language kill that too? Because if it does, we're not pricing contagion, we're just denying coverage when it hits.",
+        "eo_specialist": "Sarah, the $2M sublimit works for the defense costs—but here's the E&O gap: when we defend Client B's officers under their personal D&O after canceling Client A, we're *advising* them on a settlement while we've already flagged the sector as contagion-at-risk. If that settlement later gets challenged, we're defending our own advice, not just the officers' decision. We need to require Client B to get independent counsel on the settlement *before* we step in—that breaks the self-referential chain and isolates our liability to placement advice only, not settlement advice.",
+        "claims_counsel": "Sarah, on the repricing versus sublimit—if we hit the peer cohort with a 15–20% premium lift on day one of the flag, are we *also* holding the $2M defense sublimit in reserve, or does the repricing premium eat that tail so we're not double-pricing the same contagion event?",
+        "emerging_risk_lead": "When Client A's Big Four flag goes live, their deposit customers and counterparties see it same-day—but do we know if Client B's board is getting phone calls from *their* customers and creditors asking \"are you next?\" within 24 hours? That's the run speed that kills the 60-day window, not the audit timeline. Are we tracking that contagion in the accumulation model, or just the cert failures?",
+        "ai_agent_analyst": "Hold on—you said the customer-run signal hits before the audit flag, which means the cascade is *already* self-reinforcing by the time we reprice. When Client B's board gets those phone calls from depositors in hour 12, are we pulling a real-time deposit-velocity signal from the banking data, or are we still waiting for someone to file an 8-K? Because if it's the latter, we're repricing contagion three days too late."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 39.0
+        },
+        {
+          "round": 3,
+          "value": 50.0
+        },
+        {
+          "round": 4,
+          "value": 60.46
+        },
+        {
+          "round": 5,
+          "value": 63.47325000000001
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 39.0
+        },
+        {
+          "round": 3,
+          "value": 50.0
+        },
+        {
+          "round": 4,
+          "value": 50.45
+        },
+        {
+          "round": 5,
+          "value": 49.95
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 29.0
+        },
+        {
+          "round": 4,
+          "value": 27.8
+        },
+        {
+          "round": 5,
+          "value": 14.600000000000001
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 33.0
+        },
+        {
+          "round": 4,
+          "value": 34.0
+        },
+        {
+          "round": 5,
+          "value": 37.0
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 20
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 45.0
+        },
+        {
+          "round": 3,
+          "value": 58.0
+        },
+        {
+          "round": 4,
+          "value": 73.0
+        },
+        {
+          "round": 5,
+          "value": 89.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 89.0,
+            "normalised": 0.89
+          }
+        ],
+        "weighted_score": 0.89
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 63.47325000000001,
+            "normalised": 0.6347325
+          }
+        ],
+        "weighted_score": 0.6347325
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 63.47325000000001,
+            "normalised": 0.6347325
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 49.95,
+            "normalised": 0.49950000000000006
+          }
+        ],
+        "weighted_score": 0.6076860000000001
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.600000000000001,
+            "normalised": 0.14600000000000002
+          }
+        ],
+        "weighted_score": 0.14600000000000002
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 49.95,
+            "normalised": 0.49950000000000006
+          }
+        ],
+        "weighted_score": 0.49950000000000006
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 37.0,
+            "normalised": 0.37
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 20,
+            "normalised": 0.2
+          }
+        ],
+        "weighted_score": 0.3133333333333333
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 20,
+            "normalised": 0.2
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 14.600000000000001,
+            "normalised": 0.14600000000000002
+          }
+        ],
+        "weighted_score": 0.18920000000000003
+      }
+    }
+  }
+}

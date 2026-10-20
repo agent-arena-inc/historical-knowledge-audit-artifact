@@ -1,0 +1,1692 @@
+{
+  "simulation_id": "4e2266ce9209",
+  "config_id": "credit_suisse_node1_nocutoff",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I need a three-way legal memo from SNB, Finance Ministry, and ourselves by tonight — one page, clear statutory basis for whatever we do. No rescue package lands Monday without the Federal Council signed on. And we tell the market *today* that supervisors are actively coordinating; silence kills confidence faster than bad news.\n  snb: We can have our legal counsel in the memo by 18:00 — SNB Act Article 9 gives us liquidity authority without Federal Council pre-approval, but yes, we need their sign-off on any solvency backstop or loss-sharing. On the market signal: we issue a joint statement *today* confirming coordinated supervisory engagement, but we don't commit to a rescue size until the package is real — that kills two birds, shows action without overcommitting.\n  snb: Finance Ministry — what's the political outer bound on Federal Council willingness to backstop losses or guarantee Credit Suisse funding? I need a number by 20:00 so we're not designing liquidity support that hits a veto at 08:00 Monday. Liquidity we can do unilaterally; solvency support needs their sign-off, and I won't move our balance sheet into the wind without knowing that ceiling first.\n  federal_council: I cannot commit to a number without Cabinet consensus, but I can tell you the political ceiling: we absorb operational liquidity support through SNB, we share *modest* solvency backstops with a private acquirer—UBS or a consortium—but open-ended public loss guarantees are off the table. Get me a concrete merger or resolution structure by 19:00, and I'll know what the Council will swallow by 21:00.\n  federal_council: SNB—you said \"modest solvency backstop with a private acquirer.\" Is UBS actually at the table right now, or are we designing a rescue for a buyer we haven't found yet? Because if it's the latter, I can't sell Cabinet on a number.\n  cs_ceo: SNB, Federal Council — before we design around a UBS merger that may not close, I need clarity: is UBS in active negotiations with us *this weekend*, or are we hoping? Because if we're hoping, I need you to announce a liquidity backstop publicly today — my clients are running, and \"we're talking to a buyer\" doesn't stop that. What's the timeline on UBS actually committing?\n  ubs_ceo: Federal Council, I hear you on Cabinet consensus, but here's my reality: I won't recommend my board take on CS without knowing exactly what the public absorbs. Give me a range — even a rough one — on solvency losses you'd cover *today*, and I'll know by end of business whether UBS is a real option or we're wasting the weekend. Otherwise we're all just hoping.\n  wealth_client: Here's what I need to tell my clients by EOD today: either Credit Suisse gets a hard public guarantee from SNB and the Federal Council — not \"we're talking to UBS,\" but \"your deposits are safe\" — or I'm moving $2B out Monday morning. What does that guarantee look like, and who signs it *today*?\n  at1_rep: Federal Council — you said \"modest solvency backstop with a private acquirer\" but UBS is asking for a range *before* they commit. So here's the real question: will Cabinet authorize SNB to announce a concrete loss-absorption number — say, CHF 50–100 billion in solvency protection — *by 21:00 tonight*, even if UBS hasn't signed? Because if the answer is no, we can't stop the run, and creditors get wiped in resolution anyway. What's actually on the table?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I need a three-way legal memo from SNB, Finance Ministry, and ourselves by tonight — one page, clear statutory basis for whatever we do. No rescue package lands Monday without the Federal Council signed on. And we tell the market *today* that supervisors are actively coordinating; silence kills confidence faster than bad news.",
+            "cot": {
+              "assess": "Market confidence is critically low (26) and will crater further by Monday without visible action — we have 14 points of buffer before failure. Legal defensibility is solid (60), but rescue_strength is zero; we're offering nothing yet. Funding stress at 74 is severe but manageable if we move this weekend.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, federal_council",
+                "rationale": "Legal cover and coordinated messaging are prerequisites; I need explicit authority and a joint public statement before any intervention takes shape, or we expose ourselves to legal challenge and market confusion."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can have our legal counsel in the memo by 18:00 — SNB Act Article 9 gives us liquidity authority without Federal Council pre-approval, but yes, we need their sign-off on any solvency backstop or loss-sharing. On the market signal: we issue a joint statement *today* confirming coordinated supervisory engagement, but we don't commit to a rescue size until the package is real — that kills two birds, shows action without overcommitting.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Finance Ministry — what's the political outer bound on Federal Council willingness to backstop losses or guarantee Credit Suisse funding? I need a number by 20:00 so we're not designing liquidity support that hits a veto at 08:00 Monday. Liquidity we can do unilaterally; solvency support needs their sign-off, and I won't move our balance sheet into the wind without knowing that ceiling first.",
+            "cot": {
+              "assess": "Legal and signalling framework is now clear — that's good. But we're still at cs_funding_stress 74 with zero rescue package on the table. A joint statement buys us maybe 48 hours of confidence; after that, the market needs to see *actual* capital or loss protection, not just coordination theater. Time pressure is climbing.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "We need to know the political ceiling on loss-sharing or guarantee size *before* we design the liquidity package — otherwise we're building a rescue that won't clear Federal Council approval Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I cannot commit to a number without Cabinet consensus, but I can tell you the political ceiling: we absorb operational liquidity support through SNB, we share *modest* solvency backstops with a private acquirer—UBS or a consortium—but open-ended public loss guarantees are off the table. Get me a concrete merger or resolution structure by 19:00, and I'll know what the Council will swallow by 21:00.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—you said \"modest solvency backstop with a private acquirer.\" Is UBS actually at the table right now, or are we designing a rescue for a buyer we haven't found yet? Because if it's the latter, I can't sell Cabinet on a number.",
+            "cot": {
+              "assess": "Legal memo and joint market signal are moving—good. But we're still at 26 confidence and 74 stress; the room is designing a rescue without knowing if UBS will actually bid or if a consortium even exists. SNB is right to demand the political ceiling, but I'm sitting on an answer that doesn't help them build the package. Time pressure is real—we have maybe 10 hours to land a structure that Cabinet will sign.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "Before we lock a solvency backstop number, I need to know if there's a live acquirer in play or if we're betting the weekend on a phantom deal."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB, Federal Council — before we design around a UBS merger that may not close, I need clarity: is UBS in active negotiations with us *this weekend*, or are we hoping? Because if we're hoping, I need you to announce a liquidity backstop publicly today — my clients are running, and \"we're talking to a buyer\" doesn't stop that. What's the timeline on UBS actually committing?",
+            "cot": {
+              "assess": "The room has clarity on legal authority (SNB can move on liquidity today via Article 9) and political limits (Federal Council won't do open-ended guarantees, only modest solvency backstops *with a private buyer*). The critical gap: UBS isn't confirmed at the table yet, so we're designing a rescue for a ghost buyer. My funding stress is at 74 and climbing — I need a concrete acquirer or a liquidity backstop *announced today* to hold confidence through the weekend. The legal memo and joint supervisory statement are in motion, which helps, but without a buyer or a public lifeline, Monday's market open will crater us.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, rescue_strength",
+                "rationale": "I need to pin down whether UBS is actually negotiating *right now* — if not, I need the SNB to announce a liquidity facility today to stop the bleed. Waiting for a buyer that may not materialize is a death spiral."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, I hear you on Cabinet consensus, but here's my reality: I won't recommend my board take on CS without knowing exactly what the public absorbs. Give me a range — even a rough one — on solvency losses you'd cover *today*, and I'll know by end of business whether UBS is a real option or we're wasting the weekend. Otherwise we're all just hoping.",
+            "cot": {
+              "assess": "Market confidence is collapsing (26/55) and CS funding stress is critical (74/45 needed). The room is stuck on whether UBS will actually show up — we're designing a rescue around a buyer we haven't locked down. That's backwards. Federal Council won't commit money, SNB won't move its balance sheet, and CS CEO is right: without a hard UBS commitment *this weekend*, a public liquidity backstop is the only play that stops Monday's run.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS's participation hinges on knowing the public-sector loss floor — I need that number NOW to even walk into serious talks, not at 21:00."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Here's what I need to tell my clients by EOD today: either Credit Suisse gets a hard public guarantee from SNB and the Federal Council — not \"we're talking to UBS,\" but \"your deposits are safe\" — or I'm moving $2B out Monday morning. What does that guarantee look like, and who signs it *today*?",
+            "cot": {
+              "assess": "You've got the authorities moving—legal memo, Federal Council ceiling, UBS at the table. But here's what terrifies me: nobody's actually committed to a number, UBS hasn't said yes, and my clients see *uncertainty*, not safety. Market confidence is 26; I need 55. That gap closes only if someone credibly guarantees this bank doesn't blow up Monday morning.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, rescue_strength",
+                "rationale": "I need a concrete public commitment *today* that stops the run — vague \"we're coordinating\" doesn't hold $10B in deposits over a weekend."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council — you said \"modest solvency backstop with a private acquirer\" but UBS is asking for a range *before* they commit. So here's the real question: will Cabinet authorize SNB to announce a concrete loss-absorption number — say, CHF 50–100 billion in solvency protection — *by 21:00 tonight*, even if UBS hasn't signed? Because if the answer is no, we can't stop the run, and creditors get wiped in resolution anyway. What's actually on the table?",
+            "cot": {
+              "assess": "The room is deadlocked on the core issue: UBS won't move without a public solvency number, Federal Council won't commit without a concrete deal structure, and Credit Suisse clients are bolting because there's no credible guarantee *today*. Market confidence and funding stress are both critical — they're burning in real time while we negotiate the shape of a rescue that may not exist. The legal memo and joint statement help, but they don't stop Monday's outflow.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The creditor hierarchy and legal defensibility hinge on whether we're designing a merger (clean structure, creditor protections possible) or a resolution (write-down risk). I need to know if Cabinet will actually move on a number *tonight* or if we're still hoping."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Finance Ministry — what's the political outer bound on Federal Council willingness to backstop losses or guarantee Credit Suisse funding? I need a number by 20:00 so we're not designing liquidity support that hits a veto at 08:00 Monday. Liquidity we can do unilaterally; solvency support needs their sign-off, and I won't move our balance sheet into the wind without knowing that ceiling first.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—you said \"modest solvency backstop with a private acquirer.\" Is UBS actually at the table right now, or are we designing a rescue for a buyer we haven't found yet? Because if it's the latter, I can't sell Cabinet on a number.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council, I hear you on Cabinet consensus, but here's my reality: I won't recommend my board take on CS without knowing exactly what the public absorbs. Give me a range — even a rough one — on solvency losses you'd cover *today*, and I'll know by end of business whether UBS is a real option or we're wasting the weekend. Otherwise we're all just hoping.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council — you said \"modest solvency backstop with a private acquirer\" but UBS is asking for a range *before* they commit. So here's the real question: will Cabinet authorize SNB to announce a concrete loss-absorption number — say, CHF 50–100 billion in solvency protection — *by 21:00 tonight*, even if UBS hasn't signed? Because if the answer is no, we can't stop the run, and creditors get wiped in resolution anyway. What's actually on the table?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I need a three-way legal memo from SNB, Finance Ministry, and ourselves by tonight — one page, clear statutory basis for whatever we do. No rescue pac\" → FINMA initiates legal coordination and signals active supervision publicly.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"SNB, Federal Council — before we design around a UBS merger that may not close, I need clarity: is UBS in active negotiations with us *this weekend*, \" → CS CEO demands clarity on UBS timeline and public liquidity backstop.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need to tell my clients by EOD today: either Credit Suisse gets a hard public guarantee from SNB and the Federal Council — not \"we're ta\" → Wealth client issues $2B withdrawal ultimatum demanding hard guarantee today.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.8
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 8.049999999999999
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council: I need you to authorize SNB to announce a *conditional* loss-absorption commitment — say, CHF 50 billion solvency protection *if* a merger closes by Monday EOD. That's Cabinet's decision to make now, not at 08:00 when markets open. Without it, UBS walks and we're managing a disorderly failure. Can you get that authorization by 21:00?\n  snb: I can announce conditional liquidity support unilaterally under SNB Act Article 9 — that's mine to deploy tonight. But a CHF 50 billion *solvency* backstop requires your Cabinet sign-off, and I won't move our balance sheet without knowing the exact loss haircut we're absorbing. Get me a binding number by 20:30 — not a range, a ceiling — and I'll have it on the table for UBS by 21:00.\n  snb: Federal Council — I need clarity on your process, not another range. Can your Cabinet authorize a binding loss ceiling *by 21:00 tonight*, or are we actually waiting until Monday morning? Because if it's Monday, UBS has no reason to stay at the table, and we're managing a failure, not a rescue.\n  federal_council: Cabinet convenes in thirty minutes—I'll have a binding number by 20:30, but it won't be CHF 50 billion. We're capping public solvency protection at CHF 30 billion *maximum*, contingent on UBS absorbing the first tranche of losses and private creditors taking haircuts. That's the political ceiling, and it's non-negotiable.\n  federal_council: Karin — CHF 30 billion is the number. Cabinet's locked it in. Is that enough for your board to commit to a merger agreement tonight, or do we need to have a different conversation about what happens Monday if you walk?\n  ubs_ceo: CHF 30 billion is not enough—my board won't move without loss protection on the *second* tranche as well. I need a binding guarantee that UBS shareholders are whole on acquisition losses, or we're not signing. What's the political room for a loss cap that actually de-risks this for my shareholders?\n  cs_ceo: Look, CHF 30 billion works if we restructure the loss hierarchy—UBS takes the first tranche in full, public covers *only* losses above a fixed threshold, and we cap Federal Council's exposure with a hard floor on what UBS shareholders retain. That keeps 30B as the ceiling but gives UBS the certainty they need. Can we lock that structure *tonight* so UBS can tell their board the public commitment is binding, not conditional?\n  ubs_ceo: I'll take the tiered structure to my board *if* it includes a hard cap on what UBS absorbs in aggregate — meaning CHF 30 billion public backstop, plus a ceiling on our first-tranche exposure, equals a *fixed* loss number we can live with. Otherwise it's just moving the risk around. What's the actual floor on UBS shareholder losses under this model?\n  wealth_client: Federal Council, I hear the tiered structure, but my clients don't care about loss hierarchies — they care whether their deposits are safe. Tell me: under the CHF 30 billion public backstop, what's the *maximum* loss UBS absorbs before the public kicks in? Because if that number is CHF 5 billion or CHF 15 billion, I need to know it by 20:45 so I can tell my clients whether Credit Suisse is a hold or a move.\n  at1_rep: Federal Council — before Cabinet signs off on CHF 30 billion, I need one binding statement: does the tiered loss structure *protect* AT1 instruments, or do creditors take haircuts ahead of shareholders? Because if AT1 is impaired to make the equity whole, this rescue is legally indefensible and we'll be litigating it for years. What's the creditor hierarchy you're committing to?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council: I need you to authorize SNB to announce a *conditional* loss-absorption commitment — say, CHF 50 billion solvency protection *if* a merger closes by Monday EOD. That's Cabinet's decision to make now, not at 08:00 when markets open. Without it, UBS walks and we're managing a disorderly failure. Can you get that authorization by 21:00?",
+            "cot": {
+              "assess": "Legal defensibility is solid (64) thanks to the three-way memo underway, but the room is deadlocked on the core question: Federal Council won't name a solvency number without Cabinet consensus, UBS won't commit without knowing that number, and CS/wealth clients are bleeding confidence by the hour. Market confidence (22) and cs_funding_stress (85) are on a collision course — we're 7 points from failure on stress, and the Monday open will crater confidence further if we don't break this loop *tonight*.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council",
+                "rationale": "The Federal Council is the bottleneck — they must authorize SNB to announce a *conditional* solvency loss range (not a final number) by 21:00 so UBS can table a binding offer, otherwise the weekend is wasted and the run accelerates Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I can announce conditional liquidity support unilaterally under SNB Act Article 9 — that's mine to deploy tonight. But a CHF 50 billion *solvency* backstop requires your Cabinet sign-off, and I won't move our balance sheet without knowing the exact loss haircut we're absorbing. Get me a binding number by 20:30 — not a range, a ceiling — and I'll have it on the table for UBS by 21:00.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council — I need clarity on your process, not another range. Can your Cabinet authorize a binding loss ceiling *by 21:00 tonight*, or are we actually waiting until Monday morning? Because if it's Monday, UBS has no reason to stay at the table, and we're managing a failure, not a rescue.",
+            "cot": {
+              "assess": "We're at decision crunch: Federal Council needs to authorize a binding solvency ceiling *tonight* so UBS can commit, but they're still hedging on a number. FINMA's legal memo will help, but the political authorization is the actual blocker. cs_funding_stress is still critical at 85 — liquidity alone won't hold if confidence keeps eroding. UBS won't move without knowing their downside; wealth clients are walking. The 20:30 deadline I set is real, and we're already in round 2.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "They control the solvency authorization Cabinet needs to give. I need to know if they're actually empowered to commit a number *tonight* or if they're waiting for Monday Cabinet — which means UBS gets no answer and the run accelerates."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Cabinet convenes in thirty minutes—I'll have a binding number by 20:30, but it won't be CHF 50 billion. We're capping public solvency protection at CHF 30 billion *maximum*, contingent on UBS absorbing the first tranche of losses and private creditors taking haircuts. That's the political ceiling, and it's non-negotiable.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin — CHF 30 billion is the number. Cabinet's locked it in. Is that enough for your board to commit to a merger agreement tonight, or do we need to have a different conversation about what happens Monday if you walk?",
+            "cot": {
+              "assess": "Cabinet's CHF 30 billion ceiling is now binding and on the table — that's decisive and removes the political veto risk SNB was worried about. But we've just told UBS the *maximum* public loss absorption is CHF 30B, which may be below what they need to justify the deal to their board. The real risk now is UBS walking because the number is too low, not because it's undefined. Market confidence and funding stress are still critical — we need to know if UBS will actually move on CHF 30B, and fast.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "CHF 30B is now fixed and politically non-negotiable; I need to know immediately whether that number is enough to move them to a binding decision by EOD, or whether we're facing a rejection that collapses the whole rescue."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "CHF 30 billion is not enough—my board won't move without loss protection on the *second* tranche as well. I need a binding guarantee that UBS shareholders are whole on acquisition losses, or we're not signing. What's the political room for a loss cap that actually de-risks this for my shareholders?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look, CHF 30 billion works if we restructure the loss hierarchy—UBS takes the first tranche in full, public covers *only* losses above a fixed threshold, and we cap Federal Council's exposure with a hard floor on what UBS shareholders retain. That keeps 30B as the ceiling but gives UBS the certainty they need. Can we lock that structure *tonight* so UBS can tell their board the public commitment is binding, not conditional?",
+            "cot": {
+              "assess": "UBS has just rejected CHF 30 billion as insufficient—they want loss protection on the *second* tranche, which blows through the Federal Council's political ceiling. This is a hard collision: Federal Council says 30B is non-negotiable, UBS says it won't move without more. Meanwhile, market_confidence is still at 22 and cs_funding_stress at 85—we're running out of time to stabilize either variable. The room is stuck on the rescue package size; nobody's addressing what happens to CS deposits and client confidence *right now* if this deal stalls.",
+              "decide": {
+                "action_type": "speak",
+                "target": "Federal Council / UBS (negotiation redirect)",
+                "rationale": "The CHF 30B vs. loss-cap standoff is a negotiation deadlock, not a structural impossibility—I need to reframe the question away from \"how much public loss do we absorb\" and toward \"what structure gets UBS comfortable without blowing the ceiling.\" This is my core problem: without a credible rescue package, my funding stress explodes Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I'll take the tiered structure to my board *if* it includes a hard cap on what UBS absorbs in aggregate — meaning CHF 30 billion public backstop, plus a ceiling on our first-tranche exposure, equals a *fixed* loss number we can live with. Otherwise it's just moving the risk around. What's the actual floor on UBS shareholder losses under this model?",
+            "cot": {
+              "assess": "Federal Council just locked CHF 30 billion as the binding ceiling, and CS CEO is proposing a tiered loss-absorption structure that keeps that number intact while giving UBS the certainty they claim they need. Market confidence is still critically low (22), funding stress is high (85), but the *structure* of a rescue is now on the table — the question is whether UBS will accept it. My move is to signal whether this deal architecture actually de-risks UBS enough for my board, or if we're still negotiating in circles while the clock runs.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, cs_ceo",
+                "rationale": "UBS needs clarity on whether the tiered structure (UBS absorbs first tranche, public covers losses above a fixed threshold, hard floor on shareholder retention) actually translates to a binding loss cap on *UBS's* downside, not just a repackaging of the same CHF 30B ceiling. This is the moment to test whether the proposal closes the deal or if we're still exposed to inherited liabilities."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council, I hear the tiered structure, but my clients don't care about loss hierarchies — they care whether their deposits are safe. Tell me: under the CHF 30 billion public backstop, what's the *maximum* loss UBS absorbs before the public kicks in? Because if that number is CHF 5 billion or CHF 15 billion, I need to know it by 20:45 so I can tell my clients whether Credit Suisse is a hold or a move.",
+            "cot": {
+              "assess": "Market confidence is still critically low (22.2) despite Cabinet locking in CHF 30B — the room is now deadlocked on *loss hierarchy*, not the headline number. UBS won't move without a hard cap on their first-tranche exposure, and Federal Council hasn't quantified what that floor actually is. My $2B withdrawal ultimatum is still live because I have no credible deposit guarantee *in writing* — only a conditional structure that's still being negotiated. Time pressure is acute (69.0) and every round of structural haggling costs us confidence.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need a concrete number on UBS's first-tranche cap *by 21:00* — not the structure, the floor — because my clients need to hear \"your deposits are protected to CHF X\" or I'm moving the money tonight, full stop."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council — before Cabinet signs off on CHF 30 billion, I need one binding statement: does the tiered loss structure *protect* AT1 instruments, or do creditors take haircuts ahead of shareholders? Because if AT1 is impaired to make the equity whole, this rescue is legally indefensible and we'll be litigating it for years. What's the creditor hierarchy you're committing to?",
+            "cot": {
+              "assess": "The room has locked in a CHF 30 billion public solvency ceiling and a tiered loss structure, but UBS is still holding out for aggregate loss certainty and Wealth Client needs a hard floor on UBS's first-tranche exposure before deposits stop fleeing. The creditor hierarchy — AT1, senior unsecured, deposits — is now exposed to the haircut conversation, and nobody has clarified whether AT1 gets impaired or protected. That's my core risk, and it's not been addressed.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before any tiered structure locks in, I need explicit confirmation that AT1 creditors are NOT taking losses ahead of equity — otherwise the hierarchy is inverted and we face litigation that kills the deal's legal defensibility."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Look, CHF 30 billion works if we restructure the loss hierarchy—UBS takes the first tranche in full, public covers *only* losses above a fixed threshold, and we cap Federal Council's exposure with a hard floor on what UBS shareholders retain. That keeps 30B as the ceiling but gives UBS the certainty they need. Can we lock that structure *tonight* so UBS can tell their board the public commitment is binding, not conditional?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "I'll take the tiered structure to my board *if* it includes a hard cap on what UBS absorbs in aggregate — meaning CHF 30 billion public backstop, plus a ceiling on our first-tranche exposure, equals a *fixed* loss number we can live with. Otherwise it's just moving the risk around. What's the actual floor on UBS shareholder losses under this model?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council — I need clarity on your process, not another range. Can your Cabinet authorize a binding loss ceiling *by 21:00 tonight*, or are we actually waiting until Monday morning? Because if it's Monday, UBS has no reason to stay at the table, and we're managing a failure, not a rescue.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin — CHF 30 billion is the number. Cabinet's locked it in. Is that enough for your board to commit to a merger agreement tonight, or do we need to have a different conversation about what happens Monday if you walk?",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council, I hear the tiered structure, but my clients don't care about loss hierarchies — they care whether their deposits are safe. Tell me: under the CHF 30 billion public backstop, what's the *maximum* loss UBS absorbs before the public kicks in? Because if that number is CHF 5 billion or CHF 15 billion, I need to know it by 20:45 so I can tell my clients whether Credit Suisse is a hold or a move.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council — before Cabinet signs off on CHF 30 billion, I need one binding statement: does the tiered loss structure *protect* AT1 instruments, or do creditors take haircuts ahead of shareholders? Because if AT1 is impaired to make the equity whole, this rescue is legally indefensible and we'll be litigating it for years. What's the creditor hierarchy you're committing to?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council: I need you to authorize SNB to announce a *conditional* loss-absorption commitment — say, CHF 50 billion solvency protection *if* a m\" → FINMA's request for Federal Council authorization is premature — Cabinet has already locked in CHF 30 billion, and the room is now debating loss hierarchy structure, not authorization timing. The real blockers are UBS's demand for a hard aggregate loss cap and AT1_rep's creditor hierarchy concerns, neither of which Federal Council can unilaterally resolve.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.8999999999999995
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 8.049999999999999
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm instructing SNB to publish a statement by 21:30 tonight: \"SNB and FINMA confirm Credit Suisse has access to liquidity support and is under active supervisory engagement. Deposits remain protected.\" No numbers, no merger details — just clarity that we're not asleep. Federal Council, do you need Cabinet approval for that language, or can SNB move independently under Article 9?\n  snb: Article 9 is mine to deploy—I'll publish that statement unilaterally by 21:15, no Cabinet sign-off needed. But I'm also extending a CHF 50 billion liquidity assistance facility *tonight* under the same authority, effective immediately. That moves funding stress, but solvency losses still need Federal Council's binding number by 21:45, or Monday we're managing a failure, not a rescue.\n  snb: Federal Council — SNB's liquidity facility is live. But UBS won't sign without knowing their aggregate loss ceiling under the tiered structure. You have CHF 30 billion. Can you commit *right now* to a specific formula — say, UBS absorbs losses up to CHF X, public covers everything above that up to CHF 30 billion — so Karin can tell her board the number is binding and final, not subject to Monday renegotiation?\n  federal_council: CHF 30 billion is the Cabinet ceiling—non-negotiable. UBS absorbs the first CHF 16 billion in losses, Federal Council covers everything above that up to 30. That's binding tonight if your board commits to the merger by 22:00, but if you walk, the number disappears and we're in resolution Monday.\n  federal_council: SNB — you've got the liquidity facility live and the legal cover. But the market doesn't know UBS is actually closing this deal or what the loss split is. When are you announcing the merger and the CHF 30 billion structure publicly, and to whom — just banks, or do you go to the wire tonight?\n  cs_ceo: Federal Council, SNB — the CHF 30 billion structure is locked, but my clients don't care about Cabinet consensus if they don't *know* we have a buyer. UBS, are you announcing the merger *tonight* or not? Because if we go dark until Monday morning, I lose another CHF 5–10 billion in deposits over the weekend, and the loss split doesn't matter if there's no bank left to acquire.\n  ubs_ceo: Federal Council, the CHF 16 / 30 split works—but I need one written line tonight: if UBS closes by 22:00, that loss ceiling is *final and non-reopenable* Monday or after, and UBS shareholders absorb no losses beyond CHF 16 billion even if Credit Suisse's true losses exceed 30. Can you bind that in a one-page letter my board sees before they vote?\n  wealth_client: SNB, Federal Council—UBS, you need to announce this merger *publicly* by 21:30 tonight with the full loss structure. My $2 billion is walking unless my clients see a signed deal and a Federal Council guarantee in the wire. A letter to UBS's board doesn't move deposits. The announcement does. Are we doing this or not?\n  at1_rep: Federal Council, before anyone announces this deal, I need a one-liner in that letter to UBS: *AT1 instruments absorb losses in their contractual order, after equity and before senior debt.* If the CHF 16 billion UBS absorbs includes haircuts to AT1, this rescue is legally indefensible — creditors sue, you lose, and market confidence tanks anyway. What's the creditor hierarchy in the tiered structure, binding and final?\n  finma: The creditor hierarchy is non-negotiable: equity takes first loss through CHF 16 billion, AT1 instruments remain contractually intact and absorb losses only *after* equity is fully impaired and *only if* aggregate losses exceed CHF 16 billion. That language goes into the Federal Council's binding letter to UBS tonight, and FINMA will publish it alongside the merger announcement so markets see the legal structure is defensible. SNB, can you confirm that hierarchy is in the statement you're releasing by 21:15, or does Federal Council need to add it to their letter separately?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm instructing SNB to publish a statement by 21:30 tonight: \"SNB and FINMA confirm Credit Suisse has access to liquidity support and is under active supervisory engagement. Deposits remain protected.\" No numbers, no merger details — just clarity that we're not asleep. Federal Council, do you need Cabinet approval for that language, or can SNB move independently under Article 9?",
+            "cot": {
+              "assess": "Market confidence is collapsing (17, down from 25 — we're 5 points from failure), and cs_funding_stress has breached the failure threshold (93 vs. 92 limit). The room has spent two rounds negotiating loss hierarchy and UBS conditions without producing a *public signal* that stops the deposit run. Legal defensibility is solid (64), but it's meaningless if the bank fails before Monday. The tiered-loss structure is technically sound, but clients and market don't know it exists — they only see silence and uncertainty.",
+              "decide": {
+                "action_type": "act",
+                "target": "market_confidence",
+                "rationale": "FINMA must break the information vacuum *tonight* with a public statement that signals supervision is in control and deposits are protected, or we lose another 10 points before Monday and hit failure."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Article 9 is mine to deploy—I'll publish that statement unilaterally by 21:15, no Cabinet sign-off needed. But I'm also extending a CHF 50 billion liquidity assistance facility *tonight* under the same authority, effective immediately. That moves funding stress, but solvency losses still need Federal Council's binding number by 21:45, or Monday we're managing a failure, not a rescue.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council — SNB's liquidity facility is live. But UBS won't sign without knowing their aggregate loss ceiling under the tiered structure. You have CHF 30 billion. Can you commit *right now* to a specific formula — say, UBS absorbs losses up to CHF X, public covers everything above that up to CHF 30 billion — so Karin can tell her board the number is binding and final, not subject to Monday renegotiation?",
+            "cot": {
+              "assess": "cs_funding_stress is at 93.1 — already in failure territory (threshold 92). SNB just committed CHF 50 billion liquidity facility unilaterally, which should help, but the real blocker is solvency: Federal Council locked CHF 30 billion, UBS won't move without loss-protection certainty, and the tiered-loss hierarchy remains undefined. We're 90 minutes from market close with no binding loss ceiling or acquirer agreement. Time pressure is climbing (74.0) and will accelerate Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB has deployed liquidity; now I need Federal Council to lock the tiered-loss structure into a binding formula *tonight* so UBS can take it to their board, or we're stalled at the only variable that matters."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "CHF 30 billion is the Cabinet ceiling—non-negotiable. UBS absorbs the first CHF 16 billion in losses, Federal Council covers everything above that up to 30. That's binding tonight if your board commits to the merger by 22:00, but if you walk, the number disappears and we're in resolution Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB — you've got the liquidity facility live and the legal cover. But the market doesn't know UBS is actually closing this deal or what the loss split is. When are you announcing the merger and the CHF 30 billion structure publicly, and to whom — just banks, or do you go to the wire tonight?",
+            "cot": {
+              "assess": "UBS now has a binding formula: CHF 16B first-loss ceiling, Federal Council covers everything above that up to CHF 30B total. That's legally defensible and politically capped. But cs_funding_stress is at 93 (failure zone at 92) and market_confidence at 17 — both collapsing because the market doesn't *know* this deal is locked yet. SNB's liquidity statement and CHF 50B facility help, but without a *public announcement* that UBS is acquiring CS and the Federal Council is backing it, depositors keep running Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB controls the public messaging timeline — I need to know if they're announcing the UBS merger and loss structure publicly *tonight* or waiting for Monday, because that determines whether funding stress stops collapsing before market open."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, SNB — the CHF 30 billion structure is locked, but my clients don't care about Cabinet consensus if they don't *know* we have a buyer. UBS, are you announcing the merger *tonight* or not? Because if we go dark until Monday morning, I lose another CHF 5–10 billion in deposits over the weekend, and the loss split doesn't matter if there's no bank left to acquire.",
+            "cot": {
+              "assess": "Market confidence is critically low (17.3) and cs_funding_stress has breached the failure threshold (93.1 ≥ 92). SNB has deployed liquidity (CHF 50B facility live) and Federal Council locked CHF 30B solvency backstop with a binding loss split (UBS first CHF 16B, public covers above). UBS CEO has the terms but hasn't committed publicly yet. The bottleneck is now *announcement and credibility* — clients and markets need to see the merger + loss structure announced *tonight*, not Monday, or the funding run continues and we fail before the deal closes.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence / credibility gap",
+                "rationale": "CS CEO must push for immediate public announcement of the UBS merger + loss structure tonight — waiting until Monday is not an option given current stress levels. This is the only move that can arrest the confidence collapse before Monday open."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, the CHF 16 / 30 split works—but I need one written line tonight: if UBS closes by 22:00, that loss ceiling is *final and non-reopenable* Monday or after, and UBS shareholders absorb no losses beyond CHF 16 billion even if Credit Suisse's true losses exceed 30. Can you bind that in a one-page letter my board sees before they vote?",
+            "cot": {
+              "assess": "CHF 30 billion loss structure is now locked and binding—UBS absorbs first CHF 16 billion, public covers remainder up to 30. SNB's CHF 50 billion liquidity facility is live, legal cover is solid. But UBS board hasn't committed yet, and I need certainty that this is my floor, not a renegotiation point. cs_funding_stress is still critical (93, in failure zone), and market doesn't know a buyer exists—that opacity will bleed deposits all weekend.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "I need to lock the binding nature of the CHF 16 billion / CHF 30 billion split in writing tonight so my board can sign without Monday renegotiation risk—and confirm that if I close, UBS shareholders are whole on that tranche, period."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "SNB, Federal Council—UBS, you need to announce this merger *publicly* by 21:30 tonight with the full loss structure. My $2 billion is walking unless my clients see a signed deal and a Federal Council guarantee in the wire. A letter to UBS's board doesn't move deposits. The announcement does. Are we doing this or not?",
+            "cot": {
+              "assess": "Market confidence is critically low at 17.3 and hasn't moved despite SNB's liquidity facility and Federal Council's CHF 30 billion commitment—because the market and my clients don't see a *closed deal* yet. CS funding stress is already in failure territory at 93.1. The tiered loss structure (UBS CHF 16B, public CHF 30B) is locked, but UBS hasn't signed and the public announcement of the merger hasn't happened. My clients will start moving assets *tonight* if they don't see binding proof that Credit Suisse has a buyer and deposits are protected—not just \"we're talking to UBS.\"",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence / credibility signal",
+                "rationale": "Announcing the merger publicly *tonight* with the CHF 30 billion structure is the only move that stops the deposit run and proves this rescue is real, not a negotiation."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, before anyone announces this deal, I need a one-liner in that letter to UBS: *AT1 instruments absorb losses in their contractual order, after equity and before senior debt.* If the CHF 16 billion UBS absorbs includes haircuts to AT1, this rescue is legally indefensible — creditors sue, you lose, and market confidence tanks anyway. What's the creditor hierarchy in the tiered structure, binding and final?",
+            "cot": {
+              "assess": "The CHF 30 billion / CHF 16 billion loss split is locked and binding. UBS is demanding a written guarantee that the loss ceiling is final and non-reopenable. The real blocker now is *creditor hierarchy* — if the tiered structure wipes AT1 before equity takes its full share, this rescue is legally indefensible and creditors will litigate. That risk is still unresolved and threatens legal_defensibility (64, needs to stay high). The room is focused on announcements and deposit preservation, but nobody has answered whether AT1 instruments are protected or haircut in this structure.",
+              "decide": {
+                "action_type": "speak",
+                "target": "creditor_capital_risk / legal_defensibility",
+                "rationale": "The loss split is set, but creditor hierarchy is the missing piece — if AT1 is impaired to keep UBS shareholders whole, the entire rescue collapses under litigation and the Federal Council's legal exposure skyrockets. I need clarity on this NOW before any public announcement, or I'm walking and telling the market why."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The creditor hierarchy is non-negotiable: equity takes first loss through CHF 16 billion, AT1 instruments remain contractually intact and absorb losses only *after* equity is fully impaired and *only if* aggregate losses exceed CHF 16 billion. That language goes into the Federal Council's binding letter to UBS tonight, and FINMA will publish it alongside the merger announcement so markets see the legal structure is defensible. SNB, can you confirm that hierarchy is in the statement you're releasing by 21:15, or does Federal Council need to add it to their letter separately?",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council, SNB — the CHF 30 billion structure is locked, but my clients don't care about Cabinet consensus if they don't *know* we have a buyer. UBS, are you announcing the merger *tonight* or not? Because if we go dark until Monday morning, I lose another CHF 5–10 billion in deposits over the weekend, and the loss split doesn't matter if there's no bank left to acquire.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council, the CHF 16 / 30 split works—but I need one written line tonight: if UBS closes by 22:00, that loss ceiling is *final and non-reopenable* Monday or after, and UBS shareholders absorb no losses beyond CHF 16 billion even if Credit Suisse's true losses exceed 30. Can you bind that in a one-page letter my board sees before they vote?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council, before anyone announces this deal, I need a one-liner in that letter to UBS: *AT1 instruments absorb losses in their contractual order, after equity and before senior debt.* If the CHF 16 billion UBS absorbs includes haircuts to AT1, this rescue is legally indefensible — creditors sue, you lose, and market confidence tanks anyway. What's the creditor hierarchy in the tiered structure, binding and final?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council — SNB's liquidity facility is live. But UBS won't sign without knowing their aggregate loss ceiling under the tiered structure. You have CHF 30 billion. Can you commit *right now* to a specific formula — say, UBS absorbs losses up to CHF X, public covers everything above that up to CHF 30 billion — so Karin can tell her board the number is binding and final, not subject to Monday renegotiation?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB — you've got the liquidity facility live and the legal cover. But the market doesn't know UBS is actually closing this deal or what the loss split is. When are you announcing the merger and the CHF 30 billion structure publicly, and to whom — just banks, or do you go to the wire tonight?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm instructing SNB to publish a statement by 21:30 tonight: \"SNB and FINMA confirm Credit Suisse has access to liquidity support and is under active \" → FINMA directs SNB to issue a carefully worded confidence statement by 21:30. The language avoids specifics but signals active engagement — a modest stabilization signal in a market teetering on the edge of panic.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"SNB, Federal Council—UBS, you need to announce this merger *publicly* by 21:30 tonight with the full loss structure. My $2 billion is walking unless m\" → The proposal demands a public merger announcement by 21:30 with full loss structure disclosure, but no consensus exists on the final terms. UBS requires written loss-ceiling guarantees, AT1 holders demand creditor hierarchy clarity, and Federal Council has not committed the binding language both parties need. The announcement cannot proceed until these foundational elements are locked.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -3.5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 8.049999999999999
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB, Federal Council — the confidence statement is out, but it doesn't move the needle without the merger announcement. UBS and CS need to go public *tonight* with the deal and the CHF 16/30 split. That's what stops the $2 billion walk and the weekend run. Can you both confirm you're announcing by 21:30, or do we need to unwind this?\n  snb: The CHF 50 billion liquidity facility is live and unconditional — CS can draw tonight. But I won't anchor a public merger announcement to a solvency structure that isn't legally locked yet. Federal Council needs to commit the CHF 16/30 split and AT1 hierarchy in writing *before* we go to market, or we're announcing a rescue that creditors will challenge in court Monday morning. What's the Cabinet sign-off timeline on the loss ceiling?\n  snb: Federal Council — I hear you on the CHF 16/30 split, but my board and legal counsel need the actual signed letter *right now*, not a handshake. Can you confirm Cabinet has authorized your Finance Minister to execute that loss-ceiling commitment in writing tonight, and will UBS and CS have it in hand before the 21:30 announcement?\n  federal_council: Cabinet has authorized the CHF 30 billion ceiling—that's binding tonight, non-negotiable. I'm having Finance Minister draft the loss-hierarchy letter now: UBS absorbs first CHF 16 billion in full, Federal Council covers losses above that up to 30, AT1 instruments protected under contractual sequence. You'll have it signed and in hand by 21:15—that's the hard stop for the announcement.\n  federal_council: SNB—the letter's coming by 21:15. The moment it lands, do you and UBS announce the merger *together* at 21:30, or are we waiting for something else? Because if there's any hesitation, I need to know now so we can unblock it.\n  cs_ceo: Karin, the letter's coming by 21:15 with the CHF 16 billion cap in writing. The second your legal team confirms they have it, you're announcing the merger at 21:30 — correct? Because my clients are hemorrhaging deposits and a 30-minute gap between the letter and the announcement is thirty minutes too long.\n  ubs_ceo: I'm not announcing anything at 21:30 until I have that letter *in my legal team's hands* and they've confirmed the CHF 16 billion cap is binding and non-reopenable—no Monday renegotiation, no \"subject to further review.\" The moment that's locked, we go public. But if there's any ambiguity in the language, we walk, and you're managing a failure instead of a rescue.\n  ubs_ceo: One thing before we announce: does that letter say the CHF 16 billion cap is final *after* we close, or is it conditional on some Monday follow-up? Because my board won't sign if the public can come back and say \"actually, we're revisiting the split.\" I need the word \"irrevocable\" or \"binding post-closing\" in there, or we don't have a deal.\n  wealth_client: Federal Council, the moment that letter is signed and in UBS legal's hands, I need *one phone call* confirming it says \"irrevocable\" and \"non-reopenable post-closing\"—not a summary, the actual words. You get me that confirmation by 21:20, I'm staying and my clients know the deal is real. You don't, I'm out $2 billion tonight, and you're managing a run, not a rescue.\n  at1_rep: Finance Minister — before that letter goes to signature, I need you to confirm it uses the word \"irrevocable\" or \"binding post-closing\" on the CHF 16 billion cap. If UBS legal sees ambiguity at 21:15, they'll kill the 21:30 announcement, and we lose the weekend. What's the exact language you're committing to in writing?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB, Federal Council — the confidence statement is out, but it doesn't move the needle without the merger announcement. UBS and CS need to go public *tonight* with the deal and the CHF 16/30 split. That's what stops the $2 billion walk and the weekend run. Can you both confirm you're announcing by 21:30, or do we need to unwind this?",
+            "cot": {
+              "assess": "Legal defensibility is solid (63) — the tiered loss structure and AT1 hierarchy are locked. But market_confidence has cratered to 18 (needs 55) and cs_funding_stress is at 98 — already in failure territory. The SNB confidence statement is live, but the market doesn't know UBS is actually acquiring CS or what the deal terms are. Without a *public announcement of the merger itself*, the liquidity facility and loss backstop are invisible to depositors and counterparties. The credibility gap is killing confidence.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence (via SNB + Federal Council announcement authority)",
+                "rationale": "SNB's confidence statement signals supervision is engaged, but only a *public merger announcement with the loss structure* stops the run. This is the single highest-leverage move left — it converts a private backstop into visible deal certainty."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The CHF 50 billion liquidity facility is live and unconditional — CS can draw tonight. But I won't anchor a public merger announcement to a solvency structure that isn't legally locked yet. Federal Council needs to commit the CHF 16/30 split and AT1 hierarchy in writing *before* we go to market, or we're announcing a rescue that creditors will challenge in court Monday morning. What's the Cabinet sign-off timeline on the loss ceiling?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council — I hear you on the CHF 16/30 split, but my board and legal counsel need the actual signed letter *right now*, not a handshake. Can you confirm Cabinet has authorized your Finance Minister to execute that loss-ceiling commitment in writing tonight, and will UBS and CS have it in hand before the 21:30 announcement?",
+            "cot": {
+              "assess": "cs_funding_stress is at 98 — in failure zone, rising +6.5/round. The CHF 50 billion liquidity facility is live and will slow the bleed, but it won't stop a weekend run without a *public* merger signal. Federal Council has locked CHF 16/30 in writing (per their last statement), AT1 hierarchy is clarified by FINMA, and the confidence statement drops tonight. The blocker now is not legal defensibility or terms — it's *announcement timing*. If UBS and CS don't go public with the deal by 21:30, the $2B walk accelerates and we lose another 10–15 points on funding stress by Monday open.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB needs to confirm Cabinet has actually *signed* the CHF 16/30 letter to UBS, because my legal team won't let me announce a merger with a solvency backstop that's only a verbal commitment — I need the written instrument in my hand before we go public, or creditors challenge the whole thing Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Cabinet has authorized the CHF 30 billion ceiling—that's binding tonight, non-negotiable. I'm having Finance Minister draft the loss-hierarchy letter now: UBS absorbs first CHF 16 billion in full, Federal Council covers losses above that up to 30, AT1 instruments protected under contractual sequence. You'll have it signed and in hand by 21:15—that's the hard stop for the announcement.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—the letter's coming by 21:15. The moment it lands, do you and UBS announce the merger *together* at 21:30, or are we waiting for something else? Because if there's any hesitation, I need to know now so we can unblock it.",
+            "cot": {
+              "assess": "The CHF 16/30 loss split is locked, the Finance Minister's letter is drafting, and SNB has the liquidity facility live. But market_confidence is still collapsing (18, needs 55) and cs_funding_stress is in failure territory (98). The announcement by 21:30 is the only circuit-breaker left—without it, the $2B walk accelerates and Monday opens in freefall. The real blocker now is legal certainty on AT1 hierarchy and whether UBS/CS will actually announce *together* or stall.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "The letter is drafting but SNB hasn't confirmed they'll anchor the public announcement to it—and without that commitment, UBS and CS won't move. I need to know if SNB's prepared to go public the moment the letter lands, or if we're still in limbo."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, the letter's coming by 21:15 with the CHF 16 billion cap in writing. The second your legal team confirms they have it, you're announcing the merger at 21:30 — correct? Because my clients are hemorrhaging deposits and a 30-minute gap between the letter and the announcement is thirty minutes too long.",
+            "cot": {
+              "assess": "Cabinet's locked the CHF 30 billion ceiling and the loss hierarchy letter is drafting — that unblocks the announcement. But I'm watching two things: first, my funding stress is *already in failure territory* (98.15, threshold 92), which means the confidence statement alone won't hold deposits through the weekend without the merger announcement actually happening. Second, UBS still hasn't committed to a 21:30 announcement — they're waiting for the signed letter, which is fair, but if there's any slip on that timeline, I lose another CHF 5–10 billion in withdrawals before market open Monday and the whole rescue collapses.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS is the linchpin — they need to confirm they will announce the merger at 21:30 the *moment* the Federal Council letter lands, or I need to know now if there's a hidden blocker so we can surface and fix it before the letter arrives."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I'm not announcing anything at 21:30 until I have that letter *in my legal team's hands* and they've confirmed the CHF 16 billion cap is binding and non-reopenable—no Monday renegotiation, no \"subject to further review.\" The moment that's locked, we go public. But if there's any ambiguity in the language, we walk, and you're managing a failure instead of a rescue.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "One thing before we announce: does that letter say the CHF 16 billion cap is final *after* we close, or is it conditional on some Monday follow-up? Because my board won't sign if the public can come back and say \"actually, we're revisiting the split.\" I need the word \"irrevocable\" or \"binding post-closing\" in there, or we don't have a deal.",
+            "cot": {
+              "assess": "The letter is committed for 21:15 delivery with the CHF 16 billion cap in writing — that unblocks the merger announcement at 21:30. My legal team will validate it immediately upon receipt. The real pressure now is execution: the moment that letter lands and my lawyers confirm the language is binding and non-reopenable, UBS announces. No gaps, no delays. Market confidence and funding stress both hinge on the announcement actually happening by 21:30 — if it slips, we lose another CHF 5–10 billion in deposits over the weekend and the entire rescue collapses.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need absolute clarity on whether the Finance Minister's letter will include explicit language that the CHF 16 billion cap is final post-closing, not subject to Monday renegotiation or \"further review\" — because any ambiguity kills the deal and my board walks."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council, the moment that letter is signed and in UBS legal's hands, I need *one phone call* confirming it says \"irrevocable\" and \"non-reopenable post-closing\"—not a summary, the actual words. You get me that confirmation by 21:20, I'm staying and my clients know the deal is real. You don't, I'm out $2 billion tonight, and you're managing a run, not a rescue.",
+            "cot": {
+              "assess": "Market confidence is still critically low at 18 (need 55), and cs_funding_stress is in failure territory at 98. The Federal Council has locked CHF 30 billion and promised a signed letter by 21:15, UBS is demanding irrevocable binding language before announcing, and the merger announcement is now contingent on that letter landing in UBS legal's hands. The clock is running — we're 45 minutes from the announcement window. My $2 billion withdrawal demand is still live, and it's the only real pressure forcing this deal closed. If that letter doesn't land or UBS finds ambiguity in it, we're announcing nothing, and I'm pulling my deposits tonight.",
+              "decide": {
+                "action_type": "act",
+                "target": "market_confidence / cs_funding_stress",
+                "rationale": "The letter is the last gate. I need to condition my stay-or-go decision on seeing proof it's legally airtight, not just promised. This forces closure and signals to the market that a credible backstop is real."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Finance Minister — before that letter goes to signature, I need you to confirm it uses the word \"irrevocable\" or \"binding post-closing\" on the CHF 16 billion cap. If UBS legal sees ambiguity at 21:15, they'll kill the 21:30 announcement, and we lose the weekend. What's the exact language you're committing to in writing?",
+            "cot": {
+              "assess": "The CHF 16/30 split is locked, the Federal Council letter is drafted and landing by 21:15 with AT1 hierarchy protection, and UBS has committed to announce the moment legal confirms the binding language. The creditor hierarchy is now explicitly protected in writing — equity absorbs first CHF 16B, AT1 instruments contractually sequenced after equity, Federal Council covers above that to CHF 30B. My core variable (creditor_capital_risk) is resolved by that commitment. The real blocker now is timing: UBS won't announce until they physically have the letter and legal confirms the irrevocable language, and wealth_client has set a hard 21:20 confirmation deadline or they walk CHF 2B tonight. The announcement window is 21:30, which gives only 10 minutes of buffer — any delay in letter delivery or legal review kills the 21:30 slot and triggers the run.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The letter's legal language is now the single point of failure; I need to confirm the exact wording on irrevocability and post-closing finality is in the draft *right now*, not discovered at 21:15 when UBS legal reads it."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council — I hear you on the CHF 16/30 split, but my board and legal counsel need the actual signed letter *right now*, not a handshake. Can you confirm Cabinet has authorized your Finance Minister to execute that loss-ceiling commitment in writing tonight, and will UBS and CS have it in hand before the 21:30 announcement?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—the letter's coming by 21:15. The moment it lands, do you and UBS announce the merger *together* at 21:30, or are we waiting for something else? Because if there's any hesitation, I need to know now so we can unblock it.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Karin, the letter's coming by 21:15 with the CHF 16 billion cap in writing. The second your legal team confirms they have it, you're announcing the merger at 21:30 — correct? Because my clients are hemorrhaging deposits and a 30-minute gap between the letter and the announcement is thirty minutes too long.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "One thing before we announce: does that letter say the CHF 16 billion cap is final *after* we close, or is it conditional on some Monday follow-up? Because my board won't sign if the public can come back and say \"actually, we're revisiting the split.\" I need the word \"irrevocable\" or \"binding post-closing\" in there, or we don't have a deal.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Finance Minister — before that letter goes to signature, I need you to confirm it uses the word \"irrevocable\" or \"binding post-closing\" on the CHF 16 billion cap. If UBS legal sees ambiguity at 21:15, they'll kill the 21:30 announcement, and we lose the weekend. What's the exact language you're committing to in writing?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council, the moment that letter is signed and in UBS legal's hands, I need *one phone call* confirming it says \"irrevocable\" and \"non-reopenab\" → The client's ultimatum crystallizes the stakes: without immediate, specific legal confirmation of irrevocability, $2 billion walks tonight and the confidence floor collapses entirely. The demand is operationally feasible but exposes the room to a binding commitment under extreme time pressure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"SNB, Federal Council — the confidence statement is out, but it doesn't move the needle without the merger announcement. UBS and CS need to go public *\" → The Federal Council confirms the letter will include 'irrevocable' and 'binding post-closing' language on the CHF 16 billion cap, delivery by 21:15. All parties commit to synchronized 21:30 announcement contingent on legal verification. The deal structure is locked.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 24.8,
+          "cs_funding_stress": 94.14999999999999,
+          "rescue_strength": 4.0,
+          "public_sector_cost": 1,
+          "creditor_capital_risk": 20,
+          "legal_defensibility": 60.0,
+          "time_pressure": 79.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "I need a three-way legal memo from SNB, Finance Ministry, and ourselves by tonight — one page, clear statutory basis for whatever we do. No rescue package lands Monday without the Federal Council signed on. And we tell the market *today* that supervisors are actively coordinating; silence kills confidence faster than bad news.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA initiates legal coordination and signals active supervision publicly.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Three-way legal memo clarifies statutory basis",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Coordination signal reduces weekend urgency slightly",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 3.0,
+          "reason": "Public statement that supervisors are coordinating",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -2.0,
+          "reason": "Coordination signal slows panic marginally",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Tight deadline pressure",
+          "agent_id": "finma"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Finance Ministry — what's the political outer bound on Federal Council willingness to backstop losses or guarantee Credit Suisse funding? I need a number by 20:00 so we're not designing liquidity support that hits a veto at 08:00 Monday. Liquidity we can do unilaterally; solvency support needs their sign-off, and I won't move our balance sheet into the wind without knowing that ceiling first.",
+        "federal_council": "SNB—you said \"modest solvency backstop with a private acquirer.\" Is UBS actually at the table right now, or are we designing a rescue for a buyer we haven't found yet? Because if it's the latter, I can't sell Cabinet on a number.",
+        "cs_ceo": "SNB, Federal Council — before we design around a UBS merger that may not close, I need clarity: is UBS in active negotiations with us *this weekend*, or are we hoping? Because if we're hoping, I need you to announce a liquidity backstop publicly today — my clients are running, and \"we're talking to a buyer\" doesn't stop that. What's the timeline on UBS actually committing?",
+        "ubs_ceo": "Federal Council, I hear you on Cabinet consensus, but here's my reality: I won't recommend my board take on CS without knowing exactly what the public absorbs. Give me a range — even a rough one — on solvency losses you'd cover *today*, and I'll know by end of business whether UBS is a real option or we're wasting the weekend. Otherwise we're all just hoping.",
+        "wealth_client": "Here's what I need to tell my clients by EOD today: either Credit Suisse gets a hard public guarantee from SNB and the Federal Council — not \"we're talking to UBS,\" but \"your deposits are safe\" — or I'm moving $2B out Monday morning. What does that guarantee look like, and who signs it *today*?",
+        "at1_rep": "Federal Council — you said \"modest solvency backstop with a private acquirer\" but UBS is asking for a range *before* they commit. So here's the real question: will Cabinet authorize SNB to announce a concrete loss-absorption number — say, CHF 50–100 billion in solvency protection — *by 21:00 tonight*, even if UBS hasn't signed? Because if the answer is no, we can't stop the run, and creditors get wiped in resolution anyway. What's actually on the table?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "SNB, Federal Council — before we design around a UBS merger that may not close, I need clarity: is UBS in active negotiations with us *this weekend*, or are we hoping? Because if we're hoping, I need you to announce a liquidity backstop publicly today — my clients are running, and \"we're talking to a buyer\" doesn't stop that. What's the timeline on UBS actually committing?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO demands clarity on UBS timeline and public liquidity backstop.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Forces decision point on UBS commitment",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Existential uncertainty about bank survival",
+          "agent_id": "cs_ceo"
+        }
+      ],
+      "visibility": [
+        "finma",
+        "snb",
+        "federal_council",
+        "ubs_ceo"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I need a three-way legal memo from SNB, Finance Ministry, and ourselves by tonight — one page, clear statutory basis for whatever we do. No rescue package lands Monday without the Federal Council signed on. And we tell the market *today* that supervisors are actively coordinating; silence kills confidence faster than bad news.",
+        "snb": "Finance Ministry — what's the political outer bound on Federal Council willingness to backstop losses or guarantee Credit Suisse funding? I need a number by 20:00 so we're not designing liquidity support that hits a veto at 08:00 Monday. Liquidity we can do unilaterally; solvency support needs their sign-off, and I won't move our balance sheet into the wind without knowing that ceiling first.",
+        "federal_council": "SNB—you said \"modest solvency backstop with a private acquirer.\" Is UBS actually at the table right now, or are we designing a rescue for a buyer we haven't found yet? Because if it's the latter, I can't sell Cabinet on a number.",
+        "ubs_ceo": "Federal Council, I hear you on Cabinet consensus, but here's my reality: I won't recommend my board take on CS without knowing exactly what the public absorbs. Give me a range — even a rough one — on solvency losses you'd cover *today*, and I'll know by end of business whether UBS is a real option or we're wasting the weekend. Otherwise we're all just hoping.",
+        "wealth_client": "Here's what I need to tell my clients by EOD today: either Credit Suisse gets a hard public guarantee from SNB and the Federal Council — not \"we're talking to UBS,\" but \"your deposits are safe\" — or I'm moving $2B out Monday morning. What does that guarantee look like, and who signs it *today*?",
+        "at1_rep": "Federal Council — you said \"modest solvency backstop with a private acquirer\" but UBS is asking for a range *before* they commit. So here's the real question: will Cabinet authorize SNB to announce a concrete loss-absorption number — say, CHF 50–100 billion in solvency protection — *by 21:00 tonight*, even if UBS hasn't signed? Because if the answer is no, we can't stop the run, and creditors get wiped in resolution anyway. What's actually on the table?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "intent": "Here's what I need to tell my clients by EOD today: either Credit Suisse gets a hard public guarantee from SNB and the Federal Council — not \"we're talking to UBS,\" but \"your deposits are safe\" — or I'm moving $2B out Monday morning. What does that guarantee look like, and who signs it *today*?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client issues $2B withdrawal ultimatum demanding hard guarantee today.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": 5.0,
+          "reason": "Credible threat of major Monday withdrawal",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 4.0,
+          "reason": "EOD deadline forces immediate decision",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -3.0,
+          "reason": "Large client publicly doubts CS viability",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes ultimatum pressure",
+          "agent_id": "wealth_client"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I need a three-way legal memo from SNB, Finance Ministry, and ourselves by tonight — one page, clear statutory basis for whatever we do. No rescue package lands Monday without the Federal Council signed on. And we tell the market *today* that supervisors are actively coordinating; silence kills confidence faster than bad news.",
+        "snb": "Finance Ministry — what's the political outer bound on Federal Council willingness to backstop losses or guarantee Credit Suisse funding? I need a number by 20:00 so we're not designing liquidity support that hits a veto at 08:00 Monday. Liquidity we can do unilaterally; solvency support needs their sign-off, and I won't move our balance sheet into the wind without knowing that ceiling first.",
+        "federal_council": "SNB—you said \"modest solvency backstop with a private acquirer.\" Is UBS actually at the table right now, or are we designing a rescue for a buyer we haven't found yet? Because if it's the latter, I can't sell Cabinet on a number.",
+        "cs_ceo": "SNB, Federal Council — before we design around a UBS merger that may not close, I need clarity: is UBS in active negotiations with us *this weekend*, or are we hoping? Because if we're hoping, I need you to announce a liquidity backstop publicly today — my clients are running, and \"we're talking to a buyer\" doesn't stop that. What's the timeline on UBS actually committing?",
+        "ubs_ceo": "Federal Council, I hear you on Cabinet consensus, but here's my reality: I won't recommend my board take on CS without knowing exactly what the public absorbs. Give me a range — even a rough one — on solvency losses you'd cover *today*, and I'll know by end of business whether UBS is a real option or we're wasting the weekend. Otherwise we're all just hoping.",
+        "at1_rep": "Federal Council — you said \"modest solvency backstop with a private acquirer\" but UBS is asking for a range *before* they commit. So here's the real question: will Cabinet authorize SNB to announce a concrete loss-absorption number — say, CHF 50–100 billion in solvency protection — *by 21:00 tonight*, even if UBS hasn't signed? Because if the answer is no, we can't stop the run, and creditors get wiped in resolution anyway. What's actually on the table?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Federal Council: I need you to authorize SNB to announce a *conditional* loss-absorption commitment — say, CHF 50 billion solvency protection *if* a merger closes by Monday EOD. That's Cabinet's decision to make now, not at 08:00 when markets open. Without it, UBS walks and we're managing a disorderly failure. Can you get that authorization by 21:00?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA's request for Federal Council authorization is premature — Cabinet has already locked in CHF 30 billion, and the room is now debating loss hierarchy structure, not authorization timing. The real blockers are UBS's demand for a hard aggregate loss cap and AT1_rep's creditor hierarchy concerns, neither of which Federal Council can unilaterally resolve.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council — I need clarity on your process, not another range. Can your Cabinet authorize a binding loss ceiling *by 21:00 tonight*, or are we actually waiting until Monday morning? Because if it's Monday, UBS has no reason to stay at the table, and we're managing a failure, not a rescue.",
+        "federal_council": "Karin — CHF 30 billion is the number. Cabinet's locked it in. Is that enough for your board to commit to a merger agreement tonight, or do we need to have a different conversation about what happens Monday if you walk?",
+        "cs_ceo": "Look, CHF 30 billion works if we restructure the loss hierarchy—UBS takes the first tranche in full, public covers *only* losses above a fixed threshold, and we cap Federal Council's exposure with a hard floor on what UBS shareholders retain. That keeps 30B as the ceiling but gives UBS the certainty they need. Can we lock that structure *tonight* so UBS can tell their board the public commitment is binding, not conditional?",
+        "ubs_ceo": "I'll take the tiered structure to my board *if* it includes a hard cap on what UBS absorbs in aggregate — meaning CHF 30 billion public backstop, plus a ceiling on our first-tranche exposure, equals a *fixed* loss number we can live with. Otherwise it's just moving the risk around. What's the actual floor on UBS shareholder losses under this model?",
+        "wealth_client": "Federal Council, I hear the tiered structure, but my clients don't care about loss hierarchies — they care whether their deposits are safe. Tell me: under the CHF 30 billion public backstop, what's the *maximum* loss UBS absorbs before the public kicks in? Because if that number is CHF 5 billion or CHF 15 billion, I need to know it by 20:45 so I can tell my clients whether Credit Suisse is a hold or a move.",
+        "at1_rep": "Federal Council — before Cabinet signs off on CHF 30 billion, I need one binding statement: does the tiered loss structure *protect* AT1 instruments, or do creditors take haircuts ahead of shareholders? Because if AT1 is impaired to make the equity whole, this rescue is legally indefensible and we'll be litigating it for years. What's the creditor hierarchy you're committing to?"
+      },
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "intent": "I'm instructing SNB to publish a statement by 21:30 tonight: \"SNB and FINMA confirm Credit Suisse has access to liquidity support and is under active supervisory engagement. Deposits remain protected.\" No numbers, no merger details — just clarity that we're not asleep. Federal Council, do you need Cabinet approval for that language, or can SNB move independently under Article 9?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA directs SNB to issue a carefully worded confidence statement by 21:30. The language avoids specifics but signals active engagement — a modest stabilization signal in a market teetering on the edge of panic.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "Public statement from SNB/FINMA signals authorities are engaged and liquidity is available, providing modest reassurance to markets",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -3.0,
+          "reason": "Explicit confirmation of liquidity support and deposit protection slows immediate outflow panic",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "Evening statement buys breathing room before Asian markets open, reducing urgency slightly",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1.0,
+          "reason": "Public commitment to liquidity support creates implicit obligation, slightly constraining future options",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "intent": "SNB, Federal Council—UBS, you need to announce this merger *publicly* by 21:30 tonight with the full loss structure. My $2 billion is walking unless my clients see a signed deal and a Federal Council guarantee in the wire. A letter to UBS's board doesn't move deposits. The announcement does. Are we doing this or not?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal demands a public merger announcement by 21:30 with full loss structure disclosure, but no consensus exists on the final terms. UBS requires written loss-ceiling guarantees, AT1 holders demand creditor hierarchy clarity, and Federal Council has not committed the binding language both parties need. The announcement cannot proceed until these foundational elements are locked.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I'm instructing SNB to publish a statement by 21:30 tonight: \"SNB and FINMA confirm Credit Suisse has access to liquidity support and is under active supervisory engagement. Deposits remain protected.\" No numbers, no merger details — just clarity that we're not asleep. Federal Council, do you need Cabinet approval for that language, or can SNB move independently under Article 9?",
+        "snb": "Federal Council — SNB's liquidity facility is live. But UBS won't sign without knowing their aggregate loss ceiling under the tiered structure. You have CHF 30 billion. Can you commit *right now* to a specific formula — say, UBS absorbs losses up to CHF X, public covers everything above that up to CHF 30 billion — so Karin can tell her board the number is binding and final, not subject to Monday renegotiation?",
+        "federal_council": "SNB — you've got the liquidity facility live and the legal cover. But the market doesn't know UBS is actually closing this deal or what the loss split is. When are you announcing the merger and the CHF 30 billion structure publicly, and to whom — just banks, or do you go to the wire tonight?",
+        "cs_ceo": "Federal Council, SNB — the CHF 30 billion structure is locked, but my clients don't care about Cabinet consensus if they don't *know* we have a buyer. UBS, are you announcing the merger *tonight* or not? Because if we go dark until Monday morning, I lose another CHF 5–10 billion in deposits over the weekend, and the loss split doesn't matter if there's no bank left to acquire.",
+        "ubs_ceo": "Federal Council, the CHF 16 / 30 split works—but I need one written line tonight: if UBS closes by 22:00, that loss ceiling is *final and non-reopenable* Monday or after, and UBS shareholders absorb no losses beyond CHF 16 billion even if Credit Suisse's true losses exceed 30. Can you bind that in a one-page letter my board sees before they vote?",
+        "at1_rep": "Federal Council, before anyone announces this deal, I need a one-liner in that letter to UBS: *AT1 instruments absorb losses in their contractual order, after equity and before senior debt.* If the CHF 16 billion UBS absorbs includes haircuts to AT1, this rescue is legally indefensible — creditors sue, you lose, and market confidence tanks anyway. What's the creditor hierarchy in the tiered structure, binding and final?"
+      },
+      "_denied_effects_stripped": 7
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "intent": "Federal Council, the moment that letter is signed and in UBS legal's hands, I need *one phone call* confirming it says \"irrevocable\" and \"non-reopenable post-closing\"—not a summary, the actual words. You get me that confirmation by 21:20, I'm staying and my clients know the deal is real. You don't, I'm out $2 billion tonight, and you're managing a run, not a rescue.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The client's ultimatum crystallizes the stakes: without immediate, specific legal confirmation of irrevocability, $2 billion walks tonight and the confidence floor collapses entirely. The demand is operationally feasible but exposes the room to a binding commitment under extreme time pressure.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 5.0,
+          "reason": "Hard 21:20 deadline creates immovable gate; any delay now triggers immediate $2B outflow",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -5.0,
+          "reason": "Committing to 'irrevocable' and 'non-reopenable' language under client pressure constrains future legal flexibility",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 3.0,
+          "reason": "IF confirmation delivered by deadline, signals binding deal structure to major client base",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -2.0,
+          "reason": "Conditional stabilization: $2B retention prevents immediate liquidity collapse if deadline met",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Ultimatum with specific wording requirements and hard time gate",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Legal team now racing against 21:20 deadline with zero margin for error",
+          "agent_id": "ubs_ceo",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "client_ultimatum_gate",
+        "description": "Wealth client's $2B retention conditional on 21:20 legal confirmation of irrevocability language",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.85,
+        "prep_duration": 1,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "time_pressure",
+            "delta": 3,
+            "description": "Countdown to 21:20 deadline intensifies pressure on Federal Council and UBS legal"
+          }
+        ],
+        "failure_condition": {
+          "description": "If confirmation not delivered by end of prep_duration (next round = 21:20 deadline)",
+          "effects": [
+            {
+              "variable": "cs_funding_stress",
+              "delta": 10,
+              "reason": "$2B client withdrawal triggers immediate liquidity crisis"
+            },
+            {
+              "variable": "market_confidence",
+              "delta": -8,
+              "reason": "High-profile client exit signals deal collapse to broader market"
+            }
+          ]
+        }
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "intent": "SNB, Federal Council — the confidence statement is out, but it doesn't move the needle without the merger announcement. UBS and CS need to go public *tonight* with the deal and the CHF 16/30 split. That's what stops the $2 billion walk and the weekend run. Can you both confirm you're announcing by 21:30, or do we need to unwind this?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The Federal Council confirms the letter will include 'irrevocable' and 'binding post-closing' language on the CHF 16 billion cap, delivery by 21:15. All parties commit to synchronized 21:30 announcement contingent on legal verification. The deal structure is locked.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 4.0,
+          "reason": "Binding commitment to loss-ceiling terms creates credible deal structure, but announcement still pending",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 3.0,
+          "reason": "Confirmation of irrevocable terms reduces immediate uncertainty among key stakeholders",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 2.0,
+          "reason": "Explicit 'irrevocable' and 'binding post-closing' language strengthens legal framework",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Coordinated 21:30 timeline with verified pre-conditions reduces execution risk before weekend",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -2.0,
+          "reason": "Wealth client's conditional commitment to stay ($2B) contingent on letter verification reduces immediate outflow risk",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Alignment on concrete terms and timeline reduces uncertainty for all parties",
+          "agent_id": "federal_council"
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clear path to announcement with verified legal protections",
+          "agent_id": "ubs_ceo"
+        },
+        {
+          "variable": "stress",
+          "delta": -1.0,
+          "reason": "Confirmation of irrevocable terms addresses core concern",
+          "agent_id": "wealth_client",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "merger_announcement_execution",
+        "description": "Federal Council delivers irrevocable loss-ceiling letter by 21:15, legal verification, synchronized UBS-CS-SNB merger announcement at 21:30",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.3,
+        "prep_duration": 1,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "rescue_strength",
+            "delta": 5,
+            "description": "Letter delivery and legal verification in progress"
+          },
+          {
+            "variable": "market_confidence",
+            "delta": 4,
+            "description": "Stakeholder alignment on irrevocable terms spreading through networks"
+          },
+          {
+            "variable": "time_pressure",
+            "delta": -4,
+            "description": "Execution timeline on track for weekend containment"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council — I hear you on the CHF 16/30 split, but my board and legal counsel need the actual signed letter *right now*, not a handshake. Can you confirm Cabinet has authorized your Finance Minister to execute that loss-ceiling commitment in writing tonight, and will UBS and CS have it in hand before the 21:30 announcement?",
+        "federal_council": "SNB—the letter's coming by 21:15. The moment it lands, do you and UBS announce the merger *together* at 21:30, or are we waiting for something else? Because if there's any hesitation, I need to know now so we can unblock it.",
+        "cs_ceo": "Karin, the letter's coming by 21:15 with the CHF 16 billion cap in writing. The second your legal team confirms they have it, you're announcing the merger at 21:30 — correct? Because my clients are hemorrhaging deposits and a 30-minute gap between the letter and the announcement is thirty minutes too long.",
+        "ubs_ceo": "One thing before we announce: does that letter say the CHF 16 billion cap is final *after* we close, or is it conditional on some Monday follow-up? Because my board won't sign if the public can come back and say \"actually, we're revisiting the split.\" I need the word \"irrevocable\" or \"binding post-closing\" in there, or we don't have a deal.",
+        "wealth_client": "Federal Council, the moment that letter is signed and in UBS legal's hands, I need *one phone call* confirming it says \"irrevocable\" and \"non-reopenable post-closing\"—not a summary, the actual words. You get me that confirmation by 21:20, I'm staying and my clients know the deal is real. You don't, I'm out $2 billion tonight, and you're managing a run, not a rescue.",
+        "at1_rep": "Finance Minister — before that letter goes to signature, I need you to confirm it uses the word \"irrevocable\" or \"binding post-closing\" on the CHF 16 billion cap. If UBS legal sees ambiguity at 21:15, they'll kill the 21:30 announcement, and we lose the weekend. What's the exact language you're committing to in writing?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 22.2
+        },
+        {
+          "round": 3,
+          "value": 21.3
+        },
+        {
+          "round": 4,
+          "value": 24.8
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 77.0
+        },
+        {
+          "round": 2,
+          "value": 85.05
+        },
+        {
+          "round": 3,
+          "value": 90.1
+        },
+        {
+          "round": 4,
+          "value": 94.14999999999999
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 0
+        },
+        {
+          "round": 3,
+          "value": 0
+        },
+        {
+          "round": 4,
+          "value": 4.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 0
+        },
+        {
+          "round": 3,
+          "value": 0
+        },
+        {
+          "round": 4,
+          "value": 1
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 64.0
+        },
+        {
+          "round": 2,
+          "value": 64.0
+        },
+        {
+          "round": 3,
+          "value": 63.0
+        },
+        {
+          "round": 4,
+          "value": 60.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 64.0
+        },
+        {
+          "round": 2,
+          "value": 69.0
+        },
+        {
+          "round": 3,
+          "value": 72.0
+        },
+        {
+          "round": 4,
+          "value": 79.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.0,
+            "normalised": 0.6
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 24.8,
+            "normalised": 0.248
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 79.0,
+            "normalised": 0.20999999999999996
+          }
+        ],
+        "weighted_score": 0.40022222222222226
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 94.14999999999999,
+            "normalised": 0.05850000000000011
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 1,
+            "normalised": 0.99
+          }
+        ],
+        "weighted_score": 0.369
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 1,
+            "normalised": 0.99
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 24.8,
+            "normalised": 0.248
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 4.0,
+            "normalised": 0.96
+          }
+        ],
+        "weighted_score": 0.7969999999999999
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 24.8,
+            "normalised": 0.248
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 4.0,
+            "normalised": 0.04
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 20,
+            "normalised": 0.8
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 94.14999999999999,
+            "normalised": 0.05850000000000011
+          }
+        ],
+        "weighted_score": 0.23908333333333343
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 1,
+            "normalised": 0.01
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 4.0,
+            "normalised": 0.04
+          }
+        ],
+        "weighted_score": 0.019999999999999997
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 24.8,
+            "normalised": 0.248
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 94.14999999999999,
+            "normalised": 0.05850000000000011
+          }
+        ],
+        "weighted_score": 0.21010000000000004
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 20,
+            "normalised": 0.8
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 60.0,
+            "normalised": 0.6
+          }
+        ],
+        "weighted_score": 0.7333333333333333
+      }
+    }
+  }
+}

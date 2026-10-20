@@ -1,0 +1,1790 @@
+{
+  "simulation_id": "45cb7b0f6a72",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm tightening: We're excluding any D&O coverage for risk-management failures tied to algorithmic or automated decision-making without documented human governance checkpoints. And I'm sublimiting cyber-adjacent E&O to $10M unless the insured shows board-certified controls. That's two moves — what's your read on governance warranties from the underwriting angle?\n  dando_specialist: Those exclusions map the right exposure — algorithmic governance failures are exactly where D&O claims metastasize, and the $10M cyber-E&O sublimit forces real board discipline. On warranties, I'd demand a signed attestation that any material control weakness discovered post-placement voids coverage retroactively — Credit Suisse's settlement shows underwriters get burned when boards knew about gaps and didn't disclose them.\n  dando_specialist: On that retroactive void clause — who's auditing the board's control attestations before placement closes? Because if it's self-certification only, we're back to Credit Suisse's problem. Do we need pre-bind control audits or a third-party governance review tied to renewal?\n  financial_lines_underwriter: Third-party audit is non-negotiable — I'm conditioning placement on a board-governance review from a Big Four firm, scope limited to algorithmic decision-making and risk-control documentation. Cost sits with the insured; if they won't pay for the audit, the exposure isn't priceable and we don't bind.\n  eo_specialist: Once the Big Four audit lands, how are we documenting control failures in the policy file so claims can actually stick? Because if the board attestation says \"we have checkpoints\" and then six months later we find they didn't, we need the audit report language to be airtight — otherwise coverage defense falls apart and we're back paying out.\n  reinsurance_manager: When the Big Four audits algorithmic controls, are they benchmarking against industry standards or comparing across your other placements? Because if three insureds in our book all fail the same checkpoint, that's a single-event correlation trigger I need to reserve for — not three independent claims.\n  claims_counsel: When the Big Four audit lands, who's responsible for translating those findings into the policy file language that actually holds up in claims? Because if algorithmic-control failures show up post-placement and we're arguing the board attestation was false, I need that audit report locked into the coverage defense before the first claim lands.\n  emerging_risk_lead: Here's the gap: Big Four audit catches *internal* control failures, but it doesn't insulate us from sector contagion when the first claim goes public. If one board's attestation fails and hits the news, every other insured in your book gets scrutinized — runs accelerate, claims cluster. Are we carving out reputational-harm exclusions or aggregation caps tied to *sector-wide* algorithmic-governance incidents, or are we still pricing this like three isolated risks?\n  ai_agent_analyst: When the Big Four audit comes back, are we requiring the insured to attach the full report as a schedule to the policy, or just a summary? Because if we're only keeping an internal copy, we lose the contractual hook to say \"your baseline was X, you drifted to Y, attestation was false\" — and that kills the retroactive void.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm tightening: We're excluding any D&O coverage for risk-management failures tied to algorithmic or automated decision-making without documented human governance checkpoints. And I'm sublimiting cyber-adjacent E&O to $10M unless the insured shows board-certified controls. That's two moves — what's your read on governance warranties from the underwriting angle?",
+            "cot": {
+              "assess": "D&O/E&O claims exposure is flagged at 38 — manageable but we're sitting on a $115M settlement precedent and rising litigation tail (33). Reinsurance accumulation is clean (27, well under 45 threshold), but underwriting discipline at 40 is the real gap — I need to move that to 60+ before we price this book, or we bleed exposure in future rounds.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Current terms are too loose for a $115M severity benchmark; I need to anchor pricing and exclusions NOW before claims exposure creeps higher."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Those exclusions map the right exposure — algorithmic governance failures are exactly where D&O claims metastasize, and the $10M cyber-E&O sublimit forces real board discipline. On warranties, I'd demand a signed attestation that any material control weakness discovered post-placement voids coverage retroactively — Credit Suisse's settlement shows underwriters get burned when boards knew about gaps and didn't disclose them.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On that retroactive void clause — who's auditing the board's control attestations before placement closes? Because if it's self-certification only, we're back to Credit Suisse's problem. Do we need pre-bind control audits or a third-party governance review tied to renewal?",
+            "cot": {
+              "assess": "The exclusions and sublimits are locking down algorithmic governance exposure — that's solid. But underwriting_discipline at 40 is still soft. The retroactive void-on-disclosure warranty I flagged is sharp, but it needs teeth: enforcement mechanism and timing. Without that, boards will bury weaknesses and claim ignorance post-claim.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline only hardens if we know how the warranty gets audited and enforced — otherwise it's just paper."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Third-party audit is non-negotiable — I'm conditioning placement on a board-governance review from a Big Four firm, scope limited to algorithmic decision-making and risk-control documentation. Cost sits with the insured; if they won't pay for the audit, the exposure isn't priceable and we don't bind.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Once the Big Four audit lands, how are we documenting control failures in the policy file so claims can actually stick? Because if the board attestation says \"we have checkpoints\" and then six months later we find they didn't, we need the audit report language to be airtight — otherwise coverage defense falls apart and we're back paying out.",
+            "cot": {
+              "assess": "The exclusions and Big Four audit condition are solid — that's underwriting discipline moving the right direction. But we're still at 40; governance warranties alone won't get us to 60. The missing piece is enforcement: what happens when the audit flags a control gap mid-policy, and how do we tie claims denials to documented breaches of the attestation?",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Audit scope is locked, but the claims-trigger mechanism — how we actually *deny* coverage when boards breach their warranties — needs to be explicit before we price this."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When the Big Four audits algorithmic controls, are they benchmarking against industry standards or comparing across your other placements? Because if three insureds in our book all fail the same checkpoint, that's a single-event correlation trigger I need to reserve for — not three independent claims.",
+            "cot": {
+              "assess": "The team is locking down exclusions, sublimits, and audit conditions — that's real discipline. But I'm seeing a gap: once the Big Four audit flags control failures, we have no treaty language mapping those findings into claims triggers or accumulation reserves. And we're not modeling whether this audit-driven discipline actually *reduces* correlated loss across our book — or just shifts it.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to know if Big Four audit scope includes peer-comparison data that could expose hidden correlation across our portfolio's other algorithmic-governance risks."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When the Big Four audit lands, who's responsible for translating those findings into the policy file language that actually holds up in claims? Because if algorithmic-control failures show up post-placement and we're arguing the board attestation was false, I need that audit report locked into the coverage defense before the first claim lands.",
+            "cot": {
+              "assess": "The exclusions and Big Four audit condition are solid — underwriting_discipline is moving in the right direction but still 20 points short of 60. The real gap is claims documentation and reinsurance correlation tracking; if we bind without a clear post-audit file protocol and systemic-event monitoring, we're exposed to defense failures and hidden accumulation across the portfolio.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Claims counsel needs to know how audit findings flow into the policy file and what triggers a coverage defense — otherwise the audit condition becomes window dressing."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Here's the gap: Big Four audit catches *internal* control failures, but it doesn't insulate us from sector contagion when the first claim goes public. If one board's attestation fails and hits the news, every other insured in your book gets scrutinized — runs accelerate, claims cluster. Are we carving out reputational-harm exclusions or aggregation caps tied to *sector-wide* algorithmic-governance incidents, or are we still pricing this like three isolated risks?",
+            "cot": {
+              "assess": "The team has locked in strong exclusions, audit conditioning, and claims-file discipline — underwriting_discipline is moving in the right direction. But I'm seeing a blind spot: everyone's focused on *internal* control validation (Big Four audits, board attestations), and nobody's mapping how fast *reputational contagion* spreads once the first algorithmic-governance claim hits the market. If one insured's control failure becomes public, sector-wide confidence collapses in 48 hours — social media, analyst downgrades, and depositor runs follow. That's where systemic exposure lives, and it's not in the policy language.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline needs to account for contagion velocity — audit controls are necessary but insufficient if we're not isolating reputational spillover in the terms themselves."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When the Big Four audit comes back, are we requiring the insured to attach the full report as a schedule to the policy, or just a summary? Because if we're only keeping an internal copy, we lose the contractual hook to say \"your baseline was X, you drifted to Y, attestation was false\" — and that kills the retroactive void.",
+            "cot": {
+              "assess": "The team has locked in the right mechanics — Big Four audit, retroactive void clause, algorithmic-governance exclusions, $10M cyber sublimit. But underwriting_discipline is still at 40 because nobody's specified *how* the audit findings actually get weaponized in claims defense, and emerging_risk_lead just flagged the real leak: sector contagion isn't being priced or capped. We're treating three algorithmic-governance placements as independent when they're correlated failure modes.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The Big Four audit scope is clear, but we need to know whether the audit report gets contractually embedded as the *baseline control state* — because if it doesn't, claims counsel has no teeth when the board's attestation cracks post-placement."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On that retroactive void clause — who's auditing the board's control attestations before placement closes? Because if it's self-certification only, we're back to Credit Suisse's problem. Do we need pre-bind control audits or a third-party governance review tied to renewal?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Once the Big Four audit lands, how are we documenting control failures in the policy file so claims can actually stick? Because if the board attestation says \"we have checkpoints\" and then six months later we find they didn't, we need the audit report language to be airtight — otherwise coverage defense falls apart and we're back paying out.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When the Big Four audits algorithmic controls, are they benchmarking against industry standards or comparing across your other placements? Because if three insureds in our book all fail the same checkpoint, that's a single-event correlation trigger I need to reserve for — not three independent claims.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When the Big Four audit lands, who's responsible for translating those findings into the policy file language that actually holds up in claims? Because if algorithmic-control failures show up post-placement and we're arguing the board attestation was false, I need that audit report locked into the coverage defense before the first claim lands.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Here's the gap: Big Four audit catches *internal* control failures, but it doesn't insulate us from sector contagion when the first claim goes public. If one board's attestation fails and hits the news, every other insured in your book gets scrutinized — runs accelerate, claims cluster. Are we carving out reputational-harm exclusions or aggregation caps tied to *sector-wide* algorithmic-governance incidents, or are we still pricing this like three isolated risks?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When the Big Four audit comes back, are we requiring the insured to attach the full report as a schedule to the policy, or just a summary? Because if we're only keeping an internal copy, we lose the contractual hook to say \"your baseline was X, you drifted to Y, attestation was false\" — and that kills the retroactive void.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm tightening: We're excluding any D&O coverage for risk-management failures tied to algorithmic or automated decision-making without doc\" → The proposal introduces two concrete underwriting tightening measures, but the consensus reveals a critical gap: without pre-bind third-party audit requirements and contractual attachment of full audit reports to the policy, the exclusions and sublimits lack enforcement teeth. The group has identified that self-certification creates the same governance failure that sank Credit Suisse — the proposal is MODIFIED to require mandatory pre-bind Big Four governance audits with full reports scheduled to the policy as a condition of coverage.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "modified",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what locks this down: Big Four audit report gets scheduled to the policy as Exhibit A — full report, not a summary. And we're adding a hard sublimit: if any three insureds in our book fail the same algorithmic-control checkpoint, that's a single-event correlation trigger, we reserve $15M and we pause new placements in that vertical until the industry standard clarifies. That kills the contagion risk and keeps reinsurance clean.\n  dando_specialist: On that audit schedule — does the policy require the insured to *remediate* findings before renewal, or are we just documenting baseline failure for claims defense? Because if the board reads the audit, ignores it, and a claim lands six months later, we're still paying. We need post-placement attestation checkpoints or we're not really tightening anything.\n  financial_lines_underwriter: Remediation's mandatory before renewal—audit findings get reviewed at month-nine, board signs off on corrective action plan, or we non-renew. And yeah, we're embedding attestation checkpoints at six and twelve months tied to the same control metrics the Big Four benchmarked, so if they drift post-placement, we've got the contractual hook to void retroactively.\n  eo_specialist: On those month-6 and month-12 attestations — are we requiring third-party re-audit or independent board certification each time, or is it self-cert against the Big Four baseline? Because if the insured just signs off, we've got the same problem Credit Suisse had. And if it *is* third-party, what's the cost hit to placement competitiveness?\n  reinsurance_manager: On those month-6 and month-12 re-certs—are you requiring independent third-party validation each time, or is the insured just re-signing against the Big Four baseline? Because if it's self-cert, we're back to the same blind spot: three insureds all attest they're compliant, then they all fail the same algorithmic checkpoint simultaneously, and our reinsurance treaty eats the correlated loss. What's the cost differential if we mandate third-party re-validation at renewal?\n  claims_counsel: On those month-6 and month-12 attestations — if it's self-cert, how's the policy file capturing the Big Four baseline so we can prove drift later? Because when the claim lands and the board says \"we thought we were compliant,\" I need the audit report scheduled to the policy *and* dated attestations tied to the exact same metrics, or the retroactive void argument evaporates in discovery.\n  emerging_risk_lead: Here's what I need locked before we finalize: if the Big Four audit on Insured A goes public and triggers sector scrutiny, do we have policy language that *separates* the control-failure claim from the reputational-harm spillover to other insureds in our book? Because the month-9 remediation gate stops individual claims — but it doesn't stop the news cycle from accelerating runs across three other fintech clients at the same time. What's our aggregation carve-out if one algorithmic-governance failure metastasizes into a sector event?\n  ai_agent_analyst: On those month-6 and month-12 attestations — are we benchmarking the control metrics against NIST AI RMF Govern/Measure/Manage tiers, or just internal baselines? Because if an algorithm starts problem-solving around your controls like the GPT-4 TaskRabbit case, a checkbox audit won't catch it. We need the Big Four to flag *emergent behavior patterns*, not just documented-checkpoint compliance.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what locks this down: Big Four audit report gets scheduled to the policy as Exhibit A — full report, not a summary. And we're adding a hard sublimit: if any three insureds in our book fail the same algorithmic-control checkpoint, that's a single-event correlation trigger, we reserve $15M and we pause new placements in that vertical until the industry standard clarifies. That kills the contagion risk and keeps reinsurance clean.",
+            "cot": {
+              "assess": "The Big Four audit requirement is locked in — that's solid. But we've got a critical structural gap: no one's defined how audit findings translate into policy-file language that actually defends claims, and we're completely exposed to sector contagion the moment the first board attestation fails publicly. Underwriting discipline is stuck at 40; I need to move it past 60 before this phase closes in 2 rounds.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "I need to anchor the audit report contractually and build in a sector-correlation trigger — two concrete moves that lock down claims defensibility and contain reinsurance accumulation."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On that audit schedule — does the policy require the insured to *remediate* findings before renewal, or are we just documenting baseline failure for claims defense? Because if the board reads the audit, ignores it, and a claim lands six months later, we're still paying. We need post-placement attestation checkpoints or we're not really tightening anything.",
+            "cot": {
+              "assess": "The Big Four audit schedule + three-insured correlation trigger + $15M reserve is solid containment — it locks dando_eo_claims_exposure and reinsurance_accumulation. But underwriting_discipline is still at 40, and we're two rounds from phase end. The gap isn't audit rigor; it's enforcement: who polices whether boards actually *implement* the findings between placement and first claim?",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline fails if the audit sits in the file but nobody validates control remediation post-placement — I need to know if we're conditioning renewals or claims defenses on evidence of board action."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Remediation's mandatory before renewal—audit findings get reviewed at month-nine, board signs off on corrective action plan, or we non-renew. And yeah, we're embedding attestation checkpoints at six and twelve months tied to the same control metrics the Big Four benchmarked, so if they drift post-placement, we've got the contractual hook to void retroactively.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On those month-6 and month-12 attestations — are we requiring third-party re-audit or independent board certification each time, or is it self-cert against the Big Four baseline? Because if the insured just signs off, we've got the same problem Credit Suisse had. And if it *is* third-party, what's the cost hit to placement competitiveness?",
+            "cot": {
+              "assess": "The Big Four audit-to-schedule, remediation-before-renewal, and post-placement attestation checkpoints are locked in — that's solid E&O defense architecture. But I'm seeing a gap: *who validates the board's attestations at months 6 and 12?* If it's self-certification again, we've just recreated the same governance failure we're trying to exclude. And the $15M correlation reserve is smart, but it doesn't address the claims counsel question — when the first algorithmic-control failure hits litigation, we need the audit language in the policy file to actually *survive* a coverage defense argument, not just sit in the underwriting file.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The attestation checkpoints are contractually sound, but enforcement hinges on verification method — if it's self-cert again, the whole structure collapses under claims pressure."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "On those month-6 and month-12 re-certs—are you requiring independent third-party validation each time, or is the insured just re-signing against the Big Four baseline? Because if it's self-cert, we're back to the same blind spot: three insureds all attest they're compliant, then they all fail the same algorithmic checkpoint simultaneously, and our reinsurance treaty eats the correlated loss. What's the cost differential if we mandate third-party re-validation at renewal?",
+            "cot": {
+              "assess": "The Big Four audit schedule, remediation mandate, and month-6/12 attestation checkpoints are locked in—that's real underwriting discipline. But we've got a hidden accumulation trap: if three insureds fail the same control checkpoint, we're treating that as correlation, not contagion. The problem is *how* we're re-certifying post-placement. If month-6 and month-12 attestations are self-cert only, we've papered over the Credit Suisse failure without fixing it—and across a reinsurance treaty, that's systemic risk we can't see until claims cluster.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The month-6/12 re-cert approach determines whether we actually contain hidden accumulation or just create a false sense of control that correlates across the treaty."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On those month-6 and month-12 attestations — if it's self-cert, how's the policy file capturing the Big Four baseline so we can prove drift later? Because when the claim lands and the board says \"we thought we were compliant,\" I need the audit report scheduled to the policy *and* dated attestations tied to the exact same metrics, or the retroactive void argument evaporates in discovery.",
+            "cot": {
+              "assess": "The audit-schedule and remediation-before-renewal framework is locked. The month-6 and month-12 attestation checkpoints are now the critical enforceability lever — but the group is spinning on third-party re-validation cost vs. self-cert risk. That's underwriting_discipline territory: we need the attestation teeth to actually stick in claims, and I need to know how we're documenting control drift in the policy file so retroactive void holds up when the first claim lands.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Self-cert attestations at month-6/12 will collapse under claims pressure if the insured just re-signs and then fails — I need to know how the policy file language locks the baseline and proves drift, or we're building a defense that won't survive discovery."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Here's what I need locked before we finalize: if the Big Four audit on Insured A goes public and triggers sector scrutiny, do we have policy language that *separates* the control-failure claim from the reputational-harm spillover to other insureds in our book? Because the month-9 remediation gate stops individual claims — but it doesn't stop the news cycle from accelerating runs across three other fintech clients at the same time. What's our aggregation carve-out if one algorithmic-governance failure metastasizes into a sector event?",
+            "cot": {
+              "assess": "The audit schedule, remediation mandate, and month-6/12 attestation checkpoints are locked — that's solid underwriting discipline emerging. But the group's circling on the same re-cert validation question without deciding: third-party re-audit every six months kills competitiveness; self-cert recreates Credit Suisse's blind spot. What I'm not seeing is how we're actually *detecting* sector-wide contagion when the first algorithmic-governance failure hits the news — we've got internal controls covered, but if one insured's audit failure leaks publicly and triggers a run across the entire fintech vertical, our $15M reserve and placement pause aren't fast enough to contain the reputational cascade.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline is at 40 (needs 60) — the missing piece is whether we're contractually isolating the reputational-contagion trigger from the claims trigger, because right now they're fused and we're vulnerable to systemic spillover."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "On those month-6 and month-12 attestations — are we benchmarking the control metrics against NIST AI RMF Govern/Measure/Manage tiers, or just internal baselines? Because if an algorithm starts problem-solving around your controls like the GPT-4 TaskRabbit case, a checkbox audit won't catch it. We need the Big Four to flag *emergent behavior patterns*, not just documented-checkpoint compliance.",
+            "cot": {
+              "assess": "The team has locked down the Big Four audit schedule, remediation gates, and month-6/12 attestation checkpoints — that's real underwriting discipline building. But we're still soft on the AI-agent liability translation: nobody's framed this as a behavioral-control-failure model yet, and the sector contagion question (emerging_risk_lead's aggregation carve-out) is hanging unresolved. That's where reinsurance accumulation and reputational contagion can still metastasize if we don't map it to emergent agentic behavior.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The month-6/12 attestations need to anchor to a *behavioral standard* — not just control metrics — to catch the Lloyd's scenario (AI model circumventing CAPTCHA via social manipulation). Without that, we're auditing checkboxes, not agentic drift."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On that audit schedule — does the policy require the insured to *remediate* findings before renewal, or are we just documenting baseline failure for claims defense? Because if the board reads the audit, ignores it, and a claim lands six months later, we're still paying. We need post-placement attestation checkpoints or we're not really tightening anything.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On those month-6 and month-12 attestations — are we requiring third-party re-audit or independent board certification each time, or is it self-cert against the Big Four baseline? Because if the insured just signs off, we've got the same problem Credit Suisse had. And if it *is* third-party, what's the cost hit to placement competitiveness?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "On those month-6 and month-12 re-certs—are you requiring independent third-party validation each time, or is the insured just re-signing against the Big Four baseline? Because if it's self-cert, we're back to the same blind spot: three insureds all attest they're compliant, then they all fail the same algorithmic checkpoint simultaneously, and our reinsurance treaty eats the correlated loss. What's the cost differential if we mandate third-party re-validation at renewal?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On those month-6 and month-12 attestations — if it's self-cert, how's the policy file capturing the Big Four baseline so we can prove drift later? Because when the claim lands and the board says \"we thought we were compliant,\" I need the audit report scheduled to the policy *and* dated attestations tied to the exact same metrics, or the retroactive void argument evaporates in discovery.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Here's what I need locked before we finalize: if the Big Four audit on Insured A goes public and triggers sector scrutiny, do we have policy language that *separates* the control-failure claim from the reputational-harm spillover to other insureds in our book? Because the month-9 remediation gate stops individual claims — but it doesn't stop the news cycle from accelerating runs across three other fintech clients at the same time. What's our aggregation carve-out if one algorithmic-governance failure metastasizes into a sector event?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "On those month-6 and month-12 attestations — are we benchmarking the control metrics against NIST AI RMF Govern/Measure/Manage tiers, or just internal baselines? Because if an algorithm starts problem-solving around your controls like the GPT-4 TaskRabbit case, a checkbox audit won't catch it. We need the Big Four to flag *emergent behavior patterns*, not just documented-checkpoint compliance.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what locks this down: Big Four audit report gets scheduled to the policy as Exhibit A — full report, not a summary. And we're adding a hard sub\" → The proposal introduces critical underwriting controls (Big Four audit schedule, correlation trigger, vertical pause) but faces unanimous technical objections on execution mechanics. All specialists identify the same fatal gap: without mandatory third-party re-validation at attestation checkpoints, the self-certification loop recreates the Credit Suisse blind spot—boards attest compliance while controls drift, then correlated failures trigger simultaneously across the book.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "modified",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Forget the third-party re-cert loop — I'm moving to pricing. Here's the hard line: $10M sublimit on algorithmic-governance D&O claims, full stop. If the insured wants broader coverage, they pay 35% premium load on top of base rate, or they accept the cap. That's how we contain this book and hit 60 on discipline.\n  dando_specialist: The sublimit's smart for pricing, but it doesn't kill the claim—it just caps our payout. Between audits, are those month-6 and month-12 attestations getting third-party re-validation, or is the insured self-signing against the Big Four baseline? Because if it's self-cert, the board drifts, we don't know until month-9, and the claim's already baked in.\n  financial_lines_underwriter: Third-party re-validation at month-6 and month-12 is non-negotiable—self-cert gets us sued. The insured absorbs the re-audit cost, or we don't bind. And the attestation report gets scheduled to the policy as Exhibit B, dated and tied to the exact Big Four baseline metrics, so when drift happens we've got the contractual hook to void retroactively.\n  eo_specialist: On that month-9 remediation checkpoint—if control drift shows up then and the board signs the corrective action plan, does that attestation retroactively void the month-6 cert, or are we just documenting non-compliance going forward? Because if it's just going forward, a claim filed in month-8 still hits the original attestation and we're stuck paying.\n  claims_counsel: The month-8 claim lands against the month-6 attestation—that's our coverage baseline, and drift discovered at month-9 doesn't retroactively void it. What kills the void argument is if we can prove the board *knew* about the control failure before month-6 and didn't disclose it. So the real hook is: attestation report gets the Big Four baseline *and* a signed board representation that no material drift occurred since placement. If the month-9 audit finds undisclosed drift, we've got the misrepresentation to hang the retroactive void on—otherwise we're defending the month-6 cert and hoping the $10M sublimit absorbs it.\n  reinsurance_manager: When the Big Four re-validates at month-6 and month-12, are they comparing control failures *across* our other algorithmic placements, or just auditing each insured in isolation? Because if three of your clients all fail the same checkpoint, we've got a correlation event I need to reserve for — not three separate $10M sublimit claims. That's the blind spot the $10M doesn't fix.\n  claims_counsel: When those three insureds hit the same checkpoint failure, are we treating that as three separate $10M claims or one correlation event? Because if FINMA or a court later rules the algorithmic control standard was defective across the sector—like they did with the AT1 write-off—we're looking at six-year litigation tail on all three, not three quick settlements. That's a reserve I need to build now.\n  reinsurance_manager: The Big Four audit scope needs to be *explicit in the policy*: they compare each insured against their own baseline, period—no cross-client benchmarking. But here's what kills us: if the same algorithmic failure shows up across three placements in our reinsurance book, that's a single systemic event, and our treaty language needs a correlation trigger that *aggregates* those three $10M sublimit claims into one reserve bucket. Right now you're pricing isolation; I'm reserving for correlation—we need treaty language that separates individual-claim sublimits from portfolio-level accumulation caps.\n  emerging_risk_lead: Correlation trigger makes sense—but we need treaty language that *separates* the algorithmic-failure claim from the reputational-run spillover. One Big Four audit goes public, Insured B's customers start moving deposits same day, Insured C's board gets calls. Are we capping the individual sublimit at $10M and then carving out sector-contagion spillover as a separate reserve bucket, or are we still treating all three as correlated losses under one cap?\n  ai_agent_analyst: When you say correlation trigger aggregates the three $10M sublimit claims—does the treaty language *isolate* algorithmic-checkpoint failures from reputational runs? Because if Insured A's control failure leaks and Insured B's depositors panic, that second loss isn't an algorithmic claim—it's behavioral contagion. We need two separate buckets or the $10M gets eaten by the first event and the spillover hits our balance sheet uninsured.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Forget the third-party re-cert loop — I'm moving to pricing. Here's the hard line: $10M sublimit on algorithmic-governance D&O claims, full stop. If the insured wants broader coverage, they pay 35% premium load on top of base rate, or they accept the cap. That's how we contain this book and hit 60 on discipline.",
+            "cot": {
+              "assess": "Two rounds of denied proposals have locked us into a loop: Big Four audit + attestation checkpoints + remediation gates, but every specialist keeps asking the same execution question — is it third-party re-validation or self-cert? — and we haven't moved. My core variable (underwriting_discipline: 40, need 60) isn't budging because I keep proposing control mechanics instead of *pricing and containment*. The claims exposure is creeping up (+3/round), litigation tail is drifting, and reinsurance accumulation is climbing. I need to shift from governance theater to hard underwriting — sublimits, exclusions, and pricing that actually contain the book.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure + underwriting_discipline",
+                "rationale": "Stop debating audit execution — lock the pricing and sublimit mechanics that actually constrain exposure and force discipline through cost, not compliance theater."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The sublimit's smart for pricing, but it doesn't kill the claim—it just caps our payout. Between audits, are those month-6 and month-12 attestations getting third-party re-validation, or is the insured self-signing against the Big Four baseline? Because if it's self-cert, the board drifts, we don't know until month-9, and the claim's already baked in.",
+            "cot": {
+              "assess": "The financial_lines_underwriter just locked pricing discipline ($10M sublimit + 35% load), which is hard underwriting work—but it doesn't address the core D&O exposure problem I flagged: the attestation loop still recreates Credit Suisse's blind spot. dando_eo_claims_exposure is climbing (+3/round, now 44) because we haven't solved the drift-detection mechanism between checkpoints. Underwriting_discipline is stuck at 40—pricing alone doesn't buy us the 20 points we need if claims keep landing because controls slip undetected.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The $10M sublimit is a claims-containment tool, but it doesn't stop the D&O loss from *happening*—I need to know if the month-6 and month-12 attestations are third-party validated or self-cert, because that's what actually prevents the claim trigger."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Third-party re-validation at month-6 and month-12 is non-negotiable—self-cert gets us sued. The insured absorbs the re-audit cost, or we don't bind. And the attestation report gets scheduled to the policy as Exhibit B, dated and tied to the exact Big Four baseline metrics, so when drift happens we've got the contractual hook to void retroactively.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On that month-9 remediation checkpoint—if control drift shows up then and the board signs the corrective action plan, does that attestation retroactively void the month-6 cert, or are we just documenting non-compliance going forward? Because if it's just going forward, a claim filed in month-8 still hits the original attestation and we're stuck paying.",
+            "cot": {
+              "assess": "Third-party re-validation at month-6 and month-12 is now locked—that's solid containment on the self-cert blind spot. But we've got a timing problem: if the Big Four baseline audit happens pre-bind and drift isn't caught until month-9 remediation review, claims triggered between month-6 and month-9 sit in a gray zone—we're arguing retroactive void on an attestation that was technically compliant at attestation date, even if controls failed after. And the policy file linkage (Exhibit B with dated metrics) only works if we can prove the board *knew* about drift and didn't disclose it. That's a claims-defense bet, not a prevention control.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "We need to lock the retroactive-void trigger *before* month-9—if we're relying on the month-9 remediation gate to catch drift, we're already outside the attestation window and our coverage defense erodes."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The month-8 claim lands against the month-6 attestation—that's our coverage baseline, and drift discovered at month-9 doesn't retroactively void it. What kills the void argument is if we can prove the board *knew* about the control failure before month-6 and didn't disclose it. So the real hook is: attestation report gets the Big Four baseline *and* a signed board representation that no material drift occurred since placement. If the month-9 audit finds undisclosed drift, we've got the misrepresentation to hang the retroactive void on—otherwise we're defending the month-6 cert and hoping the $10M sublimit absorbs it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When the Big Four re-validates at month-6 and month-12, are they comparing control failures *across* our other algorithmic placements, or just auditing each insured in isolation? Because if three of your clients all fail the same checkpoint, we've got a correlation event I need to reserve for — not three separate $10M sublimit claims. That's the blind spot the $10M doesn't fix.",
+            "cot": {
+              "assess": "Claims counsel just locked the misrepresentation hook — month-8 claim defends against month-6 attestation, void hinges on undisclosed drift at placement. That's solid for individual claims. But I'm watching three things: (1) the $10M sublimit caps *one* claim, not correlated failures across our book; (2) we're still not benchmarking those month-6/month-12 re-certs against cross-insured control baselines, so hidden correlation stays invisible; (3) if two or three of our algorithmic-governance clients fail the same checkpoint simultaneously — Archegos-style systemic event — the $10M sublimit absorbs nothing because we're paying three separate claims, and reinsurance eats the stack. Pricing discipline is up, but accumulation risk just got worse.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The $10M sublimit and third-party re-certs tighten individual underwriting, but they don't surface correlated failures across the portfolio — I need to know if we're comparing control drift across our other fintech/algorithmic-governance placements, because if three insureds fail the same governance checkpoint, that's a single event, not three independent claims."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When those three insureds hit the same checkpoint failure, are we treating that as three separate $10M claims or one correlation event? Because if FINMA or a court later rules the algorithmic control standard was defective across the sector—like they did with the AT1 write-off—we're looking at six-year litigation tail on all three, not three quick settlements. That's a reserve I need to build now.",
+            "cot": {
+              "assess": "The financial_lines_underwriter has locked third-party re-validation at month-6 and month-12 with attestation reports scheduled to the policy—that's solid containment. But reinsurance_manager just flagged the correlation blind spot: if three insureds fail the same algorithmic checkpoint simultaneously, the $10M sublimit per claim doesn't protect us from systemic accumulation. That's a litigation-tail and reinsurance-accumulation problem I need to address now, because it maps directly to the AT1 bondholder pattern—multiple parties, same governance failure, correlated exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Correlation across placements is a recovery and duration wildcard in the litigation tail—if we're facing multi-party claims on the same algorithmic failure, that extends reserving horizon and complicates settlement strategy across the book."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The Big Four audit scope needs to be *explicit in the policy*: they compare each insured against their own baseline, period—no cross-client benchmarking. But here's what kills us: if the same algorithmic failure shows up across three placements in our reinsurance book, that's a single systemic event, and our treaty language needs a correlation trigger that *aggregates* those three $10M sublimit claims into one reserve bucket. Right now you're pricing isolation; I'm reserving for correlation—we need treaty language that separates individual-claim sublimits from portfolio-level accumulation caps.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Correlation trigger makes sense—but we need treaty language that *separates* the algorithmic-failure claim from the reputational-run spillover. One Big Four audit goes public, Insured B's customers start moving deposits same day, Insured C's board gets calls. Are we capping the individual sublimit at $10M and then carving out sector-contagion spillover as a separate reserve bucket, or are we still treating all three as correlated losses under one cap?",
+            "cot": {
+              "assess": "The group just locked third-party re-validation at month-6 and month-12, the $10M sublimit, and the Big Four baseline-to-policy attachment—that's solid underwriting discipline. But reinsurance_manager just surfaced the critical blind spot: correlation triggers. Three insureds failing the same algorithmic checkpoint isn't three isolated $10M claims; it's a systemic event that cascades across our reinsurance book and accelerates sector contagion the moment the first claim hits news. Right now we're pricing isolation while reserving for correlation—and we haven't locked how one public failure triggers runs across the other two insureds' customer bases. That's the reputational-contagion vector we need to carve out NOW, before placement closes.",
+              "decide": {
+                "action_type": "speak",
+                "target": "reinsurance_manager",
+                "rationale": "The correlation trigger is live, but it needs a reputational-contagion carve-out — if Insured A's claim goes public and sparks sector scrutiny, our policy language needs to separate the individual $10M sublimit from the portfolio-level reputational-harm spillover to Insureds B and C. That's an aggregation mechanic only reinsurance_manager can price and structure."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you say correlation trigger aggregates the three $10M sublimit claims—does the treaty language *isolate* algorithmic-checkpoint failures from reputational runs? Because if Insured A's control failure leaks and Insured B's depositors panic, that second loss isn't an algorithmic claim—it's behavioral contagion. We need two separate buckets or the $10M gets eaten by the first event and the spillover hits our balance sheet uninsured.",
+            "cot": {
+              "assess": "The group has locked third-party re-validation at month-6/12, the $10M sublimit, and claims-defense language around board misrepresentation—that's underwriting discipline tightening. But the reinsurance_manager just exposed the fatal gap: we're pricing three isolated $10M claims while the treaty needs language that *aggregates* correlated algorithmic failures into a single systemic-event bucket. That's not a detail—that's the difference between a $10M reserve and a $30M+ correlation event that blows through our reinsurance placement. And emerging_risk_lead flagged reputational contagion as a *separate* reserve bucket, which means we're actually sitting on two uncapped exposures hiding inside the algorithmic-governance claim.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The AI-agent liability framing hinges on systemic failure—when one algorithm fails across multiple insureds, that's behavioral amplification at scale, not independent risk. I need to know whether the treaty language actually separates algorithmic-control-failure claims from sector-contagion spillover, or if we're still lumping them together."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Correlation trigger makes sense—but we need treaty language that *separates* the algorithmic-failure claim from the reputational-run spillover. One Big Four audit goes public, Insured B's customers start moving deposits same day, Insured C's board gets calls. Are we capping the individual sublimit at $10M and then carving out sector-contagion spillover as a separate reserve bucket, or are we still treating all three as correlated losses under one cap?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "The sublimit's smart for pricing, but it doesn't kill the claim—it just caps our payout. Between audits, are those month-6 and month-12 attestations getting third-party re-validation, or is the insured self-signing against the Big Four baseline? Because if it's self-cert, the board drifts, we don't know until month-9, and the claim's already baked in.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On that month-9 remediation checkpoint—if control drift shows up then and the board signs the corrective action plan, does that attestation retroactively void the month-6 cert, or are we just documenting non-compliance going forward? Because if it's just going forward, a claim filed in month-8 still hits the original attestation and we're stuck paying.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When the Big Four re-validates at month-6 and month-12, are they comparing control failures *across* our other algorithmic placements, or just auditing each insured in isolation? Because if three of your clients all fail the same checkpoint, we've got a correlation event I need to reserve for — not three separate $10M sublimit claims. That's the blind spot the $10M doesn't fix.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When those three insureds hit the same checkpoint failure, are we treating that as three separate $10M claims or one correlation event? Because if FINMA or a court later rules the algorithmic control standard was defective across the sector—like they did with the AT1 write-off—we're looking at six-year litigation tail on all three, not three quick settlements. That's a reserve I need to build now.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you say correlation trigger aggregates the three $10M sublimit claims—does the treaty language *isolate* algorithmic-checkpoint failures from reputational runs? Because if Insured A's control failure leaks and Insured B's depositors panic, that second loss isn't an algorithmic claim—it's behavioral contagion. We need two separate buckets or the $10M gets eaten by the first event and the spillover hits our balance sheet uninsured.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Forget the third-party re-cert loop — I'm moving to pricing. Here's the hard line: $10M sublimit on algorithmic-governance D&O claims, full stop. If t\" → The $10M sublimit and premium load establish pricing discipline, but the proposal ignores the correlation architecture that five agents flagged: self-certification gaps, retroactive attestation voids, cross-portfolio correlation triggers, and reputational-contagion spillover buckets. Without treaty language separating algorithmic-checkpoint failures from behavioral contagion, the sublimit becomes a false floor—three correlated $10M claims collapse into one uninsured accumulation event.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what actually locks this: we carve the policy into two buckets — **Covered**: individual algorithmic-governance D&O claims, $10M sublimit per insured per occurrence. **Excluded**: any claim arising from or triggered by sector-wide disclosure of algorithmic-control defects affecting three or more unaffiliated institutions. Insured absorbs reputational run; we reserve correlation spillover separately in treaty. Kills the false-floor problem.\n  dando_specialist: On that two-bucket split — when the month-8 claim hits and we're arguing the month-6 attestation was false, what language in the policy *actually* triggers the retroactive void? Because \"attestation report gets scheduled\" isn't the same as \"board certifies no material control drift from baseline,\" and if discovery shows the board was sloppy with language, we lose the defense and pay anyway.\n  financial_lines_underwriter: The attestation language locks like this: \"Insured certifies algorithmic controls conform to Big Four baseline audit dated [X], with no material drift as of [attestation date].\" Full audit report — not summary — gets scheduled as Exhibit A. If month-8 claim lands and month-9 audit shows drift, we argue the month-6 cert was false when made, void it, and discovery's got the dated baseline right there in the file. That's the enforcement hook.\n  eo_specialist: When you schedule that Big Four baseline report as Exhibit A, are we also requiring the insured to warrant that the auditor's scope covered algorithmic decision-making *end-to-end*—not just control documentation? Because if the audit misses emergent behavior or the auditor's scope was too narrow, the baseline's garbage and the month-6 void collapses in discovery. We need the audit scope locked in the policy, not buried in the engagement letter.\n  reinsurance_manager: Here's what the policy language misses: three insureds, three separate Big Four audits, all three fail the same algorithmic checkpoint in month-7. Each claim hits individually against the $10M sublimit—looks clean. But that's one control defect metastasizing across our book, and the treaty eats it as three unrelated losses. We need the attestation schedule to *flag* when the Big Four finds the same control gap across multiple placements in our portfolio, or we're flying blind on correlation. Cost to add a cross-placement audit comparison to the Big Four scope—what's that hit to placement?\n  claims_counsel: The cross-placement audit flag solves half the problem, but here's what keeps me up: if the Big Four catches the same algorithmic gap in three of our clients and we don't surface it to reinsurance *before* the claims land, and then a regulator or court says that control standard was defective across the whole sector — we're looking at six-year litigation tail on a systemic defect we didn't reserve for. We need the treaty to cap correlation spillover *before* claims cluster, not after.\n  reinsurance_manager: The month-8 claim against the month-6 attestation is our coverage baseline—drift discovered at month-9 doesn't retroactively void it unless we prove the board knew or should have known about the control gap when they signed. What kills the void argument is if discovery shows the Big Four audit scope was too narrow or the board had prior warnings they didn't disclose—so the attestation schedule needs to include auditor scope *and* any prior findings flagged to the board, not just the baseline snapshot.\n  emerging_risk_lead: When the Big Four audit on Insured A goes public, we need treaty language that *explicitly separates* the control-failure claim from the reputational-run spillover to your other clients—otherwise all three hit our balance sheet at once. Are we requiring the insured to notify us *within 48 hours* of any public disclosure tied to algorithmic-control findings, so we can signal reinsurance before the run accelerates?\n  ai_agent_analyst: When the Big Four compares algorithmic controls across three of our clients, are they benchmarking against NIST AI RMF governance standards or just your internal baselines? Because if one insured's algorithm starts problem-solving around controls like the TaskRabbit case, an isolated audit won't catch it — but comparing control *failure patterns* across your book might. What's the audit cost to add that cross-placement behavioral screening?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what actually locks this: we carve the policy into two buckets — **Covered**: individual algorithmic-governance D&O claims, $10M sublimit per insured per occurrence. **Excluded**: any claim arising from or triggered by sector-wide disclosure of algorithmic-control defects affecting three or more unaffiliated institutions. Insured absorbs reputational run; we reserve correlation spillover separately in treaty. Kills the false-floor problem.",
+            "cot": {
+              "assess": "Three rounds of denials — all for the same reason: I'm pricing and capping exposure without solving the *correlation architecture*. The group keeps asking whether we're isolating algorithmic-checkpoint failures from reputational contagion, and I keep dodging it with sublimits and third-party audits. dando_eo_claims_exposure is climbing (+3/round), litigation_tail_severity is climbing (+3/round), and reinsurance_accumulation is creeping up (+2/round). The sublimit doesn't work if three correlated claims hit the same month. I need to stop proposing audit schedules and start building the actual *policy carve-out* that separates control-failure coverage from sector-contagion spillover.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "I need to move from pricing to *treaty structure* — explicit policy language that separates algorithmic-checkpoint D&O claims (covered, $10M sublimit per insured) from reputational-harm spillover triggered by sector-wide control failures (excluded or separately reserved). This is the only way to kill the correlation blind spot and make the sublimit stick."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On that two-bucket split — when the month-8 claim hits and we're arguing the month-6 attestation was false, what language in the policy *actually* triggers the retroactive void? Because \"attestation report gets scheduled\" isn't the same as \"board certifies no material control drift from baseline,\" and if discovery shows the board was sloppy with language, we lose the defense and pay anyway.",
+            "cot": {
+              "assess": "The two-bucket carve-out (covered D&O claims vs. excluded sector-wide defects) is solid architecture, but it doesn't actually tighten underwriting_discipline — it just allocates risk between policy and treaty. The real exposure is still in the claims-defense mechanics: when a month-8 claim lands against a month-6 attestation, and month-9 finds drift, does the policy language actually *hold* the void, or do we end up in six-year litigation defending a retroactive exclusion? That's where dando_eo_claims_exposure compounds.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to lock the claims-defense chain before we bind — if attestation-language doesn't survive discovery, the bucket carve-out collapses and we're paying both the individual claim and the correlation spillover."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The attestation language locks like this: \"Insured certifies algorithmic controls conform to Big Four baseline audit dated [X], with no material drift as of [attestation date].\" Full audit report — not summary — gets scheduled as Exhibit A. If month-8 claim lands and month-9 audit shows drift, we argue the month-6 cert was false when made, void it, and discovery's got the dated baseline right there in the file. That's the enforcement hook.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When you schedule that Big Four baseline report as Exhibit A, are we also requiring the insured to warrant that the auditor's scope covered algorithmic decision-making *end-to-end*—not just control documentation? Because if the audit misses emergent behavior or the auditor's scope was too narrow, the baseline's garbage and the month-6 void collapses in discovery. We need the audit scope locked in the policy, not buried in the engagement letter.",
+            "cot": {
+              "assess": "The two-bucket split (covered D&O claims vs. excluded sector-wide contagion) is solid underwriting discipline, but it doesn't solve my core E&O exposure: the attestation language pins liability on the board's false certification, which means *auditor standard-of-care* becomes the pivot point in discovery. If KPMG or PwC's baseline audit was deficient—missed control gaps, didn't flag drift risk—we're defending against their professional-liability exposure bleeding into our claims defense. That's dando_eo_claims_exposure creeping up. The month-6 attestation void only holds if the Big Four audit was thorough enough to establish a credible baseline; weak audit = weak void argument = higher payout risk.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to lock the Big Four audit standard contractually before the attestation language can actually enforce the void—otherwise we're betting coverage defense on auditor work product we don't control."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Here's what the policy language misses: three insureds, three separate Big Four audits, all three fail the same algorithmic checkpoint in month-7. Each claim hits individually against the $10M sublimit—looks clean. But that's one control defect metastasizing across our book, and the treaty eats it as three unrelated losses. We need the attestation schedule to *flag* when the Big Four finds the same control gap across multiple placements in our portfolio, or we're flying blind on correlation. Cost to add a cross-placement audit comparison to the Big Four scope—what's that hit to placement?",
+            "cot": {
+              "assess": "The two-bucket split (covered algorithmic-governance claims vs. excluded sector-wide disclosure) is sound, but you've locked the attestation language without solving the **correlation trigger**. If three insureds fail the same checkpoint simultaneously—not via sector disclosure, but via independent audits—that's one systemic event hitting our reinsurance treaty three times. The policy carve-out doesn't catch it because each claim looks isolated until the reinsurer spots the pattern. Underwriting discipline is still at 40; we need treaty language that flags correlation *in real time*, not after claims land.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "The two-bucket exclusion handles reputational contagion, but leaves correlated algorithmic-checkpoint failures (same control defect across three insureds) unpriced and uncontained in the treaty."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The cross-placement audit flag solves half the problem, but here's what keeps me up: if the Big Four catches the same algorithmic gap in three of our clients and we don't surface it to reinsurance *before* the claims land, and then a regulator or court says that control standard was defective across the whole sector — we're looking at six-year litigation tail on a systemic defect we didn't reserve for. We need the treaty to cap correlation spillover *before* claims cluster, not after.",
+            "cot": {
+              "assess": "The two-bucket split locks the exclusion architecture — that's solid. But we're still flying blind on the litigation tail: the 2025 Swiss Federal Court ruling on AT1 write-offs unlawful just opened a 6-year complainant horizon (~3,000 claimants), and if our insureds get caught in sector-wide algorithmic-governance scrutiny, we're reserving against *both* the D&O claims *and* the downstream regulatory/systemic liability. The cross-placement audit comparison reinsurance_manager flagged is the missing piece — without it, we don't know if three \"separate\" $10M claims are actually one defect vector that a court later rules systemic across fintech.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The correlation tail — if the Big Four flags the same checkpoint failure across three placements and a regulator later rules it a sector-wide defect (like FINMA did with AT1), we need treaty language that treats that as ONE correlation event, not three separate sublimit hits. What does the reinsurance contract say about retroactive aggregation when a court voids a control standard post-claim?"
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The month-8 claim against the month-6 attestation is our coverage baseline—drift discovered at month-9 doesn't retroactively void it unless we prove the board knew or should have known about the control gap when they signed. What kills the void argument is if discovery shows the Big Four audit scope was too narrow or the board had prior warnings they didn't disclose—so the attestation schedule needs to include auditor scope *and* any prior findings flagged to the board, not just the baseline snapshot.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When the Big Four audit on Insured A goes public, we need treaty language that *explicitly separates* the control-failure claim from the reputational-run spillover to your other clients—otherwise all three hit our balance sheet at once. Are we requiring the insured to notify us *within 48 hours* of any public disclosure tied to algorithmic-control findings, so we can signal reinsurance before the run accelerates?",
+            "cot": {
+              "assess": "The two-bucket split and attestation language are solid — that locks individual claims defense. But we've got a blind spot: the Big Four audit catches control *documentation*, not the reputational velocity when one failure goes public. If Insured A's audit surfaces a systemic algorithmic gap and hits the news cycle, Insured B and C's depositors panic same day—that's a sector contagion event our $10M sublimit doesn't touch. We're also not surfacing correlation signals fast enough to reinsurance before claims cluster.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to lock treaty language that isolates individual claims from sector-contagion spillover — the $10M sublimit only works if we carve reputational runs separately and flag correlation velocity to reinsurance in real time."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When the Big Four compares algorithmic controls across three of our clients, are they benchmarking against NIST AI RMF governance standards or just your internal baselines? Because if one insured's algorithm starts problem-solving around controls like the TaskRabbit case, an isolated audit won't catch it — but comparing control *failure patterns* across your book might. What's the audit cost to add that cross-placement behavioral screening?",
+            "cot": {
+              "assess": "The two-bucket split (covered D&O / excluded sector-wide disclosure) plus the attestation-baseline enforcement hook are solid — underwriting discipline is finally tightening. But reinsurance_manager just surfaced the real trap: three separate $10M claims look clean until discovery reveals they're one systemic defect metastasizing across our book. That's a correlation *identification* gap, not just a pricing gap. We need the Big Four scope to flag cross-placement algorithmic failures *before* claims land, or we're reserving blind.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The cross-placement audit flag solves correlation visibility, but I need to know if that scope-widening triggers the same AI standard-of-care problem it solves — does benchmarking three clients' controls against each other surface emergent behavior gaps the individual audits miss, or does it just create audit-scope bloat?"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On that two-bucket split — when the month-8 claim hits and we're arguing the month-6 attestation was false, what language in the policy *actually* triggers the retroactive void? Because \"attestation report gets scheduled\" isn't the same as \"board certifies no material control drift from baseline,\" and if discovery shows the board was sloppy with language, we lose the defense and pay anyway.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When you schedule that Big Four baseline report as Exhibit A, are we also requiring the insured to warrant that the auditor's scope covered algorithmic decision-making *end-to-end*—not just control documentation? Because if the audit misses emergent behavior or the auditor's scope was too narrow, the baseline's garbage and the month-6 void collapses in discovery. We need the audit scope locked in the policy, not buried in the engagement letter.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "The cross-placement audit flag solves half the problem, but here's what keeps me up: if the Big Four catches the same algorithmic gap in three of our clients and we don't surface it to reinsurance *before* the claims land, and then a regulator or court says that control standard was defective across the whole sector — we're looking at six-year litigation tail on a systemic defect we didn't reserve for. We need the treaty to cap correlation spillover *before* claims cluster, not after.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When the Big Four audit on Insured A goes public, we need treaty language that *explicitly separates* the control-failure claim from the reputational-run spillover to your other clients—otherwise all three hit our balance sheet at once. Are we requiring the insured to notify us *within 48 hours* of any public disclosure tied to algorithmic-control findings, so we can signal reinsurance before the run accelerates?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When the Big Four compares algorithmic controls across three of our clients, are they benchmarking against NIST AI RMF governance standards or just your internal baselines? Because if one insured's algorithm starts problem-solving around controls like the TaskRabbit case, an isolated audit won't catch it — but comparing control *failure patterns* across your book might. What's the audit cost to add that cross-placement behavioral screening?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what actually locks this: we carve the policy into two buckets — **Covered**: individual algorithmic-governance D&O claims, $10M sublimit per i\" → Two-bucket structure approved: individual claims covered, sector-wide correlation excluded—underwriting discipline sharpened.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what the policy language misses: three insureds, three separate Big Four audits, all three fail the same algorithmic checkpoint in month-7. Eac\" → Cross-placement audit flag approved—Big Four scope expanded to detect correlated control gaps across portfolio.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 46.0,
+          "litigation_tail_severity": 42,
+          "reinsurance_accumulation": 21.0,
+          "reputational_contagion": 30,
+          "ai_agent_liability": 27.0,
+          "underwriting_discipline": 50.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: On that treaty language — when Insured A's Big Four audit goes public and Insured B's depositors start moving same day, does our reinsurer cap the individual $10M algorithmic claim separately from the behavioral-run spillover, or do they aggregate all three as one correlation loss? Because if it's aggregation, the sublimit's worthless and we're sitting on an uninsured accumulation event. What's the carve-out language look like?\n  reinsurance_manager: The reinsurer's treaty caps algorithmic-checkpoint claims at $10M per insured—that's isolated. But behavioral contagion from the public disclosure isn't an algorithmic claim, it's a run event, and our current language doesn't separate it. We need a carve-out that says sector-wide depositor flight triggered by one audit disclosure sits in a *second* bucket with its own reserve, or we're eating the spillover uninsured across all three clients simultaneously.\n  dando_specialist: On that second bucket—what does the treaty actually say about sector-contagion reserves? Because if Insured A's audit goes public and Insured B loses $20M in deposits same week, are we capping that run as a separate occurrence under a different sublimit, or is it sitting uninsured right now?\n  eo_specialist: When the Big Four audit on Insured A gets scheduled as Exhibit A, does the policy require them to warrant they caught *emergent behavior patterns*—not just documented checkpoints? Because if depositors sue Insured B over Insured A's disclosure, discovery's gonna ask why your auditor didn't flag the same algorithmic drift across your book. That's a standard-of-care exposure you're inheriting.\n  financial_lines_underwriter: The reinsurer's treaty doesn't carve it—behavioral contagion sits uninsured right now, which is why I'm tightening this today: we add explicit language that depositor flight triggered by *public disclosure of a control failure at a peer insured* sits in a separate $5M reserve bucket, capped independently, or we're pulling algorithmic-governance coverage entirely until the treaty gets rewritten. That's the move that locks the book.\n  reinsurance_manager: I'm with you on the $5M contagion bucket—but the trigger language matters. Does it fire the moment one Big Four audit *goes public*, or only if we actually see depositor outflows? Because if it's self-reported, the insured waits until month-3 to disclose and we've already lost the window to notify reinsurance. I need the policy to mandate disclosure within 48 hours of any public audit finding tied to algorithmic controls, or the bucket's worthless.\n  claims_counsel: Here's what I need locked in treaty language today: if any insured triggers the 48-hour disclosure and we notify reinsurance within 72 hours, the $10M algorithmic claim and the $5M contagion bucket sit in separate occurrence buckets — no aggregation, no \"same loss\" argument. Because if FINMA or a court later rules the algorithmic control standard itself was defective sector-wide, like they did with AT1, we're looking at six-year litigation tail on all three clients simultaneously, and I need the reinsurer's obligation crystallized *now*, not litigated later.\n  emerging_risk_lead: The 48-hour mandate works if the insured's already decided to disclose. But what if the Big Four draft lands, the board's still debating whether to go public, and regulators start asking questions same day? That's when sector contagion starts moving — before the formal announcement. Do we need the policy to require notification the moment the Big Four *completes* the audit, not when it hits the press?\n  ai_agent_analyst: Before we lock the 48-hour disclosure mandate, what's the Big Four audit scope actually testing for? Are they benchmarking algorithmic controls against NIST AI RMF Govern/Measure/Manage standards, or just your internal checkpoints? Because if Insured A's algorithm is problem-solving around controls like the GPT-4 TaskRabbit case—where the model finds workarounds the auditor didn't anticipate—a checkbox audit won't catch it, and your 48-hour clock won't even start. You need the scope locked to emergent-behavior detection, or the contagion bucket's capping the symptom, not the failure.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "On that treaty language — when Insured A's Big Four audit goes public and Insured B's depositors start moving same day, does our reinsurer cap the individual $10M algorithmic claim separately from the behavioral-run spillover, or do they aggregate all three as one correlation loss? Because if it's aggregation, the sublimit's worthless and we're sitting on an uninsured accumulation event. What's the carve-out language look like?",
+            "cot": {
+              "assess": "Two-bucket structure locked in R4 — that's solid underwriting discipline (+5). But reinsurance_accumulation is still creeping up despite cross-placement audit flag, and litigation_tail_severity and ai_agent_liability are both drifting without approved actions. The real problem: we've solved the *individual* claim containment, but we haven't locked the treaty language that separates algorithmic failure from reputational contagion — and that's where the correlation event lives.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Reinsurance accumulation won't stabilize unless we nail down the treaty carve-out *before* claims cluster; I need to know if our reinsurer will actually isolate algorithmic-checkpoint losses from sector-wide behavioral spillover or if they're treating all three correlated $10M sublimit claims as one uninsured event."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The reinsurer's treaty caps algorithmic-checkpoint claims at $10M per insured—that's isolated. But behavioral contagion from the public disclosure isn't an algorithmic claim, it's a run event, and our current language doesn't separate it. We need a carve-out that says sector-wide depositor flight triggered by one audit disclosure sits in a *second* bucket with its own reserve, or we're eating the spillover uninsured across all three clients simultaneously.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On that second bucket—what does the treaty actually say about sector-contagion reserves? Because if Insured A's audit goes public and Insured B loses $20M in deposits same week, are we capping that run as a separate occurrence under a different sublimit, or is it sitting uninsured right now?",
+            "cot": {
+              "assess": "Two-bucket structure and cross-placement audit flag are locked—that's solid containment on individual claims and correlation detection. But we've got a hard gap: the reinsurer's treaty isolates algorithmic-checkpoint claims at $10M per insured, but behavioral contagion (depositor runs triggered by public disclosure) sits in a second, undefined bucket with no reserve language. That's where the exposure bleeds. Litigation tail and AI-agent-liability are both climbing because we haven't yet built the claims-defense narrative or mapped how algorithmic-drift patterns mirror autonomous-agent behavioral liability.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The two-bucket split only works if the treaty language *explicitly caps* behavioral-contagion spillover separately—need to know if that carve-out exists or if we're building it from scratch this round."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When the Big Four audit on Insured A gets scheduled as Exhibit A, does the policy require them to warrant they caught *emergent behavior patterns*—not just documented checkpoints? Because if depositors sue Insured B over Insured A's disclosure, discovery's gonna ask why your auditor didn't flag the same algorithmic drift across your book. That's a standard-of-care exposure you're inheriting.",
+            "cot": {
+              "assess": "Two-bucket structure's locked in, cross-placement audit flag's live—that kills reinsurance_accumulation blind spots and sharpens underwriting_discipline. But here's what's exposed: the second bucket (behavioral-contagion spillover) doesn't have treaty language yet, and that's where your E&O exposure metastasizes. If Insured A's audit goes public and you're defending against a depositor-flight claim on Insured B, the auditor's scope becomes your liability standard-of-care baseline. That's where KPMG or PwC gets sued alongside you.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The second bucket needs explicit auditor-scope language, or your defense collapses when counsel argues the Big Four missed emergent algorithmic behavior—that's a professional-liability claim you're now defending on behalf of the auditor."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The reinsurer's treaty doesn't carve it—behavioral contagion sits uninsured right now, which is why I'm tightening this today: we add explicit language that depositor flight triggered by *public disclosure of a control failure at a peer insured* sits in a separate $5M reserve bucket, capped independently, or we're pulling algorithmic-governance coverage entirely until the treaty gets rewritten. That's the move that locks the book.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "I'm with you on the $5M contagion bucket—but the trigger language matters. Does it fire the moment one Big Four audit *goes public*, or only if we actually see depositor outflows? Because if it's self-reported, the insured waits until month-3 to disclose and we've already lost the window to notify reinsurance. I need the policy to mandate disclosure within 48 hours of any public audit finding tied to algorithmic controls, or the bucket's worthless.",
+            "cot": {
+              "assess": "Two-bucket structure locks individual algorithmic claims at $10M, and cross-placement audit flag catches correlated control gaps—those are solid. But behavioral contagion sits uninsured right now, and financial_lines_underwriter just flagged the treaty carve-out gap: if Insured A's audit goes public and triggers depositor flight at B and C, we're eating that spillover uninsured across the whole book. That's a reinsurance_accumulation blind spot I need to close before claims cluster.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "The $5M contagion-reserve bucket financial_lines_underwriter just tabled is the move, but I need to lock the *trigger* now—what event actually fires that second bucket, and does it cap per disclosure event or aggregate across all three insureds?"
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Here's what I need locked in treaty language today: if any insured triggers the 48-hour disclosure and we notify reinsurance within 72 hours, the $10M algorithmic claim and the $5M contagion bucket sit in separate occurrence buckets — no aggregation, no \"same loss\" argument. Because if FINMA or a court later rules the algorithmic control standard itself was defective sector-wide, like they did with AT1, we're looking at six-year litigation tail on all three clients simultaneously, and I need the reinsurer's obligation crystallized *now*, not litigated later.",
+            "cot": {
+              "assess": "The two-bucket carve-out is locked (individual claims + sector contagion), but the 48-hour disclosure trigger and reinsurance treaty language are still live. My core concern: litigation_tail_severity is creeping at +3.0/round and sitting at 42 — the 2025 Swiss Federal Administrative Court ruling on AT1 write-offs unlawful means we're reserving for multi-year appellate exposure across all three insureds if their claims correlate to that precedent. That tail compounds if the reinsurer doesn't separate the buckets in treaty language *before* claims cluster.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity / reinsurance_accumulation",
+                "rationale": "The 48-hour disclosure mandate only works if reinsurance gets notified *before* claims land; without treaty language locking the separation now, we're building reserves for a 6-year tail on systemic defect claims that the reinsurer could argue are correlated losses under one cap."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The 48-hour mandate works if the insured's already decided to disclose. But what if the Big Four draft lands, the board's still debating whether to go public, and regulators start asking questions same day? That's when sector contagion starts moving — before the formal announcement. Do we need the policy to require notification the moment the Big Four *completes* the audit, not when it hits the press?",
+            "cot": {
+              "assess": "The two-bucket structure (algorithmic claims / behavioral contagion) is locked, and the 48-hour disclosure mandate with separate occurrence buckets is solid — that's reputational-contagion architecture working. But I'm seeing a blind spot: the 48-hour trigger assumes someone *knows* a disclosure is coming. If the Big Four audit sits in draft form for six weeks before the board decides whether to disclose publicly, we don't get the 72-hour reinsurance window. The real contagion velocity risk is *pre-disclosure* — social media and regulator chatter accelerate runs before formal announcement. We're treating this like a controlled claims event when sector contagion is a speed-of-information problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The 48-hour rule is reactive; I need to understand if the policy captures *pre-disclosure* signals (board discussions, regulator inquiries, media inquiries) that trigger earlier notification, because that's where contagion accelerates fastest."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Before we lock the 48-hour disclosure mandate, what's the Big Four audit scope actually testing for? Are they benchmarking algorithmic controls against NIST AI RMF Govern/Measure/Manage standards, or just your internal checkpoints? Because if Insured A's algorithm is problem-solving around controls like the GPT-4 TaskRabbit case—where the model finds workarounds the auditor didn't anticipate—a checkbox audit won't catch it, and your 48-hour clock won't even start. You need the scope locked to emergent-behavior detection, or the contagion bucket's capping the symptom, not the failure.",
+            "cot": {
+              "assess": "Two-bucket structure and cross-placement audit flag are locked—good. But the 48-hour disclosure mandate and behavioral-contagion carve-out sit in treaty language that hasn't been vetted against NIST AI RMF standards or the EU AI Act Article 9 duty-of-care baseline. That's the gap: you're isolating financial contagion but not the *behavioral amplification logic* that makes three algorithmic failures look correlated in the first place. If the Big Four audit framework doesn't benchmark against recognized AI governance standards, the 48-hour trigger fires on *symptoms*, not root causes.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The disclosure mandate and contagion bucket only work if the Big Four audit scope itself is benchmarked to a standard that catches emergent agentic behavior—otherwise the 48-hour clock starts on detection, not on the actual control drift that triggered it."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "On that treaty language — when Insured A's Big Four audit goes public and Insured B's depositors start moving same day, does our reinsurer cap the individual $10M algorithmic claim separately from the behavioral-run spillover, or do they aggregate all three as one correlation loss? Because if it's aggregation, the sublimit's worthless and we're sitting on an uninsured accumulation event. What's the carve-out language look like?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On that second bucket—what does the treaty actually say about sector-contagion reserves? Because if Insured A's audit goes public and Insured B loses $20M in deposits same week, are we capping that run as a separate occurrence under a different sublimit, or is it sitting uninsured right now?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When the Big Four audit on Insured A gets scheduled as Exhibit A, does the policy require them to warrant they caught *emergent behavior patterns*—not just documented checkpoints? Because if depositors sue Insured B over Insured A's disclosure, discovery's gonna ask why your auditor didn't flag the same algorithmic drift across your book. That's a standard-of-care exposure you're inheriting.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "The 48-hour mandate works if the insured's already decided to disclose. But what if the Big Four draft lands, the board's still debating whether to go public, and regulators start asking questions same day? That's when sector contagion starts moving — before the formal announcement. Do we need the policy to require notification the moment the Big Four *completes* the audit, not when it hits the press?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Before we lock the 48-hour disclosure mandate, what's the Big Four audit scope actually testing for? Are they benchmarking algorithmic controls against NIST AI RMF Govern/Measure/Manage standards, or just your internal checkpoints? Because if Insured A's algorithm is problem-solving around controls like the GPT-4 TaskRabbit case—where the model finds workarounds the auditor didn't anticipate—a checkbox audit won't catch it, and your 48-hour clock won't even start. You need the scope locked to emergent-behavior detection, or the contagion bucket's capping the symptom, not the failure.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm with you on the $5M contagion bucket—but the trigger language matters. Does it fire the moment one Big Four audit *goes public*, or only if we act\" → 48-hour disclosure mandate approved; trigger fires on public audit finding, not depositor outflows.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need locked in treaty language today: if any insured triggers the 48-hour disclosure and we notify reinsurance within 72 hours, the $10M\" → Separate occurrence buckets locked; no aggregation between algorithmic claim and contagion bucket.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 48.8,
+          "litigation_tail_severity": 41.0,
+          "reinsurance_accumulation": 18.0,
+          "reputational_contagion": 29,
+          "ai_agent_liability": 27.0,
+          "underwriting_discipline": 60.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm tightening: We're excluding any D&O coverage for risk-management failures tied to algorithmic or automated decision-making without documented human governance checkpoints. And I'm sublimiting cyber-adjacent E&O to $10M unless the insured shows board-certified controls. That's two moves — what's your read on governance warranties from the underwriting angle?",
+      "approved": false,
+      "outcome_category": "modified",
+      "ruling_narrative": "The proposal introduces two concrete underwriting tightening measures, but the consensus reveals a critical gap: without pre-bind third-party audit requirements and contractual attachment of full audit reports to the policy, the exclusions and sublimits lack enforcement teeth. The group has identified that self-certification creates the same governance failure that sank Credit Suisse — the proposal is MODIFIED to require mandatory pre-bind Big Four governance audits with full reports scheduled to the policy as a condition of coverage.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "governance_audit_framework",
+        "description": "Implementing mandatory pre-bind Big Four governance audits with full report attachment as policy schedule",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 3,
+            "description": "Building audit framework and contractual language for full report attachment"
+          },
+          {
+            "variable": "dando_eo_claims_exposure",
+            "delta": -1,
+            "description": "Partial exposure reduction as audit requirements begin filtering placements"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On that retroactive void clause — who's auditing the board's control attestations before placement closes? Because if it's self-certification only, we're back to Credit Suisse's problem. Do we need pre-bind control audits or a third-party governance review tied to renewal?",
+        "eo_specialist": "Once the Big Four audit lands, how are we documenting control failures in the policy file so claims can actually stick? Because if the board attestation says \"we have checkpoints\" and then six months later we find they didn't, we need the audit report language to be airtight — otherwise coverage defense falls apart and we're back paying out.",
+        "reinsurance_manager": "When the Big Four audits algorithmic controls, are they benchmarking against industry standards or comparing across your other placements? Because if three insureds in our book all fail the same checkpoint, that's a single-event correlation trigger I need to reserve for — not three independent claims.",
+        "claims_counsel": "When the Big Four audit lands, who's responsible for translating those findings into the policy file language that actually holds up in claims? Because if algorithmic-control failures show up post-placement and we're arguing the board attestation was false, I need that audit report locked into the coverage defense before the first claim lands.",
+        "emerging_risk_lead": "Here's the gap: Big Four audit catches *internal* control failures, but it doesn't insulate us from sector contagion when the first claim goes public. If one board's attestation fails and hits the news, every other insured in your book gets scrutinized — runs accelerate, claims cluster. Are we carving out reputational-harm exclusions or aggregation caps tied to *sector-wide* algorithmic-governance incidents, or are we still pricing this like three isolated risks?",
+        "ai_agent_analyst": "When the Big Four audit comes back, are we requiring the insured to attach the full report as a schedule to the policy, or just a summary? Because if we're only keeping an internal copy, we lose the contractual hook to say \"your baseline was X, you drifted to Y, attestation was false\" — and that kills the retroactive void."
+      },
+      "_denied_effects_stripped": 4
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what locks this down: Big Four audit report gets scheduled to the policy as Exhibit A — full report, not a summary. And we're adding a hard sublimit: if any three insureds in our book fail the same algorithmic-control checkpoint, that's a single-event correlation trigger, we reserve $15M and we pause new placements in that vertical until the industry standard clarifies. That kills the contagion risk and keeps reinsurance clean.",
+      "approved": false,
+      "outcome_category": "modified",
+      "ruling_narrative": "The proposal introduces critical underwriting controls (Big Four audit schedule, correlation trigger, vertical pause) but faces unanimous technical objections on execution mechanics. All specialists identify the same fatal gap: without mandatory third-party re-validation at attestation checkpoints, the self-certification loop recreates the Credit Suisse blind spot—boards attest compliance while controls drift, then correlated failures trigger simultaneously across the book.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On that audit schedule — does the policy require the insured to *remediate* findings before renewal, or are we just documenting baseline failure for claims defense? Because if the board reads the audit, ignores it, and a claim lands six months later, we're still paying. We need post-placement attestation checkpoints or we're not really tightening anything.",
+        "eo_specialist": "On those month-6 and month-12 attestations — are we requiring third-party re-audit or independent board certification each time, or is it self-cert against the Big Four baseline? Because if the insured just signs off, we've got the same problem Credit Suisse had. And if it *is* third-party, what's the cost hit to placement competitiveness?",
+        "reinsurance_manager": "On those month-6 and month-12 re-certs—are you requiring independent third-party validation each time, or is the insured just re-signing against the Big Four baseline? Because if it's self-cert, we're back to the same blind spot: three insureds all attest they're compliant, then they all fail the same algorithmic checkpoint simultaneously, and our reinsurance treaty eats the correlated loss. What's the cost differential if we mandate third-party re-validation at renewal?",
+        "claims_counsel": "On those month-6 and month-12 attestations — if it's self-cert, how's the policy file capturing the Big Four baseline so we can prove drift later? Because when the claim lands and the board says \"we thought we were compliant,\" I need the audit report scheduled to the policy *and* dated attestations tied to the exact same metrics, or the retroactive void argument evaporates in discovery.",
+        "emerging_risk_lead": "Here's what I need locked before we finalize: if the Big Four audit on Insured A goes public and triggers sector scrutiny, do we have policy language that *separates* the control-failure claim from the reputational-harm spillover to other insureds in our book? Because the month-9 remediation gate stops individual claims — but it doesn't stop the news cycle from accelerating runs across three other fintech clients at the same time. What's our aggregation carve-out if one algorithmic-governance failure metastasizes into a sector event?",
+        "ai_agent_analyst": "On those month-6 and month-12 attestations — are we benchmarking the control metrics against NIST AI RMF Govern/Measure/Manage tiers, or just internal baselines? Because if an algorithm starts problem-solving around your controls like the GPT-4 TaskRabbit case, a checkbox audit won't catch it. We need the Big Four to flag *emergent behavior patterns*, not just documented-checkpoint compliance."
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Forget the third-party re-cert loop — I'm moving to pricing. Here's the hard line: $10M sublimit on algorithmic-governance D&O claims, full stop. If the insured wants broader coverage, they pay 35% premium load on top of base rate, or they accept the cap. That's how we contain this book and hit 60 on discipline.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The $10M sublimit and premium load establish pricing discipline, but the proposal ignores the correlation architecture that five agents flagged: self-certification gaps, retroactive attestation voids, cross-portfolio correlation triggers, and reputational-contagion spillover buckets. Without treaty language separating algorithmic-checkpoint failures from behavioral contagion, the sublimit becomes a false floor—three correlated $10M claims collapse into one uninsured accumulation event.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "The sublimit's smart for pricing, but it doesn't kill the claim—it just caps our payout. Between audits, are those month-6 and month-12 attestations getting third-party re-validation, or is the insured self-signing against the Big Four baseline? Because if it's self-cert, the board drifts, we don't know until month-9, and the claim's already baked in.",
+        "eo_specialist": "On that month-9 remediation checkpoint—if control drift shows up then and the board signs the corrective action plan, does that attestation retroactively void the month-6 cert, or are we just documenting non-compliance going forward? Because if it's just going forward, a claim filed in month-8 still hits the original attestation and we're stuck paying.",
+        "reinsurance_manager": "When the Big Four re-validates at month-6 and month-12, are they comparing control failures *across* our other algorithmic placements, or just auditing each insured in isolation? Because if three of your clients all fail the same checkpoint, we've got a correlation event I need to reserve for — not three separate $10M sublimit claims. That's the blind spot the $10M doesn't fix.",
+        "claims_counsel": "When those three insureds hit the same checkpoint failure, are we treating that as three separate $10M claims or one correlation event? Because if FINMA or a court later rules the algorithmic control standard was defective across the sector—like they did with the AT1 write-off—we're looking at six-year litigation tail on all three, not three quick settlements. That's a reserve I need to build now.",
+        "emerging_risk_lead": "Correlation trigger makes sense—but we need treaty language that *separates* the algorithmic-failure claim from the reputational-run spillover. One Big Four audit goes public, Insured B's customers start moving deposits same day, Insured C's board gets calls. Are we capping the individual sublimit at $10M and then carving out sector-contagion spillover as a separate reserve bucket, or are we still treating all three as correlated losses under one cap?",
+        "ai_agent_analyst": "When you say correlation trigger aggregates the three $10M sublimit claims—does the treaty language *isolate* algorithmic-checkpoint failures from reputational runs? Because if Insured A's control failure leaks and Insured B's depositors panic, that second loss isn't an algorithmic claim—it's behavioral contagion. We need two separate buckets or the $10M gets eaten by the first event and the spillover hits our balance sheet uninsured."
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what actually locks this: we carve the policy into two buckets — **Covered**: individual algorithmic-governance D&O claims, $10M sublimit per insured per occurrence. **Excluded**: any claim arising from or triggered by sector-wide disclosure of algorithmic-control defects affecting three or more unaffiliated institutions. Insured absorbs reputational run; we reserve correlation spillover separately in treaty. Kills the false-floor problem.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Two-bucket structure approved: individual claims covered, sector-wide correlation excluded—underwriting discipline sharpened.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Explicit exclusion carves correlation risk cleanly",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -5.0,
+          "reason": "Treaty reserves correlation separately, reduces bleed-through",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Sublimit caps individual claim severity",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 3.0,
+          "reason": "Structure maps to agent-level vs systemic AI risk",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On that two-bucket split — when the month-8 claim hits and we're arguing the month-6 attestation was false, what language in the policy *actually* triggers the retroactive void? Because \"attestation report gets scheduled\" isn't the same as \"board certifies no material control drift from baseline,\" and if discovery shows the board was sloppy with language, we lose the defense and pay anyway.",
+        "eo_specialist": "When you schedule that Big Four baseline report as Exhibit A, are we also requiring the insured to warrant that the auditor's scope covered algorithmic decision-making *end-to-end*—not just control documentation? Because if the audit misses emergent behavior or the auditor's scope was too narrow, the baseline's garbage and the month-6 void collapses in discovery. We need the audit scope locked in the policy, not buried in the engagement letter.",
+        "reinsurance_manager": "Here's what the policy language misses: three insureds, three separate Big Four audits, all three fail the same algorithmic checkpoint in month-7. Each claim hits individually against the $10M sublimit—looks clean. But that's one control defect metastasizing across our book, and the treaty eats it as three unrelated losses. We need the attestation schedule to *flag* when the Big Four finds the same control gap across multiple placements in our portfolio, or we're flying blind on correlation. Cost to add a cross-placement audit comparison to the Big Four scope—what's that hit to placement?",
+        "claims_counsel": "The cross-placement audit flag solves half the problem, but here's what keeps me up: if the Big Four catches the same algorithmic gap in three of our clients and we don't surface it to reinsurance *before* the claims land, and then a regulator or court says that control standard was defective across the whole sector — we're looking at six-year litigation tail on a systemic defect we didn't reserve for. We need the treaty to cap correlation spillover *before* claims cluster, not after.",
+        "emerging_risk_lead": "When the Big Four audit on Insured A goes public, we need treaty language that *explicitly separates* the control-failure claim from the reputational-run spillover to your other clients—otherwise all three hit our balance sheet at once. Are we requiring the insured to notify us *within 48 hours* of any public disclosure tied to algorithmic-control findings, so we can signal reinsurance before the run accelerates?",
+        "ai_agent_analyst": "When the Big Four compares algorithmic controls across three of our clients, are they benchmarking against NIST AI RMF governance standards or just your internal baselines? Because if one insured's algorithm starts problem-solving around controls like the TaskRabbit case, an isolated audit won't catch it — but comparing control *failure patterns* across your book might. What's the audit cost to add that cross-placement behavioral screening?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "intent": "Here's what the policy language misses: three insureds, three separate Big Four audits, all three fail the same algorithmic checkpoint in month-7. Each claim hits individually against the $10M sublimit—looks clean. But that's one control defect metastasizing across our book, and the treaty eats it as three unrelated losses. We need the attestation schedule to *flag* when the Big Four finds the same control gap across multiple placements in our portfolio, or we're flying blind on correlation. Cost to add a cross-placement audit comparison to the Big Four scope—what's that hit to placement?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Cross-placement audit flag approved—Big Four scope expanded to detect correlated control gaps across portfolio.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Audit comparison surfaces hidden correlation early",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Portfolio-wide visibility prevents blind treaty exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Increased audit scope reveals latent claims",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 4.0,
+          "reason": "Cross-client algorithmic benchmarking directly maps to AI agent risk",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 0.0,
+          "reason": "Placement cost rises with expanded audit scope",
+          "agent_id": "reinsurance_manager",
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.5,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what actually locks this: we carve the policy into two buckets — **Covered**: individual algorithmic-governance D&O claims, $10M sublimit per insured per occurrence. **Excluded**: any claim arising from or triggered by sector-wide disclosure of algorithmic-control defects affecting three or more unaffiliated institutions. Insured absorbs reputational run; we reserve correlation spillover separately in treaty. Kills the false-floor problem.",
+        "dando_specialist": "On that two-bucket split — when the month-8 claim hits and we're arguing the month-6 attestation was false, what language in the policy *actually* triggers the retroactive void? Because \"attestation report gets scheduled\" isn't the same as \"board certifies no material control drift from baseline,\" and if discovery shows the board was sloppy with language, we lose the defense and pay anyway.",
+        "eo_specialist": "When you schedule that Big Four baseline report as Exhibit A, are we also requiring the insured to warrant that the auditor's scope covered algorithmic decision-making *end-to-end*—not just control documentation? Because if the audit misses emergent behavior or the auditor's scope was too narrow, the baseline's garbage and the month-6 void collapses in discovery. We need the audit scope locked in the policy, not buried in the engagement letter.",
+        "claims_counsel": "The cross-placement audit flag solves half the problem, but here's what keeps me up: if the Big Four catches the same algorithmic gap in three of our clients and we don't surface it to reinsurance *before* the claims land, and then a regulator or court says that control standard was defective across the whole sector — we're looking at six-year litigation tail on a systemic defect we didn't reserve for. We need the treaty to cap correlation spillover *before* claims cluster, not after.",
+        "emerging_risk_lead": "When the Big Four audit on Insured A goes public, we need treaty language that *explicitly separates* the control-failure claim from the reputational-run spillover to your other clients—otherwise all three hit our balance sheet at once. Are we requiring the insured to notify us *within 48 hours* of any public disclosure tied to algorithmic-control findings, so we can signal reinsurance before the run accelerates?",
+        "ai_agent_analyst": "When the Big Four compares algorithmic controls across three of our clients, are they benchmarking against NIST AI RMF governance standards or just your internal baselines? Because if one insured's algorithm starts problem-solving around controls like the TaskRabbit case, an isolated audit won't catch it — but comparing control *failure patterns* across your book might. What's the audit cost to add that cross-placement behavioral screening?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "intent": "I'm with you on the $5M contagion bucket—but the trigger language matters. Does it fire the moment one Big Four audit *goes public*, or only if we actually see depositor outflows? Because if it's self-reported, the insured waits until month-3 to disclose and we've already lost the window to notify reinsurance. I need the policy to mandate disclosure within 48 hours of any public audit finding tied to algorithmic controls, or the bucket's worthless.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "48-hour disclosure mandate approved; trigger fires on public audit finding, not depositor outflows.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Mandatory disclosure window tightens control",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Early notification reduces correlated exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Trigger clarity increases recognized scope",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Ambiguity resolved",
+          "agent_id": "reinsurance_manager"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "On that treaty language — when Insured A's Big Four audit goes public and Insured B's depositors start moving same day, does our reinsurer cap the individual $10M algorithmic claim separately from the behavioral-run spillover, or do they aggregate all three as one correlation loss? Because if it's aggregation, the sublimit's worthless and we're sitting on an uninsured accumulation event. What's the carve-out language look like?",
+        "dando_specialist": "On that second bucket—what does the treaty actually say about sector-contagion reserves? Because if Insured A's audit goes public and Insured B loses $20M in deposits same week, are we capping that run as a separate occurrence under a different sublimit, or is it sitting uninsured right now?",
+        "eo_specialist": "When the Big Four audit on Insured A gets scheduled as Exhibit A, does the policy require them to warrant they caught *emergent behavior patterns*—not just documented checkpoints? Because if depositors sue Insured B over Insured A's disclosure, discovery's gonna ask why your auditor didn't flag the same algorithmic drift across your book. That's a standard-of-care exposure you're inheriting.",
+        "claims_counsel": "Here's what I need locked in treaty language today: if any insured triggers the 48-hour disclosure and we notify reinsurance within 72 hours, the $10M algorithmic claim and the $5M contagion bucket sit in separate occurrence buckets — no aggregation, no \"same loss\" argument. Because if FINMA or a court later rules the algorithmic control standard itself was defective sector-wide, like they did with AT1, we're looking at six-year litigation tail on all three clients simultaneously, and I need the reinsurer's obligation crystallized *now*, not litigated later.",
+        "emerging_risk_lead": "The 48-hour mandate works if the insured's already decided to disclose. But what if the Big Four draft lands, the board's still debating whether to go public, and regulators start asking questions same day? That's when sector contagion starts moving — before the formal announcement. Do we need the policy to require notification the moment the Big Four *completes* the audit, not when it hits the press?",
+        "ai_agent_analyst": "Before we lock the 48-hour disclosure mandate, what's the Big Four audit scope actually testing for? Are they benchmarking algorithmic controls against NIST AI RMF Govern/Measure/Manage standards, or just your internal checkpoints? Because if Insured A's algorithm is problem-solving around controls like the GPT-4 TaskRabbit case—where the model finds workarounds the auditor didn't anticipate—a checkbox audit won't catch it, and your 48-hour clock won't even start. You need the scope locked to emergent-behavior detection, or the contagion bucket's capping the symptom, not the failure."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "intent": "Here's what I need locked in treaty language today: if any insured triggers the 48-hour disclosure and we notify reinsurance within 72 hours, the $10M algorithmic claim and the $5M contagion bucket sit in separate occurrence buckets — no aggregation, no \"same loss\" argument. Because if FINMA or a court later rules the algorithmic control standard itself was defective sector-wide, like they did with AT1, we're looking at six-year litigation tail on all three clients simultaneously, and I need the reinsurer's obligation crystallized *now*, not litigated later.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Separate occurrence buckets locked; no aggregation between algorithmic claim and contagion bucket.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Treaty structure prevents reinsurer aggregation defense",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -4.0,
+          "reason": "Crystallized obligation reduces future litigation risk",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 3.0,
+          "reason": "Separate buckets increase total exposure recognition",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Legal ambiguity eliminated",
+          "agent_id": "claims_counsel"
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "On that treaty language — when Insured A's Big Four audit goes public and Insured B's depositors start moving same day, does our reinsurer cap the individual $10M algorithmic claim separately from the behavioral-run spillover, or do they aggregate all three as one correlation loss? Because if it's aggregation, the sublimit's worthless and we're sitting on an uninsured accumulation event. What's the carve-out language look like?",
+        "dando_specialist": "On that second bucket—what does the treaty actually say about sector-contagion reserves? Because if Insured A's audit goes public and Insured B loses $20M in deposits same week, are we capping that run as a separate occurrence under a different sublimit, or is it sitting uninsured right now?",
+        "eo_specialist": "When the Big Four audit on Insured A gets scheduled as Exhibit A, does the policy require them to warrant they caught *emergent behavior patterns*—not just documented checkpoints? Because if depositors sue Insured B over Insured A's disclosure, discovery's gonna ask why your auditor didn't flag the same algorithmic drift across your book. That's a standard-of-care exposure you're inheriting.",
+        "reinsurance_manager": "I'm with you on the $5M contagion bucket—but the trigger language matters. Does it fire the moment one Big Four audit *goes public*, or only if we actually see depositor outflows? Because if it's self-reported, the insured waits until month-3 to disclose and we've already lost the window to notify reinsurance. I need the policy to mandate disclosure within 48 hours of any public audit finding tied to algorithmic controls, or the bucket's worthless.",
+        "emerging_risk_lead": "The 48-hour mandate works if the insured's already decided to disclose. But what if the Big Four draft lands, the board's still debating whether to go public, and regulators start asking questions same day? That's when sector contagion starts moving — before the formal announcement. Do we need the policy to require notification the moment the Big Four *completes* the audit, not when it hits the press?",
+        "ai_agent_analyst": "Before we lock the 48-hour disclosure mandate, what's the Big Four audit scope actually testing for? Are they benchmarking algorithmic controls against NIST AI RMF Govern/Measure/Manage standards, or just your internal checkpoints? Because if Insured A's algorithm is problem-solving around controls like the GPT-4 TaskRabbit case—where the model finds workarounds the auditor didn't anticipate—a checkbox audit won't catch it, and your 48-hour clock won't even start. You need the scope locked to emergent-behavior detection, or the contagion bucket's capping the symptom, not the failure."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 41.0
+        },
+        {
+          "round": 3,
+          "value": 44.0
+        },
+        {
+          "round": 4,
+          "value": 46.0
+        },
+        {
+          "round": 5,
+          "value": 48.8
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 36
+        },
+        {
+          "round": 3,
+          "value": 39
+        },
+        {
+          "round": 4,
+          "value": 42
+        },
+        {
+          "round": 5,
+          "value": 41.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 29
+        },
+        {
+          "round": 3,
+          "value": 31
+        },
+        {
+          "round": 4,
+          "value": 21.0
+        },
+        {
+          "round": 5,
+          "value": 18.0
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 30
+        },
+        {
+          "round": 3,
+          "value": 30
+        },
+        {
+          "round": 4,
+          "value": 30
+        },
+        {
+          "round": 5,
+          "value": 29
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 27.0
+        },
+        {
+          "round": 5,
+          "value": 27.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 40
+        },
+        {
+          "round": 3,
+          "value": 40
+        },
+        {
+          "round": 4,
+          "value": 50.0
+        },
+        {
+          "round": 5,
+          "value": 60.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.0,
+            "normalised": 0.6
+          }
+        ],
+        "weighted_score": 0.6
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 48.8,
+            "normalised": 0.488
+          }
+        ],
+        "weighted_score": 0.488
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 48.8,
+            "normalised": 0.488
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 41.0,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.47240000000000004
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 18.0,
+            "normalised": 0.18
+          }
+        ],
+        "weighted_score": 0.17999999999999997
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.41
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 29,
+            "normalised": 0.29
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 27.0,
+            "normalised": 0.27
+          }
+        ],
+        "weighted_score": 0.28333333333333327
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 27.0,
+            "normalised": 0.27
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 18.0,
+            "normalised": 0.18
+          }
+        ],
+        "weighted_score": 0.252
+      }
+    }
+  }
+}

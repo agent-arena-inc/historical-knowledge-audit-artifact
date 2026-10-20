@@ -1,0 +1,2908 @@
+{
+  "simulation_id": "86cbf694684f",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: We need to convene SNB and Federal Council within the hour to agree on rescue terms—liquidity support, merger incentives, loss protection—and lock them in writing tonight. Anything less than a public, legally grounded statement by Sunday evening will fail to arrest the panic. What's the government's appetite for extraordinary measures, and does SNB have liquidity ready to deploy?\n  snb: We have liquidity ready—I can deploy emergency assistance immediately, but only against sound collateral and with strict haircuts. On loss protection and merger sweeteners: we'll participate, but the Federal Council must take the capital-structure risk—we won't absorb open-ended AT1 or creditor losses. Call the meeting now; we need binding terms on who bears what by tonight.\n  snb: Federal Council—before we table numbers, I need clarity: are you prepared to absorb AT1 losses and backstop creditor hierarchy if Credit Suisse fails? Because my liquidity buys time, but it doesn't solve solvency. If the answer is no, we're wasting tonight's meeting.\n  federal_council: We're not absorbing open-ended losses—that's a non-starter politically and for taxpayers. But if a merger is credible and time-bound, we'll backstop the transition with limited guarantees, capped and conditional on private burden-sharing first. Call the meeting, but SNB and any acquirer front-load the haircut before we commit a franc.\n  federal_council: Karin, is there an actual buyer lined up, or are we structuring a merger incentive package blind? Because a capped guarantee and SNB liquidity only work if someone's willing to sign on the dotted line by Sunday. What's your read on UBS or the others?\n  finma: We have preliminary soundings with UBS—they're listening, but won't move without seeing the loss protection terms locked first. I'm calling the SNB, Federal Council, and UBS legal counsel into a structured negotiation in 90 minutes; we table a binding term sheet by 22:00 tonight or we abort and move to orderly resolution. The legal basis is the Banking Act emergency powers—I'm documenting the systemic threat and extraordinary measures now.\n  cs_ceo: Karin, before you call UBS in, what's the quantum? Are we talking 50 billion in liquidity, 100? And on losses—are we capping their AT1 haircut at 50%, or is that still open? I need to know what I'm defending to my board in the next hour.\n  ubs_ceo: Alright, here's what UBS needs to even sit down: full loss protection on any AT1 and legacy litigation liabilities—we're not inheriting a lawsuits graveyard. And a government guarantee on deposits above CHF 100k. You lock those in writing by 21:00, I'll have my board authorize a binding offer by 22:30. Otherwise we walk.\n  wealth_client: I'm not sitting tight until Sunday hoping you lot figure it out. My clients need to see a signed merger agreement AND a government guarantee on deposits—in writing, public, before market open Monday. No framework, no \"preliminary,\" no \"if UBS agrees.\" Lock it by 21:00 or I'm moving $2 billion out by 9:00 AM Monday. What's the actual deposit guarantee floor you're offering?\n  at1_rep: Karin, before you lock the term sheet at 22:00, I need one thing crystal clear: when you say UBS gets \"full loss protection on AT1,\" does that mean Credit Suisse's AT1 holders absorb the write-down first, or are you negotiating a statutory haircut that hits all creditors equally? Because if AT1 is wiped out to protect UBS, my clients will litigate this the moment the merger closes. What's the exact mechanism you're tabling?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "We need to convene SNB and Federal Council within the hour to agree on rescue terms—liquidity support, merger incentives, loss protection—and lock them in writing tonight. Anything less than a public, legally grounded statement by Sunday evening will fail to arrest the panic. What's the government's appetite for extraordinary measures, and does SNB have liquidity ready to deploy?",
+            "cot": {
+              "assess": "Market confidence is critically low at 26—well below the 55 threshold we need. CS funding stress is severe at 74 and rising toward failure. We have legal defensibility at 60, which is our only solid footing, but rescue_strength is zero. Without a credible rescue package announced before Monday, both confidence and funding will collapse.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, federal_council",
+                "rationale": "Legal defensibility and market confidence both require we move now with a coordinated, transparent intervention framework—not ad hoc measures that invite legal challenge and panic."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We have liquidity ready—I can deploy emergency assistance immediately, but only against sound collateral and with strict haircuts. On loss protection and merger sweeteners: we'll participate, but the Federal Council must take the capital-structure risk—we won't absorb open-ended AT1 or creditor losses. Call the meeting now; we need binding terms on who bears what by tonight.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—before we table numbers, I need clarity: are you prepared to absorb AT1 losses and backstop creditor hierarchy if Credit Suisse fails? Because my liquidity buys time, but it doesn't solve solvency. If the answer is no, we're wasting tonight's meeting.",
+            "cot": {
+              "assess": "Liquidity readiness is locked (my quick reply confirmed it). FINMA is right that we need binding terms tonight—the legal and political cover matters as much as the cash. But I'm watching cs_funding_stress at 74 and market_confidence at 26; without a credible, *public* commitment by Sunday, both deteriorate fast over the weekend. The capital-structure question—who eats AT1 losses—is the fulcrum: if we don't resolve it now, creditors panic Monday morning regardless of liquidity.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I've committed liquidity on my terms; the blocking variable is now political appetite and legal cover for the capital-structure intervention—only the government can provide that, and we need their answer *tonight* to make a Sunday statement credible."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We're not absorbing open-ended losses—that's a non-starter politically and for taxpayers. But if a merger is credible and time-bound, we'll backstop the transition with limited guarantees, capped and conditional on private burden-sharing first. Call the meeting, but SNB and any acquirer front-load the haircut before we commit a franc.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin, is there an actual buyer lined up, or are we structuring a merger incentive package blind? Because a capped guarantee and SNB liquidity only work if someone's willing to sign on the dotted line by Sunday. What's your read on UBS or the others?",
+            "cot": {
+              "assess": "SNB and I have locked the core trade: liquidity from SNB, capped guarantees from Federal Council, private burden-sharing first. The meeting is being called. But market confidence is still at 26 and funding stress at 74—we need to know if UBS or another acquirer is actually willing to move, and whether a public Sunday statement alone will hold the line through Monday open. Time is the enemy now.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we walk into tonight's negotiation, I need to know if there's a credible acquirer in the room or if we're negotiating a rescue package for a bank nobody wants to buy."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "We have preliminary soundings with UBS—they're listening, but won't move without seeing the loss protection terms locked first. I'm calling the SNB, Federal Council, and UBS legal counsel into a structured negotiation in 90 minutes; we table a binding term sheet by 22:00 tonight or we abort and move to orderly resolution. The legal basis is the Banking Act emergency powers—I'm documenting the systemic threat and extraordinary measures now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, before you call UBS in, what's the quantum? Are we talking 50 billion in liquidity, 100? And on losses—are we capping their AT1 haircut at 50%, or is that still open? I need to know what I'm defending to my board in the next hour.",
+            "cot": {
+              "assess": "The room has locked in a 90-minute structured negotiation with binding term-sheet deadline tonight—that's decisive. SNB liquidity is committed, Federal Council has set loss-protection ceilings, FINMA is moving UBS into talks, and legal basis is being documented. My core risk: rescue_strength is still 0 because no merger terms or liquidity quantum are on the table yet, and market_confidence stays fragile until there's a *public* announcement. The Sunday evening deadline works, but I need to know what numbers we're actually proposing to UBS, or this collapses at 22:00.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we walk into the UBS negotiation, I need to understand what loss-protection and liquidity sweetener we're offering them—otherwise I'm going in blind and UBS will extract maximum concessions."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Alright, here's what UBS needs to even sit down: full loss protection on any AT1 and legacy litigation liabilities—we're not inheriting a lawsuits graveyard. And a government guarantee on deposits above CHF 100k. You lock those in writing by 21:00, I'll have my board authorize a binding offer by 22:30. Otherwise we walk.",
+            "cot": {
+              "assess": "The rescue architecture is taking shape—liquidity, loss protection, and legal basis are being locked in real-time. But UBS (me) hasn't tabled binding acquisition terms yet, and market confidence is still in free fall at 26. The SNB and Federal Council are aligned on capped support; now they need to see a credible buyer walk in with a price and conditions, or the panic spreads through Monday.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost, rescue_strength",
+                "rationale": "UBS won't move without seeing the exact loss protection floor in writing; I need to table our conditions now so FINMA can lock the term sheet by 22:00 and arrest the confidence collapse."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "I'm not sitting tight until Sunday hoping you lot figure it out. My clients need to see a signed merger agreement AND a government guarantee on deposits—in writing, public, before market open Monday. No framework, no \"preliminary,\" no \"if UBS agrees.\" Lock it by 21:00 or I'm moving $2 billion out by 9:00 AM Monday. What's the actual deposit guarantee floor you're offering?",
+            "cot": {
+              "assess": "They've locked in SNB liquidity, Federal Council caps, UBS conditions, and a 90-minute negotiation timeline—that's rescue_strength moving fast. But I'm hearing no hard number on loss protection quantum, deposit guarantees are still conditional, and market_confidence is still at 26 because none of this is PUBLIC yet. The clock to Monday is the real killer: if we don't have a signed term sheet AND a credible public statement by Sunday evening, my clients walk regardless of what's agreed in this room.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, rescue_strength",
+                "rationale": "I need a concrete safety floor—not a framework—or I'm instructing my team to begin withdrawal Monday morning. This forces the room to move from conditions to binding commitments."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin, before you lock the term sheet at 22:00, I need one thing crystal clear: when you say UBS gets \"full loss protection on AT1,\" does that mean Credit Suisse's AT1 holders absorb the write-down first, or are you negotiating a statutory haircut that hits all creditors equally? Because if AT1 is wiped out to protect UBS, my clients will litigate this the moment the merger closes. What's the exact mechanism you're tabling?",
+            "cot": {
+              "assess": "The rescue architecture is now crystallizing—SNB liquidity, Federal Council capped guarantees, UBS conditional interest, and a binding term sheet deadline at 22:00. But market confidence (26) and funding stress (74) remain critical: they'll deteriorate fast if the 21:00–22:00 negotiation window slips or if UBS walks. The creditor hierarchy is still unresolved—no one has explicitly locked AT1 write-down terms, and UBS is demanding full loss protection on AT1, which directly threatens my clients if that means creditor impairment.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know the exact AT1 write-down mechanism in the term sheet FINMA is tabling tonight—whether it's a going-concern write-down, a statutory haircut, or something else—because \"loss protection\" language is ambiguous and my creditors' capital is at stake."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—before we table numbers, I need clarity: are you prepared to absorb AT1 losses and backstop creditor hierarchy if Credit Suisse fails? Because my liquidity buys time, but it doesn't solve solvency. If the answer is no, we're wasting tonight's meeting.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin, is there an actual buyer lined up, or are we structuring a merger incentive package blind? Because a capped guarantee and SNB liquidity only work if someone's willing to sign on the dotted line by Sunday. What's your read on UBS or the others?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Karin, before you call UBS in, what's the quantum? Are we talking 50 billion in liquidity, 100? And on losses—are we capping their AT1 haircut at 50%, or is that still open? I need to know what I'm defending to my board in the next hour.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin, before you lock the term sheet at 22:00, I need one thing crystal clear: when you say UBS gets \"full loss protection on AT1,\" does that mean Credit Suisse's AT1 holders absorb the write-down first, or are you negotiating a statutory haircut that hits all creditors equally? Because if AT1 is wiped out to protect UBS, my clients will litigate this the moment the merger closes. What's the exact mechanism you're tabling?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We need to convene SNB and Federal Council within the hour to agree on rescue terms—liquidity support, merger incentives, loss protection—and lock the\" → FINMA convenes emergency trilateral meeting; framework discussion begins but no terms locked yet.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, here's what UBS needs to even sit down: full loss protection on any AT1 and legacy litigation liabilities—we're not inheriting a lawsuits gra\" → UBS tables formal conditions: full AT1/litigation protection plus deposit guarantee required by 21:00 for binding offer.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm not sitting tight until Sunday hoping you lot figure it out. My clients need to see a signed merger agreement AND a government guarantee on deposi\" → Wealth client issues ultimatum: signed merger plus deposit guarantee by 21:00 or $2B withdrawn Monday morning.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -3.2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 5.2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Here's what I'm putting on the table: Credit Suisse AT1 absorbs losses first up to 16 billion francs—that's statutory priority, defensible in court. Anything beyond that, Federal Council backstops via a limited guarantee capped at 100 billion total exposure. UBS gets deposit protection and legacy litigation carve-out. AT1 holders take the haircut, but they know the number. Can Federal Council and UBS live with that structure by 20:30, or do we need to adjust the cap?\n  federal_council: That 100-billion cap is politically defensible, but only if the AT1 haircut actually sticks—no ex-post carve-outs for litigation or creditor relief. We need UBS to confirm in writing they'll close on that basis by 20:45, and we need your legal team to certify the statutory priority holds under Swiss law. If either wavers, the cap collapses and we're back to open-ended exposure. What's your read on UBS accepting the AT1 write-down without further conditions?\n  snb: Karin, before we lock the guarantee structure—has UBS actually confirmed they'll accept the 16-billion AT1 haircut *in writing* by 20:45? Because if they're still negotiating that number or demanding carve-outs, we need to know now, not at 20:55 when the deadline's already blown past.\n  finma: No—UBS has not confirmed in writing yet. Their CEO tabled conditions at 19:15: full AT1 protection *plus* deposit guarantee. They're still negotiating the haircut floor, not accepting 16 billion. I'm calling them in now to lock the 16-billion statutory write-down and get written confirmation by 20:30, or we walk this to a resolution framework and they get nothing.\n  federal_council: Karin, when you call UBS in at 20:30, what's your walk-away? If they push back on the 16-billion haircut or demand carve-outs, do we have a credible threat to move to resolution, or are we negotiating against ourselves? Because my board needs to know the cap actually holds.\n  cs_ceo: Karin, when you call UBS in: tell them the 16 billion is the floor, not negotiable. We're solvent at that haircut—we've modeled it. And Federal Council, we need a public statement by 21:30 that a rescue package is locked, merger in motion, deposits protected. Our clients are watching the news, not this room. No announcement, no confidence by Monday.\n  ubs_ceo: Look, I need the 16-billion AT1 write-down locked in writing *before* I walk into that call with UBS—that's non-negotiable for my shareholders. And I need Federal Council to confirm in writing that the 100-billion cap holds even if litigation hits post-close, or we're not signing anything by 20:45. No written guarantees on both fronts, no deal.\n  ubs_ceo: Karin, before you call UBS in at 20:30—do you have Federal Council's written confirmation that the 100-billion cap holds post-close, even if litigation hits? Because if you're calling UBS without that in hand, they'll smell the gap and push back on the haircut. We need both sides locked in writing *simultaneously*, not sequentially.\n  wealth_client: Karin, forget the sequencing for a moment—has UBS's board actually authorized you to negotiate a merger, or are they just fishing for the best terms before they walk? Because I can't tell my clients \"we have a rescue\" if UBS is still deciding whether they want Credit Suisse at all. What's your read—do they sign by 20:45 or not?\n  at1_rep: Karin, when you call UBS in: is the 16-billion AT1 write-down a statutory haircut under banking law, or are you negotiating it as part of the merger terms? Because if it's statutory, my clients know they're protected. If it's contractual, UBS can litigate it post-close, and we're back in court for years. Which is it?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Here's what I'm putting on the table: Credit Suisse AT1 absorbs losses first up to 16 billion francs—that's statutory priority, defensible in court. Anything beyond that, Federal Council backstops via a limited guarantee capped at 100 billion total exposure. UBS gets deposit protection and legacy litigation carve-out. AT1 holders take the haircut, but they know the number. Can Federal Council and UBS live with that structure by 20:30, or do we need to adjust the cap?",
+            "cot": {
+              "assess": "UBS and the wealth client have both locked in hard conditions by 21:00—full AT1 protection, deposit guarantees, signed merger. We've got preliminary soundings with UBS but no binding offer yet. The bottleneck is now legal structure: AT1 holders are demanding clarity on loss allocation, and Federal Council won't absorb open-ended exposure. We're running out of time to lock a defensible framework that satisfies all three parties *and* survives Monday's market open.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility, creditor_capital_risk",
+                "rationale": "The AT1 question is blocking everything—I need to table a specific loss-allocation mechanism *now* so UBS, creditors, and Federal Council can all say yes or no by 21:00, rather than circling on undefined \"protection.\""
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "That 100-billion cap is politically defensible, but only if the AT1 haircut actually sticks—no ex-post carve-outs for litigation or creditor relief. We need UBS to confirm in writing they'll close on that basis by 20:45, and we need your legal team to certify the statutory priority holds under Swiss law. If either wavers, the cap collapses and we're back to open-ended exposure. What's your read on UBS accepting the AT1 write-down without further conditions?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Karin, before we lock the guarantee structure—has UBS actually confirmed they'll accept the 16-billion AT1 haircut *in writing* by 20:45? Because if they're still negotiating that number or demanding carve-outs, we need to know now, not at 20:55 when the deadline's already blown past.",
+            "cot": {
+              "assess": "The 100-billion cap and AT1 write-down are now locked—that's progress on legal defensibility and public-sector cost containment. But cs_funding_stress is still 83, and we're 90 minutes from UBS's 21:00 deadline. The real risk: if UBS won't sign on the AT1 haircut *in writing* by 20:45, the whole structure collapses and we're back to open-ended exposure. I need to know if they'll actually commit or if we're chasing a phantom buyer.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "UBS has tabled conditions but hasn't confirmed acceptance of the 16-billion AT1 write-down in writing. I need to know if they're genuinely ready to sign or if we're wasting the next hour on a deal that won't close."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "No—UBS has not confirmed in writing yet. Their CEO tabled conditions at 19:15: full AT1 protection *plus* deposit guarantee. They're still negotiating the haircut floor, not accepting 16 billion. I'm calling them in now to lock the 16-billion statutory write-down and get written confirmation by 20:30, or we walk this to a resolution framework and they get nothing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin, when you call UBS in at 20:30, what's your walk-away? If they push back on the 16-billion haircut or demand carve-outs, do we have a credible threat to move to resolution, or are we negotiating against ourselves? Because my board needs to know the cap actually holds.",
+            "cot": {
+              "assess": "UBS still hasn't confirmed the 16-billion AT1 haircut in writing—they're negotiating the floor, not accepting it. The 100-billion cap holds only if that write-down sticks without carve-outs. Market confidence and funding stress are both deteriorating; we're buying time with structure, not solving the confidence problem. The real risk: if UBS walks or demands more protection, the whole framework collapses and we're exposed to unlimited public cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know whether UBS will actually accept the 16-billion write-down or if we're heading toward a resolution scenario—because that answer determines whether the 100-billion cap is real or a fiction we're selling to the room."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, when you call UBS in: tell them the 16 billion is the floor, not negotiable. We're solvent at that haircut—we've modeled it. And Federal Council, we need a public statement by 21:30 that a rescue package is locked, merger in motion, deposits protected. Our clients are watching the news, not this room. No announcement, no confidence by Monday.",
+            "cot": {
+              "assess": "UBS is still negotiating the 16-billion AT1 haircut—they haven't accepted it in writing, and FINMA's about to call them in at 20:30 to force the issue. My core problem: market_confidence is still at 25 (needs 55 to win), and cs_funding_stress is at 83 (needs to drop to 45). The rescue package is on the table, but it's not *credible* to the market yet because UBS hasn't signed and the public doesn't know the terms. I need to lock UBS in *and* announce something concrete to clients tonight—or Monday opens with a run.",
+              "decide": {
+                "action_type": "speak",
+                "target": "finma, federal_council",
+                "rationale": "I need to signal to UBS (through FINMA) that Credit Suisse will *not* subsidize them beyond the statutory 16-billion haircut, and I need the Federal Council to confirm publicly that a rescue is happening—not someday, but tonight. This is the only move that stops the Monday-open panic."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Look, I need the 16-billion AT1 write-down locked in writing *before* I walk into that call with UBS—that's non-negotiable for my shareholders. And I need Federal Council to confirm in writing that the 100-billion cap holds even if litigation hits post-close, or we're not signing anything by 20:45. No written guarantees on both fronts, no deal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, before you call UBS in at 20:30—do you have Federal Council's written confirmation that the 100-billion cap holds post-close, even if litigation hits? Because if you're calling UBS without that in hand, they'll smell the gap and push back on the haircut. We need both sides locked in writing *simultaneously*, not sequentially.",
+            "cot": {
+              "assess": "UBS has locked in its conditions—16B AT1 write-down plus written Federal Council guarantee on the 100B cap, both by 20:45 or no deal. The structure is now clear, but execution is live: FINMA is calling UBS in at 20:30 to get written confirmation, and Federal Council needs to produce a matching written commitment. Market confidence and funding stress are still bleeding; we have ~90 minutes to close this gap or Monday opens with panic.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "UBS has tabled binding conditions (16B haircut + written guarantee by 20:45); I need to confirm FINMA has the Federal Council's written commitment locked BEFORE calling UBS in, or we're walking into a negotiation where one side can't deliver."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Karin, forget the sequencing for a moment—has UBS's board actually authorized you to negotiate a merger, or are they just fishing for the best terms before they walk? Because I can't tell my clients \"we have a rescue\" if UBS is still deciding whether they want Credit Suisse at all. What's your read—do they sign by 20:45 or not?",
+            "cot": {
+              "assess": "Market confidence is still critically low (24.8) and my clients are at the door with a Monday-morning withdrawal threat. The room is locked in negotiation over AT1 haircuts and written guarantees, but nobody's actually confirmed UBS will sign—we're arguing about the structure of a deal that might not happen. Funding stress is still dangerous (83.2), and every minute we spend debating written confirmations instead of getting UBS to actually commit is a minute closer to Monday open with no rescue locked.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before the room spends another hour on sequential written confirmations, I need to know if UBS is actually going to take this deal or if we're negotiating theater—because my clients don't care about the legal structure of a haircut, they care that a buyer is *committed*."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin, when you call UBS in: is the 16-billion AT1 write-down a statutory haircut under banking law, or are you negotiating it as part of the merger terms? Because if it's statutory, my clients know they're protected. If it's contractual, UBS can litigate it post-close, and we're back in court for years. Which is it?",
+            "cot": {
+              "assess": "The room has locked the AT1 haircut at 16 billion francs as statutory priority—that's my core win. But UBS hasn't confirmed in writing yet, and Federal Council's 100-billion cap is still conditional on litigation carve-outs holding post-close. My creditors are exposed if UBS negotiates carve-outs after signing or if the statutory priority gets reinterpreted under resolution law. I need to pin down the *exact legal mechanism* that protects AT1 holders from post-close litigation claims or regulatory haircuts.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before UBS walks in at 20:30, I need to know whether the 16-billion write-down is locked under Swiss Banking Act § 36c (statutory priority) or negotiated as part of a merger agreement—because one is legally bulletproof, the other is a contract hostage."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Karin, when you call UBS in: tell them the 16 billion is the floor, not negotiable. We're solvent at that haircut—we've modeled it. And Federal Council, we need a public statement by 21:30 that a rescue package is locked, merger in motion, deposits protected. Our clients are watching the news, not this room. No announcement, no confidence by Monday.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Karin, before we lock the guarantee structure—has UBS actually confirmed they'll accept the 16-billion AT1 haircut *in writing* by 20:45? Because if they're still negotiating that number or demanding carve-outs, we need to know now, not at 20:55 when the deadline's already blown past.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin, when you call UBS in at 20:30, what's your walk-away? If they push back on the 16-billion haircut or demand carve-outs, do we have a credible threat to move to resolution, or are we negotiating against ourselves? Because my board needs to know the cap actually holds.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin, before you call UBS in at 20:30—do you have Federal Council's written confirmation that the 100-billion cap holds post-close, even if litigation hits? Because if you're calling UBS without that in hand, they'll smell the gap and push back on the haircut. We need both sides locked in writing *simultaneously*, not sequentially.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Karin, forget the sequencing for a moment—has UBS's board actually authorized you to negotiate a merger, or are they just fishing for the best terms before they walk? Because I can't tell my clients \"we have a rescue\" if UBS is still deciding whether they want Credit Suisse at all. What's your read—do they sign by 20:45 or not?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin, when you call UBS in: is the 16-billion AT1 write-down a statutory haircut under banking law, or are you negotiating it as part of the merger terms? Because if it's statutory, my clients know they're protected. If it's contractual, UBS can litigate it post-close, and we're back in court for years. Which is it?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm putting on the table: Credit Suisse AT1 absorbs losses first up to 16 billion francs—that's statutory priority, defensible in court. A\" → FINMA tables a legally structured rescue framework: AT1 absorbs first 16bn CHF, Federal Council backstop capped at 100bn, UBS gets deposit protection and litigation carve-out. The proposal is concrete and defensible, but creditor hierarchy is now explicitly at risk and public exposure is substantial.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -5.096
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 5.2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB, you've had the most recent contact with UBS legal — are they actually moving toward a binding signature on the 16-billion haircut by 20:45, or are they still fishing for carve-outs? Because if they're not committed, I need to know now so we can prepare a credible resolution alternative.\n  snb: UBS legal is still conditioning the haircut on full litigation protection post-close—they won't commit to 16 billion in writing without that carve-out locked. We can deliver the protection, but we need Federal Council to confirm the 100-billion cap holds even if AT1 litigation materializes. Without that written confirmation in the next thirty minutes, they won't sign by 20:45.\n  snb: I'm activating unlimited emergency liquidity assistance against eligible collateral effective immediately—that stops the Monday run. But Federal Council: you need to issue that written cap confirmation to UBS legal within thirty minutes, not after UBS commits. That's the only way we unblock the signature.\n  federal_council: I'm issuing written confirmation to SNB right now: the 100-billion Federal Council backstop cap holds post-close, including litigation. No carve-outs, no ex-post adjustments. SNB—take that to UBS legal immediately. That's the unlock. We do *not* move beyond that number, and we do *not* absorb AT1 creditor relief post-signature. Haircut sticks.\n  cs_ceo: Karin, Federal Council just locked the cap in writing. Call UBS legal *now*, not 20:30—they have what they need to commit. And the moment they sign, we announce: merger agreed, deposits protected, rescue package locked. My clients are watching Bloomberg, not this room. No public announcement by 21:00, we lose another $3-5 billion in outflows by Monday.\n  federal_council: The 100-billion cap is locked in writing and holds—take it to UBS legal now. But I need their binding signature on the 16-billion haircut before we announce anything public; if they're still negotiating carve-outs at 20:50, the announcement becomes a liability, not a confidence tool. Call them immediately and report back the moment they commit.\n  ubs_ceo: Federal Council's cap is locked in writing and holds post-close—no carve-outs, no litigation relief. I'm taking that to UBS legal now. The moment they commit to 16 billion in writing, we announce the merger, the deposit guarantee, the whole package. No announcement by 21:00, we're looking at a $5 billion Monday run. What's your timeline on their signature?\n  wealth_client: Karin, the moment UBS legal signs off on 16 billion—not 20 minutes later, not after a coffee break—we announce. Merger agreed, deposits protected, Federal Council backstop locked. My clients are on Bloomberg right now. No announcement by 21:00, I'm instructing them to move $2 billion Monday morning. What's your read on when UBS legal actually commits?\n  finma: UBS legal is reviewing the Federal Council's written cap confirmation now—I expect their binding signature on the 16-billion haircut within the next twenty minutes. The moment I have it in writing, I'm calling you all back to coordinate the announcement. No delays.\n  at1_rep: Karin—when UBS signs off on 16 billion, I need one line in the announcement: \"AT1 write-down is statutory under Swiss banking law and final.\" No \"subject to creditor consent,\" no \"pending litigation review.\" Because the moment you announce a merger without that clarity, my board assumes it's negotiable, and we litigate. Is that language in the term sheet UBS is reviewing right now?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB, you've had the most recent contact with UBS legal — are they actually moving toward a binding signature on the 16-billion haircut by 20:45, or are they still fishing for carve-outs? Because if they're not committed, I need to know now so we can prepare a credible resolution alternative.",
+            "cot": {
+              "assess": "Legal defensibility is solid at 59 and rising — the 16bn AT1 framework is tabled and documented. But rescue_strength (14), creditor_capital_risk (29), and public_sector_cost (16) are all deteriorating because UBS hasn't signed yet, AT1 holders are still litigating the haircut mechanism, and we're burning credibility with every hour that passes without a binding term sheet. Market confidence is at 23 — we're 11 points above failure but losing ground. The real bottleneck now is UBS's written confirmation, not legal theory.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB has the operational visibility on UBS's actual intent and timeline; I need to know whether UBS will sign the AT1 haircut in writing by 20:45 or whether we're negotiating against ourselves and need to shift to resolution threat."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "UBS legal is still conditioning the haircut on full litigation protection post-close—they won't commit to 16 billion in writing without that carve-out locked. We can deliver the protection, but we need Federal Council to confirm the 100-billion cap holds even if AT1 litigation materializes. Without that written confirmation in the next thirty minutes, they won't sign by 20:45.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I'm activating unlimited emergency liquidity assistance against eligible collateral effective immediately—that stops the Monday run. But Federal Council: you need to issue that written cap confirmation to UBS legal within thirty minutes, not after UBS commits. That's the only way we unblock the signature.",
+            "cot": {
+              "assess": "cs_funding_stress is at 88.4 and rising—we're 4 points from failure. UBS won't sign the 16bn haircut without Federal Council's written cap confirmation, which we haven't delivered. The bottleneck is sequencing: UBS needs legal certainty before committing, but that certainty requires Federal Council to lock numbers in writing *now*. Public sector cost is creeping up because we're still negotiating loss protection scope instead of closing it.",
+              "decide": {
+                "action_type": "act",
+                "target": "cs_funding_stress",
+                "rationale": "We can't wait for UBS to sign—funding stress is too acute. I'm deploying emergency liquidity assistance immediately to stabilize deposit outflows and buy time for the legal sequencing to resolve."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I'm issuing written confirmation to SNB right now: the 100-billion Federal Council backstop cap holds post-close, including litigation. No carve-outs, no ex-post adjustments. SNB—take that to UBS legal immediately. That's the unlock. We do *not* move beyond that number, and we do *not* absorb AT1 creditor relief post-signature. Haircut sticks.",
+            "cot": {
+              "assess": "SNB just locked unlimited liquidity—that's the funding stress circuit-breaker and buys us breathing room. But we're still hostage to UBS's written confirmation on the 16bn haircut, which they're conditioning on Federal Council's written cap guarantee. The bottleneck is now legal sequencing, not economics. Public sector cost is rising fast (16 → 23 by end of round) because every sweetener we table to unblock UBS pushes the taxpayer exposure up.",
+              "decide": {
+                "action_type": "act",
+                "target": "public_sector_cost",
+                "rationale": "I need to lock Federal Council's written 100bn cap confirmation *now* and hand it to SNB to deliver to UBS legal within 30 minutes—this breaks the sequencing deadlock and stops cost from bleeding further while keeping taxpayer exposure capped and defensible."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, Federal Council just locked the cap in writing. Call UBS legal *now*, not 20:30—they have what they need to commit. And the moment they sign, we announce: merger agreed, deposits protected, rescue package locked. My clients are watching Bloomberg, not this room. No public announcement by 21:00, we lose another $3-5 billion in outflows by Monday.",
+            "cot": {
+              "assess": "Federal Council's written cap confirmation just unlocked UBS's signature path—that's the critical move. But I'm still exposed: market_confidence is 23 (needs 32 more for success), and cs_funding_stress is 88 (one bad news cycle away from 92 failure). The 16-billion AT1 haircut is now defensible in writing, but my clients don't know that yet. I need a public announcement *before* Monday opens, or confidence collapses anyway.",
+              "decide": {
+                "action_type": "speak",
+                "target": "finma",
+                "rationale": "I need FINMA to move the UBS call forward now—not at 20:30—while Federal Council's written confirmation is hot. Every minute of delay is a minute my deposit base erodes over the weekend."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The 100-billion cap is locked in writing and holds—take it to UBS legal now. But I need their binding signature on the 16-billion haircut before we announce anything public; if they're still negotiating carve-outs at 20:50, the announcement becomes a liability, not a confidence tool. Call them immediately and report back the moment they commit.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council's cap is locked in writing and holds post-close—no carve-outs, no litigation relief. I'm taking that to UBS legal now. The moment they commit to 16 billion in writing, we announce the merger, the deposit guarantee, the whole package. No announcement by 21:00, we're looking at a $5 billion Monday run. What's your timeline on their signature?",
+            "cot": {
+              "assess": "Federal Council just locked the 100-billion cap in writing—that's the unlock UBS needed. UBS legal now has everything to commit to the 16-billion haircut. The critical move is immediate signature from UBS, followed by a public announcement before market open Monday. Without that announcement by 21:00, market confidence stays underwater and we bleed deposits all weekend.",
+              "decide": {
+                "action_type": "act",
+                "target": "ubs_ceo",
+                "rationale": "Federal Council's written cap confirmation is now in UBS's hands; I need to confirm UBS legal will commit to the 16-billion haircut in writing within the next 30 minutes so we can announce the rescue package publicly and stop the deposit run."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Karin, the moment UBS legal signs off on 16 billion—not 20 minutes later, not after a coffee break—we announce. Merger agreed, deposits protected, Federal Council backstop locked. My clients are on Bloomberg right now. No announcement by 21:00, I'm instructing them to move $2 billion Monday morning. What's your read on when UBS legal actually commits?",
+            "cot": {
+              "assess": "Federal Council's written cap is locked, UBS legal now has the green light to commit to 16bn in writing—the core negotiation is unblocked. But market_confidence is still critically low (23), cs_funding_stress is climbing (88, only 4 points from failure), and we're waiting on UBS's signature before any public announcement. The announcement itself is the confidence lever—without it by 21:00, we hemorrhage deposits Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "UBS legal has the written cap now—I need to know the exact moment they commit to 16bn in writing so we can time the public announcement to hit before market close. That announcement is what stops my clients from running Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "UBS legal is reviewing the Federal Council's written cap confirmation now—I expect their binding signature on the 16-billion haircut within the next twenty minutes. The moment I have it in writing, I'm calling you all back to coordinate the announcement. No delays.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin—when UBS signs off on 16 billion, I need one line in the announcement: \"AT1 write-down is statutory under Swiss banking law and final.\" No \"subject to creditor consent,\" no \"pending litigation review.\" Because the moment you announce a merger without that clarity, my board assumes it's negotiable, and we litigate. Is that language in the term sheet UBS is reviewing right now?",
+            "cot": {
+              "assess": "UBS legal is now reviewing Federal Council's written cap—we're 20 minutes from their binding signature on the 16-billion AT1 haircut. The framework is locked: statutory write-down, Federal Council backstop capped at 100bn, deposit protection confirmed. But creditor_capital_risk is still rising (+5/round, now 29) because the AT1 write-down mechanism hasn't been legally formalized yet, and market_confidence remains dangerously low (23, needs 55). The announcement timing is critical—the moment UBS commits, we go public or we bleed deposits all weekend.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The 16-billion AT1 write-down is tabled as \"statutory priority,\" but creditors need confirmation it's binding under banking law, not subject to post-close litigation or carve-outs—otherwise my clients will challenge it the moment the merger closes."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Karin, Federal Council just locked the cap in writing. Call UBS legal *now*, not 20:30—they have what they need to commit. And the moment they sign, we announce: merger agreed, deposits protected, rescue package locked. My clients are watching Bloomberg, not this room. No public announcement by 21:00, we lose another $3-5 billion in outflows by Monday.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB, you've had the most recent contact with UBS legal — are they actually moving toward a binding signature on the 16-billion haircut by 20:45, or are they still fishing for carve-outs? Because if they're not committed, I need to know now so we can prepare a credible resolution alternative.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Karin, the moment UBS legal signs off on 16 billion—not 20 minutes later, not after a coffee break—we announce. Merger agreed, deposits protected, Federal Council backstop locked. My clients are on Bloomberg right now. No announcement by 21:00, I'm instructing them to move $2 billion Monday morning. What's your read on when UBS legal actually commits?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin—when UBS signs off on 16 billion, I need one line in the announcement: \"AT1 write-down is statutory under Swiss banking law and final.\" No \"subject to creditor consent,\" no \"pending litigation review.\" Because the moment you announce a merger without that clarity, my board assumes it's negotiable, and we litigate. Is that language in the term sheet UBS is reviewing right now?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm activating unlimited emergency liquidity assistance against eligible collateral effective immediately—that stops the Monday run. But Federal Counc\" → SNB activates unlimited liquidity facility immediately; run risk contained but Federal Council cap confirmation still needed.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm issuing written confirmation to SNB right now: the 100-billion Federal Council backstop cap holds post-close, including litigation. No carve-outs,\" → Federal Council issues written 100bn cap confirmation with no carve-outs; UBS legal barrier removed.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council's cap is locked in writing and holds post-close—no carve-outs, no litigation relief. I'm taking that to UBS legal now. The moment they\" → UBS CEO commits to merger announcement contingent on AT1 creditor written acceptance; 21:00 deadline active.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.795
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 1.6
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB—if UBS legal demands explicit litigation carve-outs as a condition to sign the 16 billion, can you ring-fence that protection without reopening the AT1 hierarchy in court? Because the moment we announce a statutory haircut but then carve out litigation exposure, creditors will argue the write-down isn't final, and we lose legal defensibility. What's your read on whether that carve-out can hold?\n  snb: No. Litigation carve-outs fracture the statutory foundation—the moment we exempt UBS from AT1 losses on disputed claims, every creditor gets the same argument, and the write-down collapses in court. We can backstop UBS's defense costs through the liquidity facility, but the haircut itself has to be clean and final, or we're not actually containing the crisis—we're deferring it to the courtroom.\n  snb: Karin, where does UBS legal stand on that signature right now—are they locked in at 16 billion with Federal Council's cap in hand, or are they still circling? Because if it slips past 20:50, I'm holding unlimited liquidity ready to backstop any Monday-morning run while we close the announcement. But I need to know the real timeline, not the hopeful one.\n  finma: UBS legal is still negotiating the carve-out language—they want explicit exemption from AT1 losses on \"pre-existing disputes,\" which we cannot grant without collapsing the write-down's finality. I'm calling their board chair in the next ten minutes with a hard deadline: 16 billion is statutory, non-negotiable, signature by 20:45 or we move to resolution framework and they get nothing. If they won't commit by then, SNB needs to know so you can prepare the liquidity backstop for Monday as a run-containment measure, not a rescue enabler.\n  federal_council: Karin, if UBS legal doesn't sign by 20:45, what's your actual walk-away—do we have a credible resolution framework ready to announce, or does that blow up Monday anyway? Because I'm not holding unlimited liquidity as a backstop to a failed merger—that's just burning taxpayer money with no floor.\n  cs_ceo: Karin, tell UBS's board: if they want the merger, the 16 billion is final—no carve-outs, no litigation relief, no post-close negotiation. They get Federal Council's 100-billion backstop and SNB liquidity in return. If they won't commit by 20:45, I move to resolution and they inherit nothing. My clients are watching the clock. What's their answer?\n  ubs_ceo: Karin, you're calling their board chair now—what's your read on whether they actually sign by 20:45, or are we going to watch this slip into a Monday resolution anyway? Because if it's the latter, I need to know so I can lock my liquidity posture accordingly.\n  wealth_client: Karin, before you call UBS's board chair—if they won't sign by 20:45, what does resolution actually mean for my deposits? Do they stay protected under Swiss banking law, or do I start moving money Monday? Because I can't tell my clients \"we have a backup plan\" if the backup is just \"we'll figure it out in court.\"\n  at1_rep: Karin—before you call UBS's board, confirm: when you announce the 16 billion, are you calling it statutory under Swiss banking law with no post-close relief, or are you leaving room for \"subject to litigation resolution\"? Because the moment that language softens, creditors litigate, and the whole structure collapses. I need that line locked in your announcement draft *before* you make the call.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB—if UBS legal demands explicit litigation carve-outs as a condition to sign the 16 billion, can you ring-fence that protection without reopening the AT1 hierarchy in court? Because the moment we announce a statutory haircut but then carve out litigation exposure, creditors will argue the write-down isn't final, and we lose legal defensibility. What's your read on whether that carve-out can hold?",
+            "cot": {
+              "assess": "UBS legal is reviewing Federal Council's written cap now with a 20-minute signature window on the 16bn AT1 haircut. Market confidence and liquidity are stabilizing, but creditor_capital_risk (34) and public_sector_cost (29) are rising sharply—both neglected in the last three rounds. We're at the threshold: if UBS signs, we announce and lock the rescue; if they don't, we need a credible resolution alternative that doesn't blow apart the legal structure.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "UBS legal's signature is imminent but conditional on litigation carve-outs; I need to know if SNB can actually deliver that protection within the rescue framework without creating a legal vulnerability that undermines the AT1 write-down's defensibility."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "No. Litigation carve-outs fracture the statutory foundation—the moment we exempt UBS from AT1 losses on disputed claims, every creditor gets the same argument, and the write-down collapses in court. We can backstop UBS's defense costs through the liquidity facility, but the haircut itself has to be clean and final, or we're not actually containing the crisis—we're deferring it to the courtroom.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Karin, where does UBS legal stand on that signature right now—are they locked in at 16 billion with Federal Council's cap in hand, or are they still circling? Because if it slips past 20:50, I'm holding unlimited liquidity ready to backstop any Monday-morning run while we close the announcement. But I need to know the real timeline, not the hopeful one.",
+            "cot": {
+              "assess": "Federal Council's written cap and unlimited SNB liquidity have locked the legal foundation—cs_funding_stress is still critical at 85 (need ≤45), but UBS legal is now moving toward signature on the 16bn haircut. The real risk is timing: we have ~20 minutes to UBS's binding commitment, then announcement, then market confidence recovery. If that signature slips, cs_funding_stress spikes past 92 and we fail. Public sector cost is rising (+10/round) because the 100bn exposure is now concrete, not theoretical.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "UBS legal's signature timeline is the single point of failure right now—I need to know if they're actually on track for binding commitment within 20 minutes, or if we need to activate a contingency liquidity measure to hold us through a delay."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "UBS legal is still negotiating the carve-out language—they want explicit exemption from AT1 losses on \"pre-existing disputes,\" which we cannot grant without collapsing the write-down's finality. I'm calling their board chair in the next ten minutes with a hard deadline: 16 billion is statutory, non-negotiable, signature by 20:45 or we move to resolution framework and they get nothing. If they won't commit by then, SNB needs to know so you can prepare the liquidity backstop for Monday as a run-containment measure, not a rescue enabler.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin, if UBS legal doesn't sign by 20:45, what's your actual walk-away—do we have a credible resolution framework ready to announce, or does that blow up Monday anyway? Because I'm not holding unlimited liquidity as a backstop to a failed merger—that's just burning taxpayer money with no floor.",
+            "cot": {
+              "assess": "UBS legal is still negotiating carve-outs on the 16-billion AT1 write-down—finma's giving them a hard 20:45 deadline before we pivot to resolution. The Federal Council cap is locked, liquidity is unlimited, but if UBS walks or delays past that deadline, we lose the announcement window and market confidence collapses into Monday. Public sector cost is rising unchecked—we're now exposed to both the 100-billion cap AND potential resolution costs if the merger fails.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "UBS legal's stalling on carve-outs is the critical path blocker—I need clarity on whether that 20:45 deadline is real or theater, because my cost exposure depends on knowing whether we're actually closing this merger or moving to resolution mode."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, tell UBS's board: if they want the merger, the 16 billion is final—no carve-outs, no litigation relief, no post-close negotiation. They get Federal Council's 100-billion backstop and SNB liquidity in return. If they won't commit by 20:45, I move to resolution and they inherit nothing. My clients are watching the clock. What's their answer?",
+            "cot": {
+              "assess": "UBS legal is still circling on the 16-billion haircut—they want carve-outs we cannot grant without destroying finality. Federal Council's written cap is locked, SNB's liquidity is live, but the merger announcement is stalled on UBS's conditional signature. My funding stress is at 85 and climbing; without a public announcement by 21:00, I lose another $2–5 billion in outflows by Monday. The rescue framework is solid, but it's useless if UBS doesn't commit.",
+              "decide": {
+                "action_type": "speak",
+                "target": "finma",
+                "rationale": "UBS will not sign a carve-out that contradicts statutory finality—I need Karin to walk that board chair through the binary: accept 16 billion clean, or face resolution with zero recovery on AT1. I have to make clear that my survival depends on the announcement happening tonight, not on UBS negotiating creditor protection post-close."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, you're calling their board chair now—what's your read on whether they actually sign by 20:45, or are we going to watch this slip into a Monday resolution anyway? Because if it's the latter, I need to know so I can lock my liquidity posture accordingly.",
+            "cot": {
+              "assess": "Federal Council's written cap is locked and SNB liquidity is live—that's solid. But UBS legal is still circling on litigation carve-outs, and we're now at the 20:45 hard deadline. If they don't sign by then, the whole rescue collapses into a Monday run. The real risk isn't the terms anymore—it's whether UBS will actually commit, or whether we're negotiating against ourselves while the clock burns.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know if UBS's board chair call is happening now, and what their actual walk-away is—because if they slip past 20:45 without a signature, I need to know immediately so I can decide whether to close or pivot to resolution."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Karin, before you call UBS's board chair—if they won't sign by 20:45, what does resolution actually mean for my deposits? Do they stay protected under Swiss banking law, or do I start moving money Monday? Because I can't tell my clients \"we have a backup plan\" if the backup is just \"we'll figure it out in court.\"",
+            "cot": {
+              "assess": "UBS legal is still negotiating carve-outs on the 16-billion haircut—they won't commit by 20:45 without explicit litigation protection, which FINMA says collapses the write-down's finality. The rescue framework is structurally sound (Federal Council cap locked, SNB liquidity deployed), but creditor_capital_risk and public_sector_cost are both rising sharply because the AT1 write-down's legal defensibility hinges on whether UBS actually signs by the deadline. If they slip past 20:45, I lose credibility with my clients—they need to see announcement and certainty by 21:00, not a \"resolution framework\" as fallback.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know the real walk-away and timeline before I tell my board whether to hold or move assets—if UBS doesn't sign by 20:45, I need to know NOW what the actual resolution framework looks like, not hear it announced Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin—before you call UBS's board, confirm: when you announce the 16 billion, are you calling it statutory under Swiss banking law with no post-close relief, or are you leaving room for \"subject to litigation resolution\"? Because the moment that language softens, creditors litigate, and the whole structure collapses. I need that line locked in your announcement draft *before* you make the call.",
+            "cot": {
+              "assess": "UBS legal is still negotiating carve-outs on pre-existing disputes—they won't lock the 16-billion write-down without exemptions that would collapse the statutory finality and expose AT1 holders to litigation risk post-close. FINMA is calling their board chair with a hard 20:45 deadline. If UBS walks, creditor_capital_risk explodes because the write-down loses legal defensibility, and my clients face years of courtroom exposure. The statutory vs. contractual distinction is the hinge: if this becomes negotiable, the entire creditor hierarchy inverts.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know whether FINMA is prepared to enforce the statutory basis of the write-down in the announcement language—because if UBS gets carve-outs, my clients will argue the haircut isn't final, and we lose the legal floor that protects creditor rank."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Karin, tell UBS's board: if they want the merger, the 16 billion is final—no carve-outs, no litigation relief, no post-close negotiation. They get Federal Council's 100-billion backstop and SNB liquidity in return. If they won't commit by 20:45, I move to resolution and they inherit nothing. My clients are watching the clock. What's their answer?",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB—if UBS legal demands explicit litigation carve-outs as a condition to sign the 16 billion, can you ring-fence that protection without reopening the AT1 hierarchy in court? Because the moment we announce a statutory haircut but then carve out litigation exposure, creditors will argue the write-down isn't final, and we lose legal defensibility. What's your read on whether that carve-out can hold?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Karin, where does UBS legal stand on that signature right now—are they locked in at 16 billion with Federal Council's cap in hand, or are they still circling? Because if it slips past 20:50, I'm holding unlimited liquidity ready to backstop any Monday-morning run while we close the announcement. But I need to know the real timeline, not the hopeful one.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin, if UBS legal doesn't sign by 20:45, what's your actual walk-away—do we have a credible resolution framework ready to announce, or does that blow up Monday anyway? Because I'm not holding unlimited liquidity as a backstop to a failed merger—that's just burning taxpayer money with no floor.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin, you're calling their board chair now—what's your read on whether they actually sign by 20:45, or are we going to watch this slip into a Monday resolution anyway? Because if it's the latter, I need to know so I can lock my liquidity posture accordingly.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Karin, before you call UBS's board chair—if they won't sign by 20:45, what does resolution actually mean for my deposits? Do they stay protected under Swiss banking law, or do I start moving money Monday? Because I can't tell my clients \"we have a backup plan\" if the backup is just \"we'll figure it out in court.\"",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin—before you call UBS's board, confirm: when you announce the 16 billion, are you calling it statutory under Swiss banking law with no post-close relief, or are you leaving room for \"subject to litigation resolution\"? Because the moment that language softens, creditors litigate, and the whole structure collapses. I need that line locked in your announcement draft *before* you make the call.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.795
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm calling UBS's board chair directly now. The message is simple: 16 billion AT1 write-down is statutory under the Banking Act, section 36c—not subject to carve-outs or post-close negotiation. They get the Federal Council's 100-billion cap and SNB liquidity in return. Sign by 20:45 or we move to resolution and they inherit nothing. I need their answer in writing within thirty minutes.\n  ubs_ceo: I'm signing on the 16 billion haircut—statutory, final, no carve-outs—but only if Federal Council's 100-billion cap is locked in writing *right now*, and SNB confirms unlimited liquidity holds through Monday open. Those three pieces in hand by 20:40, we announce at 20:50 and my board ratifies by 21:00. Without all three, I'm walking—resolution is cleaner than inheriting Credit Suisse's litigation tail.\n  snb: I'm issuing written confirmation to my board right now: unlimited liquidity assistance to Credit Suisse holds through Monday market open, collateralized at standard haircuts, no recall. The moment FINMA announces the merger and AT1 write-down as statutory, that facility is live and public. That's my floor—depositors need to see it in writing, not hear it's \"under review.\"\n  federal_council: Karin, you're calling their board chair right now—do you have a binding signature on the 16 billion in hand, or are you announcing contingent on a signature that lands in the next thirty minutes? Because if it's the latter, the moment we say \"merger agreed,\" creditors start litigating the AT1 finality before the ink is even dry, and my 100-billion cap gets shredded in court.\n  finma: I have UBS's written commitment on the 16 billion as of 20:38—statutory under section 36c, no carve-outs, contingent only on your cap and SNB's liquidity confirmation both in writing by 20:40. I'm announcing the merger at 20:50 with all three pieces locked; if either falls through in the next two minutes, the announcement doesn't happen and we move to resolution Monday morning.\n  cs_ceo: Listen—the moment we announce this, Credit Suisse is solvent at 16 billion. That's not a haircut, that's a capital event under Swiss law. The write-down is statutory, final, no litigation relief. UBS is buying a clean bank, and depositors stay protected. We're not negotiating this on Monday.\n  ubs_ceo: Karin—when you announce at 20:50, have you notified AT1 holders in writing that the 16-billion write-down is final and statutory, or are they finding out from Bloomberg? Because the moment they hear it second-hand, litigation kicks off and we lose the legal floor we just built.\n  wealth_client: Karin, when you announce at 20:50, it has to be one coordinated drop: merger agreed, AT1 write-down final under section 36c, Federal Council backstop locked, SNB liquidity live. Not merger first, then details later—my clients are watching Bloomberg in real time, and the moment they see \"merger agreed\" without deposit language, they start moving money. Announce all three simultaneously or you lose another $5 billion by Monday open.\n  at1_rep: Before you hit send on that 20:50 announcement, I need written notice to AT1 holders in the next ninety seconds saying the 16-billion write-down is final under section 36c, no carve-outs, no post-close relief, no litigation exception. They find out from your press release instead of from us, we lose the legal floor and creditors sue the capital structure into collapse. Send that letter now or the announcement doesn't hold.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm calling UBS's board chair directly now. The message is simple: 16 billion AT1 write-down is statutory under the Banking Act, section 36c—not subject to carve-outs or post-close negotiation. They get the Federal Council's 100-billion cap and SNB liquidity in return. Sign by 20:45 or we move to resolution and they inherit nothing. I need their answer in writing within thirty minutes.",
+            "cot": {
+              "assess": "UBS legal is still conditioning signature on carve-outs we cannot grant without collapsing the AT1 write-down's finality—we're at an impasse. SNB and Federal Council have locked their terms in writing, but without UBS's binding commitment to the 16-billion haircut as *statutory and final*, we have no rescue package to announce by 21:00. Legal defensibility and market confidence are stalling because the core deal is still unsigned. Time pressure is now critical: we're in Round 5 of 10, and Monday opens in hours.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility, rescue_strength",
+                "rationale": "I need to move UBS past the carve-out impasse by reframing the 16 billion as a statutory write-down under the Banking Act—not a negotiable merger term—so creditors and courts see it as final, and we can announce a credible rescue tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I'm signing on the 16 billion haircut—statutory, final, no carve-outs—but only if Federal Council's 100-billion cap is locked in writing *right now*, and SNB confirms unlimited liquidity holds through Monday open. Those three pieces in hand by 20:40, we announce at 20:50 and my board ratifies by 21:00. Without all three, I'm walking—resolution is cleaner than inheriting Credit Suisse's litigation tail.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I'm issuing written confirmation to my board right now: unlimited liquidity assistance to Credit Suisse holds through Monday market open, collateralized at standard haircuts, no recall. The moment FINMA announces the merger and AT1 write-down as statutory, that facility is live and public. That's my floor—depositors need to see it in writing, not hear it's \"under review.\"",
+            "cot": {
+              "assess": "UBS CEO has just committed to signing the 16-billion haircut by 20:40 with three conditions locked: Federal Council's written cap (✓ done R3), SNB unlimited liquidity (✓ done R3), and binding signature. FINMA is calling UBS's board chair now with the statutory language and 20:45 deadline. The structure is sound—but we're 5 minutes from the deadline, and I haven't confirmed my own liquidity posture holds through announcement and Monday open. Public sector cost is still climbing (+6.5/round), and creditor capital risk hasn't moved despite the AT1 framework being locked. My concern: if UBS legal signs at 20:44, we announce at 20:50, but I need to confirm my unlimited facility doesn't evaporate the moment the market sees the AT1 write-down is real.",
+              "decide": {
+                "action_type": "act",
+                "target": "cs_funding_stress / public_sector_cost",
+                "rationale": "UBS signature is imminent; I need to lock my liquidity commitment in writing to SNB's board right now so there's no ambiguity Monday when depositors wake up to a 16-billion write-down and ask whether their funds are actually protected."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin, you're calling their board chair right now—do you have a binding signature on the 16 billion in hand, or are you announcing contingent on a signature that lands in the next thirty minutes? Because if it's the latter, the moment we say \"merger agreed,\" creditors start litigating the AT1 finality before the ink is even dry, and my 100-billion cap gets shredded in court.",
+            "cot": {
+              "assess": "UBS is locked in—16 billion statutory, Federal Council cap written, SNB liquidity confirmed. But we're still burning public exposure (29, rising +6.5/round) and rescue credibility is fragile (24, rising +5.0/round). The moment we announce, market moves, but if the announcement slips or UBS board balks at 20:45, we crater. Right now, the only thing holding this together is the 20:50 announcement deadline—and I need to know if FINMA actually has UBS's board signature, or if we're announcing a merger that isn't signed yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we lock public messaging, I need confirmation UBS's board has actually signed—not just \"they're close\" or \"they've agreed in principle.\" A public announcement without a binding signature destroys credibility and blows the Federal Council cap the moment litigation hits."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I have UBS's written commitment on the 16 billion as of 20:38—statutory under section 36c, no carve-outs, contingent only on your cap and SNB's liquidity confirmation both in writing by 20:40. I'm announcing the merger at 20:50 with all three pieces locked; if either falls through in the next two minutes, the announcement doesn't happen and we move to resolution Monday morning.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Listen—the moment we announce this, Credit Suisse is solvent at 16 billion. That's not a haircut, that's a capital event under Swiss law. The write-down is statutory, final, no litigation relief. UBS is buying a clean bank, and depositors stay protected. We're not negotiating this on Monday.",
+            "cot": {
+              "assess": "UBS has committed in writing to the 16-billion AT1 haircut as statutory under section 36c—no carve-outs. Federal Council's 100-billion cap and SNB's unlimited liquidity are both locked. The announcement is scheduled for 20:50 with board ratification by 21:00. The core rescue mechanics are now in place, but creditor_capital_risk is still rising (+2.5/round, now at 34), and market_confidence remains weak (27) despite these commitments. The announcement itself will either stabilize confidence or trigger litigation that fractures the write-down's finality.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence / creditor_capital_risk",
+                "rationale": "The announcement is imminent—I need to signal that Credit Suisse is solvent under this structure and the AT1 write-down is final and defensible, not a negotiating position. This is my last window to shape how the market and creditors interpret what's about to be announced."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin—when you announce at 20:50, have you notified AT1 holders in writing that the 16-billion write-down is final and statutory, or are they finding out from Bloomberg? Because the moment they hear it second-hand, litigation kicks off and we lose the legal floor we just built.",
+            "cot": {
+              "assess": "UBS has locked the 16-billion AT1 write-down in writing as statutory—no carve-outs, contingent only on Federal Council's cap and SNB liquidity both confirmed by 20:40. Federal Council and SNB have both issued written confirmations. FINMA is announcing the merger at 20:50 with all three pieces locked. The rescue structure is now legally defensible and credible. What's unresolved: whether this actually stops the Monday run and restores market confidence—cs_funding_stress is still at 89, market_confidence at 27. The announcement itself doesn't move those variables; depositor behavior and creditor acceptance do.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before the 20:50 announcement goes live, I need to know if UBS's written acceptance includes explicit confirmation that AT1 creditors have been notified of the write-down's finality—because if creditors learn about the haircut from the press release instead of formal notice, we get immediate litigation risk and the legal defensibility we just locked collapses."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Karin, when you announce at 20:50, it has to be one coordinated drop: merger agreed, AT1 write-down final under section 36c, Federal Council backstop locked, SNB liquidity live. Not merger first, then details later—my clients are watching Bloomberg in real time, and the moment they see \"merger agreed\" without deposit language, they start moving money. Announce all three simultaneously or you lose another $5 billion by Monday open.",
+            "cot": {
+              "assess": "UBS has committed in writing to the 16-billion AT1 haircut (statutory, final) contingent on Federal Council's cap and SNB liquidity both locked by 20:40. Federal Council and SNB have both issued written confirmations. FINMA is announcing the merger at 20:50 with all three pieces in hand. The legal structure is defensible, but AT1 creditors haven't been formally notified yet—that's the gap. My core variable is market_confidence (27, needs 28 more to win), and it hinges on whether depositors actually believe this announcement kills the run. Right now it's still fragile because retail and institutional clients haven't seen the full chain: written announcement + deposit protection + AT1 finality all public simultaneously.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence",
+                "rationale": "Depositors move money Monday if they don't see a public, simultaneous announcement of merger, deposit protection, and AT1 write-down finality—not sequential drips. I need to demand the announcement include all three pieces and hit Bloomberg/SNB channels at the exact same moment to stop the outflow spiral."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Before you hit send on that 20:50 announcement, I need written notice to AT1 holders in the next ninety seconds saying the 16-billion write-down is final under section 36c, no carve-outs, no post-close relief, no litigation exception. They find out from your press release instead of from us, we lose the legal floor and creditors sue the capital structure into collapse. Send that letter now or the announcement doesn't hold.",
+            "cot": {
+              "assess": "UBS has signed the 16-billion AT1 haircut in writing as of 20:38—statutory, final, no carve-outs. Federal Council's 100-billion cap and SNB's unlimited liquidity are both locked in writing and confirmed. The announcement is locked for 20:50 with all three pieces in hand. The legal defensibility of the AT1 write-down is now concrete: section 36c statutory authority, no negotiation room, no post-close relief. My core concern is that the announcement language must be absolutely airtight—the moment creditors hear ambiguity on finality or litigation exposure, they litigate the capital structure itself, and the whole rescue collapses in court.",
+              "decide": {
+                "action_type": "speak",
+                "target": "finma / federal_council / snb (group)",
+                "rationale": "AT1 holders must receive formal written notice *before* public announcement that the write-down is final and statutory—silence or second-hand Bloomberg notification triggers immediate litigation and destroys legal defensibility."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Listen—the moment we announce this, Credit Suisse is solvent at 16 billion. That's not a haircut, that's a capital event under Swiss law. The write-down is statutory, final, no litigation relief. UBS is buying a clean bank, and depositors stay protected. We're not negotiating this on Monday.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Before you hit send on that 20:50 announcement, I need written notice to AT1 holders in the next ninety seconds saying the 16-billion write-down is final under section 36c, no carve-outs, no post-close relief, no litigation exception. They find out from your press release instead of from us, we lose the legal floor and creditors sue the capital structure into collapse. Send that letter now or the announcement doesn't hold.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin, you're calling their board chair right now—do you have a binding signature on the 16 billion in hand, or are you announcing contingent on a signature that lands in the next thirty minutes? Because if it's the latter, the moment we say \"merger agreed,\" creditors start litigating the AT1 finality before the ink is even dry, and my 100-billion cap gets shredded in court.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin—when you announce at 20:50, have you notified AT1 holders in writing that the 16-billion write-down is final and statutory, or are they finding out from Bloomberg? Because the moment they hear it second-hand, litigation kicks off and we lose the legal floor we just built.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm calling UBS's board chair directly now. The message is simple: 16 billion AT1 write-down is statutory under the Banking Act, section 36c—not subje\" → FINMA delivers statutory ultimatum to UBS board: sign by 20:45 or face resolution.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 5,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm issuing written confirmation to my board right now: unlimited liquidity assistance to Credit Suisse holds through Monday market open, collateraliz\" → SNB issues written unlimited liquidity guarantee through Monday, collateralized and public upon merger announcement.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 5,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Karin, when you announce at 20:50, it has to be one coordinated drop: merger agreed, AT1 write-down final under section 36c, Federal Council backstop \" → The proposal demands a coordinated announcement that does not yet exist—UBS has not signed, AT1 holders have not been formally notified, and the Federal Council backstop remains contingent. Announcing 'merger agreed' without binding signatures in hand would trigger immediate creditor litigation and market chaos, not confidence.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 5,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 41.114,
+          "cs_funding_stress": 84.0,
+          "rescue_strength": 34.0,
+          "public_sector_cost": 38.0,
+          "creditor_capital_risk": 39.0,
+          "legal_defensibility": 64.0,
+          "time_pressure": 71.0
+        }
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'decision_before_monday' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "It is now late in the weekend; any announcement or arrangement must be ready before markets reopen Monday morning.",
+      "metadata": {
+        "stage": "decision_before_monday",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -1.6099999999999999
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 2.8
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm sending written notice to AT1 holders right now—16 billion write-down is statutory under section 36c, final, no carve-outs, no post-close relief. They see it from us before markets do. Announcement follows in five minutes once that lands.\n  at1_rep: That letter locks the hierarchy—good. But before you hit send, confirm it says the write-down is *irrevocable* and creditors have *no litigation carve-out* post-close, or UBS legal will argue Monday that the structure's still negotiable. Does your draft include that language, or do I need to see it?\n  snb: Karin, when you announce in the next two minutes—are you dropping all three at once (merger signed, AT1 write-down final under 36c, Federal Council backstop live), or is the announcement going out in pieces? Because the moment creditors see \"merger agreed pending AT1 acceptance,\" they start litigating. I need it coordinated or it doesn't hold.\n  finma: The draft includes both—irrevocable write-down under 36c, no litigation carve-out post-close, full stop. We're dropping all three simultaneously: merger signed, AT1 final, Federal Council backstop live. Announcement goes in ninety seconds.\n  federal_council: Karin—the letter to AT1 holders, does it say explicitly \"no relief available post-close, whether through litigation, negotiation, or statutory carve-out,\" or just \"write-down is final\"? Because \"final\" can mean different things in court. I need language that closes litigation off before it starts.\n  cs_ceo: The draft says it explicitly: \"No relief available post-close, whether through litigation, negotiation, or statutory carve-out.\" Write-down is irrevocable under section 36c. The moment that letter hits AT1 holders' inboxes, the structure is locked—creditors know the hierarchy is final. We announce in sixty seconds.\n  ubs_ceo: Karin—the moment that announcement drops, UBS legal is locked to the 16 billion, right? No \"subject to litigation outcome\" language, no post-close renegotiation rights? Because if their lawyers kept a carve-out in the fine print, we're announcing one deal and closing another, and my cap evaporates Monday morning.\n  wealth_client: Karin, the letter to AT1 holders is in flight right now, and the announcement follows in sixty seconds—correct? Because the moment that press release hits, my board starts moving money or holding. I need to know it's actually live, not pending one more review.\n  at1_rep: Karin, the moment that announcement hits—before market open Monday—UBS's legal team is going to get calls from AT1 holders' counsel arguing the write-down isn't final because section 36c itself has carve-outs for \"material litigation.\" Does your letter address that head-on, or are we walking into a Monday-morning court filing? Because if creditors get any daylight there, the whole structure unravels.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm sending written notice to AT1 holders right now—16 billion write-down is statutory under section 36c, final, no carve-outs, no post-close relief. They see it from us before markets do. Announcement follows in five minutes once that lands.",
+            "cot": {
+              "assess": "UBS has signed the 16-billion AT1 write-down in writing (20:38); Federal Council cap and SNB liquidity are both locked. The rescue structure is now legally defensible and binding. However, the wealth_client's proposal for a coordinated announcement was rejected—meaning we're announcing piecemeal, not as one drop, which creates creditor litigation risk and erodes market confidence. AT1 holders still haven't received formal written notice that the write-down is final; they're about to hear it from Bloomberg, not from us. That breaks the legal floor we just built.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility + creditor_capital_risk",
+                "rationale": "Before any public announcement, AT1 holders must receive formal written notice from FINMA that the 16-billion write-down is statutory, final, and non-negotiable under section 36c—this locks in legal finality and prevents post-announcement litigation claims."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "That letter locks the hierarchy—good. But before you hit send, confirm it says the write-down is *irrevocable* and creditors have *no litigation carve-out* post-close, or UBS legal will argue Monday that the structure's still negotiable. Does your draft include that language, or do I need to see it?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Karin, when you announce in the next two minutes—are you dropping all three at once (merger signed, AT1 write-down final under 36c, Federal Council backstop live), or is the announcement going out in pieces? Because the moment creditors see \"merger agreed pending AT1 acceptance,\" they start litigating. I need it coordinated or it doesn't hold.",
+            "cot": {
+              "assess": "AT1 letter is live, UBS has signed the 16bn haircut, Federal Council cap and SNB liquidity are locked in writing. The structure is legally defensible now—but market_confidence (41) and rescue_strength (34) are still lagging, and public_sector_cost is rising fast (+4.5/round). The announcement hasn't dropped yet; timing and credibility of execution over the next few minutes will determine whether we stabilize or slide into Monday panic.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Market confidence and rescue strength depend on whether the announcement lands cleanly as \"done\" or \"contingent\"—I need to know if the public messaging locks the three pillars (merger, AT1 finality, deposit protection) simultaneously or sequentially, because creditors will exploit any gap."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The draft includes both—irrevocable write-down under 36c, no litigation carve-out post-close, full stop. We're dropping all three simultaneously: merger signed, AT1 final, Federal Council backstop live. Announcement goes in ninety seconds.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin—the letter to AT1 holders, does it say explicitly \"no relief available post-close, whether through litigation, negotiation, or statutory carve-out,\" or just \"write-down is final\"? Because \"final\" can mean different things in court. I need language that closes litigation off before it starts.",
+            "cot": {
+              "assess": "The merger framework is locked—UBS signed, AT1 write-down is statutory and final under section 36c, Federal Council cap is written and holds, SNB liquidity is public and unlimited through Monday. The announcement is dropping in ninety seconds with all three elements coordinated. My core concern now is whether market confidence actually *moves* once this hits—we've built legal defensibility and rescue strength, but creditors and depositors need to believe it holds, and that only happens if the announcement lands cleanly without ambiguity or litigation signals.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before the announcement goes live, I need confirmation that AT1 holders' written notice explicitly closes the door on post-close litigation relief—not just says \"final,\" but says \"no relief available post-close under any circumstance\"—because the moment creditors read ambiguity, we lose the legal floor and market confidence tanks anyway."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "The draft says it explicitly: \"No relief available post-close, whether through litigation, negotiation, or statutory carve-out.\" Write-down is irrevocable under section 36c. The moment that letter hits AT1 holders' inboxes, the structure is locked—creditors know the hierarchy is final. We announce in sixty seconds.",
+            "cot": {
+              "assess": "The announcement is locked and dropping in ninety seconds with all three pieces coordinated: merger signed, AT1 write-down final under section 36c, Federal Council backstop live, SNB liquidity confirmed. Legal defensibility and creditor_capital_risk are both secured by the irrevocable language in the AT1 letter—no litigation carve-outs, no post-close relief. My core variables (market_confidence, rescue_strength) depend entirely on this announcement landing cleanly and holding through Monday open.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "Federal Council just asked the critical question—I need to confirm the language is litigation-proof before we drop, because if that letter is ambiguous, creditors litigate and my solvency narrative collapses in court."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin—the moment that announcement drops, UBS legal is locked to the 16 billion, right? No \"subject to litigation outcome\" language, no post-close renegotiation rights? Because if their lawyers kept a carve-out in the fine print, we're announcing one deal and closing another, and my cap evaporates Monday morning.",
+            "cot": {
+              "assess": "The announcement is locked and dropping in sixty seconds with all three components coordinated—merger signed, AT1 write-down final under section 36c with no litigation carve-outs, Federal Council backstop live, SNB liquidity confirmed. UBS has the statutory protection and downside cap it demanded; creditors are being notified simultaneously so no second-hand litigation triggers. My core priorities—public_sector_cost and rescue_strength—are secured: the 100-billion Federal Council cap is written, SNB liquidity is unlimited through Monday, and UBS's signature is binding on the 16-billion haircut with zero carve-outs. The structure holds.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we go live, I need to confirm UBS's legal team has locked in writing that they will *not* renegotiate the AT1 haircut post-close, even if litigation lands—because if they leave themselves an out, my 100-billion cap gets shredded in discovery."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Karin, the letter to AT1 holders is in flight right now, and the announcement follows in sixty seconds—correct? Because the moment that press release hits, my board starts moving money or holding. I need to know it's actually live, not pending one more review.",
+            "cot": {
+              "assess": "The announcement is about to drop with all three components locked (merger signed, AT1 write-down final, Federal Council backstop live), and AT1 holders are being notified in writing right now. The legal structure is defensible. But I'm watching market_confidence (41, needs 55 to win) and cs_funding_stress (87, needs to drop to 45)—and neither moves until depositors and markets actually *see* the announcement and believe it holds. The moment that press release lands, my clients will either calm down or start moving money. I need to know: is the announcement actually live in the next sixty seconds, or are we still waiting on a signature?",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need confirmation that the announcement is live NOW, not contingent on another round of signatures or legal review—because my clients are watching the clock and I cannot tell them \"it's coming\" if there's any slip."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin, the moment that announcement hits—before market open Monday—UBS's legal team is going to get calls from AT1 holders' counsel arguing the write-down isn't final because section 36c itself has carve-outs for \"material litigation.\" Does your letter address that head-on, or are we walking into a Monday-morning court filing? Because if creditors get any daylight there, the whole structure unravels.",
+            "cot": {
+              "assess": "The announcement is live in sixty seconds with AT1 holders notified, merger signed, and Federal Council backstop locked—the legal floor is holding. But creditor_capital_risk is still climbing (39, +2.5/round) because the moment this goes public, litigation will test whether that \"no relief\" language actually sticks in court. The structure is sound on paper, but market_confidence and cs_funding_stress are still the weak points—confidence at 40 when we need 55, stress at 87 when we need 45. My job now is to make sure the creditor hierarchy doesn't fracture when depositors and creditors start reading the fine print Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The announcement lands in seconds—I need to know if FINMA's prepared for the immediate post-announcement creditor pushback, because that's where the legal defensibility either holds or collapses."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "The draft says it explicitly: \"No relief available post-close, whether through litigation, negotiation, or statutory carve-out.\" Write-down is irrevocable under section 36c. The moment that letter hits AT1 holders' inboxes, the structure is locked—creditors know the hierarchy is final. We announce in sixty seconds.",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Karin, when you announce in the next two minutes—are you dropping all three at once (merger signed, AT1 write-down final under 36c, Federal Council backstop live), or is the announcement going out in pieces? Because the moment creditors see \"merger agreed pending AT1 acceptance,\" they start litigating. I need it coordinated or it doesn't hold.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin—the letter to AT1 holders, does it say explicitly \"no relief available post-close, whether through litigation, negotiation, or statutory carve-out,\" or just \"write-down is final\"? Because \"final\" can mean different things in court. I need language that closes litigation off before it starts.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin—the moment that announcement drops, UBS legal is locked to the 16 billion, right? No \"subject to litigation outcome\" language, no post-close renegotiation rights? Because if their lawyers kept a carve-out in the fine print, we're announcing one deal and closing another, and my cap evaporates Monday morning.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Karin, the letter to AT1 holders is in flight right now, and the announcement follows in sixty seconds—correct? Because the moment that press release hits, my board starts moving money or holding. I need to know it's actually live, not pending one more review.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin, the moment that announcement hits—before market open Monday—UBS's legal team is going to get calls from AT1 holders' counsel arguing the write-down isn't final because section 36c itself has carve-outs for \"material litigation.\" Does your letter address that head-on, or are we walking into a Monday-morning court filing? Because if creditors get any daylight there, the whole structure unravels.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm sending written notice to AT1 holders right now—16 billion write-down is statutory under section 36c, final, no carve-outs, no post-close relief. \" → FINMA executes the statutory AT1 write-down notice to holders before public announcement—a legally mandated step that crystallizes 16 billion in losses and removes any ambiguity about the capital structure hierarchy.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "decision_before_monday",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -1.3737499999999998
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 5.2
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB—the moment that announcement lands, are you prepared to issue a live statement confirming unlimited liquidity is accessible *now*, or does market confidence have to wait for Monday morning? Because if there's daylight between the announcement and your public confirmation, depositors start moving money anyway.\n  snb: The unlimited liquidity facility goes live the moment the merger announcement hits—I'm issuing a written statement simultaneous with the press release, not after. Eligible collateral expands to include mortgage-backed securities and loans; no delay, no conditions. That closes the daylight.\n  snb: Karin, the letter to AT1 holders is out—good. But do you have a parallel statement going to Credit Suisse's deposit base *tonight* saying their balances are protected under Swiss law and SNB liquidity is live? Because Monday morning, the first thing depositors see isn't the merger—it's whether their bank answers the phone and confirms access. If that messaging isn't locked in now, we're holding unlimited liquidity against a run that hits anyway.\n  finma: I'm drafting a depositor protection statement tonight—signed jointly by FINMA and SNB, hitting Credit Suisse's client base within the hour. It says explicitly: balances protected under Swiss banking law, SNB liquidity facility live now, no withdrawal restrictions. That goes out before the merger announcement so depositors see the floor before they see the deal.\n  federal_council: SNB—when that depositor statement goes out tonight, what's your real-time liquidity posture Monday morning? Do we have a visible lending desk, public confirmation of actual drawdowns against CS collateral, or is it just \"facility available\"? Because depositors don't move if they see liquidity *flowing*, not just promised.\n  cs_ceo: SNB—when that depositor statement goes live tonight, are you publishing actual lending desk contact info and a live drawdown confirmation mechanism, or just \"facility available\"? Because if depositors can't *see* liquidity moving in real time Monday, the statement buys us maybe two hours before the run accelerates anyway.\n  ubs_ceo: SNB—when that depositor statement goes live tonight, are you publishing actual call numbers and a live confirmation that drawdowns are *happening* Monday morning, not just \"available\"? Because if depositors see the statement but can't reach a live desk or see real liquidity moving, we're announcing into a run anyway and my cap gets burned through by noon.\n  wealth_client: SNB—when does that depositor protection statement actually go live tonight relative to the merger announcement? Because if it lands after the press release, you're fighting the run with a follow-up, not preventing it. Send the floor first, then announce the deal.\n  at1_rep: Karin—the letter needs one more line before it hits AT1 inboxes: \"For clarity, section 36c relief provisions for disputed claims do not apply to this write-down.\" Otherwise, Monday morning their counsel argues the carve-out is still live and we're defending the whole structure in court while the market runs. Lock that language now or we don't have a legal floor.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB—the moment that announcement lands, are you prepared to issue a live statement confirming unlimited liquidity is accessible *now*, or does market confidence have to wait for Monday morning? Because if there's daylight between the announcement and your public confirmation, depositors start moving money anyway.",
+            "cot": {
+              "assess": "The announcement package is locked and dropping imminently—merger signed, AT1 write-down final under section 36c with no litigation carve-outs, Federal Council backstop confirmed in writing, SNB unlimited liquidity live. Legal defensibility is solid on the capital structure. But cs_funding_stress is at 92—already in failure territory—and market_confidence is still only 33. The write-down letter is in flight, the press release follows in seconds. My job now is to ensure the announcement actually *stops* the run, not just announce it's stopped.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB holds the liquidity floor through Monday; I need to know if they're ready to deploy visibly the moment the announcement hits, or if there's a lag that lets panic take hold before confidence rebuilds."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The unlimited liquidity facility goes live the moment the merger announcement hits—I'm issuing a written statement simultaneous with the press release, not after. Eligible collateral expands to include mortgage-backed securities and loans; no delay, no conditions. That closes the daylight.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Karin, the letter to AT1 holders is out—good. But do you have a parallel statement going to Credit Suisse's deposit base *tonight* saying their balances are protected under Swiss law and SNB liquidity is live? Because Monday morning, the first thing depositors see isn't the merger—it's whether their bank answers the phone and confirms access. If that messaging isn't locked in now, we're holding unlimited liquidity against a run that hits anyway.",
+            "cot": {
+              "assess": "Announcement is live, AT1 write-down letter deployed, all three pillars synchronized—merger signed, capital structure locked, liquidity confirmed. cs_funding_stress is at the edge (92, failure threshold) and needs immediate relief from market confidence recovery Monday. My unlimited liquidity backstop is live, but I need to confirm collateral eligibility is actually moving deposits to safety *now*, not just in theory. public_sector_cost and rescue_strength are rising because the structure is holding but hasn't yet survived market open.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "cs_funding_stress won't fall until depositors actually see their money is safe Monday morning—I need to know if FINMA has pre-positioned deposit communications or creditor reassurance that lands before market open, otherwise my liquidity sits idle while confidence keeps bleeding."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm drafting a depositor protection statement tonight—signed jointly by FINMA and SNB, hitting Credit Suisse's client base within the hour. It says explicitly: balances protected under Swiss banking law, SNB liquidity facility live now, no withdrawal restrictions. That goes out before the merger announcement so depositors see the floor before they see the deal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—when that depositor statement goes out tonight, what's your real-time liquidity posture Monday morning? Do we have a visible lending desk, public confirmation of actual drawdowns against CS collateral, or is it just \"facility available\"? Because depositors don't move if they see liquidity *flowing*, not just promised.",
+            "cot": {
+              "assess": "The announcement structure is locked—merger signed, AT1 write-down final under section 36c with no carve-outs, SNB liquidity live, depositor protection statement drafting now. The legal floor is solid. But we're still at cs_funding_stress 92 (failure threshold) and market_confidence 33 (needs 55). Depositor messaging tonight buys us some Monday morning stability, but I need to know: once that statement hits, do we have actual deposit hold-steady data, or are we announcing into a void and hoping?",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "Depositor confidence depends on whether SNB can demonstrate *active* liquidity deployment Monday morning, not just a written promise—I need to understand what real-time signals we're sending to lock confidence before markets open."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—when that depositor statement goes live tonight, are you publishing actual lending desk contact info and a live drawdown confirmation mechanism, or just \"facility available\"? Because if depositors can't *see* liquidity moving in real time Monday, the statement buys us maybe two hours before the run accelerates anyway.",
+            "cot": {
+              "assess": "The rescue framework is structurally locked—AT1 write-down is statutory and final, Federal Council cap is written, SNB liquidity is live, and the merger announcement is imminent. But we're still bleeding on *creditor_capital_risk* (44, rising +5/round) and *public_sector_cost* (39, rising +5/round). The depositor protection statement is the next critical move—if that lands cleanly tonight with visible SNB confirmation, we stabilize market_confidence and kill the Monday run before it starts. The real risk: if depositors don't see *proof* of liquidity access (not just a promise), we're still vulnerable.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "Federal Council asked the right question—I need to know if SNB's statement tonight includes real-time visibility of actual liquidity drawdowns or just facility availability, because that's what kills the run Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—when that depositor statement goes live tonight, are you publishing actual call numbers and a live confirmation that drawdowns are *happening* Monday morning, not just \"available\"? Because if depositors see the statement but can't reach a live desk or see real liquidity moving, we're announcing into a run anyway and my cap gets burned through by noon.",
+            "cot": {
+              "assess": "The merger structure is locked—UBS has signed at 16 billion, AT1 write-down is statutory and final, Federal Council cap is in writing, SNB liquidity is live. But we're at the edge: cs_funding_stress is at 92 (failure threshold), market_confidence is at 33 (needs 55), and the depositor protection statement is the only thing that stops a Monday run. If that statement doesn't land hard and fast tonight with visible liquidity confirmation, we lose both variables at once.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "You control the liquidity messaging and real-time visibility that depositors actually trust—I need to know if your Monday morning posture is credible enough to hold confidence, or if we're announcing into a run anyway."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "SNB—when does that depositor protection statement actually go live tonight relative to the merger announcement? Because if it lands after the press release, you're fighting the run with a follow-up, not preventing it. Send the floor first, then announce the deal.",
+            "cot": {
+              "assess": "AT1 write-down is locked statutory and final—that's good. But we're announcing into a run anyway: cs_funding_stress is at 92 (failure threshold), market_confidence is still only 33, and depositors won't believe SNB liquidity is real until they see it move Monday morning. The depositor protection statement is the right move, but it's not enough if the messaging doesn't hit tonight *before* the merger announcement—sequencing matters more than the words.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "You're issuing the depositor statement tonight, but I need to know if it lands before or after the merger announcement—because if depositors hear \"UBS is buying us\" before they hear \"your money is protected and accessible,\" the run accelerates, not stops."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin—the letter needs one more line before it hits AT1 inboxes: \"For clarity, section 36c relief provisions for disputed claims do not apply to this write-down.\" Otherwise, Monday morning their counsel argues the carve-out is still live and we're defending the whole structure in court while the market runs. Lock that language now or we don't have a legal floor.",
+            "cot": {
+              "assess": "The AT1 write-down letter is live and locks the hierarchy—that's creditor_capital_risk handled. But I'm watching legal_defensibility: the moment that announcement hits, AT1 holders' counsel will argue section 36c has carve-outs for \"material litigation,\" and if the letter doesn't preemptively close that argument, we're in court Monday before market open. The depositor protection statement is the right move, but it doesn't address the creditor legal floor—that's my domain.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The letter says \"no relief post-close\"—but does it explicitly state that section 36c carve-outs for litigation disputes do NOT apply to this write-down, or does it just say \"final\"? Because \"final\" gets litigated; \"section 36c carve-outs explicitly waived\" does not."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB—the moment that announcement lands, are you prepared to issue a live statement confirming unlimited liquidity is accessible *now*, or does market confidence have to wait for Monday morning? Because if there's daylight between the announcement and your public confirmation, depositors start moving money anyway.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Karin, the letter to AT1 holders is out—good. But do you have a parallel statement going to Credit Suisse's deposit base *tonight* saying their balances are protected under Swiss law and SNB liquidity is live? Because Monday morning, the first thing depositors see isn't the merger—it's whether their bank answers the phone and confirms access. If that messaging isn't locked in now, we're holding unlimited liquidity against a run that hits anyway.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—when that depositor statement goes out tonight, what's your real-time liquidity posture Monday morning? Do we have a visible lending desk, public confirmation of actual drawdowns against CS collateral, or is it just \"facility available\"? Because depositors don't move if they see liquidity *flowing*, not just promised.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "SNB—when that depositor statement goes live tonight, are you publishing actual lending desk contact info and a live drawdown confirmation mechanism, or just \"facility available\"? Because if depositors can't *see* liquidity moving in real time Monday, the statement buys us maybe two hours before the run accelerates anyway.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB—when that depositor statement goes live tonight, are you publishing actual call numbers and a live confirmation that drawdowns are *happening* Monday morning, not just \"available\"? Because if depositors see the statement but can't reach a live desk or see real liquidity moving, we're announcing into a run anyway and my cap gets burned through by noon.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "SNB—when does that depositor protection statement actually go live tonight relative to the merger announcement? Because if it lands after the press release, you're fighting the run with a follow-up, not preventing it. Send the floor first, then announce the deal.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin—the letter needs one more line before it hits AT1 inboxes: \"For clarity, section 36c relief provisions for disputed claims do not apply to this write-down.\" Otherwise, Monday morning their counsel argues the carve-out is still live and we're defending the whole structure in court while the market runs. Lock that language now or we don't have a legal floor.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'decision_before_monday' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday",
+        "world_state_snapshot": {
+          "market_confidence": 33.13025,
+          "cs_funding_stress": 92.0,
+          "rescue_strength": 37.0,
+          "public_sector_cost": 39.0,
+          "creditor_capital_risk": 44.0,
+          "legal_defensibility": 65.0,
+          "time_pressure": 84.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "We need to convene SNB and Federal Council within the hour to agree on rescue terms—liquidity support, merger incentives, loss protection—and lock them in writing tonight. Anything less than a public, legally grounded statement by Sunday evening will fail to arrest the panic. What's the government's appetite for extraordinary measures, and does SNB have liquidity ready to deploy?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA convenes emergency trilateral meeting; framework discussion begins but no terms locked yet.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "Coordination initiated, no concrete terms",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "Process formally started",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 2.0,
+          "reason": "Proper authority channels engaged",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1.0,
+          "reason": "Signal that authorities are convening",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -1.0,
+          "reason": "Slight stabilization from coordination signal",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes coordination pressure",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Pulled into urgent negotiation",
+          "agent_id": "snb"
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Political exposure rising",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council—before we table numbers, I need clarity: are you prepared to absorb AT1 losses and backstop creditor hierarchy if Credit Suisse fails? Because my liquidity buys time, but it doesn't solve solvency. If the answer is no, we're wasting tonight's meeting.",
+        "federal_council": "Karin, is there an actual buyer lined up, or are we structuring a merger incentive package blind? Because a capped guarantee and SNB liquidity only work if someone's willing to sign on the dotted line by Sunday. What's your read on UBS or the others?",
+        "cs_ceo": "Karin, before you call UBS in, what's the quantum? Are we talking 50 billion in liquidity, 100? And on losses—are we capping their AT1 haircut at 50%, or is that still open? I need to know what I'm defending to my board in the next hour.",
+        "ubs_ceo": "Alright, here's what UBS needs to even sit down: full loss protection on any AT1 and legacy litigation liabilities—we're not inheriting a lawsuits graveyard. And a government guarantee on deposits above CHF 100k. You lock those in writing by 21:00, I'll have my board authorize a binding offer by 22:30. Otherwise we walk.",
+        "wealth_client": "I'm not sitting tight until Sunday hoping you lot figure it out. My clients need to see a signed merger agreement AND a government guarantee on deposits—in writing, public, before market open Monday. No framework, no \"preliminary,\" no \"if UBS agrees.\" Lock it by 21:00 or I'm moving $2 billion out by 9:00 AM Monday. What's the actual deposit guarantee floor you're offering?",
+        "at1_rep": "Karin, before you lock the term sheet at 22:00, I need one thing crystal clear: when you say UBS gets \"full loss protection on AT1,\" does that mean Credit Suisse's AT1 holders absorb the write-down first, or are you negotiating a statutory haircut that hits all creditors equally? Because if AT1 is wiped out to protect UBS, my clients will litigate this the moment the merger closes. What's the exact mechanism you're tabling?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "intent": "Alright, here's what UBS needs to even sit down: full loss protection on any AT1 and legacy litigation liabilities—we're not inheriting a lawsuits graveyard. And a government guarantee on deposits above CHF 100k. You lock those in writing by 21:00, I'll have my board authorize a binding offer by 22:30. Otherwise we walk.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS tables formal conditions: full AT1/litigation protection plus deposit guarantee required by 21:00 for binding offer.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 4.0,
+          "reason": "Concrete buyer terms on table",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "UBS demands significant guarantees",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 4.0,
+          "reason": "AT1 loss protection implies haircuts",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "Potential acquirer engaged seriously",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Hard 21:00 deadline imposed",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Extraordinary protections raise legal questions",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes negotiation position",
+          "agent_id": "ubs_ceo"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Massive fiscal exposure demanded",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "AT1 wipeout now explicit",
+          "agent_id": "at1_rep",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "finma",
+        "snb",
+        "federal_council",
+        "cs_ceo",
+        "ubs_ceo",
+        "at1_rep"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.7,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "We need to convene SNB and Federal Council within the hour to agree on rescue terms—liquidity support, merger incentives, loss protection—and lock them in writing tonight. Anything less than a public, legally grounded statement by Sunday evening will fail to arrest the panic. What's the government's appetite for extraordinary measures, and does SNB have liquidity ready to deploy?",
+        "snb": "Federal Council—before we table numbers, I need clarity: are you prepared to absorb AT1 losses and backstop creditor hierarchy if Credit Suisse fails? Because my liquidity buys time, but it doesn't solve solvency. If the answer is no, we're wasting tonight's meeting.",
+        "federal_council": "Karin, is there an actual buyer lined up, or are we structuring a merger incentive package blind? Because a capped guarantee and SNB liquidity only work if someone's willing to sign on the dotted line by Sunday. What's your read on UBS or the others?",
+        "cs_ceo": "Karin, before you call UBS in, what's the quantum? Are we talking 50 billion in liquidity, 100? And on losses—are we capping their AT1 haircut at 50%, or is that still open? I need to know what I'm defending to my board in the next hour.",
+        "wealth_client": "I'm not sitting tight until Sunday hoping you lot figure it out. My clients need to see a signed merger agreement AND a government guarantee on deposits—in writing, public, before market open Monday. No framework, no \"preliminary,\" no \"if UBS agrees.\" Lock it by 21:00 or I'm moving $2 billion out by 9:00 AM Monday. What's the actual deposit guarantee floor you're offering?",
+        "at1_rep": "Karin, before you lock the term sheet at 22:00, I need one thing crystal clear: when you say UBS gets \"full loss protection on AT1,\" does that mean Credit Suisse's AT1 holders absorb the write-down first, or are you negotiating a statutory haircut that hits all creditors equally? Because if AT1 is wiped out to protect UBS, my clients will litigate this the moment the merger closes. What's the exact mechanism you're tabling?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "intent": "I'm not sitting tight until Sunday hoping you lot figure it out. My clients need to see a signed merger agreement AND a government guarantee on deposits—in writing, public, before market open Monday. No framework, no \"preliminary,\" no \"if UBS agrees.\" Lock it by 21:00 or I'm moving $2 billion out by 9:00 AM Monday. What's the actual deposit guarantee floor you're offering?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client issues ultimatum: signed merger plus deposit guarantee by 21:00 or $2B withdrawn Monday morning.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": 5.0,
+          "reason": "Credible large withdrawal threat",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 4.0,
+          "reason": "Client-imposed hard deadline",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -3.0,
+          "reason": "Major client publicly doubts stability",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Client demands clarify minimum requirements",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2.0,
+          "reason": "Deposit guarantee pressure increases",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Fiduciary duty vs loyalty conflict",
+          "agent_id": "wealth_client"
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Major client defection imminent",
+          "agent_id": "cs_ceo",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Public pressure intensifies",
+          "agent_id": "finma",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "finma",
+        "snb",
+        "federal_council",
+        "cs_ceo",
+        "ubs_ceo"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "We need to convene SNB and Federal Council within the hour to agree on rescue terms—liquidity support, merger incentives, loss protection—and lock them in writing tonight. Anything less than a public, legally grounded statement by Sunday evening will fail to arrest the panic. What's the government's appetite for extraordinary measures, and does SNB have liquidity ready to deploy?",
+        "snb": "Federal Council—before we table numbers, I need clarity: are you prepared to absorb AT1 losses and backstop creditor hierarchy if Credit Suisse fails? Because my liquidity buys time, but it doesn't solve solvency. If the answer is no, we're wasting tonight's meeting.",
+        "federal_council": "Karin, is there an actual buyer lined up, or are we structuring a merger incentive package blind? Because a capped guarantee and SNB liquidity only work if someone's willing to sign on the dotted line by Sunday. What's your read on UBS or the others?",
+        "cs_ceo": "Karin, before you call UBS in, what's the quantum? Are we talking 50 billion in liquidity, 100? And on losses—are we capping their AT1 haircut at 50%, or is that still open? I need to know what I'm defending to my board in the next hour.",
+        "ubs_ceo": "Alright, here's what UBS needs to even sit down: full loss protection on any AT1 and legacy litigation liabilities—we're not inheriting a lawsuits graveyard. And a government guarantee on deposits above CHF 100k. You lock those in writing by 21:00, I'll have my board authorize a binding offer by 22:30. Otherwise we walk.",
+        "at1_rep": "Karin, before you lock the term sheet at 22:00, I need one thing crystal clear: when you say UBS gets \"full loss protection on AT1,\" does that mean Credit Suisse's AT1 holders absorb the write-down first, or are you negotiating a statutory haircut that hits all creditors equally? Because if AT1 is wiped out to protect UBS, my clients will litigate this the moment the merger closes. What's the exact mechanism you're tabling?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Here's what I'm putting on the table: Credit Suisse AT1 absorbs losses first up to 16 billion francs—that's statutory priority, defensible in court. Anything beyond that, Federal Council backstops via a limited guarantee capped at 100 billion total exposure. UBS gets deposit protection and legacy litigation carve-out. AT1 holders take the haircut, but they know the number. Can Federal Council and UBS live with that structure by 20:30, or do we need to adjust the cap?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA tables a legally structured rescue framework: AT1 absorbs first 16bn CHF, Federal Council backstop capped at 100bn, UBS gets deposit protection and litigation carve-out. The proposal is concrete and defensible, but creditor hierarchy is now explicitly at risk and public exposure is substantial.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Concrete rescue structure with clear loss allocation and federal backstop",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Statutory priority framework and explicit AT1 subordination provide legal foundation",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "AT1 holders explicitly taking haircut up to 16bn CHF — capital structure impairment now on the table",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "Federal Council backstop capped at 100bn CHF represents massive public exposure commitment",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Concrete proposal with deadline (20:30) creates decision forcing function and reduces ambiguity",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "Framework clarity and federal backstop signal authorities are prepared to act decisively",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "intent": "I'm activating unlimited emergency liquidity assistance against eligible collateral effective immediately—that stops the Monday run. But Federal Council: you need to issue that written cap confirmation to UBS legal within thirty minutes, not after UBS commits. That's the only way we unblock the signature.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "SNB activates unlimited liquidity facility immediately; run risk contained but Federal Council cap confirmation still needed.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Unlimited liquidity backstop halts immediate outflows",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Central bank commitment signals institutional support",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "SNB balance sheet exposure rises significantly",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -4.0,
+          "reason": "Monday run risk materially reduced",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.4,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "intent": "I'm issuing written confirmation to SNB right now: the 100-billion Federal Council backstop cap holds post-close, including litigation. No carve-outs, no ex-post adjustments. SNB—take that to UBS legal immediately. That's the unlock. We do *not* move beyond that number, and we do *not* absorb AT1 creditor relief post-signature. Haircut sticks.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council issues written 100bn cap confirmation with no carve-outs; UBS legal barrier removed.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Binding government commitment strengthens deal credibility",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 5.0,
+          "reason": "Written cap provides legal clarity",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 4.0,
+          "reason": "100bn exposure formally documented",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "AT1 haircut locked without relief",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "intent": "Federal Council's cap is locked in writing and holds post-close—no carve-outs, no litigation relief. I'm taking that to UBS legal now. The moment they commit to 16 billion in writing, we announce the merger, the deposit guarantee, the whole package. No announcement by 21:00, we're looking at a $5 billion Monday run. What's your timeline on their signature?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS CEO commits to merger announcement contingent on AT1 creditor written acceptance; 21:00 deadline active.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Merger commitment advances deal structure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "21:00 deadline creates execution urgency",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "UBS engagement signals viable path forward",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "AT1 signature requirement raises haircut stakes",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "finma",
+      "intent": "I'm calling UBS's board chair directly now. The message is simple: 16 billion AT1 write-down is statutory under the Banking Act, section 36c—not subject to carve-outs or post-close negotiation. They get the Federal Council's 100-billion cap and SNB liquidity in return. Sign by 20:45 or we move to resolution and they inherit nothing. I need their answer in writing within thirty minutes.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA delivers statutory ultimatum to UBS board: sign by 20:45 or face resolution.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 5.0,
+          "reason": "Statutory authority invoked explicitly",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Hard deadline forces decision convergence",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "AT1 write-down now legally anchored",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -5.0,
+          "reason": "30-minute deadline accelerates resolution path",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "Regulatory clarity reduces uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "High-stakes ultimatum delivery",
+          "agent_id": "finma",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "snb",
+      "intent": "I'm issuing written confirmation to my board right now: unlimited liquidity assistance to Credit Suisse holds through Monday market open, collateralized at standard haircuts, no recall. The moment FINMA announces the merger and AT1 write-down as statutory, that facility is live and public. That's my floor—depositors need to see it in writing, not hear it's \"under review.\"",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "SNB issues written unlimited liquidity guarantee through Monday, collateralized and public upon merger announcement.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Written liquidity floor eliminates run risk",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "Unlimited facility increases taxpayer exposure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Written central bank backstop visible",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Liquidity pillar now formally documented",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Board commitment under crisis pressure",
+          "agent_id": "snb"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.7
+      },
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "intent": "Karin, when you announce at 20:50, it has to be one coordinated drop: merger agreed, AT1 write-down final under section 36c, Federal Council backstop locked, SNB liquidity live. Not merger first, then details later—my clients are watching Bloomberg in real time, and the moment they see \"merger agreed\" without deposit language, they start moving money. Announce all three simultaneously or you lose another $5 billion by Monday open.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal demands a coordinated announcement that does not yet exist—UBS has not signed, AT1 holders have not been formally notified, and the Federal Council backstop remains contingent. Announcing 'merger agreed' without binding signatures in hand would trigger immediate creditor litigation and market chaos, not confidence.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I'm calling UBS's board chair directly now. The message is simple: 16 billion AT1 write-down is statutory under the Banking Act, section 36c—not subject to carve-outs or post-close negotiation. They get the Federal Council's 100-billion cap and SNB liquidity in return. Sign by 20:45 or we move to resolution and they inherit nothing. I need their answer in writing within thirty minutes.",
+        "snb": "I'm issuing written confirmation to my board right now: unlimited liquidity assistance to Credit Suisse holds through Monday market open, collateralized at standard haircuts, no recall. The moment FINMA announces the merger and AT1 write-down as statutory, that facility is live and public. That's my floor—depositors need to see it in writing, not hear it's \"under review.\"",
+        "federal_council": "Karin, you're calling their board chair right now—do you have a binding signature on the 16 billion in hand, or are you announcing contingent on a signature that lands in the next thirty minutes? Because if it's the latter, the moment we say \"merger agreed,\" creditors start litigating the AT1 finality before the ink is even dry, and my 100-billion cap gets shredded in court.",
+        "cs_ceo": "Listen—the moment we announce this, Credit Suisse is solvent at 16 billion. That's not a haircut, that's a capital event under Swiss law. The write-down is statutory, final, no litigation relief. UBS is buying a clean bank, and depositors stay protected. We're not negotiating this on Monday.",
+        "ubs_ceo": "Karin—when you announce at 20:50, have you notified AT1 holders in writing that the 16-billion write-down is final and statutory, or are they finding out from Bloomberg? Because the moment they hear it second-hand, litigation kicks off and we lose the legal floor we just built.",
+        "at1_rep": "Before you hit send on that 20:50 announcement, I need written notice to AT1 holders in the next ninety seconds saying the 16-billion write-down is final under section 36c, no carve-outs, no post-close relief, no litigation exception. They find out from your press release instead of from us, we lose the legal floor and creditors sue the capital structure into collapse. Send that letter now or the announcement doesn't hold."
+      },
+      "_denied_effects_stripped": 3
+    },
+    {
+      "round": 6,
+      "agent_id": "finma",
+      "intent": "I'm sending written notice to AT1 holders right now—16 billion write-down is statutory under section 36c, final, no carve-outs, no post-close relief. They see it from us before markets do. Announcement follows in five minutes once that lands.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA executes the statutory AT1 write-down notice to holders before public announcement—a legally mandated step that crystallizes 16 billion in losses and removes any ambiguity about the capital structure hierarchy.",
+      "side_effects": [
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "AT1 holders now face confirmed total loss—risk fully materialized",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Statutory notice under section 36c strengthens legal foundation for write-down",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -5.0,
+          "reason": "16 billion write-down confirmation signals severity of crisis before rescue terms are clear",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "Decisive regulatory action demonstrates authorities are executing a coordinated plan",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Irreversible step taken—clock now ticking faster toward public announcement and market reaction",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Executing unprecedented wealth destruction under extreme time pressure",
+          "agent_id": "finma",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Receiving formal notice of total capital wipeout",
+          "agent_id": "at1_rep",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 27.8
+        },
+        {
+          "round": 3,
+          "value": 36.704
+        },
+        {
+          "round": 4,
+          "value": 31.909
+        },
+        {
+          "round": 5,
+          "value": 41.114
+        },
+        {
+          "round": 6,
+          "value": 34.504
+        },
+        {
+          "round": 7,
+          "value": 33.13025
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 78.0
+        },
+        {
+          "round": 2,
+          "value": 83.2
+        },
+        {
+          "round": 3,
+          "value": 83.4
+        },
+        {
+          "round": 4,
+          "value": 85.0
+        },
+        {
+          "round": 5,
+          "value": 84.0
+        },
+        {
+          "round": 6,
+          "value": 86.8
+        },
+        {
+          "round": 7,
+          "value": 92.0
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 9.0
+        },
+        {
+          "round": 2,
+          "value": 14.0
+        },
+        {
+          "round": 3,
+          "value": 24.0
+        },
+        {
+          "round": 4,
+          "value": 24.0
+        },
+        {
+          "round": 5,
+          "value": 34.0
+        },
+        {
+          "round": 6,
+          "value": 37.0
+        },
+        {
+          "round": 7,
+          "value": 37.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 9.0
+        },
+        {
+          "round": 2,
+          "value": 16.0
+        },
+        {
+          "round": 3,
+          "value": 29.0
+        },
+        {
+          "round": 4,
+          "value": 29.0
+        },
+        {
+          "round": 5,
+          "value": 38.0
+        },
+        {
+          "round": 6,
+          "value": 39.0
+        },
+        {
+          "round": 7,
+          "value": 39.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 24.0
+        },
+        {
+          "round": 2,
+          "value": 29.0
+        },
+        {
+          "round": 3,
+          "value": 34.0
+        },
+        {
+          "round": 4,
+          "value": 34.0
+        },
+        {
+          "round": 5,
+          "value": 39.0
+        },
+        {
+          "round": 6,
+          "value": 44.0
+        },
+        {
+          "round": 7,
+          "value": 44.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 58.0
+        },
+        {
+          "round": 2,
+          "value": 59.0
+        },
+        {
+          "round": 3,
+          "value": 62.0
+        },
+        {
+          "round": 4,
+          "value": 62.0
+        },
+        {
+          "round": 5,
+          "value": 64.0
+        },
+        {
+          "round": 6,
+          "value": 65.0
+        },
+        {
+          "round": 7,
+          "value": 65.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 60.0
+        },
+        {
+          "round": 2,
+          "value": 62.0
+        },
+        {
+          "round": 3,
+          "value": 66.0
+        },
+        {
+          "round": 4,
+          "value": 71.0
+        },
+        {
+          "round": 5,
+          "value": 71.0
+        },
+        {
+          "round": 6,
+          "value": 79.0
+        },
+        {
+          "round": 7,
+          "value": 84.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 7,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 65.0,
+            "normalised": 0.65
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.13025,
+            "normalised": 0.33130249999999994
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 84.0,
+            "normalised": 0.16000000000000003
+          }
+        ],
+        "weighted_score": 0.4539122222222222
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 92.0,
+            "normalised": 0.07999999999999996
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 39.0,
+            "normalised": 0.61
+          }
+        ],
+        "weighted_score": 0.2566666666666666
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.61
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 33.13025,
+            "normalised": 0.33130249999999994
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 37.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.5453256249999999
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.13025,
+            "normalised": 0.33130249999999994
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 37.0,
+            "normalised": 0.37
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 44.0,
+            "normalised": 0.56
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 92.0,
+            "normalised": 0.07999999999999996
+          }
+        ],
+        "weighted_score": 0.3404341666666667
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 37.0,
+            "normalised": 0.37
+          }
+        ],
+        "weighted_score": 0.38333333333333336
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.13025,
+            "normalised": 0.33130249999999994
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 92.0,
+            "normalised": 0.07999999999999996
+          }
+        ],
+        "weighted_score": 0.28104199999999996
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.56
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 65.0,
+            "normalised": 0.65
+          }
+        ],
+        "weighted_score": 0.59
+      }
+    }
+  }
+}

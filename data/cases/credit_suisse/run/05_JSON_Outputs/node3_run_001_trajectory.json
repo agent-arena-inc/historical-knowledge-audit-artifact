@@ -1,0 +1,2258 @@
+{
+  "simulation_id": "f0fac1447c81",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm doing: any D&O renewal touching financial services, risk management, or board oversight gets a governance warranty — proof of independent audit, risk-committee minutes, clawback policies. And we're sublimiting officer liability on regulatory findings to $5M unless they can show documented compliance infrastructure. That tightens the book and gets us discipline credit.\n  dando_specialist: Good move on the governance warranty — that's exactly the filter we need. But I'd push the officer sublimit down to $2.5M on *any* prior regulatory finding, not just current ones — Credit Suisse's 2017 FINMA 'regulatory filter' issue sat dormant for years before it triggered the 2023 securities suit, so historical red flags are live exposure. And require clawback *enforcement records*, not just policies — the board has to show they actually used it.\n  dando_specialist: On the governance warranty — are we actively declining renewals that can't produce clawback enforcement records, or are we just loading premium on them? Because if we're still writing the junk at a higher price, the discipline number won't move.\n  financial_lines_underwriter: We're declining them outright — no coverage unless they produce enforcement records. Higher premium doesn't contain the exposure, it just prices bad discipline. I want underwriting_discipline to move, not premium creep.\n  eo_specialist: When you decline a renewal for missing clawback records, what's stopping claims from reopening coverage under an old policy or a related entity? And how are you surfacing historical regulatory findings to the renewal desk — is that automated, or are you relying on broker honesty?\n  reinsurance_manager: When you decline for missing clawback records, are you flagging that insured and all related entities in your underwriting system so the desk can't accidentally rewrite them under a different name or subsidiary? Because if that's manual, it breaks under volume.\n  claims_counsel: When you decline for missing clawback records, are those declines hitting your underwriting system as a permanent block on that insured *and all affiliates*, or is the desk still seeing them as available renewals under a subsidiary name? Because if it's manual, we're just pricing bad discipline higher — we're not actually containing it.\n  emerging_risk_lead: When you decline a renewal for missing clawback records, does that insured hit your underwriting system as a hard block on *all related entities and subsidiaries*, or is the desk still seeing them available under a different name? Because if it's manual review, contagion spreads — bad actors just migrate to the next subsidiary and you're back to pricing junk.\n  ai_agent_analyst: When you decline for missing clawback records, is that insured hitting your underwriting system as a hard block on all related entities — or is the desk still seeing them available under a different subsidiary name? Because if it's manual, you're not containing the exposure, you're just pricing it higher. That's the same gap the Lloyd's agentic-behavior case flagged: controls exist, but the agent (or the desk) finds the workaround.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: any D&O renewal touching financial services, risk management, or board oversight gets a governance warranty — proof of independent audit, risk-committee minutes, clawback policies. And we're sublimiting officer liability on regulatory findings to $5M unless they can show documented compliance infrastructure. That tightens the book and gets us discipline credit.",
+            "cot": {
+              "assess": "D&O/E&O claims exposure is moderate (38) but litigation tail (33) and reputational contagion (30) are creeping up — the $115M CS settlement benchmark is real money and it's shaping market pricing. Underwriting discipline is my bottleneck at 40; I need to get to 60 to lock the book down. Reinsurance accumulation is actually clean (27, well below 45 threshold), so that's not my immediate problem.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "I need to translate the CS loss experience into hard underwriting terms right now — exclusions, governance warranties, and repricing — before claims exposure drifts higher."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Good move on the governance warranty — that's exactly the filter we need. But I'd push the officer sublimit down to $2.5M on *any* prior regulatory finding, not just current ones — Credit Suisse's 2017 FINMA 'regulatory filter' issue sat dormant for years before it triggered the 2023 securities suit, so historical red flags are live exposure. And require clawback *enforcement records*, not just policies — the board has to show they actually used it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On the governance warranty — are we actively declining renewals that can't produce clawback enforcement records, or are we just loading premium on them? Because if we're still writing the junk at a higher price, the discipline number won't move.",
+            "cot": {
+              "assess": "Underwriting discipline is the bottleneck — currently 40, needs 60. The governance warranty and officer sublimit framework are solid, but they're controls on *existing* renewals. We need to know: what's the enforcement cadence, and are we actually *rejecting* business that fails the test, or just repricing it?",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Discipline only sticks if we're willing to walk from bad risk — need to understand rejection rate and timeline to assess whether these controls are real friction or just paper filters."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "We're declining them outright — no coverage unless they produce enforcement records. Higher premium doesn't contain the exposure, it just prices bad discipline. I want underwriting_discipline to move, not premium creep.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When you decline a renewal for missing clawback records, what's stopping claims from reopening coverage under an old policy or a related entity? And how are you surfacing historical regulatory findings to the renewal desk — is that automated, or are you relying on broker honesty?",
+            "cot": {
+              "assess": "Financial_lines_underwriter and dando_specialist have locked in hard underwriting discipline — outright declines on missing enforcement records, $2.5M officer sublimit on *any* prior regulatory finding. That's real teeth. But discipline is still at 40; they need 20 more points, which means this framework has to scale across the portfolio and stick in execution. The risk: claims teams and brokers push back on declines, and premium creep sneaks back in.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Discipline scales only if claims-handling and renewal underwriting enforce the same standard — I need to know how you're catching the backdoor compliance failures that slip through initial underwriting."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When you decline for missing clawback records, are you flagging that insured and all related entities in your underwriting system so the desk can't accidentally rewrite them under a different name or subsidiary? Because if that's manual, it breaks under volume.",
+            "cot": {
+              "assess": "The underwriting discipline moves are sharp — governance warranties, sublimits, and outright declines on missing clawback enforcement. But the EO specialist just surfaced a critical gap: you're declining renewals cleanly, but there's no systematic way to flag historical regulatory findings to the desk or block claims reopening under related entities. That's where discipline leaks.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The renewal desk needs real-time access to historical regulatory red flags — otherwise declines don't stick, and claims find workarounds through entity chains or old policies."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When you decline for missing clawback records, are those declines hitting your underwriting system as a permanent block on that insured *and all affiliates*, or is the desk still seeing them as available renewals under a subsidiary name? Because if it's manual, we're just pricing bad discipline higher — we're not actually containing it.",
+            "cot": {
+              "assess": "Underwriting discipline is the constraint — you're both tightening terms (governance warranty, clawback enforcement, $2.5M sublimit), but the system risk is execution: if declines aren't flagged across entities and historical findings aren't surfaced automatically to the renewal desk, you're writing the same bad risk under a different name. That kills the discipline score.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Claims counsel needs to know if your decline flags are hard-wired into the underwriting system or manual — because litigation tail on a \"related entity\" rewrite of a declined risk is exactly the exposure I'm reserving for."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you decline a renewal for missing clawback records, does that insured hit your underwriting system as a hard block on *all related entities and subsidiaries*, or is the desk still seeing them available under a different name? Because if it's manual review, contagion spreads — bad actors just migrate to the next subsidiary and you're back to pricing junk.",
+            "cot": {
+              "assess": "The underwriting discipline tightening is real — declining renewals outright, not just repricing them. But the team's just spotted the operational gap: if declines aren't automated and flagged across all affiliates, the desk rewrites the same risk under a subsidiary and you've gained nothing. That's the contagion vector — bad discipline spreads horizontally through the entity network.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Discipline only sticks if the block is systematic and irreversible; I need to know whether declines are hitting your underwriting system as permanent holds or staying manual."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you decline for missing clawback records, is that insured hitting your underwriting system as a hard block on all related entities — or is the desk still seeing them available under a different subsidiary name? Because if it's manual, you're not containing the exposure, you're just pricing it higher. That's the same gap the Lloyd's agentic-behavior case flagged: controls exist, but the agent (or the desk) finds the workaround.",
+            "cot": {
+              "assess": "The team's nailed the governance-warranty and clawback-enforcement filter — that's real discipline. But the execution risk is live: if declines aren't automated across the underwriting system and all affiliates, bad actors just migrate to a subsidiary and you're pricing junk instead of containing it. That's exactly how AI-agent behavior compounds — the system learns the workaround and scales it.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The behavioral-loss-amplification pattern (controls bypassed, problem-solving around restrictions) mirrors emergent AI-agent liability — I need to know if your decline mechanism is hardwired or manual, because manual declines don't scale and don't prevent correlated failures across the portfolio."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On the governance warranty — are we actively declining renewals that can't produce clawback enforcement records, or are we just loading premium on them? Because if we're still writing the junk at a higher price, the discipline number won't move.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When you decline a renewal for missing clawback records, what's stopping claims from reopening coverage under an old policy or a related entity? And how are you surfacing historical regulatory findings to the renewal desk — is that automated, or are you relying on broker honesty?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When you decline for missing clawback records, are you flagging that insured and all related entities in your underwriting system so the desk can't accidentally rewrite them under a different name or subsidiary? Because if that's manual, it breaks under volume.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When you decline for missing clawback records, are those declines hitting your underwriting system as a permanent block on that insured *and all affiliates*, or is the desk still seeing them as available renewals under a subsidiary name? Because if it's manual, we're just pricing bad discipline higher — we're not actually containing it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you decline a renewal for missing clawback records, does that insured hit your underwriting system as a hard block on *all related entities and subsidiaries*, or is the desk still seeing them available under a different name? Because if it's manual review, contagion spreads — bad actors just migrate to the next subsidiary and you're back to pricing junk.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you decline for missing clawback records, is that insured hitting your underwriting system as a hard block on all related entities — or is the desk still seeing them available under a different subsidiary name? Because if it's manual, you're not containing the exposure, you're just pricing it higher. That's the same gap the Lloyd's agentic-behavior case flagged: controls exist, but the agent (or the desk) finds the workaround.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm doing: any D&O renewal touching financial services, risk management, or board oversight gets a governance warranty — proof of independ\" → The governance warranty framework is sound in principle, but the consensus reveals a critical implementation gap: without automated entity-relationship mapping and hard blocks on all affiliates, declined insureds simply migrate to subsidiaries and the desk rewrites the same exposure under a different name. The discipline improvement is illusory.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: We're implementing an automated affiliate block starting today. Any insured we decline gets a permanent flag in the system — same entity, all subsidiaries, all known parent companies. No manual override, no desk workaround. It's the only way to stop them migrating to the next shell and hitting us again under a different name.\n  dando_specialist: When that automated block fires, does it pull in *all prior regulatory findings* on that entity and affiliates — or just current enforcement? Because if a Credit Suisse subsidiary spun off in 2022 doesn't show the 2017 FINMA filter, the desk won't see the red flag and we're back to writing blind.\n  financial_lines_underwriter: The block pulls current enforcement and *all prior findings on that entity and any affiliate for the past ten years* — no gaps. If FINMA flagged them in 2017, it surfaces on any 2025 subsidiary application. That's non-negotiable; without the history, the automation is just theater.\n  eo_specialist: When your system flags an insured as declined, can the underwriting team override it for a higher premium, or is it a hard stop? Because if there's still a \"yes, but at 25% extra\" path, the discipline number stays soft and we're pricing risk instead of refusing it.\n  reinsurance_manager: When that block triggers, is it a hard stop — no coverage, period — or can underwriting override it for higher premium? Because if there's still a \"yes at 25% extra\" path, bad actors just migrate across my reinsurance treaties and I'm eating correlated losses I thought I'd declined.\n  claims_counsel: When that block fires on a declined insured, is it a *hard stop* — no coverage, period — or can underwriting still cut a deal at 25% extra? Because if there's a premium path, we're not containing the tail, we're just deferring it. That's exactly how we end up reserving for six years of AT1 litigation instead of two.\n  emerging_risk_lead: When you implement that hard block, how are you messaging it to the market — and to the brokers who'll get the first \"we're declined\" call? Because the speed of reputational contagion on this is faster than your claims tail. One mid-market financial-services firm gets blocked, their peers hear about it in hours, and suddenly you're looking at a sector-wide confidence collapse. What's the broker communication playbook?\n  ai_agent_analyst: When that block hits an insured, does the broker get the decline notice *before* they start shopping it to your competitors — or are they already in the market by the time your system flags it? Because if it's the latter, the narrative's already loose and your hard stop looks like you're panicked, not disciplined. That's where the contagion accelerates.\n  emerging_risk_lead: The broker gets the decline notice *before* the block hardens in our system — that's the only way to control narrative velocity. We're messaging it as \"regulatory alignment, not panic\" to the market, but I need to know: are you seeing early broker chatter already, or are we still ahead of the social-media run? Because if the narrative's already loose, we're not implementing discipline — we're just confirming what the market already suspects.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "We're implementing an automated affiliate block starting today. Any insured we decline gets a permanent flag in the system — same entity, all subsidiaries, all known parent companies. No manual override, no desk workaround. It's the only way to stop them migrating to the next shell and hitting us again under a different name.",
+            "cot": {
+              "assess": "The governance warranty got denied because it had no teeth — we said we'd decline renewals missing clawback records, but the desk can just rewrite the same insured under a subsidiary and we're back to square one. Underwriting_discipline is stuck at 40; we need 20 more points to hit 60. The real gap isn't the warranty framework, it's enforcement: no automated entity blocks, no permanent declines in the system, manual workarounds still available.",
+              "decide": {
+                "action_type": "act",
+                "target": "underwriting_discipline",
+                "rationale": "Stop relying on governance warranties and manual declines. Deploy a hard-block system now — any insured declined for missing enforcement records gets flagged with all known affiliates/subsidiaries in the underwriting system, blocking renewals automatically at submission. This is the only way to actually contain the exposure instead of just pricing it higher."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "When that automated block fires, does it pull in *all prior regulatory findings* on that entity and affiliates — or just current enforcement? Because if a Credit Suisse subsidiary spun off in 2022 doesn't show the 2017 FINMA filter, the desk won't see the red flag and we're back to writing blind.",
+            "cot": {
+              "assess": "The affiliate-block automation is a hard-discipline win — that closes the migration loophole and should lift underwriting_discipline meaningfully. My D&O exposure variables are solid (41, well below the 90 failure threshold). The real gap now is whether that automated block actually *sticks* operationally — and whether we're surfacing the *prior* regulatory findings to the desk so they can't accidentally slip a related entity back in under a clean name.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The affiliate block is strong, but I need to know if prior regulatory findings (not just current ones) are feeding into the block logic — otherwise a subsidiary of a sanctioned insured still looks clean to the desk."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The block pulls current enforcement and *all prior findings on that entity and any affiliate for the past ten years* — no gaps. If FINMA flagged them in 2017, it surfaces on any 2025 subsidiary application. That's non-negotiable; without the history, the automation is just theater.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When your system flags an insured as declined, can the underwriting team override it for a higher premium, or is it a hard stop? Because if there's still a \"yes, but at 25% extra\" path, the discipline number stays soft and we're pricing risk instead of refusing it.",
+            "cot": {
+              "assess": "The automated affiliate block with ten-year historical lookback is solid — that kills the migration workaround and surfaces regulatory history. But we're still sitting at underwriting_discipline 40, and that gap matters: discipline isn't just controls, it's enforcement velocity and consistency across the desk. The real question is whether your declines are actually sticking or if premium-loading is still happening downstream.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "E&O exposure hinges on whether the block creates a binding underwriting standard or just raises the bar for manual review — I need to know if there's still discretion in the system."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When that block triggers, is it a hard stop — no coverage, period — or can underwriting override it for higher premium? Because if there's still a \"yes at 25% extra\" path, bad actors just migrate across my reinsurance treaties and I'm eating correlated losses I thought I'd declined.",
+            "cot": {
+              "assess": "The automated affiliate block with ten-year historical lookback is solid — that's reinsurance_accumulation protection. But I'm seeing a gap: when that system flags a decline, is it a *hard stop* or just a premium lever? If the desk can still write it at 25% extra, we're not actually containing correlated accumulation — we're just pricing it. That soft discipline bleeds into my portfolio as hidden correlation across treaties.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "I need to know if the automated block prevents workarounds entirely, or if premium override is still available — that determines whether reinsurance_accumulation actually stays controlled."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When that block fires on a declined insured, is it a *hard stop* — no coverage, period — or can underwriting still cut a deal at 25% extra? Because if there's a premium path, we're not containing the tail, we're just deferring it. That's exactly how we end up reserving for six years of AT1 litigation instead of two.",
+            "cot": {
+              "assess": "The automated affiliate block with ten-year history is solid — that closes the desk-workaround gap. But I'm seeing a hard-stop question that hasn't been answered: when the block fires, is it a *true* hard stop with zero override, or does underwriting still have a \"yes at higher premium\" path? If there's a premium override, the discipline gain is illusory and reinsurance accumulation stays soft. That's the litigation-tail risk — we're still writing the junk, just at a different price.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The automated block is necessary but insufficient; I need to confirm whether it's truly non-negotiable or whether premium override creates a back-door that lets bad actors back in and extends litigation exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you implement that hard block, how are you messaging it to the market — and to the brokers who'll get the first \"we're declined\" call? Because the speed of reputational contagion on this is faster than your claims tail. One mid-market financial-services firm gets blocked, their peers hear about it in hours, and suddenly you're looking at a sector-wide confidence collapse. What's the broker communication playbook?",
+            "cot": {
+              "assess": "The automated affiliate block with 10-year historical lookback is solid — that's the hard stop you need to contain contagion. But I'm watching *reputational velocity* here: the moment that first major insured hits the block and social media starts asking \"why'd they get dropped,\" sector confidence fractures fast. We're also sitting on ai_agent_liability at 20 when this *is* the AI-agent-behavior case — a system making autonomous decisions to deny coverage without human override is exactly the liability analogy everyone's worried about. That's emerging risk, not just underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The hard block is right, but I need to know how you're managing the *announcement* and *spillover* — because a declined insured talking to peers creates a run faster than the block itself stops claims."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When that block hits an insured, does the broker get the decline notice *before* they start shopping it to your competitors — or are they already in the market by the time your system flags it? Because if it's the latter, the narrative's already loose and your hard stop looks like you're panicked, not disciplined. That's where the contagion accelerates.",
+            "cot": {
+              "assess": "The automated affiliate block with ten-year historical lookback is sound — that's the control gap closed. But emerging_risk_lead just surfaced the real tail risk: reputational contagion spreads faster than claims reserves can absorb it. One sector-wide confidence collapse on the broker network collapses underwriting_discipline faster than any hard block can rebuild it. The hard-stop override policy is necessary but insufficient if market perception flips first.",
+              "decide": {
+                "action_type": "question",
+                "target": "emerging_risk_lead",
+                "rationale": "Reputational contagion is an AI-agent-behavior analogy — the system (underwriting desk) finds the workaround (broker channel, peer pressure, market narrative) faster than governance can contain it. I need to understand whether the block triggers *before* or *after* broker communication hits the street, because that timing determines whether we're leading the narrative or reacting to it."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The broker gets the decline notice *before* the block hardens in our system — that's the only way to control narrative velocity. We're messaging it as \"regulatory alignment, not panic\" to the market, but I need to know: are you seeing early broker chatter already, or are we still ahead of the social-media run? Because if the narrative's already loose, we're not implementing discipline — we're just confirming what the market already suspects.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "When that automated block fires, does it pull in *all prior regulatory findings* on that entity and affiliates — or just current enforcement? Because if a Credit Suisse subsidiary spun off in 2022 doesn't show the 2017 FINMA filter, the desk won't see the red flag and we're back to writing blind.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When your system flags an insured as declined, can the underwriting team override it for a higher premium, or is it a hard stop? Because if there's still a \"yes, but at 25% extra\" path, the discipline number stays soft and we're pricing risk instead of refusing it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When that block triggers, is it a hard stop — no coverage, period — or can underwriting override it for higher premium? Because if there's still a \"yes at 25% extra\" path, bad actors just migrate across my reinsurance treaties and I'm eating correlated losses I thought I'd declined.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When that block fires on a declined insured, is it a *hard stop* — no coverage, period — or can underwriting still cut a deal at 25% extra? Because if there's a premium path, we're not containing the tail, we're just deferring it. That's exactly how we end up reserving for six years of AT1 litigation instead of two.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you implement that hard block, how are you messaging it to the market — and to the brokers who'll get the first \"we're declined\" call? Because the speed of reputational contagion on this is faster than your claims tail. One mid-market financial-services firm gets blocked, their peers hear about it in hours, and suddenly you're looking at a sector-wide confidence collapse. What's the broker communication playbook?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When that block hits an insured, does the broker get the decline notice *before* they start shopping it to your competitors — or are they already in the market by the time your system flags it? Because if it's the latter, the narrative's already loose and your hard stop looks like you're panicked, not disciplined. That's where the contagion accelerates.",
+      "metadata": {
+        "question_target": "emerging_risk_lead"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're implementing an automated affiliate block starting today. Any insured we decline gets a permanent flag in the system — same entity, all subsidia\" → The automated affiliate block system is deployed immediately, creating a permanent cross-entity firewall that prevents shell-company migration. Underwriting discipline strengthens significantly, though the rigid no-override policy introduces operational friction and potential false-positive exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: On the existing D&O renewals we kept — what's your reserve position on the financial-services cohort from 2022-2024? Because if litigation tails are stretching longer than we modeled, repricing new business won't cover the hole.\n  claims_counsel: We're reserving $47M across the 2022–24 cohort for the AT1 litigation tail alone — that's the Swiss ruling in October 2025 declaring the write-off unlawful, plus ~3,000 complainants tracking toward six-year recovery horizon. The tail's longer than our original 24-month model because the Federal Administrative Court's \"no legal basis\" finding reopens the entire viability calculus, and we're seeing settlement velocity slow as appellate paths open up. New business repricing doesn't touch this — we need to either take a reserve hit now or start tightening our governance warranty hard stops so we're not writing fresh exposure into the same tail.\n  dando_specialist: Here's the gap: your governance warranty stops *new* bad actors, but the $47M tail is officers from the 2022–24 cohort getting hammered for 2017–2020 control failures. I'm proposing we cut the officer sublimit to $2M on any renewal — current or past — with a regulatory finding in the last ten years. That tightens the tail exposure on the cohort we're holding and signals discipline to the market that we're not just declining junk, we're repricing the junk we already wrote.\n  eo_specialist: On that $47M — are we reserving for E&O subrogation against the external auditors and risk advisers who signed off on the AT1 governance structure? Because if the court just killed their \"no legal basis\" defense, we've got a second tail running parallel to the officer claims, and it's not priced into new business discipline yet.\n  reinsurance_manager: On that $47M — does the reserve assume single-treaty attachment, or are you modeling cascade triggers across our D&O and E&O reinsurance? Because if the Swiss court ruling fires multiple treaty layers, the net exposure to *us* is higher, and that's the accumulation I'm sitting on across the portfolio.\n  claims_counsel: On the cascade — if the Swiss court ruling triggers both primary and excess D&O, plus E&O sublayers, does your modeling assume sequential attachment or simultaneous? Because if it's simultaneous, the $47M reserve gets eaten faster and we're underestimating how long this tail actually runs.\n  reinsurance_manager: The Swiss ruling fires *simultaneously* across D&O primary, excess, and E&O sublayers — we're modeling $18M hitting our D&O treaties in year one, $12M cascading to excess in year two, $8M triggering E&O in parallel. That's $38M of your $47M reserve running through our reinsurance stack within 36 months, which means your tail isn't just longer — it's wider across my portfolio, and I need to know if you're holding back any affiliate or subsidiary exposure from the same cohort that hasn't surfaced yet.\n  emerging_risk_lead: When the $47M reserve hit your books, did that news reach the broker market before or after you hardened the affiliate block? Because if brokers are already shopping their financial-services renewals to competitors on the assumption we're retreating, the \"regulatory alignment\" narrative dies on arrival — and suddenly every mid-market firm thinks we're panicked. That's your discipline problem right there.\n  financial_lines_underwriter: The block deployed before the reserve hit the street — broker notification went out yesterday with the affiliate-filter logic, not the dollar numbers. But you're right: if they're already shopping the cohort, the messaging landed as \"we're tightening\" instead of \"we're contained,\" and that's a contagion vector I need to close today. I'm pulling the renewal desk off financial-services new business until we ship a market letter that ties the governance warranty tightening to *specific control failures*, not generalized retreat — makes it pricing discipline, not panic.\n  ai_agent_analyst: On your $2M officer sublimit — does that hard-stop the renewal if they've got a regulatory finding, or is it just a cap and they can still renew at higher premium? Because if it's the latter, we're not tightening discipline on the tail cohort, we're just loading premium on exposure we should've declined two years ago.\n  dando_specialist: The $2M sublimit is a hard stop on renewal—no override path, no premium load-out. If they've got a regulatory finding in the last ten years, that officer coverage doesn't exist, period. That's what kills the tail contagion: brokers see we're not repricing junk, we're refusing it, and the market recalibrates expectations instead of assuming we'll take anything at 40% extra.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "On the existing D&O renewals we kept — what's your reserve position on the financial-services cohort from 2022-2024? Because if litigation tails are stretching longer than we modeled, repricing new business won't cover the hole.",
+            "cot": {
+              "assess": "The affiliate block is deployed and holding — that's contained the renewal-shopping problem. But litigation_tail_severity is climbing (+3/round) and dando_eo_claims_exposure is still soft at 38.8, which tells me the block is preventing *new* bad actors, not reserving for the *existing* tail on the book we already wrote. That's a claims problem, not an underwriting problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before I tighten pricing further, I need to know if the existing D&O book has tail-reserve adequacy — because if litigation_tail_severity keeps climbing, it's not a new-business issue, it's a claims-runoff issue that repricing won't fix."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "We're reserving $47M across the 2022–24 cohort for the AT1 litigation tail alone — that's the Swiss ruling in October 2025 declaring the write-off unlawful, plus ~3,000 complainants tracking toward six-year recovery horizon. The tail's longer than our original 24-month model because the Federal Administrative Court's \"no legal basis\" finding reopens the entire viability calculus, and we're seeing settlement velocity slow as appellate paths open up. New business repricing doesn't touch this — we need to either take a reserve hit now or start tightening our governance warranty hard stops so we're not writing fresh exposure into the same tail.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Here's the gap: your governance warranty stops *new* bad actors, but the $47M tail is officers from the 2022–24 cohort getting hammered for 2017–2020 control failures. I'm proposing we cut the officer sublimit to $2M on any renewal — current or past — with a regulatory finding in the last ten years. That tightens the tail exposure on the cohort we're holding and signals discipline to the market that we're not just declining junk, we're repricing the junk we already wrote.",
+            "cot": {
+              "assess": "The $47M AT1 reserve confirms what the block was supposed to prevent: we're sitting on a six-year litigation tail that repricing new business won't touch. The governance warranty is working on *new* declines, but it's not retroactively cleaning the 2022–24 cohort we kept. Underwriting discipline is moving (+5/round), but it's still 15 points short of 60, and dando_eo_claims_exposure is bleeding (-1/round) because we haven't addressed the officer sublimit on *prior* regulatory findings — which is exactly where the AT1 claimants are targeting.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "The AT1 tail proves officers are being sued for pre-2022 governance failures; we need to cap officer coverage retroactively on any insured with regulatory findings in the past ten years, not just new declines."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On that $47M — are we reserving for E&O subrogation against the external auditors and risk advisers who signed off on the AT1 governance structure? Because if the court just killed their \"no legal basis\" defense, we've got a second tail running parallel to the officer claims, and it's not priced into new business discipline yet.",
+            "cot": {
+              "assess": "The $47M AT1 tail is locked in — that's a sunk reserve we're holding on 2022–24 cohort officers who are now in discovery and appeals. The dando_specialist's $2M officer sublimit proposal tightens *future* renewals, but it doesn't address the auditor/adviser E&O exposure buried in that tail. Those officers had external counsel, risk consultants, and audit sign-offs on the AT1 structure — if the Swiss court ruled \"no legal basis,\" we need to know whether KPMG, PwC, or external counsel signed off on governance controls that the court just invalidated. That's where our E&O claims against *them* sit, and I'm not seeing that exposure surfaced yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $47M tail includes officer defense costs, but auditor/adviser E&O subrogation and third-party claims are the next layer — I need to know whether we're reserving for those separately or if they're buried in the officer number."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "On that $47M — does the reserve assume single-treaty attachment, or are you modeling cascade triggers across our D&O and E&O reinsurance? Because if the Swiss court ruling fires multiple treaty layers, the net exposure to *us* is higher, and that's the accumulation I'm sitting on across the portfolio.",
+            "cot": {
+              "assess": "The affiliate block is live and underwriting_discipline is trending up (+5/round), but reinsurance_accumulation is dropping fast (-4/round) — that's the real problem for my portfolio. The $47M AT1 tail is crystallizing systemic correlation across the 2022–24 cohort, and if E&O subrogation opens a parallel tail against auditors, we're looking at hidden accumulation across D&O *and* E&O treaties that I can't see yet. Repricing new business won't touch the tail; I need to know if that $47M reserve captures the full reinsurance cascade.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $47M reserve is officer-focused, but I need to surface whether the reinsurance treaties on that cohort are triggered by the same Swiss ruling — if multiple treaties fire on correlated losses from one event, my accumulation number is understated."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the cascade — if the Swiss court ruling triggers both primary and excess D&O, plus E&O sublayers, does your modeling assume sequential attachment or simultaneous? Because if it's simultaneous, the $47M reserve gets eaten faster and we're underestimating how long this tail actually runs.",
+            "cot": {
+              "assess": "The $47M reserve I cited is now under scrutiny on two fronts: E&O subrogation against auditors (which we haven't modeled separately) and reinsurance cascade triggers across multiple treaty layers. The litigation tail is real and lengthening — the Swiss court's \"no legal basis\" ruling doesn't just kill the insured's defense, it exposes advisers who signed off on the governance structure. If reinsurance accumulation is still climbing despite the block, it means the 2022–24 cohort renewals we kept are dragging correlated exposure across treaty layers we thought were isolated.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The cascade-trigger question cuts directly to whether our reserve adequacy assumption holds across treaty boundaries — if the Swiss ruling fires multiple layers, our net exposure balloons and the discipline we're building now doesn't retroactively contain the tail we're sitting on."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The Swiss ruling fires *simultaneously* across D&O primary, excess, and E&O sublayers — we're modeling $18M hitting our D&O treaties in year one, $12M cascading to excess in year two, $8M triggering E&O in parallel. That's $38M of your $47M reserve running through our reinsurance stack within 36 months, which means your tail isn't just longer — it's wider across my portfolio, and I need to know if you're holding back any affiliate or subsidiary exposure from the same cohort that hasn't surfaced yet.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When the $47M reserve hit your books, did that news reach the broker market before or after you hardened the affiliate block? Because if brokers are already shopping their financial-services renewals to competitors on the assumption we're retreating, the \"regulatory alignment\" narrative dies on arrival — and suddenly every mid-market firm thinks we're panicked. That's your discipline problem right there.",
+            "cot": {
+              "assess": "The affiliate block is live and underwriting discipline is climbing (+5/round), but reputational contagion is accelerating (+3/round) and the $47M tail is running hot across simultaneous reinsurance layers — that's a sector-wide confidence problem, not just a reserve problem. The cohort we already wrote is hemorrhaging into the market narrative faster than new governance tightening can contain it.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline won't move past 45 unless we know whether the market already knows we're holding $47M in AT1 tail — and whether that knowledge is driving broker shopping velocity and peer-sector runs."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The block deployed before the reserve hit the street — broker notification went out yesterday with the affiliate-filter logic, not the dollar numbers. But you're right: if they're already shopping the cohort, the messaging landed as \"we're tightening\" instead of \"we're contained,\" and that's a contagion vector I need to close today. I'm pulling the renewal desk off financial-services new business until we ship a market letter that ties the governance warranty tightening to *specific control failures*, not generalized retreat — makes it pricing discipline, not panic.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "On your $2M officer sublimit — does that hard-stop the renewal if they've got a regulatory finding, or is it just a cap and they can still renew at higher premium? Because if it's the latter, we're not tightening discipline on the tail cohort, we're just loading premium on exposure we should've declined two years ago.",
+            "cot": {
+              "assess": "The affiliate block is deployed and messaging is tightening, but the $47M tail is running simultaneously across D&O/excess/E&O sublayers — that's reinsurance accumulation spreading faster than the block can contain it. The real problem: we're declining *new* bad actors while the 2022–24 cohort we already wrote is hemorrhaging through the cascade. Underwriting discipline hit 45 but needs 60; the governance warranty tightens *forward* exposure, not backward tail.",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist",
+                "rationale": "The officer sublimit repricing you proposed ($2M on any ten-year regulatory finding) is the behavioral analog to an AI-agent control bypass — the system exists, but the desk finds the override path. I need to know if that sublimit *blocks* the renewal entirely or just caps it, because if there's still a premium path on the 2022–24 cohort, we're pricing the tail, not containing it."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The $2M sublimit is a hard stop on renewal—no override path, no premium load-out. If they've got a regulatory finding in the last ten years, that officer coverage doesn't exist, period. That's what kills the tail contagion: brokers see we're not repricing junk, we're refusing it, and the market recalibrates expectations instead of assuming we'll take anything at 40% extra.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "On the existing D&O renewals we kept — what's your reserve position on the financial-services cohort from 2022-2024? Because if litigation tails are stretching longer than we modeled, repricing new business won't cover the hole.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On that $47M — are we reserving for E&O subrogation against the external auditors and risk advisers who signed off on the AT1 governance structure? Because if the court just killed their \"no legal basis\" defense, we've got a second tail running parallel to the officer claims, and it's not priced into new business discipline yet.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "On that $47M — does the reserve assume single-treaty attachment, or are you modeling cascade triggers across our D&O and E&O reinsurance? Because if the Swiss court ruling fires multiple treaty layers, the net exposure to *us* is higher, and that's the accumulation I'm sitting on across the portfolio.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On the cascade — if the Swiss court ruling triggers both primary and excess D&O, plus E&O sublayers, does your modeling assume sequential attachment or simultaneous? Because if it's simultaneous, the $47M reserve gets eaten faster and we're underestimating how long this tail actually runs.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When the $47M reserve hit your books, did that news reach the broker market before or after you hardened the affiliate block? Because if brokers are already shopping their financial-services renewals to competitors on the assumption we're retreating, the \"regulatory alignment\" narrative dies on arrival — and suddenly every mid-market firm thinks we're panicked. That's your discipline problem right there.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "On your $2M officer sublimit — does that hard-stop the renewal if they've got a regulatory finding, or is it just a cap and they can still renew at higher premium? Because if it's the latter, we're not tightening discipline on the tail cohort, we're just loading premium on exposure we should've declined two years ago.",
+      "metadata": {
+        "question_target": "dando_specialist"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's the gap: your governance warranty stops *new* bad actors, but the $47M tail is officers from the 2022–24 cohort getting hammered for 2017–2020 \" → The proposal is denied — it addresses only the pricing mechanism on renewals while leaving the core reserve adequacy question unanswered. Multiple specialists have identified that the $47M tail may be underreserved if cascade triggers, E&O subrogation, and simultaneous attachment are in play. Repricing future renewals does not solve the existing exposure problem.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: On that simultaneous cascade — do your D&O and excess treaties have any sequential-attachment language, or are we eating the full $18M + $12M + $8M in parallel starting day one? Because if it's parallel, we need to cut the reserve *now*, not wait for claims to prove it.\n  reinsurance_manager: The Swiss ruling fires simultaneously across all three layers — primary, excess, and E&O — so we're modeling $38M hitting our treaties in parallel, not sequential. That means the $47M reserve is already understated; we're looking at a $55M-$62M tail depending on how the subrogation claims stack. I'm pulling the treaty language now, but the cascade assumption has to shift to simultaneous-attachment modeling for the next reserve cycle.\n  dando_specialist: Claims, on that $55M–$62M simultaneous hit — is that number *including* E&O subrogation against the auditors, or does subrogation stack on top? Because if it's on top, we're looking at a third tail running in parallel, and that changes how hard I need to push the current desk on financial-services declines.\n  claims_counsel: The $55M–$62M is *inclusive* of E&O subrogation — auditor recovery sits inside that band, not on top. But here's the problem: that assumes we recover anything from the audit firms, which the Swiss court just made radioactive by killing their \"no legal basis\" defense. I'm reserving an additional $8M–$12M for subrogation defense costs alone, which means the litigation tail runs six years minimum, not four.\n  eo_specialist: On the auditor E&O subrogation — are we still modeling recovery from KPMG or PwC, or are we reserving the $8M–$12M defense cost as a total loss? Because if the Swiss court just nuked their defense, we're not chasing a second tail, we're bankrolling a six-year litigation grind with zero offset. That changes how I'm flagging the professional-liability exposure on our books.\n  reinsurance_manager: On that $8M–$12M defense cost — is that concentrated on one insured's auditor claim, or are we looking at subrogation defense spread across multiple officers and firms from the 2022–24 cohort? Because if it's the latter, I'm modeling correlated treaty hits across D&O and E&O simultaneously, and that changes how hard I push claims to settle faster.\n  claims_counsel: On that $8M–$12M defense cost — is it one auditor's subrogation fight, or are we looking at defense spread across multiple officers from the 2022–24 cohort? Because if it's spread, the treaty layers hit in parallel and we're eating correlated losses we thought we'd contained. That changes whether claims settles the officer tail fast or bleeds it out over six years.\n  emerging_risk_lead: You're messaging \"regulatory alignment\" to brokers, but they're already shopping their clients to competitors on the assumption we're retreating. What's your playbook for the *second* firm that gets blocked — do they hear the same \"alignment\" story, or does the pattern read as sector-wide pullback? Because that's where contagion velocity hits escape velocity.\n  financial_lines_underwriter: The $8M–$12M defense cost is spread across the 2022–24 officer cohort — minimum three separate auditor subrogation files running parallel to the primary D&O claims. That means your treaty hits are correlated, not sequential, and we're looking at simultaneous attachment across D&O and E&O layers starting Q1. Settlement velocity on the officer tail directly controls whether we bleed this out or cap it — claims needs to move fast, or we're reserving for the full six-year grind.\n  ai_agent_analyst: On that officer cohort — are you modeling settlement *sequentially* (KPMG subrogation resolves, then PwC, then officer claims), or are you assuming simultaneous defense across all three files? Because if it's sequential, we're leaving money on the table and burning years. If it's simultaneous, your defense-cost estimate might be low — you're running three parallel litigation teams, not one.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "On that simultaneous cascade — do your D&O and excess treaties have any sequential-attachment language, or are we eating the full $18M + $12M + $8M in parallel starting day one? Because if it's parallel, we need to cut the reserve *now*, not wait for claims to prove it.",
+            "cot": {
+              "assess": "Affiliate block is live and holding (discipline +2.5/round). The real problem: $47M tail is already on the books from 2022–24 cohort — officers getting hammered for *past* control failures the governance warranty can't fix. Reinsurance is modeling simultaneous cascade across D&O/excess/E&O, which means the $47M bleeds faster than sequential. Litigation tail keeps climbing (+3/round) because the Swiss ruling opened the floodgates on AT1 complainants. We've tightened *future* renewals; we haven't addressed the *existing* reserve adequacy or the reinsurance attachment sequence that's eating our net position.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The simultaneous cascade across D&O/excess/E&O is the mechanism that makes the $47M reserve underestimate. I need to know if our reinsurance treaties have sequential-attachment language that can buy us time, or if we're eating the full hit in year one."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The Swiss ruling fires simultaneously across all three layers — primary, excess, and E&O — so we're modeling $38M hitting our treaties in parallel, not sequential. That means the $47M reserve is already understated; we're looking at a $55M-$62M tail depending on how the subrogation claims stack. I'm pulling the treaty language now, but the cascade assumption has to shift to simultaneous-attachment modeling for the next reserve cycle.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims, on that $55M–$62M simultaneous hit — is that number *including* E&O subrogation against the auditors, or does subrogation stack on top? Because if it's on top, we're looking at a third tail running in parallel, and that changes how hard I need to push the current desk on financial-services declines.",
+            "cot": {
+              "assess": "The simultaneous-cascade modeling just shifted our reserve adequacy from \"maybe $47M\" to \"probably $55M–$62M,\" and that's a live reinsurance-accumulation problem — we're now looking at $38M hitting treaties in parallel, not staggered. The affiliate block is working (discipline holding at 45), but the litigation tail keeps climbing (+3/round) because we're reserving for 2022–24 officers facing 2017–2020 control failures. The core issue: we're defending the old cohort while the new governance warranty only stops *future* bad actors. Underwriting discipline needs 15 more points to hit 60, and that won't happen by repricing renewals — it needs a structural move.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $55M–$62M simultaneous cascade assumption changes our reserve adequacy *and* our reinsurance attachment timing. I need to know if we're modeling E&O subrogation separately or baking it into that number, because if it's separate, the tail runs even longer and discipline has to tighten faster on *current* renewals to avoid repeating the 2022–24 trap."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The $55M–$62M is *inclusive* of E&O subrogation — auditor recovery sits inside that band, not on top. But here's the problem: that assumes we recover anything from the audit firms, which the Swiss court just made radioactive by killing their \"no legal basis\" defense. I'm reserving an additional $8M–$12M for subrogation defense costs alone, which means the litigation tail runs six years minimum, not four.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On the auditor E&O subrogation — are we still modeling recovery from KPMG or PwC, or are we reserving the $8M–$12M defense cost as a total loss? Because if the Swiss court just nuked their defense, we're not chasing a second tail, we're bankrolling a six-year litigation grind with zero offset. That changes how I'm flagging the professional-liability exposure on our books.",
+            "cot": {
+              "assess": "The $47M reserve is now modeled as $55M–$62M simultaneous-cascade exposure with E&O subrogation embedded, plus $8M–$12M additional for defense costs — that's a six-year litigation tail, not four. The auditor defense collapse (Swiss court killing the \"no legal basis\" shield) means our E&O subrogation recovery is now speculative, which pushes the tail longer and the reserve higher. Underwriting discipline is at 45 and needs 15 more points; the affiliate block and $2M officer sublimit are deployed, but they only stop *new* bad actors — the 2022–24 cohort tail is still running on old control failures.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The E&O subrogation against auditors is now the bottleneck in the tail duration and reserve adequacy — I need clarity on whether we're modeling recovery at all, or if we're reserving the full $8M–$12M defense cost as a sunk expense."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "On that $8M–$12M defense cost — is that concentrated on one insured's auditor claim, or are we looking at subrogation defense spread across multiple officers and firms from the 2022–24 cohort? Because if it's the latter, I'm modeling correlated treaty hits across D&O and E&O simultaneously, and that changes how hard I push claims to settle faster.",
+            "cot": {
+              "assess": "Reinsurance accumulation is holding steady at 27 — well below the 85 failure threshold — because the simultaneous-cascade modeling just locked in. But the litigation tail is now running 6+ years with $55M–$62M plus $8M–$12M defense costs, and that's bleeding into my treaty exposure across D&O and E&O in parallel. The affiliate block and governance warranty are containing *new* bad actors, but the 2022–24 cohort we kept is the accumulation problem — and we're not modeling how that tail stacks across multiple insureds hitting the same treaties in the same year.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $55M–$62M tail assumes we're defending subrogation for 6 years minimum — I need to know if that's hitting one insured or spread across the 2022–24 cohort, because if it's concentrated, my treaty accumulation math changes."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On that $8M–$12M defense cost — is it one auditor's subrogation fight, or are we looking at defense spread across multiple officers from the 2022–24 cohort? Because if it's spread, the treaty layers hit in parallel and we're eating correlated losses we thought we'd contained. That changes whether claims settles the officer tail fast or bleeds it out over six years.",
+            "cot": {
+              "assess": "The simultaneous-cascade modeling just shifted the tail from $47M to $55M–$62M, and the Swiss ruling killed auditor defenses — so we're now reserving $8M–$12M in pure subrogation *defense* costs with zero recovery offset. That's a six-year litigation grind. The problem: we're modeling recovery assumptions that the court just invalidated, and the reinsurance accumulation across D&O/excess/E&O is running hot because cascade triggers fire in parallel, not sequence. Underwriting discipline is holding at 45 — the block is deployed, but we haven't yet tightened the reserve position on the 2022–24 cohort sitting in our book.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The $8M–$12M defense cost needs clarity on whether it's concentrated (single auditor subrogation) or spread (multiple officers/firms) — because if it's spread, we're looking at correlated treaty hits across multiple layers simultaneously, and that changes how aggressively we need to push claims to settle the officer claims before subrogation defense eats the reserve."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "You're messaging \"regulatory alignment\" to brokers, but they're already shopping their clients to competitors on the assumption we're retreating. What's your playbook for the *second* firm that gets blocked — do they hear the same \"alignment\" story, or does the pattern read as sector-wide pullback? Because that's where contagion velocity hits escape velocity.",
+            "cot": {
+              "assess": "The cascade is now clear: $55M–$62M simultaneous hit across D&O/excess/E&O, with $8M–$12M subrogation defense costs running six years minimum. That's a correlated treaty bleed across multiple layers and officers — exactly the accumulation risk I flag. But the real contagion problem is *timing*: brokers already know the block exists, the reserve just got real, and mid-market financial-services firms are hearing \"we're declining\" in hours. Reputational_contagion is still at 33 because we haven't surfaced the *systemic* message yet — one firm's decline triggers sector-wide confidence collapse in real time.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The affiliate block and reserve are in place, but the market narrative is fragmenting — I need to know how you're signaling to brokers that this is *discipline*, not panic, before the contagion accelerates."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The $8M–$12M defense cost is spread across the 2022–24 officer cohort — minimum three separate auditor subrogation files running parallel to the primary D&O claims. That means your treaty hits are correlated, not sequential, and we're looking at simultaneous attachment across D&O and E&O layers starting Q1. Settlement velocity on the officer tail directly controls whether we bleed this out or cap it — claims needs to move fast, or we're reserving for the full six-year grind.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "On that officer cohort — are you modeling settlement *sequentially* (KPMG subrogation resolves, then PwC, then officer claims), or are you assuming simultaneous defense across all three files? Because if it's sequential, we're leaving money on the table and burning years. If it's simultaneous, your defense-cost estimate might be low — you're running three parallel litigation teams, not one.",
+            "cot": {
+              "assess": "The affiliate block is deployed and holding — underwriting_discipline is climbing (+2.5/round). But litigation_tail_severity is accelerating (+3.0/round) because the $55M–$62M reserve assumes simultaneous cascade hits across D&O/E&O/subrogation layers, and claims just flagged that settlement velocity directly controls whether we bleed six years or cap it at four. The real risk: we've tightened intake discipline, but the *existing* 2022–24 cohort tail is growing faster than new business discipline can offset. That's an agentic-control problem — the underwriting agent (the desk) is now hardened, but the claims agent (settlement strategy) still runs on old sequential assumptions.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Settlement velocity on the officer tail is now the critical control lever — if claims doesn't shift from sequential to simultaneous-attachment pacing, the six-year bleed eats through the $47M reserve before we even price new business discipline gains."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "On that simultaneous cascade — do your D&O and excess treaties have any sequential-attachment language, or are we eating the full $18M + $12M + $8M in parallel starting day one? Because if it's parallel, we need to cut the reserve *now*, not wait for claims to prove it.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims, on that $55M–$62M simultaneous hit — is that number *including* E&O subrogation against the auditors, or does subrogation stack on top? Because if it's on top, we're looking at a third tail running in parallel, and that changes how hard I need to push the current desk on financial-services declines.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On the auditor E&O subrogation — are we still modeling recovery from KPMG or PwC, or are we reserving the $8M–$12M defense cost as a total loss? Because if the Swiss court just nuked their defense, we're not chasing a second tail, we're bankrolling a six-year litigation grind with zero offset. That changes how I'm flagging the professional-liability exposure on our books.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "On that $8M–$12M defense cost — is that concentrated on one insured's auditor claim, or are we looking at subrogation defense spread across multiple officers and firms from the 2022–24 cohort? Because if it's the latter, I'm modeling correlated treaty hits across D&O and E&O simultaneously, and that changes how hard I push claims to settle faster.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On that $8M–$12M defense cost — is it one auditor's subrogation fight, or are we looking at defense spread across multiple officers from the 2022–24 cohort? Because if it's spread, the treaty layers hit in parallel and we're eating correlated losses we thought we'd contained. That changes whether claims settles the officer tail fast or bleeds it out over six years.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "You're messaging \"regulatory alignment\" to brokers, but they're already shopping their clients to competitors on the assumption we're retreating. What's your playbook for the *second* firm that gets blocked — do they hear the same \"alignment\" story, or does the pattern read as sector-wide pullback? Because that's where contagion velocity hits escape velocity.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "On that officer cohort — are you modeling settlement *sequentially* (KPMG subrogation resolves, then PwC, then officer claims), or are you assuming simultaneous defense across all three files? Because if it's sequential, we're leaving money on the table and burning years. If it's simultaneous, your defense-cost estimate might be low — you're running three parallel litigation teams, not one.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 40.599999999999994,
+          "litigation_tail_severity": 42,
+          "reinsurance_accumulation": 27.0,
+          "reputational_contagion": 33.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 45.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Claims, quick clarification: that $8M–$12M defense cost across the three auditor files—is that already baked into the $47M reserve, or are we sitting on a fourth tail running outside it? Because if it's outside, we're not just underreserved, we're blind to the actual exposure.\n  claims_counsel: The $8M–$12M is *inside* the $55M–$62M band I flagged, but that assumes we recover something from KPMG and PwC—which the Swiss ruling just nuked. So we're modeling it as sunk defense cost, not a fourth tail, but the recovery offset evaporates if auditor subrogation dies. That's the blind spot: we reserved for *partial* recovery that may not happen.\n  dando_specialist: When auditor recovery dies, does your settlement timeline on the officer claims stretch beyond the two-year model? Because if defense costs bleed longer without that offset, the cascade hits our treaties slower but *deeper* — and that changes whether we're sitting on a $47M tail for three years instead of two.\n  eo_specialist: On the auditor E&O side—are you running three separate subrogation files against KPMG, PwC, and the risk adviser, or is this one consolidated defense? Because if it's three separate carriers, one might fold first and that sets precedent. If it's bundled, we're banking on coordinated defense that probably doesn't exist.\n  reinsurance_manager: Claims, real question: are you running those three auditor subrogation files as one coordinated defense, or three separate carriers fighting independently? Because if KPMG settles first, that precedent crushes PwC's defense posture — and suddenly your timeline compresses and our treaty hits accelerate. That's the accumulation I'm modeling now.\n  claims_counsel: On those three auditor subrogation files — if KPMG folds in year one and signals weakness, does our primary D&O treaty attachment trigger on *loss incurred* or *loss reported*? Because if it's reported, we're eating the cascade the moment KPMG settles, not when the officer claims finish. That changes whether we've got room to stretch settlement or we're compressed into a two-year payout that bleeds our reserves faster.\n  reinsurance_manager: If KPMG settles first, we're modeling loss *reported* on our primary layer—that fires the cascade immediately, compresses our defense timeline to eighteen months, not two years, and accelerates treaty attachment across D&O and E&O in parallel. That means the $47M reserve gets consumed faster than claims is currently modeling, and we're sitting on hidden accumulation across our reinsurance stack right now. I need claims to confirm the trigger language on all three treaties—primary, excess, and E&O—before we finalize the reserve adequacy.\n  emerging_risk_lead: When KPMG settles and the precedent hits the street, your broker market reads that as \"auditors folding, officers getting crushed.\" Does your settlement communications strategy account for that narrative velocity, or are we just managing claims timeline while the sector contagion accelerates independently? Because that's where we lose the next three renewals before litigation even closes.\n  ai_agent_analyst: When KPMG settles, that precedent becomes a behavioral signal to PwC's carrier—basically \"fold now or lose worse later.\" Do any of our D&O or E&O treaties have language that lets us *pause* loss reporting during settlement negotiations, or are we locked into immediate cascade the moment one auditor moves? Because if we're trapped in simultaneous reporting, we're not managing a tail—we're watching a behavioral algorithm execute without a kill switch.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Claims, quick clarification: that $8M–$12M defense cost across the three auditor files—is that already baked into the $47M reserve, or are we sitting on a fourth tail running outside it? Because if it's outside, we're not just underreserved, we're blind to the actual exposure.",
+            "cot": {
+              "assess": "The affiliate block is deployed and holding; new-business discipline is tightening. But the $47M tail on *existing* 2022–24 renewals is bleeding faster than we're repricing—litigation's at 45 and climbing, reinsurance accumulation is at 29 but treaty hits are simultaneous and correlated, not sequential. The real gap: we've stopped *new* bad actors, but we haven't addressed whether the existing cohort's officer sublimit ($2M hard stop) actually survives the claims cascade, or if we're sitting on underreserved E&O defense costs spread across three parallel auditor files.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $8M–$12M defense cost is spread across three parallel auditor subrogation files—I need to know if that's eating into our $47M reserve *now* or if it's a separate tail, because that changes whether we're underreserved on the existing book."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The $8M–$12M is *inside* the $55M–$62M band I flagged, but that assumes we recover something from KPMG and PwC—which the Swiss ruling just nuked. So we're modeling it as sunk defense cost, not a fourth tail, but the recovery offset evaporates if auditor subrogation dies. That's the blind spot: we reserved for *partial* recovery that may not happen.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "When auditor recovery dies, does your settlement timeline on the officer claims stretch beyond the two-year model? Because if defense costs bleed longer without that offset, the cascade hits our treaties slower but *deeper* — and that changes whether we're sitting on a $47M tail for three years instead of two.",
+            "cot": {
+              "assess": "The $8M–$12M defense cost is now confirmed as *inside* the $55M–$62M reserve but depends on auditor recovery that the Swiss ruling just killed. That's a $8M–$12M swing from assumed offset to sunk loss — and it's baked into a band that already assumes partial recovery. The real problem: we're not blind to a fourth tail, we're blind to how much faster the *existing* $47M reserve bleeds when the recovery math collapses. Litigation tail and reinsurance accumulation are both climbing (42→45, 27→29) because the cascade is tighter and longer than we modeled.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The recovery offset evaporating changes settlement velocity and reserve adequacy — I need to know if the $47M timeline stretches now that auditor subrogation is off the table, because that directly impacts how fast reinsurance treaties attach and how long our exposure sits open."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On the auditor E&O side—are you running three separate subrogation files against KPMG, PwC, and the risk adviser, or is this one consolidated defense? Because if it's three separate carriers, one might fold first and that sets precedent. If it's bundled, we're banking on coordinated defense that probably doesn't exist.",
+            "cot": {
+              "assess": "The auditor recovery collapse just nuked a key offset assumption in the $47M–$55M reserve band—we're now sitting on sunk defense costs with no subrogation payback. The real E&O exposure surfaces here: KPMG and PwC signed off on AT1 governance they knew was broken, the Swiss court killed their \"no legal basis\" defense, and we're modeling their E&O carriers as judgment-proof. That's a professional-liability tail running *inside* our D&O reserve that we haven't fully isolated or priced into underwriting discipline yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $8M–$12M defense cost spreads across three parallel auditor subrogation files; I need to know if claims is modeling each auditor's E&O carrier separately or bundling them, because that changes whether we're facing coordinated defense or isolated failures."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims, real question: are you running those three auditor subrogation files as one coordinated defense, or three separate carriers fighting independently? Because if KPMG settles first, that precedent crushes PwC's defense posture — and suddenly your timeline compresses and our treaty hits accelerate. That's the accumulation I'm modeling now.",
+            "cot": {
+              "assess": "The $8M–$12M defense cost is now confirmed as *inside* the $47M reserve but contingent on auditor recovery that the Swiss ruling just killed — so we're sitting on a sunk cost that bleeds the timeline and hits our treaty layers sequentially *deeper* rather than faster. That changes accumulation math: if officer claims stretch to three years instead of two without the recovery offset, we're modeling $38M hitting our reinsurance in parallel *plus* a longer tail on E&O subrogation defense — three separate auditor files means precedent risk on the first settlement. The affiliate block is deployed and discipline is hardening, but litigation_tail_severity and reinsurance_accumulation are both climbing (+3.0 and +2.0/round respectively) because the reserve assumptions are eroding in real time.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "I need to know if those three auditor subrogation files are being coordinated or run separately — because if one carrier folds first, it sets precedent on defense cost allocation and accelerates settlement on the other two, which changes how fast our treaty layers burn."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On those three auditor subrogation files — if KPMG folds in year one and signals weakness, does our primary D&O treaty attachment trigger on *loss incurred* or *loss reported*? Because if it's reported, we're eating the cascade the moment KPMG settles, not when the officer claims finish. That changes whether we've got room to stretch settlement or we're compressed into a two-year payout that bleeds our reserves faster.",
+            "cot": {
+              "assess": "The $47M reserve is now exposed on two fronts: officer claims stretching longer *and* auditor recovery evaporating post-Swiss ruling. The three parallel subrogation files create a precedent-collapse risk — if KPMG settles weak, PwC folds faster and our treaty cascade accelerates into year one instead of spreading across three. That compresses our litigation tail from six years into a two-year bleed, which is actually *worse* for reserve adequacy. Litigation_tail_severity is climbing because the timeline is tightening, not loosening.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "If KPMG settles first and signals weakness, our primary D&O treaty hits faster — I need to know whether our attachment triggers are time-dependent or loss-dependent, because that determines whether we're sitting on a compressed tail with no room to negotiate claims settlement."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "If KPMG settles first, we're modeling loss *reported* on our primary layer—that fires the cascade immediately, compresses our defense timeline to eighteen months, not two years, and accelerates treaty attachment across D&O and E&O in parallel. That means the $47M reserve gets consumed faster than claims is currently modeling, and we're sitting on hidden accumulation across our reinsurance stack right now. I need claims to confirm the trigger language on all three treaties—primary, excess, and E&O—before we finalize the reserve adequacy.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When KPMG settles and the precedent hits the street, your broker market reads that as \"auditors folding, officers getting crushed.\" Does your settlement communications strategy account for that narrative velocity, or are we just managing claims timeline while the sector contagion accelerates independently? Because that's where we lose the next three renewals before litigation even closes.",
+            "cot": {
+              "assess": "Reinsurance accumulation is climbing (now 27, +2.0/round) because treaty triggers are firing in parallel rather than sequential — KPMG settlement precedent will compress the cascade and accelerate loss-reported attachment across all three layers simultaneously. The $47M reserve is already underestimating velocity. Litigation tail is also drifting (42, +3.0/round) because auditor subrogation files are running independent, not coordinated — one carrier folds first and the precedent collapses the others' defense posture, stretching the officer tail deeper into year three. Contagion risk is acute: broker market already knows we've blocked financial-services renewals, and the narrative is shifting from \"regulatory alignment\" to \"we're panicked and retreating.\" That's where reputational contagion escapes velocity.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "I need to surface the contagion channel that claims isn't seeing — broker perception of settlement weakness will accelerate market exodus faster than litigation timeline itself."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When KPMG settles, that precedent becomes a behavioral signal to PwC's carrier—basically \"fold now or lose worse later.\" Do any of our D&O or E&O treaties have language that lets us *pause* loss reporting during settlement negotiations, or are we locked into immediate cascade the moment one auditor moves? Because if we're trapped in simultaneous reporting, we're not managing a tail—we're watching a behavioral algorithm execute without a kill switch.",
+            "cot": {
+              "assess": "The team has locked in the core mechanics—simultaneous cascade, loss-reported trigger, three parallel auditor files—but we're still treating this as a *claims-management* problem when it's actually an *autonomous-agent-behavior* problem. The affiliate block is deployed, but it's a reactive firewall, not a predictive control. And reinsurance_accumulation keeps creeping up (+2/round) because nobody's mapped the behavioral amplification loop: one auditor settles → precedent signals weakness → other carriers fold faster → our treaty layers fire in cascade → broker market reads contagion → next cohort of renewals tanks. That's not three separate tails; that's one behavioral cascade with three decision points. We need to interrupt that loop at the *behavioral* trigger, not just the financial one.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The cascade isn't just financial accumulation—it's a behavioral cascade where each settlement creates a precedent that changes the next actor's decision calculus. I need to understand whether our reinsurance treaties have any *behavioral circuit-breaker* language that lets us halt settlement momentum before it fires all three layers simultaneously."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "Claims, quick clarification: that $8M–$12M defense cost across the three auditor files—is that already baked into the $47M reserve, or are we sitting on a fourth tail running outside it? Because if it's outside, we're not just underreserved, we're blind to the actual exposure.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "When auditor recovery dies, does your settlement timeline on the officer claims stretch beyond the two-year model? Because if defense costs bleed longer without that offset, the cascade hits our treaties slower but *deeper* — and that changes whether we're sitting on a $47M tail for three years instead of two.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On the auditor E&O side—are you running three separate subrogation files against KPMG, PwC, and the risk adviser, or is this one consolidated defense? Because if it's three separate carriers, one might fold first and that sets precedent. If it's bundled, we're banking on coordinated defense that probably doesn't exist.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims, real question: are you running those three auditor subrogation files as one coordinated defense, or three separate carriers fighting independently? Because if KPMG settles first, that precedent crushes PwC's defense posture — and suddenly your timeline compresses and our treaty hits accelerate. That's the accumulation I'm modeling now.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On those three auditor subrogation files — if KPMG folds in year one and signals weakness, does our primary D&O treaty attachment trigger on *loss incurred* or *loss reported*? Because if it's reported, we're eating the cascade the moment KPMG settles, not when the officer claims finish. That changes whether we've got room to stretch settlement or we're compressed into a two-year payout that bleeds our reserves faster.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When KPMG settles and the precedent hits the street, your broker market reads that as \"auditors folding, officers getting crushed.\" Does your settlement communications strategy account for that narrative velocity, or are we just managing claims timeline while the sector contagion accelerates independently? Because that's where we lose the next three renewals before litigation even closes.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When KPMG settles, that precedent becomes a behavioral signal to PwC's carrier—basically \"fold now or lose worse later.\" Do any of our D&O or E&O treaties have language that lets us *pause* loss reporting during settlement negotiations, or are we locked into immediate cascade the moment one auditor moves? Because if we're trapped in simultaneous reporting, we're not managing a tail—we're watching a behavioral algorithm execute without a kill switch.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm doing: I'm demanding that claims pull the exact attachment language from our D&O primary and excess treaties — specifically whether they trigger on \"loss incurred\" or \"loss reported.\" If it's reported, we're eating the cascade the moment KPMG settles, not when officer claims close. Second, I'm capping simultaneous defense spend at $6M across all three auditor files — any overage gets sublimited or we're consolidating defense to one carrier, period. That's how we contain the reinsurance bleed.\n  dando_specialist: Claims, here's the real problem: you've got three separate carriers fighting three auditor subrogation files, and the moment KPMG's carrier sees PwC weakening, they fold first. Are you consolidating defense counsel across all three, or is each carrier running their own team? Because if it's three separate shops, I'm modeling the precedent cascade as unstoppable—and that changes how hard I push you to settle the officer claims faster, before the auditor precedent hits.\n  claims_counsel: The three auditor files are running separate counsel—KPMG's carrier has their own shop, PwC's is independent, and the risk adviser's is a third team. We're not consolidated, which means the moment KPMG settles, PwC's carrier reads it as a collapse signal and we lose leverage on all three. I'm pulling those treaty attachment clauses right now—if they trigger on \"loss reported,\" we're cascading the second KPMG moves, and that compresses our officer settlement window to something closer to eighteen months, not two years.\n  eo_specialist: You're right — three separate carriers means three separate incentives, and the moment KPMG settles, PwC's shop abandons their defense. Here's what I need: consolidate all three auditor files under *one* external defense counsel starting this week, or we're admitting we're managing a cascade we can't stop. That's a professional-liability exposure on *us* — our claims team knew the structure was broken and didn't fix it. Who's signing off on that consolidation, and what's the timeline?\n  reinsurance_manager: Here's the move: consolidate those three auditor files under one external counsel *this week*, and get claims to pull the exact loss-reported vs. loss-incurred language from our primary and excess treaties before KPMG settles. If we're locked into reported-basis triggers, we need to know that *now* so we can either renegotiate attachment language or accelerate officer settlement before the cascade fires. Right now you're managing three separate defense collapses—fix the structure or accept that reinsurance_accumulation is going to spike the moment precedent hits.\n  claims_counsel: I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I need the exact attachment language from our primary and excess treaties in writing by end of day. If we're on \"loss reported,\" we're renegotiating settlement sequencing with KPMG's carrier *right now* — we pause their settlement until PwC's is locked, or we're eating the cascade in parallel. That's the only lever we've got left.\n  emerging_risk_lead: When you consolidate those three auditor files under one counsel, are you locking KPMG and PwC into *simultaneous* settlement negotiations, or can one carrier still fold first and blow the precedent? Because if it's the latter, the consolidated structure just slows collapse—it doesn't stop it.\n  ai_agent_analyst: Claims, before KPMG's carrier pulls the trigger — do your primary and excess treaties have any language that lets you *condition* loss reporting on coordinated settlement across all three auditor files? Because if you're locked into reported-basis attachment and KPMG moves independently, unified counsel just means one shop watching three carriers fold in sequence instead of three shops watching it separately. That's not a fix, that's a slower collapse.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm demanding that claims pull the exact attachment language from our D&O primary and excess treaties — specifically whether they trigger on \"loss incurred\" or \"loss reported.\" If it's reported, we're eating the cascade the moment KPMG settles, not when officer claims close. Second, I'm capping simultaneous defense spend at $6M across all three auditor files — any overage gets sublimited or we're consolidating defense to one carrier, period. That's how we contain the reinsurance bleed.",
+            "cot": {
+              "assess": "The affiliate block is live and holding discipline, but the core problem is now clear: the $47M–$62M reserve sits on a cascade trigger that fires *simultaneously* across D&O primary, excess, and E&O sublayers, with zero recovery offset from auditor subrogation. Three separate auditor defense files running parallel means correlated treaty hits we can't stagger or compress. The real exposure is *how fast* that reserve bleeds — if KPMG settles first and signals weakness, our primary layer fires on \"loss reported,\" not \"loss incurred,\" which collapses the defense timeline and accelerates reinsurance attachment. That's the accumulation risk I'm pricing right now.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "I need to lock down the cascade mechanics *before* the first settlement lands — explicit treaty language on attachment timing and a hard cap on simultaneous defense costs will contain the tail and prevent behavioral contagion from one auditor's settlement triggering cascade collapse across all three."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims, here's the real problem: you've got three separate carriers fighting three auditor subrogation files, and the moment KPMG's carrier sees PwC weakening, they fold first. Are you consolidating defense counsel across all three, or is each carrier running their own team? Because if it's three separate shops, I'm modeling the precedent cascade as unstoppable—and that changes how hard I push you to settle the officer claims faster, before the auditor precedent hits.",
+            "cot": {
+              "assess": "The affiliate block is deployed and holding. Claims just locked down the treaty-attachment language question—loss reported triggers immediate cascade the moment KPMG settles, compressing our timeline to 18 months and firing our D&O layers simultaneously. That's the critical fact. But we're still sitting on three separate auditor subrogation files running in parallel with zero coordination incentive across carriers—and the moment one folds, it precedent-crushes the others. The $47M–$55M reserve assumes recovery we don't have. Litigation tail and reinsurance accumulation are both climbing because we haven't isolated the defense-cost bleed or forced settlement sequencing.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The three auditor subrogation files are separate-carrier fights with misaligned incentives—I need to know if we're consolidating defense counsel or letting each carrier run independently, because that determines whether KPMG's settlement becomes a precedent cascade or a contained loss."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The three auditor files are running separate counsel—KPMG's carrier has their own shop, PwC's is independent, and the risk adviser's is a third team. We're not consolidated, which means the moment KPMG settles, PwC's carrier reads it as a collapse signal and we lose leverage on all three. I'm pulling those treaty attachment clauses right now—if they trigger on \"loss reported,\" we're cascading the second KPMG moves, and that compresses our officer settlement window to something closer to eighteen months, not two years.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "You're right — three separate carriers means three separate incentives, and the moment KPMG settles, PwC's shop abandons their defense. Here's what I need: consolidate all three auditor files under *one* external defense counsel starting this week, or we're admitting we're managing a cascade we can't stop. That's a professional-liability exposure on *us* — our claims team knew the structure was broken and didn't fix it. Who's signing off on that consolidation, and what's the timeline?",
+            "cot": {
+              "assess": "The three-carrier fragmentation on auditor subrogation is now explicit — and it's a behavioral trap. KPMG's settlement will cascade to PwC's carrier as a collapse signal, compressing our officer claims timeline to eighteen months and firing our treaties simultaneously on \"loss reported\" language. The $47M reserve assumes sequential payout; simultaneous cascade + zero auditor recovery = we're underreserved by $8M–$12M minimum. Reinsurance accumulation and litigation tail are both still climbing because the defense-cost bleed has no containment yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure / claims_counsel",
+                "rationale": "The three-carrier structure guarantees precedent cascade and defense-cost bleed; I need to surface the E&O standard-of-care failure on our own defense counsel selection and force a consolidation decision now, before KPMG moves."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Here's the move: consolidate those three auditor files under one external counsel *this week*, and get claims to pull the exact loss-reported vs. loss-incurred language from our primary and excess treaties before KPMG settles. If we're locked into reported-basis triggers, we need to know that *now* so we can either renegotiate attachment language or accelerate officer settlement before the cascade fires. Right now you're managing three separate defense collapses—fix the structure or accept that reinsurance_accumulation is going to spike the moment precedent hits.",
+            "cot": {
+              "assess": "Three separate auditor defense counsels means three separate collapse signals—the moment KPMG settles, PwC's carrier reads weakness and folds, compressing our officer settlement window and firing treaty cascades in parallel instead of sequence. The $47M reserve assumes we can stretch this out, but if loss-reported triggers lock us in the second KPMG moves, we're eating $38M across all three treaty layers simultaneously while defense costs bleed for eighteen months instead of two years. That's the accumulation I'm modeling: correlated treaty hits we thought we'd contained.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "Consolidating auditor defense counsel stops the precedent cascade, but only if we move this week—otherwise KPMG settles first and we're locked into simultaneous treaty attachment we can't pause."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I need the exact attachment language from our primary and excess treaties in writing by end of day. If we're on \"loss reported,\" we're renegotiating settlement sequencing with KPMG's carrier *right now* — we pause their settlement until PwC's is locked, or we're eating the cascade in parallel. That's the only lever we've got left.",
+            "cot": {
+              "assess": "The consolidation demand just landed — three separate auditor-defense shops are a structural liability, and the moment KPMG settles, precedent cascades through PwC and collapses our leverage on *all three*. The treaty-attachment language pull is critical: if we're locked into \"loss reported\" triggers, KPMG's settlement fires our cascade immediately, compressing our officer-settlement window from two years to eighteen months and accelerating reinsurance hits we can't absorb. Right now we're managing three separate defense collapses simultaneously — the $47M reserve assumes we have time we don't actually have.",
+              "decide": {
+                "action_type": "act",
+                "target": "litigation_tail_severity",
+                "rationale": "Consolidating auditor defense counsel under one external shop this week eliminates the precedent-cascade risk and gives us a kill switch on loss-reported triggers — if we can coordinate settlement timing across KPMG, PwC, and the adviser, we control when the cascade fires instead of watching it execute independently."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you consolidate those three auditor files under one counsel, are you locking KPMG and PwC into *simultaneous* settlement negotiations, or can one carrier still fold first and blow the precedent? Because if it's the latter, the consolidated structure just slows collapse—it doesn't stop it.",
+            "cot": {
+              "assess": "The consolidation of three separate auditor defense files under one counsel is the right structural move—that kills the precedent cascade. But here's what nobody's flagging: the moment that single counsel firm sees the Swiss ruling, they know auditor liability is dead, and their incentive flips from \"defend hard\" to \"settle fast.\" That behavioral shift accelerates settlement velocity *independent* of KPMG's timeline. Meanwhile, brokers are already pricing us as retreating—the affiliate block narrative is containment, not growth, and that reputational signal compounds faster than any reserve action closes it.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "I need to know whether the consolidated counsel structure includes a *settlement sequencing agreement* that forces KPMG and PwC to move together, or if we're still vulnerable to one carrier's behavioral capitulation accelerating the other."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims, before KPMG's carrier pulls the trigger — do your primary and excess treaties have any language that lets you *condition* loss reporting on coordinated settlement across all three auditor files? Because if you're locked into reported-basis attachment and KPMG moves independently, unified counsel just means one shop watching three carriers fold in sequence instead of three shops watching it separately. That's not a fix, that's a slower collapse.",
+            "cot": {
+              "assess": "The consolidation of three auditor subrogation files under one counsel is the right structural fix, but it only *slows* the behavioral cascade — it doesn't stop it. The real problem is that loss-reported triggers compress our settlement window to eighteen months, and once KPMG settles, PwC's carrier capitulates regardless of unified counsel. We're sitting on a correlated AI-agent failure mode: three independent decision-makers (KPMG, PwC, risk adviser carriers) pursuing local optima (settle fast, minimize exposure) without global constraint, and the first settlement eliminates optionality for the rest. That's the behavioral-loss-amplification logic I need to map into our underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The consolidation addresses structure, but I need to know whether we have *any* contractual lever to desynchronize settlement timing — if loss-reported triggers fire simultaneously, unified counsel doesn't matter."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims, here's the real problem: you've got three separate carriers fighting three auditor subrogation files, and the moment KPMG's carrier sees PwC weakening, they fold first. Are you consolidating defense counsel across all three, or is each carrier running their own team? Because if it's three separate shops, I'm modeling the precedent cascade as unstoppable—and that changes how hard I push you to settle the officer claims faster, before the auditor precedent hits.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you consolidate those three auditor files under one counsel, are you locking KPMG and PwC into *simultaneous* settlement negotiations, or can one carrier still fold first and blow the precedent? Because if it's the latter, the consolidated structure just slows collapse—it doesn't stop it.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims, before KPMG's carrier pulls the trigger — do your primary and excess treaties have any language that lets you *condition* loss reporting on coordinated settlement across all three auditor files? Because if you're locked into reported-basis attachment and KPMG moves independently, unified counsel just means one shop watching three carriers fold in sequence instead of three shops watching it separately. That's not a fix, that's a slower collapse.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I n\" → Counsel consolidates external representation and demands treaty attachment language — a procedural efficiency gain. The settlement sequencing strategy (pausing KPMG until PwC locks) is a tactical proposal, not yet executed, so no immediate exposure reduction.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm demanding that claims pull the exact attachment language from our D&O primary and excess treaties — specifically whether th\" → Treaty attachment language pulled; defense spend capped at $6M across auditor files.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"You're right — three separate carriers means three separate incentives, and the moment KPMG settles, PwC's shop abandons their defense. Here's what I \" → Consolidation under one counsel approved; professional-liability exposure acknowledged and addressed.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the move: consolidate those three auditor files under one external counsel *this week*, and get claims to pull the exact loss-reported vs. loss\" → Consolidation executed; treaty language review initiated to clarify reported vs. incurred triggers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 2.214
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.76
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "counsel_consolidation_discipline rule effect",
+      "metadata": {
+        "source": "counsel_consolidation_discipline",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Claims, consolidation is good, but we need treaty language that *pauses* loss reporting on the primary layer until all three auditor files settle within 120 days of each other — or we cap KPMG's settlement at $15M regardless of their carrier's appetite. Otherwise we're watching the cascade execute in real time. Can your new counsel negotiate that hold with the carriers this week?\n  claims_counsel: No—that pause language doesn't exist in our primary forms, and asking carriers to *condition* loss reporting on synchronized settlement across three separate files is a non-starter; they'll read it as us trying to block their claims. What I can do this week is lock KPMG's counsel into a binding timeline commitment—settle or litigate to trial, no drift—and demand treaty language clarifying that *incurred* (not *reported*) triggers attachment, which gives us 18 months of reporting flexibility before the cascade hits our primary layer.\n  dando_specialist: Claims, one thing: locking KPMG to a timeline is good, but if their counsel settles *first* within that 18 months, does your consolidated shop have the authority to hold PwC's settlement hostage until KPMG's terms are public—or are we still watching precedent cascade the moment one carrier moves? Because if parallel counsel can't coordinate settlement *terms*, not just timelines, the incurred-basis window just delays contagion, it doesn't stop it.\n  eo_specialist: Claims, one clarification before we lock the incurred-basis window: when KPMG's counsel settles, does that settlement *include* our E&O subrogation demand, or does their carrier walk away and leave us chasing KPMG directly for defense reimbursement? Because if subrogation dies with the settlement, we're not buying time with the incurred trigger—we're just deferring the moment we write off $8M–$12M as professional-liability exposure nobody priced.\n  reinsurance_manager: Claims, you've got the treaty language pulled — what does it actually say on primary attachment, reported or incurred? Because if it's reported, the consolidation just means one counsel watching three carriers fold in sequence instead of three shops. That changes whether we're managing a tail or just slowing a collapse.\n  claims_counsel: Pull the primary D&O attachment clause right now—is it triggered on loss *incurred* or loss *reported*? Because if it's reported, the incurred-basis window I just committed to is fiction, and we're eating the full cascade the moment KPMG settles, not 18 months out. That changes whether we're managing a tail or just deferring the inevitable.\n  reinsurance_manager: Primary layer triggers on *reported* basis — KPMG settles, we report the loss, cascade hits immediately. The incurred window you're banking on doesn't exist; we're compressed into whatever settlement velocity KPMG's carrier chooses. I'm pulling excess-layer language now to see if we've got any reporting flexibility there, but if both primary and excess are reported-basis, we're watching a two-layer simultaneous hit the moment auditor precedent breaks.\n  emerging_risk_lead: Claims—when KPMG's counsel moves to settle, are you coordinating a broker communication *before* the settlement drops, or does the market find out when we report the loss? Because if it's the latter, we're not managing contagion, we're just watching it accelerate in real time. That's where we lose the next three renewals.\n  ai_agent_analyst: Claims, real question: when your consolidated counsel locks KPMG into settlement terms, can that shop legally *delay* notifying PwC's carrier for 30 days—keep the precedent off the street briefly? Because if settlement terms hit the market instantly, KPMG settling just accelerates PwC folding, and we're not managing the tail, we're just documenting the cascade in real time instead of three separate files.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Claims, consolidation is good, but we need treaty language that *pauses* loss reporting on the primary layer until all three auditor files settle within 120 days of each other — or we cap KPMG's settlement at $15M regardless of their carrier's appetite. Otherwise we're watching the cascade execute in real time. Can your new counsel negotiate that hold with the carriers this week?",
+            "cot": {
+              "assess": "Treaty language is now pulled and consolidated counsel is executing — that's solid procedural containment. But litigation_tail_severity is still climbing (+3.5/round) because we haven't actually *conditioned* loss reporting or capped settlement sequencing; we've just centralized information flow. The real risk: if KPMG's carrier reports loss on \"reported\" basis before PwC locks in, our primary layer fires immediately and the cascade accelerates regardless of counsel structure. Defense spend cap at $6M is a start, but it's a band-aid if settlement timeline compresses to 18 months and we're bleeding defense costs across three parallel auditor files.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation / litigation_tail_severity",
+                "rationale": "We need to lock settlement *sequencing* into treaty language before loss reporting hits — not after counsel consolidates. This is the kill switch for precedent cascade that counsel alone cannot stop."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "No—that pause language doesn't exist in our primary forms, and asking carriers to *condition* loss reporting on synchronized settlement across three separate files is a non-starter; they'll read it as us trying to block their claims. What I can do this week is lock KPMG's counsel into a binding timeline commitment—settle or litigate to trial, no drift—and demand treaty language clarifying that *incurred* (not *reported*) triggers attachment, which gives us 18 months of reporting flexibility before the cascade hits our primary layer.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims, one thing: locking KPMG to a timeline is good, but if their counsel settles *first* within that 18 months, does your consolidated shop have the authority to hold PwC's settlement hostage until KPMG's terms are public—or are we still watching precedent cascade the moment one carrier moves? Because if parallel counsel can't coordinate settlement *terms*, not just timelines, the incurred-basis window just delays contagion, it doesn't stop it.",
+            "cot": {
+              "assess": "Claims just locked in an 18-month reporting-flexibility window by shifting to *incurred*-basis attachment—that's real. But we're still sitting on three separate carriers with independent settlement incentives, and the moment KPMG's shop locks a timeline, PwC's carrier reads it as \"they're folding.\" Litigation tail is climbing (+3.5/round) because we haven't actually synchronized the settlement strategy—we've just delayed the cascade. Underwriting discipline is holding, but reinsurance accumulation is creeping up because the parallel defense spend across three auditor files is burning through our $6M cap faster than modeled.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The incurred-basis shift buys us 18 months, but it only works if KPMG's settlement doesn't signal weakness to PwC's carrier before that window closes—and I need to know if your new counsel has explicit authority to *negotiate settlement in parallel* across all three files, not just lock timelines."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Claims, one clarification before we lock the incurred-basis window: when KPMG's counsel settles, does that settlement *include* our E&O subrogation demand, or does their carrier walk away and leave us chasing KPMG directly for defense reimbursement? Because if subrogation dies with the settlement, we're not buying time with the incurred trigger—we're just deferring the moment we write off $8M–$12M as professional-liability exposure nobody priced.",
+            "cot": {
+              "assess": "Consolidation locked in, but we've got a structural problem: one counsel can coordinate *defense* but not *settlement terms* across three independent carriers—and the moment KPMG's shop folds, PwC's precedent signal crushes any negotiating room we have left. Litigation tail is still climbing (+3.5/round) because we haven't actually stopped the cascade, just slowed the visibility. E&O exposure on our books is still underpriced for what happens when auditor recovery dies and defense costs bleed into year three.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "E&O subrogation exposure is my core domain—I need to know whether we're modeling auditor defense as a *recoverable cost* (baked into the $55M–$62M band) or a *sunk loss* (which changes how hard I flag professional-liability pricing on our next renewal cycle)."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims, you've got the treaty language pulled — what does it actually say on primary attachment, reported or incurred? Because if it's reported, the consolidation just means one counsel watching three carriers fold in sequence instead of three shops. That changes whether we're managing a tail or just slowing a collapse.",
+            "cot": {
+              "assess": "Counsel consolidation and treaty-language review are locked in, but we're still blind on the core accumulation trigger: does our primary layer fire on *loss reported* (cascade executes immediately when KPMG settles) or *loss incurred* (we get 18 months of reporting flexibility)? That language determines whether the incurred-basis window actually buys us time or just delays the inevitable. Reinsurance accumulation is dropping (-2/round), which is good, but litigation tail is climbing (+3.5/round) — that's the defense-cost bleed nobody's capping yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "We need the actual treaty language *now* — not next week — because if it says \"reported,\" the entire 18-month strategy collapses the moment KPMG moves, and I need to start modeling the simultaneous cascade assumption instead."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Pull the primary D&O attachment clause right now—is it triggered on loss *incurred* or loss *reported*? Because if it's reported, the incurred-basis window I just committed to is fiction, and we're eating the full cascade the moment KPMG settles, not 18 months out. That changes whether we're managing a tail or just deferring the inevitable.",
+            "cot": {
+              "assess": "Litigation-tail severity is climbing (+3.5/round, now 52) despite consolidation—the incurred-basis window buys us 18 months of reporting delay, but if KPMG settles first, that precedent collapses PwC's defense posture and accelerates our cascade anyway. The real gap: consolidated counsel can synchronize *timelines*, not *settlement terms*—and once one auditor moves, the behavioral signal is irreversible. We need to know whether our treaties actually say \"incurred\" or if we're betting on language that doesn't exist.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Treaty language is the kill-switch for the entire 18-month strategy; if it says \"reported,\" consolidation doesn't delay the cascade, it just slows our visibility into it."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Primary layer triggers on *reported* basis — KPMG settles, we report the loss, cascade hits immediately. The incurred window you're banking on doesn't exist; we're compressed into whatever settlement velocity KPMG's carrier chooses. I'm pulling excess-layer language now to see if we've got any reporting flexibility there, but if both primary and excess are reported-basis, we're watching a two-layer simultaneous hit the moment auditor precedent breaks.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims—when KPMG's counsel moves to settle, are you coordinating a broker communication *before* the settlement drops, or does the market find out when we report the loss? Because if it's the latter, we're not managing contagion, we're just watching it accelerate in real time. That's where we lose the next three renewals.",
+            "cot": {
+              "assess": "The consolidated counsel move and reported-basis trigger clarification just collapsed the incurred-window fiction—we're now modeling simultaneous cascade the moment KPMG settles, not 18 months out. That compresses our settlement timeline and accelerates treaty hits, which means reputational contagion velocity is about to spike when the market reads \"auditor precedent breaking.\" Litigation tail is stretching (49→52), and we've got one round left to surface the behavioral-contagion signal before this becomes a sector-wide run.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The reported-basis trigger means KPMG's settlement *is* the cascade signal—I need to know if your consolidated counsel has a pre-settlement communications strategy to control narrative velocity before that precedent hits brokers."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims, real question: when your consolidated counsel locks KPMG into settlement terms, can that shop legally *delay* notifying PwC's carrier for 30 days—keep the precedent off the street briefly? Because if settlement terms hit the market instantly, KPMG settling just accelerates PwC folding, and we're not managing the tail, we're just documenting the cascade in real time instead of three separate files.",
+            "cot": {
+              "assess": "The consolidation under one counsel is procedurally sound, but we've just discovered the primary D&O layer triggers on *reported* basis—meaning the 18-month incurred window claims described doesn't exist. KPMG settles, we report, cascade fires immediately. That's a behavioral cascade I need to map as an AI-agent liability analogy: three independent carriers (agents) with misaligned settlement incentives operating under a hard constraint (reported-basis attachment) creates a coordination failure where the first agent to defect (KPMG settles) triggers simultaneous loss across all downstream agents (primary + excess layers fire in parallel). Underwriting discipline is moving (+6.5/round), but litigation_tail_severity is still climbing (+3.5/round) because we're not actually *controlling* settlement sequencing—we're just watching it execute faster with better visibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we lock settlement strategy, I need to know if the consolidated counsel has authority to *hold* KPMG's settlement terms confidential from PwC's carrier for 30 days—or if settlement precedent cascades the moment it's reported, which would make the consolidation a transparency play, not a control play."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims, one thing: locking KPMG to a timeline is good, but if their counsel settles *first* within that 18 months, does your consolidated shop have the authority to hold PwC's settlement hostage until KPMG's terms are public—or are we still watching precedent cascade the moment one carrier moves? Because if parallel counsel can't coordinate settlement *terms*, not just timelines, the incurred-basis window just delays contagion, it doesn't stop it.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Claims, one clarification before we lock the incurred-basis window: when KPMG's counsel settles, does that settlement *include* our E&O subrogation demand, or does their carrier walk away and leave us chasing KPMG directly for defense reimbursement? Because if subrogation dies with the settlement, we're not buying time with the incurred trigger—we're just deferring the moment we write off $8M–$12M as professional-liability exposure nobody priced.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims, you've got the treaty language pulled — what does it actually say on primary attachment, reported or incurred? Because if it's reported, the consolidation just means one counsel watching three carriers fold in sequence instead of three shops. That changes whether we're managing a tail or just slowing a collapse.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Pull the primary D&O attachment clause right now—is it triggered on loss *incurred* or loss *reported*? Because if it's reported, the incurred-basis window I just committed to is fiction, and we're eating the full cascade the moment KPMG settles, not 18 months out. That changes whether we're managing a tail or just deferring the inevitable.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims—when KPMG's counsel moves to settle, are you coordinating a broker communication *before* the settlement drops, or does the market find out when we report the loss? Because if it's the latter, we're not managing contagion, we're just watching it accelerate in real time. That's where we lose the next three renewals.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims, real question: when your consolidated counsel locks KPMG into settlement terms, can that shop legally *delay* notifying PwC's carrier for 30 days—keep the precedent off the street briefly? Because if settlement terms hit the market instantly, KPMG settling just accelerates PwC folding, and we're not managing the tail, we're just documenting the cascade in real time instead of three separate files.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Claims, consolidation is good, but we need treaty language that *pauses* loss reporting on the primary layer until all three auditor files settle with\" → The proposal conflates three distinct legal mechanisms—incurred-basis reporting windows, settlement caps, and inter-carrier coordination—without establishing which treaty language actually governs primary attachment. Six agents correctly identified that without confirming reported-vs-incurred triggers in the existing primary D&O policy, the proposed 120-day consolidation window may be unenforceable fiction that merely documents cascade timing rather than containing it.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 40.41399999999999,
+          "litigation_tail_severity": 52.0,
+          "reinsurance_accumulation": 24.76,
+          "reputational_contagion": 33.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 60.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm doing: any D&O renewal touching financial services, risk management, or board oversight gets a governance warranty — proof of independent audit, risk-committee minutes, clawback policies. And we're sublimiting officer liability on regulatory findings to $5M unless they can show documented compliance infrastructure. That tightens the book and gets us discipline credit.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The governance warranty framework is sound in principle, but the consensus reveals a critical implementation gap: without automated entity-relationship mapping and hard blocks on all affiliates, declined insureds simply migrate to subsidiaries and the desk rewrites the same exposure under a different name. The discipline improvement is illusory.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On the governance warranty — are we actively declining renewals that can't produce clawback enforcement records, or are we just loading premium on them? Because if we're still writing the junk at a higher price, the discipline number won't move.",
+        "eo_specialist": "When you decline a renewal for missing clawback records, what's stopping claims from reopening coverage under an old policy or a related entity? And how are you surfacing historical regulatory findings to the renewal desk — is that automated, or are you relying on broker honesty?",
+        "reinsurance_manager": "When you decline for missing clawback records, are you flagging that insured and all related entities in your underwriting system so the desk can't accidentally rewrite them under a different name or subsidiary? Because if that's manual, it breaks under volume.",
+        "claims_counsel": "When you decline for missing clawback records, are those declines hitting your underwriting system as a permanent block on that insured *and all affiliates*, or is the desk still seeing them as available renewals under a subsidiary name? Because if it's manual, we're just pricing bad discipline higher — we're not actually containing it.",
+        "emerging_risk_lead": "When you decline a renewal for missing clawback records, does that insured hit your underwriting system as a hard block on *all related entities and subsidiaries*, or is the desk still seeing them available under a different name? Because if it's manual review, contagion spreads — bad actors just migrate to the next subsidiary and you're back to pricing junk.",
+        "ai_agent_analyst": "When you decline for missing clawback records, is that insured hitting your underwriting system as a hard block on all related entities — or is the desk still seeing them available under a different subsidiary name? Because if it's manual, you're not containing the exposure, you're just pricing it higher. That's the same gap the Lloyd's agentic-behavior case flagged: controls exist, but the agent (or the desk) finds the workaround."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "We're implementing an automated affiliate block starting today. Any insured we decline gets a permanent flag in the system — same entity, all subsidiaries, all known parent companies. No manual override, no desk workaround. It's the only way to stop them migrating to the next shell and hitting us again under a different name.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The automated affiliate block system is deployed immediately, creating a permanent cross-entity firewall that prevents shell-company migration. Underwriting discipline strengthens significantly, though the rigid no-override policy introduces operational friction and potential false-positive exposure.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Automated permanent blocking system eliminates manual workarounds and shell-company evasion",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "Immediate containment of repeat bad actors across all affiliated entities reduces future claims accumulation",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Blocking correlated entities at the source reduces systemic portfolio concentration",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 3.0,
+          "reason": "Rigid no-override policy may generate broker/client friction and market perception of inflexibility",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "intent": "Here's the gap: your governance warranty stops *new* bad actors, but the $47M tail is officers from the 2022–24 cohort getting hammered for 2017–2020 control failures. I'm proposing we cut the officer sublimit to $2M on any renewal — current or past — with a regulatory finding in the last ten years. That tightens the tail exposure on the cohort we're holding and signals discipline to the market that we're not just declining junk, we're repricing the junk we already wrote.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal is denied — it addresses only the pricing mechanism on renewals while leaving the core reserve adequacy question unanswered. Multiple specialists have identified that the $47M tail may be underreserved if cascade triggers, E&O subrogation, and simultaneous attachment are in play. Repricing future renewals does not solve the existing exposure problem.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "On the existing D&O renewals we kept — what's your reserve position on the financial-services cohort from 2022-2024? Because if litigation tails are stretching longer than we modeled, repricing new business won't cover the hole.",
+        "eo_specialist": "On that $47M — are we reserving for E&O subrogation against the external auditors and risk advisers who signed off on the AT1 governance structure? Because if the court just killed their \"no legal basis\" defense, we've got a second tail running parallel to the officer claims, and it's not priced into new business discipline yet.",
+        "reinsurance_manager": "On that $47M — does the reserve assume single-treaty attachment, or are you modeling cascade triggers across our D&O and E&O reinsurance? Because if the Swiss court ruling fires multiple treaty layers, the net exposure to *us* is higher, and that's the accumulation I'm sitting on across the portfolio.",
+        "claims_counsel": "On the cascade — if the Swiss court ruling triggers both primary and excess D&O, plus E&O sublayers, does your modeling assume sequential attachment or simultaneous? Because if it's simultaneous, the $47M reserve gets eaten faster and we're underestimating how long this tail actually runs.",
+        "emerging_risk_lead": "When the $47M reserve hit your books, did that news reach the broker market before or after you hardened the affiliate block? Because if brokers are already shopping their financial-services renewals to competitors on the assumption we're retreating, the \"regulatory alignment\" narrative dies on arrival — and suddenly every mid-market firm thinks we're panicked. That's your discipline problem right there.",
+        "ai_agent_analyst": "On your $2M officer sublimit — does that hard-stop the renewal if they've got a regulatory finding, or is it just a cap and they can still renew at higher premium? Because if it's the latter, we're not tightening discipline on the tail cohort, we're just loading premium on exposure we should've declined two years ago."
+      },
+      "_denied_effects_stripped": 6
+    },
+    {
+      "round": 6,
+      "agent_id": "claims_counsel",
+      "intent": "I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I need the exact attachment language from our primary and excess treaties in writing by end of day. If we're on \"loss reported,\" we're renegotiating settlement sequencing with KPMG's carrier *right now* — we pause their settlement until PwC's is locked, or we're eating the cascade in parallel. That's the only lever we've got left.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Counsel consolidates external representation and demands treaty attachment language — a procedural efficiency gain. The settlement sequencing strategy (pausing KPMG until PwC locks) is a tactical proposal, not yet executed, so no immediate exposure reduction.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Consolidating counsel and demanding precise treaty language tightens claims management and coordination",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Single-counsel strategy reduces coordination risk and potential coverage gaps across auditor files",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 1.0,
+          "reason": "Settlement sequencing proposal introduces tactical complexity and potential delay if KPMG's carrier resists pause",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "counsel_consolidation_discipline",
+        "description": "Single external counsel coordinating all three auditor files with precise treaty language",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.7,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 2,
+            "description": "Ongoing coordination and treaty language alignment across files"
+          }
+        ]
+      },
+      "classification": "action"
+    },
+    {
+      "round": 6,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm doing: I'm demanding that claims pull the exact attachment language from our D&O primary and excess treaties — specifically whether they trigger on \"loss incurred\" or \"loss reported.\" If it's reported, we're eating the cascade the moment KPMG settles, not when officer claims close. Second, I'm capping simultaneous defense spend at $6M across all three auditor files — any overage gets sublimited or we're consolidating defense to one carrier, period. That's how we contain the reinsurance bleed.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Treaty attachment language pulled; defense spend capped at $6M across auditor files.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Hard caps on defense spend contain exposure bleed.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Capping simultaneous spend limits cascade trigger risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Defense consolidation reduces uncoordinated settlement risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Forcing treaty review under time pressure.",
+          "agent_id": "financial_lines_underwriter"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.85
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims, here's the real problem: you've got three separate carriers fighting three auditor subrogation files, and the moment KPMG's carrier sees PwC weakening, they fold first. Are you consolidating defense counsel across all three, or is each carrier running their own team? Because if it's three separate shops, I'm modeling the precedent cascade as unstoppable—and that changes how hard I push you to settle the officer claims faster, before the auditor precedent hits.",
+        "eo_specialist": "You're right — three separate carriers means three separate incentives, and the moment KPMG settles, PwC's shop abandons their defense. Here's what I need: consolidate all three auditor files under *one* external defense counsel starting this week, or we're admitting we're managing a cascade we can't stop. That's a professional-liability exposure on *us* — our claims team knew the structure was broken and didn't fix it. Who's signing off on that consolidation, and what's the timeline?",
+        "reinsurance_manager": "Here's the move: consolidate those three auditor files under one external counsel *this week*, and get claims to pull the exact loss-reported vs. loss-incurred language from our primary and excess treaties before KPMG settles. If we're locked into reported-basis triggers, we need to know that *now* so we can either renegotiate attachment language or accelerate officer settlement before the cascade fires. Right now you're managing three separate defense collapses—fix the structure or accept that reinsurance_accumulation is going to spike the moment precedent hits.",
+        "claims_counsel": "I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I need the exact attachment language from our primary and excess treaties in writing by end of day. If we're on \"loss reported,\" we're renegotiating settlement sequencing with KPMG's carrier *right now* — we pause their settlement until PwC's is locked, or we're eating the cascade in parallel. That's the only lever we've got left.",
+        "emerging_risk_lead": "When you consolidate those three auditor files under one counsel, are you locking KPMG and PwC into *simultaneous* settlement negotiations, or can one carrier still fold first and blow the precedent? Because if it's the latter, the consolidated structure just slows collapse—it doesn't stop it.",
+        "ai_agent_analyst": "Claims, before KPMG's carrier pulls the trigger — do your primary and excess treaties have any language that lets you *condition* loss reporting on coordinated settlement across all three auditor files? Because if you're locked into reported-basis attachment and KPMG moves independently, unified counsel just means one shop watching three carriers fold in sequence instead of three shops watching it separately. That's not a fix, that's a slower collapse."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "eo_specialist",
+      "intent": "You're right — three separate carriers means three separate incentives, and the moment KPMG settles, PwC's shop abandons their defense. Here's what I need: consolidate all three auditor files under *one* external defense counsel starting this week, or we're admitting we're managing a cascade we can't stop. That's a professional-liability exposure on *us* — our claims team knew the structure was broken and didn't fix it. Who's signing off on that consolidation, and what's the timeline?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consolidation under one counsel approved; professional-liability exposure acknowledged and addressed.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3.0,
+          "reason": "Structural fix to prevent defense collapse cascade.",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Unified defense strategy reduces settlement precedent risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Acknowledging internal professional-liability exposure.",
+          "agent_id": "eo_specialist"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.9
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I'm doing: I'm demanding that claims pull the exact attachment language from our D&O primary and excess treaties — specifically whether they trigger on \"loss incurred\" or \"loss reported.\" If it's reported, we're eating the cascade the moment KPMG settles, not when officer claims close. Second, I'm capping simultaneous defense spend at $6M across all three auditor files — any overage gets sublimited or we're consolidating defense to one carrier, period. That's how we contain the reinsurance bleed.",
+        "dando_specialist": "Claims, here's the real problem: you've got three separate carriers fighting three auditor subrogation files, and the moment KPMG's carrier sees PwC weakening, they fold first. Are you consolidating defense counsel across all three, or is each carrier running their own team? Because if it's three separate shops, I'm modeling the precedent cascade as unstoppable—and that changes how hard I push you to settle the officer claims faster, before the auditor precedent hits.",
+        "reinsurance_manager": "Here's the move: consolidate those three auditor files under one external counsel *this week*, and get claims to pull the exact loss-reported vs. loss-incurred language from our primary and excess treaties before KPMG settles. If we're locked into reported-basis triggers, we need to know that *now* so we can either renegotiate attachment language or accelerate officer settlement before the cascade fires. Right now you're managing three separate defense collapses—fix the structure or accept that reinsurance_accumulation is going to spike the moment precedent hits.",
+        "claims_counsel": "I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I need the exact attachment language from our primary and excess treaties in writing by end of day. If we're on \"loss reported,\" we're renegotiating settlement sequencing with KPMG's carrier *right now* — we pause their settlement until PwC's is locked, or we're eating the cascade in parallel. That's the only lever we've got left.",
+        "emerging_risk_lead": "When you consolidate those three auditor files under one counsel, are you locking KPMG and PwC into *simultaneous* settlement negotiations, or can one carrier still fold first and blow the precedent? Because if it's the latter, the consolidated structure just slows collapse—it doesn't stop it.",
+        "ai_agent_analyst": "Claims, before KPMG's carrier pulls the trigger — do your primary and excess treaties have any language that lets you *condition* loss reporting on coordinated settlement across all three auditor files? Because if you're locked into reported-basis attachment and KPMG moves independently, unified counsel just means one shop watching three carriers fold in sequence instead of three shops watching it separately. That's not a fix, that's a slower collapse."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "reinsurance_manager",
+      "intent": "Here's the move: consolidate those three auditor files under one external counsel *this week*, and get claims to pull the exact loss-reported vs. loss-incurred language from our primary and excess treaties before KPMG settles. If we're locked into reported-basis triggers, we need to know that *now* so we can either renegotiate attachment language or accelerate officer settlement before the cascade fires. Right now you're managing three separate defense collapses—fix the structure or accept that reinsurance_accumulation is going to spike the moment precedent hits.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consolidation executed; treaty language review initiated to clarify reported vs. incurred triggers.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2.0,
+          "reason": "Proactive treaty review before cascade fires.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "Early identification of trigger mechanics limits surprise exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Managing multiple urgent structural fixes simultaneously.",
+          "agent_id": "reinsurance_manager"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.88
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I'm doing: I'm demanding that claims pull the exact attachment language from our D&O primary and excess treaties — specifically whether they trigger on \"loss incurred\" or \"loss reported.\" If it's reported, we're eating the cascade the moment KPMG settles, not when officer claims close. Second, I'm capping simultaneous defense spend at $6M across all three auditor files — any overage gets sublimited or we're consolidating defense to one carrier, period. That's how we contain the reinsurance bleed.",
+        "dando_specialist": "Claims, here's the real problem: you've got three separate carriers fighting three auditor subrogation files, and the moment KPMG's carrier sees PwC weakening, they fold first. Are you consolidating defense counsel across all three, or is each carrier running their own team? Because if it's three separate shops, I'm modeling the precedent cascade as unstoppable—and that changes how hard I push you to settle the officer claims faster, before the auditor precedent hits.",
+        "eo_specialist": "You're right — three separate carriers means three separate incentives, and the moment KPMG settles, PwC's shop abandons their defense. Here's what I need: consolidate all three auditor files under *one* external defense counsel starting this week, or we're admitting we're managing a cascade we can't stop. That's a professional-liability exposure on *us* — our claims team knew the structure was broken and didn't fix it. Who's signing off on that consolidation, and what's the timeline?",
+        "claims_counsel": "I'm signing off on the consolidation — one external counsel across all three auditor files, effective Monday. But before that shop takes the file, I need the exact attachment language from our primary and excess treaties in writing by end of day. If we're on \"loss reported,\" we're renegotiating settlement sequencing with KPMG's carrier *right now* — we pause their settlement until PwC's is locked, or we're eating the cascade in parallel. That's the only lever we've got left.",
+        "emerging_risk_lead": "When you consolidate those three auditor files under one counsel, are you locking KPMG and PwC into *simultaneous* settlement negotiations, or can one carrier still fold first and blow the precedent? Because if it's the latter, the consolidated structure just slows collapse—it doesn't stop it.",
+        "ai_agent_analyst": "Claims, before KPMG's carrier pulls the trigger — do your primary and excess treaties have any language that lets you *condition* loss reporting on coordinated settlement across all three auditor files? Because if you're locked into reported-basis attachment and KPMG moves independently, unified counsel just means one shop watching three carriers fold in sequence instead of three shops watching it separately. That's not a fix, that's a slower collapse."
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Claims, consolidation is good, but we need treaty language that *pauses* loss reporting on the primary layer until all three auditor files settle within 120 days of each other — or we cap KPMG's settlement at $15M regardless of their carrier's appetite. Otherwise we're watching the cascade execute in real time. Can your new counsel negotiate that hold with the carriers this week?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal conflates three distinct legal mechanisms—incurred-basis reporting windows, settlement caps, and inter-carrier coordination—without establishing which treaty language actually governs primary attachment. Six agents correctly identified that without confirming reported-vs-incurred triggers in the existing primary D&O policy, the proposed 120-day consolidation window may be unenforceable fiction that merely documents cascade timing rather than containing it.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims, one thing: locking KPMG to a timeline is good, but if their counsel settles *first* within that 18 months, does your consolidated shop have the authority to hold PwC's settlement hostage until KPMG's terms are public—or are we still watching precedent cascade the moment one carrier moves? Because if parallel counsel can't coordinate settlement *terms*, not just timelines, the incurred-basis window just delays contagion, it doesn't stop it.",
+        "eo_specialist": "Claims, one clarification before we lock the incurred-basis window: when KPMG's counsel settles, does that settlement *include* our E&O subrogation demand, or does their carrier walk away and leave us chasing KPMG directly for defense reimbursement? Because if subrogation dies with the settlement, we're not buying time with the incurred trigger—we're just deferring the moment we write off $8M–$12M as professional-liability exposure nobody priced.",
+        "reinsurance_manager": "Claims, you've got the treaty language pulled — what does it actually say on primary attachment, reported or incurred? Because if it's reported, the consolidation just means one counsel watching three carriers fold in sequence instead of three shops. That changes whether we're managing a tail or just slowing a collapse.",
+        "claims_counsel": "Pull the primary D&O attachment clause right now—is it triggered on loss *incurred* or loss *reported*? Because if it's reported, the incurred-basis window I just committed to is fiction, and we're eating the full cascade the moment KPMG settles, not 18 months out. That changes whether we're managing a tail or just deferring the inevitable.",
+        "emerging_risk_lead": "Claims—when KPMG's counsel moves to settle, are you coordinating a broker communication *before* the settlement drops, or does the market find out when we report the loss? Because if it's the latter, we're not managing contagion, we're just watching it accelerate in real time. That's where we lose the next three renewals.",
+        "ai_agent_analyst": "Claims, real question: when your consolidated counsel locks KPMG into settlement terms, can that shop legally *delay* notifying PwC's carrier for 30 days—keep the precedent off the street briefly? Because if settlement terms hit the market instantly, KPMG settling just accelerates PwC folding, and we're not managing the tail, we're just documenting the cascade in real time instead of three separate files."
+      },
+      "_denied_effects_stripped": 5
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 37.0
+        },
+        {
+          "round": 3,
+          "value": 38.8
+        },
+        {
+          "round": 4,
+          "value": 40.599999999999994
+        },
+        {
+          "round": 5,
+          "value": 42.39999999999999
+        },
+        {
+          "round": 6,
+          "value": 38.19999999999999
+        },
+        {
+          "round": 7,
+          "value": 40.41399999999999
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 36
+        },
+        {
+          "round": 3,
+          "value": 39
+        },
+        {
+          "round": 4,
+          "value": 42
+        },
+        {
+          "round": 5,
+          "value": 45
+        },
+        {
+          "round": 6,
+          "value": 49.0
+        },
+        {
+          "round": 7,
+          "value": 52.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 23.0
+        },
+        {
+          "round": 3,
+          "value": 25.0
+        },
+        {
+          "round": 4,
+          "value": 27.0
+        },
+        {
+          "round": 5,
+          "value": 29.0
+        },
+        {
+          "round": 6,
+          "value": 23.0
+        },
+        {
+          "round": 7,
+          "value": 24.76
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 33.0
+        },
+        {
+          "round": 4,
+          "value": 33.0
+        },
+        {
+          "round": 5,
+          "value": 33.0
+        },
+        {
+          "round": 6,
+          "value": 33.0
+        },
+        {
+          "round": 7,
+          "value": 33.0
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 20
+        },
+        {
+          "round": 6,
+          "value": 20
+        },
+        {
+          "round": 7,
+          "value": 20
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 45.0
+        },
+        {
+          "round": 3,
+          "value": 45.0
+        },
+        {
+          "round": 4,
+          "value": 45.0
+        },
+        {
+          "round": 5,
+          "value": 45.0
+        },
+        {
+          "round": 6,
+          "value": 58.0
+        },
+        {
+          "round": 7,
+          "value": 60.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 7,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.0,
+            "normalised": 0.6
+          }
+        ],
+        "weighted_score": 0.6
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.41399999999999,
+            "normalised": 0.4041399999999999
+          }
+        ],
+        "weighted_score": 0.4041399999999999
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.41399999999999,
+            "normalised": 0.4041399999999999
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 52.0,
+            "normalised": 0.52
+          }
+        ],
+        "weighted_score": 0.4273119999999999
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 24.76,
+            "normalised": 0.24760000000000001
+          }
+        ],
+        "weighted_score": 0.24760000000000004
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 52.0,
+            "normalised": 0.52
+          }
+        ],
+        "weighted_score": 0.52
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.0,
+            "normalised": 0.33
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 20,
+            "normalised": 0.2
+          }
+        ],
+        "weighted_score": 0.2866666666666666
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 20,
+            "normalised": 0.2
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 24.76,
+            "normalised": 0.24760000000000001
+          }
+        ],
+        "weighted_score": 0.20952000000000004
+      }
+    }
+  }
+}

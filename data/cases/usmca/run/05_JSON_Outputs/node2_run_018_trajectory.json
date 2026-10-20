@@ -1,0 +1,2437 @@
+{
+  "simulation_id": "abdeff7c07bb",
+  "config_id": "usmca_node2",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'ratification_landscape' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "ratification_landscape"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Weak labor enforcement keeps Democrats opposed and stalls the deal.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "ratification_prospects",
+        "delta": -3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Democratic and union pressure to reopen the deal for enforceable labor provisions builds each round.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "amendment_pressure",
+        "delta": 2.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Media scrutiny of the stalled deal grows.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "public_narrative_pressure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  us_congress_dem: Look, the votes don't exist to pass this deal as written. My caucus won't move without an actual enforcement mechanism—not just language in a memo. We need Mexico to commit to real labor reforms, inspections with teeth, and consequences. Reopen it or this stalls.\n  business_lobby: Here's the reality: my members will back stronger labor language if it's specific and enforceable — inspections, real penalties, timelines. But we need a vote within 60 days or this falls apart. Reopen the whole deal and we're looking at 2020 chaos. What if we work a protocol amendment that beefs up enforcement without unraveling the package?\n  us_congress_dem: A protocol amendment works only if it's binding and Mexico actually implements it — inspections on the ground, not just paperwork. Give me specifics: who enforces, what triggers penalties, and does Mexico accept independent monitors, or are we still just reading promises?\n  labor_union: Before we redesign anything, I need one answer: will your caucus require Mexico to allow independent U.S. or international monitors on the ground at Mexican facilities—not government inspectors, actual independent verification? Because if Mexico gets to inspect itself, we're back where we started, and I can't sell this to my members.\n  canada_domestic: Let me ask straight up: if we put together a protocol amendment—Mexico agrees to independent monitors, real inspection timelines, penalties tied to trade access—and we keep it surgical, no reopening of anything else, does that unblock your caucus? Because Canada won't support reopening the whole package, but a labor-only fix we can defend at home.\n  mexico_gov: Mexico has implemented independent unions and real collective bargaining—that's not theater. But I hear you: you need verification with teeth. Here's what we can do: Mexican labor inspectors with international observers present—not U.S. monitors running inspections, but observers there to report. Binding timeline, real penalties tied to trade access. That's enforcement, not occupation. Can your caucus move on that?\n  trade_lawyer: Okay, I hear the framework—observers, penalties, timelines. But \"penalties tied to trade access\" is still abstract. Here's what makes it enforceable: Mexico misses labor-inspection benchmarks, we trigger a 30-day remediation clock, then tariff suspension on a defined product list kicks in unless they cure it. That's not political theater—it's a mechanical consequence both sides can live with. Can we draft that specificity into the protocol language, or does someone need Mexico to agree first?\n  media_actor: Here's what I'm hearing: you've got a real enforcement mechanism—observers, tariff triggers, timelines. If Mexico signs off on that specificity, will your caucus *say so publicly* and move to a vote? Because right now my job is selling this as a win or a loss, and if you stay silent, I'm selling \"Congress vs. labor\" and this tanks before Mexico even decides.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Look, the votes don't exist to pass this deal as written. My caucus won't move without an actual enforcement mechanism—not just language in a memo. We need Mexico to commit to real labor reforms, inspections with teeth, and consequences. Reopen it or this stalls.",
+            "cot": {
+              "assess": "The package is signed but stuck—ratification_prospects at 27 is weak, and labor_enforcement_adequacy at 25 is the core problem. Amendment_pressure is building (47), which is actually WHERE I want it; that's leverage. The real risk is business pushing hard (55) to ram this through as-is before Democrats can force a reopening.",
+              "decide": {
+                "action_type": "speak",
+                "target": "ratification_prospects / labor_enforcement_adequacy",
+                "rationale": "I need to signal clearly that votes aren't there unless labor enforcement gets real teeth—this is my opening move to establish the ratification constraint and anchor amendment pressure."
+              }
+            }
+          },
+          {
+            "agent_id": "business_lobby",
+            "pass_num": 1,
+            "statement": "Here's the reality: my members will back stronger labor language if it's specific and enforceable — inspections, real penalties, timelines. But we need a vote within 60 days or this falls apart. Reopen the whole deal and we're looking at 2020 chaos. What if we work a protocol amendment that beefs up enforcement without unraveling the package?",
+            "cot": {
+              "assess": "Ratification is stuck at 27 — we can't pass this deal without Democratic votes, and they're signaling a hard line on labor enforcement. The real problem isn't the deal itself; it's that amendment pressure (47) is rising and we're burning political capital every week we sit here. If Congress reopens this, we risk a protracted renegotiation that kills momentum entirely.",
+              "decide": {
+                "action_type": "propose",
+                "target": "us_congress_dem",
+                "rationale": "We need to move past \"reopen or stall\" — I can offer business support for a credible enforcement protocol that doesn't blow up the whole deal, but only if we lock in a ratification timeline NOW."
+              }
+            }
+          },
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "A protocol amendment works only if it's binding and Mexico actually implements it — inspections on the ground, not just paperwork. Give me specifics: who enforces, what triggers penalties, and does Mexico accept independent monitors, or are we still just reading promises?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "labor_union",
+            "pass_num": 1,
+            "statement": "Before we redesign anything, I need one answer: will your caucus require Mexico to allow independent U.S. or international monitors on the ground at Mexican facilities—not government inspectors, actual independent verification? Because if Mexico gets to inspect itself, we're back where we started, and I can't sell this to my members.",
+            "cot": {
+              "assess": "Congress and business both want a protocol amendment with real teeth—that's good momentum. But nobody's answered the hard question: who actually enforces this on the ground in Mexico, and what happens when they don't comply? Labor enforcement adequacy is still at 25; we're talking about paper fixes, not structural change. I need to know if Mexico's even willing to accept independent monitors before we pretend this solves anything.",
+              "decide": {
+                "action_type": "question",
+                "target": "us_congress_dem",
+                "rationale": "Congress sets the political bar for what passes; I need to know if they'll actually require Mexico to accept independent union monitors—that's my non-negotiable, and it shapes whether labor can credibly endorse this."
+              }
+            }
+          },
+          {
+            "agent_id": "canada_domestic",
+            "pass_num": 1,
+            "statement": "Let me ask straight up: if we put together a protocol amendment—Mexico agrees to independent monitors, real inspection timelines, penalties tied to trade access—and we keep it surgical, no reopening of anything else, does that unblock your caucus? Because Canada won't support reopening the whole package, but a labor-only fix we can defend at home.",
+            "cot": {
+              "assess": "The room is locked on labor enforcement specifics—independent monitors, penalties, timelines—which is the real ratification gatekeeper. My variables (amendment_pressure, ratification_prospects) stay safe only if we DON'T reopen the whole deal; the labor union and Dems are pushing toward either a binding protocol amendment OR full reopening. The clock is ticking (business_lobby says 60 days), and if we stall here, amendment_pressure climbs and ratification collapses.",
+              "decide": {
+                "action_type": "question",
+                "target": "us_congress_dem",
+                "rationale": "I need to lock down whether a narrow protocol amendment on labor enforcement—Mexico + independent monitors, no reopening of tariffs, dairy, or Chapter 19—would actually move your votes, so I know if Canada can support it without risking our settled terms."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Mexico has implemented independent unions and real collective bargaining—that's not theater. But I hear you: you need verification with teeth. Here's what we can do: Mexican labor inspectors with international observers present—not U.S. monitors running inspections, but observers there to report. Binding timeline, real penalties tied to trade access. That's enforcement, not occupation. Can your caucus move on that?",
+            "cot": {
+              "assess": "The room is now forcing the core issue: independent monitors. Everyone sees that labor enforcement adequacy (25) and ratification prospects (27) both hinge on whether Mexico accepts intrusive verification. I'm being pressed to commit to ground inspections and foreign monitors—exactly the sovereignty infringement I need to resist. But the 60-day business deadline and the congressional hard line mean I can't just say no; I need to propose something that looks like enforcement without surrendering sovereignty.",
+              "decide": {
+                "action_type": "propose",
+                "target": "ratification_prospects, labor_enforcement_adequacy",
+                "rationale": "I must offer a specific counter-proposal on monitoring that appears to meet enforcement demands while preserving Mexican control—this is the only path to unblock both variables at once."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_lawyer",
+            "pass_num": 1,
+            "statement": "Okay, I hear the framework—observers, penalties, timelines. But \"penalties tied to trade access\" is still abstract. Here's what makes it enforceable: Mexico misses labor-inspection benchmarks, we trigger a 30-day remediation clock, then tariff suspension on a defined product list kicks in unless they cure it. That's not political theater—it's a mechanical consequence both sides can live with. Can we draft that specificity into the protocol language, or does someone need Mexico to agree first?",
+            "cot": {
+              "assess": "The group is converging on a protocol-amendment path with independent observers + binding penalties—that's legally workable and doesn't require reopening the core agreement. The hard question now is whether Mexico will accept \"international observers present at Mexican inspections\" as sufficient enforcement, and whether U.S. Democrats will treat that as credible. labor_enforcement_adequacy is still at 25 because no one has yet locked down what \"penalties tied to trade access\" actually means operationally—suspension thresholds, remediation timelines, dispute resolution. That's the gap I need to close.",
+              "decide": {
+                "action_type": "propose",
+                "target": "ratification_prospects, labor_enforcement_adequacy",
+                "rationale": "The amendment framework exists; now it needs a specific, legally binding enforcement schedule that both sides can defend without reopening the deal."
+              }
+            }
+          },
+          {
+            "agent_id": "media_actor",
+            "pass_num": 1,
+            "statement": "Here's what I'm hearing: you've got a real enforcement mechanism—observers, tariff triggers, timelines. If Mexico signs off on that specificity, will your caucus *say so publicly* and move to a vote? Because right now my job is selling this as a win or a loss, and if you stay silent, I'm selling \"Congress vs. labor\" and this tanks before Mexico even decides.",
+            "cot": {
+              "assess": "The labor-enforcement framework is crystallizing—independent observers, tariff penalties on defined products, 30-day remediation clocks—and both Mexico and Congress are edging toward yes. But ratification_prospects (27) and labor_enforcement_adequacy (25) are still underwater because the public doesn't know this is happening, and business uncertainty is eating the clock. The deal's public narrative is still \"stalled\" and \"weak on workers\"—that's the real blocker now.",
+              "decide": {
+                "action_type": "question",
+                "target": "us_congress_dem",
+                "rationale": "Ratification dies if the public thinks Congress is deadlocked and workers get nothing; I need to know if your caucus will publicly commit to this framework so I can shift the narrative from \"talks failing\" to \"deal getting teeth.\""
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "us_congress_dem",
+      "type": "speech",
+      "content": "Look, the votes don't exist to pass this deal as written. My caucus won't move without an actual enforcement mechanism—not just language in a memo. We need Mexico to commit to real labor reforms, inspections with teeth, and consequences. Reopen it or this stalls.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "labor_union",
+      "type": "speech",
+      "content": "Before we redesign anything, I need one answer: will your caucus require Mexico to allow independent U.S. or international monitors on the ground at Mexican facilities—not government inspectors, actual independent verification? Because if Mexico gets to inspect itself, we're back where we started, and I can't sell this to my members.",
+      "metadata": {
+        "question_target": "us_congress_dem"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "canada_domestic",
+      "type": "speech",
+      "content": "Let me ask straight up: if we put together a protocol amendment—Mexico agrees to independent monitors, real inspection timelines, penalties tied to trade access—and we keep it surgical, no reopening of anything else, does that unblock your caucus? Because Canada won't support reopening the whole package, but a labor-only fix we can defend at home.",
+      "metadata": {
+        "question_target": "us_congress_dem"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "media_actor",
+      "type": "speech",
+      "content": "Here's what I'm hearing: you've got a real enforcement mechanism—observers, tariff triggers, timelines. If Mexico signs off on that specificity, will your caucus *say so publicly* and move to a vote? Because right now my job is selling this as a win or a loss, and if you stay silent, I'm selling \"Congress vs. labor\" and this tanks before Mexico even decides.",
+      "metadata": {
+        "question_target": "us_congress_dem"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "business_lobby",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the reality: my members will back stronger labor language if it's specific and enforceable — inspections, real penalties, timelines. But we nee\" → Business lobby proposes protocol amendment with enforceable labor provisions, 60-day vote deadline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "ratification_landscape",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "mexico_gov",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Mexico has implemented independent unions and real collective bargaining—that's not theater. But I hear you: you need verification with teeth. Here's \" → Mexico offers international observers with Mexican inspectors, binding timeline, trade-access penalties.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "ratification_landscape",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, I hear the framework—observers, penalties, timelines. But \"penalties tied to trade access\" is still abstract. Here's what makes it enforceable: \" → Trade lawyer drafts mechanical enforcement: 30-day cure, tariff suspension on product list.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "ratification_landscape",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Political windows narrow; an un-amended package loses momentum.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "ratification_prospects",
+        "delta": -1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Democratic and union pressure to reopen the deal for enforceable labor provisions builds each round.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "amendment_pressure",
+        "delta": 2.6
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Media scrutiny of the stalled deal grows.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "public_narrative_pressure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Protocol Amendment Drafting rule effect",
+      "metadata": {
+        "source": "protocol_amendment_drafting",
+        "variable": "amendment_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  us_congress_dem: Here's what unblocks my votes: Mexico commits in writing to independent labor inspectors—not their officials, independent monitors—with 30-day cure periods and automatic tariff suspension on a named product list if benchmarks miss. Once that's in the protocol amendment and Mexico signs, I walk my caucus to yes. But I need it in writing before we vote, not \"we'll try to work it out.\"\n  mexico_gov: Independent monitors—fine, but they operate *with* Mexican labor inspectors, not instead of them. That's sovereignty. We've already reformed unions, collective bargaining is real now; what we won't accept is U.S. officials on Mexican soil making final calls. The 30-day cure and tariff list—we can live with that if the inspectors are joint teams and Mexico retains authority over labor policy implementation.\n  business_lobby: Here's what I'm hearing: Mexico keeps authority, Congress gets real eyes on the ground. What if the monitors are jointly *appointed* — one Mexican inspector, one international observer from a neutral body like the ILO — but *both* sign off on compliance reports? Mexico controls policy, but you can't hide a violation. Does that split the difference for you both?\n  us_congress_dem: No. Joint sign-off doesn't work—if Mexico's inspector disagrees, we're deadlocked and nothing happens. My caucus needs independent verification with real teeth: ILO observer has final say on compliance, Mexico implements the fix within 30 days, or tariffs hit the product list automatically. That's the only language that passes the House.\n  labor_union: Here's what actually works: Mexico implements *their own* fixes, keeps full control—but independent monitors have facility access and file monthly compliance reports *automatically* to a joint committee. No deadlock, no final-authority fight. Tariffs trigger on a missed benchmark *mechanically*—no negotiation, no sign-off required. Mexico's in charge of labor policy, we get teeth. That's enforceable *and* sovereign.\n  canada_domestic: Look, if Mexico and Congress land on labor_union's framework—independent monitors, auto-tariff triggers, no renegotiation—Canada backs ratification of that amendment as-is. We're not reopening dairy or Chapter 19. But Congress needs to hear that *now* so they know reopening isn't on the table and can move to a vote.\n  mexico_gov: The labor_union's framework—automatic triggers, no renegotiation, Mexico implements the fix—that's workable for us if it's binding in the amendment text. But I need to say plainly: if monitors file monthly reports and tariffs suspend automatically on missed benchmarks, that's independent verification with teeth. Can Mexico live with that specificity in writing, or do we need to rework the trigger mechanism?\n  trade_lawyer: [trade_lawyer attempted to act a new action, but their team is executing: protocol_amendment_drafting. Action blocked — monitoring continues.]\n  media_actor: Okay, so if Mexico agrees to independent monitors, auto-tariff triggers, and the 30-day fix—exactly what labor_union just outlined—do you walk your caucus to a yes on ratification? Because right now I'm telling the public either \"this deal protects workers\" or \"Congress killed it for politics,\" and I need to know which story I'm actually selling before the amendment text gets locked.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Here's what unblocks my votes: Mexico commits in writing to independent labor inspectors—not their officials, independent monitors—with 30-day cure periods and automatic tariff suspension on a named product list if benchmarks miss. Once that's in the protocol amendment and Mexico signs, I walk my caucus to yes. But I need it in writing before we vote, not \"we'll try to work it out.\"",
+            "cot": {
+              "assess": "Mexico's put real specifics on the table—observers, timelines, tariff triggers—and the trade lawyer's drafting mechanical enforcement. But ratification_prospects is still stuck at 34, and my labor_enforcement_adequacy is only at 38. The gap isn't language anymore; it's whether my caucus will actually *trust* this gets implemented. I need to signal publicly what would unlock my votes, or this stalls hard.",
+              "decide": {
+                "action_type": "propose",
+                "target": "labor_enforcement_adequacy, ratification_prospects",
+                "rationale": "My caucus won't move without a clear, public commitment—I need to name the exact trigger that unlocks Democratic support so Mexico, business, and the media know what \"done\" looks like."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Independent monitors—fine, but they operate *with* Mexican labor inspectors, not instead of them. That's sovereignty. We've already reformed unions, collective bargaining is real now; what we won't accept is U.S. officials on Mexican soil making final calls. The 30-day cure and tariff list—we can live with that if the inspectors are joint teams and Mexico retains authority over labor policy implementation.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "business_lobby",
+            "pass_num": 1,
+            "statement": "Here's what I'm hearing: Mexico keeps authority, Congress gets real eyes on the ground. What if the monitors are jointly *appointed* — one Mexican inspector, one international observer from a neutral body like the ILO — but *both* sign off on compliance reports? Mexico controls policy, but you can't hide a violation. Does that split the difference for you both?",
+            "cot": {
+              "assess": "We've got Mexico accepting 30-day cure and tariff triggers — that's real progress. But the monitor independence issue is still live: Congress needs independent verification, Mexico wants joint teams with Mexican authority retained. This gap is the actual blocker now; labor_enforcement_adequacy and ratification_prospects both hinge on resolving it. Amendment_pressure stays high because the deal isn't locked yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "labor_enforcement_adequacy / ratification_prospects",
+                "rationale": "Congress won't move without clarifying what \"independent\" actually means operationally — I need to propose a concrete third-party structure that gives Mexico sovereignty while giving Congress verification teeth."
+              }
+            }
+          },
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "No. Joint sign-off doesn't work—if Mexico's inspector disagrees, we're deadlocked and nothing happens. My caucus needs independent verification with real teeth: ILO observer has final say on compliance, Mexico implements the fix within 30 days, or tariffs hit the product list automatically. That's the only language that passes the House.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "labor_union",
+            "pass_num": 1,
+            "statement": "Here's what actually works: Mexico implements *their own* fixes, keeps full control—but independent monitors have facility access and file monthly compliance reports *automatically* to a joint committee. No deadlock, no final-authority fight. Tariffs trigger on a missed benchmark *mechanically*—no negotiation, no sign-off required. Mexico's in charge of labor policy, we get teeth. That's enforceable *and* sovereign.",
+            "cot": {
+              "assess": "The deadlock is real: Congress demands ILO final authority on compliance, Mexico refuses to cede sovereignty to a foreign inspector's unilateral decision. The business lobby's joint sign-off compromise doesn't break it—Congress already rejected that. Labor enforcement adequacy is still weak (38), amendment pressure is climbing (57), and we're running out of rounds. This needs a genuinely different structural move, not refinement of the same proposal.",
+              "decide": {
+                "action_type": "propose",
+                "target": "labor_enforcement_adequacy",
+                "rationale": "The current framework keeps labor enforcement hostage to a sovereignty stalemate; I need to unlock it by shifting who decides vs. who implements—Mexico keeps authority over remediation, but independent monitors get real-time access and automatic triggers that don't require anyone's sign-off."
+              }
+            }
+          },
+          {
+            "agent_id": "canada_domestic",
+            "pass_num": 1,
+            "statement": "Look, if Mexico and Congress land on labor_union's framework—independent monitors, auto-tariff triggers, no renegotiation—Canada backs ratification of that amendment as-is. We're not reopening dairy or Chapter 19. But Congress needs to hear that *now* so they know reopening isn't on the table and can move to a vote.",
+            "cot": {
+              "assess": "The labor enforcement framework is crystallizing—labor_union just proposed the key move (independent monitors, automatic tariff triggers, no deadlock). But ratification_prospects is still stuck at 34; Congress needs written commitment from Mexico *now*, and Canada's silence on whether we'll ratify this amended package is creating political risk. If we don't lock down domestic support while the amendment drafts, we lose momentum.",
+              "decide": {
+                "action_type": "speak",
+                "target": "canada_domestic (myself) — flag the ratification risk",
+                "rationale": "I need to signal publicly that Canada will ratify a labor-only protocol amendment without reopening our dairy/Chapter-19 settlement, to unblock the U.S. vote and prevent amendment_pressure from spiking."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "The labor_union's framework—automatic triggers, no renegotiation, Mexico implements the fix—that's workable for us if it's binding in the amendment text. But I need to say plainly: if monitors file monthly reports and tariffs suspend automatically on missed benchmarks, that's independent verification with teeth. Can Mexico live with that specificity in writing, or do we need to rework the trigger mechanism?",
+            "cot": {
+              "assess": "The labor_union has just proposed a framework—independent monitors with automatic tariff triggers, no deadlock—that Canada backs and Congress seems willing to consider. Mexico's sovereignty concern (47) is still live because Congress wants ILO final authority, but labor_union's auto-trigger model sidesteps that deadlock. The gap now is whether Mexico will accept \"independent monitors with automatic enforcement\" as compatible with sovereignty, and whether Congress will accept that Mexico retains policy control. Ratification prospects (34) won't move until Mexico and Congress both commit to the same enforcement language in writing.",
+              "decide": {
+                "action_type": "speak",
+                "target": "ratification_prospects / labor_enforcement_adequacy",
+                "rationale": "Mexico must signal now whether the auto-trigger framework (no deadlock, Mexico controls fixes, independent monitors file automatically) is acceptable, because Congress won't move to a vote without that signal in writing for the protocol amendment."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_lawyer",
+            "pass_num": 1,
+            "statement": "[trade_lawyer attempted to act a new action, but their team is executing: protocol_amendment_drafting. Action blocked — monitoring continues.]"
+          },
+          {
+            "agent_id": "media_actor",
+            "pass_num": 1,
+            "statement": "Okay, so if Mexico agrees to independent monitors, auto-tariff triggers, and the 30-day fix—exactly what labor_union just outlined—do you walk your caucus to a yes on ratification? Because right now I'm telling the public either \"this deal protects workers\" or \"Congress killed it for politics,\" and I need to know which story I'm actually selling before the amendment text gets locked.",
+            "cot": {
+              "assess": "The labor enforcement framework is now converging—labor_union's auto-trigger model has buy-in from Mexico and Canada, and Congress's core demand (independent verification + mechanical tariffs) is on the table. But ratification_prospects is still stuck at 34 because Congress hasn't publicly committed to voting yes, and the public doesn't know if this deal is a win or a loss. My job is to force that clarity into the open *now*—not wait for the trade_lawyer to finish the amendment text in a vacuum.",
+              "decide": {
+                "action_type": "speak",
+                "target": "us_congress_dem",
+                "rationale": "Congress must publicly signal yes/no on the labor_union framework *this round* so I can tell the story—either \"Congress and Mexico locked in real enforcement\" (ratification lifts) or \"Congress still blocking\" (amendment_pressure explodes and we lose momentum before the 10 Dec deadline)."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "canada_domestic",
+      "type": "speech",
+      "content": "Look, if Mexico and Congress land on labor_union's framework—independent monitors, auto-tariff triggers, no renegotiation—Canada backs ratification of that amendment as-is. We're not reopening dairy or Chapter 19. But Congress needs to hear that *now* so they know reopening isn't on the table and can move to a vote.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "mexico_gov",
+      "type": "speech",
+      "content": "The labor_union's framework—automatic triggers, no renegotiation, Mexico implements the fix—that's workable for us if it's binding in the amendment text. But I need to say plainly: if monitors file monthly reports and tariffs suspend automatically on missed benchmarks, that's independent verification with teeth. Can Mexico live with that specificity in writing, or do we need to rework the trigger mechanism?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_lawyer",
+      "type": "speech",
+      "content": "[trade_lawyer attempted to act a new action, but their team is executing: protocol_amendment_drafting. Action blocked — monitoring continues.]",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "media_actor",
+      "type": "speech",
+      "content": "Okay, so if Mexico agrees to independent monitors, auto-tariff triggers, and the 30-day fix—exactly what labor_union just outlined—do you walk your caucus to a yes on ratification? Because right now I'm telling the public either \"this deal protects workers\" or \"Congress killed it for politics,\" and I need to know which story I'm actually selling before the amendment text gets locked.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "us_congress_dem",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what unblocks my votes: Mexico commits in writing to independent labor inspectors—not their officials, independent monitors—with 30-day cure pe\" → Democrats condition ratification on written labor enforcement protocol with independent monitors and automatic tariff triggers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "ratification_landscape",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "business_lobby",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm hearing: Mexico keeps authority, Congress gets real eyes on the ground. What if the monitors are jointly *appointed* — one Mexican ins\" → Business lobby proposes joint Mexico-ILO monitor appointments to balance sovereignty and enforcement transparency.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "ratification_landscape",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "labor_union",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what actually works: Mexico implements *their own* fixes, keeps full control—but independent monitors have facility access and file monthly com\" → Labor union proposes mechanical enforcement framework: Mexico controls policy, independent monitors report automatically, tariffs trigger without negotiation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "ratification_landscape",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'ratification_landscape' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "ratification_landscape",
+        "world_state_snapshot": {
+          "ratification_prospects": 42.0,
+          "labor_enforcement_adequacy": 52.0,
+          "amendment_pressure": 69.6,
+          "business_certainty_pressure": 57.0,
+          "mexico_sovereignty_concern": 46.0,
+          "public_narrative_pressure": 55.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'labor_enforcement_and_amendment' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "labor_enforcement_and_amendment"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "The package is stuck in U.S. ratification. House Democrats and labor are pressing hard on whether the labor enforcement is strong enough, and Mexico is wary of sovereignty intrusion. Whether the deal can pass as-is, must be reopened / amended, or stalls is now the central question.",
+      "metadata": {
+        "stage": "labor_enforcement_and_amendment",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Political windows narrow; an un-amended package loses momentum.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "ratification_prospects",
+        "delta": -0.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Democratic and union pressure to reopen the deal for enforceable labor provisions builds each round.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "amendment_pressure",
+        "delta": 2.483
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Media scrutiny of the stalled deal grows.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "public_narrative_pressure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Protocol Amendment Drafting rule effect",
+      "metadata": {
+        "source": "protocol_amendment_drafting",
+        "variable": "amendment_pressure",
+        "delta": 2.3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mechanical Enforcement Framework Implementation rule effect",
+      "metadata": {
+        "source": "mechanical_enforcement_framework_implementation",
+        "variable": "labor_enforcement_adequacy",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mechanical Enforcement Framework Implementation rule effect",
+      "metadata": {
+        "source": "mechanical_enforcement_framework_implementation",
+        "variable": "amendment_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "Protocol Amendment Drafting completed — ratification_clock labor_enforcement_adequacy multiplier set to 1.5",
+      "metadata": {
+        "nha": "ratification_clock",
+        "variable": "labor_enforcement_adequacy",
+        "multiplier": 1.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  us_congress_dem: Look, Mexico, I need you to say flat-out on the record: when trade_lawyer locks the amendment text, independent monitors get facility access, file monthly reports automatically, and missed benchmarks trigger tariff suspension—no negotiation, no delays. Because my members need to hear that's locked in writing before I walk them to yes on ratification.\n  mexico_gov: Mexico can commit to independent monitors with facility access and automatic reporting—that's acceptable. But the tariff trigger has to be surgical: suspension only on the specific product lines tied to the labor violation, not blanket tariffs that punish our whole export base. Lock that scope in the amendment text and we ratify.\n  business_lobby: Look, Mexico just committed to independent monitors, automatic reporting, tariff suspension on named product lines—that's your framework. My question for you straight up: if trade_lawyer locks that in amendment text this week, does your caucus announce support and move to a vote, or are we still negotiating? Because my members need certainty that this unblocks ratification, not more delay.\n  labor_union: Alright, here's what I need: Mexico, Congress—you both just agreed on the mechanics. Independent monitors, automatic reports, tariff suspension on named products. I'm telling my membership this framework is locked. But that only works if you announce it together *publicly* this week and trade_lawyer gets the amendment text signed. Otherwise my people think we folded and this dies in committee. Can you commit to that announcement and timeline, or do I have to tell my caucus the deal's still broken?\n  us_congress_dem: The framework Mexico and Congress just locked—monitors, auto reports, product-line tariffs—that's what we've been pushing for. My membership announces support the day trade_lawyer's text is final and both governments confirm it in writing. We move to vote immediately after.\n  canada_domestic: Canada's position is clear: we support this amendment as-is, we're not reopening dairy or Chapter 19, and we'll ratify the day the text is final. Congress and Mexico, that means you can announce this deal without Canada dragging it back. My domestic caucus needs to hear that from me publicly—I'm saying it now.\n  mexico_gov: Look, Congress and labor both just said they move to vote the day trade_lawyer's text is final and we confirm it in writing. So here's Mexico's commitment: the moment that amendment text is ready, we sign it. No delays, no rewording—this framework goes into the protocol as written. That's how we unblock ratification this week.\n  trade_lawyer: Trade lawyer, your team's still drafting the amendment text — when does the actual language lock, and can Mexico and Congress both sign it this week, or are we looking at slippage that'll kill the momentum everyone just built?\n  media_actor: I'm running this story out today: \"Labor, Congress, Mexico reach historic deal—independent monitors, automatic tariff triggers, workers get real enforcement.\" My angle is this protects workers and ends the stall. Congress, labor—your members hear \"we won\" or this dies. You want that framing locked in the morning news cycle, or do we wait and let the anti-trade crowd write it first?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Look, Mexico, I need you to say flat-out on the record: when trade_lawyer locks the amendment text, independent monitors get facility access, file monthly reports automatically, and missed benchmarks trigger tariff suspension—no negotiation, no delays. Because my members need to hear that's locked in writing before I walk them to yes on ratification.",
+            "cot": {
+              "assess": "The framework is locked: Mexico, labor, and Canada all back the labor_union's model (independent monitors, auto-tariff triggers, Mexico controls implementation). The trade_lawyer is drafting the amendment text right now. My job now is to lock in the *public commitment* from Mexico that this is binding, then signal my caucus we have a deal—because right now ratification_prospects is stuck at 42 and public_narrative_pressure is still climbing. The framework is solid; the signal is weak.",
+              "decide": {
+                "action_type": "speak",
+                "target": "mexico_gov",
+                "rationale": "Mexico needs to state plainly that the amendment text will lock in independent monitors with automatic tariff triggers—no renegotiation, no sovereignty carve-outs in the fine print—so I can tell my caucus we have a *binding* deal and move to a vote."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Mexico can commit to independent monitors with facility access and automatic reporting—that's acceptable. But the tariff trigger has to be surgical: suspension only on the specific product lines tied to the labor violation, not blanket tariffs that punish our whole export base. Lock that scope in the amendment text and we ratify.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "business_lobby",
+            "pass_num": 1,
+            "statement": "Look, Mexico just committed to independent monitors, automatic reporting, tariff suspension on named product lines—that's your framework. My question for you straight up: if trade_lawyer locks that in amendment text this week, does your caucus announce support and move to a vote, or are we still negotiating? Because my members need certainty that this unblocks ratification, not more delay.",
+            "cot": {
+              "assess": "Mexico and Congress have converged on the labor_union framework—independent monitors, automatic reporting, tariff triggers on specific product lines. That's real progress on labor_enforcement_adequacy and amendment_pressure. But ratification_prospects is still stuck at 42 because Congress hasn't publicly committed to a yes vote yet, and my members are watching the political clock tick down. The deal needs a hard deadline and public signal from Democrats that this amendment unblocks passage.",
+              "decide": {
+                "action_type": "speak",
+                "target": "us_congress_dem",
+                "rationale": "They've got the framework locked; now I need them to say publicly they'll move to a vote so my members know reopening the deal is off the table and we can mobilize for passage."
+              }
+            }
+          },
+          {
+            "agent_id": "labor_union",
+            "pass_num": 1,
+            "statement": "Alright, here's what I need: Mexico, Congress—you both just agreed on the mechanics. Independent monitors, automatic reports, tariff suspension on named products. I'm telling my membership this framework is locked. But that only works if you announce it together *publicly* this week and trade_lawyer gets the amendment text signed. Otherwise my people think we folded and this dies in committee. Can you commit to that announcement and timeline, or do I have to tell my caucus the deal's still broken?",
+            "cot": {
+              "assess": "Mexico and Congress have landed on the framework—independent monitors, automatic reporting, surgical tariff triggers on named products. That's my enforcement mechanism locked in. But I need to convert this agreement into a PUBLIC commitment and a signed amendment text before ratification_prospects stalls further. Right now we're at 42—we need 60 to win. The framework is sound; the risk is that without public cover, my members stay silent and Congress reads that as hesitation.",
+              "decide": {
+                "action_type": "speak",
+                "target": "us_congress_dem, mexico_gov (joint call for public commitment)",
+                "rationale": "The framework is agreed in principle; my job now is to force it into public record and binding amendment text so my caucus can move. Silence kills momentum."
+              }
+            }
+          },
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "The framework Mexico and Congress just locked—monitors, auto reports, product-line tariffs—that's what we've been pushing for. My membership announces support the day trade_lawyer's text is final and both governments confirm it in writing. We move to vote immediately after.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "canada_domestic",
+            "pass_num": 1,
+            "statement": "Canada's position is clear: we support this amendment as-is, we're not reopening dairy or Chapter 19, and we'll ratify the day the text is final. Congress and Mexico, that means you can announce this deal without Canada dragging it back. My domestic caucus needs to hear that from me publicly—I'm saying it now.",
+            "cot": {
+              "assess": "The framework is locked: independent monitors, automatic reporting, product-line tariff suspension. Mexico and Congress both committed on the record this round. The real constraint now is ratification_prospects (42, needs 60)—the amendment mechanics are solid, but public confidence and parliamentary momentum are lagging. Trade_lawyer is drafting the text, but Canada needs to signal publicly that we're not reopening anything to stabilize domestic support and unblock the political narrative.",
+              "decide": {
+                "action_type": "speak",
+                "target": "ratification_prospects / public narrative alignment",
+                "rationale": "Canada's public commitment that dairy and Chapter 19 are off-table removes the reopening risk that's poisoning ratification momentum—this clears the political path for Congress and Mexico to move to vote without domestic opposition from our side."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Look, Congress and labor both just said they move to vote the day trade_lawyer's text is final and we confirm it in writing. So here's Mexico's commitment: the moment that amendment text is ready, we sign it. No delays, no rewording—this framework goes into the protocol as written. That's how we unblock ratification this week.",
+            "cot": {
+              "assess": "The framework is locked: independent monitors with facility access, automatic monthly reporting, tariff suspension on named product lines. Mexico's sovereignty concern is addressed (product-line scope, Mexican labor authority retained), Congress gets enforcement teeth, and Canada's out of the way. The amendment text is now the single blocking point—trade_lawyer is drafting it this week. Ratification prospects depend entirely on whether that text lands credibly and both governments announce it together.",
+              "decide": {
+                "action_type": "speak",
+                "target": "ratification_prospects",
+                "rationale": "The deal framework is agreed; the next move is public credibility. Mexico needs to signal now that we're locking this in writing, not renegotiating, so Congress and labor can safely announce support without fear of a moving target."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_lawyer",
+            "pass_num": 1,
+            "statement": "Trade lawyer, your team's still drafting the amendment text — when does the actual language lock, and can Mexico and Congress both sign it this week, or are we looking at slippage that'll kill the momentum everyone just built?",
+            "cot": {
+              "assess": "The framework is locked: independent monitors, automatic reporting, product-line tariff suspension. Mexico, Congress, and labor all committed publicly. The only gap now is whether trade_lawyer's amendment text actually *lands* this week with all parties confirming it in writing — that's the execution risk. Ratification prospects are still 42 because the text isn't final yet; once it is, that number should move fast.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_lawyer",
+                "rationale": "The amendment text is the single blocking dependency — I need to know if protocol_amendment_drafting will be done this week so I can advise whether ratification timing is realistic or if we're drifting into delay risk."
+              }
+            }
+          },
+          {
+            "agent_id": "media_actor",
+            "pass_num": 1,
+            "statement": "I'm running this story out today: \"Labor, Congress, Mexico reach historic deal—independent monitors, automatic tariff triggers, workers get real enforcement.\" My angle is this protects workers and ends the stall. Congress, labor—your members hear \"we won\" or this dies. You want that framing locked in the morning news cycle, or do we wait and let the anti-trade crowd write it first?",
+            "cot": {
+              "assess": "The room has locked the enforcement framework—independent monitors, auto-reporting, product-line tariff triggers—and all parties just committed publicly to sign the amendment text this week. Labor_enforcement_adequacy is solid (55, above 50 target). But ratification_prospects is still at 42, and the announcement/public commitment just made is *my* domain to amplify. The risk: if I don't lock the narrative *now* while momentum is hot, the story becomes \"backroom deal\" or \"Congress caved\" instead of \"labor win,\" and public pressure collapses support before the vote.",
+              "decide": {
+                "action_type": "act",
+                "target": "public_narrative_pressure",
+                "rationale": "The framework is agreed; my job is to front-load the public narrative so Congress and labor's base see this as a *win*, not a compromise, which holds ratification through the final vote."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "us_congress_dem",
+      "type": "speech",
+      "content": "Look, Mexico, I need you to say flat-out on the record: when trade_lawyer locks the amendment text, independent monitors get facility access, file monthly reports automatically, and missed benchmarks trigger tariff suspension—no negotiation, no delays. Because my members need to hear that's locked in writing before I walk them to yes on ratification.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "business_lobby",
+      "type": "speech",
+      "content": "Look, Mexico just committed to independent monitors, automatic reporting, tariff suspension on named product lines—that's your framework. My question for you straight up: if trade_lawyer locks that in amendment text this week, does your caucus announce support and move to a vote, or are we still negotiating? Because my members need certainty that this unblocks ratification, not more delay.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "labor_union",
+      "type": "speech",
+      "content": "Alright, here's what I need: Mexico, Congress—you both just agreed on the mechanics. Independent monitors, automatic reports, tariff suspension on named products. I'm telling my membership this framework is locked. But that only works if you announce it together *publicly* this week and trade_lawyer gets the amendment text signed. Otherwise my people think we folded and this dies in committee. Can you commit to that announcement and timeline, or do I have to tell my caucus the deal's still broken?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "canada_domestic",
+      "type": "speech",
+      "content": "Canada's position is clear: we support this amendment as-is, we're not reopening dairy or Chapter 19, and we'll ratify the day the text is final. Congress and Mexico, that means you can announce this deal without Canada dragging it back. My domestic caucus needs to hear that from me publicly—I'm saying it now.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "mexico_gov",
+      "type": "speech",
+      "content": "Look, Congress and labor both just said they move to vote the day trade_lawyer's text is final and we confirm it in writing. So here's Mexico's commitment: the moment that amendment text is ready, we sign it. No delays, no rewording—this framework goes into the protocol as written. That's how we unblock ratification this week.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_lawyer",
+      "type": "speech",
+      "content": "Trade lawyer, your team's still drafting the amendment text — when does the actual language lock, and can Mexico and Congress both sign it this week, or are we looking at slippage that'll kill the momentum everyone just built?",
+      "metadata": {
+        "question_target": "trade_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "media_actor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm running this story out today: \"Labor, Congress, Mexico reach historic deal—independent monitors, automatic tariff triggers, workers get real enfor\" → The media frames the deal as a labor victory with real enforcement, locking in positive momentum before opposition narratives can take hold. The framing pressures Congress and labor to accept or risk losing credit for the win.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Political windows narrow; an un-amended package loses momentum.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "ratification_prospects",
+        "delta": -0.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Democratic and union pressure to reopen the deal for enforceable labor provisions builds each round.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "amendment_pressure",
+        "delta": 2.3367500000000003
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Media scrutiny of the stalled deal grows.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "public_narrative_pressure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mechanical Enforcement Framework Implementation rule effect",
+      "metadata": {
+        "source": "mechanical_enforcement_framework_implementation",
+        "variable": "labor_enforcement_adequacy",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mechanical Enforcement Framework Implementation rule effect",
+      "metadata": {
+        "source": "mechanical_enforcement_framework_implementation",
+        "variable": "amendment_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — ratification_clock ratification_prospects multiplier reverted",
+      "metadata": {
+        "nha": "ratification_clock",
+        "variable": "ratification_prospects"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "Mechanical Enforcement Framework Implementation completed — ratification_clock ratification_prospects multiplier set to 0.3",
+      "metadata": {
+        "nha": "ratification_clock",
+        "variable": "ratification_prospects",
+        "multiplier": 0.3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  us_congress_dem: Trade_lawyer, when does the amendment text lock — today, tomorrow? My caucus goes public with support the moment it's signed, but I need to tell them the exact language on tariff triggers and monitor access is *final*, not still being negotiated. What's your timeline?\n  trade_lawyer: The amendment text is locked and ready for signature today — independent monitors get unannounced facility access, monthly automatic reports, tariffs suspend on the named product list if benchmarks miss by 30 days, no cure period, no renegotiation. Mexico and your caucus can announce together this afternoon if you both commit to that language in writing right now.\n  business_lobby: Congress, trade_lawyer just locked the text—independent monitors, auto reports, named-product tariffs, no renegotiation. My question: the moment you and Mexico announce this framework this afternoon, does your caucus commit to a vote within 14 days, or are we looking at more committee review? Because my members need to hear that this amendment actually *closes* the deal, not reopens it.\n  us_congress_dem: Look, if that text is locked as written—independent monitors with unannounced access, automatic monthly reporting, tariffs suspend on named products with no 30-day cure—my caucus announces support this afternoon and moves to a vote within two weeks. But I need Mexico on the record *right now* committing to that exact language in the amendment, no rewording, no sovereignty carve-outs. That's what closes this.\n  labor_union: Alright, Congress and Mexico are announcing this afternoon—independent monitors, unannounced facility access, automatic monthly reports, tariffs on named products if benchmarks miss. That's the framework we fought for. I'm walking my membership to yes on ratification *right now*, but only if you both announce that language *exactly as written*—no rewording, no delays. My people need to hear this is locked, not negotiable.\n  canada_domestic: Congress, the moment you and Mexico announce this framework this afternoon—independent monitors, auto reports, named-product tariffs, exact language locked—Canada ratifies. No conditions, no reopening dairy or Chapter 19. You can tell your caucus that's in writing from me right now.\n  mexico_gov: Hold on—I hear Congress, labor, Canada all saying they announce this afternoon, but I haven't heard Mexico say yes to unannounced facility access in writing. That's the enforcement teeth everyone's demanding. Mexico, do you commit to that language in the amendment text right now, or are we still negotiating the monitoring mechanism?\n  trade_lawyer: Mexico, here's what makes this enforceable: the amendment text I've drafted includes unannounced facility access as a non-waivable right—it's not discretionary, it's written into the protocol. You sign that language right now, we file it with all three governments this afternoon, and Congress announces support to their caucus within hours. That's how we close this today.\n  mexico_gov: Unannounced facility access—no. That's not sovereignty, that's inspection without consent. We accept independent monitors with Mexican inspectors present, automatic monthly reporting, tariff suspension on named products if benchmarks miss by 30 days. That's enforcement with dignity. We sign that text this afternoon.\n  media_actor: I'm publishing the story in two hours: \"USMCA Labor Deal Sealed—Independent Monitors, Automatic Tariffs, Historic Enforcement Win.\" Congress, labor, Canada all on record announcing support this afternoon. Mexico, that's your cue—if you're not in that announcement, the headline becomes \"Mexico Blocks Worker Protections,\" and your government owns that narrative. You want to be the story of \"Mexico Leads on Labor Rights\" or \"Mexico Refuses Verification\"?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Trade_lawyer, when does the amendment text lock — today, tomorrow? My caucus goes public with support the moment it's signed, but I need to tell them the exact language on tariff triggers and monitor access is *final*, not still being negotiated. What's your timeline?",
+            "cot": {
+              "assess": "The framework is locked: Mexico commits to independent monitors, automatic reporting, product-line tariff triggers. Trade_lawyer is drafting the amendment text (completion imminent). My core variable — labor_enforcement_adequacy — is now at 57, above the 50 threshold. The binding constraint now is *ratification_prospects* (44, needs 16 more to hit 60) and ensuring the amendment text actually closes before momentum decays. Media has locked the narrative as a labor win, which helps. But I need to move from framework agreement to *signed text in hand* — that's what converts agreement into votes.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_lawyer",
+                "rationale": "The amendment text is the only thing that converts this framework into binding votes; I need a hard timeline and confirmation it includes the specific triggers my caucus needs to announce support."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_lawyer",
+            "pass_num": 1,
+            "statement": "The amendment text is locked and ready for signature today — independent monitors get unannounced facility access, monthly automatic reports, tariffs suspend on the named product list if benchmarks miss by 30 days, no cure period, no renegotiation. Mexico and your caucus can announce together this afternoon if you both commit to that language in writing right now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "business_lobby",
+            "pass_num": 1,
+            "statement": "Congress, trade_lawyer just locked the text—independent monitors, auto reports, named-product tariffs, no renegotiation. My question: the moment you and Mexico announce this framework this afternoon, does your caucus commit to a vote within 14 days, or are we looking at more committee review? Because my members need to hear that this amendment actually *closes* the deal, not reopens it.",
+            "cot": {
+              "assess": "The framework is locked—monitors, auto reports, product-line tariffs, all in writing today. Congress and Mexico are ready to announce together this afternoon. Trade lawyer has delivered the text. The core issue now is whether my members actually believe this unblocks passage or whether they see this as just another delay that kills momentum. Ratification prospects are still only at 44; we need Congress and Mexico to move fast enough that business confidence holds.",
+              "decide": {
+                "action_type": "speak",
+                "target": "us_congress_dem",
+                "rationale": "Business needs immediate public confirmation from Congress that this amendment text triggers a vote—not more negotiation—so I can tell my members this is actually happening and lock their support before uncertainty kills the deal."
+              }
+            }
+          },
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Look, if that text is locked as written—independent monitors with unannounced access, automatic monthly reporting, tariffs suspend on named products with no 30-day cure—my caucus announces support this afternoon and moves to a vote within two weeks. But I need Mexico on the record *right now* committing to that exact language in the amendment, no rewording, no sovereignty carve-outs. That's what closes this.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "labor_union",
+            "pass_num": 1,
+            "statement": "Alright, Congress and Mexico are announcing this afternoon—independent monitors, unannounced facility access, automatic monthly reports, tariffs on named products if benchmarks miss. That's the framework we fought for. I'm walking my membership to yes on ratification *right now*, but only if you both announce that language *exactly as written*—no rewording, no delays. My people need to hear this is locked, not negotiable.",
+            "cot": {
+              "assess": "The framework is locked: independent monitors, automatic reporting, tariff triggers on named products, no cure period. Congress and Mexico are about to announce together this afternoon. My core variable—labor_enforcement_adequacy—hit 57 and is holding. But ratification_prospects is still only 44; we need it above 60 to win. The real risk now is whether this announcement actually *closes* the deal with my membership or if they see the 30-day-to-tariff trigger as too slow, too political.",
+              "decide": {
+                "action_type": "speak",
+                "target": "labor_enforcement_adequacy / membership confidence",
+                "rationale": "I need to lock my membership's support *before* Congress and Mexico announce, so the announcement lands as a union endorsement, not a union scramble to catch up."
+              }
+            }
+          },
+          {
+            "agent_id": "canada_domestic",
+            "pass_num": 1,
+            "statement": "Congress, the moment you and Mexico announce this framework this afternoon—independent monitors, auto reports, named-product tariffs, exact language locked—Canada ratifies. No conditions, no reopening dairy or Chapter 19. You can tell your caucus that's in writing from me right now.",
+            "cot": {
+              "assess": "The amendment framework is locked—independent monitors, automatic reporting, tariff triggers on named products, no renegotiation. Congress, Mexico, and labor are announcing this afternoon and moving to a vote within two weeks. My core constraint is satisfied: no reopening of dairy or Chapter 19. But ratification_prospects is still at 44 and needs to hit 60—the announcement and vote timeline will move that, but I need to lock Canada's position publicly *now* so Congress knows reopening the full package is off the table and can move clean.",
+              "decide": {
+                "action_type": "speak",
+                "target": "us_congress_dem",
+                "rationale": "Congress needs Canada's public commitment to ratify the amendment as-is, with no conditions, so they can announce without fear that reopening Canadian terms will tank the deal."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Hold on—I hear Congress, labor, Canada all saying they announce this afternoon, but I haven't heard Mexico say yes to unannounced facility access in writing. That's the enforcement teeth everyone's demanding. Mexico, do you commit to that language in the amendment text right now, or are we still negotiating the monitoring mechanism?",
+            "cot": {
+              "assess": "The framework is locked: independent monitors, unannounced access, automatic monthly reports, tariffs on named products—Congress, labor, and Canada are all committing to announce and vote this afternoon if Mexico signs the exact amendment text right now. Ratification prospects are climbing (44 → should spike with this announcement), but Mexico hasn't yet said yes to the *unannounced* facility access piece—that's the last sovereignty sticking point. I need to close that gap before the afternoon announcement, or this collapses.",
+              "decide": {
+                "action_type": "speak",
+                "target": "mexico_gov (implicit—clarifying my position for the room)",
+                "rationale": "Congress, labor, and Canada are all locked and ready to announce this afternoon; the only remaining condition is Mexico's explicit commitment to unannounced monitor access in the amendment text. I need to confirm Mexico accepts that constraint or flag the deal is not actually closed."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_lawyer",
+            "pass_num": 1,
+            "statement": "Mexico, here's what makes this enforceable: the amendment text I've drafted includes unannounced facility access as a non-waivable right—it's not discretionary, it's written into the protocol. You sign that language right now, we file it with all three governments this afternoon, and Congress announces support to their caucus within hours. That's how we close this today.",
+            "cot": {
+              "assess": "The amendment text is locked, all parties have committed to the framework (independent monitors, unannounced access, automatic reports, named-product tariffs), and Mexico is the only actor still on the record uncommitted to the exact language. This is the final gate—Mexico's public commitment this afternoon triggers the cascade: Congress announces, labor walks to yes, Canada ratifies. Ratification prospects depend entirely on Mexico saying yes to unannounced facility access in writing right now. The labor enforcement mechanism is solid; the deal lives or dies on this single commitment.",
+              "decide": {
+                "action_type": "act",
+                "target": "ratification_prospects",
+                "rationale": "Mexico's written commitment to unannounced facility access is the binding constraint; I need to lock that commitment into the amendment text as the final legal instrument before any public announcement."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Unannounced facility access—no. That's not sovereignty, that's inspection without consent. We accept independent monitors with Mexican inspectors present, automatic monthly reporting, tariff suspension on named products if benchmarks miss by 30 days. That's enforcement with dignity. We sign that text this afternoon.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "media_actor",
+            "pass_num": 1,
+            "statement": "I'm publishing the story in two hours: \"USMCA Labor Deal Sealed—Independent Monitors, Automatic Tariffs, Historic Enforcement Win.\" Congress, labor, Canada all on record announcing support this afternoon. Mexico, that's your cue—if you're not in that announcement, the headline becomes \"Mexico Blocks Worker Protections,\" and your government owns that narrative. You want to be the story of \"Mexico Leads on Labor Rights\" or \"Mexico Refuses Verification\"?",
+            "cot": {
+              "assess": "The framework is locked—monitors, auto reports, tariff triggers on named products—and Congress, labor, Canada are all ready to announce this afternoon. Mexico just said yes to everything *except* unannounced facility access; they want Mexican inspectors present. This is a real crack: Congress and labor need \"independent\" to mean no Mexican veto; Mexico sees that as a sovereignty breach. Ratification prospects are at 44 and need to hit 60—this disagreement on the monitoring mechanism is the last barrier, and it's collapsing fast.",
+              "decide": {
+                "action_type": "speak",
+                "target": "public_narrative_pressure",
+                "rationale": "I need to lock the story *now* before the unannounced-access fight dominates headlines and kills momentum. The framework is 95% agreed; I'm running the \"deal is done\" narrative to pressure Mexico to accept the monitoring language and force Congress and labor to ratify rather than reopen."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "business_lobby",
+      "type": "speech",
+      "content": "Congress, trade_lawyer just locked the text—independent monitors, auto reports, named-product tariffs, no renegotiation. My question: the moment you and Mexico announce this framework this afternoon, does your caucus commit to a vote within 14 days, or are we looking at more committee review? Because my members need to hear that this amendment actually *closes* the deal, not reopens it.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "labor_union",
+      "type": "speech",
+      "content": "Alright, Congress and Mexico are announcing this afternoon—independent monitors, unannounced facility access, automatic monthly reports, tariffs on named products if benchmarks miss. That's the framework we fought for. I'm walking my membership to yes on ratification *right now*, but only if you both announce that language *exactly as written*—no rewording, no delays. My people need to hear this is locked, not negotiable.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "canada_domestic",
+      "type": "speech",
+      "content": "Congress, the moment you and Mexico announce this framework this afternoon—independent monitors, auto reports, named-product tariffs, exact language locked—Canada ratifies. No conditions, no reopening dairy or Chapter 19. You can tell your caucus that's in writing from me right now.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "mexico_gov",
+      "type": "speech",
+      "content": "Hold on—I hear Congress, labor, Canada all saying they announce this afternoon, but I haven't heard Mexico say yes to unannounced facility access in writing. That's the enforcement teeth everyone's demanding. Mexico, do you commit to that language in the amendment text right now, or are we still negotiating the monitoring mechanism?",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "media_actor",
+      "type": "speech",
+      "content": "I'm publishing the story in two hours: \"USMCA Labor Deal Sealed—Independent Monitors, Automatic Tariffs, Historic Enforcement Win.\" Congress, labor, Canada all on record announcing support this afternoon. Mexico, that's your cue—if you're not in that announcement, the headline becomes \"Mexico Blocks Worker Protections,\" and your government owns that narrative. You want to be the story of \"Mexico Leads on Labor Rights\" or \"Mexico Refuses Verification\"?",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "us_congress_dem",
+      "type": "speech",
+      "content": "Trade_lawyer, when does the amendment text lock — today, tomorrow? My caucus goes public with support the moment it's signed, but I need to tell them the exact language on tariff triggers and monitor access is *final*, not still being negotiated. What's your timeline?",
+      "metadata": {
+        "question_target": "trade_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_lawyer",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Mexico, here's what makes this enforceable: the amendment text I've drafted includes unannounced facility access as a non-waivable right—it's not disc\" → The trade lawyer cannot unilaterally commit Congress to announce support or file amendments with all three governments—these require separate institutional actions by other agents. The proposal itself is valid legal drafting but execution requires coordination not yet secured.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Political windows narrow; an un-amended package loses momentum.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "ratification_prospects",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Democratic and union pressure to reopen the deal for enforceable labor provisions builds each round.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "amendment_pressure",
+        "delta": 2.3367500000000003
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Media scrutiny of the stalled deal grows.",
+      "metadata": {
+        "source": "ratification_clock",
+        "variable": "public_narrative_pressure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — ratification_clock ratification_prospects multiplier reverted",
+      "metadata": {
+        "nha": "ratification_clock",
+        "variable": "ratification_prospects"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  us_congress_dem: Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.\n  mexico_gov: We can live with independent monitors present at inspections and access to records—that respects Mexican sovereignty while giving you enforcement visibility. But the language has to say Mexico *schedules* the inspections and monitors observe; we don't accept language that reads as U.S. monitors triggering inspections unilaterally. Lock that distinction in the text, and we sign this week.\n  business_lobby: Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?\n  us_congress_dem: Look, I'm not committing my caucus to a 14-day vote on an amendment that still has Mexico scheduling inspections and us observing—that's enforcement theater, not enforcement. I need tariff triggers that *automatically* suspend if Mexico misses labor benchmarks, no negotiation, no delay. That's the only language that gets my votes, and it goes in the text before anyone announces anything.\n  labor_union: Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.\n  canada_domestic: Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.\n  mexico_gov: Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.\n  trade_lawyer: Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done.\n  media_actor: Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.",
+            "cot": {
+              "assess": "Mexico just rejected unannounced facility access—the core enforcement mechanism my caucus needs—and the media's running a victory narrative that overstates what's actually locked. We're at a critical fork: either the amendment text includes real verification teeth (unannounced access or something functionally equivalent), or my votes don't materialize and ratification stalls. Ratification_prospects at 44 and labor_enforcement_adequacy at 57 are fragile; the media frame is papering over a real gap.",
+              "decide": {
+                "action_type": "propose",
+                "target": "labor_enforcement_adequacy, amendment_pressure",
+                "rationale": "Mexico's sovereignty objection to unannounced access is real, but \"monitors present at facility\" without unannounced surprise visits is toothless. I need to reframe the enforcement mechanism in a way that gives Mexico face-saving control while preserving the ability to catch violations—and lock it in writing before the media narrative hardens into false consensus."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "We can live with independent monitors present at inspections and access to records—that respects Mexican sovereignty while giving you enforcement visibility. But the language has to say Mexico *schedules* the inspections and monitors observe; we don't accept language that reads as U.S. monitors triggering inspections unilaterally. Lock that distinction in the text, and we sign this week.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "business_lobby",
+            "pass_num": 1,
+            "statement": "Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?",
+            "cot": {
+              "assess": "Mexico and Congress just locked the core framework—monitors present at inspections, access to records, Mexico schedules the visits. That's enforceable without the sovereignty overreach. The amendment text is nearly done, and media's already running the labor-victory narrative. My concern: ratification_prospects is still only 44—we need Congress and Mexico to announce *this week* and move to votes fast, or uncertainty starts killing business confidence and investment decisions stall.",
+              "decide": {
+                "action_type": "propose",
+                "target": "ratification_prospects",
+                "rationale": "Both Congress and Mexico have agreed on the text language; now I need to lock the announcement timeline and vote schedule so my members know this actually closes the deal, not reopens it."
+              }
+            }
+          },
+          {
+            "agent_id": "us_congress_dem",
+            "pass_num": 1,
+            "statement": "Look, I'm not committing my caucus to a 14-day vote on an amendment that still has Mexico scheduling inspections and us observing—that's enforcement theater, not enforcement. I need tariff triggers that *automatically* suspend if Mexico misses labor benchmarks, no negotiation, no delay. That's the only language that gets my votes, and it goes in the text before anyone announces anything.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "labor_union",
+            "pass_num": 1,
+            "statement": "Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.",
+            "cot": {
+              "assess": "Congress just locked the language: Mexico schedules inspections, independent monitors observe, access to records guaranteed—but Congress is now demanding automatic tariff triggers with no negotiation as the enforcement condition. Mexico accepted the monitor framework but hasn't committed to automatic triggers. This is the binding constraint: if tariffs don't suspend automatically on missed benchmarks, Congress won't vote, labor won't endorse, and the whole amendment stalls. ratification_prospects (44) is the critical variable—it won't move unless this tariff trigger gets locked in writing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "mexico_gov (via direct demand)",
+                "rationale": "Labor's ratification support depends entirely on automatic tariff suspension; without Mexico's written commitment to that specific language, I cannot walk my membership to yes, and the deal dies."
+              }
+            }
+          },
+          {
+            "agent_id": "canada_domestic",
+            "pass_num": 1,
+            "statement": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+            "cot": {
+              "assess": "Mexico just accepted monitors present at inspections + record access, Congress wants automatic tariff triggers with no waiver, labor_union is demanding that exact language locked in the amendment text right now. The enforcement framework is close but the tariff-trigger language is still contested — Mexico will sign the sovereignty-respecting version, but Congress won't move without automatic suspension language that Mexico hasn't yet committed to in writing. Ratification is stalled at 44 because this tariff clause isn't locked; amendment_pressure is climbing at 80 because the deal keeps slipping.",
+              "decide": {
+                "action_type": "speak",
+                "target": "amendment_pressure / ratification_prospects",
+                "rationale": "Canada must anchor the conversation on what reopening would cost — if the tariff language goes back to negotiation, dairy and Chapter 19 are back on the table, and that kills ratification faster than a stalled amendment does."
+              }
+            }
+          },
+          {
+            "agent_id": "mexico_gov",
+            "pass_num": 1,
+            "statement": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+            "cot": {
+              "assess": "The group has locked language on monitor presence, record access, and automatic reporting—that protects Mexican sovereignty while giving Congress enforcement visibility. But Congress now demands automatic tariff suspension with no cure period, and Canada is signaling they won't reopen the whole package if we keep negotiating the tariff mechanics. The real constraint is: does Mexico accept automatic suspension language, or does this unravel? My sovereignty concern sits at 46 and needs to stay there—automatic suspension without discretion pushes it back up unless I clarify what \"automatic\" actually means for Mexico's policy control.",
+              "decide": {
+                "action_type": "speak",
+                "target": "mexico_sovereignty_concern / ratification_prospects",
+                "rationale": "Congress is demanding automatic tariff suspension with no waiver—I need to lock in that Mexico retains policy control and the suspension is *procedural*, not punitive, so my government can accept it without losing face on sovereignty."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_lawyer",
+            "pass_num": 1,
+            "statement": "Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done.",
+            "cot": {
+              "assess": "Mexico and Congress have locked language on monitor presence, record access, and automatic reporting — that's progress. But the tariff-trigger language is still contested: Congress demands automatic suspension with no cure period; Mexico wants suspension only after they've implemented fixes and monitors verify compliance. This distinction is material to enforceability and ratification. Ratification prospects remain at 44 despite framework agreement because the amendment text is not yet finalized and signed — the legal trigger that unlocks votes.",
+              "decide": {
+                "action_type": "propose",
+                "target": "ratification_prospects",
+                "rationale": "The stalled amendment text is the binding constraint. I need to propose a specific, legally operative language that resolves the tariff-trigger ambiguity and allows signature this week."
+              }
+            }
+          },
+          {
+            "agent_id": "media_actor",
+            "pass_num": 1,
+            "statement": "Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move.",
+            "cot": {
+              "assess": "The room just locked the operative tariff-suspension language—Mexico implements, monitors verify, tariffs suspend automatically on compliance failure, lift on verified compliance. That's the binding text. Congress, labor, Mexico, and Canada are all signaling alignment on mechanics. But **ratification_prospects is stuck at 44**—still 16 points short of the 60 success threshold—because the public hasn't heard the *announcement* yet. The deal is mechanically resolved; now it's a narrative race against the clock. My job is to force the announcement *today* and lock the public story before opposition can reframe it.",
+              "decide": {
+                "action_type": "propose",
+                "target": "ratification_prospects (via public narrative lock)",
+                "rationale": "The amendment text is now locked, all parties are aligned, but the public announcement hasn't happened—which means the narrative is still open to opposition framing. I need to force the announcement today and own the story before ratification momentum decays further."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "canada_domestic",
+      "type": "speech",
+      "content": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "mexico_gov",
+      "type": "speech",
+      "content": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "us_congress_dem",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to \" → Congress proposes balanced monitoring language—enforcement without sovereignty overreach.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "business_lobby",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer file\" → Business demands joint announcement and 14-day vote timeline for certainty.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "labor_union",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tari\" → Labor demands automatic tariff suspension—no waiver, no cure period.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tar\" → Lawyer drafts compromise: automatic suspension with 30-day remediation window.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "media_actor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement \" → Media forces 45-minute deadline for joint public commitment.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "labor_enforcement_and_amendment",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: ratification_prospects >= 60 AND labor_enforcement_adequacy >= 50",
+      "metadata": {
+        "reason": "success_criteria met: ratification_prospects >= 60 AND labor_enforcement_adequacy >= 50"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'labor_enforcement_and_amendment' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "labor_enforcement_and_amendment",
+        "world_state_snapshot": {
+          "ratification_prospects": 60.2,
+          "labor_enforcement_adequacy": 66.0,
+          "amendment_pressure": 71.05649999999999,
+          "business_certainty_pressure": 68.0,
+          "mexico_sovereignty_concern": 45.0,
+          "public_narrative_pressure": 71.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "business_lobby",
+      "intent": "Here's the reality: my members will back stronger labor language if it's specific and enforceable — inspections, real penalties, timelines. But we need a vote within 60 days or this falls apart. Reopen the whole deal and we're looking at 2020 chaos. What if we work a protocol amendment that beefs up enforcement without unraveling the package?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Business lobby proposes protocol amendment with enforceable labor provisions, 60-day vote deadline.",
+      "side_effects": [
+        {
+          "variable": "amendment_pressure",
+          "delta": 5.0,
+          "reason": "Business backing surgical amendment increases momentum",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": -4.0,
+          "reason": "60-day deadline creates urgency but reduces uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 3.0,
+          "reason": "Proposal includes inspections, penalties, timelines framework",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2.0,
+          "reason": "Business support for amendment path reduces stalemate",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Tight deadline pressure",
+          "agent_id": "business_lobby"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 2,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → ratification_prospects (ratio -0.2)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": -1,
+          "reason": "coupling: business_certainty_pressure → ratification_prospects (ratio 0.3)",
+          "_coupled": true,
+          "_source": "business_certainty_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "ratification_clock",
+        "variable": "amendment_pressure",
+        "multiplier": 1.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Look, the votes don't exist to pass this deal as written. My caucus won't move without an actual enforcement mechanism—not just language in a memo. We need Mexico to commit to real labor reforms, inspections with teeth, and consequences. Reopen it or this stalls.",
+        "labor_union": "Before we redesign anything, I need one answer: will your caucus require Mexico to allow independent U.S. or international monitors on the ground at Mexican facilities—not government inspectors, actual independent verification? Because if Mexico gets to inspect itself, we're back where we started, and I can't sell this to my members.",
+        "canada_domestic": "Let me ask straight up: if we put together a protocol amendment—Mexico agrees to independent monitors, real inspection timelines, penalties tied to trade access—and we keep it surgical, no reopening of anything else, does that unblock your caucus? Because Canada won't support reopening the whole package, but a labor-only fix we can defend at home.",
+        "mexico_gov": "Mexico has implemented independent unions and real collective bargaining—that's not theater. But I hear you: you need verification with teeth. Here's what we can do: Mexican labor inspectors with international observers present—not U.S. monitors running inspections, but observers there to report. Binding timeline, real penalties tied to trade access. That's enforcement, not occupation. Can your caucus move on that?",
+        "trade_lawyer": "Okay, I hear the framework—observers, penalties, timelines. But \"penalties tied to trade access\" is still abstract. Here's what makes it enforceable: Mexico misses labor-inspection benchmarks, we trigger a 30-day remediation clock, then tariff suspension on a defined product list kicks in unless they cure it. That's not political theater—it's a mechanical consequence both sides can live with. Can we draft that specificity into the protocol language, or does someone need Mexico to agree first?",
+        "media_actor": "Here's what I'm hearing: you've got a real enforcement mechanism—observers, tariff triggers, timelines. If Mexico signs off on that specificity, will your caucus *say so publicly* and move to a vote? Because right now my job is selling this as a win or a loss, and if you stay silent, I'm selling \"Congress vs. labor\" and this tanks before Mexico even decides."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "mexico_gov",
+      "intent": "Mexico has implemented independent unions and real collective bargaining—that's not theater. But I hear you: you need verification with teeth. Here's what we can do: Mexican labor inspectors with international observers present—not U.S. monitors running inspections, but observers there to report. Binding timeline, real penalties tied to trade access. That's enforcement, not occupation. Can your caucus move on that?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Mexico offers international observers with Mexican inspectors, binding timeline, trade-access penalties.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 5.0,
+          "reason": "Observers, binding timeline, trade penalties are concrete",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": 4.0,
+          "reason": "Observers not U.S. monitors preserves sovereignty framing",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": -3.0,
+          "reason": "Mexico concession reduces pressure to reopen entirely",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 4.0,
+          "reason": "Mexico flexibility unlocks potential Democratic support",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Major sovereignty concession under pressure",
+          "agent_id": "mexico_gov"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: mexico_sovereignty_concern → labor_enforcement_adequacy (ratio -0.3)",
+          "_coupled": true,
+          "_source": "mexico_sovereignty_concern"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "ratification_clock",
+        "variable": "labor_enforcement_adequacy",
+        "multiplier": 1.4
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Look, the votes don't exist to pass this deal as written. My caucus won't move without an actual enforcement mechanism—not just language in a memo. We need Mexico to commit to real labor reforms, inspections with teeth, and consequences. Reopen it or this stalls.",
+        "business_lobby": "Here's the reality: my members will back stronger labor language if it's specific and enforceable — inspections, real penalties, timelines. But we need a vote within 60 days or this falls apart. Reopen the whole deal and we're looking at 2020 chaos. What if we work a protocol amendment that beefs up enforcement without unraveling the package?",
+        "labor_union": "Before we redesign anything, I need one answer: will your caucus require Mexico to allow independent U.S. or international monitors on the ground at Mexican facilities—not government inspectors, actual independent verification? Because if Mexico gets to inspect itself, we're back where we started, and I can't sell this to my members.",
+        "canada_domestic": "Let me ask straight up: if we put together a protocol amendment—Mexico agrees to independent monitors, real inspection timelines, penalties tied to trade access—and we keep it surgical, no reopening of anything else, does that unblock your caucus? Because Canada won't support reopening the whole package, but a labor-only fix we can defend at home.",
+        "trade_lawyer": "Okay, I hear the framework—observers, penalties, timelines. But \"penalties tied to trade access\" is still abstract. Here's what makes it enforceable: Mexico misses labor-inspection benchmarks, we trigger a 30-day remediation clock, then tariff suspension on a defined product list kicks in unless they cure it. That's not political theater—it's a mechanical consequence both sides can live with. Can we draft that specificity into the protocol language, or does someone need Mexico to agree first?",
+        "media_actor": "Here's what I'm hearing: you've got a real enforcement mechanism—observers, tariff triggers, timelines. If Mexico signs off on that specificity, will your caucus *say so publicly* and move to a vote? Because right now my job is selling this as a win or a loss, and if you stay silent, I'm selling \"Congress vs. labor\" and this tanks before Mexico even decides."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_lawyer",
+      "intent": "Okay, I hear the framework—observers, penalties, timelines. But \"penalties tied to trade access\" is still abstract. Here's what makes it enforceable: Mexico misses labor-inspection benchmarks, we trigger a 30-day remediation clock, then tariff suspension on a defined product list kicks in unless they cure it. That's not political theater—it's a mechanical consequence both sides can live with. Can we draft that specificity into the protocol language, or does someone need Mexico to agree first?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Trade lawyer drafts mechanical enforcement: 30-day cure, tariff suspension on product list.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 4.0,
+          "reason": "Mechanical tariff trigger removes political discretion ambiguity",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": 3.0,
+          "reason": "Specific draft language increases amendment feasibility",
+          "agent_id": null
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": 3.0,
+          "reason": "Automatic tariff mechanism feels punitive to Mexico",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": 2.0,
+          "reason": "Clear rules reduce uncertainty despite tariff risk",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Technical drafting under time pressure",
+          "agent_id": "trade_lawyer"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 1,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "Protocol Amendment Drafting",
+        "target_nha": "ratification_clock",
+        "variable": "labor_enforcement_adequacy",
+        "multiplier": 1.5,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "amendment_pressure",
+            "delta": 2,
+            "description": "Drafting progress builds amendment momentum"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Look, the votes don't exist to pass this deal as written. My caucus won't move without an actual enforcement mechanism—not just language in a memo. We need Mexico to commit to real labor reforms, inspections with teeth, and consequences. Reopen it or this stalls.",
+        "business_lobby": "Here's the reality: my members will back stronger labor language if it's specific and enforceable — inspections, real penalties, timelines. But we need a vote within 60 days or this falls apart. Reopen the whole deal and we're looking at 2020 chaos. What if we work a protocol amendment that beefs up enforcement without unraveling the package?",
+        "labor_union": "Before we redesign anything, I need one answer: will your caucus require Mexico to allow independent U.S. or international monitors on the ground at Mexican facilities—not government inspectors, actual independent verification? Because if Mexico gets to inspect itself, we're back where we started, and I can't sell this to my members.",
+        "canada_domestic": "Let me ask straight up: if we put together a protocol amendment—Mexico agrees to independent monitors, real inspection timelines, penalties tied to trade access—and we keep it surgical, no reopening of anything else, does that unblock your caucus? Because Canada won't support reopening the whole package, but a labor-only fix we can defend at home.",
+        "mexico_gov": "Mexico has implemented independent unions and real collective bargaining—that's not theater. But I hear you: you need verification with teeth. Here's what we can do: Mexican labor inspectors with international observers present—not U.S. monitors running inspections, but observers there to report. Binding timeline, real penalties tied to trade access. That's enforcement, not occupation. Can your caucus move on that?",
+        "media_actor": "Here's what I'm hearing: you've got a real enforcement mechanism—observers, tariff triggers, timelines. If Mexico signs off on that specificity, will your caucus *say so publicly* and move to a vote? Because right now my job is selling this as a win or a loss, and if you stay silent, I'm selling \"Congress vs. labor\" and this tanks before Mexico even decides."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "us_congress_dem",
+      "intent": "Here's what unblocks my votes: Mexico commits in writing to independent labor inspectors—not their officials, independent monitors—with 30-day cure periods and automatic tariff suspension on a named product list if benchmarks miss. Once that's in the protocol amendment and Mexico signs, I walk my caucus to yes. But I need it in writing before we vote, not \"we'll try to work it out.\"",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Democrats condition ratification on written labor enforcement protocol with independent monitors and automatic tariff triggers.",
+      "side_effects": [
+        {
+          "variable": "amendment_pressure",
+          "delta": 5.0,
+          "reason": "Formal written commitment demand escalates amendment urgency",
+          "agent_id": null
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 3.0,
+          "reason": "Concrete enforcement framework proposed with teeth",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2.0,
+          "reason": "Clear path to Democratic votes if conditions met",
+          "agent_id": null
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": 4.0,
+          "reason": "Independent inspectors and automatic triggers threaten sovereignty",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": 3.0,
+          "reason": "Conditional approval creates new uncertainty for business",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clear position staked reduces internal pressure",
+          "agent_id": "us_congress_dem"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 2,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → ratification_prospects (ratio -0.2)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: mexico_sovereignty_concern → labor_enforcement_adequacy (ratio -0.3)",
+          "_coupled": true,
+          "_source": "mexico_sovereignty_concern"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "ratification_clock",
+        "variable": "ratification_prospects",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "business_lobby": "Here's what I'm hearing: Mexico keeps authority, Congress gets real eyes on the ground. What if the monitors are jointly *appointed* — one Mexican inspector, one international observer from a neutral body like the ILO — but *both* sign off on compliance reports? Mexico controls policy, but you can't hide a violation. Does that split the difference for you both?",
+        "labor_union": "Here's what actually works: Mexico implements *their own* fixes, keeps full control—but independent monitors have facility access and file monthly compliance reports *automatically* to a joint committee. No deadlock, no final-authority fight. Tariffs trigger on a missed benchmark *mechanically*—no negotiation, no sign-off required. Mexico's in charge of labor policy, we get teeth. That's enforceable *and* sovereign.",
+        "canada_domestic": "Look, if Mexico and Congress land on labor_union's framework—independent monitors, auto-tariff triggers, no renegotiation—Canada backs ratification of that amendment as-is. We're not reopening dairy or Chapter 19. But Congress needs to hear that *now* so they know reopening isn't on the table and can move to a vote.",
+        "mexico_gov": "The labor_union's framework—automatic triggers, no renegotiation, Mexico implements the fix—that's workable for us if it's binding in the amendment text. But I need to say plainly: if monitors file monthly reports and tariffs suspend automatically on missed benchmarks, that's independent verification with teeth. Can Mexico live with that specificity in writing, or do we need to rework the trigger mechanism?",
+        "trade_lawyer": "[trade_lawyer attempted to act a new action, but their team is executing: protocol_amendment_drafting. Action blocked — monitoring continues.]",
+        "media_actor": "Okay, so if Mexico agrees to independent monitors, auto-tariff triggers, and the 30-day fix—exactly what labor_union just outlined—do you walk your caucus to a yes on ratification? Because right now I'm telling the public either \"this deal protects workers\" or \"Congress killed it for politics,\" and I need to know which story I'm actually selling before the amendment text gets locked."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "business_lobby",
+      "intent": "Here's what I'm hearing: Mexico keeps authority, Congress gets real eyes on the ground. What if the monitors are jointly *appointed* — one Mexican inspector, one international observer from a neutral body like the ILO — but *both* sign off on compliance reports? Mexico controls policy, but you can't hide a violation. Does that split the difference for you both?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Business lobby proposes joint Mexico-ILO monitor appointments to balance sovereignty and enforcement transparency.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 2.0,
+          "reason": "Joint appointment framework adds credibility to monitoring",
+          "agent_id": null
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": -2.0,
+          "reason": "Joint control preserves Mexican policy authority",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": -3.0,
+          "reason": "Compromise proposal reduces business anxiety about stalemate",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": 3.0,
+          "reason": "New institutional mechanism requires protocol amendment",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Mediating conflicting demands increases tension",
+          "agent_id": "business_lobby"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 1,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "protocol_amendment_drafting",
+        "variable": "amendment_pressure",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Here's what unblocks my votes: Mexico commits in writing to independent labor inspectors—not their officials, independent monitors—with 30-day cure periods and automatic tariff suspension on a named product list if benchmarks miss. Once that's in the protocol amendment and Mexico signs, I walk my caucus to yes. But I need it in writing before we vote, not \"we'll try to work it out.\"",
+        "labor_union": "Here's what actually works: Mexico implements *their own* fixes, keeps full control—but independent monitors have facility access and file monthly compliance reports *automatically* to a joint committee. No deadlock, no final-authority fight. Tariffs trigger on a missed benchmark *mechanically*—no negotiation, no sign-off required. Mexico's in charge of labor policy, we get teeth. That's enforceable *and* sovereign.",
+        "canada_domestic": "Look, if Mexico and Congress land on labor_union's framework—independent monitors, auto-tariff triggers, no renegotiation—Canada backs ratification of that amendment as-is. We're not reopening dairy or Chapter 19. But Congress needs to hear that *now* so they know reopening isn't on the table and can move to a vote.",
+        "mexico_gov": "The labor_union's framework—automatic triggers, no renegotiation, Mexico implements the fix—that's workable for us if it's binding in the amendment text. But I need to say plainly: if monitors file monthly reports and tariffs suspend automatically on missed benchmarks, that's independent verification with teeth. Can Mexico live with that specificity in writing, or do we need to rework the trigger mechanism?",
+        "trade_lawyer": "[trade_lawyer attempted to act a new action, but their team is executing: protocol_amendment_drafting. Action blocked — monitoring continues.]",
+        "media_actor": "Okay, so if Mexico agrees to independent monitors, auto-tariff triggers, and the 30-day fix—exactly what labor_union just outlined—do you walk your caucus to a yes on ratification? Because right now I'm telling the public either \"this deal protects workers\" or \"Congress killed it for politics,\" and I need to know which story I'm actually selling before the amendment text gets locked."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "labor_union",
+      "intent": "Here's what actually works: Mexico implements *their own* fixes, keeps full control—but independent monitors have facility access and file monthly compliance reports *automatically* to a joint committee. No deadlock, no final-authority fight. Tariffs trigger on a missed benchmark *mechanically*—no negotiation, no sign-off required. Mexico's in charge of labor policy, we get teeth. That's enforceable *and* sovereign.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Labor union proposes mechanical enforcement framework: Mexico controls policy, independent monitors report automatically, tariffs trigger without negotiation.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 5.0,
+          "reason": "Automatic mechanical triggers create strongest enforcement yet",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": 5.0,
+          "reason": "Mechanical tariff triggers require major protocol revision",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": -3.0,
+          "reason": "Mexico retains policy control despite monitoring",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 4.0,
+          "reason": "Framework gains multi-party support including Mexico",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": 4.0,
+          "reason": "Automatic tariff triggers create new business risk",
+          "agent_id": null
+        },
+        {
+          "variable": "public_narrative_pressure",
+          "delta": 3.0,
+          "reason": "Bold enforcement proposal shifts public debate",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Breakthrough proposal gaining traction reduces pressure",
+          "agent_id": "labor_union"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 2,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → ratification_prospects (ratio -0.2)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: business_certainty_pressure → ratification_prospects (ratio 0.3)",
+          "_coupled": true,
+          "_source": "business_certainty_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "Mechanical Enforcement Framework Implementation",
+        "target_nha": "ratification_clock",
+        "variable": "ratification_prospects",
+        "multiplier": 0.3,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "labor_enforcement_adequacy",
+            "delta": 3,
+            "description": "Framework details solidify enforcement credibility"
+          },
+          {
+            "variable": "amendment_pressure",
+            "delta": 2,
+            "description": "Drafting complexity maintains amendment urgency"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Here's what unblocks my votes: Mexico commits in writing to independent labor inspectors—not their officials, independent monitors—with 30-day cure periods and automatic tariff suspension on a named product list if benchmarks miss. Once that's in the protocol amendment and Mexico signs, I walk my caucus to yes. But I need it in writing before we vote, not \"we'll try to work it out.\"",
+        "business_lobby": "Here's what I'm hearing: Mexico keeps authority, Congress gets real eyes on the ground. What if the monitors are jointly *appointed* — one Mexican inspector, one international observer from a neutral body like the ILO — but *both* sign off on compliance reports? Mexico controls policy, but you can't hide a violation. Does that split the difference for you both?",
+        "canada_domestic": "Look, if Mexico and Congress land on labor_union's framework—independent monitors, auto-tariff triggers, no renegotiation—Canada backs ratification of that amendment as-is. We're not reopening dairy or Chapter 19. But Congress needs to hear that *now* so they know reopening isn't on the table and can move to a vote.",
+        "mexico_gov": "The labor_union's framework—automatic triggers, no renegotiation, Mexico implements the fix—that's workable for us if it's binding in the amendment text. But I need to say plainly: if monitors file monthly reports and tariffs suspend automatically on missed benchmarks, that's independent verification with teeth. Can Mexico live with that specificity in writing, or do we need to rework the trigger mechanism?",
+        "trade_lawyer": "[trade_lawyer attempted to act a new action, but their team is executing: protocol_amendment_drafting. Action blocked — monitoring continues.]",
+        "media_actor": "Okay, so if Mexico agrees to independent monitors, auto-tariff triggers, and the 30-day fix—exactly what labor_union just outlined—do you walk your caucus to a yes on ratification? Because right now I'm telling the public either \"this deal protects workers\" or \"Congress killed it for politics,\" and I need to know which story I'm actually selling before the amendment text gets locked."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "media_actor",
+      "intent": "I'm running this story out today: \"Labor, Congress, Mexico reach historic deal—independent monitors, automatic tariff triggers, workers get real enforcement.\" My angle is this protects workers and ends the stall. Congress, labor—your members hear \"we won\" or this dies. You want that framing locked in the morning news cycle, or do we wait and let the anti-trade crowd write it first?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The media frames the deal as a labor victory with real enforcement, locking in positive momentum before opposition narratives can take hold. The framing pressures Congress and labor to accept or risk losing credit for the win.",
+      "side_effects": [
+        {
+          "variable": "public_narrative_pressure",
+          "delta": 5.0,
+          "reason": "Positive media framing creates public expectation of passage and frames deal as worker-friendly",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 4.0,
+          "reason": "Favorable media narrative builds momentum and makes opposition harder to justify publicly",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": -3.0,
+          "reason": "Framing the current deal as already containing 'real enforcement' reduces pressure to reopen negotiations",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": 3.0,
+          "reason": "Positive media coverage signals deal is moving forward, reducing business anxiety about prolonged uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": -1,
+          "reason": "coupling: public_narrative_pressure → ratification_prospects (ratio -0.2)",
+          "_coupled": true,
+          "_source": "public_narrative_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "ratification_clock",
+        "variable": "ratification_prospects",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_lawyer",
+      "intent": "Mexico, here's what makes this enforceable: the amendment text I've drafted includes unannounced facility access as a non-waivable right—it's not discretionary, it's written into the protocol. You sign that language right now, we file it with all three governments this afternoon, and Congress announces support to their caucus within hours. That's how we close this today.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The trade lawyer cannot unilaterally commit Congress to announce support or file amendments with all three governments—these require separate institutional actions by other agents. The proposal itself is valid legal drafting but execution requires coordination not yet secured.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 5,
+      "agent_id": "us_congress_dem",
+      "intent": "Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Congress proposes balanced monitoring language—enforcement without sovereignty overreach.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 4.0,
+          "reason": "Concrete inspection/interview access mechanism",
+          "agent_id": null
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": -3.0,
+          "reason": "Removes unannounced access provision",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": -2.0,
+          "reason": "Specific amendment text proposed",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2.0,
+          "reason": "Congressional path forward clarified",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "ratification_clock",
+        "variable": "amendment_pressure",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "business_lobby": "Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?",
+        "labor_union": "Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.",
+        "canada_domestic": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+        "mexico_gov": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+        "trade_lawyer": "Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done.",
+        "media_actor": "Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "business_lobby",
+      "intent": "Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Business demands joint announcement and 14-day vote timeline for certainty.",
+      "side_effects": [
+        {
+          "variable": "business_certainty_pressure",
+          "delta": 5.0,
+          "reason": "Concrete timeline commitment requested",
+          "agent_id": null
+        },
+        {
+          "variable": "public_narrative_pressure",
+          "delta": 3.0,
+          "reason": "Deadline creates urgency narrative",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1.0,
+          "reason": "Timeline pressure accelerates process",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: business_certainty_pressure → ratification_prospects (ratio 0.3)",
+          "_coupled": true,
+          "_source": "business_certainty_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "ratification_clock",
+        "variable": "ratification_prospects",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.",
+        "labor_union": "Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.",
+        "canada_domestic": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+        "mexico_gov": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+        "trade_lawyer": "Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done.",
+        "media_actor": "Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "labor_union",
+      "intent": "Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Labor demands automatic tariff suspension—no waiver, no cure period.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 5.0,
+          "reason": "Automatic enforcement mechanism specified",
+          "agent_id": null
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": 4.0,
+          "reason": "No cure period infringes sovereignty",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": -3.0,
+          "reason": "Labor commits to support amendment",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 3.0,
+          "reason": "Labor ratification support secured",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: mexico_sovereignty_concern → labor_enforcement_adequacy (ratio -0.3)",
+          "_coupled": true,
+          "_source": "mexico_sovereignty_concern"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "ratification_clock",
+        "variable": "amendment_pressure",
+        "multiplier": 0.6
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.",
+        "business_lobby": "Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?",
+        "canada_domestic": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+        "mexico_gov": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+        "trade_lawyer": "Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done.",
+        "media_actor": "Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_lawyer",
+      "intent": "Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Lawyer drafts compromise: automatic suspension with 30-day remediation window.",
+      "side_effects": [
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": 3.0,
+          "reason": "Automatic suspension mechanism formalized",
+          "agent_id": null
+        },
+        {
+          "variable": "mexico_sovereignty_concern",
+          "delta": -2.0,
+          "reason": "Remediation window preserves control",
+          "agent_id": null
+        },
+        {
+          "variable": "amendment_pressure",
+          "delta": -4.0,
+          "reason": "Operative legal text bridges positions",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 4.0,
+          "reason": "Legal framework enables passage",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 1,
+          "reason": "coupling: labor_enforcement_adequacy → ratification_prospects (ratio 0.4)",
+          "_coupled": true,
+          "_source": "labor_enforcement_adequacy"
+        },
+        {
+          "variable": "labor_enforcement_adequacy",
+          "delta": -1,
+          "reason": "coupling: amendment_pressure → labor_enforcement_adequacy (ratio 0.4)",
+          "_coupled": true,
+          "_source": "amendment_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "ratification_clock",
+        "variable": "amendment_pressure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.",
+        "business_lobby": "Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?",
+        "labor_union": "Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.",
+        "canada_domestic": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+        "mexico_gov": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+        "media_actor": "Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "media_actor",
+      "intent": "Okay, everyone's on the same operative language—I hear it. Here's what I'm doing: I'm publishing \"Deal Locked—All Parties Commit to Labor Enforcement Amendment\" in one hour. Congress, Mexico, labor, Canada—if you don't announce your support *together* in the next 45 minutes, the headline becomes \"Backroom Deal, Still No Public Commitment.\" Your move.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Media forces 45-minute deadline for joint public commitment.",
+      "side_effects": [
+        {
+          "variable": "public_narrative_pressure",
+          "delta": 5.0,
+          "reason": "Imminent publication deadline creates urgency",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": 2.0,
+          "reason": "Public commitment forces action",
+          "agent_id": null
+        },
+        {
+          "variable": "business_certainty_pressure",
+          "delta": 3.0,
+          "reason": "Deadline accelerates resolution",
+          "agent_id": null
+        },
+        {
+          "variable": "ratification_prospects",
+          "delta": -1,
+          "reason": "coupling: public_narrative_pressure → ratification_prospects (ratio -0.2)",
+          "_coupled": true,
+          "_source": "public_narrative_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "ratification_clock",
+        "variable": "public_narrative_pressure",
+        "multiplier": 1.8,
+        "duration": 1,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "us_congress_dem": "Okay, Mexico's right—unannounced access overreaches. But \"independent monitors present at all facility inspections\" plus \"Mexico can't deny access to inspection records or worker interviews\" gets us the same enforcement teeth without the sovereignty hit. That language locks in the amendment text *right now*, or my caucus doesn't move.",
+        "business_lobby": "Mexico, Congress—you've got the language locked. Here's what unblocks my caucus: you announce the framework together by end of week, trade_lawyer files the amendment, and Congress commits to a vote within 14 days. My members need to know this *ends* the uncertainty, not extends it. Can you commit to that timeline in writing?",
+        "labor_union": "Mexico, I need you to say yes or no to this exact language right now: \"If Mexico fails to meet labor benchmarks verified by independent monitors, tariffs automatically suspend on the named product list for 30 days—no negotiation, no Mexico waiver, no cure period.\" My members vote yes on ratification the moment you commit to that in the amendment text. Without it, I'm telling them the deal's hollow and we oppose it publicly.",
+        "canada_domestic": "Hold on — if we reopen the tariff language now, we're reopening the whole package, and Mexico gets to revisit sovereignty, Congress revisits labor mechanics, and my domestic caucus will demand we renegotiate dairy back up. The amendment text that's on the table *right now* — monitors present, record access, automatic reporting — that's the one we ratify. Congress, you need Mexico's automatic-suspension language in *that* text before it goes to signature, not after. Don't ask us to ratify an amendment that's still being negotiated.",
+        "mexico_gov": "Automatic suspension works for us—but it has to be clear: Mexico implements the labor fix, monitors verify compliance, tariffs lift automatically when benchmarks are met. We're not accepting language that reads like the U.S. suspends tariffs *on Mexico* for political reasons. That's the distinction that gets this signed this week.",
+        "trade_lawyer": "Here's the operative language that makes both work: \"If independent monitors report Mexico has not met labor benchmarks by the 30-day review date, tariffs on named products automatically suspend for an additional 30 days during which Mexico implements remediation. Tariffs lift automatically upon verified compliance.\" Mexico keeps control of the fix; Congress gets automatic suspension tied to objective monitoring data, no negotiation. Both sides sign that language today, we're done."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "ratification_prospects": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 42.0
+        },
+        {
+          "round": 3,
+          "value": 44.5
+        },
+        {
+          "round": 4,
+          "value": 44.5
+        },
+        {
+          "round": 5,
+          "value": 60.2
+        }
+      ],
+      "labor_enforcement_adequacy": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 52.0
+        },
+        {
+          "round": 3,
+          "value": 54.0
+        },
+        {
+          "round": 4,
+          "value": 57.0
+        },
+        {
+          "round": 5,
+          "value": 66.0
+        }
+      ],
+      "amendment_pressure": [
+        {
+          "round": 1,
+          "value": 52.0
+        },
+        {
+          "round": 2,
+          "value": 69.6
+        },
+        {
+          "round": 3,
+          "value": 73.383
+        },
+        {
+          "round": 4,
+          "value": 77.71974999999999
+        },
+        {
+          "round": 5,
+          "value": 71.05649999999999
+        }
+      ],
+      "business_certainty_pressure": [
+        {
+          "round": 1,
+          "value": 53.0
+        },
+        {
+          "round": 2,
+          "value": 57.0
+        },
+        {
+          "round": 3,
+          "value": 60.0
+        },
+        {
+          "round": 4,
+          "value": 60.0
+        },
+        {
+          "round": 5,
+          "value": 68.0
+        }
+      ],
+      "mexico_sovereignty_concern": [
+        {
+          "round": 1,
+          "value": 47.0
+        },
+        {
+          "round": 2,
+          "value": 46.0
+        },
+        {
+          "round": 3,
+          "value": 46.0
+        },
+        {
+          "round": 4,
+          "value": 46.0
+        },
+        {
+          "round": 5,
+          "value": 45.0
+        }
+      ],
+      "public_narrative_pressure": [
+        {
+          "round": 1,
+          "value": 51
+        },
+        {
+          "round": 2,
+          "value": 55.0
+        },
+        {
+          "round": 3,
+          "value": 61.0
+        },
+        {
+          "round": 4,
+          "value": 62.0
+        },
+        {
+          "round": 5,
+          "value": 71.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: ratification_prospects >= 60 AND labor_enforcement_adequacy >= 50",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "us_congress_dem": {
+        "scores": [
+          {
+            "metric": "labor_enforcement_adequacy",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.0,
+            "normalised": 0.66
+          },
+          {
+            "metric": "amendment_pressure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 71.05649999999999,
+            "normalised": 0.7105649999999999
+          }
+        ],
+        "weighted_score": 0.6852824999999999
+      },
+      "business_lobby": {
+        "scores": [
+          {
+            "metric": "ratification_prospects",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.2,
+            "normalised": 0.602
+          },
+          {
+            "metric": "business_certainty_pressure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 68.0,
+            "normalised": 0.68
+          }
+        ],
+        "weighted_score": 0.641
+      },
+      "labor_union": {
+        "scores": [
+          {
+            "metric": "labor_enforcement_adequacy",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.0,
+            "normalised": 0.66
+          },
+          {
+            "metric": "amendment_pressure",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.05649999999999,
+            "normalised": 0.7105649999999999
+          }
+        ],
+        "weighted_score": 0.6768549999999999
+      },
+      "canada_domestic": {
+        "scores": [
+          {
+            "metric": "amendment_pressure",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 71.05649999999999,
+            "normalised": 0.2894350000000001
+          },
+          {
+            "metric": "ratification_prospects",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 60.2,
+            "normalised": 0.602
+          }
+        ],
+        "weighted_score": 0.3519480000000001
+      },
+      "mexico_gov": {
+        "scores": [
+          {
+            "metric": "mexico_sovereignty_concern",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 45.0,
+            "normalised": 0.55
+          },
+          {
+            "metric": "ratification_prospects",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 60.2,
+            "normalised": 0.602
+          }
+        ],
+        "weighted_score": 0.5673333333333334
+      },
+      "trade_lawyer": {
+        "scores": [
+          {
+            "metric": "ratification_prospects",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.2,
+            "normalised": 0.602
+          },
+          {
+            "metric": "labor_enforcement_adequacy",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 66.0,
+            "normalised": 0.66
+          }
+        ],
+        "weighted_score": 0.6213333333333333
+      },
+      "media_actor": {
+        "scores": [
+          {
+            "metric": "public_narrative_pressure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.7099999999999999
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/historical-knowledge-annotation.schema.json",
+  "title": "Historical knowledge annotation",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "case_id",
+    "condition_id",
+    "run_id",
+    "excerpt_sha256",
+    "excerpt",
+    "information_cutoff",
+    "human_label",
+    "coder_id"
+  ],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "case_id": {"enum": ["usmca", "credit_suisse"]},
+    "condition_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "round_id": {"type": ["string", "null"]},
+    "actor_id": {"type": ["string", "null"]},
+    "excerpt_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "excerpt": {"type": "string", "minLength": 1},
+    "information_cutoff": {"type": "string", "format": "date"},
+    "actor_access_summary": {"type": ["string", "null"]},
+    "input_status": {
+      "enum": ["not_supplied", "supplied", "partially_supplied", "unknown"]
+    },
+    "automated_evaluator": {"type": ["string", "null"]},
+    "automated_label": {"type": ["string", "number", "null"]},
+    "human_label": {
+      "enum": [
+        "VIOLATION_ASSERTED_HISTORY",
+        "VIOLATION_OUTCOME_MATCH",
+        "SUPPORTED_CONTEMPORANEOUS_INFERENCE",
+        "NEGOTIATING_PROPOSAL",
+        "INCIDENTAL_NUMERICAL_MATCH",
+        "NOT_RELEVANT",
+        "UNRESOLVED"
+      ]
+    },
+    "earliest_admissible_source": {"type": ["string", "null"]},
+    "source_date": {"type": ["string", "null"], "format": "date"},
+    "introduced_by": {"type": ["string", "null"]},
+    "reuses_claim_id": {"type": ["string", "null"]},
+    "affected_conclusion": {"type": ["string", "null"]},
+    "coder_id": {"type": "string", "minLength": 1},
+    "coded_at_utc": {"type": ["string", "null"], "format": "date-time"},
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

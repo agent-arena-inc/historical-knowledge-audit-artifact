@@ -1,0 +1,2382 @@
+{
+  "simulation_id": "27df37f3f46d",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: We've got four silos here — RVC compliance, supplier moves, credit risk, political shifts. But they're not independent. When a plant fails the wage-floor test and we pull sourcing, that's a trigger for supplier insolvency and tighter credit terms. Who's owning the cascade map — which domino actually falls first?\n  supplier: When a Tier 2 supplier fails the wage-floor test and we pull orders, does that supplier survive three months of no revenue while re-qualifying, or do we lose them? That's the trigger that hits credit risk and political blowback — and I don't see it named anywhere on this map yet.\n  auto_strategy: That supplier-insolvency trigger is the needle we need to thread — pull it into the RVC burden calculation now. I need two numbers from you: average Tier 2 cash runway when orders stop, and which of our volume-critical suppliers sit below the wage floor today. That's the real compliance cost, not just the re-sourcing line item.\n  compliance_lawyer: I'll take those two numbers from you right now — average Tier 2 cash runway when orders stop, and which suppliers sit below the wage floor today. Once I have that, I can map the certification audit trigger and the penalty cost into the RVC burden calculation. That's how we move from \"cascade risk exists\" to \"audit happens on day X, penalty is Y.\"\n  political_risk_insurer: Before we lock in the audit timeline, I need clarity: Is the wage-floor certification audit mandatory on a fixed schedule, or does DOL have discretion to accelerate it if political pressure builds? Because if it's discretionary, that's a *policy risk* — next admin could weaponize the trigger. That changes my premium.\n  compliance_lawyer: DOL wage-floor audits are mandatory on a fixed schedule — annual for high-risk sectors, triennial baseline — but they can expedite if a complaint lands. That's the discretion point: a single worker complaint triggers an unscheduled audit within 60 days, and if we're pulling orders from a supplier mid-qualification, that supplier files a complaint every time. So the real trigger isn't the calendar — it's the day we notify a supplier they're non-compliant.\n  trade_credit_underwriter: Of your volume-critical Tier 2 base, how many sit below the wage floor today, and what's their median cash runway if orders stop cold? I need real numbers — that's what separates \"cascade risk exists\" from \"we're pricing a 40% default probability in Q2.\"\n  supplier: We've got twelve volume-critical Tier 2 suppliers below the wage floor right now — mostly Mexican contract manufacturers — and median cash runway is four to six weeks once orders stop. That's the real number: we pull sourcing to comply, they're insolvent before re-qualification finishes, and we lose the supply line or watch them get acquired at fire-sale prices while we're mid-transition.\n  supply_chain_consultant: Okay, so we've priced the insolvency hit — but here's what I need: of those twelve suppliers, how many can actually nearshore into a compliant wage zone within six months, and what's the capex lift versus our current sourcing cost? Because if we front-load relocation incentives now, before the 2026 review hardens the rules, we dodge both the credit default and the supply shock. That's the plan I'm selling to the CFO.\n  cfo_erm: Here's what I'm locking in: supplier-insolvency trigger fires on day-one notification, 60-day DOL audit window opens, median cash burn is four-to-six weeks. That's our baseline cost. But before we price relocation incentives, I need the supply consultant to answer this now — of those twelve, how many can actually move into a wage-compliant zone within six months, and what's the capex? That's the decision: do we front-load relocation spend to dodge the credit default, or do we accept the loss and re-source? I'm not consolidating this map until I have both paths priced.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "We've got four silos here — RVC compliance, supplier moves, credit risk, political shifts. But they're not independent. When a plant fails the wage-floor test and we pull sourcing, that's a trigger for supplier insolvency and tighter credit terms. Who's owning the cascade map — which domino actually falls first?",
+            "cot": {
+              "assess": "Rules-of-origin burden is quantified and flagged — that's locked. But the risk map is still fragmented: we've got four separate exposure buckets (supplier relocation, trade credit, political risk, compliance cost) floating independently. Nobody's priced the *cascades* — what happens when a supplier relocates AND trade credit tightens AND we're mid-compliance audit. Underwriting discipline is soft: we're naming risks, not triggering them.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk_map_completeness / underwriting_discipline owner",
+                "rationale": "The map stays vague until we define which compliance shortfall triggers supplier relocation, which relocation triggers credit lines to tighten, and which political shift invalidates our re-sourcing plan. I need to know who owns synthesizing those cascades."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "When a Tier 2 supplier fails the wage-floor test and we pull orders, does that supplier survive three months of no revenue while re-qualifying, or do we lose them? That's the trigger that hits credit risk and political blowback — and I don't see it named anywhere on this map yet.",
+            "cot": {
+              "assess": "My exposure variables are solid — supplier_relocation_exposure at 25 and rules_of_origin_burden at 32 are flagged and visible. But the team's right: we're four separate risk conversations, not one supply-chain failure sequence. The cascade map is missing — nobody's named which supplier actually goes under first when compliance tightens, and that's where credit and political risk compound.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "They own the strategy coupling; I need to know which supplier segment breaks first so we can price the domino chain into the risk map."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "That supplier-insolvency trigger is the needle we need to thread — pull it into the RVC burden calculation now. I need two numbers from you: average Tier 2 cash runway when orders stop, and which of our volume-critical suppliers sit below the wage floor today. That's the real compliance cost, not just the re-sourcing line item.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "I'll take those two numbers from you right now — average Tier 2 cash runway when orders stop, and which suppliers sit below the wage floor today. Once I have that, I can map the certification audit trigger and the penalty cost into the RVC burden calculation. That's how we move from \"cascade risk exists\" to \"audit happens on day X, penalty is Y.\"",
+            "cot": {
+              "assess": "Auto_strategy and supplier just locked the critical trigger: Tier 2 wage-floor failure → order pull → supplier insolvency → credit collapse. That's not vague exposure anymore — it's a named domino. But it's still floating. We've got rules_of_origin_burden at 32, which is decent, but it's not *operationalized* — no audit timeline, no penalty cost tied to that wage-floor trigger, no certification gate that actually blocks the order. risk_map_completeness at 19 is the real gap: we're naming risks, not pricing them.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the two numbers auto_strategy flagged (Tier 2 cash runway + volume-critical suppliers below wage floor) NOW, because without them, the wage-floor trigger stays theoretical instead of auditable."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Before we lock in the audit timeline, I need clarity: Is the wage-floor certification audit mandatory on a fixed schedule, or does DOL have discretion to accelerate it if political pressure builds? Because if it's discretionary, that's a *policy risk* — next admin could weaponize the trigger. That changes my premium.",
+            "cot": {
+              "assess": "The cascade is now named — supplier insolvency on wage-floor failure is the political-risk trigger everyone's been circling. But it's still floating: no price, no enforcement timeline, no sovereign-policy angle on labor retaliation. Compliance_lawyer and auto_strategy are chasing the supplier cash-runway numbers, which is right, but that's operational resilience — not the *policy* shock I need to underwrite.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The wage-floor audit trigger and penalty cost are operational; I need to know whether the enforcement itself is discretionary or mandatory, and whether a future admin could weaponize the timing to force reshoring — that's the political-risk layer I price."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "DOL wage-floor audits are mandatory on a fixed schedule — annual for high-risk sectors, triennial baseline — but they can expedite if a complaint lands. That's the discretion point: a single worker complaint triggers an unscheduled audit within 60 days, and if we're pulling orders from a supplier mid-qualification, that supplier files a complaint every time. So the real trigger isn't the calendar — it's the day we notify a supplier they're non-compliant.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Of your volume-critical Tier 2 base, how many sit below the wage floor today, and what's their median cash runway if orders stop cold? I need real numbers — that's what separates \"cascade risk exists\" from \"we're pricing a 40% default probability in Q2.\"",
+            "cot": {
+              "assess": "The team just locked in the real trigger: supplier non-compliance notification kicks off a 60-day audit cascade and receivables risk. That's concrete. But I'm seeing two gaps — nobody's quantified the insolvency window (how many Tier 2 suppliers actually survive it), and the map still treats trade-credit exposure as a passive variable instead of a pricing lever tied to audit probability.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need the cash-runway data NOW to price the actual default risk — vague timelines kill underwriting discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "We've got twelve volume-critical Tier 2 suppliers below the wage floor right now — mostly Mexican contract manufacturers — and median cash runway is four to six weeks once orders stop. That's the real number: we pull sourcing to comply, they're insolvent before re-qualification finishes, and we lose the supply line or watch them get acquired at fire-sale prices while we're mid-transition.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay, so we've priced the insolvency hit — but here's what I need: of those twelve suppliers, how many can actually nearshore into a compliant wage zone within six months, and what's the capex lift versus our current sourcing cost? Because if we front-load relocation incentives now, before the 2026 review hardens the rules, we dodge both the credit default and the supply shock. That's the plan I'm selling to the CFO.",
+            "cot": {
+              "assess": "We've got the insolvency trigger named and quantified — twelve suppliers, four-to-six-week runway, compliance pull = default. That's underwriting gold. But we're still missing the nearshoring offset: which of those twelve can relocate to Mexico-compliant zones or North America, and what's the cost delta versus the credit loss? That's the bridge between risk and action.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "We need to move from \"suppliers fail\" to \"here's the relocation pathway that prevents the failure\" — that's what turns this into a client plan instead of a disaster scenario."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking in: supplier-insolvency trigger fires on day-one notification, 60-day DOL audit window opens, median cash burn is four-to-six weeks. That's our baseline cost. But before we price relocation incentives, I need the supply consultant to answer this now — of those twelve, how many can actually move into a wage-compliant zone within six months, and what's the capex? That's the decision: do we front-load relocation spend to dodge the credit default, or do we accept the loss and re-source? I'm not consolidating this map until I have both paths priced.",
+            "cot": {
+              "assess": "We've nailed the insolvency trigger — twelve suppliers, four-to-six-week runway, day-one complaint risk when we notify non-compliance. That's priced. But the map is still fragmented: we're talking cascade mechanics and relocation capex in isolation. I need one consolidated view that shows which domino actually moves first AND what it costs to stop it.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "We have the raw numbers but no decision-ready prioritization — I'm consolidating the four silos into one actionable map with named triggers and price tags."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "We've got four silos here — RVC compliance, supplier moves, credit risk, political shifts. But they're not independent. When a plant fails the wage-floor test and we pull sourcing, that's a trigger for supplier insolvency and tighter credit terms. Who's owning the cascade map — which domino actually falls first?",
+      "metadata": {
+        "question_target": "risk_map_completeness / underwriting_discipline owner"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "When a Tier 2 supplier fails the wage-floor test and we pull orders, does that supplier survive three months of no revenue while re-qualifying, or do we lose them? That's the trigger that hits credit risk and political blowback — and I don't see it named anywhere on this map yet.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "I'll take those two numbers from you right now — average Tier 2 cash runway when orders stop, and which suppliers sit below the wage floor today. Once I have that, I can map the certification audit trigger and the penalty cost into the RVC burden calculation. That's how we move from \"cascade risk exists\" to \"audit happens on day X, penalty is Y.\"",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Before we lock in the audit timeline, I need clarity: Is the wage-floor certification audit mandatory on a fixed schedule, or does DOL have discretion to accelerate it if political pressure builds? Because if it's discretionary, that's a *policy risk* — next admin could weaponize the trigger. That changes my premium.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Of your volume-critical Tier 2 base, how many sit below the wage floor today, and what's their median cash runway if orders stop cold? I need real numbers — that's what separates \"cascade risk exists\" from \"we're pricing a 40% default probability in Q2.\"",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, so we've priced the insolvency hit — but here's what I need: of those twelve suppliers, how many can actually nearshore into a compliant wage zo\" → Supply consultant frames relocation-incentive strategy: nearshoring capacity and capex now priced as decision variables.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking in: supplier-insolvency trigger fires on day-one notification, 60-day DOL audit window opens, median cash burn is four-to-six \" → CFO locks baseline triggers: supplier-insolvency on notification, 60-day audit window, 4-6 week cash burn median.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Walk me through this: of the twelve suppliers below the wage floor, which ones feed our highest-volume models — and what's the re-source cost per unit if we have to pull them inside sixty days? I need the model-level impact, not just the supplier count. That's what ties RVC burden to the audit trigger.\n  compliance_lawyer: I don't have the supplier-to-model mapping or unit-cost data — that's on the supply consultant. But here's what I need to lock the audit trigger: which of those twelve sit in Mexico versus other USMCA zones, and does pulling them breach RVC thresholds on any single SKU? That's the compliance domino — once we know that, we price the penalty and the re-source cost becomes one number.\n  supplier: Which of our volume models hit the tightest RVC margins today? Once I know that, I can tell you exactly which of the twelve suppliers below the wage floor feed those SKUs, where they sit geographically, and what the re-source hit looks like if we pull them inside sixty days. That's the number that ties your audit trigger to actual penalty cost.\n  auto_strategy: Our tightest RVC models are the F-150 and Silverado — both sit at 72-74% regional content today, and both feed off that Mexican Tier 2 base you're describing. Pull any of those twelve suppliers in sixty days, and we're looking at a 3-5% unit-cost spike to re-source domestically, which blows through our RVC floor on those two SKUs alone — that's the penalty trigger we need to price right now.\n  compliance_lawyer: Supply consultant — you've got the supplier roster and the geographies. Of those twelve below the wage floor, how many sit in Mexico, and realistically, how many can re-certify inside sixty days without moving? That's what separates \"we lose them and breach RVC\" from \"we lose them and re-source domestically.\" That's the audit sequence we need to price.\n  supply_chain_consultant: Of the twelve, nine sit in Mexico — and here's the hard truth: zero re-certify inside sixty days without relocation capex. So pulling them triggers both the RVC breach on F-150 and Silverado *and* forces the domestic re-source at that 3-5% unit cost. That's your cascade: audit trigger day one, penalty pricing day sixty, and we need nearshoring capex locked in *now* to avoid losing margin and supply simultaneously.\n  political_risk_insurer: Okay, so the audit fires day one on notification — that's your baseline. But here's what I'm pricing separately: if a worker complaint accelerates the timeline, or the next DOL pivots enforcement, does the sixty-day window collapse to thirty? And does the penalty survive judicial review if we challenge it? Those are political variables, not operational ones — I need them named before I lock the premium.\n  trade_credit_underwriter: When those nine suppliers go insolvent during the sixty-day window, what's our exposure on outstanding payables and inventory sitting at their plants? I need that number isolated so I can price it separately from the re-source cost — that's the trade-credit variable that moves my underwriting.\n  cfo_erm: I'm locking the baseline triggers right now: supplier-insolvency notification triggers a 60-day audit window, median cash burn is 4-6 weeks for Tier 2, and we price the re-source penalty at 3-5% unit cost on F-150 and Silverado. Trade credit exposure on outstanding payables at those nine Mexican plants — I need your inventory and payables snapshot by close of business today so I can net it against the nearshoring capex decision and give you one consolidated penalty number.\n  supply_chain_consultant: Here's what I need locked before we price this: of those nine Mexican suppliers, how many have nearshoring capacity available *right now* in a compliant wage zone, and what's the capex per supplier to move tooling and ramp inside ninety days? That's the decision variable — nearshoring cost versus re-source penalty versus accepting the RVC hit. Give me those numbers and I can build the actual business case.\n  supplier: Of the nine Mexican suppliers, three have nearshoring capacity in compliant wage zones—Texas and northern Arizona—but they're already committed to other OEM tooling through Q3. The capex per supplier runs $2.8–$4.2M for die relocation and ramp, plus 12–16 week lead time on equipment. That's the constraint: we can't absorb all nine into available nearshore capacity fast enough to avoid the RVC breach on F-150 and Silverado, so we're looking at a hybrid—nearshore three, re-source three domestically at the 3-5% unit hit, and accept the insolvency risk on the remaining three unless we front relocation incentives *this week*.\n  cfo_erm: Stop. We're pricing this as four separate line items when it's one domino sequence. Here's what I'm locking into the final map: Day 1 audit notification → day 42 insolvency on nine suppliers → simultaneous RVC breach penalty ($X per unit on F-150/Silverado) + trade-credit exposure ($Y on payables) + nearshoring capex decision ($Z per supplier, capacity-constrained to three). One number, one trigger, one decision. Political acceleration risk — DOL discretion to compress the sixty-day window — sits on top as a multiplier. Who owns the consolidated cost model?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Walk me through this: of the twelve suppliers below the wage floor, which ones feed our highest-volume models — and what's the re-source cost per unit if we have to pull them inside sixty days? I need the model-level impact, not just the supplier count. That's what ties RVC burden to the audit trigger.",
+            "cot": {
+              "assess": "We've locked the insolvency trigger and cash-burn baseline — that's solid. But we're sitting at 31 on risk_map_completeness and 38 on underwriting_discipline, both well short of where we need to be. The silos are still silos: we know *when* the trigger fires (day one), we know *how long* suppliers survive (4–6 weeks), but we haven't mapped *which models go non-compliant first* or *what the RVC penalty cost actually is* when we pull those twelve suppliers. That's the gap between \"cascade risk exists\" and \"we price it.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "We need to operationalize the audit timeline into the RVC burden — specifically, which models/plants fail the wage-floor test first, and what's the compliance-cost delta to re-source or nearshore them within that 60-day window."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "I don't have the supplier-to-model mapping or unit-cost data — that's on the supply consultant. But here's what I need to lock the audit trigger: which of those twelve sit in Mexico versus other USMCA zones, and does pulling them breach RVC thresholds on any single SKU? That's the compliance domino — once we know that, we price the penalty and the re-source cost becomes one number.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Which of our volume models hit the tightest RVC margins today? Once I know that, I can tell you exactly which of the twelve suppliers below the wage floor feed those SKUs, where they sit geographically, and what the re-source hit looks like if we pull them inside sixty days. That's the number that ties your audit trigger to actual penalty cost.",
+            "cot": {
+              "assess": "We've locked the insolvency trigger and cash-burn baseline — that's solid. But we're sitting at 31 on risk_map_completeness and need to hit 60. The compliance lawyer and auto_strategy are asking me for supplier-to-model mapping and Mexico vs. other USMCA breakdown — that's the data that actually connects the four silos. I have it, but I need to know which models matter most before I hand it over piecemeal.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to prioritize which supplier-model pairs drive the highest RVC exposure, so I can surface the re-source cost and compliance domino in the right order — and that's YOUR call, not mine."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Our tightest RVC models are the F-150 and Silverado — both sit at 72-74% regional content today, and both feed off that Mexican Tier 2 base you're describing. Pull any of those twelve suppliers in sixty days, and we're looking at a 3-5% unit-cost spike to re-source domestically, which blows through our RVC floor on those two SKUs alone — that's the penalty trigger we need to price right now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supply consultant — you've got the supplier roster and the geographies. Of those twelve below the wage floor, how many sit in Mexico, and realistically, how many can re-certify inside sixty days without moving? That's what separates \"we lose them and breach RVC\" from \"we lose them and re-source domestically.\" That's the audit sequence we need to price.",
+            "cot": {
+              "assess": "The room just locked the critical domino: F-150 and Silverado feed off those twelve Mexican Tier 2 suppliers, pulling any of them in sixty days triggers a 3-5% unit-cost spike that *breaches RVC floor*. That's a named penalty trigger — good. But risk_map_completeness is still 31 because we have supplier names and models, not the actual audit-to-penalty sequence mapped across all four silos. We know the trigger fires; we don't know which supplier fails first, when the DOL audit lands relative to the re-source window, or how credit risk cascades into political blowback.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "We have the model-level RVC exposure and the supplier cash runway. What we need NOW is the geographic and compliance breakdown that locks the audit sequence — which of those twelve sit in Mexico vs. other USMCA zones, and which ones are actually *certifiable* within the 60-day window?"
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Of the twelve, nine sit in Mexico — and here's the hard truth: zero re-certify inside sixty days without relocation capex. So pulling them triggers both the RVC breach on F-150 and Silverado *and* forces the domestic re-source at that 3-5% unit cost. That's your cascade: audit trigger day one, penalty pricing day sixty, and we need nearshoring capex locked in *now* to avoid losing margin and supply simultaneously.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Okay, so the audit fires day one on notification — that's your baseline. But here's what I'm pricing separately: if a worker complaint accelerates the timeline, or the next DOL pivots enforcement, does the sixty-day window collapse to thirty? And does the penalty survive judicial review if we challenge it? Those are political variables, not operational ones — I need them named before I lock the premium.",
+            "cot": {
+              "assess": "The cascade is now priced: nine Mexican suppliers below wage floor → zero re-certify in sixty days → RVC breach on F-150/Silverado → 3-5% domestic re-source cost. That's underwriting gold. But we've mapped the *operational* trigger chain and not yet locked the *political* layer — DOL discretion to accelerate audits on worker complaints, next admin's enforcement stance, and whether penalties survive legal challenge. That's where my premium lives, and it's still unpriced.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to separate mandatory-schedule audit risk from discretionary-acceleration risk so I can price the political-risk multiplier on top of the operational cascade."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When those nine suppliers go insolvent during the sixty-day window, what's our exposure on outstanding payables and inventory sitting at their plants? I need that number isolated so I can price it separately from the re-source cost — that's the trade-credit variable that moves my underwriting.",
+            "cot": {
+              "assess": "The cascade is mapped — audit trigger day one, RVC breach on F-150/Silverado if nine Mexican suppliers get pulled, domestic re-source at 3-5% unit cost. That's solid. But we're still missing the receivables angle: when those nine suppliers hit insolvency during the sixty-day window, what happens to our outstanding payables and inventory liability? That's trade-credit risk sitting unnamed in the gap between \"we lose the supplier\" and \"we re-source domestically.\" Risk map is fragmented across silos; underwriting discipline is still soft because we haven't priced the credit exposure as a standalone variable.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO locked the insolvency trigger and baseline cost, but I need the receivables and working-capital hit isolated so I can price trade-credit exposure as a hard factor — not fold it into re-source cost."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm locking the baseline triggers right now: supplier-insolvency notification triggers a 60-day audit window, median cash burn is 4-6 weeks for Tier 2, and we price the re-source penalty at 3-5% unit cost on F-150 and Silverado. Trade credit exposure on outstanding payables at those nine Mexican plants — I need your inventory and payables snapshot by close of business today so I can net it against the nearshoring capex decision and give you one consolidated penalty number.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need locked before we price this: of those nine Mexican suppliers, how many have nearshoring capacity available *right now* in a compliant wage zone, and what's the capex per supplier to move tooling and ramp inside ninety days? That's the decision variable — nearshoring cost versus re-source penalty versus accepting the RVC hit. Give me those numbers and I can build the actual business case.",
+            "cot": {
+              "assess": "The cascade is locked: audit fires day one, nine Mexican suppliers hit insolvency within 4-6 weeks, RVC breach on F-150/Silverado triggers 3-5% re-source penalty. CFO is consolidating that into one number. But we're still missing the *decision point* — nearshoring capex versus domestic re-source versus accepting the penalty. That's what risk_map_completeness actually needs: not more granularity, but a priced choice with a timeline.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure / risk_map_completeness",
+                "rationale": "The CFO's baseline is solid, but it leaves the nearshoring option floating. I need to anchor a concrete relocation plan with capex and timeline so the board has an actual choice to price, not just a cascade to absorb."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Of the nine Mexican suppliers, three have nearshoring capacity in compliant wage zones—Texas and northern Arizona—but they're already committed to other OEM tooling through Q3. The capex per supplier runs $2.8–$4.2M for die relocation and ramp, plus 12–16 week lead time on equipment. That's the constraint: we can't absorb all nine into available nearshore capacity fast enough to avoid the RVC breach on F-150 and Silverado, so we're looking at a hybrid—nearshore three, re-source three domestically at the 3-5% unit hit, and accept the insolvency risk on the remaining three unless we front relocation incentives *this week*.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Stop. We're pricing this as four separate line items when it's one domino sequence. Here's what I'm locking into the final map: Day 1 audit notification → day 42 insolvency on nine suppliers → simultaneous RVC breach penalty ($X per unit on F-150/Silverado) + trade-credit exposure ($Y on payables) + nearshoring capex decision ($Z per supplier, capacity-constrained to three). One number, one trigger, one decision. Political acceleration risk — DOL discretion to compress the sixty-day window — sits on top as a multiplier. Who owns the consolidated cost model?",
+            "cot": {
+              "assess": "We've got the cascade locked — audit fires day one, nine Mexican suppliers go insolvent in 4-6 weeks, RVC breach hits F-150/Silverado at 3-5% unit cost. But the map is still fragmented: we're pricing nearshoring capex, re-source penalties, and trade-credit exposure separately when they're all triggered by the same event. And we haven't named the political risk variable — if DOL accelerates the audit timeline or the next admin weaponizes enforcement, our sixty-day window collapses and the whole hybrid strategy breaks. That's the gap killing our risk_map_completeness.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness / underwriting_discipline",
+                "rationale": "We need one consolidated decision matrix that shows which trigger fires first, what it costs, and what our mitigation options actually are — not four separate cost buckets that don't talk to each other."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Walk me through this: of the twelve suppliers below the wage floor, which ones feed our highest-volume models — and what's the re-source cost per unit if we have to pull them inside sixty days? I need the model-level impact, not just the supplier count. That's what ties RVC burden to the audit trigger.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Which of our volume models hit the tightest RVC margins today? Once I know that, I can tell you exactly which of the twelve suppliers below the wage floor feed those SKUs, where they sit geographically, and what the re-source hit looks like if we pull them inside sixty days. That's the number that ties your audit trigger to actual penalty cost.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Supply consultant — you've got the supplier roster and the geographies. Of those twelve below the wage floor, how many sit in Mexico, and realistically, how many can re-certify inside sixty days without moving? That's what separates \"we lose them and breach RVC\" from \"we lose them and re-source domestically.\" That's the audit sequence we need to price.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Okay, so the audit fires day one on notification — that's your baseline. But here's what I'm pricing separately: if a worker complaint accelerates the timeline, or the next DOL pivots enforcement, does the sixty-day window collapse to thirty? And does the penalty survive judicial review if we challenge it? Those are political variables, not operational ones — I need them named before I lock the premium.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When those nine suppliers go insolvent during the sixty-day window, what's our exposure on outstanding payables and inventory sitting at their plants? I need that number isolated so I can price it separately from the re-source cost — that's the trade-credit variable that moves my underwriting.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I need locked before we price this: of those nine Mexican suppliers, how many have nearshoring capacity available *right now* in a complia\" → Duplicate data request — CFO already consolidating this exact supplier analysis in Proposal 2.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Stop. We're pricing this as four separate line items when it's one domino sequence. Here's what I'm locking into the final map: Day 1 audit notificati\" → CFO consolidates fragmented risk streams into unified domino model with concrete triggers and decision variables.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 34,
+          "supplier_relocation_exposure": 32.0,
+          "trade_credit_risk": 30.0,
+          "political_risk_exposure": 29.0,
+          "risk_map_completeness": 36.7,
+          "underwriting_discipline": 43.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Supply consultant — you've got the nine Mexican plants and the nearshoring constraints. Give me the re-source cost per unit on F-150 and Silverado if we pull those nine inside sixty days and source domestically instead. That's the number I need to lock into the RVC burden calculation and price the audit penalty.\n  supply_chain_consultant: I don't have that granularity locked yet—those nine plants feed multiple SKUs across both platforms, and the domestic re-source cost swings hard depending on which tier we pull from and whether we're talking tooling delays or just unit cost. Give me forty-eight hours to map the volume-weighted re-source hit by model, or I can give you the range right now: F-150 light-duty runs $180–$240 per unit bump if we pull Tier 2 Mexican content and go domestic; Silverado sits tighter at $210–$280. That's what I'm working with to frame the nearshoring play—but if you need the audit-trigger number locked *this round*, I need you to confirm which nine plants you're actually pulling, and whether we're re-sourcing to domestic Tier 1 or reshoring to the nearshore alternative I'm building the business case for.\n  supplier: Okay, here's the bottleneck: the supply consultant's range is $180–$280 per unit depending on which nine plants you pull and where you're re-sourcing. Before we lock that into the audit penalty, you need to call it—are we pulling all nine to domestic Tier 1, or are we betting on the nearshore capex play to keep some of them alive in a compliant wage zone? That's the decision that moves the needle on both RVC burden and supplier survival.\n  auto_strategy: I'm calling it now: we pull the five highest-wage-gap plants to domestic Tier 1—that locks the $180–$210 per unit hit on F-150—and we nearshore the other four into the wage-floor compliant zone you're building. That splits the audit penalty into a priced re-source cost and a capex bet, and it keeps supplier insolvency off the critical path. Supply consultant, I need you to confirm which four plants can re-certify in a compliant wage zone inside sixty days without collapsing cash runway—that's your decision variable for the nearshore business case.\n  compliance_lawyer: Supply consultant—of those four you're nearshoring, what's your actual re-certification timeline with DOL, and does it fit inside the sixty-day window the CFO locked? Because if it bleeds past day sixty, that four-plant bet becomes insolvency risk, and the whole audit penalty shifts. I need that timeline nailed before I can certify which penalties survive challenge.\n  political_risk_insurer: Compliance—if DOL accelerates the re-cert audit on those four plants, or if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex bet still hold? That's the political variable I'm pricing separately from the operational trigger. What's your read on enforcement risk if the next admin tightens labor enforcement?\n  compliance_lawyer: Enforcement risk on those four plants spikes if the next admin pivots DOL to aggressive labor audits—I'm pricing a 60% probability the re-cert window compresses to thirty days, which collapses the nearshore timeline. If that happens, you're looking at four suppliers defaulting into insolvency before the capex play matures, and the penalty survives judicial challenge because wage-floor violations are strict-liability under USMCA labor provisions. Bottom line: the nearshore bet only holds if you lock a binding DOL re-cert commitment *this quarter*—otherwise I'm pricing it as political risk, not operational mitigation.\n  trade_credit_underwriter: CFO — compliance just priced 60% odds the re-cert window collapses to thirty days. If that happens, your four nearshore plants go insolvent before capex matures, and we're left holding outstanding payables and inventory at failed suppliers. Before I lock the trade-credit premium, I need you to confirm: are we reserving for a full four-plant default scenario, or are we betting the re-cert holds?\n  cfo_erm: I'm pricing both scenarios—full four-plant default *and* the re-cert hold—because compliance just told me 60% odds the window collapses, which means we reserve for insolvency on those four suppliers regardless. Here's what I need locked before I move: total outstanding payables and inventory sitting at those four plants *right now*, and your read on whether a binding DOL commitment is even possible this quarter—because if it's not, I'm pulling the nearshore capex out of the audit-penalty mitigation and pricing it as pure financial risk instead.\n  supply_chain_consultant: I'll talk to DOL's labor-compliance office this week—but I need to know from you first: are you willing to commit capex on those four plants *before* we have the re-cert commitment in writing, or does the binding letter have to land first? Because if it's the latter, we're burning thirty days just on the ask, and compliance's sixty-percent collapse risk becomes our baseline assumption right now.\n  cfo_erm: Okay—I'm committing capex on those four plants *before* the DOL letter lands. We can't burn thirty days on the ask. Supply consultant, you're calling DOL this week and locking the re-cert timeline in parallel—I'm authorizing the tooling spend contingent on a binding commitment by end of Q1. Now I need the final map: all eight variables, triggers, penalties, and capex costs on one page, priced and decision-ready. Who's consolidating that before we leave this room?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Supply consultant — you've got the nine Mexican plants and the nearshoring constraints. Give me the re-source cost per unit on F-150 and Silverado if we pull those nine inside sixty days and source domestically instead. That's the number I need to lock into the RVC burden calculation and price the audit penalty.",
+            "cot": {
+              "assess": "CFO locked the domino sequence — that's solid operational clarity. But we're still sitting at 37 on risk_map_completeness and 43 on underwriting_discipline, which means the map isn't priced yet and the political-risk variable is still loose. The nine Mexican suppliers hitting insolvency on day 42 is our trigger, but I need to know: what's the actual RVC penalty *per unit* on F-150 and Silverado if we can't re-source in time? That's the number that ties compliance burden to audit cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need the model-level re-source cost to quantify RVC burden — currently we have the trigger (day 42 insolvency) but not the financial penalty that moves underwriting discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "I don't have that granularity locked yet—those nine plants feed multiple SKUs across both platforms, and the domestic re-source cost swings hard depending on which tier we pull from and whether we're talking tooling delays or just unit cost. Give me forty-eight hours to map the volume-weighted re-source hit by model, or I can give you the range right now: F-150 light-duty runs $180–$240 per unit bump if we pull Tier 2 Mexican content and go domestic; Silverado sits tighter at $210–$280. That's what I'm working with to frame the nearshoring play—but if you need the audit-trigger number locked *this round*, I need you to confirm which nine plants you're actually pulling, and whether we're re-sourcing to domestic Tier 1 or reshoring to the nearshore alternative I'm building the business case for.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Okay, here's the bottleneck: the supply consultant's range is $180–$280 per unit depending on which nine plants you pull and where you're re-sourcing. Before we lock that into the audit penalty, you need to call it—are we pulling all nine to domestic Tier 1, or are we betting on the nearshore capex play to keep some of them alive in a compliant wage zone? That's the decision that moves the needle on both RVC burden and supplier survival.",
+            "cot": {
+              "assess": "The CFO just locked the domino sequence (notification → insolvency → RVC breach), which pins down trade_credit_risk and supplier_relocation_exposure. But the supply consultant can't isolate the re-source cost without knowing which nine plants we're actually pulling and whether we're going domestic or nearshore—that's the data dependency blocking underwriting_discipline and risk_map_completeness from climbing. Political_risk_exposure still sits at 29 with no actionable trigger locked.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The OEM owns the sourcing decision (domestic vs. nearshore), which unlocks the supply consultant's cost model and lets us price the audit penalty into RVC burden. I need clarity on which path we're actually walking so the team can stop spinning on assumptions."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I'm calling it now: we pull the five highest-wage-gap plants to domestic Tier 1—that locks the $180–$210 per unit hit on F-150—and we nearshore the other four into the wage-floor compliant zone you're building. That splits the audit penalty into a priced re-source cost and a capex bet, and it keeps supplier insolvency off the critical path. Supply consultant, I need you to confirm which four plants can re-certify in a compliant wage zone inside sixty days without collapsing cash runway—that's your decision variable for the nearshore business case.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supply consultant—of those four you're nearshoring, what's your actual re-certification timeline with DOL, and does it fit inside the sixty-day window the CFO locked? Because if it bleeds past day sixty, that four-plant bet becomes insolvency risk, and the whole audit penalty shifts. I need that timeline nailed before I can certify which penalties survive challenge.",
+            "cot": {
+              "assess": "The CFO locked the domino sequence and RVC penalty range, but we're still missing the certification audit trigger specificity—DOL discretion on acceleration under political pressure remains unpriced, and the four nearshored plants' re-certification timeline inside sixty days is still unconfirmed. Auto Strategy just split the nine into five domestic pulls and four nearshore bets, but that decision hinges on supply consultant confirming which four can actually re-certify without collapsing. Rules-of-origin burden and underwriting discipline both need that confirmation to operationalize.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The audit trigger and penalty cost can't lock until we know which four plants realistically re-certify in sixty days—that's the lynchpin that ties RVC burden to audit timing and lets me price the certification penalty defensibly."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance—if DOL accelerates the re-cert audit on those four plants, or if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex bet still hold? That's the political variable I'm pricing separately from the operational trigger. What's your read on enforcement risk if the next admin tightens labor enforcement?",
+            "cot": {
+              "assess": "The CFO's domino sequence is locked—audit fires day 1, insolvency hits day 42, re-source penalty is priced at 3–5% per unit. But I'm seeing a political-risk blind spot: the four-plant nearshore bet assumes DOL re-certification stays on the 60-day window. If enforcement discretion shifts—next admin, worker complaint acceleration, judicial challenge delay—that timeline collapses and the whole penalty structure breaks. Political-risk exposure is still at 29, and I haven't priced the policy-uncertainty layer yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to isolate the policy-discretion risk before we lock the premium—specifically, whether DOL can weaponize the re-certification timeline or whether judicial review extends the penalty window past 60 days."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Enforcement risk on those four plants spikes if the next admin pivots DOL to aggressive labor audits—I'm pricing a 60% probability the re-cert window compresses to thirty days, which collapses the nearshore timeline. If that happens, you're looking at four suppliers defaulting into insolvency before the capex play matures, and the penalty survives judicial challenge because wage-floor violations are strict-liability under USMCA labor provisions. Bottom line: the nearshore bet only holds if you lock a binding DOL re-cert commitment *this quarter*—otherwise I'm pricing it as political risk, not operational mitigation.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO — compliance just priced 60% odds the re-cert window collapses to thirty days. If that happens, your four nearshore plants go insolvent before capex matures, and we're left holding outstanding payables and inventory at failed suppliers. Before I lock the trade-credit premium, I need you to confirm: are we reserving for a full four-plant default scenario, or are we betting the re-cert holds?",
+            "cot": {
+              "assess": "The domino sequence is locked — audit trigger day 1, insolvency day 42, re-source penalty $180–$280 per unit. But we've got a hard split now: five plants to domestic Tier 1 (priced), four plants to nearshore (contingent on 60-day DOL re-cert that compliance just said has 60% probability of compressing to 30 days). That's not a mitigation strategy — that's a bet on political stability we don't control. Trade-credit exposure on those four plants is still unpriced and unassigned.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The nearshore play collapses the audit penalty into two pieces — one priced, one contingent on DOL enforcement discretion — and I need to know how you're modeling the four-plant insolvency scenario if re-cert compresses."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm pricing both scenarios—full four-plant default *and* the re-cert hold—because compliance just told me 60% odds the window collapses, which means we reserve for insolvency on those four suppliers regardless. Here's what I need locked before I move: total outstanding payables and inventory sitting at those four plants *right now*, and your read on whether a binding DOL commitment is even possible this quarter—because if it's not, I'm pulling the nearshore capex out of the audit-penalty mitigation and pricing it as pure financial risk instead.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "I'll talk to DOL's labor-compliance office this week—but I need to know from you first: are you willing to commit capex on those four plants *before* we have the re-cert commitment in writing, or does the binding letter have to land first? Because if it's the latter, we're burning thirty days just on the ask, and compliance's sixty-percent collapse risk becomes our baseline assumption right now.",
+            "cot": {
+              "assess": "The CFO just locked the domino sequence and split the play into two scenarios—five plants domestic Tier 1, four plants nearshore with DOL re-cert. Compliance priced 60% odds the re-cert window collapses to thirty days, which kills the nearshore bet and forces four-plant insolvency. That's the political risk variable I own—and it's still unpriced because we haven't locked whether a binding DOL commitment is actually achievable this quarter. My core variable (supplier_relocation_exposure: 32) needs me to either confirm the nearshore timeline is real or pivot the mitigation strategy entirely.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO is asking if a binding DOL re-cert commitment is possible this quarter—that's the gate that decides whether nearshore capex stays in the mitigation plan or gets pulled. I need to know that before I can frame relocation incentives or price the forward risk."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Okay—I'm committing capex on those four plants *before* the DOL letter lands. We can't burn thirty days on the ask. Supply consultant, you're calling DOL this week and locking the re-cert timeline in parallel—I'm authorizing the tooling spend contingent on a binding commitment by end of Q1. Now I need the final map: all eight variables, triggers, penalties, and capex costs on one page, priced and decision-ready. Who's consolidating that before we leave this room?",
+            "cot": {
+              "assess": "We've locked the domino sequence and priced the four-plant nearshore bet at 60% collapse risk—that's operationalized. But we're still sitting at 37 on risk_map_completeness and 43 on underwriting_discipline, and I haven't seen the final consolidated map with all eight variables priced and decision-ready. The supply consultant is waiting on my capex-commitment call before moving on DOL outreach, which means I'm the bottleneck right now on moving this to a signed risk map.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "I need to lock the capex sequencing decision and force the final consolidated map into existence so we can price the insurance premium and move to execution."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Supply consultant — you've got the nine Mexican plants and the nearshoring constraints. Give me the re-source cost per unit on F-150 and Silverado if we pull those nine inside sixty days and source domestically instead. That's the number I need to lock into the RVC burden calculation and price the audit penalty.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Okay, here's the bottleneck: the supply consultant's range is $180–$280 per unit depending on which nine plants you pull and where you're re-sourcing. Before we lock that into the audit penalty, you need to call it—are we pulling all nine to domestic Tier 1, or are we betting on the nearshore capex play to keep some of them alive in a compliant wage zone? That's the decision that moves the needle on both RVC burden and supplier survival.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Supply consultant—of those four you're nearshoring, what's your actual re-certification timeline with DOL, and does it fit inside the sixty-day window the CFO locked? Because if it bleeds past day sixty, that four-plant bet becomes insolvency risk, and the whole audit penalty shifts. I need that timeline nailed before I can certify which penalties survive challenge.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance—if DOL accelerates the re-cert audit on those four plants, or if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex bet still hold? That's the political variable I'm pricing separately from the operational trigger. What's your read on enforcement risk if the next admin tightens labor enforcement?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO — compliance just priced 60% odds the re-cert window collapses to thirty days. If that happens, your four nearshore plants go insolvent before capex matures, and we're left holding outstanding payables and inventory at failed suppliers. Before I lock the trade-credit premium, I need you to confirm: are we reserving for a full four-plant default scenario, or are we betting the re-cert holds?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "I'll talk to DOL's labor-compliance office this week—but I need to know from you first: are you willing to commit capex on those four plants *before* we have the re-cert commitment in writing, or does the binding letter have to land first? Because if it's the latter, we're burning thirty days just on the ask, and compliance's sixty-percent collapse risk becomes our baseline assumption right now.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Okay—I'm committing capex on those four plants *before* the DOL letter lands. We can't burn thirty days on the ask. Supply consultant, you're calling \" → The CFO's capex commitment is premature—five agents have flagged unresolved dependencies (DOL timeline, re-cert collapse risk, default reserves, nearshore viability) that must be answered before capital is deployed. The supply consultant cannot lock a DOL timeline this week without first knowing whether the CFO will commit capex before or after written re-cert confirmation, creating a circular dependency that blocks execution.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Compliance, clarify one thing: that 60% collapse on the re-cert window—is that DOL discretion to accelerate if political pressure hits, or is it the supply consultant's timeline estimate that the four plants just can't move fast enough? Because if it's political discretion, that's a separate premium from the operational trigger, and I need to price them apart.\n  compliance_lawyer: It's both—and that's the audit penalty exposure you need to isolate. The 60% is operational: supply consultant's plants miss the window because re-cert paperwork bleeds past day 60. But DOL *can* accelerate on political signal, collapsing that to 30 days, which is a separate policy-discretion premium. I'm pricing the operational trigger as your baseline ($180–$280/unit depending on pull sequence), and flagging the political acceleration as the upside risk that moves the penalty past judicial review.\n  supplier: Here's what I need from you to move this forward: when those nine suppliers go insolvent during the window, what's our actual exposure on outstanding payables and inventory sitting at their plants—are we talking $20M, $50M, what number? That's the trade-credit variable that separates \"operational penalty\" from \"balance-sheet hit,\" and I can't price nearshore capex without knowing which one we're absorbing.\n  trade_credit_underwriter: We're looking at $35–$45M in outstanding payables across those nine if they go dark simultaneously, plus another $12–$18M in WIP and finished inventory sitting at their facilities—that's the $47–$63M total receivables exposure I need you to reserve for before we lock the nearshore capex bet. If the re-cert window collapses to 30 days, that hit lands before the plants come online, and we're writing it off as supplier default, not working capital.\n  compliance_lawyer: Trade credit—that $47–$63M sits on the balance sheet if those nine go dark, but does it get baked into the per-unit penalty we're defending to DOL, or do we reserve it separately as a supplier-default loss? Because if it's separate, the RVC burden calculation stays clean at $180–$280, and the audit penalty holds. If it bleeds into the unit cost, the penalty swells and becomes indefensible.\n  political_risk_insurer: Okay—I'm pricing this as two separate premiums: the operational trigger at $180–$280/unit holds as your baseline, but I'm layering a *political acceleration premium* on top for the 30-day collapse scenario. That's a DOL-discretion call, not a supply-chain miss. I need to know: if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex still land before the four plants default, or does the timeline slip again?\n  supply_chain_consultant: The four nearshore plants default in 4–6 weeks if orders stop cold—that's our cash-runway baseline. If judicial review stretches past day 60, capex lands *after* insolvency, so we're not betting on the plants surviving challenge; we're betting DOL doesn't accelerate the audit window in the first place. That's the political premium you're pricing separately, and it's the gating variable for the entire nearshore play.\n  trade_credit_underwriter: CFO — before I lock the trade-credit premium, I need one call: are we reserving the full $47–$63M receivables exposure *today* as a supplier-default contingency, or does that sit unbooked until the audit window actually collapses? Because that's what separates a 15-basis-point premium from a 40-basis-point hit, and it changes what we tell the board.\n  cfo_erm: We reserve the full $47–$63M today as a supplier-default contingency—that's the only way to lock underwriting discipline on the trade-credit premium and stop the circular dependency. If we defer the reserve, we're betting the audit window holds, which means we're not actually pricing the political acceleration risk separately. Book it now, price the 40-basis-point premium, and we move the consolidation forward.\n  supply_chain_consultant: Here's what I need locked right now: DOL call happens tomorrow, and you come back with a binding re-cert timeline or you don't. If you get it, we commit capex on those four plants by EOW. If DOL won't commit in writing, we pull all nine to domestic Tier 1 at $180–$210/unit and kill the nearshore play. Which path are you walking into that call ready to execute?\n  cfo_erm: Here's the call: we commit capex on the four nearshore plants *contingent on DOL confirming a binding re-cert timeline by EOW next week*—not a verbal, a written commitment. If that letter lands, we execute capex by day 14. If DOL won't write it, we pull all nine to domestic Tier 1 and lock the $180–$210/unit baseline. That way the supply consultant walks in with a binary fork, not a circular dependency. Compliance, does that timeline work with your audit window math?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Compliance, clarify one thing: that 60% collapse on the re-cert window—is that DOL discretion to accelerate if political pressure hits, or is it the supply consultant's timeline estimate that the four plants just can't move fast enough? Because if it's political discretion, that's a separate premium from the operational trigger, and I need to price them apart.",
+            "cot": {
+              "assess": "The domino model is locked—supplier insolvency triggers on day 1, audit window is 60 days, cash burn is 4-6 weeks. But we're stuck: the CFO's pre-certification capex bet got denied, compliance priced 60% odds the re-cert window collapses, and the supply consultant can't nail down whether those four plants actually re-certify inside the window. The $180–$210 per-unit hit on F-150 is priced, but the re-source cost certainty is still too wide, and the political risk—next admin enforcement pivot—isn't isolated from operational triggers yet. Risk map is fragmented across four domains; underwriting discipline is at 43, needs 50.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The 60% re-cert collapse probability is pricing our capex bet as insolvent—I need to know if that's a DOL discretion risk (political, next admin) or an operational timeline risk (supply consultant's execution), because that separates what we reserve for from what we hedge."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "It's both—and that's the audit penalty exposure you need to isolate. The 60% is operational: supply consultant's plants miss the window because re-cert paperwork bleeds past day 60. But DOL *can* accelerate on political signal, collapsing that to 30 days, which is a separate policy-discretion premium. I'm pricing the operational trigger as your baseline ($180–$280/unit depending on pull sequence), and flagging the political acceleration as the upside risk that moves the penalty past judicial review.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Here's what I need from you to move this forward: when those nine suppliers go insolvent during the window, what's our actual exposure on outstanding payables and inventory sitting at their plants—are we talking $20M, $50M, what number? That's the trade-credit variable that separates \"operational penalty\" from \"balance-sheet hit,\" and I can't price nearshore capex without knowing which one we're absorbing.",
+            "cot": {
+              "assess": "The CFO just locked the operational baseline—day-1 notification triggers 60-day audit window, 4-6 week supplier cash burn, $180–$280/unit re-source penalty depending on pull sequence. But the capex-before-cert proposal got denied because it creates circular dependency: we can't commit capex without knowing DOL re-cert timing, and we can't lock DOL timing without knowing whether capex happens first. That's the bottleneck blocking our nearshore bet on those four plants. Meanwhile, risk_map_completeness is stuck at 37—we've got the domino sequence named, but we haven't isolated the trade-credit exposure on outstanding payables/inventory sitting at failed suppliers, and we haven't priced the political-discretion premium separately from operational trigger.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Trade-credit exposure on failed suppliers is the missing variable that moves underwriting_discipline from 43 to 50+—I need that number isolated so we can price it separately from re-source cost and lock it into the final map."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "We're looking at $35–$45M in outstanding payables across those nine if they go dark simultaneously, plus another $12–$18M in WIP and finished inventory sitting at their facilities—that's the $47–$63M total receivables exposure I need you to reserve for before we lock the nearshore capex bet. If the re-cert window collapses to 30 days, that hit lands before the plants come online, and we're writing it off as supplier default, not working capital.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Trade credit—that $47–$63M sits on the balance sheet if those nine go dark, but does it get baked into the per-unit penalty we're defending to DOL, or do we reserve it separately as a supplier-default loss? Because if it's separate, the RVC burden calculation stays clean at $180–$280, and the audit penalty holds. If it bleeds into the unit cost, the penalty swells and becomes indefensible.",
+            "cot": {
+              "assess": "The room just locked a $47–$63M trade-credit exposure on nine suppliers going dark simultaneously—that's concrete and defensible. But we're still missing the audit-penalty sequence that ties RVC burden to that receivables hit. The CFO's domino model is locked, but I need to isolate which penalties survive judicial challenge and which collapse if DOL accelerates. That's what moves underwriting_discipline and rules_of_origin_burden past the threshold.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "The $47–$63M receivables exposure only matters if we can defend it as a priced factor in the RVC audit penalty—I need to know whether that default scenario gets reserved as a one-time write-off or amortized into the per-unit re-source cost that survives challenge."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Okay—I'm pricing this as two separate premiums: the operational trigger at $180–$280/unit holds as your baseline, but I'm layering a *political acceleration premium* on top for the 30-day collapse scenario. That's a DOL-discretion call, not a supply-chain miss. I need to know: if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex still land before the four plants default, or does the timeline slip again?",
+            "cot": {
+              "assess": "The group has locked the operational domino—day-1 audit notification → day-42 insolvency on nine suppliers → simultaneous RVC breach and nearshore capex trigger. But you've surfaced a critical split: the $47–$63M trade-credit exposure sits *outside* the per-unit penalty calculation, which means the audit defense stays at $180–$280/unit. The political variable—60% odds DOL accelerates the re-cert window to 30 days—is named but NOT yet priced as a separate premium layer. That's my lane, and it's unresolved.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "The compliance lawyer just separated operational collapse (60% odds, supply-side timing miss) from policy acceleration (DOL discretion to compress the window), which is exactly the split I need to price political risk as a distinct underwriting factor and move underwriting_discipline into actionable territory."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "The four nearshore plants default in 4–6 weeks if orders stop cold—that's our cash-runway baseline. If judicial review stretches past day 60, capex lands *after* insolvency, so we're not betting on the plants surviving challenge; we're betting DOL doesn't accelerate the audit window in the first place. That's the political premium you're pricing separately, and it's the gating variable for the entire nearshore play.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO — before I lock the trade-credit premium, I need one call: are we reserving the full $47–$63M receivables exposure *today* as a supplier-default contingency, or does that sit unbooked until the audit window actually collapses? Because that's what separates a 15-basis-point premium from a 40-basis-point hit, and it changes what we tell the board.",
+            "cot": {
+              "assess": "The team just locked the operational penalty ($180–$280/unit) and isolated the $47–$63M receivables exposure — that's my core trade-credit variable nailed down. But we're still missing the underwriting discipline piece: we haven't named the *reserve requirement* or the *default probability* that ties that receivables hit to an actual credit premium. The political acceleration risk is priced separately but hasn't landed in the consolidated map yet. Risk map completeness is still at 36 — we need to operationalize these variables into actual underwriting terms.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO locked the domino sequence but hasn't confirmed whether the $47–$63M receivables exposure gets reserved *now* (balance-sheet charge) or *contingently* (if insolvency triggers). That distinction moves my underwriting discipline from \"variable identified\" to \"priced and reserved.\""
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "We reserve the full $47–$63M today as a supplier-default contingency—that's the only way to lock underwriting discipline on the trade-credit premium and stop the circular dependency. If we defer the reserve, we're betting the audit window holds, which means we're not actually pricing the political acceleration risk separately. Book it now, price the 40-basis-point premium, and we move the consolidation forward.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need locked right now: DOL call happens tomorrow, and you come back with a binding re-cert timeline or you don't. If you get it, we commit capex on those four plants by EOW. If DOL won't commit in writing, we pull all nine to domestic Tier 1 at $180–$210/unit and kill the nearshore play. Which path are you walking into that call ready to execute?",
+            "cot": {
+              "assess": "The CFO just locked the $47–$63M reserve and the 40-basis-point trade-credit premium—that's underwriting discipline moving. But we're still circling the same dependency: the nearshore capex bet only works if DOL doesn't accelerate the audit window, and nobody has locked a binding timeline with DOL yet. The supply consultant is supposed to call them this week, but that's a *promise*, not an action—and we're two rounds from phase end. Risk-map completeness is stalled at 37 because we haven't translated these triggers into an actionable client plan yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The nearshore capex play is priced but not *committed*—I need to force the sequence decision now so we can consolidate the map before phase end."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the call: we commit capex on the four nearshore plants *contingent on DOL confirming a binding re-cert timeline by EOW next week*—not a verbal, a written commitment. If that letter lands, we execute capex by day 14. If DOL won't write it, we pull all nine to domestic Tier 1 and lock the $180–$210/unit baseline. That way the supply consultant walks in with a binary fork, not a circular dependency. Compliance, does that timeline work with your audit window math?",
+            "cot": {
+              "assess": "We've locked the domino sequence and booked the $47–$63M reserve—that's underwriting discipline moving. But we're still circling on the capex-timing binary: commit before DOL writes or wait for the letter. The supply consultant's walking into a DOL call tomorrow with no clear answer from me, which means that call either lands a timeline or it doesn't, and we're scrambling to pivot. The risk map is still fragmented across operational triggers (re-cert window, insolvency cascade) and political discretion (DOL acceleration, judicial review survival)—I need those separated and priced into one decision matrix before we hand this to the board.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The supply consultant needs a decision rule for the DOL call tomorrow, not a maybe—and I need to separate operational timeline risk from political discretion risk so the underwriting premium stacks cleanly."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Compliance, clarify one thing: that 60% collapse on the re-cert window—is that DOL discretion to accelerate if political pressure hits, or is it the supply consultant's timeline estimate that the four plants just can't move fast enough? Because if it's political discretion, that's a separate premium from the operational trigger, and I need to price them apart.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Here's what I need from you to move this forward: when those nine suppliers go insolvent during the window, what's our actual exposure on outstanding payables and inventory sitting at their plants—are we talking $20M, $50M, what number? That's the trade-credit variable that separates \"operational penalty\" from \"balance-sheet hit,\" and I can't price nearshore capex without knowing which one we're absorbing.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Trade credit—that $47–$63M sits on the balance sheet if those nine go dark, but does it get baked into the per-unit penalty we're defending to DOL, or do we reserve it separately as a supplier-default loss? Because if it's separate, the RVC burden calculation stays clean at $180–$280, and the audit penalty holds. If it bleeds into the unit cost, the penalty swells and becomes indefensible.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO — before I lock the trade-credit premium, I need one call: are we reserving the full $47–$63M receivables exposure *today* as a supplier-default contingency, or does that sit unbooked until the audit window actually collapses? Because that's what separates a 15-basis-point premium from a 40-basis-point hit, and it changes what we tell the board.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay—I'm pricing this as two separate premiums: the operational trigger at $180–$280/unit holds as your baseline, but I'm layering a *political accele\" → Dual-premium structure operationalizes political vs operational triggers; timeline dependency mapped.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need locked right now: DOL call happens tomorrow, and you come back with a binding re-cert timeline or you don't. If you get it, we comm\" → Binary decision fork with concrete triggers operationalizes nearshore vs domestic paths.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the call: we commit capex on the four nearshore plants *contingent on DOL confirming a binding re-cert timeline by EOW next week*—not a verbal,\" → Contingent capex commitment with written DOL timeline creates executable decision framework.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: We've got the triggers and premiums locked, but we're missing one thing: a single consolidated map that names every variable, every decision fork, and every contingency in one place. Who's writing that, and what do we need to add to it so it's actually defensible to the board and DOL?\n  supplier: Auto strategy — who's actually writing the consolidated map, and what do they need from me on the nine suppliers? Because if it's going to DOL, I need to lock which ones we're pulling domestic versus nearshoring, and I can't do that without knowing the capex timeline is real. What's the ask?\n  auto_strategy: I'm writing the map — CFO's consolidating the financials, you're locking the nine-supplier split with actual re-source costs per unit, and compliance nails the DOL timeline in writing before we commit capex. What I need from you right now: which of those nine can actually re-cert in-place inside sixty days, and what's the domestic Tier-1 cost per unit if we pull the rest? That number moves the RVC burden from $180–$280, and I can't defend it to the board without it.\n  compliance_lawyer: Here's what the map needs from me: certification audit triggers on day-one notification, re-cert timeline windows keyed to the 60-day domino, and the penalty cost per unit defensible to DOL challenge. I'll write the three audit sequences — full domestic pull at $180–$210/unit, four-plant nearshore with 60% collapse risk priced separately, and the default reserve at $47–$63M. That locks it. Supply consultant — I need the nine-supplier split *named* (which five pull domestic, which four nearshore) so I can map the RVC burden to each path and make it auditable.\n  political_risk_insurer: Compliance, before you lock those three audit sequences into the map, call out the political layer separately: the 60% re-cert collapse is operational, but I need you to name the enforcement-pivot risk if the next admin tightens labor audits post-2025. That's a *different* premium — price it as a percentage uplift on the operational trigger, not embedded in it. That way the board sees what they're actually exposed to, and I can underwrite it as political, not operational.\n  compliance_lawyer: The enforcement-pivot risk sits at 35–40% odds if the next admin tightens labor audits post-2025 — I'm pricing that as a 12–15 basis-point uplift on top of the operational premium, segregated in the map as \"political enforcement acceleration.\" Supply consultant, I need you to name the nine-supplier split by COB today so I can lock the RVC burden per path and make each audit sequence defensible to DOL challenge — which five domestic, which four nearshore?\n  trade_credit_underwriter: Compliance—when you lock that nine-supplier split by COB, make sure the map shows the $47–$63M default reserve as its own line item, separate from the per-unit RVC burden. That's how I price the trade-credit premium and actually defend it to the board. Without that isolation, I can't certify the underwriting.\n  supply_chain_consultant: Supply consultant—I need the nine-supplier split locked right now: which five go domestic Tier 1, which four nearshore into the wage-floor compliant zone? Once I call that, I'm writing the RVC burden per path into the map, and we're done. What's holding you up?\n  cfo_erm: Supply consultant—I need the nine-supplier split *right now*: which five plants pull domestic Tier 1 at $180–$210/unit, which four nearshore into the wage-floor zone with the 60% collapse risk baked in? Once you call that, I'm writing it into the consolidated map with the $47–$63M reserve, the dual premiums, and the DOL timeline contingency. We don't have another round to debate this—lock it.\n  supplier: Here's the split: five plants—Monterrey, Guadalajara, Querétaro, San Luis Potosí, Chihuahua—pull domestic Tier 1 at $210/unit; four plants—Hermosillo, Ciudad Juárez, Saltillo, Coahuila—nearshore into the wage-floor zone with the 60% collapse risk. Lock that into the map with the $47–$63M reserve isolated, and we're operationalized.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "We've got the triggers and premiums locked, but we're missing one thing: a single consolidated map that names every variable, every decision fork, and every contingency in one place. Who's writing that, and what do we need to add to it so it's actually defensible to the board and DOL?",
+            "cot": {
+              "assess": "The domino sequence is locked—capex trigger tied to DOL's written re-cert commitment by EOW next week, dual-premium structure operationalized, contingent reserves booked. But risk_map_completeness is still at 54.5 and needs 60 by stage end (1 round left). The gap isn't missing data—it's that we haven't consolidated the full Policy-to-Supply-Chain Risk Map into a single, priced document that names every variable, trigger, and decision fork. rules_of_origin_burden is also creeping up (40) and needs quantification locked into the map before we close.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk_map_completeness / all agents",
+                "rationale": "We have all the pieces—RVC cost ($180–$280/unit), insolvency exposure ($47–$63M), political acceleration premium, nearshore capex triggers—but we haven't consolidated them into one executable map. I need to know: who owns writing the final Policy-to-Supply-Chain Risk Map document, and what's missing from it right now?"
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Auto strategy — who's actually writing the consolidated map, and what do they need from me on the nine suppliers? Because if it's going to DOL, I need to lock which ones we're pulling domestic versus nearshoring, and I can't do that without knowing the capex timeline is real. What's the ask?",
+            "cot": {
+              "assess": "We've locked the triggers, premiums, and contingencies — but risk_map_completeness is stuck at 54, and we need 60 to close this phase. The board and DOL won't accept fragmented pieces; they need one document that names every variable, every decision fork, and the sequence. That's what's missing. My exposure — supplier relocation and the $47–$63M payables reserve — sits in that map, so I need to see it consolidated before we move to execution.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The consolidated map is the linchpin; I need to know who owns writing it and what supplier-specific inputs they need from me to make it defensible."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I'm writing the map — CFO's consolidating the financials, you're locking the nine-supplier split with actual re-source costs per unit, and compliance nails the DOL timeline in writing before we commit capex. What I need from you right now: which of those nine can actually re-cert in-place inside sixty days, and what's the domestic Tier-1 cost per unit if we pull the rest? That number moves the RVC burden from $180–$280, and I can't defend it to the board without it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Here's what the map needs from me: certification audit triggers on day-one notification, re-cert timeline windows keyed to the 60-day domino, and the penalty cost per unit defensible to DOL challenge. I'll write the three audit sequences — full domestic pull at $180–$210/unit, four-plant nearshore with 60% collapse risk priced separately, and the default reserve at $47–$63M. That locks it. Supply consultant — I need the nine-supplier split *named* (which five pull domestic, which four nearshore) so I can map the RVC burden to each path and make it auditable.",
+            "cot": {
+              "assess": "The room has locked operational triggers, premiums, and a contingent capex framework — but the consolidated Policy-to-Supply-Chain Risk Map doesn't exist yet, and auto_strategy is asking for it. Rules-of-origin burden sits at 40 (target: maximize) and needs defensible certification/audit/penalty triggers written down. Risk_map_completeness is at 54.5 and needs to hit 60 — that's the gap closing this round.",
+              "decide": {
+                "action_type": "speak",
+                "target": "auto_strategy, risk_map_completeness",
+                "rationale": "The map needs legal certification triggers and penalty defensibility baked in before it goes to the board or DOL — that's my domain, and it's the missing piece blocking completeness."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, before you lock those three audit sequences into the map, call out the political layer separately: the 60% re-cert collapse is operational, but I need you to name the enforcement-pivot risk if the next admin tightens labor audits post-2025. That's a *different* premium — price it as a percentage uplift on the operational trigger, not embedded in it. That way the board sees what they're actually exposed to, and I can underwrite it as political, not operational.",
+            "cot": {
+              "assess": "Political-risk exposure and rules-of-origin burden are still underpriced — we've operationalized the triggers and premiums, but we haven't isolated the 2026 USMCA review as a separate forward-looking shock, and that's a material variable I need to score independently. Risk-map completeness is climbing but compliance just handed me three audit sequences to write into a defensible doc; if I don't lock the political-discretion layer separately from the operational domino, the board and DOL will see a single-scenario plan, not a risk-rated instrument.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure",
+                "rationale": "The map needs a named political-risk premium tied to the 2026 review and DOL enforcement pivot risk — not baked into the operational $180–$280/unit, but surfaced as a separate scored variable so underwriting can price it independently."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The enforcement-pivot risk sits at 35–40% odds if the next admin tightens labor audits post-2025 — I'm pricing that as a 12–15 basis-point uplift on top of the operational premium, segregated in the map as \"political enforcement acceleration.\" Supply consultant, I need you to name the nine-supplier split by COB today so I can lock the RVC burden per path and make each audit sequence defensible to DOL challenge — which five domestic, which four nearshore?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Compliance—when you lock that nine-supplier split by COB, make sure the map shows the $47–$63M default reserve as its own line item, separate from the per-unit RVC burden. That's how I price the trade-credit premium and actually defend it to the board. Without that isolation, I can't certify the underwriting.",
+            "cot": {
+              "assess": "The map's skeleton is locked—triggers, premiums, decision forks all operationalized—but the trade-credit variable is still floating. Compliance is naming the nine-supplier split by COB, which unblocks the RVC burden, but nobody's isolated the $47–$63M default reserve into the map as a *named, priced line item*. That's what I need to underwrite the trade-credit premium cleanly. Risk-map completeness is at 54; we need 60 to close this phase.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The map needs the $47–$63M default reserve explicitly segregated from the unit-cost penalty so I can price the trade-credit premium separately and move risk_map_completeness past 60."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Supply consultant—I need the nine-supplier split locked right now: which five go domestic Tier 1, which four nearshore into the wage-floor compliant zone? Once I call that, I'm writing the RVC burden per path into the map, and we're done. What's holding you up?",
+            "cot": {
+              "assess": "We've locked the operational triggers, premiums, and contingencies—but the consolidated map that ties all nine suppliers to specific RVC paths and names the political enforcement layer separately hasn't landed yet. Compliance is waiting on the nine-supplier split from supply consultant by COB, and that's the blocking dependency for risk_map_completeness and rules_of_origin_burden to move. Without it, the board can't see which audit sequence they're actually funding.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The nine-supplier split (which five domestic, which four nearshore) is the single blocking input for the consolidated map—I need it named so I can operationalize the RVC burden per path and make the nearshoring strategy defensible to the board as a forward risk."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Supply consultant—I need the nine-supplier split *right now*: which five plants pull domestic Tier 1 at $180–$210/unit, which four nearshore into the wage-floor zone with the 60% collapse risk baked in? Once you call that, I'm writing it into the consolidated map with the $47–$63M reserve, the dual premiums, and the DOL timeline contingency. We don't have another round to debate this—lock it.",
+            "cot": {
+              "assess": "We've locked the triggers, premiums, and contingent capex framework—that's solid. But risk_map_completeness is stuck at 55 and we're one round from phase end. The nine-supplier split (which five domestic, which four nearshore) is still unnamed, and without it, compliance can't write the audit sequences into the consolidated map. Trade-credit reserve is booked, political premiums are segregated—but the map itself doesn't exist yet as a single, boardable artifact.",
+              "decide": {
+                "action_type": "speak",
+                "target": "risk_map_completeness, supply_chain_consultant",
+                "rationale": "The bottleneck is NOT more analysis—it's the supply consultant naming the nine-supplier split so compliance can write the three audit sequences into one map. I'm pushing for immediate closure on that decision so we can consolidate everything into a defensible Policy-to-Supply-Chain Risk Map before round end."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Here's the split: five plants—Monterrey, Guadalajara, Querétaro, San Luis Potosí, Chihuahua—pull domestic Tier 1 at $210/unit; four plants—Hermosillo, Ciudad Juárez, Saltillo, Coahuila—nearshore into the wage-floor zone with the 60% collapse risk. Lock that into the map with the $47–$63M reserve isolated, and we're operationalized.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Here's what the map needs from me: certification audit triggers on day-one notification, re-cert timeline windows keyed to the 60-day domino, and the penalty cost per unit defensible to DOL challenge. I'll write the three audit sequences — full domestic pull at $180–$210/unit, four-plant nearshore with 60% collapse risk priced separately, and the default reserve at $47–$63M. That locks it. Supply consultant — I need the nine-supplier split *named* (which five pull domestic, which four nearshore) so I can map the RVC burden to each path and make it auditable.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Supply consultant—I need the nine-supplier split *right now*: which five plants pull domestic Tier 1 at $180–$210/unit, which four nearshore into the wage-floor zone with the 60% collapse risk baked in? Once you call that, I'm writing it into the consolidated map with the $47–$63M reserve, the dual premiums, and the DOL timeline contingency. We don't have another round to debate this—lock it.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "We've got the triggers and premiums locked, but we're missing one thing: a single consolidated map that names every variable, every decision fork, and every contingency in one place. Who's writing that, and what do we need to add to it so it's actually defensible to the board and DOL?",
+      "metadata": {
+        "question_target": "risk_map_completeness / all agents"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Auto strategy — who's actually writing the consolidated map, and what do they need from me on the nine suppliers? Because if it's going to DOL, I need to lock which ones we're pulling domestic versus nearshoring, and I can't do that without knowing the capex timeline is real. What's the ask?",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Compliance—when you lock that nine-supplier split by COB, make sure the map shows the $47–$63M default reserve as its own line item, separate from the per-unit RVC burden. That's how I price the trade-credit premium and actually defend it to the board. Without that isolation, I can't certify the underwriting.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Supply consultant—I need the nine-supplier split locked right now: which five go domestic Tier 1, which four nearshore into the wage-floor compliant zone? Once I call that, I'm writing the RVC burden per path into the map, and we're done. What's holding you up?",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Compliance, before you lock those three audit sequences into the map, call out the political layer separately: the 60% re-cert collapse is operational\" → Political-risk insurer successfully isolates the enforcement-pivot risk as a separate political premium layer, distinct from the operational 60% re-cert collapse trigger. This separation enables proper underwriting discipline and board transparency on what is operational versus regulatory-political exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.5
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Compliance—you've got the five domestic plants at $210/unit and the four nearshore with 60% collapse risk. Which F-150 and Silverado variants actually breach RVC under each scenario, and what's the total unit-cost hit per model? That's the number I need to lock into the map before it goes to DOL.\n  compliance_lawyer: F-150 SuperCrew and Silverado 1500 Crew both hit RVC breach at $210 domestic—you're looking at 8,400 annual units across both, $1.76M total exposure per model year. Nearshore scenario collapses that to 4,200 units if the re-cert window fails, but that's contingent on the CFO locking the capex timeline *before* day 60—without that written commitment, I'm pricing the collapse as baseline and the RVC penalty swells to $2.9M per model. You need the nine-supplier split *named* in the map with audit triggers keyed to each path, or DOL walks the penalty.\n  supplier: Compliance—when you write those three audit sequences into the map, I need you to name it: which of the five domestic plants default first, and does that trigger the full $1.76M RVC hit on F-150, or does it phase? Same for the four nearshore—if Hermosillo re-cert collapses on day 45, does Silverado breach at that point, or do we hold until all four fail? That's what the map needs to say so DOL doesn't come back asking.\n  compliance_lawyer: Here's what DOL needs in writing: Monterrey or Guadalajara defaults on day 42, that's your first RVC breach on F-150—full $1.76M hits immediately, no phase. For the four nearshore, Hermosillo collapses first around day 45, Silverado breaches at that moment. I'm writing the map with those two sequences separated so the penalty holds defensible. Supplier—confirm that's your actual default sequence, or I'm pricing it as simultaneous collapse and the exposure swells.\n  political_risk_insurer: Auto strategy—when you consolidate this into one map for DOL, are you threading the enforcement-pivot premium as a separate line from the operational $180–$280 penalty, or is it baked into the baseline? Because if it's separate, I need to name it explicitly—that's what makes it defensible to the board on the political layer.\n  auto_strategy: Enforcement pivot sits separate—$180–$280 is operational unit cost, the political premium layers on top if DOL accelerates or judicial review extends past day 60. I'm pricing it as a 12-basis-point add if the next admin tightens labor enforcement, and that goes on its own line in the map so the board sees what's political discretion versus what's operational penalty. Auto strategy—when you lock the nine-supplier split, make sure the map calls out which default sequence triggers which premium, or I can't defend the separation to underwriting.\n  trade_credit_underwriter: Compliance—in your map sequences, when Monterrey defaults on day 42 and hits F-150 RVC, does the full $47–$63M receivables reserve hit the balance sheet at that moment, or does it phase in as each of the nine suppliers actually goes insolvent? Because if it's simultaneous with the unit penalty, I'm pricing them as one hit; if it phases, I need separate triggers for each supplier default so I can isolate the credit risk per path.\n  supply_chain_consultant: Here's what I need: Compliance writes one document—call it the \"Supplier Default & RVC Trigger Sequence\"—that names Monterrey day 42 → F-150 breach → $1.76M, then Hermosillo day 45 → Silverado breach, with the $47–$63M reserve phased to match each default. Auto strategy, you thread that into the consolidated map with the political premium isolated on its own line. That's the artifact DOL sees—no ambiguity, no phase-ins.\n  cfo_erm: Lock this now: the $47–$63M reserve phases to match the default sequence—Monterrey day 42 triggers $8–$12M hit on F-150 breach, Hermosillo day 45 triggers the next tranche on Silverado. That isolation is what makes the trade-credit premium defensible and keeps the RVC penalty clean. Compliance, thread that phasing into your sequences document and we're done.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Compliance—you've got the five domestic plants at $210/unit and the four nearshore with 60% collapse risk. Which F-150 and Silverado variants actually breach RVC under each scenario, and what's the total unit-cost hit per model? That's the number I need to lock into the map before it goes to DOL.",
+            "cot": {
+              "assess": "We've locked the nine-supplier split, the dual premiums, and the contingent capex timeline—all approved. But the consolidated map still hasn't been written. Risk_map_completeness is at 59, needs 60. Rules_of_origin_burden is stuck at 42—we've named which five pull domestic at $210/unit and which four nearshore, but we haven't quantified the full RVC compliance cost across both paths or mapped which models actually breach. That's blocking the map from being defensible to DOL.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "Compliance owns the audit sequences and DOL defensibility—they need to tell me which models breach RVC under each path so I can price the actual burden into the consolidated map."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "F-150 SuperCrew and Silverado 1500 Crew both hit RVC breach at $210 domestic—you're looking at 8,400 annual units across both, $1.76M total exposure per model year. Nearshore scenario collapses that to 4,200 units if the re-cert window fails, but that's contingent on the CFO locking the capex timeline *before* day 60—without that written commitment, I'm pricing the collapse as baseline and the RVC penalty swells to $2.9M per model. You need the nine-supplier split *named* in the map with audit triggers keyed to each path, or DOL walks the penalty.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Compliance—when you write those three audit sequences into the map, I need you to name it: which of the five domestic plants default first, and does that trigger the full $1.76M RVC hit on F-150, or does it phase? Same for the four nearshore—if Hermosillo re-cert collapses on day 45, does Silverado breach at that point, or do we hold until all four fail? That's what the map needs to say so DOL doesn't come back asking.",
+            "cot": {
+              "assess": "The nine-supplier split is locked with named plants and per-unit costs ($210 domestic, nearshore with 60% collapse risk). RVC breach is quantified per model (8,400 units, $1.76M baseline). But the consolidated map still doesn't name the audit triggers keyed to *each path*—domestic vs. nearshore—or show which supplier defaults map to which RVC penalty. That's what DOL needs to see, and right now it's fragmented across compliance, CFO, and trade credit. Risk_map_completeness is at 59; we need it locked at ≥60 before this leaves the room.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "You've got the three audit sequences and the RVC penalty per model; I need to know which suppliers trigger which penalty path so the map actually defends itself to DOL scrutiny."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Here's what DOL needs in writing: Monterrey or Guadalajara defaults on day 42, that's your first RVC breach on F-150—full $1.76M hits immediately, no phase. For the four nearshore, Hermosillo collapses first around day 45, Silverado breaches at that moment. I'm writing the map with those two sequences separated so the penalty holds defensible. Supplier—confirm that's your actual default sequence, or I'm pricing it as simultaneous collapse and the exposure swells.",
+            "cot": {
+              "assess": "Map is one point shy of completion (59→60), and the supplier split is finally named—but the audit-sequence logic isn't locked yet. Auto strategy just asked the critical question: which plant defaults first, and does that phase the RVC hit or trigger it all at once? That's not optional detail—DOL will demand it, and without it the map stays indefensible.",
+              "decide": {
+                "action_type": "speak",
+                "target": "supplier (and auto_strategy for context)",
+                "rationale": "The audit-sequence phasing directly determines whether the $1.76M RVC penalty holds or swells to $2.9M; I need to lock the trigger order NOW before the map goes to DOL."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Auto strategy—when you consolidate this into one map for DOL, are you threading the enforcement-pivot premium as a separate line from the operational $180–$280 penalty, or is it baked into the baseline? Because if it's separate, I need to name it explicitly—that's what makes it defensible to the board on the political layer.",
+            "cot": {
+              "assess": "The nine-supplier split is named, the dual premiums are priced, and the audit sequences are locked—we're at 59 on risk_map_completeness, one point shy of the 60 threshold. The map itself exists in pieces (compliance has the audit sequences, CFO has the capex timeline, I've got the political premium layer), but nobody's written the single consolidated document DOL actually needs. That's the gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Auto strategy is writing the map—I need to know if the enforcement-pivot premium (35–40% odds, 12–15 bps) is already embedded in the document, or if that's a separate line item I need to isolate before we hand it to DOL."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Enforcement pivot sits separate—$180–$280 is operational unit cost, the political premium layers on top if DOL accelerates or judicial review extends past day 60. I'm pricing it as a 12-basis-point add if the next admin tightens labor enforcement, and that goes on its own line in the map so the board sees what's political discretion versus what's operational penalty. Auto strategy—when you lock the nine-supplier split, make sure the map calls out which default sequence triggers which premium, or I can't defend the separation to underwriting.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Compliance—in your map sequences, when Monterrey defaults on day 42 and hits F-150 RVC, does the full $47–$63M receivables reserve hit the balance sheet at that moment, or does it phase in as each of the nine suppliers actually goes insolvent? Because if it's simultaneous with the unit penalty, I'm pricing them as one hit; if it phases, I need separate triggers for each supplier default so I can isolate the credit risk per path.",
+            "cot": {
+              "assess": "Map is nearly complete—compliance just locked the default sequences (Monterrey/Guadalajara day 42 for F-150, Hermosillo day 45 for Silverado), and political premium is separated. My core issue: that $47–$63M default reserve needs to sit explicitly in the map as its own line item, keyed to which supplier defaults trigger it, or I can't certify the trade-credit premium to the board. Right now it's floating—attached to the unit cost, not the actual receivables exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The map shows unit penalties but not the reserve allocation—I need clarity on whether the $47–$63M default reserve fires at day 42 (Monterrey/Guadalajara breach) or day 45 (Hermosillo), because that timing determines my premium structure and how I defend it to audit."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need: Compliance writes one document—call it the \"Supplier Default & RVC Trigger Sequence\"—that names Monterrey day 42 → F-150 breach → $1.76M, then Hermosillo day 45 → Silverado breach, with the $47–$63M reserve phased to match each default. Auto strategy, you thread that into the consolidated map with the political premium isolated on its own line. That's the artifact DOL sees—no ambiguity, no phase-ins.",
+            "cot": {
+              "assess": "The nine-supplier split is locked, the dual-premium structure is approved, and the default reserve ($47–$63M) is isolated on the balance sheet. But the map still needs one critical piece: a named trigger sequence showing *which supplier defaults first* and *when each RVC breach fires*—that's what DOL will demand, and it's not yet written. Compliance has the sequences, but they're not consolidated into a single executable document keyed to the contingent capex timeline.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "The map is 95% built but lacks the one artifact that makes it defensible to DOL: a single consolidated timeline document naming each supplier, each default trigger, and each RVC breach moment. I need to propose who writes it and what it contains so we can lock it this round."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Lock this now: the $47–$63M reserve phases to match the default sequence—Monterrey day 42 triggers $8–$12M hit on F-150 breach, Hermosillo day 45 triggers the next tranche on Silverado. That isolation is what makes the trade-credit premium defensible and keeps the RVC penalty clean. Compliance, thread that phasing into your sequences document and we're done.",
+            "cot": {
+              "assess": "We're at 59/60 on risk_map_completeness—one point from success—and the map itself is now being written with named sequences (Monterrey day 42, Hermosillo day 45), phased reserves, and separated political premium. The bottleneck has shifted from *what* to document to *how* to isolate the receivables hit so it's defensible to DOL and the board. Trade credit just flagged a critical dependency: does the $47–$63M reserve phase with each supplier default, or hit simultaneously with the RVC penalty? That decision gates whether we can price the credit premium separately.",
+              "decide": {
+                "action_type": "act",
+                "target": "trade_credit_risk + risk_map_completeness",
+                "rationale": "The phased reserve logic is the last missing piece—once I lock it, the map is complete and auditable, and trade credit can price the premium without circular dependency."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Here's what DOL needs in writing: Monterrey or Guadalajara defaults on day 42, that's your first RVC breach on F-150—full $1.76M hits immediately, no phase. For the four nearshore, Hermosillo collapses first around day 45, Silverado breaches at that moment. I'm writing the map with those two sequences separated so the penalty holds defensible. Supplier—confirm that's your actual default sequence, or I'm pricing it as simultaneous collapse and the exposure swells.",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Compliance—you've got the five domestic plants at $210/unit and the four nearshore with 60% collapse risk. Which F-150 and Silverado variants actually breach RVC under each scenario, and what's the total unit-cost hit per model? That's the number I need to lock into the map before it goes to DOL.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Compliance—when you write those three audit sequences into the map, I need you to name it: which of the five domestic plants default first, and does that trigger the full $1.76M RVC hit on F-150, or does it phase? Same for the four nearshore—if Hermosillo re-cert collapses on day 45, does Silverado breach at that point, or do we hold until all four fail? That's what the map needs to say so DOL doesn't come back asking.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Auto strategy—when you consolidate this into one map for DOL, are you threading the enforcement-pivot premium as a separate line from the operational $180–$280 penalty, or is it baked into the baseline? Because if it's separate, I need to name it explicitly—that's what makes it defensible to the board on the political layer.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Compliance—in your map sequences, when Monterrey defaults on day 42 and hits F-150 RVC, does the full $47–$63M receivables reserve hit the balance sheet at that moment, or does it phase in as each of the nine suppliers actually goes insolvent? Because if it's simultaneous with the unit penalty, I'm pricing them as one hit; if it phases, I need separate triggers for each supplier default so I can isolate the credit risk per path.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Lock this now: the $47–$63M reserve phases to match the default sequence—Monterrey day 42 triggers $8–$12M hit on F-150 breach, Hermosillo day 45 trig\" → The CFO locks the reserve phasing to the default sequence with concrete triggers—Monterrey day 42 ($8–$12M F-150 breach), Hermosillo day 45 (Silverado tranche)—creating defensible trade-credit pricing and clean RVC penalty accounting. This operationalizes the financial exposure timeline and completes the risk map's quantification layer.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: Compliance writes one document—call it the \"Supplier Default & RVC Trigger Sequence\"—that names Monterrey day 42 → F-150 breach → \" → The consolidated 'Supplier Default & RVC Trigger Sequence' document is finalized with explicit timelines: Monterrey default day 42 triggers immediate $1.76M F-150 RVC breach, Hermosillo collapse day 45 triggers Silverado breach, with the $47–$63M receivables reserve phased to match each default event. This artifact delivers the operational precision DOL requires and crosses the completeness threshold.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 42,
+          "supplier_relocation_exposure": 41.0,
+          "trade_credit_risk": 27.0,
+          "political_risk_exposure": 37.0,
+          "risk_map_completeness": 76.0,
+          "underwriting_discipline": 72.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay, so we've priced the insolvency hit — but here's what I need: of those twelve suppliers, how many can actually nearshore into a compliant wage zone within six months, and what's the capex lift versus our current sourcing cost? Because if we front-load relocation incentives now, before the 2026 review hardens the rules, we dodge both the credit default and the supply shock. That's the plan I'm selling to the CFO.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supply consultant frames relocation-incentive strategy: nearshoring capacity and capex now priced as decision variables.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Nearshoring capacity and capex quantified for decision.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Relocation path now concrete variable in map.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3.0,
+          "reason": "Capex and timeline operationalized as pricing factors.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "We've got four silos here — RVC compliance, supplier moves, credit risk, political shifts. But they're not independent. When a plant fails the wage-floor test and we pull sourcing, that's a trigger for supplier insolvency and tighter credit terms. Who's owning the cascade map — which domino actually falls first?",
+        "supplier": "When a Tier 2 supplier fails the wage-floor test and we pull orders, does that supplier survive three months of no revenue while re-qualifying, or do we lose them? That's the trigger that hits credit risk and political blowback — and I don't see it named anywhere on this map yet.",
+        "compliance_lawyer": "I'll take those two numbers from you right now — average Tier 2 cash runway when orders stop, and which suppliers sit below the wage floor today. Once I have that, I can map the certification audit trigger and the penalty cost into the RVC burden calculation. That's how we move from \"cascade risk exists\" to \"audit happens on day X, penalty is Y.\"",
+        "political_risk_insurer": "Before we lock in the audit timeline, I need clarity: Is the wage-floor certification audit mandatory on a fixed schedule, or does DOL have discretion to accelerate it if political pressure builds? Because if it's discretionary, that's a *policy risk* — next admin could weaponize the trigger. That changes my premium.",
+        "trade_credit_underwriter": "Of your volume-critical Tier 2 base, how many sit below the wage floor today, and what's their median cash runway if orders stop cold? I need real numbers — that's what separates \"cascade risk exists\" from \"we're pricing a 40% default probability in Q2.\"",
+        "cfo_erm": "Here's what I'm locking in: supplier-insolvency trigger fires on day-one notification, 60-day DOL audit window opens, median cash burn is four-to-six weeks. That's our baseline cost. But before we price relocation incentives, I need the supply consultant to answer this now — of those twelve, how many can actually move into a wage-compliant zone within six months, and what's the capex? That's the decision: do we front-load relocation spend to dodge the credit default, or do we accept the loss and re-source? I'm not consolidating this map until I have both paths priced."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm locking in: supplier-insolvency trigger fires on day-one notification, 60-day DOL audit window opens, median cash burn is four-to-six weeks. That's our baseline cost. But before we price relocation incentives, I need the supply consultant to answer this now — of those twelve, how many can actually move into a wage-compliant zone within six months, and what's the capex? That's the decision: do we front-load relocation spend to dodge the credit default, or do we accept the loss and re-source? I'm not consolidating this map until I have both paths priced.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO locks baseline triggers: supplier-insolvency on notification, 60-day audit window, 4-6 week cash burn median.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Insolvency trigger and cash runway now quantified.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Baseline cost structure and triggers consolidated.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers and timelines operationalized for pricing.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "DOL audit discretion flagged as forward risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "We've got four silos here — RVC compliance, supplier moves, credit risk, political shifts. But they're not independent. When a plant fails the wage-floor test and we pull sourcing, that's a trigger for supplier insolvency and tighter credit terms. Who's owning the cascade map — which domino actually falls first?",
+        "supplier": "When a Tier 2 supplier fails the wage-floor test and we pull orders, does that supplier survive three months of no revenue while re-qualifying, or do we lose them? That's the trigger that hits credit risk and political blowback — and I don't see it named anywhere on this map yet.",
+        "compliance_lawyer": "I'll take those two numbers from you right now — average Tier 2 cash runway when orders stop, and which suppliers sit below the wage floor today. Once I have that, I can map the certification audit trigger and the penalty cost into the RVC burden calculation. That's how we move from \"cascade risk exists\" to \"audit happens on day X, penalty is Y.\"",
+        "political_risk_insurer": "Before we lock in the audit timeline, I need clarity: Is the wage-floor certification audit mandatory on a fixed schedule, or does DOL have discretion to accelerate it if political pressure builds? Because if it's discretionary, that's a *policy risk* — next admin could weaponize the trigger. That changes my premium.",
+        "trade_credit_underwriter": "Of your volume-critical Tier 2 base, how many sit below the wage floor today, and what's their median cash runway if orders stop cold? I need real numbers — that's what separates \"cascade risk exists\" from \"we're pricing a 40% default probability in Q2.\"",
+        "supply_chain_consultant": "Okay, so we've priced the insolvency hit — but here's what I need: of those twelve suppliers, how many can actually nearshore into a compliant wage zone within six months, and what's the capex lift versus our current sourcing cost? Because if we front-load relocation incentives now, before the 2026 review hardens the rules, we dodge both the credit default and the supply shock. That's the plan I'm selling to the CFO."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need locked before we price this: of those nine Mexican suppliers, how many have nearshoring capacity available *right now* in a compliant wage zone, and what's the capex per supplier to move tooling and ramp inside ninety days? That's the decision variable — nearshoring cost versus re-source penalty versus accepting the RVC hit. Give me those numbers and I can build the actual business case.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Duplicate data request — CFO already consolidating this exact supplier analysis in Proposal 2.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Walk me through this: of the twelve suppliers below the wage floor, which ones feed our highest-volume models — and what's the re-source cost per unit if we have to pull them inside sixty days? I need the model-level impact, not just the supplier count. That's what ties RVC burden to the audit trigger.",
+        "supplier": "Which of our volume models hit the tightest RVC margins today? Once I know that, I can tell you exactly which of the twelve suppliers below the wage floor feed those SKUs, where they sit geographically, and what the re-source hit looks like if we pull them inside sixty days. That's the number that ties your audit trigger to actual penalty cost.",
+        "compliance_lawyer": "Supply consultant — you've got the supplier roster and the geographies. Of those twelve below the wage floor, how many sit in Mexico, and realistically, how many can re-certify inside sixty days without moving? That's what separates \"we lose them and breach RVC\" from \"we lose them and re-source domestically.\" That's the audit sequence we need to price.",
+        "political_risk_insurer": "Okay, so the audit fires day one on notification — that's your baseline. But here's what I'm pricing separately: if a worker complaint accelerates the timeline, or the next DOL pivots enforcement, does the sixty-day window collapse to thirty? And does the penalty survive judicial review if we challenge it? Those are political variables, not operational ones — I need them named before I lock the premium.",
+        "trade_credit_underwriter": "When those nine suppliers go insolvent during the sixty-day window, what's our exposure on outstanding payables and inventory sitting at their plants? I need that number isolated so I can price it separately from the re-source cost — that's the trade-credit variable that moves my underwriting.",
+        "cfo_erm": "Stop. We're pricing this as four separate line items when it's one domino sequence. Here's what I'm locking into the final map: Day 1 audit notification → day 42 insolvency on nine suppliers → simultaneous RVC breach penalty ($X per unit on F-150/Silverado) + trade-credit exposure ($Y on payables) + nearshoring capex decision ($Z per supplier, capacity-constrained to three). One number, one trigger, one decision. Political acceleration risk — DOL discretion to compress the sixty-day window — sits on top as a multiplier. Who owns the consolidated cost model?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Stop. We're pricing this as four separate line items when it's one domino sequence. Here's what I'm locking into the final map: Day 1 audit notification → day 42 insolvency on nine suppliers → simultaneous RVC breach penalty ($X per unit on F-150/Silverado) + trade-credit exposure ($Y on payables) + nearshoring capex decision ($Z per supplier, capacity-constrained to three). One number, one trigger, one decision. Political acceleration risk — DOL discretion to compress the sixty-day window — sits on top as a multiplier. Who owns the consolidated cost model?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO consolidates fragmented risk streams into unified domino model with concrete triggers and decision variables.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Unified causal chain replaces siloed analysis",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers and priced decision points",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Nearshoring capacity constraints now quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Insolvency timeline and payables exposure isolated",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Clear ownership and structure reduces ambiguity",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Walk me through this: of the twelve suppliers below the wage floor, which ones feed our highest-volume models — and what's the re-source cost per unit if we have to pull them inside sixty days? I need the model-level impact, not just the supplier count. That's what ties RVC burden to the audit trigger.",
+        "supplier": "Which of our volume models hit the tightest RVC margins today? Once I know that, I can tell you exactly which of the twelve suppliers below the wage floor feed those SKUs, where they sit geographically, and what the re-source hit looks like if we pull them inside sixty days. That's the number that ties your audit trigger to actual penalty cost.",
+        "compliance_lawyer": "Supply consultant — you've got the supplier roster and the geographies. Of those twelve below the wage floor, how many sit in Mexico, and realistically, how many can re-certify inside sixty days without moving? That's what separates \"we lose them and breach RVC\" from \"we lose them and re-source domestically.\" That's the audit sequence we need to price.",
+        "political_risk_insurer": "Okay, so the audit fires day one on notification — that's your baseline. But here's what I'm pricing separately: if a worker complaint accelerates the timeline, or the next DOL pivots enforcement, does the sixty-day window collapse to thirty? And does the penalty survive judicial review if we challenge it? Those are political variables, not operational ones — I need them named before I lock the premium.",
+        "trade_credit_underwriter": "When those nine suppliers go insolvent during the sixty-day window, what's our exposure on outstanding payables and inventory sitting at their plants? I need that number isolated so I can price it separately from the re-source cost — that's the trade-credit variable that moves my underwriting.",
+        "supply_chain_consultant": "Here's what I need locked before we price this: of those nine Mexican suppliers, how many have nearshoring capacity available *right now* in a compliant wage zone, and what's the capex per supplier to move tooling and ramp inside ninety days? That's the decision variable — nearshoring cost versus re-source penalty versus accepting the RVC hit. Give me those numbers and I can build the actual business case."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Okay—I'm committing capex on those four plants *before* the DOL letter lands. We can't burn thirty days on the ask. Supply consultant, you're calling DOL this week and locking the re-cert timeline in parallel—I'm authorizing the tooling spend contingent on a binding commitment by end of Q1. Now I need the final map: all eight variables, triggers, penalties, and capex costs on one page, priced and decision-ready. Who's consolidating that before we leave this room?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The CFO's capex commitment is premature—five agents have flagged unresolved dependencies (DOL timeline, re-cert collapse risk, default reserves, nearshore viability) that must be answered before capital is deployed. The supply consultant cannot lock a DOL timeline this week without first knowing whether the CFO will commit capex before or after written re-cert confirmation, creating a circular dependency that blocks execution.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply consultant — you've got the nine Mexican plants and the nearshoring constraints. Give me the re-source cost per unit on F-150 and Silverado if we pull those nine inside sixty days and source domestically instead. That's the number I need to lock into the RVC burden calculation and price the audit penalty.",
+        "supplier": "Okay, here's the bottleneck: the supply consultant's range is $180–$280 per unit depending on which nine plants you pull and where you're re-sourcing. Before we lock that into the audit penalty, you need to call it—are we pulling all nine to domestic Tier 1, or are we betting on the nearshore capex play to keep some of them alive in a compliant wage zone? That's the decision that moves the needle on both RVC burden and supplier survival.",
+        "compliance_lawyer": "Supply consultant—of those four you're nearshoring, what's your actual re-certification timeline with DOL, and does it fit inside the sixty-day window the CFO locked? Because if it bleeds past day sixty, that four-plant bet becomes insolvency risk, and the whole audit penalty shifts. I need that timeline nailed before I can certify which penalties survive challenge.",
+        "political_risk_insurer": "Compliance—if DOL accelerates the re-cert audit on those four plants, or if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex bet still hold? That's the political variable I'm pricing separately from the operational trigger. What's your read on enforcement risk if the next admin tightens labor enforcement?",
+        "trade_credit_underwriter": "CFO — compliance just priced 60% odds the re-cert window collapses to thirty days. If that happens, your four nearshore plants go insolvent before capex matures, and we're left holding outstanding payables and inventory at failed suppliers. Before I lock the trade-credit premium, I need you to confirm: are we reserving for a full four-plant default scenario, or are we betting the re-cert holds?",
+        "supply_chain_consultant": "I'll talk to DOL's labor-compliance office this week—but I need to know from you first: are you willing to commit capex on those four plants *before* we have the re-cert commitment in writing, or does the binding letter have to land first? Because if it's the latter, we're burning thirty days just on the ask, and compliance's sixty-percent collapse risk becomes our baseline assumption right now."
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "Okay—I'm pricing this as two separate premiums: the operational trigger at $180–$280/unit holds as your baseline, but I'm layering a *political acceleration premium* on top for the 30-day collapse scenario. That's a DOL-discretion call, not a supply-chain miss. I need to know: if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex still land before the four plants default, or does the timeline slip again?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Dual-premium structure operationalizes political vs operational triggers; timeline dependency mapped.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named triggers: operational vs political acceleration premiums",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "DOL-discretion scenario explicitly priced as separate layer",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Timeline dependencies and judicial-review paths now mapped",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance, clarify one thing: that 60% collapse on the re-cert window—is that DOL discretion to accelerate if political pressure hits, or is it the supply consultant's timeline estimate that the four plants just can't move fast enough? Because if it's political discretion, that's a separate premium from the operational trigger, and I need to price them apart.",
+        "supplier": "Here's what I need from you to move this forward: when those nine suppliers go insolvent during the window, what's our actual exposure on outstanding payables and inventory sitting at their plants—are we talking $20M, $50M, what number? That's the trade-credit variable that separates \"operational penalty\" from \"balance-sheet hit,\" and I can't price nearshore capex without knowing which one we're absorbing.",
+        "compliance_lawyer": "Trade credit—that $47–$63M sits on the balance sheet if those nine go dark, but does it get baked into the per-unit penalty we're defending to DOL, or do we reserve it separately as a supplier-default loss? Because if it's separate, the RVC burden calculation stays clean at $180–$280, and the audit penalty holds. If it bleeds into the unit cost, the penalty swells and becomes indefensible.",
+        "trade_credit_underwriter": "CFO — before I lock the trade-credit premium, I need one call: are we reserving the full $47–$63M receivables exposure *today* as a supplier-default contingency, or does that sit unbooked until the audit window actually collapses? Because that's what separates a 15-basis-point premium from a 40-basis-point hit, and it changes what we tell the board.",
+        "supply_chain_consultant": "Here's what I need locked right now: DOL call happens tomorrow, and you come back with a binding re-cert timeline or you don't. If you get it, we commit capex on those four plants by EOW. If DOL won't commit in writing, we pull all nine to domestic Tier 1 at $180–$210/unit and kill the nearshore play. Which path are you walking into that call ready to execute?",
+        "cfo_erm": "Here's the call: we commit capex on the four nearshore plants *contingent on DOL confirming a binding re-cert timeline by EOW next week*—not a verbal, a written commitment. If that letter lands, we execute capex by day 14. If DOL won't write it, we pull all nine to domestic Tier 1 and lock the $180–$210/unit baseline. That way the supply consultant walks in with a binary fork, not a circular dependency. Compliance, does that timeline work with your audit window math?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need locked right now: DOL call happens tomorrow, and you come back with a binding re-cert timeline or you don't. If you get it, we commit capex on those four plants by EOW. If DOL won't commit in writing, we pull all nine to domestic Tier 1 at $180–$210/unit and kill the nearshore play. Which path are you walking into that call ready to execute?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Binary decision fork with concrete triggers operationalizes nearshore vs domestic paths.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Binary fork: DOL commitment → nearshore capex; no commitment → domestic Tier 1",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Nearshore vs domestic paths now priced with concrete unit costs",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Decision tree with named triggers and cost baselines mapped",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance, clarify one thing: that 60% collapse on the re-cert window—is that DOL discretion to accelerate if political pressure hits, or is it the supply consultant's timeline estimate that the four plants just can't move fast enough? Because if it's political discretion, that's a separate premium from the operational trigger, and I need to price them apart.",
+        "supplier": "Here's what I need from you to move this forward: when those nine suppliers go insolvent during the window, what's our actual exposure on outstanding payables and inventory sitting at their plants—are we talking $20M, $50M, what number? That's the trade-credit variable that separates \"operational penalty\" from \"balance-sheet hit,\" and I can't price nearshore capex without knowing which one we're absorbing.",
+        "compliance_lawyer": "Trade credit—that $47–$63M sits on the balance sheet if those nine go dark, but does it get baked into the per-unit penalty we're defending to DOL, or do we reserve it separately as a supplier-default loss? Because if it's separate, the RVC burden calculation stays clean at $180–$280, and the audit penalty holds. If it bleeds into the unit cost, the penalty swells and becomes indefensible.",
+        "political_risk_insurer": "Okay—I'm pricing this as two separate premiums: the operational trigger at $180–$280/unit holds as your baseline, but I'm layering a *political acceleration premium* on top for the 30-day collapse scenario. That's a DOL-discretion call, not a supply-chain miss. I need to know: if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex still land before the four plants default, or does the timeline slip again?",
+        "trade_credit_underwriter": "CFO — before I lock the trade-credit premium, I need one call: are we reserving the full $47–$63M receivables exposure *today* as a supplier-default contingency, or does that sit unbooked until the audit window actually collapses? Because that's what separates a 15-basis-point premium from a 40-basis-point hit, and it changes what we tell the board.",
+        "cfo_erm": "Here's the call: we commit capex on the four nearshore plants *contingent on DOL confirming a binding re-cert timeline by EOW next week*—not a verbal, a written commitment. If that letter lands, we execute capex by day 14. If DOL won't write it, we pull all nine to domestic Tier 1 and lock the $180–$210/unit baseline. That way the supply consultant walks in with a binary fork, not a circular dependency. Compliance, does that timeline work with your audit window math?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "Here's the call: we commit capex on the four nearshore plants *contingent on DOL confirming a binding re-cert timeline by EOW next week*—not a verbal, a written commitment. If that letter lands, we execute capex by day 14. If DOL won't write it, we pull all nine to domestic Tier 1 and lock the $180–$210/unit baseline. That way the supply consultant walks in with a binary fork, not a circular dependency. Compliance, does that timeline work with your audit window math?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Contingent capex commitment with written DOL timeline creates executable decision framework.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Written commitment trigger eliminates circular dependency; concrete execution dates",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Nearshore capex contingency and domestic fallback both priced",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Full decision tree: DOL timeline → capex day 14; no timeline → domestic baseline",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "$47-63M receivables exposure now linked to supplier-default scenario",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.2
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance, clarify one thing: that 60% collapse on the re-cert window—is that DOL discretion to accelerate if political pressure hits, or is it the supply consultant's timeline estimate that the four plants just can't move fast enough? Because if it's political discretion, that's a separate premium from the operational trigger, and I need to price them apart.",
+        "supplier": "Here's what I need from you to move this forward: when those nine suppliers go insolvent during the window, what's our actual exposure on outstanding payables and inventory sitting at their plants—are we talking $20M, $50M, what number? That's the trade-credit variable that separates \"operational penalty\" from \"balance-sheet hit,\" and I can't price nearshore capex without knowing which one we're absorbing.",
+        "compliance_lawyer": "Trade credit—that $47–$63M sits on the balance sheet if those nine go dark, but does it get baked into the per-unit penalty we're defending to DOL, or do we reserve it separately as a supplier-default loss? Because if it's separate, the RVC burden calculation stays clean at $180–$280, and the audit penalty holds. If it bleeds into the unit cost, the penalty swells and becomes indefensible.",
+        "political_risk_insurer": "Okay—I'm pricing this as two separate premiums: the operational trigger at $180–$280/unit holds as your baseline, but I'm layering a *political acceleration premium* on top for the 30-day collapse scenario. That's a DOL-discretion call, not a supply-chain miss. I need to know: if we challenge the penalty and it survives judicial review past day 60, does the nearshore capex still land before the four plants default, or does the timeline slip again?",
+        "trade_credit_underwriter": "CFO — before I lock the trade-credit premium, I need one call: are we reserving the full $47–$63M receivables exposure *today* as a supplier-default contingency, or does that sit unbooked until the audit window actually collapses? Because that's what separates a 15-basis-point premium from a 40-basis-point hit, and it changes what we tell the board.",
+        "supply_chain_consultant": "Here's what I need locked right now: DOL call happens tomorrow, and you come back with a binding re-cert timeline or you don't. If you get it, we commit capex on those four plants by EOW. If DOL won't commit in writing, we pull all nine to domestic Tier 1 at $180–$210/unit and kill the nearshore play. Which path are you walking into that call ready to execute?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "intent": "Compliance, before you lock those three audit sequences into the map, call out the political layer separately: the 60% re-cert collapse is operational, but I need you to name the enforcement-pivot risk if the next admin tightens labor audits post-2025. That's a *different* premium — price it as a percentage uplift on the operational trigger, not embedded in it. That way the board sees what they're actually exposed to, and I can underwrite it as political, not operational.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk insurer successfully isolates the enforcement-pivot risk as a separate political premium layer, distinct from the operational 60% re-cert collapse trigger. This separation enables proper underwriting discipline and board transparency on what is operational versus regulatory-political exposure.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Naming the post-2025 enforcement-pivot risk as a distinct political layer surfaces previously embedded exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Separating political premium from operational trigger creates clean, defensible pricing structure for board and underwriters",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Political layer now explicitly called out in the map architecture, adding a critical dimension to the consolidated view",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "We've got the triggers and premiums locked, but we're missing one thing: a single consolidated map that names every variable, every decision fork, and every contingency in one place. Who's writing that, and what do we need to add to it so it's actually defensible to the board and DOL?",
+        "supplier": "Auto strategy — who's actually writing the consolidated map, and what do they need from me on the nine suppliers? Because if it's going to DOL, I need to lock which ones we're pulling domestic versus nearshoring, and I can't do that without knowing the capex timeline is real. What's the ask?",
+        "compliance_lawyer": "Here's what the map needs from me: certification audit triggers on day-one notification, re-cert timeline windows keyed to the 60-day domino, and the penalty cost per unit defensible to DOL challenge. I'll write the three audit sequences — full domestic pull at $180–$210/unit, four-plant nearshore with 60% collapse risk priced separately, and the default reserve at $47–$63M. That locks it. Supply consultant — I need the nine-supplier split *named* (which five pull domestic, which four nearshore) so I can map the RVC burden to each path and make it auditable.",
+        "trade_credit_underwriter": "Compliance—when you lock that nine-supplier split by COB, make sure the map shows the $47–$63M default reserve as its own line item, separate from the per-unit RVC burden. That's how I price the trade-credit premium and actually defend it to the board. Without that isolation, I can't certify the underwriting.",
+        "supply_chain_consultant": "Supply consultant—I need the nine-supplier split locked right now: which five go domestic Tier 1, which four nearshore into the wage-floor compliant zone? Once I call that, I'm writing the RVC burden per path into the map, and we're done. What's holding you up?",
+        "cfo_erm": "Supply consultant—I need the nine-supplier split *right now*: which five plants pull domestic Tier 1 at $180–$210/unit, which four nearshore into the wage-floor zone with the 60% collapse risk baked in? Once you call that, I'm writing it into the consolidated map with the $47–$63M reserve, the dual premiums, and the DOL timeline contingency. We don't have another round to debate this—lock it."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "cfo_erm",
+      "intent": "Lock this now: the $47–$63M reserve phases to match the default sequence—Monterrey day 42 triggers $8–$12M hit on F-150 breach, Hermosillo day 45 triggers the next tranche on Silverado. That isolation is what makes the trade-credit premium defensible and keeps the RVC penalty clean. Compliance, thread that phasing into your sequences document and we're done.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO locks the reserve phasing to the default sequence with concrete triggers—Monterrey day 42 ($8–$12M F-150 breach), Hermosillo day 45 (Silverado tranche)—creating defensible trade-credit pricing and clean RVC penalty accounting. This operationalizes the financial exposure timeline and completes the risk map's quantification layer.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete reserve phasing with named triggers, dollar amounts, and facility-specific breach points operationalizes the financial exposure timeline",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Locking the reserve sequence to the default timeline integrates financial, compliance, and operational risk layers into a unified map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -3.0,
+          "reason": "Defensible phasing and clean RVC penalty accounting reduce trade-credit underwriting uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 5
+          }
+        ]
+      },
+      "classification": "action"
+    },
+    {
+      "round": 6,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need: Compliance writes one document—call it the \"Supplier Default & RVC Trigger Sequence\"—that names Monterrey day 42 → F-150 breach → $1.76M, then Hermosillo day 45 → Silverado breach, with the $47–$63M reserve phased to match each default. Auto strategy, you thread that into the consolidated map with the political premium isolated on its own line. That's the artifact DOL sees—no ambiguity, no phase-ins.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The consolidated 'Supplier Default & RVC Trigger Sequence' document is finalized with explicit timelines: Monterrey default day 42 triggers immediate $1.76M F-150 RVC breach, Hermosillo collapse day 45 triggers Silverado breach, with the $47–$63M receivables reserve phased to match each default event. This artifact delivers the operational precision DOL requires and crosses the completeness threshold.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Final consolidation of supplier default sequences, RVC breach triggers, and phased reserve allocation into single DOL-ready artifact completes the risk map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Explicit naming of default sequence (Monterrey day 42, Hermosillo day 45), immediate vs phased reserve triggers, and separated political premium creates fully operationalized underwriting factors",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -3.0,
+          "reason": "Phased reserve allocation tied to specific supplier defaults reduces simultaneous-hit exposure and isolates credit risk per path",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": -2.0,
+          "reason": "Separating enforcement-pivot premium as distinct line item from operational penalty clarifies political layer and makes it defensible to board",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -4.0,
+          "reason": "Final consolidation resolves multi-round ambiguity and delivers concrete DOL artifact",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "stress",
+          "delta": -1.0,
+          "reason": "Clear default sequences and phased triggers eliminate receivables-reserve uncertainty",
+          "agent_id": "trade_credit_underwriter",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Separated political premium line provides board-defensible structure",
+          "agent_id": "political_risk_insurer",
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance—you've got the five domestic plants at $210/unit and the four nearshore with 60% collapse risk. Which F-150 and Silverado variants actually breach RVC under each scenario, and what's the total unit-cost hit per model? That's the number I need to lock into the map before it goes to DOL.",
+        "supplier": "Compliance—when you write those three audit sequences into the map, I need you to name it: which of the five domestic plants default first, and does that trigger the full $1.76M RVC hit on F-150, or does it phase? Same for the four nearshore—if Hermosillo re-cert collapses on day 45, does Silverado breach at that point, or do we hold until all four fail? That's what the map needs to say so DOL doesn't come back asking.",
+        "compliance_lawyer": "Here's what DOL needs in writing: Monterrey or Guadalajara defaults on day 42, that's your first RVC breach on F-150—full $1.76M hits immediately, no phase. For the four nearshore, Hermosillo collapses first around day 45, Silverado breaches at that moment. I'm writing the map with those two sequences separated so the penalty holds defensible. Supplier—confirm that's your actual default sequence, or I'm pricing it as simultaneous collapse and the exposure swells.",
+        "political_risk_insurer": "Auto strategy—when you consolidate this into one map for DOL, are you threading the enforcement-pivot premium as a separate line from the operational $180–$280 penalty, or is it baked into the baseline? Because if it's separate, I need to name it explicitly—that's what makes it defensible to the board on the political layer.",
+        "trade_credit_underwriter": "Compliance—in your map sequences, when Monterrey defaults on day 42 and hits F-150 RVC, does the full $47–$63M receivables reserve hit the balance sheet at that moment, or does it phase in as each of the nine suppliers actually goes insolvent? Because if it's simultaneous with the unit penalty, I'm pricing them as one hit; if it phases, I need separate triggers for each supplier default so I can isolate the credit risk per path.",
+        "cfo_erm": "Lock this now: the $47–$63M reserve phases to match the default sequence—Monterrey day 42 triggers $8–$12M hit on F-150 breach, Hermosillo day 45 triggers the next tranche on Silverado. That isolation is what makes the trade-credit premium defensible and keeps the RVC penalty clean. Compliance, thread that phasing into your sequences document and we're done."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 36
+        },
+        {
+          "round": 4,
+          "value": 38
+        },
+        {
+          "round": 5,
+          "value": 40
+        },
+        {
+          "round": 6,
+          "value": 42
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 29.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 32.0
+        },
+        {
+          "round": 4,
+          "value": 41.0
+        },
+        {
+          "round": 5,
+          "value": 41.0
+        },
+        {
+          "round": 6,
+          "value": 41.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 30.0
+        },
+        {
+          "round": 4,
+          "value": 33.0
+        },
+        {
+          "round": 5,
+          "value": 33.0
+        },
+        {
+          "round": 6,
+          "value": 27.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 29.0
+        },
+        {
+          "round": 3,
+          "value": 30.0
+        },
+        {
+          "round": 4,
+          "value": 34.0
+        },
+        {
+          "round": 5,
+          "value": 38.0
+        },
+        {
+          "round": 6,
+          "value": 37.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 31.0
+        },
+        {
+          "round": 2,
+          "value": 36.7
+        },
+        {
+          "round": 3,
+          "value": 36.7
+        },
+        {
+          "round": 4,
+          "value": 54.7
+        },
+        {
+          "round": 5,
+          "value": 59.5
+        },
+        {
+          "round": 6,
+          "value": 76.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 43.0
+        },
+        {
+          "round": 3,
+          "value": 43.0
+        },
+        {
+          "round": 4,
+          "value": 57.0
+        },
+        {
+          "round": 5,
+          "value": 62.0
+        },
+        {
+          "round": 6,
+          "value": 72.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42,
+            "normalised": 0.42
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 76.0,
+            "normalised": 0.76
+          }
+        ],
+        "weighted_score": 0.48800000000000004
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 42,
+            "normalised": 0.42
+          }
+        ],
+        "weighted_score": 0.4133333333333333
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42,
+            "normalised": 0.42
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.5199999999999999
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 37.0,
+            "normalised": 0.37
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.5449999999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 27.0,
+            "normalised": 0.27
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.41999999999999993
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 76.0,
+            "normalised": 0.76
+          }
+        ],
+        "weighted_score": 0.5850000000000001
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 76.0,
+            "normalised": 0.76
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.7466666666666667
+      }
+    }
+  }
+}

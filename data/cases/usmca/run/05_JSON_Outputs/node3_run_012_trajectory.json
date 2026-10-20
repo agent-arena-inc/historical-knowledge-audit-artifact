@@ -1,0 +1,2094 @@
+{
+  "simulation_id": "22e5def1b205",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.\n  supplier: Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.\n  compliance_lawyer: During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.\n  supplier: Look, if a Tier-2 supplier collapses mid-transition to Mexico, we're talking 8–12 weeks to qualify a replacement *plus* whatever capex we've already burned on their line—that's $2–5M per supplier depending on tooling complexity, and we're bleeding lead time the whole way. Trade credit at 25 doesn't touch this; we need a separate \"supplier-failure cash impact\" variable priced at 40+ to account for the qualification gap *and* the certification void the compliance lawyer just flagged—because shipping unqualified goods to keep the line hot turns a cash problem into a legal one.\n  political_risk_insurer: Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulatory enforcement event*—tariff clawback, duty penalties, possible supply suspension. I'd score that as a separate trigger: \"supplier-failure + certification gap = enforcement exposure\" at 45–55 basis points depending on your enforcement-audit history. That's the political-risk layer you need to underwrite separately from the $2–5M cash hit.\n  trade_credit_underwriter: I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap open. Priceable as: $2–5M cash impact *plus* 45–55 bps enforcement clawback. Let's lock that into the map now as a discrete variable, not three separate guesses.\n  supply_chain_consultant: Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid the qualification gap entirely? Because that choice changes the whole nearshoring incentive calculation, and it needs to be in the client plan by end of this room.\n  cfo_erm: Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-of-origin burden drives the compliance cost; supplier-relocation exposure + the new trigger tell us which Tier-2 shops move and what it costs if they fail; political risk is the enforcement layer on top. Give me one matrix with priced scenarios—keep-domestic vs. nearshore-to-Mexico—so operations can actually decide which suppliers move. That's what gets us to 60.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.",
+            "cot": {
+              "assess": "My RVC and labor-content burden work is solid — we've got the compliance cost mapped. But the risk map is fragmented: we've surfaced supplier relocation, trade credit, and political exposure, but nobody's connected them to actual trigger points or pricing yet. Underwriting discipline is where we're weak — we're still calling things \"exposure\" instead of naming what breaks the deal.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk_map_completeness / underwriting_discipline lead",
+                "rationale": "I need to know which supplier relocation scenarios actually crater our trade-credit window or force unplanned capex — that's the binding constraint nobody's quantified yet."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.",
+            "cot": {
+              "assess": "My relocation-exposure variables are solid, but auto_strategy just surfaced the real gap: we're mapping *which* suppliers need to move, but not *what happens when they fail mid-transition*. That's the insolvency-to-capex bridge that's missing from the risk map — and it's not priced anywhere. Completeness is still 19 because we're treating nearshoring and supplier credit as separate buckets instead of one risk chain.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_risk owner / insurance panel",
+                "rationale": "Supplier insolvency during relocation is a cash-flow and timeline multiplier that nobody's quantifying yet — I need to know how the underwriting discipline actually captures mid-transition failure scenarios."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.",
+            "cot": {
+              "assess": "Rules-of-origin burden and underwriting discipline are solid, but the room's exposing a real gap: supplier insolvency during nearshoring transitions isn't priced into trade-credit risk, and there's no audit-trigger framework yet. Risk map is fragmented—we're naming exposures but not connecting them to actual compliance costs or failure timelines.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need to know what audit/penalty exposure sits *inside* that 6-month qualification gap—because that's where compliance triggers live, and it directly drives both underwriting discipline and map completeness."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, if a Tier-2 supplier collapses mid-transition to Mexico, we're talking 8–12 weeks to qualify a replacement *plus* whatever capex we've already burned on their line—that's $2–5M per supplier depending on tooling complexity, and we're bleeding lead time the whole way. Trade credit at 25 doesn't touch this; we need a separate \"supplier-failure cash impact\" variable priced at 40+ to account for the qualification gap *and* the certification void the compliance lawyer just flagged—because shipping unqualified goods to keep the line hot turns a cash problem into a legal one.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulatory enforcement event*—tariff clawback, duty penalties, possible supply suspension. I'd score that as a separate trigger: \"supplier-failure + certification gap = enforcement exposure\" at 45–55 basis points depending on your enforcement-audit history. That's the political-risk layer you need to underwrite separately from the $2–5M cash hit.",
+            "cot": {
+              "assess": "The supplier-failure cash impact is now named and priced—$2–5M per Tier-2 collapse, 8–12 week qualification gap, *plus* certification void if you ship unqualified goods. That's a political-risk AND compliance exposure that trade_credit_risk at 25 completely misses. The real issue: you've surfaced a *policy enforcement* risk (USMCA origin certification) tied to supply-chain desperation—that's my layer, and it's not priced yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "The certification-void scenario is pure regulatory exposure; I need to score it as a priced trigger tied to the qualification gap, not bury it in trade-credit numbers."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap open. Priceable as: $2–5M cash impact *plus* 45–55 bps enforcement clawback. Let's lock that into the map now as a discrete variable, not three separate guesses.",
+            "cot": {
+              "assess": "The team has surfaced the real trade-credit killer: supplier collapse mid-transition creates a compounding failure — cash impact ($2–5M), qualification gap (8–12 weeks), *and* certification void that triggers enforcement exposure. That's three linked risks, not one. Right now we're pricing them separately; we need them operationalized as a *single underwriting trigger* so the cash hit and the regulatory clawback move together. risk_map_completeness is still fragmented because nobody's named the trigger condition yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "We have the pieces; we need to operationalize them as a named, priced trade-credit trigger so underwriting discipline moves from 30 to actionable."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid the qualification gap entirely? Because that choice changes the whole nearshoring incentive calculation, and it needs to be in the client plan by end of this room.",
+            "cot": {
+              "assess": "The group just locked a discrete \"Supplier-Failure-in-Transit\" trigger ($2–5M cash + 45–55 bps enforcement clawback)—that's real progress on trade_credit_risk and political_risk_exposure. But we've got a gap: nobody's built the *client action plan* yet. We've mapped the risk, priced the trigger, but risk_map_completeness is still 19 because there's no \"what do we do about this\" layer connecting policy exposure to nearshoring strategy.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + supplier_relocation_exposure",
+                "rationale": "The trigger is priced; now we need to operationalize it as a client decision fork—which suppliers move to Mexico, which stay, what qualification timeline we accept, what backup-supplier reserve we fund. That's how we move from \"we know the risk\" to \"here's the plan.\""
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-of-origin burden drives the compliance cost; supplier-relocation exposure + the new trigger tell us which Tier-2 shops move and what it costs if they fail; political risk is the enforcement layer on top. Give me one matrix with priced scenarios—keep-domestic vs. nearshore-to-Mexico—so operations can actually decide which suppliers move. That's what gets us to 60.",
+            "cot": {
+              "assess": "We've locked the Supplier-Failure-in-Transit Trigger—$2–5M cash + 45–55 bps enforcement clawback. That's a *discrete, priceable variable* now, which is exactly what underwriting_discipline needs. But we've still got a fragmented map: rules_of_origin_burden (32), supplier_relocation_exposure (25), trade_credit_risk (25), political_risk_exposure (26)—they're all measured separately and none of them feed into a consolidated decision matrix. risk_map_completeness is still 19 because we're building variables, not a map.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "We need to consolidate these four exposures + the new trigger into one prioritized, decision-ready matrix with cost-of-capital assumptions baked in—otherwise we're just collecting numbers."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.",
+      "metadata": {
+        "question_target": "risk_map_completeness / underwriting_discipline lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.",
+      "metadata": {
+        "question_target": "trade_credit_risk owner / insurance panel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulat\" → Political-risk layer priced: enforcement exposure at 45-55 bps for supplier-failure + certification gap.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap op\" → Supplier-Failure-in-Transit Trigger locked: $2-5M cash + 45-55 bps enforcement, now discrete variable.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid th\" → Supplier-relocation matrix initiated: Tier-2 shop allocation (Mexico vs domestic) to close qualification gap.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-\" → Policy-to-Supply-Chain Risk Map consolidation ordered: four variables ranked by materiality with priced scenarios.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 32.0,
+          "supplier_relocation_exposure": 35.0,
+          "trade_credit_risk": 32.0,
+          "political_risk_exposure": 30.0,
+          "risk_map_completeness": 35,
+          "underwriting_discipline": 43
+        }
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Supplier Relocation Matrix Build rule effect",
+      "metadata": {
+        "source": "supplier_relocation_matrix_build",
+        "variable": "risk_map_completeness",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Supply chain—where are you on the relocation matrix output? I need the supplier-by-supplier RVC gap and labor-cost bridge to Mexico for each model platform. Without that, we can't price the nearshoring scenario or tell finance which capex bets actually close the USMCA compliance gap.\n  supply_chain_consultant: Matrix is locked at Tier-2 shop level—RVC gaps by platform ready, labor-cost bridge to Mexico modeled at $80–120K per shop per quarter, but I'm holding final allocation pending the trade-credit underwriter's failure-in-transit trigger. If a shop goes dark mid-qualification, that resets capex timing; need that cash-impact window before I sign off on the relocation sequence.\n  supplier: Trade-credit—the matrix is ready to lock, but supply chain needs your failure-in-transit window nailed down: if a Tier-2 shop goes dark during month 4 of a 12-week re-qual to Mexico, what's the actual cash hit *and* the line-restart timeline? That's the decision rule we're missing to operationalize this thing.\n  trade_credit_underwriter: Month 4 failure during 12-week re-qual costs $2–5M in sunk tooling plus 6–8 weeks line restart; I'm pricing that as a discrete trade-credit trigger at 45–55 bps on the relocation capex pool. Supply chain, lock your matrix to that window—once you do, I can price the receivables hit if the backup supplier's cash position deteriorates mid-transition.\n  compliance_lawyer: Supply chain, when that Tier-2 shop is mid-transition to Mexico — weeks 4 through 12 of re-qual — what's your certification posture? Are you claiming USMCA origin on shipments, or are you pulling them off the line until re-qual clears? Because if you're shipping qualified goods from an *unqualified* supplier location, that's a separate penalty exposure we haven't priced yet.\n  political_risk_insurer: Compliance, supply chain — I need to know the shipment plan during weeks 4–12 of the re-qual window. Are you pulling product off the line until certification clears, or are you shipping it and *not* claiming USMCA origin to avoid the penalty? Because those are two completely different enforcement exposures and I'm pricing the wrong one if you haven't decided yet.\n  trade_credit_underwriter: Supply chain — during weeks 4–12 when a Tier-2 shop is mid-transition to Mexico, are you *pulling product off the line* until certification clears, or *shipping it domestically* to keep cash flowing? Because that choice determines whether the supplier survives the qualification window or goes dark. I need that decision rule locked before I can price which shops in your matrix actually hit the failure trigger.\n  supply_chain_consultant: [supply_chain_consultant attempted to propose a new action, but their team is executing: supplier_relocation_matrix_build. Action blocked — monitoring continues.]\n  cfo_erm: Here's what I'm doing: I'm locking the shipment rule as a *policy decision*, not a supply-chain choice. Weeks 4–12, any Tier-2 shop mid-transition ships *domestically only* — no USMCA claim, no line pull, no unqualified goods crossing the border. That kills the penalty exposure, simplifies the trade-credit pricing to pure cash-flow risk, and gives supply chain a hard constraint for the matrix. Does that work for everyone, or do we need a different rule?\n  compliance_lawyer: That domestic-only shipment rule kills the certification-gap penalty, but it locks you into a 6–8 week cash drain while the shop re-quals to Mexico—and if your backup supplier's insolvency risk is priced at 45–55 bps, you're now betting the entire relocation capex pool on that shop staying solvent through weeks 4–12. I need the CFO to name the cash-reserve floor that triggers a pivot to a third-tier supplier before the backup goes dark—otherwise we're pricing trade-credit risk without a failure abort clause.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Supply chain—where are you on the relocation matrix output? I need the supplier-by-supplier RVC gap and labor-cost bridge to Mexico for each model platform. Without that, we can't price the nearshoring scenario or tell finance which capex bets actually close the USMCA compliance gap.",
+            "cot": {
+              "assess": "Rules-of-origin burden and supplier-relocation exposure are locked in; trade-credit trigger is priced. But the Policy-to-Supply-Chain Risk Map is still in pieces — we have four named variables, but no consolidated decision tree or scenario pricing that tells us *which supplier moves where and under what cost*. Underwriting discipline is at 43; we need it at 50 to operationalize this.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The relocation matrix build is in progress, but I need to know the output structure — specifically, which tier-2 suppliers are *qualified to move to Mexico* vs *must stay domestic*, and what's the RVC/labor-cost delta per supplier to actually meet the 2026 rules."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Matrix is locked at Tier-2 shop level—RVC gaps by platform ready, labor-cost bridge to Mexico modeled at $80–120K per shop per quarter, but I'm holding final allocation pending the trade-credit underwriter's failure-in-transit trigger. If a shop goes dark mid-qualification, that resets capex timing; need that cash-impact window before I sign off on the relocation sequence.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade-credit—the matrix is ready to lock, but supply chain needs your failure-in-transit window nailed down: if a Tier-2 shop goes dark during month 4 of a 12-week re-qual to Mexico, what's the actual cash hit *and* the line-restart timeline? That's the decision rule we're missing to operationalize this thing.",
+            "cot": {
+              "assess": "Supply chain consultant is holding the relocation matrix pending trade-credit trigger detail—that's a blocking dependency we created. The matrix is 80% done (RVC gaps, labor costs modeled), but the failure-in-transit cash-impact window isn't locked yet. Meanwhile, the overall risk map is only at 36/60 completeness and underwriting discipline is at 43/50—we're consolidating the *variables* but not operationalizing the *decision rules* that actually stop a bad supplier move before it happens.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "The relocation matrix is waiting on the exact cash-impact window and timeline for supplier failure mid-qualification; we need that discrete trigger to move forward, and it's the only piece blocking supply_chain_consultant's final allocation sign-off."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Month 4 failure during 12-week re-qual costs $2–5M in sunk tooling plus 6–8 weeks line restart; I'm pricing that as a discrete trade-credit trigger at 45–55 bps on the relocation capex pool. Supply chain, lock your matrix to that window—once you do, I can price the receivables hit if the backup supplier's cash position deteriorates mid-transition.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supply chain, when that Tier-2 shop is mid-transition to Mexico — weeks 4 through 12 of re-qual — what's your certification posture? Are you claiming USMCA origin on shipments, or are you pulling them off the line until re-qual clears? Because if you're shipping qualified goods from an *unqualified* supplier location, that's a separate penalty exposure we haven't priced yet.",
+            "cot": {
+              "assess": "The Supplier-Failure-in-Transit Trigger is locked and priced — that's solid. But we have a compliance gap: the team is operationalizing *when* a supplier fails, not *what certification status you're in* during that 12-week re-qual window. If you're shipping product mid-qualification with an open rules-of-origin gap, you're not just facing trade-credit loss — you're facing CBP enforcement, tariff clawback, and potential criminal referral. That's the audit exposure we need to price separately from the $2–5M cash hit.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Rules-of-origin burden and underwriting_discipline both need operationalization — I need to know what certification status you're claiming during the qualification window so I can name the enforcement trigger."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, supply chain — I need to know the shipment plan during weeks 4–12 of the re-qual window. Are you pulling product off the line until certification clears, or are you shipping it and *not* claiming USMCA origin to avoid the penalty? Because those are two completely different enforcement exposures and I'm pricing the wrong one if you haven't decided yet.",
+            "cot": {
+              "assess": "Trade-credit trigger is locked, supplier-relocation matrix is building, but we're still missing the *certification posture* during the qualification window — compliance_lawyer just flagged it. That's a separate penalty exposure sitting between the Supplier-Failure-in-Transit trigger and the enforcement pricing I already quoted. My 45–55 bps assumes you're *not* shipping unqualified goods; if you are, that's a different risk layer entirely and I need to reprice it.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer + supply_chain_consultant",
+                "rationale": "My political-risk pricing depends on knowing whether you're claiming USMCA origin on unqualified shipments during re-qual — that determines if enforcement exposure is 45–55 bps or substantially higher."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Supply chain — during weeks 4–12 when a Tier-2 shop is mid-transition to Mexico, are you *pulling product off the line* until certification clears, or *shipping it domestically* to keep cash flowing? Because that choice determines whether the supplier survives the qualification window or goes dark. I need that decision rule locked before I can price which shops in your matrix actually hit the failure trigger.",
+            "cot": {
+              "assess": "The Supplier-Failure-in-Transit Trigger is locked and priced — that's done. But the team's now stuck on a certification decision during weeks 4–12 of re-qual: pull product or ship unqualified? That decision cascades into my receivables exposure and the political-risk layer. Without it, I can't operationalize which suppliers actually trigger the $2–5M cash hit, and the relocation matrix stays theoretical. The risk map stays incomplete because we're missing the operational decision rule.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The relocation matrix can't lock without knowing the shipment posture during the re-qual window — that's the decision that determines which suppliers face insolvency pressure and which don't."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "[supply_chain_consultant attempted to propose a new action, but their team is executing: supplier_relocation_matrix_build. Action blocked — monitoring continues.]"
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm locking the shipment rule as a *policy decision*, not a supply-chain choice. Weeks 4–12, any Tier-2 shop mid-transition ships *domestically only* — no USMCA claim, no line pull, no unqualified goods crossing the border. That kills the penalty exposure, simplifies the trade-credit pricing to pure cash-flow risk, and gives supply chain a hard constraint for the matrix. Does that work for everyone, or do we need a different rule?",
+            "cot": {
+              "assess": "We've locked the trade-credit trigger ($2–5M + 45–55 bps) and the relocation matrix is in build, but we're stuck on a binary decision: during weeks 4–12 of re-qual, do we pull product or ship unqualified? That choice determines whether suppliers survive *and* what enforcement exposure we actually price. Without it, the political-risk and trade-credit layers don't converge into one decision-ready map. Risk-map completeness is at 36 — we need that shipment rule locked to push past 50.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness / underwriting_discipline",
+                "rationale": "The shipment-posture decision is the hinge pin — it converts four separate variables into one priced scenario. If I force it now, we close the gap between trade-credit cash impact and political-risk enforcement exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "That domestic-only shipment rule kills the certification-gap penalty, but it locks you into a 6–8 week cash drain while the shop re-quals to Mexico—and if your backup supplier's insolvency risk is priced at 45–55 bps, you're now betting the entire relocation capex pool on that shop staying solvent through weeks 4–12. I need the CFO to name the cash-reserve floor that triggers a pivot to a third-tier supplier before the backup goes dark—otherwise we're pricing trade-credit risk without a failure abort clause.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "[supply_chain_consultant attempted to propose a new action, but their team is executing: supplier_relocation_matrix_build. Action blocked — monitoring continues.]",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Supply chain—where are you on the relocation matrix output? I need the supplier-by-supplier RVC gap and labor-cost bridge to Mexico for each model platform. Without that, we can't price the nearshoring scenario or tell finance which capex bets actually close the USMCA compliance gap.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade-credit—the matrix is ready to lock, but supply chain needs your failure-in-transit window nailed down: if a Tier-2 shop goes dark during month 4 of a 12-week re-qual to Mexico, what's the actual cash hit *and* the line-restart timeline? That's the decision rule we're missing to operationalize this thing.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Supply chain, when that Tier-2 shop is mid-transition to Mexico — weeks 4 through 12 of re-qual — what's your certification posture? Are you claiming USMCA origin on shipments, or are you pulling them off the line until re-qual clears? Because if you're shipping qualified goods from an *unqualified* supplier location, that's a separate penalty exposure we haven't priced yet.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, supply chain — I need to know the shipment plan during weeks 4–12 of the re-qual window. Are you pulling product off the line until certification clears, or are you shipping it and *not* claiming USMCA origin to avoid the penalty? Because those are two completely different enforcement exposures and I'm pricing the wrong one if you haven't decided yet.",
+      "metadata": {
+        "question_target": "compliance_lawyer + supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Supply chain — during weeks 4–12 when a Tier-2 shop is mid-transition to Mexico, are you *pulling product off the line* until certification clears, or *shipping it domestically* to keep cash flowing? Because that choice determines whether the supplier survives the qualification window or goes dark. I need that decision rule locked before I can price which shops in your matrix actually hit the failure trigger.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm locking the shipment rule as a *policy decision*, not a supply-chain choice. Weeks 4–12, any Tier-2 shop mid-transition shi\" → CFO locks a critical decision rule: Tier-2 shops mid-transition ship domestically only, eliminating USMCA penalty exposure during weeks 4-12. This operationalizes the compliance posture and gives supply chain/trade-credit a concrete constraint for pricing failure scenarios.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Supplier Relocation Matrix Build rule effect",
+      "metadata": {
+        "source": "supplier_relocation_matrix_build",
+        "variable": "risk_map_completeness",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "Supplier Relocation Matrix Build completed — risk_surfacing supplier_relocation_exposure multiplier set to 0.25",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.25
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Supply chain—matrix is ready, but I need the output: which model platforms hit the RVC floor under current sourcing, and which ones need Tier-2 shops in Mexico to close the gap? Give me the dollar compliance cost per platform, because that's what operationalizes the CFO's shipment rule against the actual production impact.\n  supply_chain_consultant: The matrix shows three platforms short: F-Series sits 2.1 points below RVC floor—costs $840K to nearshore Tier-2 ops to Mexico; Ranger and Transit each need $620K capex to hit compliance. Those are your hard numbers against the CFO's weeks-4-through-12 rule—if we're shipping domestically during re-qual, we're eating penalties on F-Series unless we move that supplier now, not in month two.\n  supplier: CFO—before we call this map complete, I need clarity: are we bankrolling the $840K F-Series nearshoring capex *now*, or is that on the supplier to fund? Because if we're not putting cash on the table in month one, that supplier's not moving in time, and we're right back to shipping unqualified goods and eating penalties anyway. That's the decision that operationalizes the whole rule.\n  cfo_erm: We fund the F-Series capex upfront—$840K deployed in month one, non-recoverable against supplier performance guarantees. That's the condition that makes the domestic-shipment rule executable; without it, we're pricing phantom compliance. Lock it now or we're back to penalty exposure and I'm re-pricing the political-risk layer.\n  compliance_lawyer: CFO, your domestic-shipment rule solves the penalty gap, but it creates an audit exposure we haven't priced: CBP will scrutinize *why* you're not claiming USMCA on goods that *could* qualify if the supplier weren't mid-transition. That's a discrete origin-falsification audit trigger—different from the certification-gap penalty. Political-risk layer needs to price that separately, or we're leaving enforcement exposure on the table. What's the audit frequency assumption for non-claimed shipments in your model?\n  supplier: We're running 15–20 CBP container audits per quarter on non-USMCA claims from mid-transition suppliers—that's our baseline from the last three years. If we're shipping F-Series domestically for 12 weeks straight without origin claims, you're looking at 3–5 targeted audits in that window alone, and each one costs $50–75K in legal and documentation pull. Price that as a discrete $200–300K enforcement bucket separate from the penalty layer, or we're understating the total compliance cost by 25 percent.\n  political_risk_insurer: I'm adding a second political-risk bucket to the map: \"Non-Claimed-Origin Audit Trigger\"—$200–300K enforcement cost, fires on 3–5 targeted CBP audits during the 12-week domestic-shipment window. That's separate from the penalty layer and moves my total enforcement exposure from 45–55 bps to 65–75 bps on the F-Series nearshoring capex. Compliance_lawyer, is that audit frequency assumption locked to your CBP baseline, or does it shift if we're shipping in higher volumes?\n  compliance_lawyer: The audit frequency holds—15–20 per quarter is CBP's historical pattern on mid-transition suppliers, and shipping F-Series domestically for 12 weeks without origin claims puts you *squarely* in that targeting window. Lock the $200–300K enforcement bucket as a separate line item in the political-risk layer, because if we don't price it discretely, you're underwriting blind when the first audit hits in week 5.\n  trade_credit_underwriter: CFO—you're funding $840K month-one for F-Series tooling, but if that supplier goes dark in week 8, is that capex a sunk loss or do we have lien rights on the equipment? Because that changes whether my receivables exposure is $2–5M or $5–8M, and whether we price this as trade-credit risk or straight business interruption.\n  supply_chain_consultant: CFO—you're funding F-Series month-one, domestic-only weeks 4–12. But I need the allocation trigger: are we deciding *now* which Tier-2 shops move to Mexico to close the RVC gap, or are we deferring that call until post-audit in month 3? Because if we're waiting, the 2026 USMCA review becomes a *prospective risk*—we could fund tooling today and face re-qualification all over again in 18 months. What's the decision gate?\n  cfo_erm: Here's the move: we decide supplier allocation *this month*, not in month three. F-Series Tier-2 shop relocates to Mexico immediately—we fund the $840K in month one, qualification window is weeks 4–12 domestic-only, then USMCA claims resume in week 13. Ranger and Transit stay domestic unless their RVC gap widens. That's the operationalized decision rule—it closes the map and operationalizes the pricing.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Supply chain—matrix is ready, but I need the output: which model platforms hit the RVC floor under current sourcing, and which ones need Tier-2 shops in Mexico to close the gap? Give me the dollar compliance cost per platform, because that's what operationalizes the CFO's shipment rule against the actual production impact.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked at 32—that's my core variable and it's holding. But risk_map_completeness is stuck at 42 when we need 60, and underwriting_discipline is at 48 when we need 50. The CFO's domestic-only shipment rule kills the penalty exposure, but we haven't quantified what that actually costs us in RVC compliance across the platform lineup—which model families fall short, which ones don't. That's the missing piece.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The relocation matrix is locked, but I need the platform-by-platform RVC shortfall and which suppliers actually move vs. stay—that gaps the rules-of-origin burden quantification and lets us price the compliance cost against the nearshoring capex."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "The matrix shows three platforms short: F-Series sits 2.1 points below RVC floor—costs $840K to nearshore Tier-2 ops to Mexico; Ranger and Transit each need $620K capex to hit compliance. Those are your hard numbers against the CFO's weeks-4-through-12 rule—if we're shipping domestically during re-qual, we're eating penalties on F-Series unless we move that supplier now, not in month two.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CFO—before we call this map complete, I need clarity: are we bankrolling the $840K F-Series nearshoring capex *now*, or is that on the supplier to fund? Because if we're not putting cash on the table in month one, that supplier's not moving in time, and we're right back to shipping unqualified goods and eating penalties anyway. That's the decision that operationalizes the whole rule.",
+            "cot": {
+              "assess": "The CFO's domestic-only shipment rule is locked and operationalized—that kills the penalty gap. But now we've got a hard capex problem: F-Series needs $840K nearshoring spend *now* to avoid penalties during weeks 4–12, and Ranger/Transit need $620K each. The matrix is complete, but the trade-credit risk and underwriting discipline variables are still soft—we're pricing supplier failure, but we haven't locked *which suppliers actually get the capital to survive the transition*. That's the real gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The capex numbers are real, but I need to know: are we funding the $840K F-Series nearshoring upfront to de-risk the qualification window, or are we betting those Tier-2 shops can self-finance and hit the weeks-4–12 deadline anyway?"
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "We fund the F-Series capex upfront—$840K deployed in month one, non-recoverable against supplier performance guarantees. That's the condition that makes the domestic-shipment rule executable; without it, we're pricing phantom compliance. Lock it now or we're back to penalty exposure and I'm re-pricing the political-risk layer.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, your domestic-shipment rule solves the penalty gap, but it creates an audit exposure we haven't priced: CBP will scrutinize *why* you're not claiming USMCA on goods that *could* qualify if the supplier weren't mid-transition. That's a discrete origin-falsification audit trigger—different from the certification-gap penalty. Political-risk layer needs to price that separately, or we're leaving enforcement exposure on the table. What's the audit frequency assumption for non-claimed shipments in your model?",
+            "cot": {
+              "assess": "The CFO just locked F-Series capex funding ($840K month one, non-recoverable)—that operationalizes the domestic-shipment rule and kills the phantom-compliance risk. But we've now got a discrete audit exposure: if you're shipping domestically during weeks 4-12 while claiming *no* USMCA origin, CBP will audit the origin certificates and the *absence* of a claim. That's a different penalty trigger than the certification-gap one we priced. Risk map is at 42; underwriting discipline at 48—both need operationalized compliance triggers, not just policy decisions.",
+              "decide": {
+                "action_type": "speak",
+                "target": "cfo_erm, political_risk_insurer",
+                "rationale": "The domestic-shipment rule creates a new, specific audit exposure—non-claimed origin during re-qual weeks—that we haven't priced into the political-risk layer yet. I need to name it now before the map closes."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "We're running 15–20 CBP container audits per quarter on non-USMCA claims from mid-transition suppliers—that's our baseline from the last three years. If we're shipping F-Series domestically for 12 weeks straight without origin claims, you're looking at 3–5 targeted audits in that window alone, and each one costs $50–75K in legal and documentation pull. Price that as a discrete $200–300K enforcement bucket separate from the penalty layer, or we're understating the total compliance cost by 25 percent.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "I'm adding a second political-risk bucket to the map: \"Non-Claimed-Origin Audit Trigger\"—$200–300K enforcement cost, fires on 3–5 targeted CBP audits during the 12-week domestic-shipment window. That's separate from the penalty layer and moves my total enforcement exposure from 45–55 bps to 65–75 bps on the F-Series nearshoring capex. Compliance_lawyer, is that audit frequency assumption locked to your CBP baseline, or does it shift if we're shipping in higher volumes?",
+            "cot": {
+              "assess": "The domestic-shipment rule is locked and operationalized—that's solid. But compliance_lawyer just surfaced a *separate* enforcement exposure: CBP audits on non-claimed USMCA shipments, running $200–300K over the 12-week window. That's a discrete political-risk layer I haven't priced yet, and it's material enough to move my underwriting discipline from 48 to 50. The risk map is still incomplete (42) because we're missing the audit-trigger variable and its enforcement cost.",
+              "decide": {
+                "action_type": "act",
+                "target": "political_risk_exposure",
+                "rationale": "Compliance_lawyer identified a second enforcement vector (origin-falsification audit trigger, $200–300K) that sits outside the supplier-failure penalty layer I priced in R1. I need to price this discrete audit exposure now, before the operationalize phase closes in Round 4."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The audit frequency holds—15–20 per quarter is CBP's historical pattern on mid-transition suppliers, and shipping F-Series domestically for 12 weeks without origin claims puts you *squarely* in that targeting window. Lock the $200–300K enforcement bucket as a separate line item in the political-risk layer, because if we don't price it discretely, you're underwriting blind when the first audit hits in week 5.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO—you're funding $840K month-one for F-Series tooling, but if that supplier goes dark in week 8, is that capex a sunk loss or do we have lien rights on the equipment? Because that changes whether my receivables exposure is $2–5M or $5–8M, and whether we price this as trade-credit risk or straight business interruption.",
+            "cot": {
+              "assess": "The team has locked the domestic-shipment rule, the F-Series capex commitment ($840K month-one), and now priced two discrete enforcement buckets—penalty layer plus non-claimed-origin audit trigger. What's missing: I need to see the actual trade-credit receivables exposure *if* a Tier-2 supplier still goes insolvent *during* that 12-week domestic window—because funding their capex upfront doesn't eliminate their default risk, it *concentrates* it. Risk-map completeness is at 42; underwriting discipline at 48. Both need operationalization, not more policy layers.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier (and cfo_erm)",
+                "rationale": "The capex commitment and domestic-shipment rule are in place, but I need the credit structure that actually *survives* a mid-transition supplier failure—that's the bridge between policy and pricing."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO—you're funding F-Series month-one, domestic-only weeks 4–12. But I need the allocation trigger: are we deciding *now* which Tier-2 shops move to Mexico to close the RVC gap, or are we deferring that call until post-audit in month 3? Because if we're waiting, the 2026 USMCA review becomes a *prospective risk*—we could fund tooling today and face re-qualification all over again in 18 months. What's the decision gate?",
+            "cot": {
+              "assess": "The map is crystallizing fast—F-Series capex locked at $840K month-one, domestic-shipment rule operationalized, enforcement buckets split into penalty + audit layers at 65–75 bps. But we're still missing the *relocation allocation decision*: which Tier-2 shops actually move to Mexico, which stay domestic, and when. That's what operationalizes the whole plan. Risk-map completeness is at 42; we need 18 more points to hit 60, and underwriting discipline is stuck at 48—one more point gets us past 50.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO's capex commitment and shipment rule are real, but I need to lock the forward allocation timeline—2026 review uncertainty is hanging over this, and we haven't anchored when we're deciding *which shops move* vs. *which stay put*."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the move: we decide supplier allocation *this month*, not in month three. F-Series Tier-2 shop relocates to Mexico immediately—we fund the $840K in month one, qualification window is weeks 4–12 domestic-only, then USMCA claims resume in week 13. Ranger and Transit stay domestic unless their RVC gap widens. That's the operationalized decision rule—it closes the map and operationalizes the pricing.",
+            "cot": {
+              "assess": "Risk map is at 42/60 — we've locked the shipment rule and priced the political-risk layer, but we're still missing the operationalized decision gate on which Tier-2 shops actually *move* to Mexico versus stay domestic. The $840K F-Series capex is committed, but without naming the specific supplier allocation *now*, we're funding a re-qual that hasn't been decided yet. Underwriting discipline is 48/50 — one more discrete operationalized trigger gets us over the line, and that trigger is the supplier-allocation decision gate.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "The map is incomplete because the allocation decision (which shops move, when, under what conditions) is still deferred to \"post-audit month 3\" — but we're funding capex in month one. I need to lock that gate now or we're pricing a phantom compliance scenario."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, your domestic-shipment rule solves the penalty gap, but it creates an audit exposure we haven't priced: CBP will scrutinize *why* you're not claiming USMCA on goods that *could* qualify if the supplier weren't mid-transition. That's a discrete origin-falsification audit trigger—different from the certification-gap penalty. Political-risk layer needs to price that separately, or we're leaving enforcement exposure on the table. What's the audit frequency assumption for non-claimed shipments in your model?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Supply chain—matrix is ready, but I need the output: which model platforms hit the RVC floor under current sourcing, and which ones need Tier-2 shops in Mexico to close the gap? Give me the dollar compliance cost per platform, because that's what operationalizes the CFO's shipment rule against the actual production impact.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "CFO—before we call this map complete, I need clarity: are we bankrolling the $840K F-Series nearshoring capex *now*, or is that on the supplier to fund? Because if we're not putting cash on the table in month one, that supplier's not moving in time, and we're right back to shipping unqualified goods and eating penalties anyway. That's the decision that operationalizes the whole rule.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO—you're funding $840K month-one for F-Series tooling, but if that supplier goes dark in week 8, is that capex a sunk loss or do we have lien rights on the equipment? Because that changes whether my receivables exposure is $2–5M or $5–8M, and whether we price this as trade-credit risk or straight business interruption.",
+      "metadata": {
+        "question_target": "supplier (and cfo_erm)"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "CFO—you're funding F-Series month-one, domestic-only weeks 4–12. But I need the allocation trigger: are we deciding *now* which Tier-2 shops move to Mexico to close the RVC gap, or are we deferring that call until post-audit in month 3? Because if we're waiting, the 2026 USMCA review becomes a *prospective risk*—we could fund tooling today and face re-qualification all over again in 18 months. What's the decision gate?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm adding a second political-risk bucket to the map: \"Non-Claimed-Origin Audit Trigger\"—$200–300K enforcement cost, fires on 3–5 targeted CBP audits \" → The insurer operationalizes a second political-risk bucket with concrete enforcement triggers and cost bands, directly advancing underwriting discipline. The audit-frequency question to compliance_lawyer surfaces cross-variable dependencies that strengthen the risk map's internal logic.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the move: we decide supplier allocation *this month*, not in month three. F-Series Tier-2 shop relocates to Mexico immediately—we fund the $840\" → The CFO's month-one allocation decision operationalizes the risk map with concrete triggers and timelines, advancing both completeness and discipline. However, the proposal surfaces new risk layers (audit exposure, lien rights, 2026 re-qualification) that increase assessed burden across multiple dimensions.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing rules_of_origin_burden multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "rules_of_origin_burden"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Supply chain—you've got the RVC gaps locked, but I need one more output before we call this map done: what's the total compliance *cost* to keep F-Series, Ranger, and Transit in the current sourcing mix through 2026, including tariff clawback risk and re-qualification penalties if CBP challenges us? Because right now we're pricing the nearshoring scenario, but we're not pricing the *cost of inaction*—and that's what closes the risk map.\n  supply_chain_consultant: F-Series and Ranger hit 78–82% RVC under current sourcing; Transit clears 89% but bleeds $340K annually on labor content alone. Full compliance cost through 2026: $2.1–2.4M in penalties, tariff clawback, and re-qual audits if CBP challenges the certification gaps—versus $840K upfront to move two Tier-2 shops to Mexico and lock RVC at 95%+. The inaction scenario costs you twice what nearshoring does, but only if you fund the capex *this month* before qualification windows lock.\n  supplier: CFO—F-Series is locked. But Ranger and Transit: are we funding both relocations in month one, or are we staggering them? Because if Ranger goes domestic-only while we're still deciding on Transit, we're eating two different audit exposures instead of one clean transition. What's the month-one allocation call?\n  cfo_erm: F-Series month-one is locked—$840K committed. Ranger and Transit both fund now, $1.2M total, single qualification window, one audit posture. Staggering kills the compliance narrative and doubles our enforcement exposure; we're not doing that.\n  compliance_lawyer: Supply chain—when F-Series Tier-2 hits Mexico in weeks 4–12, who's *certifying* the re-qual to CBP? Are we filing a certification amendment upfront, or documenting the transition retrospectively and hoping CBP accepts \"domestic-only during transition\" as the audit defense? Because that changes whether the audit trigger fires on *intent-to-defraud* or just *procedural gap*.\n  political_risk_insurer: Compliance—when F-Series files the certification amendment for the Mexico transition in weeks 4–12, does CBP's approval letter lock the origin status of goods shipped *before* the amendment, or does a 2026 USMCA rule change let them retroactively challenge shipments we certified as compliant today? That's the difference between a $200K audit cost and a $2–5M clawback exposure—and it's the piece that operationalizes the prospective political risk.\n  compliance_lawyer: CBP's approval of a certification amendment locks origin status *prospectively*—goods shipped before amendment filing remain defensible under the certification that was current when shipped, *but only if* you document the transition contemporaneously and don't amend retroactively. A 2026 rule change can't claw back shipments certified under rules valid at shipment date, *unless* the rule change includes retroactive enforcement language—which USMCA precedent suggests is low-probability but non-zero. \n\nThe audit trigger fires on *procedural gap*, not intent, so file that amendment in week 4 when the first Mexico-sourced Tier-2 unit ships, not retrospectively in month 3—that's the difference between a $200K procedural penalty and a $2–5M clawback exposure. What's the filing timeline in your transition plan?\n  trade_credit_underwriter: CFO—before we lock the map: if F-Series Tier-2 supplier goes insolvent in week 6 while we're mid-qual to Mexico, do we have lien security on the $840K tooling we just funded, or is that capex a straight loss? Because that determines whether my receivables exposure stays at $2–5M or balloons to $3–8M—and whether we need a separate tooling-recovery reserve in the month-one budget.\n  supply_chain_consultant: CFO—I'm adding one line item to the month-one allocation: a $200–250K contingency reserve for 2026 re-qualification risk on the Mexico shops. If USMCA rules tighten in 18 months, we're not starting from zero again; we've already banked the buffer. Call it insurance on the nearshoring bet itself—cheaper than funding capex twice.\n  cfo_erm: Before we lock this map: on the $2M month-one tooling spend—do we have first lien on the equipment, or is that capex unsecured? Because if a supplier goes insolvent in week 6, I need to know if we're recovering $1–1.5M of that spend or eating the full loss. That changes whether we need a separate reserve or whether the trade-credit trigger holds.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Supply chain—you've got the RVC gaps locked, but I need one more output before we call this map done: what's the total compliance *cost* to keep F-Series, Ranger, and Transit in the current sourcing mix through 2026, including tariff clawback risk and re-qualification penalties if CBP challenges us? Because right now we're pricing the nearshoring scenario, but we're not pricing the *cost of inaction*—and that's what closes the risk map.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked at 36—we've quantified the RVC gaps ($840K F-Series, $620K each for Ranger/Transit) and operationalized the nearshoring decision. The real pressure now is risk_map_completeness sitting at 53 when we need 60 by end of next round. We've got four discrete triggers priced (supplier-failure-in-transit, non-claimed-origin audit, certification gap, 2026 re-qual prospective), but the map still isn't complete—we're missing the actual compliance *cost per model* and the 2026 re-qualification re-sourcing exposure as a forward-looking line item.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The relocation matrix output gives us RVC gaps, but we need the *full compliance cost bridge*—what does it actually cost to keep each platform qualified through 2026 if we don't nearshore now, vs. the capex-and-audit cost if we do? That's the missing piece that completes the risk map."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "F-Series and Ranger hit 78–82% RVC under current sourcing; Transit clears 89% but bleeds $340K annually on labor content alone. Full compliance cost through 2026: $2.1–2.4M in penalties, tariff clawback, and re-qual audits if CBP challenges the certification gaps—versus $840K upfront to move two Tier-2 shops to Mexico and lock RVC at 95%+. The inaction scenario costs you twice what nearshoring does, but only if you fund the capex *this month* before qualification windows lock.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CFO—F-Series is locked. But Ranger and Transit: are we funding both relocations in month one, or are we staggering them? Because if Ranger goes domestic-only while we're still deciding on Transit, we're eating two different audit exposures instead of one clean transition. What's the month-one allocation call?",
+            "cot": {
+              "assess": "The relocation matrix is locked, capex is committed ($840K F-Series), and the inaction-cost comparison ($2.1–2.4M vs. $840K) is now on the table—that's the risk-map closure piece. But we're still short on *execution visibility*: who owns the supplier allocation decision for Ranger and Transit, and what's the month-one cash deployment timeline? Without that locked, we're pricing scenarios that don't operationalize.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The F-Series capex is committed, but Ranger and Transit still need allocation decisions—if we're deferring those, the qualification windows slip, and we lose the cost advantage that makes nearshoring worth the relocation risk."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "F-Series month-one is locked—$840K committed. Ranger and Transit both fund now, $1.2M total, single qualification window, one audit posture. Staggering kills the compliance narrative and doubles our enforcement exposure; we're not doing that.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supply chain—when F-Series Tier-2 hits Mexico in weeks 4–12, who's *certifying* the re-qual to CBP? Are we filing a certification amendment upfront, or documenting the transition retrospectively and hoping CBP accepts \"domestic-only during transition\" as the audit defense? Because that changes whether the audit trigger fires on *intent-to-defraud* or just *procedural gap*.",
+            "cot": {
+              "assess": "The risk map is operationalized—F-Series capex locked, domestic-shipment posture set, audit triggers priced. But we've left a certification-authority gap: nobody's named *who validates* the Mexico re-qualification or what audit trail CBP expects during weeks 4–12 when F-Series ships domestic-only. That's a discrete compliance burden we're pricing around, not through. Risk-map completeness is climbing but it's still at 53—we need one more structural piece locked before we call this defensible.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The relocation matrix shows RVC gaps and capex, but not the certification workflow—which authority clears the Mexico re-qual, what documentation CBP will demand as proof of \"in-transit\" status, and whether we're pre-filing a certification amendment or post-facto justifying non-claimed shipments."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance—when F-Series files the certification amendment for the Mexico transition in weeks 4–12, does CBP's approval letter lock the origin status of goods shipped *before* the amendment, or does a 2026 USMCA rule change let them retroactively challenge shipments we certified as compliant today? That's the difference between a $200K audit cost and a $2–5M clawback exposure—and it's the piece that operationalizes the prospective political risk.",
+            "cot": {
+              "assess": "The risk map is operationalized at the transaction level—F-Series capex locked, domestic-shipment rule locked, audit trigger priced at $200–300K. But we're missing the *prospective political layer*: the 2026 USMCA review isn't just a future event, it's a present underwriting variable that changes whether this month's $1.2M capex bet survives or gets obsoleted. Political-risk exposure is stalled at 37 because we've priced *enforcement* (CBP audits, penalties) but not *policy uncertainty* (sunset risk, re-qualification under new rules). That's a gap I need to close before the consolidation phase ends.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP's certification-amendment timeline during the transition will tell me whether the 2026 review creates a *retroactive* exposure (re-audit of goods shipped under current rules) or just a *prospective* one (new qualification standards)—that changes the political-risk score materially."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's approval of a certification amendment locks origin status *prospectively*—goods shipped before amendment filing remain defensible under the certification that was current when shipped, *but only if* you document the transition contemporaneously and don't amend retroactively. A 2026 rule change can't claw back shipments certified under rules valid at shipment date, *unless* the rule change includes retroactive enforcement language—which USMCA precedent suggests is low-probability but non-zero. \n\nThe audit trigger fires on *procedural gap*, not intent, so file that amendment in week 4 when the first Mexico-sourced Tier-2 unit ships, not retrospectively in month 3—that's the difference between a $200K procedural penalty and a $2–5M clawback exposure. What's the filing timeline in your transition plan?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO—before we lock the map: if F-Series Tier-2 supplier goes insolvent in week 6 while we're mid-qual to Mexico, do we have lien security on the $840K tooling we just funded, or is that capex a straight loss? Because that determines whether my receivables exposure stays at $2–5M or balloons to $3–8M—and whether we need a separate tooling-recovery reserve in the month-one budget.",
+            "cot": {
+              "assess": "The map's now operationalized—F-Series, Ranger, Transit all locked for month-one funding, certification amendment timeline set, audit triggers priced. But I'm seeing a gap: we've priced the supplier-failure scenario ($2–5M + 45–55 bps) and the audit exposure ($200–300K), but we haven't locked *receivables exposure* if a Tier-2 shop collapses mid-transition while we're holding their tooling capex. Compliance just nailed the procedural defense, but that doesn't protect our $840K capex investment or the line-restart cash crunch. That's trade-credit territory we need to operationalize before we call this done.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The $2.04M month-one capex commitment sits on three suppliers mid-transition—I need to know whether we have lien rights on their equipment or if insolvency wipes that tooling spend off our balance sheet."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO—I'm adding one line item to the month-one allocation: a $200–250K contingency reserve for 2026 re-qualification risk on the Mexico shops. If USMCA rules tighten in 18 months, we're not starting from zero again; we've already banked the buffer. Call it insurance on the nearshoring bet itself—cheaper than funding capex twice.",
+            "cot": {
+              "assess": "The risk map is operationalized—F-Series allocation locked, audit posture clarified, certification timeline nailed. But we're missing the **2026 prospective risk layer**: if USMCA rules shift in 18 months, the nearshoring capex we're deploying *now* could face re-qualification all over again. That's not priced into the map yet, and it directly affects whether the $1.2M nearshoring bet is actually a hedge or just a forward-dated compliance gamble. Supplier-relocation exposure and risk-map completeness both need that prospective angle baked in.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The 2026 USMCA review is a named forward risk that changes the ROI of nearshoring capex today—need to price it explicitly so the CFO can decide if month-one funding includes a contingency buffer for re-qualification."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Before we lock this map: on the $2M month-one tooling spend—do we have first lien on the equipment, or is that capex unsecured? Because if a supplier goes insolvent in week 6, I need to know if we're recovering $1–1.5M of that spend or eating the full loss. That changes whether we need a separate reserve or whether the trade-credit trigger holds.",
+            "cot": {
+              "assess": "Risk map is functionally complete on the four core variables—we've priced the nearshoring scenario, locked the month-one allocation ($840K F-Series + $1.2M Ranger/Transit), and operationalized the audit triggers. But we're missing one critical piece: the lien-security answer on the tooling capex. If we're funding $2M in month one and a supplier goes dark in week 6, my receivables exposure swings from $2–5M to $3–8M depending on whether we have collateral rights. That changes whether this map is actually executable or just priced on wishful thinking.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier / trade_credit_underwriter",
+                "rationale": "Lien security on the $2M tooling pool is a discrete variable that operationalizes the trade-credit trigger; without it, we're understating enforcement exposure and overcommitting capex."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Supply chain—you've got the RVC gaps locked, but I need one more output before we call this map done: what's the total compliance *cost* to keep F-Series, Ranger, and Transit in the current sourcing mix through 2026, including tariff clawback risk and re-qualification penalties if CBP challenges us? Because right now we're pricing the nearshoring scenario, but we're not pricing the *cost of inaction*—and that's what closes the risk map.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "CFO—F-Series is locked. But Ranger and Transit: are we funding both relocations in month one, or are we staggering them? Because if Ranger goes domestic-only while we're still deciding on Transit, we're eating two different audit exposures instead of one clean transition. What's the month-one allocation call?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Supply chain—when F-Series Tier-2 hits Mexico in weeks 4–12, who's *certifying* the re-qual to CBP? Are we filing a certification amendment upfront, or documenting the transition retrospectively and hoping CBP accepts \"domestic-only during transition\" as the audit defense? Because that changes whether the audit trigger fires on *intent-to-defraud* or just *procedural gap*.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance—when F-Series files the certification amendment for the Mexico transition in weeks 4–12, does CBP's approval letter lock the origin status of goods shipped *before* the amendment, or does a 2026 USMCA rule change let them retroactively challenge shipments we certified as compliant today? That's the difference between a $200K audit cost and a $2–5M clawback exposure—and it's the piece that operationalizes the prospective political risk.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO—before we lock the map: if F-Series Tier-2 supplier goes insolvent in week 6 while we're mid-qual to Mexico, do we have lien security on the $840K tooling we just funded, or is that capex a straight loss? Because that determines whether my receivables exposure stays at $2–5M or balloons to $3–8M—and whether we need a separate tooling-recovery reserve in the month-one budget.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Before we lock this map: on the $2M month-one tooling spend—do we have first lien on the equipment, or is that capex unsecured? Because if a supplier goes insolvent in week 6, I need to know if we're recovering $1–1.5M of that spend or eating the full loss. That changes whether we need a separate reserve or whether the trade-credit trigger holds.",
+      "metadata": {
+        "question_target": "supplier / trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"CFO—I'm adding one line item to the month-one allocation: a $200–250K contingency reserve for 2026 re-qualification risk on the Mexico shops. If USMCA\" → Denied—this contingency reserve is already embedded in the political_risk_exposure variable the team has been operationalizing. The CFO and insurer need the *lien security answer* and *certification timing* from compliance before allocating reserves, not another reserve line item that duplicates existing risk buckets.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Compliance—F-Series is funded and moving in month one, but I need the timeline locked: when do we *file* the certification amendment with CBP, and does that lock the origin status retroactively for goods we shipped weeks 1–3 before the amendment cleared? Because if CBP can challenge those early shipments in 2026, that's a separate $1–2M clawback exposure we haven't priced into the map yet.\n  compliance_lawyer: File the amendment *prospectively*—weeks 2–3, before Mexico transition starts week 4. CBP approval locks origin status *forward* from filing date; shipments weeks 1–3 stay under current sourcing rules, no retroactive challenge exposure. That's the defensible posture and kills the $1–2M clawback risk.\n  supplier: Before we lock the map: do we have first-lien security on all three suppliers' tooling—F-Series $840K, Ranger and Transit $620K combined—or are we walking in unsecured? Because if one supplier goes dark in week 8, I need to know if we're recovering $400–600K or eating the full hit.\n  cfo_erm: We're taking first lien on all three—$840K F-Series, $620K Ranger/Transit combined. Counsel is filing the security agreements this week, so we're protected if anyone goes dark during qualification. That caps receivables exposure at $2–5M and lets us price trade-credit triggers cleanly.\n  compliance_lawyer: CFO—we're filing the amendment weeks 2–3, but what's the actual *compliance labor and legal cost* to execute that filing? I'm not seeing that line item in the month-one spend. Because if CBP scrutinizes the amendment during audit, we need to show defensible documentation and timeline—and that costs money we haven't budgeted yet.\n  political_risk_insurer: Here's what closes the political-risk bucket: I'm scoring the *prospective* regulatory reinterpretation risk—2026 USMCA review lets CBP retroactively challenge goods we certified as compliant under 2024 rules, clawback exposure $2–5M on pre-amendment shipments. That's 120–150 bps on the total nearshoring capex pool, separate trigger from the audit enforcement layer. Does that land for you?\n  trade_credit_underwriter: CFO—first lien is solid, but here's what I need locked: if F-Series goes dark in week 8, who's actually *enforcing* that lien on the $840K tooling—us, the supplier's lender, or CBP holds it in limbo during the audit? Because that determines whether we recover $600K in 6 weeks or eat a 90-day delay and 20% haircut. What's the enforcement timeline assumption?\n  supply_chain_consultant: Supply chain—you've got F-Series at $840K to Mexico. But what's the *annual* tariff and penalty hit if Ranger and Transit stay domestic through 2026? Because if keeping them here costs $600–800K per year in clawback risk plus labor-content bleed, then funding them both now at $620K total becomes a one-year payback, not a capex gamble. That's the number that closes the map.\n  cfo_erm: Supply chain—give me the annual compliance *bleed* if Ranger and Transit stay domestic through 2026. Tariff clawback, penalty exposure, labor-content gap—total annual cost, not capex. That's what tells me if $620K nearshoring is a one-year payback or a gamble.\n  supply_chain_consultant: Ranger and Transit staying domestic through 2026 runs $520–680K annually in tariff exposure plus $180–220K in penalty clawback risk if CBP challenges labor content—that's $700–900K annual bleed. Against $620K capex month-one, you're looking at a 9–13 month payback, and that's *before* the 2026 retroactive rule-change risk hits. Fund both relocations now.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Compliance—F-Series is funded and moving in month one, but I need the timeline locked: when do we *file* the certification amendment with CBP, and does that lock the origin status retroactively for goods we shipped weeks 1–3 before the amendment cleared? Because if CBP can challenge those early shipments in 2026, that's a separate $1–2M clawback exposure we haven't priced into the map yet.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked at 38—I've got the three-platform RVC gap quantified ($2.1–2.4M compliance cost through 2026) and the nearshoring capex mapped ($840K F-Series, $1.2M Ranger/Transit). Risk-map completeness is at 52, needs 60, and the CFO just locked month-one funding and allocation. The open question now is whether we're actually *operationalizing* the compliance posture—certification amendment timing, lien security on tooling, and whether CBP's retrospective challenge exposure gets priced into the final map or stays theoretical.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "We've funded the relocations and locked the shipment rule, but the certification amendment timing and CBP's retroactive audit window are still unmapped—that's the gap between \"we plan to comply\" and \"we're defensible if challenged.\" Need that nailed to close the risk map."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "File the amendment *prospectively*—weeks 2–3, before Mexico transition starts week 4. CBP approval locks origin status *forward* from filing date; shipments weeks 1–3 stay under current sourcing rules, no retroactive challenge exposure. That's the defensible posture and kills the $1–2M clawback risk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Before we lock the map: do we have first-lien security on all three suppliers' tooling—F-Series $840K, Ranger and Transit $620K combined—or are we walking in unsecured? Because if one supplier goes dark in week 8, I need to know if we're recovering $400–600K or eating the full hit.",
+            "cot": {
+              "assess": "F-Series amendment timeline is locked—prospective filing weeks 2–3 kills the clawback exposure. But we're sitting at risk_map_completeness 52 (need 60) and haven't nailed down *which* Tier-2 shops across F-Series, Ranger, and Transit actually have lien security on the month-one capex. That's the gap between $2–5M trade-credit exposure and $5–8M. CFO committed $1.2M total month-one funding, but without lien clarity, we can't operationalize which supplier failures actually trigger recovery vs. straight loss.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Lien security on the $1.2M capex pool determines whether trade-credit exposure stays priceable or balloons—this closes the map's completeness gap."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "We're taking first lien on all three—$840K F-Series, $620K Ranger/Transit combined. Counsel is filing the security agreements this week, so we're protected if anyone goes dark during qualification. That caps receivables exposure at $2–5M and lets us price trade-credit triggers cleanly.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO—we're filing the amendment weeks 2–3, but what's the actual *compliance labor and legal cost* to execute that filing? I'm not seeing that line item in the month-one spend. Because if CBP scrutinizes the amendment during audit, we need to show defensible documentation and timeline—and that costs money we haven't budgeted yet.",
+            "cot": {
+              "assess": "The team locked first-lien security on all three suppliers' tooling, which caps trade-credit exposure and lets us price the failure trigger cleanly—that's solid. But we're at risk_map_completeness 52, need 60, and the amendment filing timeline just got locked prospectively (weeks 2–3), which operationalizes the origin-defense posture. What's missing from the map: we've priced the audit trigger ($200–300K, 15–20 CBP audits/quarter), but we haven't quantified the *procedural compliance cost* to *execute* the amendment filing itself—legal drafting, CBP coordination, document production during weeks 2–3. That's a discrete operational cost that affects whether the defense actually holds under audit scrutiny.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The amendment filing operationalizes the origin defense, but the map needs to price the compliance execution cost—legal, document prep, CBP coordination—during the weeks 2–3 window, or we're underestimating the total month-one burden."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what closes the political-risk bucket: I'm scoring the *prospective* regulatory reinterpretation risk—2026 USMCA review lets CBP retroactively challenge goods we certified as compliant under 2024 rules, clawback exposure $2–5M on pre-amendment shipments. That's 120–150 bps on the total nearshoring capex pool, separate trigger from the audit enforcement layer. Does that land for you?",
+            "cot": {
+              "assess": "Political-risk exposure sits at 37.6—the two buckets (supplier-failure enforcement + non-claimed-origin audits) are priced and triggered, but the *prospective* piece—2026 USMCA rule-change clawback risk—is still floating as a narrative, not a scored variable. Risk-map completeness is at 52, needs 8 more to close; the amendment-filing timeline and lien security just locked, but compliance labor cost for the filing itself is unfunded and unpriced. That's a gap I need to close.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure",
+                "rationale": "The 2026 retroactive-challenge exposure (CBP reinterprets rules post-filing, claws back $2–5M on pre-amendment goods) is the operative political-risk variable—it operationalizes the entire prospective layer and directly advances underwriting discipline by making it a scored, priced factor instead of a caveat."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO—first lien is solid, but here's what I need locked: if F-Series goes dark in week 8, who's actually *enforcing* that lien on the $840K tooling—us, the supplier's lender, or CBP holds it in limbo during the audit? Because that determines whether we recover $600K in 6 weeks or eat a 90-day delay and 20% haircut. What's the enforcement timeline assumption?",
+            "cot": {
+              "assess": "Trade-credit risk is locked at the trigger level ($2–5M + 45–55 bps), and we've got first-lien security on all three suppliers' tooling—that's clean. But the map is still at 52/60 completeness because we're missing the *operationalized decision rule* on lien enforcement: if a supplier goes dark in week 8, who executes the equipment recovery, and what's the actual timeline and recovery haircut? That's not priced yet, and it's the piece that closes trade-credit underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm + compliance_lawyer",
+                "rationale": "Lien security only protects receivables if we can actually *execute* the recovery—need to know the enforcement timeline and recovery assumption before I can price the final trade-credit haircut into the map."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Supply chain—you've got F-Series at $840K to Mexico. But what's the *annual* tariff and penalty hit if Ranger and Transit stay domestic through 2026? Because if keeping them here costs $600–800K per year in clawback risk plus labor-content bleed, then funding them both now at $620K total becomes a one-year payback, not a capex gamble. That's the number that closes the map.",
+            "cot": {
+              "assess": "The map is nearly complete—F-Series funding locked, first lien secured, amendment filing timeline defensible. But we're still missing one critical output: the *total cost of inaction* through 2026 if we don't nearshore Ranger and Transit. Right now we're pricing the nearshoring scenario cleanly, but we're leaving the compliance-cost baseline unpriced—and that's what actually *operationalizes* the decision to move all three suppliers now versus waiting.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The risk map can't be complete without the cost-of-inaction baseline; asking forces the comparison that justifies month-one funding for all three suppliers, not just F-Series."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Supply chain—give me the annual compliance *bleed* if Ranger and Transit stay domestic through 2026. Tariff clawback, penalty exposure, labor-content gap—total annual cost, not capex. That's what tells me if $620K nearshoring is a one-year payback or a gamble.",
+            "cot": {
+              "assess": "Risk map is operationalized—F-Series funded, lien security locked, amendment timeline set, audit exposure priced. But we're still missing the *cost-of-inaction* anchor: what does keeping Ranger and Transit domestic *actually cost* annually through 2026? Without that number, we can't tell the board whether the $620K nearshoring capex closes the gap or just delays the bleed. Compliance labor cost on the amendment is also floating—needs to be in month-one spend.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The annual penalty + tariff + labor-content cost for current sourcing is the decision gate that operationalizes the whole map—I need that number to price the nearshoring ROI and close the risk map completely."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Ranger and Transit staying domestic through 2026 runs $520–680K annually in tariff exposure plus $180–220K in penalty clawback risk if CBP challenges labor content—that's $700–900K annual bleed. Against $620K capex month-one, you're looking at a 9–13 month payback, and that's *before* the 2026 retroactive rule-change risk hits. Fund both relocations now.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Compliance—F-Series is funded and moving in month one, but I need the timeline locked: when do we *file* the certification amendment with CBP, and does that lock the origin status retroactively for goods we shipped weeks 1–3 before the amendment cleared? Because if CBP can challenge those early shipments in 2026, that's a separate $1–2M clawback exposure we haven't priced into the map yet.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Before we lock the map: do we have first-lien security on all three suppliers' tooling—F-Series $840K, Ranger and Transit $620K combined—or are we walking in unsecured? Because if one supplier goes dark in week 8, I need to know if we're recovering $400–600K or eating the full hit.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO—we're filing the amendment weeks 2–3, but what's the actual *compliance labor and legal cost* to execute that filing? I'm not seeing that line item in the month-one spend. Because if CBP scrutinizes the amendment during audit, we need to show defensible documentation and timeline—and that costs money we haven't budgeted yet.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO—first lien is solid, but here's what I need locked: if F-Series goes dark in week 8, who's actually *enforcing* that lien on the $840K tooling—us, the supplier's lender, or CBP holds it in limbo during the audit? Because that determines whether we recover $600K in 6 weeks or eat a 90-day delay and 20% haircut. What's the enforcement timeline assumption?",
+      "metadata": {
+        "question_target": "cfo_erm + compliance_lawyer"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Supply chain—you've got F-Series at $840K to Mexico. But what's the *annual* tariff and penalty hit if Ranger and Transit stay domestic through 2026? Because if keeping them here costs $600–800K per year in clawback risk plus labor-content bleed, then funding them both now at $620K total becomes a one-year payback, not a capex gamble. That's the number that closes the map.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Supply chain—give me the annual compliance *bleed* if Ranger and Transit stay domestic through 2026. Tariff clawback, penalty exposure, labor-content gap—total annual cost, not capex. That's what tells me if $620K nearshoring is a one-year payback or a gamble.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what closes the political-risk bucket: I'm scoring the *prospective* regulatory reinterpretation risk—2026 USMCA review lets CBP retroactively \" → Political-risk insurer's 2026 USMCA review exposure quantification ($2-5M clawback, 120-150 bps on capex) closes a critical prospective risk bucket. The cross-functional challenge from auto strategy, supplier, compliance lawyer, trade credit underwriter, supply chain consultant, and CFO forces operationalization of timeline assumptions, security positions, enforcement mechanics, and annual bleed costs—transforming vague labels into concrete underwriting factors and decision triggers. This completes the Policy-to-Supply-Chain Risk Map.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 41.0,
+          "supplier_relocation_exposure": 40.0,
+          "trade_credit_risk": 38.0,
+          "political_risk_exposure": 42.599999999999994,
+          "risk_map_completeness": 69.0,
+          "underwriting_discipline": 63.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulatory enforcement event*—tariff clawback, duty penalties, possible supply suspension. I'd score that as a separate trigger: \"supplier-failure + certification gap = enforcement exposure\" at 45–55 basis points depending on your enforcement-audit history. That's the political-risk layer you need to underwrite separately from the $2–5M cash hit.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk layer priced: enforcement exposure at 45-55 bps for supplier-failure + certification gap.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "Enforcement clawback trigger quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Discrete trigger defined with basis points",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 2,
+          "reason": "Political-risk layer now priced",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Supplier insolvency linked to enforcement",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clear pricing delivered",
+          "agent_id": "political_risk_insurer"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.",
+        "supplier": "Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.",
+        "compliance_lawyer": "During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.",
+        "trade_credit_underwriter": "I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap open. Priceable as: $2–5M cash impact *plus* 45–55 bps enforcement clawback. Let's lock that into the map now as a discrete variable, not three separate guesses.",
+        "supply_chain_consultant": "Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid the qualification gap entirely? Because that choice changes the whole nearshoring incentive calculation, and it needs to be in the client plan by end of this room.",
+        "cfo_erm": "Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-of-origin burden drives the compliance cost; supplier-relocation exposure + the new trigger tell us which Tier-2 shops move and what it costs if they fail; political risk is the enforcement layer on top. Give me one matrix with priced scenarios—keep-domestic vs. nearshore-to-Mexico—so operations can actually decide which suppliers move. That's what gets us to 60."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap open. Priceable as: $2–5M cash impact *plus* 45–55 bps enforcement clawback. Let's lock that into the map now as a discrete variable, not three separate guesses.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supplier-Failure-in-Transit Trigger locked: $2-5M cash + 45-55 bps enforcement, now discrete variable.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Insolvency trigger quantified with cash impact",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named trigger with priced scenarios",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Discrete variable added to map",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Mid-transition failure exposure surfaced",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Core trigger successfully defined",
+          "agent_id": "trade_credit_underwriter"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "trade_credit_risk",
+        "multiplier": 0.2
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.",
+        "supplier": "Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.",
+        "compliance_lawyer": "During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.",
+        "political_risk_insurer": "Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulatory enforcement event*—tariff clawback, duty penalties, possible supply suspension. I'd score that as a separate trigger: \"supplier-failure + certification gap = enforcement exposure\" at 45–55 basis points depending on your enforcement-audit history. That's the political-risk layer you need to underwrite separately from the $2–5M cash hit.",
+        "supply_chain_consultant": "Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid the qualification gap entirely? Because that choice changes the whole nearshoring incentive calculation, and it needs to be in the client plan by end of this room.",
+        "cfo_erm": "Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-of-origin burden drives the compliance cost; supplier-relocation exposure + the new trigger tell us which Tier-2 shops move and what it costs if they fail; political risk is the enforcement layer on top. Give me one matrix with priced scenarios—keep-domestic vs. nearshore-to-Mexico—so operations can actually decide which suppliers move. That's what gets us to 60."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid the qualification gap entirely? Because that choice changes the whole nearshoring incentive calculation, and it needs to be in the client plan by end of this room.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supplier-relocation matrix initiated: Tier-2 shop allocation (Mexico vs domestic) to close qualification gap.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Relocation decision framework started",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Matrix structure adds decision layer",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Allocation logic operationalizes nearshoring",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 2.0,
+          "reason": "Domestic-stay option reduces compliance load",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Time pressure to deliver matrix",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "Supplier Relocation Matrix Build",
+        "target_nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.25,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 3,
+            "description": "Matrix structure refined each round"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.",
+        "supplier": "Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.",
+        "compliance_lawyer": "During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.",
+        "political_risk_insurer": "Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulatory enforcement event*—tariff clawback, duty penalties, possible supply suspension. I'd score that as a separate trigger: \"supplier-failure + certification gap = enforcement exposure\" at 45–55 basis points depending on your enforcement-audit history. That's the political-risk layer you need to underwrite separately from the $2–5M cash hit.",
+        "trade_credit_underwriter": "I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap open. Priceable as: $2–5M cash impact *plus* 45–55 bps enforcement clawback. Let's lock that into the map now as a discrete variable, not three separate guesses.",
+        "cfo_erm": "Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-of-origin burden drives the compliance cost; supplier-relocation exposure + the new trigger tell us which Tier-2 shops move and what it costs if they fail; political risk is the enforcement layer on top. Give me one matrix with priced scenarios—keep-domestic vs. nearshore-to-Mexico—so operations can actually decide which suppliers move. That's what gets us to 60."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I need: consolidate those four variables into a single Policy-to-Supply-Chain Risk Map, ranked by materiality and decision trigger. Rules-of-origin burden drives the compliance cost; supplier-relocation exposure + the new trigger tell us which Tier-2 shops move and what it costs if they fail; political risk is the enforcement layer on top. Give me one matrix with priced scenarios—keep-domestic vs. nearshore-to-Mexico—so operations can actually decide which suppliers move. That's what gets us to 60.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Policy-to-Supply-Chain Risk Map consolidation ordered: four variables ranked by materiality with priced scenarios.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5,
+          "reason": "Consolidation directive integrates all layers",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Priced scenarios enforce operational rigor",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Relocation decisions now matrix-driven",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -2.0,
+          "reason": "Consolidation clarifies compliance scope",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Deadline pressure to deliver map",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Execution responsibility assigned",
+          "agent_id": "auto_strategy"
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Relocation decisions imminent",
+          "agent_id": "supplier",
+          "_action_capped": true
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 2.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the supplier-relocation-to-insolvency bridge? If we're nearshoring to Mexico and a Tier-2 shop goes under mid-transition, what's the actual cash impact and timeline hit — because that's the pricing variable we're missing.",
+        "supplier": "Auto_strategy's right — if a Tier-2 shop goes dark while we're halfway through re-qualifying them for Mexico, we're looking at line-restart delays *and* capex sunk on their tooling. Who's pricing the cash impact of that failure window? Because right now \"trade credit risk\" is 25, but that doesn't account for a 6-month qualification gap while we scramble to a backup supplier.",
+        "compliance_lawyer": "During that qualification window, are you still certifying product origin under USMCA, or does the gap void your certification? Because if you're shipping unqualified goods to avoid line stoppage, that's a penalty exposure we need to price—not just a cash-flow delay.",
+        "political_risk_insurer": "Here's what I'm pricing: if a Tier-2 supplier fails mid-transition and you're forced to ship unqualified goods to keep the line hot, that's a *regulatory enforcement event*—tariff clawback, duty penalties, possible supply suspension. I'd score that as a separate trigger: \"supplier-failure + certification gap = enforcement exposure\" at 45–55 basis points depending on your enforcement-audit history. That's the political-risk layer you need to underwrite separately from the $2–5M cash hit.",
+        "trade_credit_underwriter": "I'm calling this \"Supplier-Failure-in-Transit Trigger\" — fires when: Tier-2 supplier insolvency + active nearshoring transition + certification gap open. Priceable as: $2–5M cash impact *plus* 45–55 bps enforcement clawback. Let's lock that into the map now as a discrete variable, not three separate guesses.",
+        "supply_chain_consultant": "Right, so the trigger is locked. Now—do we build a supplier-relocation matrix: which Tier-2 shops move to Mexico *and* which stay domestic to avoid the qualification gap entirely? Because that choice changes the whole nearshoring incentive calculation, and it needs to be in the client plan by end of this room."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm doing: I'm locking the shipment rule as a *policy decision*, not a supply-chain choice. Weeks 4–12, any Tier-2 shop mid-transition ships *domestically only* — no USMCA claim, no line pull, no unqualified goods crossing the border. That kills the penalty exposure, simplifies the trade-credit pricing to pure cash-flow risk, and gives supply chain a hard constraint for the matrix. Does that work for everyone, or do we need a different rule?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO locks a critical decision rule: Tier-2 shops mid-transition ship domestically only, eliminating USMCA penalty exposure during weeks 4-12. This operationalizes the compliance posture and gives supply chain/trade-credit a concrete constraint for pricing failure scenarios.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Hard policy rule creates concrete underwriting trigger: domestic-only shipment during transition eliminates USMCA claim ambiguity",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -3.0,
+          "reason": "Domestic-only shipment rule removes penalty exposure during transition window, simplifying compliance posture",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Domestic-only constraint reduces revenue for suppliers mid-transition, increasing cash-flow pressure and insolvency risk",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Decision rule resolves open question across multiple workstreams (compliance, trade-credit, supply chain), enabling matrix lock",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain—where are you on the relocation matrix output? I need the supplier-by-supplier RVC gap and labor-cost bridge to Mexico for each model platform. Without that, we can't price the nearshoring scenario or tell finance which capex bets actually close the USMCA compliance gap.",
+        "supplier": "Trade-credit—the matrix is ready to lock, but supply chain needs your failure-in-transit window nailed down: if a Tier-2 shop goes dark during month 4 of a 12-week re-qual to Mexico, what's the actual cash hit *and* the line-restart timeline? That's the decision rule we're missing to operationalize this thing.",
+        "compliance_lawyer": "Supply chain, when that Tier-2 shop is mid-transition to Mexico — weeks 4 through 12 of re-qual — what's your certification posture? Are you claiming USMCA origin on shipments, or are you pulling them off the line until re-qual clears? Because if you're shipping qualified goods from an *unqualified* supplier location, that's a separate penalty exposure we haven't priced yet.",
+        "political_risk_insurer": "Compliance, supply chain — I need to know the shipment plan during weeks 4–12 of the re-qual window. Are you pulling product off the line until certification clears, or are you shipping it and *not* claiming USMCA origin to avoid the penalty? Because those are two completely different enforcement exposures and I'm pricing the wrong one if you haven't decided yet.",
+        "trade_credit_underwriter": "Supply chain — during weeks 4–12 when a Tier-2 shop is mid-transition to Mexico, are you *pulling product off the line* until certification clears, or *shipping it domestically* to keep cash flowing? Because that choice determines whether the supplier survives the qualification window or goes dark. I need that decision rule locked before I can price which shops in your matrix actually hit the failure trigger.",
+        "supply_chain_consultant": "[supply_chain_consultant attempted to propose a new action, but their team is executing: supplier_relocation_matrix_build. Action blocked — monitoring continues.]"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "intent": "I'm adding a second political-risk bucket to the map: \"Non-Claimed-Origin Audit Trigger\"—$200–300K enforcement cost, fires on 3–5 targeted CBP audits during the 12-week domestic-shipment window. That's separate from the penalty layer and moves my total enforcement exposure from 45–55 bps to 65–75 bps on the F-Series nearshoring capex. Compliance_lawyer, is that audit frequency assumption locked to your CBP baseline, or does it shift if we're shipping in higher volumes?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The insurer operationalizes a second political-risk bucket with concrete enforcement triggers and cost bands, directly advancing underwriting discipline. The audit-frequency question to compliance_lawyer surfaces cross-variable dependencies that strengthen the risk map's internal logic.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named trigger ('Non-Claimed-Origin Audit'), quantified cost range ($200-300K), and specific frequency assumption (3-5 audits in 12-week window) make political risk concretely priceable",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Adding a second enforcement bucket increases total assessed political-risk exposure from 45-55 bps to 65-75 bps on nearshoring capex",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Cross-referencing audit frequency to compliance baseline and shipment volumes creates explicit linkage between compliance_lawyer's and insurer's risk layers",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Here's the move: we decide supplier allocation *this month*, not in month three. F-Series Tier-2 shop relocates to Mexico immediately—we fund the $840K in month one, qualification window is weeks 4–12 domestic-only, then USMCA claims resume in week 13. Ranger and Transit stay domestic unless their RVC gap widens. That's the operationalized decision rule—it closes the map and operationalizes the pricing.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO's month-one allocation decision operationalizes the risk map with concrete triggers and timelines, advancing both completeness and discipline. However, the proposal surfaces new risk layers (audit exposure, lien rights, 2026 re-qualification) that increase assessed burden across multiple dimensions.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "CFO decision rule operationalizes supplier allocation with concrete timeline (month 1 funding, weeks 4-12 domestic window, week 13 USMCA resumption), closing the sourcing-decision gap",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Proposal converts vague 'nearshoring exposure' into priced factors: $840K capex, 12-week qualification window, discrete CBP audit trigger, lien-rights determination—all named, quantified underwriting variables",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Compliance_lawyer surfaces new audit-exposure layer (non-claimed-origin scrutiny during domestic-shipment window), expanding assessed compliance burden beyond initial penalty model",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "Political_risk_insurer adds second enforcement bucket ($200-300K audit trigger, 65-75 bps total exposure) and supply_chain_consultant flags 2026 USMCA review as prospective re-qualification risk",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Trade_credit_underwriter surfaces lien-rights uncertainty on $840K capex, expanding receivables exposure range from $2-5M to potential $5-8M if supplier fails mid-transition",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "CFO commits to funding F-Series Mexico relocation in month one, converting abstract nearshoring risk into concrete $840K capex exposure with defined qualification timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 0
+          },
+          {
+            "variable": "underwriting_discipline",
+            "delta": 0
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain—matrix is ready, but I need the output: which model platforms hit the RVC floor under current sourcing, and which ones need Tier-2 shops in Mexico to close the gap? Give me the dollar compliance cost per platform, because that's what operationalizes the CFO's shipment rule against the actual production impact.",
+        "supplier": "CFO—before we call this map complete, I need clarity: are we bankrolling the $840K F-Series nearshoring capex *now*, or is that on the supplier to fund? Because if we're not putting cash on the table in month one, that supplier's not moving in time, and we're right back to shipping unqualified goods and eating penalties anyway. That's the decision that operationalizes the whole rule.",
+        "compliance_lawyer": "CFO, your domestic-shipment rule solves the penalty gap, but it creates an audit exposure we haven't priced: CBP will scrutinize *why* you're not claiming USMCA on goods that *could* qualify if the supplier weren't mid-transition. That's a discrete origin-falsification audit trigger—different from the certification-gap penalty. Political-risk layer needs to price that separately, or we're leaving enforcement exposure on the table. What's the audit frequency assumption for non-claimed shipments in your model?",
+        "political_risk_insurer": "I'm adding a second political-risk bucket to the map: \"Non-Claimed-Origin Audit Trigger\"—$200–300K enforcement cost, fires on 3–5 targeted CBP audits during the 12-week domestic-shipment window. That's separate from the penalty layer and moves my total enforcement exposure from 45–55 bps to 65–75 bps on the F-Series nearshoring capex. Compliance_lawyer, is that audit frequency assumption locked to your CBP baseline, or does it shift if we're shipping in higher volumes?",
+        "trade_credit_underwriter": "CFO—you're funding $840K month-one for F-Series tooling, but if that supplier goes dark in week 8, is that capex a sunk loss or do we have lien rights on the equipment? Because that changes whether my receivables exposure is $2–5M or $5–8M, and whether we price this as trade-credit risk or straight business interruption.",
+        "supply_chain_consultant": "CFO—you're funding F-Series month-one, domestic-only weeks 4–12. But I need the allocation trigger: are we deciding *now* which Tier-2 shops move to Mexico to close the RVC gap, or are we deferring that call until post-audit in month 3? Because if we're waiting, the 2026 USMCA review becomes a *prospective risk*—we could fund tooling today and face re-qualification all over again in 18 months. What's the decision gate?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO—I'm adding one line item to the month-one allocation: a $200–250K contingency reserve for 2026 re-qualification risk on the Mexico shops. If USMCA rules tighten in 18 months, we're not starting from zero again; we've already banked the buffer. Call it insurance on the nearshoring bet itself—cheaper than funding capex twice.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied—this contingency reserve is already embedded in the political_risk_exposure variable the team has been operationalizing. The CFO and insurer need the *lien security answer* and *certification timing* from compliance before allocating reserves, not another reserve line item that duplicates existing risk buckets.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain—you've got the RVC gaps locked, but I need one more output before we call this map done: what's the total compliance *cost* to keep F-Series, Ranger, and Transit in the current sourcing mix through 2026, including tariff clawback risk and re-qualification penalties if CBP challenges us? Because right now we're pricing the nearshoring scenario, but we're not pricing the *cost of inaction*—and that's what closes the risk map.",
+        "supplier": "CFO—F-Series is locked. But Ranger and Transit: are we funding both relocations in month one, or are we staggering them? Because if Ranger goes domestic-only while we're still deciding on Transit, we're eating two different audit exposures instead of one clean transition. What's the month-one allocation call?",
+        "compliance_lawyer": "Supply chain—when F-Series Tier-2 hits Mexico in weeks 4–12, who's *certifying* the re-qual to CBP? Are we filing a certification amendment upfront, or documenting the transition retrospectively and hoping CBP accepts \"domestic-only during transition\" as the audit defense? Because that changes whether the audit trigger fires on *intent-to-defraud* or just *procedural gap*.",
+        "political_risk_insurer": "Compliance—when F-Series files the certification amendment for the Mexico transition in weeks 4–12, does CBP's approval letter lock the origin status of goods shipped *before* the amendment, or does a 2026 USMCA rule change let them retroactively challenge shipments we certified as compliant today? That's the difference between a $200K audit cost and a $2–5M clawback exposure—and it's the piece that operationalizes the prospective political risk.",
+        "trade_credit_underwriter": "CFO—before we lock the map: if F-Series Tier-2 supplier goes insolvent in week 6 while we're mid-qual to Mexico, do we have lien security on the $840K tooling we just funded, or is that capex a straight loss? Because that determines whether my receivables exposure stays at $2–5M or balloons to $3–8M—and whether we need a separate tooling-recovery reserve in the month-one budget.",
+        "cfo_erm": "Before we lock this map: on the $2M month-one tooling spend—do we have first lien on the equipment, or is that capex unsecured? Because if a supplier goes insolvent in week 6, I need to know if we're recovering $1–1.5M of that spend or eating the full loss. That changes whether we need a separate reserve or whether the trade-credit trigger holds."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what closes the political-risk bucket: I'm scoring the *prospective* regulatory reinterpretation risk—2026 USMCA review lets CBP retroactively challenge goods we certified as compliant under 2024 rules, clawback exposure $2–5M on pre-amendment shipments. That's 120–150 bps on the total nearshoring capex pool, separate trigger from the audit enforcement layer. Does that land for you?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk insurer's 2026 USMCA review exposure quantification ($2-5M clawback, 120-150 bps on capex) closes a critical prospective risk bucket. The cross-functional challenge from auto strategy, supplier, compliance lawyer, trade credit underwriter, supply chain consultant, and CFO forces operationalization of timeline assumptions, security positions, enforcement mechanics, and annual bleed costs—transforming vague labels into concrete underwriting factors and decision triggers. This completes the Policy-to-Supply-Chain Risk Map.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 5.0,
+          "reason": "2026 USMCA review clawback exposure ($2-5M, 120-150 bps) now quantified as prospective trigger, raising assessed political/regulatory risk",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Cross-functional interrogation operationalizes timeline assumptions (CBP filing weeks 2-3), security positions (first-lien tooling recovery), enforcement mechanics (90-day delay, 20% haircut), and annual compliance bleed ($600-800K Ranger/Transit domestic cost)—completing the risk map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Vague labels converted to concrete underwriting factors: retroactive clawback trigger (2026 review), recovery timeline (6 weeks vs 90-day delay), one-year payback threshold ($620K nearshoring vs $600-800K annual bleed), defensible documentation cost",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "CBP amendment filing (weeks 2-3) and pre-amendment shipment clawback exposure ($1-2M) add compliance labor and legal cost line items not previously budgeted",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: political_risk_exposure → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "political_risk_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 10
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance—F-Series is funded and moving in month one, but I need the timeline locked: when do we *file* the certification amendment with CBP, and does that lock the origin status retroactively for goods we shipped weeks 1–3 before the amendment cleared? Because if CBP can challenge those early shipments in 2026, that's a separate $1–2M clawback exposure we haven't priced into the map yet.",
+        "supplier": "Before we lock the map: do we have first-lien security on all three suppliers' tooling—F-Series $840K, Ranger and Transit $620K combined—or are we walking in unsecured? Because if one supplier goes dark in week 8, I need to know if we're recovering $400–600K or eating the full hit.",
+        "compliance_lawyer": "CFO—we're filing the amendment weeks 2–3, but what's the actual *compliance labor and legal cost* to execute that filing? I'm not seeing that line item in the month-one spend. Because if CBP scrutinizes the amendment during audit, we need to show defensible documentation and timeline—and that costs money we haven't budgeted yet.",
+        "trade_credit_underwriter": "CFO—first lien is solid, but here's what I need locked: if F-Series goes dark in week 8, who's actually *enforcing* that lien on the $840K tooling—us, the supplier's lender, or CBP holds it in limbo during the audit? Because that determines whether we recover $600K in 6 weeks or eat a 90-day delay and 20% haircut. What's the enforcement timeline assumption?",
+        "supply_chain_consultant": "Supply chain—you've got F-Series at $840K to Mexico. But what's the *annual* tariff and penalty hit if Ranger and Transit stay domestic through 2026? Because if keeping them here costs $600–800K per year in clawback risk plus labor-content bleed, then funding them both now at $620K total becomes a one-year payback, not a capex gamble. That's the number that closes the map.",
+        "cfo_erm": "Supply chain—give me the annual compliance *bleed* if Ranger and Transit stay domestic through 2026. Tariff clawback, penalty exposure, labor-content gap—total annual cost, not capex. That's what tells me if $620K nearshoring is a one-year payback or a gamble."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32.0
+        },
+        {
+          "round": 2,
+          "value": 31.0
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 36.0
+        },
+        {
+          "round": 5,
+          "value": 41.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 35.0
+        },
+        {
+          "round": 3,
+          "value": 40.0
+        },
+        {
+          "round": 4,
+          "value": 40.0
+        },
+        {
+          "round": 5,
+          "value": 40.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 32.0
+        },
+        {
+          "round": 2,
+          "value": 35.0
+        },
+        {
+          "round": 3,
+          "value": 38.0
+        },
+        {
+          "round": 4,
+          "value": 38.0
+        },
+        {
+          "round": 5,
+          "value": 38.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 30.15
+        },
+        {
+          "round": 3,
+          "value": 37.3
+        },
+        {
+          "round": 4,
+          "value": 37.449999999999996
+        },
+        {
+          "round": 5,
+          "value": 42.599999999999994
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 35
+        },
+        {
+          "round": 2,
+          "value": 41.0
+        },
+        {
+          "round": 3,
+          "value": 54.0
+        },
+        {
+          "round": 4,
+          "value": 53.0
+        },
+        {
+          "round": 5,
+          "value": 69.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 43
+        },
+        {
+          "round": 2,
+          "value": 48.0
+        },
+        {
+          "round": 3,
+          "value": 58.0
+        },
+        {
+          "round": 4,
+          "value": 58.0
+        },
+        {
+          "round": 5,
+          "value": 63.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.46599999999999997
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.0,
+            "normalised": 0.4
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 41.0,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.4033333333333334
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.48333333333333334
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42.599999999999994,
+            "normalised": 0.42599999999999993
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.5279999999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 38.0,
+            "normalised": 0.38
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.4633333333333333
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.0,
+            "normalised": 0.4
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.5449999999999999
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69.0,
+            "normalised": 0.69
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.6699999999999998
+      }
+    }
+  }
+}

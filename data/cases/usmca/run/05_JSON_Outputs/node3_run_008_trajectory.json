@@ -1,0 +1,1575 @@
+{
+  "simulation_id": "f310dd1420c9",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.\n  supplier: Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.\n  compliance_lawyer: Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each threshold. You give me the supplier relocation capex brackets and model redesign costs, we map them side-by-side, and suddenly \"RVC gap\" becomes \"trigger nearshoring by Q3\" or \"re-qualify this supplier by month 6.\" That's your decision matrix. What's your capex threshold for nearshoring a category?\n  supplier: Look, nearshoring a critical category runs $2–4M capex plus 6–9 month lead time to qualify new suppliers; we can't absorb that hit on more than two categories simultaneously without cascading delays. So the trigger has to be: if RVC gap exceeds 8 points *and* current supplier can't close it within 90 days, we nearshore—anything less, we re-qualify existing and eat the compliance cost.\n  political_risk_insurer: Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Labor tightens labor-content verification? That capex bracket shifts hard if we're re-qualifying under *higher* scrutiny. I need that as a priced risk factor — call it \"Enforcement Escalation: +15% capex buffer if review cycle compresses.\"\n  trade_credit_underwriter: When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.\n  compliance_lawyer: RVC breach at 8 points triggers a CBP audit within 60 days of certification—non-compliance penalty runs 4–6% of landed cost per shipment, compounding if we're moving inventory during re-qual. Pair that with your 90-day window: if re-qual succeeds, we absorb audit costs but keep the supplier; if it fails by day 85, we're forced into nearshoring mid-cycle and eat both the $2–4M capex *and* retroactive penalties on shipments already flagged. That's your decision rule—RVC gap 8+ = commit to re-qual by day 30 or greenlight nearshoring capex by day 45, no middle ground.\n  supply_chain_consultant: Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexico, Central America, domestic), and I'll draft a 90-day sprint with day-30 re-qual commitment checkpoints and day-45 nearshoring green-lights. That turns this trigger into an actual client roadmap—not just a penalty scenario.\n  cfo_erm: Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2–4M + 15% escalation buffer), and trade-credit default probability by supplier—then rank the top 3–5 suppliers by *total materiality* (penalty + capex + credit loss). That's our Policy-to-Supply-Chain Risk Map. Consultant, you build the roadmap against that ranked list, not guesses. Do we have supplier payment-stress data for the ones we're actually talking about?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.",
+            "cot": {
+              "assess": "Rules-of-origin burden and political risk are surfaced and quantified enough for now — I've got the compliance cost picture. But the risk map is still fragmented: we're naming exposures (supplier relocation, trade credit, political) without pricing triggers or decision rules. Underwriting discipline is soft — nobody's operationalized *when* we act on these variables.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk_map_completeness / underwriting_discipline lead",
+                "rationale": "I need to know what \"priced factors\" and \"named triggers\" look like in this map so I can map my RVC compliance burden into actionable insurance and credit-line decisions."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.",
+            "cot": {
+              "assess": "supplier_relocation_exposure and rules_of_origin_burden are solid — I've got visibility on which suppliers are at risk and the compliance load is mapped. But risk_map_completeness is still fragmented: we're surfacing relocation pressure and burden, but nobody's locked down the decision triggers that actually move capex or sourcing strategy. That's what auto_strategy just flagged, and they're right — without those thresholds, my exposure numbers don't translate into actionable risk for underwriting.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline / risk modeling lead",
+                "rationale": "The trigger thresholds are the missing link between my supplier exposure data and priced underwriting variables — I need to know who owns operationalizing those decision rules so we can close the map."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each threshold. You give me the supplier relocation capex brackets and model redesign costs, we map them side-by-side, and suddenly \"RVC gap\" becomes \"trigger nearshoring by Q3\" or \"re-qualify this supplier by month 6.\" That's your decision matrix. What's your capex threshold for nearshoring a category?",
+            "cot": {
+              "assess": "Rules-of-origin burden and my compliance mechanics are solid — 32 and 30 respectively. But the room's stuck on *when* to pull levers: you've got exposure labels (supplier vulnerability, RVC gaps) but zero decision thresholds. Without those triggers, the risk map stays fragmented and underwriting can't price anything real.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "Compliance triggers ARE decision rules — I need to anchor certification/audit/penalty costs to specific RVC thresholds so you can operationalize the nearshoring and sourcing calls."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, nearshoring a critical category runs $2–4M capex plus 6–9 month lead time to qualify new suppliers; we can't absorb that hit on more than two categories simultaneously without cascading delays. So the trigger has to be: if RVC gap exceeds 8 points *and* current supplier can't close it within 90 days, we nearshore—anything less, we re-qualify existing and eat the compliance cost.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Labor tightens labor-content verification? That capex bracket shifts hard if we're re-qualifying under *higher* scrutiny. I need that as a priced risk factor — call it \"Enforcement Escalation: +15% capex buffer if review cycle compresses.\"",
+            "cot": {
+              "assess": "The group just locked down a supplier nearshoring trigger — RVC gap >8 points + 90-day closure window = nearshore; otherwise re-qualify and absorb compliance cost. That's operationalized. But nobody's priced the *political layer* — what happens if USMCA enforcement tightens mid-cycle, or the sunset review kills the agreement in 2026? That exposure is invisible in the decision matrix, and it's exactly what kills these deals.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The nearshoring trigger is operational but assumes stable policy; I need to inject enforcement / sunset / review uncertainty into the pricing so we're not caught flat-footed."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.",
+            "cot": {
+              "assess": "The team just locked down a decision matrix—RVC-gap trigger (8 points) + 90-day re-qual window + nearshoring capex bracket ($2–4M). Political risk flagged enforcement escalation. But that matrix is still a *label*, not a trade-credit variable. I need to see how supplier default risk moves when we hit those triggers—that's what I price.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to know which suppliers sit in the breach zone so I can quantify receivables exposure and insolvency probability at each trigger state."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "RVC breach at 8 points triggers a CBP audit within 60 days of certification—non-compliance penalty runs 4–6% of landed cost per shipment, compounding if we're moving inventory during re-qual. Pair that with your 90-day window: if re-qual succeeds, we absorb audit costs but keep the supplier; if it fails by day 85, we're forced into nearshoring mid-cycle and eat both the $2–4M capex *and* retroactive penalties on shipments already flagged. That's your decision rule—RVC gap 8+ = commit to re-qual by day 30 or greenlight nearshoring capex by day 45, no middle ground.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexico, Central America, domestic), and I'll draft a 90-day sprint with day-30 re-qual commitment checkpoints and day-45 nearshoring green-lights. That turns this trigger into an actual client roadmap—not just a penalty scenario.",
+            "cot": {
+              "assess": "The group just locked down the RVC trigger (8-point gap = nearshoring or re-qual by day 45), compliance penalties, and capex brackets—that's huge. But we've got three blind spots: (1) we don't know *which suppliers* actually hit that 8-point threshold or their payment stability under stress, (2) the 2026 review enforcement escalation is priced as a contingency but not mapped to a nearshoring timeline, and (3) the decision matrix exists on paper but hasn't been operationalized into a client action plan yet. Risk-map completeness is still fragmented.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + supplier_relocation_exposure",
+                "rationale": "We have the decision rules; now we need to operationalize them into a 90-day client sprint with named suppliers, relocation options, and a go/no-go checkpoint at day 30—that consolidates the map and forces nearshoring decisions into the plan."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2–4M + 15% escalation buffer), and trade-credit default probability by supplier—then rank the top 3–5 suppliers by *total materiality* (penalty + capex + credit loss). That's our Policy-to-Supply-Chain Risk Map. Consultant, you build the roadmap against that ranked list, not guesses. Do we have supplier payment-stress data for the ones we're actually talking about?",
+            "cot": {
+              "assess": "We've locked the trigger rule (RVC 8+ = day-30 re-qual commit or day-45 nearshoring greenlight), priced the penalties, and mapped capex brackets—that's solid underwriting discipline. But the map is still fragmented: we've got compliance costs, nearshoring capex, enforcement escalation, and trade-credit default risk all floating separately. I need them consolidated into one decision matrix with materiality ranking so I can price the insurance program and capital allocation.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "We have the pieces; now consolidate them into one ranked, priced map so the board sees total exposure by decision path."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.",
+      "metadata": {
+        "question_target": "risk_map_completeness / underwriting_discipline lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.",
+      "metadata": {
+        "question_target": "underwriting_discipline / risk modeling lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each t\" → Lawyer defines three RVC-breach triggers with penalty thresholds—concrete decision framework emerging.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Lab\" → Insurer adds enforcement-escalation buffer—15% capex contingency priced into political risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexic\" → Consultant drafts 90-day sprint with day-30/45 checkpoints—roadmap structure defined.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2\" → CFO builds materiality ranking—penalty plus capex plus credit loss by supplier.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 34.0,
+          "supplier_relocation_exposure": 30.0,
+          "trade_credit_risk": 27.0,
+          "political_risk_exposure": 29.0,
+          "risk_map_completeness": 35.0,
+          "underwriting_discipline": 43
+        }
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.6
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Sarah, you've got the materiality ranking by supplier—what's the threshold number where the penalty hit plus nearshoring capex forces us to redesign instead of re-qualify? Because right now I can tell you which suppliers breach RVC, but I can't tell you *when* we actually move production.\n  cfo_erm: Here's the decision rule: if penalty exposure plus relocation capex exceeds 12% of landed cost on that supplier line, we nearshore; below that, we re-qualify and tighten RVC compliance. I'm pricing the three breach triggers the lawyer flagged into each supplier's default probability—give me their payment-stress data and I'll have the credit-risk layer locked by end of day so you can model the full trigger scenario.\n  supplier: I've got payment-stress data on my top 8 suppliers — three of them are already flagged for potential 8-point RVC gaps based on labor-content sourcing. Two are in Mexico, one's in Vietnam. If I run those three against your 12% threshold and the CFO's credit-default triggers, we know *which* suppliers we're actually nearshoring versus re-qualifying — not guessing. Want me to pull that matrix now so we can lock supplier names into the 90-day sprint?\n  trade_credit_underwriter: Pull that matrix now—I need those three suppliers' payment history under the last two quarters of labor-cost pressure, specifically DSO trend and any missed-payment flags. Once I map their default probability against the 12% threshold, I can price the credit exposure into the trigger decision and tell you which ones we're actually holding versus nearshoring.\n  compliance_lawyer: On your 90-day sprint—when you hit day 30, are you validating that those three suppliers' certification files can survive a CBP audit, or just checking nearshoring logistics? Because if the audit hits before re-qual is complete, we're defending incomplete documentation under penalty exposure.\n  supply_chain_consultant: Pull the matrix now—I need supplier names, RVC gap scores, and landed-cost percentages so I can map nearshoring capex against the 12% trigger and flag which ones hit the 2026 review risk zone. Day 30 checkpoint locks the top three into either re-qual or relocation; day 45 we validate CBP audit readiness on whichever path sticks.\n  political_risk_insurer: On those three suppliers hitting the 12% threshold — when CBP audits them in the 90-day window, are we assuming current enforcement pace, or do we need to model a tighter labor-content standard if the 2026 review pulls forward? Because that changes whether the 15% contingency covers the re-audit cost or we're underpriced.\n  compliance_lawyer: Pull the payment-stress data on those three suppliers now—I need DSO trend, missed-payment flags, and any credit-line pressure from the last two quarters so I can map default probability against the 12% threshold by end of day. Once that's locked, the CFO's materiality ranking and your nearshoring capex numbers give us the actual trigger decision for each supplier—no more exposure labels, just names and dates.\n  trade_credit_underwriter: Sarah, when you're running those three suppliers' default probability—are you stress-testing against the current enforcement pace, or also modeling what happens if the 2026 review pulls CBP audits forward and squeezes the re-qual window? Because if we're holding a supplier through re-qual and enforcement accelerates, we might be pricing credit risk for a 90-day window that's actually 60 days.\n  supply_chain_consultant: Okay—we've got supplier names and the 12% trigger locked. Here's what I need to move: for each of the three suppliers, I'm mapping day-30 re-qual readiness against day-60 CBP audit risk, *and* I'm flagging which ones need nearshoring capex committed *before* the 2026 review accelerates enforcement. That tells us which supplier we're holding through re-qual versus which one we nearshore now to avoid review risk. Can the CFO confirm: if a supplier hits the 12% threshold *and* falls in the 2026 review enforcement zone, does nearshoring capex get approved today, or do we wait for the re-qual audit to confirm breach?\n  supplier: Pull the payment-stress data on those three suppliers right now—I need DSO trend, missed-payment flags, and any credit-line pressure from the last two quarters so I can map default probability against the 12% threshold by end of day. Once that's locked, we know which ones we're holding through re-qual versus nearshoring before the 2026 review hits.\n  cfo_erm: Here's what closes this: I need one consolidated matrix—supplier name, RVC gap score, landed cost, penalty exposure at 8-point trigger, nearshoring capex plus 15% buffer, default probability once trade-credit data lands, and the *go/no-go decision* against the 12% rule. One page, priced, signed. That's what gets handed to insurance and operations tomorrow—not three separate analyses. Who owns building that matrix this round?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Sarah, you've got the materiality ranking by supplier—what's the threshold number where the penalty hit plus nearshoring capex forces us to redesign instead of re-qualify? Because right now I can tell you which suppliers breach RVC, but I can't tell you *when* we actually move production.",
+            "cot": {
+              "assess": "Compliance triggers are locked, capex buffers are priced, and the 90-day sprint roadmap is approved—that's solid. But risk_map_completeness is still 35, and we don't have the *decision rules* that tie RVC gaps to actual sourcing actions. We're naming variables; we're not operationalizing them into go/no-go calls.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The materiality ranking is built, but I need to know—at what combined penalty + capex + credit loss threshold do we actually *pull the trigger* to nearshore versus redesign the model? That's the decision rule the risk map is missing."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the decision rule: if penalty exposure plus relocation capex exceeds 12% of landed cost on that supplier line, we nearshore; below that, we re-qualify and tighten RVC compliance. I'm pricing the three breach triggers the lawyer flagged into each supplier's default probability—give me their payment-stress data and I'll have the credit-risk layer locked by end of day so you can model the full trigger scenario.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "I've got payment-stress data on my top 8 suppliers — three of them are already flagged for potential 8-point RVC gaps based on labor-content sourcing. Two are in Mexico, one's in Vietnam. If I run those three against your 12% threshold and the CFO's credit-default triggers, we know *which* suppliers we're actually nearshoring versus re-qualifying — not guessing. Want me to pull that matrix now so we can lock supplier names into the 90-day sprint?",
+            "cot": {
+              "assess": "The decision rule is locked — 12% threshold for nearshoring vs. re-qualify — and the lawyer's three RVC triggers plus the CFO's materiality ranking are operationalized. But I'm sitting on payment-stress data for my top 8 suppliers that directly feeds the credit-risk default model the CFO just asked for, and nobody's named which suppliers actually hit that 8-point RVC gap yet. That's the missing piece that lets us run the full trigger scenario.",
+              "decide": {
+                "action_type": "act",
+                "target": "supplier_relocation_exposure, trade_credit_risk",
+                "rationale": "I have supplier-specific payment history under stress and can cross-map it against RVC-gap exposure right now — this unlocks the credit model and forces the nearshoring decision into real supplier names, not abstractions."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Pull that matrix now—I need those three suppliers' payment history under the last two quarters of labor-cost pressure, specifically DSO trend and any missed-payment flags. Once I map their default probability against the 12% threshold, I can price the credit exposure into the trigger decision and tell you which ones we're actually holding versus nearshoring.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "On your 90-day sprint—when you hit day 30, are you validating that those three suppliers' certification files can survive a CBP audit, or just checking nearshoring logistics? Because if the audit hits before re-qual is complete, we're defending incomplete documentation under penalty exposure.",
+            "cot": {
+              "assess": "The room just locked the 12% threshold decision rule and supplier payment-stress mapping—that's operationalized. But we're still missing the audit-defense layer: once we breach RVC and trigger a CBP audit, what does our certification file actually look like, and which suppliers can we credibly re-qualify within 60 days without penalty exposure? That gap between triggering the audit and defending it is where compliance discipline collapses.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The 90-day sprint roadmap needs to map certification-readiness checkpoints against the audit timeline—if CBP audits within 60 days of breach, the day-30/45 checkpoints have to validate supplier documentation, not just relocation feasibility."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Pull the matrix now—I need supplier names, RVC gap scores, and landed-cost percentages so I can map nearshoring capex against the 12% trigger and flag which ones hit the 2026 review risk zone. Day 30 checkpoint locks the top three into either re-qual or relocation; day 45 we validate CBP audit readiness on whichever path sticks.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "On those three suppliers hitting the 12% threshold — when CBP audits them in the 90-day window, are we assuming current enforcement pace, or do we need to model a tighter labor-content standard if the 2026 review pulls forward? Because that changes whether the 15% contingency covers the re-audit cost or we're underpriced.",
+            "cot": {
+              "assess": "The group just locked the 12% landed-cost threshold and supplier-specific default probability mapping — that's operationalized discipline. But I'm seeing a gap: the CFO's credit-risk layer and the compliance lawyer's audit-readiness path are running parallel, not integrated. The 2026 sunset review sits in the background unpriced. Political-risk exposure is still at 29.6 — that's my variable, and it's not moving because we're not scoring *policy uncertainty* as a standalone cost driver yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to understand whether the CBP audit risk and the 2026 review acceleration are separate scenarios or cascading — that determines how I price the enforcement-escalation buffer and whether 15% capex contingency is enough."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Pull the payment-stress data on those three suppliers now—I need DSO trend, missed-payment flags, and any credit-line pressure from the last two quarters so I can map default probability against the 12% threshold by end of day. Once that's locked, the CFO's materiality ranking and your nearshoring capex numbers give us the actual trigger decision for each supplier—no more exposure labels, just names and dates.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Sarah, when you're running those three suppliers' default probability—are you stress-testing against the current enforcement pace, or also modeling what happens if the 2026 review pulls CBP audits forward and squeezes the re-qual window? Because if we're holding a supplier through re-qual and enforcement accelerates, we might be pricing credit risk for a 90-day window that's actually 60 days.",
+            "cot": {
+              "assess": "The CFO just locked the 12% threshold rule and is now demanding payment-stress data to model default probability by supplier—that's exactly where trade-credit risk gets operationalized. The compliance lawyer, supply-chain consultant, and political-risk insurer are all waiting on that matrix to map their respective triggers (audit readiness, nearshoring capex, enforcement escalation) to actual supplier names. Right now we have decision rules but no credit-stress layer priced into the trigger scenarios—that's the gap between 43 underwriting_discipline and the 50 we need.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO has the materiality ranking and is building the default-probability model, but I need to know: are we modeling default probability *only* under the 12% threshold scenario, or also under the enforcement-escalation case the insurer flagged (tighter labor-content audit, faster penalty clock)? Because if CBP tightens in the 2026 review window, the same suppliers could default *earlier* than the 90-day re-qual timeline assumes."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay—we've got supplier names and the 12% trigger locked. Here's what I need to move: for each of the three suppliers, I'm mapping day-30 re-qual readiness against day-60 CBP audit risk, *and* I'm flagging which ones need nearshoring capex committed *before* the 2026 review accelerates enforcement. That tells us which supplier we're holding through re-qual versus which one we nearshore now to avoid review risk. Can the CFO confirm: if a supplier hits the 12% threshold *and* falls in the 2026 review enforcement zone, does nearshoring capex get approved today, or do we wait for the re-qual audit to confirm breach?",
+            "cot": {
+              "assess": "The room has locked the 12% threshold decision rule, identified three at-risk suppliers, and mapped RVC breach triggers to penalty costs. What's missing: we haven't consolidated this into an actionable nearshoring roadmap that flags the 2026 review as a forward risk—just supplier names and thresholds. Risk_map_completeness is stuck at 35 because we're still treating 2026 as background noise instead of a prospective forcing event that compresses the re-qual window.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "The three suppliers are identified and priced; now I need to lock the nearshoring roadmap timeline against 2026 review risk so the CFO and insurer can price contingency correctly."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Pull the payment-stress data on those three suppliers right now—I need DSO trend, missed-payment flags, and any credit-line pressure from the last two quarters so I can map default probability against the 12% threshold by end of day. Once that's locked, we know which ones we're holding through re-qual versus nearshoring before the 2026 review hits.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what closes this: I need one consolidated matrix—supplier name, RVC gap score, landed cost, penalty exposure at 8-point trigger, nearshoring capex plus 15% buffer, default probability once trade-credit data lands, and the *go/no-go decision* against the 12% rule. One page, priced, signed. That's what gets handed to insurance and operations tomorrow—not three separate analyses. Who owns building that matrix this round?",
+            "cot": {
+              "assess": "We've locked the 12% threshold decision rule, three suppliers are named, and payment-stress data is being pulled—but the risk map is still fragmented. We have trigger rules (RVC 8-point, 12% capex threshold, 4–6% penalty), but we haven't consolidated them into one priced, operationalized matrix that tells us *which supplier, which trigger, which path (re-qual vs. nearshore), and what's the cost if we're wrong*. Trade-credit default probability is still modeling—that's the last piece before we can actually *price* this into insurance and capex decisions.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We have all the components (triggers, thresholds, supplier names, payment data incoming) but no single consolidated output that operations and insurance can execute from—proposing the one-page decision matrix that locks supplier-by-supplier path, cost, and contingency."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Sarah, you've got the materiality ranking by supplier—what's the threshold number where the penalty hit plus nearshoring capex forces us to redesign instead of re-qualify? Because right now I can tell you which suppliers breach RVC, but I can't tell you *when* we actually move production.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "On your 90-day sprint—when you hit day 30, are you validating that those three suppliers' certification files can survive a CBP audit, or just checking nearshoring logistics? Because if the audit hits before re-qual is complete, we're defending incomplete documentation under penalty exposure.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "On those three suppliers hitting the 12% threshold — when CBP audits them in the 90-day window, are we assuming current enforcement pace, or do we need to model a tighter labor-content standard if the 2026 review pulls forward? Because that changes whether the 15% contingency covers the re-audit cost or we're underpriced.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Sarah, when you're running those three suppliers' default probability—are you stress-testing against the current enforcement pace, or also modeling what happens if the 2026 review pulls CBP audits forward and squeezes the re-qual window? Because if we're holding a supplier through re-qual and enforcement accelerates, we might be pricing credit risk for a 90-day window that's actually 60 days.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I've got payment-stress data on my top 8 suppliers — three of them are already flagged for potential 8-point RVC gaps based on labor-content sourcing.\" → The supplier delivers concrete, named-supplier data that directly operationalizes the RVC compliance and nearshoring exposure — transforming vague policy risk into priceable supplier-specific triggers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Okay—we've got supplier names and the 12% trigger locked. Here's what I need to move: for each of the three suppliers, I'm mapping day-30 re-qual read\" → Circular question—CFO already called for the consolidated matrix. Advance to execution.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what closes this: I need one consolidated matrix—supplier name, RVC gap score, landed cost, penalty exposure at 8-point trigger, nearshoring ca\" → CFO consolidates supplier risk matrix with pricing, triggers, and go/no-go decisions—operationalizes fragmented analysis.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.6
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": 2.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing political_risk_exposure multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "political_risk_exposure"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Sarah, in that consolidated matrix—which of the three suppliers breach the 12% threshold, and which ones stay below? I need to know which ones trigger nearshoring versus which ones we can hold through re-qual. That's what moves the RVC compliance burden into actual production planning.\n  cfo_erm: Supplier A hits 14.2% RVC gap—that's a nearshore trigger. B and C are at 11.8% and 10.1%—both stay in re-qual. But here's what matters: if CBP audits compress the re-qual window from 90 to 60 days, B flips to nearshore because certification won't clear in time. I need to price that acceleration risk into the credit facility before we lock the suppliers into the plan.\n  supplier: On Supplier B—if the audit compresses and forces nearshoring on a 60-day window instead of 90, what does their payment stress look like? Do we need to restructure their terms to keep them solvent, or are we already pricing that into the facility?\n  trade_credit_underwriter: Supplier B's payment stress under 60-day compression is acute—working capital strain hits 18% above baseline, and their cash-conversion cycle doesn't support the nearshoring capex without extended terms or a credit restructure. I'm pricing that as a default-probability bump from 7% to 12% if enforcement accelerates, which means we either front-load a payment-term concession now or eat the receivables risk on the backend. What's your tolerance—do we restructure B's terms preemptively, or hold the facility as-is and price the credit loss?\n  compliance_lawyer: On your day-30 checkpoint for B and C—are you validating that their certification files survive a CBP audit, or just confirming nearshoring logistics readiness? Because if the files fail audit before day 60, payment restructuring doesn't save us—we're defending non-compliance penalties regardless.\n  supply_chain_consultant: Day 30 validates both—certification-file audit-readiness AND nearshoring logistics, because if B's files fail, the payment restructure is wasted capex and we're in penalty defense. So the checkpoint gates the credit decision: files clear AND logistics confirmed, or we don't restructure terms and we hold the facility tight. That's the actual trigger threshold for your credit repricing.\n  political_risk_insurer: On that 2026 review—what's your read on the odds CBP pulls forward the labor-content audit schedule, and what's the earliest realistic timeline if they do? Because if it's 60% probability and hits before day 90, the 15% buffer might not cover B's re-qual delay, and I need to reprice the facility accordingly.\n  compliance_lawyer: Supplier A is a hard nearshore trigger at 14.2%—no ambiguity. B and C stay in re-qual *only if* CBP audit timing holds to current pace and certification files pass day-30 validation; if either slips, B flips to nearshore on day 31. The decision rule is concrete: day-30 file audit-readiness gates the credit restructure for B—files clear, we front-load payment terms and price default at 12%; files fail, we hold the facility tight and B either redesigns or we walk.\n  trade_credit_underwriter: On that 2026 review acceleration—what's your confidence level it pulls the audit schedule forward, and what's the realistic hit-date range if it does? Because if it's 60%+ probability and lands in the 45–75 day window, B's restructure buys us maybe 15 days of buffer, which isn't enough to absorb the re-qual delay. I need that timeline to lock the credit decision.\n  political_risk_insurer: The 2026 review triggers a 65% probability CBP pulls labor-content audits forward—realistic window is days 45–70, which compresses B's re-qual buffer to near-zero. That 15% enforcement-escalation buffer I priced covers the penalty exposure, but not the working-capital strain on B if the audit hits day 50 and forces nearshoring unplanned; you need to front-load B's payment restructure *now* as a political-risk hedge, or accept the default-probability jump to 12% and price it into your facility spread.\n  supply_chain_consultant: Okay—here's what I'm proposing: we run a *parallel* nearshoring prep for Supplier B starting now, not at day 30. 60-day supplier qualification in Mexico, dual-track re-qual and logistics readiness. If the audit holds to 90 days, B re-quals and we kill the nearshore track. If CBP pulls forward and hits day 50–60, we flip to the nearshoring track without losing a month. Cost is maybe $300K sunk capex if we don't use it—but it's cheaper than Supplier B going dark mid-cycle. You want me to scope that, or is that too much parallel spend?\n  supplier: Scope it—$300K sunk cost is cheaper than losing B or eating the 12% default bump. But lock the decision gate: if day-30 files clear *and* the nearshore track hits 60% logistics readiness by day 45, we commit the full capex. If files fail day 30, we kill the nearshore prep and B either redesigns or we walk. That's the trigger threshold that lets us price both paths into the facility without bleeding cash on both tracks simultaneously.\n  cfo_erm: I'm pulling all of this into one consolidated risk map—supplier A/B/C, RVC gaps, penalty exposures, nearshoring capex, credit repricing, and the day-30/45 gates. One document, all triggers locked, no ambiguity on go/no-go. I'll have it in your hands in the next 15 minutes so we can sign off before we leave this room.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Sarah, in that consolidated matrix—which of the three suppliers breach the 12% threshold, and which ones stay below? I need to know which ones trigger nearshoring versus which ones we can hold through re-qual. That's what moves the RVC compliance burden into actual production planning.",
+            "cot": {
+              "assess": "The CFO's consolidated matrix is locked—we've got the 12% trigger rule, named suppliers, and penalty + capex pricing in place. That's the backbone. But we're at 51 on risk_map_completeness and need 60 by end of operationalize phase (2 rounds left). The gap isn't data—it's translating all this into forward-looking enforcement scenarios and decision rules the business can actually execute on. Rules-of-origin burden sits at 41; we've named the RVC triggers but haven't quantified what each model/plant redesign or sourcing swap *costs* us in compliance labor and capex.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The matrix is priced, but I need to know which of our three flagged suppliers actually hit the 12% threshold and which ones land below—because that determines whether we're redesigning those models or re-qualifying the suppliers, and that's a different cost structure entirely."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Supplier A hits 14.2% RVC gap—that's a nearshore trigger. B and C are at 11.8% and 10.1%—both stay in re-qual. But here's what matters: if CBP audits compress the re-qual window from 90 to 60 days, B flips to nearshore because certification won't clear in time. I need to price that acceleration risk into the credit facility before we lock the suppliers into the plan.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "On Supplier B—if the audit compresses and forces nearshoring on a 60-day window instead of 90, what does their payment stress look like? Do we need to restructure their terms to keep them solvent, or are we already pricing that into the facility?",
+            "cot": {
+              "assess": "The matrix is locked—Supplier A nearshores, B and C stay in re-qual but flip if audits compress. That's the production decision. What's missing: we've got the trigger thresholds and penalty costs, but we haven't locked *which suppliers actually survive* the 60-day compression scenario or what happens to their payment terms if we force acceleration. Trade-credit risk is still underpriced because we're not modeling default probability *under the compressed timeline*—that's the gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "If B flips to nearshore on a 60-day audit compression, their payment stress compounds—DSO extends, credit lines tighten, default probability spikes. I need to know if their current payment history can absorb a forced acceleration without triggering a credit event."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Supplier B's payment stress under 60-day compression is acute—working capital strain hits 18% above baseline, and their cash-conversion cycle doesn't support the nearshoring capex without extended terms or a credit restructure. I'm pricing that as a default-probability bump from 7% to 12% if enforcement accelerates, which means we either front-load a payment-term concession now or eat the receivables risk on the backend. What's your tolerance—do we restructure B's terms preemptively, or hold the facility as-is and price the credit loss?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "On your day-30 checkpoint for B and C—are you validating that their certification files survive a CBP audit, or just confirming nearshoring logistics readiness? Because if the files fail audit before day 60, payment restructuring doesn't save us—we're defending non-compliance penalties regardless.",
+            "cot": {
+              "assess": "The consolidated matrix is now operationalized—Supplier A triggers nearshoring at 14.2%, B and C stay in re-qual at current pace but flip to nearshore if CBP audits compress the window. The critical gap: we've named the trigger (60-day compression) but haven't locked the compliance certification defensibility that determines whether that trigger actually fires. If B's documentation doesn't survive a CBP audit before day 60, the re-qual pathway collapses regardless of payment restructuring. Risk map is at 51—we're close to 60 but still missing the audit-readiness validation that makes the triggers actionable.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Day-30 checkpoint needs to confirm whether B and C's certification files are audit-ready, not just nearshoring-ready—that's the real gate that determines if the 60-day compression actually forces a nearshore or if we can defend the re-qual path."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Day 30 validates both—certification-file audit-readiness AND nearshoring logistics, because if B's files fail, the payment restructure is wasted capex and we're in penalty defense. So the checkpoint gates the credit decision: files clear AND logistics confirmed, or we don't restructure terms and we hold the facility tight. That's the actual trigger threshold for your credit repricing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "On that 2026 review—what's your read on the odds CBP pulls forward the labor-content audit schedule, and what's the earliest realistic timeline if they do? Because if it's 60% probability and hits before day 90, the 15% buffer might not cover B's re-qual delay, and I need to reprice the facility accordingly.",
+            "cot": {
+              "assess": "Supplier A's nearshore trigger is locked (14.2%), but B and C hinge on whether CBP audits compress the re-qual window—which flips the political-risk exposure from a label into a priced variable. The consolidated matrix exists (CFO approved), payment stress is quantified (trade-credit bump from 7% to 12% under acceleration), and day-30 checkpoint gates the credit decision. What's missing: I need to score the enforcement-acceleration scenario itself—probability, timeline, cost impact—so the 15% capex buffer I priced in R1 actually reflects the *range* of political outcomes, not just a single contingency.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The 2026 sunset review is a forward risk that changes enforcement pace; I need the legal probability and timing so I can price the political-risk layer into the credit facility and capex contingency."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supplier A is a hard nearshore trigger at 14.2%—no ambiguity. B and C stay in re-qual *only if* CBP audit timing holds to current pace and certification files pass day-30 validation; if either slips, B flips to nearshore on day 31. The decision rule is concrete: day-30 file audit-readiness gates the credit restructure for B—files clear, we front-load payment terms and price default at 12%; files fail, we hold the facility tight and B either redesigns or we walk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "On that 2026 review acceleration—what's your confidence level it pulls the audit schedule forward, and what's the realistic hit-date range if it does? Because if it's 60%+ probability and lands in the 45–75 day window, B's restructure buys us maybe 15 days of buffer, which isn't enough to absorb the re-qual delay. I need that timeline to lock the credit decision.",
+            "cot": {
+              "assess": "The consolidated matrix is locked—Supplier A triggers nearshore at 14.2%, B and C stay in re-qual unless CBP audit compresses the window. The critical dependency is now day-30 certification-file validation: if B's files fail, default probability jumps from 7% to 12%, and we either restructure payment terms preemptively or eat the receivables risk. The trade-credit variable is operationalized but hinges on a binary gate (files clear / files fail) that the compliance checkpoint must deliver by day 30.",
+              "decide": {
+                "action_type": "question",
+                "target": "political_risk_insurer",
+                "rationale": "I need the enforcement-acceleration probability and timeline to price my credit repricing decision—if CBP pulls audits forward with >50% likelihood and hits before day 60, B's default premium stays elevated regardless of day-30 file validation, which changes whether the payment restructure is actually viable."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "The 2026 review triggers a 65% probability CBP pulls labor-content audits forward—realistic window is days 45–70, which compresses B's re-qual buffer to near-zero. That 15% enforcement-escalation buffer I priced covers the penalty exposure, but not the working-capital strain on B if the audit hits day 50 and forces nearshoring unplanned; you need to front-load B's payment restructure *now* as a political-risk hedge, or accept the default-probability jump to 12% and price it into your facility spread.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay—here's what I'm proposing: we run a *parallel* nearshoring prep for Supplier B starting now, not at day 30. 60-day supplier qualification in Mexico, dual-track re-qual and logistics readiness. If the audit holds to 90 days, B re-quals and we kill the nearshore track. If CBP pulls forward and hits day 50–60, we flip to the nearshoring track without losing a month. Cost is maybe $300K sunk capex if we don't use it—but it's cheaper than Supplier B going dark mid-cycle. You want me to scope that, or is that too much parallel spend?",
+            "cot": {
+              "assess": "The consolidated matrix is locked—A nearshores, B/C stay in re-qual *if* day-30 files clear and CBP timing holds. But the 2026 review just moved the needle: 65% probability CBP accelerates audits to days 45–70, which collapses B's buffer and forces an *unplanned* nearshoring decision on a compressed timeline. The credit restructure buys breathing room, but only if we commit it *now*—not after day 30 validates. My job is to translate that political risk into a nearshoring action plan that doesn't wait for validation to fail.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure",
+                "rationale": "The 2026 review acceleration is a forward, prospective risk that changes *when* we nearshore B, not *if*—and that timing compression hits my relocation-readiness window hard. I need to propose a contingent nearshoring sprint for B that runs parallel to re-qual, so we're not caught flat-footed if day 50 audit forces the move."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Scope it—$300K sunk cost is cheaper than losing B or eating the 12% default bump. But lock the decision gate: if day-30 files clear *and* the nearshore track hits 60% logistics readiness by day 45, we commit the full capex. If files fail day 30, we kill the nearshore prep and B either redesigns or we walk. That's the trigger threshold that lets us price both paths into the facility without bleeding cash on both tracks simultaneously.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm pulling all of this into one consolidated risk map—supplier A/B/C, RVC gaps, penalty exposures, nearshoring capex, credit repricing, and the day-30/45 gates. One document, all triggers locked, no ambiguity on go/no-go. I'll have it in your hands in the next 15 minutes so we can sign off before we leave this room.",
+            "cot": {
+              "assess": "We've locked the decision gates—Supplier A nearshores, B and C conditional on day-30 file validation and CBP timing. The parallel prep for B is smart risk hedging. But I'm seeing a gap: we've got trigger thresholds and credit repricing mapped, but the consolidated Policy-to-Supply-Chain Risk Map still isn't written down as a single decision document. risk_map_completeness is at 51—we need to move it to 60 before this phase closes in 2 rounds. Right now it's scattered across supplier names, percentages, and conditional logic. I need to operationalize it into one usable artifact.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness",
+                "rationale": "Build the consolidated Policy-to-Supply-Chain Risk Map now—one page, all eight variables priced and triggered, so the room can execute without re-litigating decisions."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Sarah, in that consolidated matrix—which of the three suppliers breach the 12% threshold, and which ones stay below? I need to know which ones trigger nearshoring versus which ones we can hold through re-qual. That's what moves the RVC compliance burden into actual production planning.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "On Supplier B—if the audit compresses and forces nearshoring on a 60-day window instead of 90, what does their payment stress look like? Do we need to restructure their terms to keep them solvent, or are we already pricing that into the facility?",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "On your day-30 checkpoint for B and C—are you validating that their certification files survive a CBP audit, or just confirming nearshoring logistics readiness? Because if the files fail audit before day 60, payment restructuring doesn't save us—we're defending non-compliance penalties regardless.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "On that 2026 review—what's your read on the odds CBP pulls forward the labor-content audit schedule, and what's the earliest realistic timeline if they do? Because if it's 60% probability and hits before day 90, the 15% buffer might not cover B's re-qual delay, and I need to reprice the facility accordingly.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "On that 2026 review acceleration—what's your confidence level it pulls the audit schedule forward, and what's the realistic hit-date range if it does? Because if it's 60%+ probability and lands in the 45–75 day window, B's restructure buys us maybe 15 days of buffer, which isn't enough to absorb the re-qual delay. I need that timeline to lock the credit decision.",
+      "metadata": {
+        "question_target": "political_risk_insurer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm pulling all of this into one consolidated risk map—supplier A/B/C, RVC gaps, penalty exposures, nearshoring capex, credit repricing, and the day-3\" → The CFO delivers a unified risk map locking all exposures, triggers, and decision gates into a single actionable document—the team now has a clear go/no-go framework for the first time.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay—here's what I'm proposing: we run a *parallel* nearshoring prep for Supplier B starting now, not at day 30. 60-day supplier qualification in Mexi\" → The parallel nearshoring prep for Supplier B is approved as a hedging strategy against audit timeline compression. The $300K sunk-cost exposure is priced as acceptable insurance against mid-cycle supplier failure, operationalizing the day-30/60 decision gates into concrete capital allocation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 44.0,
+          "supplier_relocation_exposure": 42.0,
+          "trade_credit_risk": 27.0,
+          "political_risk_exposure": 32.2,
+          "risk_map_completeness": 62.8,
+          "underwriting_discipline": 63.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "intent": "Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each threshold. You give me the supplier relocation capex brackets and model redesign costs, we map them side-by-side, and suddenly \"RVC gap\" becomes \"trigger nearshoring by Q3\" or \"re-qualify this supplier by month 6.\" That's your decision matrix. What's your capex threshold for nearshoring a category?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Lawyer defines three RVC-breach triggers with penalty thresholds—concrete decision framework emerging.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named triggers operationalize compliance risk",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Decision matrix links policy to action",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 2.0,
+          "reason": "Quantifying breach scenarios surfaces complexity",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Coordinating cross-functional inputs",
+          "agent_id": "compliance_lawyer"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.",
+        "supplier": "Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.",
+        "political_risk_insurer": "Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Labor tightens labor-content verification? That capex bracket shifts hard if we're re-qualifying under *higher* scrutiny. I need that as a priced risk factor — call it \"Enforcement Escalation: +15% capex buffer if review cycle compresses.\"",
+        "trade_credit_underwriter": "When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.",
+        "supply_chain_consultant": "Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexico, Central America, domestic), and I'll draft a 90-day sprint with day-30 re-qual commitment checkpoints and day-45 nearshoring green-lights. That turns this trigger into an actual client roadmap—not just a penalty scenario.",
+        "cfo_erm": "Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2–4M + 15% escalation buffer), and trade-credit default probability by supplier—then rank the top 3–5 suppliers by *total materiality* (penalty + capex + credit loss). That's our Policy-to-Supply-Chain Risk Map. Consultant, you build the roadmap against that ranked list, not guesses. Do we have supplier payment-stress data for the ones we're actually talking about?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "intent": "Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Labor tightens labor-content verification? That capex bracket shifts hard if we're re-qualifying under *higher* scrutiny. I need that as a priced risk factor — call it \"Enforcement Escalation: +15% capex buffer if review cycle compresses.\"",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Insurer adds enforcement-escalation buffer—15% capex contingency priced into political risk.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Enforcement escalation scenario quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Named risk factor with pricing",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Higher scrutiny raises relocation stakes",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Modeling regulatory uncertainty",
+          "agent_id": "political_risk_insurer"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.",
+        "supplier": "Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.",
+        "compliance_lawyer": "Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each threshold. You give me the supplier relocation capex brackets and model redesign costs, we map them side-by-side, and suddenly \"RVC gap\" becomes \"trigger nearshoring by Q3\" or \"re-qualify this supplier by month 6.\" That's your decision matrix. What's your capex threshold for nearshoring a category?",
+        "trade_credit_underwriter": "When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.",
+        "supply_chain_consultant": "Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexico, Central America, domestic), and I'll draft a 90-day sprint with day-30 re-qual commitment checkpoints and day-45 nearshoring green-lights. That turns this trigger into an actual client roadmap—not just a penalty scenario.",
+        "cfo_erm": "Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2–4M + 15% escalation buffer), and trade-credit default probability by supplier—then rank the top 3–5 suppliers by *total materiality* (penalty + capex + credit loss). That's our Policy-to-Supply-Chain Risk Map. Consultant, you build the roadmap against that ranked list, not guesses. Do we have supplier payment-stress data for the ones we're actually talking about?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexico, Central America, domestic), and I'll draft a 90-day sprint with day-30 re-qual commitment checkpoints and day-45 nearshoring green-lights. That turns this trigger into an actual client roadmap—not just a penalty scenario.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consultant drafts 90-day sprint with day-30/45 checkpoints—roadmap structure defined.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Roadmap translates triggers into timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Checkpoint structure operationalizes decisions",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Relocation readiness assessment surfaces gaps",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Awaiting supplier data inputs",
+          "agent_id": "supply_chain_consultant"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.",
+        "supplier": "Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.",
+        "compliance_lawyer": "Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each threshold. You give me the supplier relocation capex brackets and model redesign costs, we map them side-by-side, and suddenly \"RVC gap\" becomes \"trigger nearshoring by Q3\" or \"re-qualify this supplier by month 6.\" That's your decision matrix. What's your capex threshold for nearshoring a category?",
+        "political_risk_insurer": "Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Labor tightens labor-content verification? That capex bracket shifts hard if we're re-qualifying under *higher* scrutiny. I need that as a priced risk factor — call it \"Enforcement Escalation: +15% capex buffer if review cycle compresses.\"",
+        "trade_credit_underwriter": "When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.",
+        "cfo_erm": "Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2–4M + 15% escalation buffer), and trade-credit default probability by supplier—then rank the top 3–5 suppliers by *total materiality* (penalty + capex + credit loss). That's our Policy-to-Supply-Chain Risk Map. Consultant, you build the roadmap against that ranked list, not guesses. Do we have supplier payment-stress data for the ones we're actually talking about?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Okay, here's what locks this down for me: take the 8-point trigger rule, layer in the compliance penalty (4–6% landed cost), the nearshoring capex ($2–4M + 15% escalation buffer), and trade-credit default probability by supplier—then rank the top 3–5 suppliers by *total materiality* (penalty + capex + credit loss). That's our Policy-to-Supply-Chain Risk Map. Consultant, you build the roadmap against that ranked list, not guesses. Do we have supplier payment-stress data for the ones we're actually talking about?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO builds materiality ranking—penalty plus capex plus credit loss by supplier.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Integrated ranking consolidates three risk streams",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Materiality formula creates decision priority",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Credit stress modeling surfaces default exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 1.0,
+          "reason": "Capex quantification clarifies relocation stakes",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Synthesizing cross-domain risk inputs",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.2
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the trigger thresholds — like, at what supplier relocation cost do we trigger nearshoring investment, or what RVC gap triggers a model redesign vs. a sourcing swap? Right now we've got exposure labels but no decision rules. I need those to price my compliance burden into the supply chain plan.",
+        "supplier": "Who's building the decision matrix — like, what RVC gap or relocation capex hits the threshold that forces a model redesign versus a sourcing swap? Because right now I can tell you which suppliers are vulnerable, but I can't tell you when we actually pull the trigger to nearshore or re-qualify. That's what needs to go into the risk map.",
+        "compliance_lawyer": "Here's what locks this down: I'll define three RVC-breach triggers — *when* certification fails, *when* we audit, *what* the penalty cost is at each threshold. You give me the supplier relocation capex brackets and model redesign costs, we map them side-by-side, and suddenly \"RVC gap\" becomes \"trigger nearshoring by Q3\" or \"re-qualify this supplier by month 6.\" That's your decision matrix. What's your capex threshold for nearshoring a category?",
+        "political_risk_insurer": "Hold on — that 90-day re-qual window assumes DOL and CBP enforcement stays flat. What's our contingency if the sunset review accelerates audits or Labor tightens labor-content verification? That capex bracket shifts hard if we're re-qualifying under *higher* scrutiny. I need that as a priced risk factor — call it \"Enforcement Escalation: +15% capex buffer if review cycle compresses.\"",
+        "trade_credit_underwriter": "When that RVC gap hits 8 points and we're in the 90-day re-qual window, which suppliers are we actually talking about—and what's their payment history look like under stress? I need to model default probability by trigger scenario so I can price the credit risk into this decision matrix.",
+        "supply_chain_consultant": "Here's what I need from this room: give me the top 3–5 suppliers in scope for the 8-point RVC gap, their current relocation-readiness by region (Mexico, Central America, domestic), and I'll draft a 90-day sprint with day-30 re-qual commitment checkpoints and day-45 nearshoring green-lights. That turns this trigger into an actual client roadmap—not just a penalty scenario."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "intent": "I've got payment-stress data on my top 8 suppliers — three of them are already flagged for potential 8-point RVC gaps based on labor-content sourcing. Two are in Mexico, one's in Vietnam. If I run those three against your 12% threshold and the CFO's credit-default triggers, we know *which* suppliers we're actually nearshoring versus re-qualifying — not guessing. Want me to pull that matrix now so we can lock supplier names into the 90-day sprint?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The supplier delivers concrete, named-supplier data that directly operationalizes the RVC compliance and nearshoring exposure — transforming vague policy risk into priceable supplier-specific triggers.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named suppliers, specific RVC gaps, and credit-default triggers convert abstract compliance burden into actionable underwriting factors",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Supplier-level matrix with geographic and compliance specificity fills a critical gap in the risk map",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Identifying which suppliers need nearshoring vs re-qualification clarifies relocation exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Quantifying 8-point RVC gaps on specific suppliers surfaces the true compliance burden",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay—we've got supplier names and the 12% trigger locked. Here's what I need to move: for each of the three suppliers, I'm mapping day-30 re-qual readiness against day-60 CBP audit risk, *and* I'm flagging which ones need nearshoring capex committed *before* the 2026 review accelerates enforcement. That tells us which supplier we're holding through re-qual versus which one we nearshore now to avoid review risk. Can the CFO confirm: if a supplier hits the 12% threshold *and* falls in the 2026 review enforcement zone, does nearshoring capex get approved today, or do we wait for the re-qual audit to confirm breach?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Circular question—CFO already called for the consolidated matrix. Advance to execution.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, you've got the materiality ranking by supplier—what's the threshold number where the penalty hit plus nearshoring capex forces us to redesign instead of re-qualify? Because right now I can tell you which suppliers breach RVC, but I can't tell you *when* we actually move production.",
+        "supplier": "I've got payment-stress data on my top 8 suppliers — three of them are already flagged for potential 8-point RVC gaps based on labor-content sourcing. Two are in Mexico, one's in Vietnam. If I run those three against your 12% threshold and the CFO's credit-default triggers, we know *which* suppliers we're actually nearshoring versus re-qualifying — not guessing. Want me to pull that matrix now so we can lock supplier names into the 90-day sprint?",
+        "compliance_lawyer": "On your 90-day sprint—when you hit day 30, are you validating that those three suppliers' certification files can survive a CBP audit, or just checking nearshoring logistics? Because if the audit hits before re-qual is complete, we're defending incomplete documentation under penalty exposure.",
+        "political_risk_insurer": "On those three suppliers hitting the 12% threshold — when CBP audits them in the 90-day window, are we assuming current enforcement pace, or do we need to model a tighter labor-content standard if the 2026 review pulls forward? Because that changes whether the 15% contingency covers the re-audit cost or we're underpriced.",
+        "trade_credit_underwriter": "Sarah, when you're running those three suppliers' default probability—are you stress-testing against the current enforcement pace, or also modeling what happens if the 2026 review pulls CBP audits forward and squeezes the re-qual window? Because if we're holding a supplier through re-qual and enforcement accelerates, we might be pricing credit risk for a 90-day window that's actually 60 days.",
+        "cfo_erm": "Here's what closes this: I need one consolidated matrix—supplier name, RVC gap score, landed cost, penalty exposure at 8-point trigger, nearshoring capex plus 15% buffer, default probability once trade-credit data lands, and the *go/no-go decision* against the 12% rule. One page, priced, signed. That's what gets handed to insurance and operations tomorrow—not three separate analyses. Who owns building that matrix this round?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what closes this: I need one consolidated matrix—supplier name, RVC gap score, landed cost, penalty exposure at 8-point trigger, nearshoring capex plus 15% buffer, default probability once trade-credit data lands, and the *go/no-go decision* against the 12% rule. One page, priced, signed. That's what gets handed to insurance and operations tomorrow—not three separate analyses. Who owns building that matrix this round?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO consolidates supplier risk matrix with pricing, triggers, and go/no-go decisions—operationalizes fragmented analysis.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidated matrix integrates scattered supplier analyses",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers and priced factors operationalize risk",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Nearshoring capex quantified per supplier",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Default probability integrated into decision matrix",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -4.0,
+          "reason": "Decisive consolidation reduces team fragmentation",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": -2.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, you've got the materiality ranking by supplier—what's the threshold number where the penalty hit plus nearshoring capex forces us to redesign instead of re-qualify? Because right now I can tell you which suppliers breach RVC, but I can't tell you *when* we actually move production.",
+        "supplier": "I've got payment-stress data on my top 8 suppliers — three of them are already flagged for potential 8-point RVC gaps based on labor-content sourcing. Two are in Mexico, one's in Vietnam. If I run those three against your 12% threshold and the CFO's credit-default triggers, we know *which* suppliers we're actually nearshoring versus re-qualifying — not guessing. Want me to pull that matrix now so we can lock supplier names into the 90-day sprint?",
+        "compliance_lawyer": "On your 90-day sprint—when you hit day 30, are you validating that those three suppliers' certification files can survive a CBP audit, or just checking nearshoring logistics? Because if the audit hits before re-qual is complete, we're defending incomplete documentation under penalty exposure.",
+        "political_risk_insurer": "On those three suppliers hitting the 12% threshold — when CBP audits them in the 90-day window, are we assuming current enforcement pace, or do we need to model a tighter labor-content standard if the 2026 review pulls forward? Because that changes whether the 15% contingency covers the re-audit cost or we're underpriced.",
+        "trade_credit_underwriter": "Sarah, when you're running those three suppliers' default probability—are you stress-testing against the current enforcement pace, or also modeling what happens if the 2026 review pulls CBP audits forward and squeezes the re-qual window? Because if we're holding a supplier through re-qual and enforcement accelerates, we might be pricing credit risk for a 90-day window that's actually 60 days.",
+        "supply_chain_consultant": "Okay—we've got supplier names and the 12% trigger locked. Here's what I need to move: for each of the three suppliers, I'm mapping day-30 re-qual readiness against day-60 CBP audit risk, *and* I'm flagging which ones need nearshoring capex committed *before* the 2026 review accelerates enforcement. That tells us which supplier we're holding through re-qual versus which one we nearshore now to avoid review risk. Can the CFO confirm: if a supplier hits the 12% threshold *and* falls in the 2026 review enforcement zone, does nearshoring capex get approved today, or do we wait for the re-qual audit to confirm breach?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "I'm pulling all of this into one consolidated risk map—supplier A/B/C, RVC gaps, penalty exposures, nearshoring capex, credit repricing, and the day-30/45 gates. One document, all triggers locked, no ambiguity on go/no-go. I'll have it in your hands in the next 15 minutes so we can sign off before we leave this room.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO delivers a unified risk map locking all exposures, triggers, and decision gates into a single actionable document—the team now has a clear go/no-go framework for the first time.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidated document integrates all supplier exposures, RVC gaps, penalty triggers, and decision gates into one coherent framework",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers, locked decision gates (day-30/45), and explicit go/no-go criteria operationalize the risk variables",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Consolidation surfaces the full scope of RVC compliance requirements across all suppliers, making the burden more visible and quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "Mapping the 2026 review as a forward risk and locking penalty exposures clarifies the political/policy dimension",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay—here's what I'm proposing: we run a *parallel* nearshoring prep for Supplier B starting now, not at day 30. 60-day supplier qualification in Mexico, dual-track re-qual and logistics readiness. If the audit holds to 90 days, B re-quals and we kill the nearshore track. If CBP pulls forward and hits day 50–60, we flip to the nearshoring track without losing a month. Cost is maybe $300K sunk capex if we don't use it—but it's cheaper than Supplier B going dark mid-cycle. You want me to scope that, or is that too much parallel spend?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The parallel nearshoring prep for Supplier B is approved as a hedging strategy against audit timeline compression. The $300K sunk-cost exposure is priced as acceptable insurance against mid-cycle supplier failure, operationalizing the day-30/60 decision gates into concrete capital allocation.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Parallel nearshoring track for Supplier B increases assessed relocation exposure by committing capital to dual-path supplier qualification",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -3.0,
+          "reason": "Dual-track strategy reduces supplier insolvency risk by creating fallback if Supplier B cannot sustain re-qualification timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete capital allocation ($300K sunk capex), named decision gates (day 30/60), and explicit kill/flip triggers operationalize the risk mitigation into priceable factors",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Proposal integrates supplier-specific timelines, audit compression scenarios, and capital exposure into the consolidated risk framework, advancing map synthesis",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "_revert_risk_surfacing_risk_map_completeness_2",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, in that consolidated matrix—which of the three suppliers breach the 12% threshold, and which ones stay below? I need to know which ones trigger nearshoring versus which ones we can hold through re-qual. That's what moves the RVC compliance burden into actual production planning.",
+        "supplier": "On Supplier B—if the audit compresses and forces nearshoring on a 60-day window instead of 90, what does their payment stress look like? Do we need to restructure their terms to keep them solvent, or are we already pricing that into the facility?",
+        "compliance_lawyer": "On your day-30 checkpoint for B and C—are you validating that their certification files survive a CBP audit, or just confirming nearshoring logistics readiness? Because if the files fail audit before day 60, payment restructuring doesn't save us—we're defending non-compliance penalties regardless.",
+        "political_risk_insurer": "On that 2026 review—what's your read on the odds CBP pulls forward the labor-content audit schedule, and what's the earliest realistic timeline if they do? Because if it's 60% probability and hits before day 90, the 15% buffer might not cover B's re-qual delay, and I need to reprice the facility accordingly.",
+        "trade_credit_underwriter": "On that 2026 review acceleration—what's your confidence level it pulls the audit schedule forward, and what's the realistic hit-date range if it does? Because if it's 60%+ probability and lands in the 45–75 day window, B's restructure buys us maybe 15 days of buffer, which isn't enough to absorb the re-qual delay. I need that timeline to lock the credit decision.",
+        "cfo_erm": "I'm pulling all of this into one consolidated risk map—supplier A/B/C, RVC gaps, penalty exposures, nearshoring capex, credit repricing, and the day-30/45 gates. One document, all triggers locked, no ambiguity on go/no-go. I'll have it in your hands in the next 15 minutes so we can sign off before we leave this room."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 39.0
+        },
+        {
+          "round": 3,
+          "value": 44.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 38.0
+        },
+        {
+          "round": 3,
+          "value": 42.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 27.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 29.0
+        },
+        {
+          "round": 2,
+          "value": 29.6
+        },
+        {
+          "round": 3,
+          "value": 32.2
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 48.8
+        },
+        {
+          "round": 3,
+          "value": 62.8
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 43
+        },
+        {
+          "round": 2,
+          "value": 53.0
+        },
+        {
+          "round": 3,
+          "value": 63.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 3,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 62.8,
+            "normalised": 0.628
+          }
+        ],
+        "weighted_score": 0.4776
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42.0,
+            "normalised": 0.42
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 44.0,
+            "normalised": 0.44
+          }
+        ],
+        "weighted_score": 0.42666666666666664
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.5033333333333333
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 32.2,
+            "normalised": 0.322
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.47600000000000003
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 27.0,
+            "normalised": 0.27
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.38999999999999996
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42.0,
+            "normalised": 0.42
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 62.8,
+            "normalised": 0.628
+          }
+        ],
+        "weighted_score": 0.524
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 62.8,
+            "normalised": 0.628
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.6286666666666666
+      }
+    }
+  }
+}

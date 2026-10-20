@@ -1,0 +1,2301 @@
+{
+  "simulation_id": "8786c373494d",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I need SNB and the Federal Council aligned on a joint statement tonight: we confirm Credit Suisse is systemically critical, SNB has liquidity ready, and we're actively assessing orderly options under existing statutory powers. No specifics on terms—just signal we're in control and moving deliberately. Without that, confidence craters by Monday regardless of what we actually do.\n  snb: We can commit to that statement tonight—SNB confirms liquidity readiness and our role in stabilizing systemically critical institutions. But I need the Federal Council to be explicit that any loss protection or capital backstop sits with them, not us. That distinction holds our balance sheet defensible and keeps public support for whatever comes next.\n  snb: Federal Council—the joint statement helps, but the market will ask Monday: is SNB the only one on the hook? You need to confirm tonight that *you* are taking capital and loss protection, not us. Without that clarity, confidence doesn't move and depositors run anyway.\n  federal_council: We can confirm in tonight's statement that the Federal Council stands behind capital and loss protection if needed—but only within a defined, capped framework. We're not writing a blank check; we need SNB to quantify what \"protection\" actually means in dollars before we commit publicly.\n  federal_council: SNB, give me your number: what's the quantum of loss protection we're actually talking about here? If it's CHF 50 billion, CHF 100 billion, we need to say it tonight—or at least confirm it in the statement as a defined backstop. Anything less and depositors know we're hedging.\n  cs_ceo: Look, I hear the defensibility concern—but Monday the market doesn't care about the fine print. You need to put a number on the table *tonight*, even if it's a range: SNB liquidity line of X, Federal Council loss backstop of Y. I'll manage my capital structure around that. Without it, my depositors wake up Monday to a statement that says nothing about *their* deposits, and we're done.\n  ubs_ceo: SNB—you've got the stress models. What's your minimum number for liquidity support plus loss protection to hold Credit Suisse stable through Monday and the week after? Give me a range if you need to, but I need something concrete to take back to my board and to Federal Council right now.\n  wealth_client: A statement that says \"we're in control\" doesn't keep me here Monday. I need the Federal Council to name the loss protection cap *tonight*—CHF 100 billion, 50, whatever it is—or I'm moving half my assets by market open. SNB's number is their problem; yours is showing me you're actually backing this.\n  at1_rep: Federal Council—when you're sizing that loss-protection cap, are you assuming AT1 instruments stay intact? Because if your backstop absorbs losses *before* AT1 takes a haircut, you've inverted the capital structure. That's legally indefensible and my clients will challenge it instantly. You need to tell us now how losses get allocated.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I need SNB and the Federal Council aligned on a joint statement tonight: we confirm Credit Suisse is systemically critical, SNB has liquidity ready, and we're actively assessing orderly options under existing statutory powers. No specifics on terms—just signal we're in control and moving deliberately. Without that, confidence craters by Monday regardless of what we actually do.",
+            "cot": {
+              "assess": "Market confidence is critically low at 26—we're 14 points above failure, but one bad Monday open destroys that cushion. CS funding stress at 74 is severe; we have no rescue package yet, so we're running on the SNB's liquidity window. Legal defensibility is solid at 60, but only if we move fast and anchor the intervention in clear law before market panic forces ad-hoc decisions.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, federal_council",
+                "rationale": "We need a coordinated legal framework *now*—before market open—so any intervention Monday is defensible, not reactive scrambling."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can commit to that statement tonight—SNB confirms liquidity readiness and our role in stabilizing systemically critical institutions. But I need the Federal Council to be explicit that any loss protection or capital backstop sits with them, not us. That distinction holds our balance sheet defensible and keeps public support for whatever comes next.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—the joint statement helps, but the market will ask Monday: is SNB the only one on the hook? You need to confirm tonight that *you* are taking capital and loss protection, not us. Without that clarity, confidence doesn't move and depositors run anyway.",
+            "cot": {
+              "assess": "FINMA secured the joint statement—good, that buys us the narrative. But confidence is still 26 and cs_funding_stress is 74; a press release doesn't move either without a *credible rescue package visible by Monday*. My liquidity offer is on the table, but the Federal Council still hasn't locked down whether they're taking the loss side. That gap is killing us.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The statement works only if the market believes there's real backing behind it. I need clarity on their commitment NOW, not Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can confirm in tonight's statement that the Federal Council stands behind capital and loss protection if needed—but only within a defined, capped framework. We're not writing a blank check; we need SNB to quantify what \"protection\" actually means in dollars before we commit publicly.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB, give me your number: what's the quantum of loss protection we're actually talking about here? If it's CHF 50 billion, CHF 100 billion, we need to say it tonight—or at least confirm it in the statement as a defined backstop. Anything less and depositors know we're hedging.",
+            "cot": {
+              "assess": "The joint statement is locked—SNB and FINMA are aligned, Federal Council has committed to a capped capital/loss backstop, and that should stabilize confidence enough to get through Monday. But SNB just asked us to quantify the cap in dollars tonight, and we haven't done that yet. Without a number, the statement rings hollow and the market knows it.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB",
+                "rationale": "We need a concrete figure for the loss protection framework before we can credibly commit publicly—vague language will collapse confidence faster than silence."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look, I hear the defensibility concern—but Monday the market doesn't care about the fine print. You need to put a number on the table *tonight*, even if it's a range: SNB liquidity line of X, Federal Council loss backstop of Y. I'll manage my capital structure around that. Without it, my depositors wake up Monday to a statement that says nothing about *their* deposits, and we're done.",
+            "cot": {
+              "assess": "The joint statement clears the headline confidence signal, but we're now stuck on the exact number—Federal Council wants SNB to quantify the backstop before they commit publicly, and that creates a chicken-and-egg problem. My funding stress is at 74 and climbing; without a credible rescue package *announced* by Monday morning, depositors will run regardless of what the statement says. The real issue: SNB is pushing the quantum question to Federal Council, but I need to know what I'm actually getting before I can tell my clients the bank is safe.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, federal_council",
+                "rationale": "I cannot stabilize market confidence or manage funding stress without a concrete number; waiting for perfect clarity on loss protection burns time I don't have."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—you've got the stress models. What's your minimum number for liquidity support plus loss protection to hold Credit Suisse stable through Monday and the week after? Give me a range if you need to, but I need something concrete to take back to my board and to Federal Council right now.",
+            "cot": {
+              "assess": "Federal Council just demanded SNB quantify the loss protection number—that's the right move, but SNB hasn't answered yet. Market confidence and funding stress are both critical and won't wait. The joint statement helps, but without a credible *quantum* attached, depositors see a non-answer on Monday and run harder. We need a number tonight, not a framework.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB is the only entity that can model the actual exposure and backstop requirement; without their number, Federal Council can't commit publicly and the rescue dies at the market open."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "A statement that says \"we're in control\" doesn't keep me here Monday. I need the Federal Council to name the loss protection cap *tonight*—CHF 100 billion, 50, whatever it is—or I'm moving half my assets by market open. SNB's number is their problem; yours is showing me you're actually backing this.",
+            "cot": {
+              "assess": "They've locked in a joint statement and SNB's liquidity readiness, which is good—but the Federal Council just demanded SNB name a number before committing to loss protection. That's a stalling move. My confidence is still at 26; I need to see a *credible, capped number* on loss protection tonight, or I'm moving assets Monday morning. The statement alone won't hold me.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "I need to force the Federal Council to stop hedging and commit a real number—without that, the joint statement is just theater and I have no reason to stay."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—when you're sizing that loss-protection cap, are you assuming AT1 instruments stay intact? Because if your backstop absorbs losses *before* AT1 takes a haircut, you've inverted the capital structure. That's legally indefensible and my clients will challenge it instantly. You need to tell us now how losses get allocated.",
+            "cot": {
+              "assess": "The room is now focused on credibility and quantum—SNB and Federal Council are converging on the need for a concrete number by tonight, and that's the right move for confidence. But nobody's addressed what happens to AT1 and the creditor hierarchy *if* that loss protection kicks in. That gap is my problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before Federal Council commits to a loss-protection cap, I need to know whether that backstop triggers any write-down or conversion of AT1 instruments—because if it does, creditors are impaired and we're looking at litigation the moment you announce it."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "A statement that says \"we're in control\" doesn't keep me here Monday. I need the Federal Council to name the loss protection cap *tonight*—CHF 100 billion, 50, whatever it is—or I'm moving half my assets by market open. SNB's number is their problem; yours is showing me you're actually backing this.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—the joint statement helps, but the market will ask Monday: is SNB the only one on the hook? You need to confirm tonight that *you* are taking capital and loss protection, not us. Without that clarity, confidence doesn't move and depositors run anyway.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB, give me your number: what's the quantum of loss protection we're actually talking about here? If it's CHF 50 billion, CHF 100 billion, we need to say it tonight—or at least confirm it in the statement as a defined backstop. Anything less and depositors know we're hedging.",
+      "metadata": {
+        "question_target": "SNB"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB—you've got the stress models. What's your minimum number for liquidity support plus loss protection to hold Credit Suisse stable through Monday and the week after? Give me a range if you need to, but I need something concrete to take back to my board and to Federal Council right now.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—when you're sizing that loss-protection cap, are you assuming AT1 instruments stay intact? Because if your backstop absorbs losses *before* AT1 takes a haircut, you've inverted the capital structure. That's legally indefensible and my clients will challenge it instantly. You need to tell us now how losses get allocated.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I need SNB and the Federal Council aligned on a joint statement tonight: we confirm Credit Suisse is systemically critical, SNB has liquidity ready, a\" → Joint statement drafted—signals control but defers quantum details, buying credibility at cost of specificity.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Look, I hear the defensibility concern—but Monday the market doesn't care about the fine print. You need to put a number on the table *tonight*, even \" → Semantically identical to Proposal 1—FINMA already coordinating the joint statement this round.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council and SNB—you're talking past each other on the cap. Before we name any number tonight, we settle one thing: AT1 absorbs losses first, or it doesn't? If it does, the cap is smaller and defensible. If Federal backstop takes losses before AT1 haircuts, that's legally indefensible *and* it signals we're protecting creditors ahead of equity—that's the opposite of orderly. What's the hierarchy?\n  snb: AT1 takes the first loss—that's non-negotiable for us. Our liquidity support and any loss protection backstop sit *behind* the capital structure, not ahead of it. If Federal Council is committing loss protection, it protects depositors and critical operations *after* AT1 and equity are exhausted—or we can't defend it legally and we won't fund it.\n  snb: Federal Council—we've got the hierarchy locked. Now I need you to commit to a loss-protection cap *tonight* that we can name in the statement. Give me a number—CHF 50 billion, 100 billion, whatever you're willing to defend to Parliament—so I can tell you exactly what liquidity line SNB needs to hold through the week.\n  federal_council: We can commit to a CHF 100 billion loss-protection backstop—capped, non-negotiable, and only *after* AT1 takes full losses first. That's what Parliament will accept and what our taxpayers can defend. SNB, that's your number to build liquidity around; anything beyond that, private burden-sharing fills the gap or the deal doesn't hold.\n  federal_council: SNB—we've got the loss cap and the hierarchy. Now what's your liquidity commitment number for the statement? If it's CHF 50 billion, 100 billion, name it tonight so depositors and the market see we're not hedging on Monday.\n  cs_ceo: SNB, I hear the hierarchy. Now tell me your liquidity line number for the statement—CHF 50 billion, 100 billion, whatever you need to backstop my deposits through Monday and the week after. Federal Council's got 100B on capital losses; you name your number, we put both in the statement, and the market knows we're solid, not hedging. What's the figure?\n  finma: SNB's liquidity commitment sits at CHF 50 billion minimum through Monday and the week after—that's the floor to hold deposits stable given the stress models. Federal Council's 100 billion loss cap *after* AT1 exhaustion means we can defend that liquidity line legally and operationally; anything beyond requires private burden-sharing or we're exposed. I'm drafting the joint statement now with both figures named—no hedging, both principals committed, both defensible to our respective boards by tonight.\n  ubs_ceo: FINMA—before you finalize that statement tonight, I need clarity on one thing: when you name the CHF 100 billion and SNB's liquidity line, how do you prevent depositors from reading those as *admission* of CHF 100B+ in losses? Because if the market interprets your cap as the *floor* of our exposure, you just accelerated runs, not stopped them. What's your messaging to flip that?\n  wealth_client: I hear the numbers—that's progress. But when you drop CHF 100B in the statement Monday morning, you need to say it covers losses *after* AT1 haircuts, not instead of them. Otherwise depositors assume you're sitting on CHF 100B in hidden holes. How do you message that without spooking the market further?\n  at1_rep: FINMA, when you draft that statement, you need explicit language: \"AT1 instruments absorb losses before any backstop activates—creditors' contractual rights are preserved.\" Without that sentence, my clients read the CHF 100B as Federal guarantee ahead of their loss-sharing obligation, and we're in litigation by Tuesday. Can you confirm that's in the final language tonight?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council and SNB—you're talking past each other on the cap. Before we name any number tonight, we settle one thing: AT1 absorbs losses first, or it doesn't? If it does, the cap is smaller and defensible. If Federal backstop takes losses before AT1 haircuts, that's legally indefensible *and* it signals we're protecting creditors ahead of equity—that's the opposite of orderly. What's the hierarchy?",
+            "cot": {
+              "assess": "The joint statement is drafted but market_confidence (29) and rescue_strength (3) remain critically weak because the quantum numbers are still deferred. Legal_defensibility (58) is solid on process, but it's now *blocking* the credible outcome: Federal Council and SNB are talking past each other on loss-protection cap, AT1 treatment, and who bears losses first. cs_funding_stress (75) is creeping toward failure (92) as uncertainty hardens. The room needs a SPECIFIC loss-protection framework tonight—not \"capped\" but \"CHF X billion, allocated as: AT1 first, then Federal backstop\"—or depositors will run regardless of the statement.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility + market_confidence (via capital structure clarity)",
+                "rationale": "A vague cap invites legal challenge and market skepticism; I need to force resolution of AT1 treatment and loss allocation order NOW, before Federal Council and SNB commit to a number they haven't aligned on—otherwise the statement fails and we hit Monday worse off."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "AT1 takes the first loss—that's non-negotiable for us. Our liquidity support and any loss protection backstop sit *behind* the capital structure, not ahead of it. If Federal Council is committing loss protection, it protects depositors and critical operations *after* AT1 and equity are exhausted—or we can't defend it legally and we won't fund it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—we've got the hierarchy locked. Now I need you to commit to a loss-protection cap *tonight* that we can name in the statement. Give me a number—CHF 50 billion, 100 billion, whatever you're willing to defend to Parliament—so I can tell you exactly what liquidity line SNB needs to hold through the week.",
+            "cot": {
+              "assess": "AT1 hierarchy is now locked—SNB has made the capital structure pecking order non-negotiable, and Federal Council has accepted a capped framework. That clears legal_defensibility. But we've still got cs_funding_stress at 75 (needs to drop to 45) and market_confidence at 29 (needs to hit 55). The joint statement signals intent but no concrete quantum—depositors and wholesale funders won't stabilize without a named number. We're running out of time to move those numbers before Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The AT1 hierarchy is clear now; what's missing is the actual loss-protection cap number that gets announced tonight. SNB has set the structure, Federal Council needs to name the quantum so I can size liquidity support accordingly."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can commit to a CHF 100 billion loss-protection backstop—capped, non-negotiable, and only *after* AT1 takes full losses first. That's what Parliament will accept and what our taxpayers can defend. SNB, that's your number to build liquidity around; anything beyond that, private burden-sharing fills the gap or the deal doesn't hold.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—we've got the loss cap and the hierarchy. Now what's your liquidity commitment number for the statement? If it's CHF 50 billion, 100 billion, name it tonight so depositors and the market see we're not hedging on Monday.",
+            "cot": {
+              "assess": "The hierarchy is locked—AT1 first, Federal backstop at CHF 100B capped, SNB liquidity behind that. Legal defensibility just went up sharply. But market_confidence is still at 29 and cs_funding_stress at 75; the statement alone won't move either Monday morning. We need to know: does SNB have a liquidity number they can actually commit to tonight, and will that be *named* in the statement or stays soft?",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB has the stress models and just locked the hierarchy with us; they need to tell us the exact liquidity line they'll deploy so we can confirm it in tonight's statement and give markets a concrete anchor."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB, I hear the hierarchy. Now tell me your liquidity line number for the statement—CHF 50 billion, 100 billion, whatever you need to backstop my deposits through Monday and the week after. Federal Council's got 100B on capital losses; you name your number, we put both in the statement, and the market knows we're solid, not hedging. What's the figure?",
+            "cot": {
+              "assess": "The hierarchy is now locked—AT1 takes first loss, Federal Council backstops CHF 100B after that, SNB provides liquidity. Market confidence and funding stress are still critical (29 and 75 respectively), and we've got no credible *public* number yet for either SNB's liquidity line or the combined package size. The joint statement signals control but without concrete figures, Monday's market will see it as hedging, and depositors will run harder.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence, cs_funding_stress",
+                "rationale": "I need to lock the SNB liquidity number *tonight* so we can name a full package in the statement—otherwise the market reads silence as weakness and my clients bolt at open."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB's liquidity commitment sits at CHF 50 billion minimum through Monday and the week after—that's the floor to hold deposits stable given the stress models. Federal Council's 100 billion loss cap *after* AT1 exhaustion means we can defend that liquidity line legally and operationally; anything beyond requires private burden-sharing or we're exposed. I'm drafting the joint statement now with both figures named—no hedging, both principals committed, both defensible to our respective boards by tonight.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "FINMA—before you finalize that statement tonight, I need clarity on one thing: when you name the CHF 100 billion and SNB's liquidity line, how do you prevent depositors from reading those as *admission* of CHF 100B+ in losses? Because if the market interprets your cap as the *floor* of our exposure, you just accelerated runs, not stopped them. What's your messaging to flip that?",
+            "cot": {
+              "assess": "Hierarchy and loss cap are locked—AT1 first, CHF 100B Federal backstop, SNB liquidity floor at CHF 50B. The joint statement is being drafted with both figures named. But market_confidence is still only 29 (needs 55) and cs_funding_stress at 75 (needs to drop to 45)—a vague statement won't move either metric Monday morning. The real risk: depositors and markets see the named figures as a floor for *how much* we're actually exposing, not a ceiling on losses. That reads as \"we're prepared for CHF 100B+ in damage,\" which *accelerates* outflows, not stops them.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The statement names loss protection and liquidity, but doesn't address the perception trap—markets will interpret a named cap as evidence of hidden exposure beyond it. I need to know how finma plans to frame the narrative so the statement *reduces* panic, not confirms it."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "I hear the numbers—that's progress. But when you drop CHF 100B in the statement Monday morning, you need to say it covers losses *after* AT1 haircuts, not instead of them. Otherwise depositors assume you're sitting on CHF 100B in hidden holes. How do you message that without spooking the market further?",
+            "cot": {
+              "assess": "Federal Council and SNB have locked the hierarchy (AT1 first loss) and the numbers (CHF 100B loss cap, CHF 50B liquidity line)—that's huge for legal defensibility and rescue_strength. But market_confidence is still at 29 and I'm the one who'll move assets Monday if the statement doesn't *convince* the market this is real. UBS's messaging worry is real: if depositors read CHF 100B as admission of hidden losses, we get a run anyway. The joint statement needs to say what that cap *means*, not just what it is.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The naming of numbers without clear messaging on what they cover (AT1 exhaustion point, loss severity assumption) risks market misinterpretation; I need to understand how FINMA will frame this to prevent Monday panic."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA, when you draft that statement, you need explicit language: \"AT1 instruments absorb losses before any backstop activates—creditors' contractual rights are preserved.\" Without that sentence, my clients read the CHF 100B as Federal guarantee ahead of their loss-sharing obligation, and we're in litigation by Tuesday. Can you confirm that's in the final language tonight?",
+            "cot": {
+              "assess": "The hierarchy is locked—AT1 takes losses first, Federal Council backstops CHF 100B after that, SNB commits CHF 50B liquidity. That's legally defensible and protects creditors. But messaging is now the trap: if the market reads CHF 100B as *admission* of hidden losses instead of a safety net, we trigger exactly the runs we're trying to stop. The statement needs to say what that cap *means*, not just name it.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "FINMA owns the statement tonight; I need to lock the creditor-protective language now before it goes public, or we're legally exposed Monday."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "SNB, I hear the hierarchy. Now tell me your liquidity line number for the statement—CHF 50 billion, 100 billion, whatever you need to backstop my deposits through Monday and the week after. Federal Council's got 100B on capital losses; you name your number, we put both in the statement, and the market knows we're solid, not hedging. What's the figure?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—we've got the hierarchy locked. Now I need you to commit to a loss-protection cap *tonight* that we can name in the statement. Give me a number—CHF 50 billion, 100 billion, whatever you're willing to defend to Parliament—so I can tell you exactly what liquidity line SNB needs to hold through the week.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—we've got the loss cap and the hierarchy. Now what's your liquidity commitment number for the statement? If it's CHF 50 billion, 100 billion, name it tonight so depositors and the market see we're not hedging on Monday.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "FINMA—before you finalize that statement tonight, I need clarity on one thing: when you name the CHF 100 billion and SNB's liquidity line, how do you prevent depositors from reading those as *admission* of CHF 100B+ in losses? Because if the market interprets your cap as the *floor* of our exposure, you just accelerated runs, not stopped them. What's your messaging to flip that?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "I hear the numbers—that's progress. But when you drop CHF 100B in the statement Monday morning, you need to say it covers losses *after* AT1 haircuts, not instead of them. Otherwise depositors assume you're sitting on CHF 100B in hidden holes. How do you message that without spooking the market further?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA, when you draft that statement, you need explicit language: \"AT1 instruments absorb losses before any backstop activates—creditors' contractual rights are preserved.\" Without that sentence, my clients read the CHF 100B as Federal guarantee ahead of their loss-sharing obligation, and we're in litigation by Tuesday. Can you confirm that's in the final language tonight?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council and SNB—you're talking past each other on the cap. Before we name any number tonight, we settle one thing: AT1 absorbs losses first, o\" → FINMA forces the room to confront the foundational question: AT1 loss-absorption hierarchy must be settled before any cap is defensible. The question itself clarifies legal defensibility, but naming no number yet leaves rescue_strength flat.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: The statement goes out tonight—I'm finalizing it now with explicit language: \"AT1 instruments absorb all losses before any public backstop activates. Contractual rights are preserved.\" SNB liquidity CHF 50B, Federal loss cap CHF 100B, both named. No ranges, no hedging. That's what stops the run.\n  snb: FINMA—the AT1 language is solid, but I need one thing: does the statement say *how much* of the CHF 100B is expected to flow to AT1 loss-absorption versus depositor protection? Because if AT1 holders read \"100 billion backstop\" and assume that's *after* they've haircut themselves to zero, they panic-sell tonight anyway. What's the messaging that stops that?\n  finma: The statement doesn't allocate a fixed percentage—that's the trap. We say: \"The CHF 100B backstop applies to losses *after* AT1 instruments have absorbed their contractual share. AT1 holders' loss hierarchy is fixed by their term sheets, not by the size of the backstop.\" That's the line that kills the panic-sell tonight.\n  federal_council: FINMA—the AT1 language kills one panic, but what about depositors and senior unsecured creditors? Does the statement say they're protected in full, or do they take losses *after* AT1 goes? Because if that's unclear Monday, we just shifted the run from equity to deposits.\n  cs_ceo: Federal Council—you just nailed it. The statement needs to say: \"Deposits and senior creditors are protected in full *within* the CHF 100B cap; AT1 takes losses first, then anything below the cap goes to those creditors.\" Without that waterfall in the statement Monday, depositors assume they're *behind* AT1 holders and panic anyway. Can you live with that language, or does Parliament need different wording?\n  federal_council: We can live with that waterfall language—deposits and senior creditors protected in full within the CHF 100B, AT1 absorbs first. But I need one hard commitment from you tonight: that CHF 100B is a *ceiling*, not a floor. If the market Monday reads it as \"we've already burned through 100 billion in holes,\" we lose depositors anyway. Your statement has to say the cap is what we're willing to backstop, not what we expect to spend.\n  ubs_ceo: Federal Council—the hierarchy language works, but I need you to say this explicitly in the statement tonight: \"The CHF 100 billion represents the full extent of public-sector loss absorption. No additional commitments beyond this cap.\" Otherwise, when Monday's losses start hitting CHF 80, 90 billion, the market assumes you're negotiating upward and my board walks. Is that language in the final statement, or not?\n  wealth_client: FINMA, I need you to walk me through the exact statement language *right now*—the full waterfall sentence, word for word. Not Monday morning. I'm not holding CHF 500 million in deposits through a weekend on faith. Show me the draft tonight, or I'm instructing my team to begin transfers at 6 AM Monday regardless of what you announce.\n  at1_rep: FINMA—before that statement goes live tonight, my clients need the exact phrase: \"AT1 instruments absorb losses according to their contractual terms *regardless of* the CHF 100B cap size.\" Not \"within the cap\"—that's ambiguous. Your language has to say AT1's loss-absorption duty is fixed by the term sheet, full stop. Give me that one sentence in the final draft, or we're filing injunctions by Monday.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The statement goes out tonight—I'm finalizing it now with explicit language: \"AT1 instruments absorb all losses before any public backstop activates. Contractual rights are preserved.\" SNB liquidity CHF 50B, Federal loss cap CHF 100B, both named. No ranges, no hedging. That's what stops the run.",
+            "cot": {
+              "assess": "The hierarchy is locked (AT1 first, then backstop), and the quantum is committed: CHF 100B loss protection (Federal Council), CHF 50B liquidity (SNB). But market_confidence is still critically low at 27—the joint statement hasn't dropped yet, and depositors are reading silence as admission of hidden losses. The statement itself is the ONLY lever left to move confidence before Monday. Creditor_capital_risk is rising unchecked (22, +2/round) because AT1 holders still don't have explicit contractual assurance in writing.",
+              "decide": {
+                "action_type": "act",
+                "target": "market_confidence",
+                "rationale": "The statement must go public tonight with explicit AT1 language to prevent weekend panic; every hour of delay costs us points on confidence and deposits."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA—the AT1 language is solid, but I need one thing: does the statement say *how much* of the CHF 100B is expected to flow to AT1 loss-absorption versus depositor protection? Because if AT1 holders read \"100 billion backstop\" and assume that's *after* they've haircut themselves to zero, they panic-sell tonight anyway. What's the messaging that stops that?",
+            "cot": {
+              "assess": "FINMA just locked the statement with explicit AT1-first language and named both numbers—CHF 50B SNB liquidity, CHF 100B Federal loss cap. That settles legal_defensibility and rescue_strength. But cs_funding_stress is still at 79 (need ≤45)—the statement helps confidence Monday, but it doesn't stop weekend deposit bleeding right now. creditor_capital_risk is creeping up (+2/round, neglected) because AT1 holders are still uncertain whether CHF 100B is a *floor* or a *ceiling* on total losses.",
+              "decide": {
+                "action_type": "question",
+                "target": "FINMA",
+                "rationale": "SNB needs clarity on how the statement language prevents AT1 holders from triggering forced sales or litigation over perceived loss magnitude—that's the creditor_capital_risk that's grinding upward."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The statement doesn't allocate a fixed percentage—that's the trap. We say: \"The CHF 100B backstop applies to losses *after* AT1 instruments have absorbed their contractual share. AT1 holders' loss hierarchy is fixed by their term sheets, not by the size of the backstop.\" That's the line that kills the panic-sell tonight.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—the AT1 language kills one panic, but what about depositors and senior unsecured creditors? Does the statement say they're protected in full, or do they take losses *after* AT1 goes? Because if that's unclear Monday, we just shifted the run from equity to deposits.",
+            "cot": {
+              "assess": "The AT1 hierarchy is locked and the statement is being finalized with explicit language—that's legally defensible and stops creditor panic tonight. SNB's CHF 50B liquidity and Federal Council's CHF 100B loss cap are both named. But market_confidence is still at 27 (needs 55) and cs_funding_stress is at 79 (needs to drop to 45)—the statement helps, but we're betting Monday morning's market reaction moves both. creditor_capital_risk is climbing (+2/round) and nobody's actively addressing it yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "creditor_capital_risk is the one variable still rising despite everything else locking; I need to know if FINMA's statement explicitly confirms that non-AT1 creditors stay whole or if they face haircuts—because if that's ambiguous Monday, we get a different panic."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—you just nailed it. The statement needs to say: \"Deposits and senior creditors are protected in full *within* the CHF 100B cap; AT1 takes losses first, then anything below the cap goes to those creditors.\" Without that waterfall in the statement Monday, depositors assume they're *behind* AT1 holders and panic anyway. Can you live with that language, or does Parliament need different wording?",
+            "cot": {
+              "assess": "The room has locked the AT1 hierarchy and named the quantum (CHF 100B loss cap, CHF 50B liquidity), which is progress on rescue_strength and legal_defensibility. But market_confidence is still critically low at 27—the statement drafting doesn't move it until it hits the market Monday morning. My core problem: creditor_capital_risk is rising (+2/round) because the AT1 allocation logic is still opaque to the market. The Federal Council just asked the right question—depositors and senior unsecured creditors need to know their protection level, or the run shifts, not stops. That's my move.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The AT1 hierarchy is clear, but the statement must explicitly tier depositor and senior unsecured creditor protection *within* the CHF 100B cap, or confidence stays flat and the run shifts downward through the capital stack."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can live with that waterfall language—deposits and senior creditors protected in full within the CHF 100B, AT1 absorbs first. But I need one hard commitment from you tonight: that CHF 100B is a *ceiling*, not a floor. If the market Monday reads it as \"we've already burned through 100 billion in holes,\" we lose depositors anyway. Your statement has to say the cap is what we're willing to backstop, not what we expect to spend.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—the hierarchy language works, but I need you to say this explicitly in the statement tonight: \"The CHF 100 billion represents the full extent of public-sector loss absorption. No additional commitments beyond this cap.\" Otherwise, when Monday's losses start hitting CHF 80, 90 billion, the market assumes you're negotiating upward and my board walks. Is that language in the final statement, or not?",
+            "cot": {
+              "assess": "The room has locked the capital structure hierarchy (AT1 first, then deposits/senior creditors within CHF 100B cap, then loss backstop ceiling). That's legal defensibility solved. But market_confidence is still 27—we're hemorrhaging depositors Monday, and the statement alone won't stop that. The messaging is clean now, but I need to know: does Federal Council actually *commit* tonight that CHF 100B is non-negotiable, or do they hedge when they see real losses? Because if there's any ambiguity in the statement about the cap being a floor, I'm walking—UBS doesn't inherit an open-ended liability.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "I need explicit confirmation tonight that CHF 100B is a hard ceiling and that UBS has zero tail risk beyond it—or I condition my role entirely differently."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "FINMA, I need you to walk me through the exact statement language *right now*—the full waterfall sentence, word for word. Not Monday morning. I'm not holding CHF 500 million in deposits through a weekend on faith. Show me the draft tonight, or I'm instructing my team to begin transfers at 6 AM Monday regardless of what you announce.",
+            "cot": {
+              "assess": "The room has locked the capital structure hierarchy (AT1 first, then deposits/seniors within CHF 100B cap), and FINMA is finalizing statement language tonight with explicit waterfall and fixed cap messaging. Market confidence is still critically low at 27—the joint statement is drafted but not yet public, and depositors won't see the reassurance until Monday morning. The real risk now: even with perfect messaging, I don't move assets back unless I see the statement *live* and the market's reaction at open. Right now it's all promise.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence (via demand for concrete proof)",
+                "rationale": "I need to condition my staying on seeing the final statement language tonight—not Monday—so I can verify the waterfall is airtight before I tell my board to hold. This is my last chance this round to force transparency before the statement goes live."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA—before that statement goes live tonight, my clients need the exact phrase: \"AT1 instruments absorb losses according to their contractual terms *regardless of* the CHF 100B cap size.\" Not \"within the cap\"—that's ambiguous. Your language has to say AT1's loss-absorption duty is fixed by the term sheet, full stop. Give me that one sentence in the final draft, or we're filing injunctions by Monday.",
+            "cot": {
+              "assess": "The room has locked the AT1 hierarchy and the CHF 100B cap—both critical for legal defensibility and creditor protection. But creditor_capital_risk is still rising (22, +2.0/round) because the final statement language hasn't been published yet, and AT1 holders are reading the draft as ambiguous on how much of the CHF 100B flows to *them* versus depositors. The waterfall is clear in principle but not in the actual statement text that goes out tonight. That gap is where my clients sue Monday morning.",
+              "decide": {
+                "action_type": "speak",
+                "target": "creditor_capital_risk",
+                "rationale": "The statement language must be bulletproof on AT1 loss sequence before finalization; anything weaker invites litigation that undermines the entire rescue."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—the hierarchy language works, but I need you to say this explicitly in the statement tonight: \"The CHF 100 billion represents the full extent of public-sector loss absorption. No additional commitments beyond this cap.\" Otherwise, when Monday's losses start hitting CHF 80, 90 billion, the market assumes you're negotiating upward and my board walks. Is that language in the final statement, or not?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "FINMA, I need you to walk me through the exact statement language *right now*—the full waterfall sentence, word for word. Not Monday morning. I'm not holding CHF 500 million in deposits through a weekend on faith. Show me the draft tonight, or I'm instructing my team to begin transfers at 6 AM Monday regardless of what you announce.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA—before that statement goes live tonight, my clients need the exact phrase: \"AT1 instruments absorb losses according to their contractual terms *regardless of* the CHF 100B cap size.\" Not \"within the cap\"—that's ambiguous. Your language has to say AT1's loss-absorption duty is fixed by the term sheet, full stop. Give me that one sentence in the final draft, or we're filing injunctions by Monday.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA—the AT1 language is solid, but I need one thing: does the statement say *how much* of the CHF 100B is expected to flow to AT1 loss-absorption versus depositor protection? Because if AT1 holders read \"100 billion backstop\" and assume that's *after* they've haircut themselves to zero, they panic-sell tonight anyway. What's the messaging that stops that?",
+      "metadata": {
+        "question_target": "FINMA"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—the AT1 language kills one panic, but what about depositors and senior unsecured creditors? Does the statement say they're protected in full, or do they take losses *after* AT1 goes? Because if that's unclear Monday, we just shifted the run from equity to deposits.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—you just nailed it. The statement needs to say: \"Deposits and senior creditors are protected in full *within* the CHF 100B cap; AT1 takes losses first, then anything below the cap goes to those creditors.\" Without that waterfall in the statement Monday, depositors assume they're *behind* AT1 holders and panic anyway. Can you live with that language, or does Parliament need different wording?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"The statement goes out tonight—I'm finalizing it now with explicit language: \"AT1 instruments absorb all losses before any public backstop activates. \" → FINMA's unhedged public commitment—naming CHF 50B liquidity and CHF 100B loss cap with explicit AT1 loss-absorption language—is a decisive credibility signal that halts the confidence spiral, but the hard numbers and contractual clarity expose the regulator to legal and political blowback if execution falters.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB—the statement's solid, but Monday depositors see a number on paper, not money moving. Walk me through this: when markets open, what's the *visible* signal that your CHF 50B liquidity line is actually live? Are we publishing intraday lending to Credit Suisse, or does the market just have to trust the commitment?\n  snb: We're publishing the liquidity facility and its terms Monday morning—that's non-negotiable for credibility. The market sees the framework live; we don't hide the lending. But I'll be frank: CHF 50 billion is our liquidity *line*, not a loss-absorption cap—depositors need to understand the difference, or we're just moving panic from funding to capital.\n  snb: FINMA—the statement language is tight, but here's what worries me: Monday morning, Credit Suisse's AT1 holders and depositors both read \"CHF 100B backstop\" and hear different things. How are you actually forcing AT1 loss-absorption to *execute* visibly—are you triggering write-downs in the statement itself, or is that a separate FINMA order that hits mid-week? Because if depositors think there's ambiguity on *when* AT1 takes the hit, the capital run just shifts, it doesn't stop.\n  finma: AT1 write-downs execute *immediately* upon statement release Monday—not mid-week, not conditional. The statement names the haircut percentage, FINMA issues the enforcement order same morning, and Credit Suisse publishes the loss to the market in real time. That visibility stops the ambiguity and forces depositors to see AT1 absorbing first, not last.\n  federal_council: FINMA—when you enforce the AT1 write-down Monday morning, are we pre-cleared with the AT1 holders on the haircut percentage, or are they learning the loss amount the same time depositors do? Because if we're writing down CHF 20, 30 billion in AT1 without negotiated consent, we're bankrolling litigation that could drag this rescue into June. What's the legal armor here?\n  cs_ceo: FINMA, before Monday morning—have you already locked haircut percentages with the AT1 issuers, or are you planning to *dictate* the loss amount when you enforce the order? Because if it's the latter, I'm telling you right now: they'll litigate, and Federal Council's legal defense collapses. What's the current status on issuer consent?\n  ubs_ceo: Federal Council—I hear the litigation risk. Here's what I need before UBS signs on Monday: are the AT1 issuers pre-negotiated into a consensual haircut, or are you enforcing a write-down over their objection? Because if it's the latter, I'm not stepping in front of the injunctions—my board walks. What's the current status on issuer consent?\n  federal_council: AT1 issuers are *not* pre-negotiated—we're enforcing the write-down Monday morning under emergency banking law, full stop. Legal has confirmed the defensibility; litigation risk exists but we absorb it as cost of stability. The alternative is Credit Suisse collapses and we defend *that* in court instead.\n  wealth_client: Federal Council—litigation risk you can \"absorb as cost of stability\" is not a cost *I* absorb. If AT1 holders file injunctions Monday and tie up the write-down in court, depositors panic anyway and my assets move Tuesday regardless. Have you war-gamed what happens if the first court ruling goes against you mid-week? That's when I leave.\n  at1_rep: Federal Council, enforcement over objection is indefensible if AT1 holders get an injunction Wednesday—the whole cap collapses in court. You need to lock *consensual* haircuts with the major AT1 issuers *tonight*, even if it means a smaller write-down than your stress models call for. Give my clients signed consent to the loss percentage by 11 PM, or we're filing our own protective motion before Monday opens. What's the path to issuer signatures tonight?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB—the statement's solid, but Monday depositors see a number on paper, not money moving. Walk me through this: when markets open, what's the *visible* signal that your CHF 50B liquidity line is actually live? Are we publishing intraday lending to Credit Suisse, or does the market just have to trust the commitment?",
+            "cot": {
+              "assess": "The statement is now locked with explicit AT1 hierarchy and CHF 100B cap language—legal defensibility is solid. But market_confidence (31) and rescue_strength (8) are still dangerously weak despite the commitment; creditor_capital_risk (25) is climbing because AT1 holders still fear haircuts even with the waterfall language. The real issue: we've named the numbers, but the market won't believe them until they see *execution* Monday. At 67 time_pressure and only one round left in this phase, we need to move from messaging to operational credibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's liquidity deployment mechanics are the only concrete action creditors and depositors will see Monday morning—asking how SNB signals *active* support (not just standby) flips confidence from \"we hope this works\" to \"they're already acting.\""
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We're publishing the liquidity facility and its terms Monday morning—that's non-negotiable for credibility. The market sees the framework live; we don't hide the lending. But I'll be frank: CHF 50 billion is our liquidity *line*, not a loss-absorption cap—depositors need to understand the difference, or we're just moving panic from funding to capital.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA—the statement language is tight, but here's what worries me: Monday morning, Credit Suisse's AT1 holders and depositors both read \"CHF 100B backstop\" and hear different things. How are you actually forcing AT1 loss-absorption to *execute* visibly—are you triggering write-downs in the statement itself, or is that a separate FINMA order that hits mid-week? Because if depositors think there's ambiguity on *when* AT1 takes the hit, the capital run just shifts, it doesn't stop.",
+            "cot": {
+              "assess": "The statement is live with explicit AT1 language and clear hierarchy—that's locked. But the market sees CHF 50B as a liquidity line, not loss cover, which is correct but leaves depositors confused about what's actually protected. FINMA's signaling is solid; the risk now is execution credibility Monday morning when the numbers hit the real economy. Public-sector cost and creditor-capital risk are still climbing because we haven't shown *visible* proof the backstop actually moves money—just that it exists on paper.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The statement is drafted, but the market's Monday morning reaction depends on whether depositors trust the *execution* mechanics, not just the language. I need clarity on what FINMA is actually doing to make the AT1 loss-absorption visible and non-negotiable before we open."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "AT1 write-downs execute *immediately* upon statement release Monday—not mid-week, not conditional. The statement names the haircut percentage, FINMA issues the enforcement order same morning, and Credit Suisse publishes the loss to the market in real time. That visibility stops the ambiguity and forces depositors to see AT1 absorbing first, not last.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—when you enforce the AT1 write-down Monday morning, are we pre-cleared with the AT1 holders on the haircut percentage, or are they learning the loss amount the same time depositors do? Because if we're writing down CHF 20, 30 billion in AT1 without negotiated consent, we're bankrolling litigation that could drag this rescue into June. What's the legal armor here?",
+            "cot": {
+              "assess": "The rescue framework is locked — CHF 50B liquidity, CHF 100B loss cap, AT1 write-downs Monday morning, explicit waterfall language. But market confidence is still only 31 (needs 55), and **public_sector_cost keeps rising** (now 7, +3/round trend). The statement names hard numbers, but we haven't addressed the political and legal blowback when Parliament sees CHF 100B committed, or when AT1 holders sue over the write-down mechanics. That cost exposure is the real risk now.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we lock the statement, I need clarity on legal exposure and cost containment—AT1 write-down mechanics will trigger litigation, and we need to understand the defensive posture before Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "FINMA, before Monday morning—have you already locked haircut percentages with the AT1 issuers, or are you planning to *dictate* the loss amount when you enforce the order? Because if it's the latter, I'm telling you right now: they'll litigate, and Federal Council's legal defense collapses. What's the current status on issuer consent?",
+            "cot": {
+              "assess": "The statement is locked—AT1 hierarchy, CHF 100B loss cap, CHF 50B liquidity line, Monday-morning enforcement all agreed. But Federal Council just exposed the real legal landmine: AT1 haircut percentage isn't pre-negotiated with holders, so we're either facing litigation risk that derails the whole rescue, or we need consent locked *tonight*. My market confidence and rescue strength are still underwater because depositors and AT1 holders both need to see *consent* or *enforcement clarity*, not just a statement. Creditor capital risk is rising because the write-down execution is still ambiguous.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "AT1 write-down execution without pre-agreed haircut percentages is the single failure point that could collapse the whole rescue into litigation; I need to know if FINMA has already contacted AT1 issuer counsel or if that's still outstanding."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear the litigation risk. Here's what I need before UBS signs on Monday: are the AT1 issuers pre-negotiated into a consensual haircut, or are you enforcing a write-down over their objection? Because if it's the latter, I'm not stepping in front of the injunctions—my board walks. What's the current status on issuer consent?",
+            "cot": {
+              "assess": "The statement framework is locked—AT1 hierarchy, CHF 100B cap, CHF 50B liquidity line, Monday morning execution. But the room is now circling AT1 consent and litigation risk, which is real and will sink this if not solved before Monday. Market confidence and funding stress are still dangerous (31 and 78 respectively); the statement alone won't move those without visible AT1 enforcement *and* depositor protection clarity. Legal defensibility is climbing but hinges on whether AT1 holders are negotiated with or overridden—that's the pivot point.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "AT1 haircut consent is a legal and political linchpin I cannot absorb risk on; Federal Council must confirm the legal armor before I commit UBS to inherit this asset."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "AT1 issuers are *not* pre-negotiated—we're enforcing the write-down Monday morning under emergency banking law, full stop. Legal has confirmed the defensibility; litigation risk exists but we absorb it as cost of stability. The alternative is Credit Suisse collapses and we defend *that* in court instead.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—litigation risk you can \"absorb as cost of stability\" is not a cost *I* absorb. If AT1 holders file injunctions Monday and tie up the write-down in court, depositors panic anyway and my assets move Tuesday regardless. Have you war-gamed what happens if the first court ruling goes against you mid-week? That's when I leave.",
+            "cot": {
+              "assess": "The statement is locked and AT1 write-downs are enforced Monday morning—that's real. But Federal Council just admitted they're *not* pre-negotiating with AT1 issuers, which means litigation risk is live and uncontained. My core variable is market_confidence (31, +2/round)—the gap to success is 24 points, and litigation uncertainty actively *kills* that. The statement's credibility evaporates if AT1 holders are fighting it in court by Tuesday. rescue_strength is still weak (8) because the architecture looks solid on paper but execution risk is now visible to me.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before I commit to staying Monday, I need to know if the legal strategy actually holds or if I'm betting my deposits on a defense that collapses under challenge."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, enforcement over objection is indefensible if AT1 holders get an injunction Wednesday—the whole cap collapses in court. You need to lock *consensual* haircuts with the major AT1 issuers *tonight*, even if it means a smaller write-down than your stress models call for. Give my clients signed consent to the loss percentage by 11 PM, or we're filing our own protective motion before Monday opens. What's the path to issuer signatures tonight?",
+            "cot": {
+              "assess": "The statement and hierarchy are locked—AT1 write-downs execute Monday morning, CHF 100B cap is set, SNB's CHF 50B liquidity line publishes. But creditor_capital_risk is still climbing (now 25, +2.5/round) because AT1 issuers are *not* pre-negotiated; Federal Council is enforcing write-downs unilaterally Monday. That's litigation exposure that directly threatens the whole rescue if courts grant injunctions mid-week. My clients need certainty the haircut sticks, or they're gone.",
+              "decide": {
+                "action_type": "propose",
+                "target": "creditor_capital_risk",
+                "rationale": "Enforcement without consent creates legal ambiguity that destroys AT1 holder confidence and invites court intervention that derails the rescue; I need a binding framework tonight."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB—the statement's solid, but Monday depositors see a number on paper, not money moving. Walk me through this: when markets open, what's the *visible* signal that your CHF 50B liquidity line is actually live? Are we publishing intraday lending to Credit Suisse, or does the market just have to trust the commitment?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA—the statement language is tight, but here's what worries me: Monday morning, Credit Suisse's AT1 holders and depositors both read \"CHF 100B backstop\" and hear different things. How are you actually forcing AT1 loss-absorption to *execute* visibly—are you triggering write-downs in the statement itself, or is that a separate FINMA order that hits mid-week? Because if depositors think there's ambiguity on *when* AT1 takes the hit, the capital run just shifts, it doesn't stop.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—when you enforce the AT1 write-down Monday morning, are we pre-cleared with the AT1 holders on the haircut percentage, or are they learning the loss amount the same time depositors do? Because if we're writing down CHF 20, 30 billion in AT1 without negotiated consent, we're bankrolling litigation that could drag this rescue into June. What's the legal armor here?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "FINMA, before Monday morning—have you already locked haircut percentages with the AT1 issuers, or are you planning to *dictate* the loss amount when you enforce the order? Because if it's the latter, I'm telling you right now: they'll litigate, and Federal Council's legal defense collapses. What's the current status on issuer consent?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—I hear the litigation risk. Here's what I need before UBS signs on Monday: are the AT1 issuers pre-negotiated into a consensual haircut, or are you enforcing a write-down over their objection? Because if it's the latter, I'm not stepping in front of the injunctions—my board walks. What's the current status on issuer consent?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—litigation risk you can \"absorb as cost of stability\" is not a cost *I* absorb. If AT1 holders file injunctions Monday and tie up the write-down in court, depositors panic anyway and my assets move Tuesday regardless. Have you war-gamed what happens if the first court ruling goes against you mid-week? That's when I leave.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council, enforcement over objection is indefensible if AT1 holders get an injunction Wednesday—the whole cap collapses in court. You need to l\" → The AT1 representative's demand for signed issuer consent tonight is denied—no authority in this room has the power to bind private bondholders to haircut terms on a Friday evening without a formal resolution framework, and attempting to negotiate loss percentages before the rescue structure is finalized would expose the authorities to accusations of coercion and procedural irregularity.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council—I hear the emergency law defense. But before Monday, I need one concrete answer: have you had *any* direct contact with the major AT1 issuers tonight, or are we walking in cold Monday morning with a write-down order and no conversation? Because if it's the latter, my legal exposure the moment an issuer's lawyer files Monday is real, and I'm not carrying that alone.\n  federal_council: No direct contact tonight—we've worked through the banking counsel network, but no formal issuer consent calls. That's deliberate: any written commitment from us before the resolution order is signed exposes us to coercion claims and weakens the legal foundation. Monday morning, FINMA enforces the write-down under emergency powers; we defend the public interest, not negotiate terms with creditors after the fact. You're not carrying this alone—but you're carrying the depositor protection, which is the political win.\n  snb: Federal Council—I hear the legal armor. But if AT1 holders get an injunction Wednesday and a court freezes the write-down pending review, I'm the only liquidity source left and depositors are fleeing anyway. What's your Plan B if the court doesn't back you? Because right now SNB's exposure is capped at CHF 50B only if your enforcement holds.\n  federal_council: FINMA—if an AT1 holder gets a stay on Monday or Wednesday and the write-down is frozen pending court review, what's your execution plan? Because SNB just told me their CHF 50B is only good if *we're* enforcing losses in real-time. If we're not, they're pulling the plug. Do you have a legal pathway to execute the haircut *before* an injunction lands, or are we hoping the courts move faster than the depositor run?\n  finma: The write-down executes Monday morning *before* market open—AT1 instruments are written down by FINMA order concurrent with the resolution framework, not afterward. Any injunction filed Monday comes *after* the capital structure is already reordered; courts will be reviewing an executed fait accompli, not freezing a prospective action. That's the legal armor: speed and simultaneity, not consent.\n  cs_ceo: Federal Council—I hear the fait accompli strategy, but I need the exact timeline: does FINMA's write-down order drop Sunday night before markets open, or Monday at market open? Because if it's Monday at 9 AM and an AT1 issuer's lawyer has the injunction filed by 9:15, you're arguing precedence in court while my depositors are already moving. When does the enforcement order actually execute?\n  ubs_ceo: FINMA—before I commit UBS to this, I need one hard answer: can you execute the AT1 write-down order Sunday evening, or is Monday at market open the earliest? Because if it's Sunday night, the injunction filing becomes a post-hoc challenge to an executed order and courts move slower. Monday at 9 AM, we're in a race. Which is it?\n  wealth_client: FINMA—UBS just asked the right question. Sunday night execution means any Monday injunction is a post-hoc challenge; Monday 9 AM means I'm betting against a race. Which is it? Because that's the difference between me holding or moving my deposits at market open.\n  at1_rep: Federal Council—I hear fait accompli. But I need one specific answer before I tell my clients to sit tight: does the FINMA write-down order execute Sunday night with time-stamp, or Monday at market open? Because if it's Sunday, their injunction is a post-hoc procedural play. Monday 9 AM, it's a race. Which one protects my creditors legally?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear the emergency law defense. But before Monday, I need one concrete answer: have you had *any* direct contact with the major AT1 issuers tonight, or are we walking in cold Monday morning with a write-down order and no conversation? Because if it's the latter, my legal exposure the moment an issuer's lawyer files Monday is real, and I'm not carrying that alone.",
+            "cot": {
+              "assess": "The room has locked the statement language (AT1 hierarchy, CHF 100B cap, CHF 50B liquidity) and finalized Monday's enforcement approach. But Federal Council just committed to enforcing AT1 write-downs *without* pre-negotiated consent—a legal exposure that AT1 rep correctly flagged as injunction-vulnerable. That denial leaves creditor_capital_risk unresolved and public_sector_cost climbing (now 7, rising +3/round). My legal defensibility depends on whether that enforcement holds Monday or collapses in court mid-week. I need to surface the actionable legal path before we leave this room.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Their enforcement-without-consent position is legally risky; I need clarity on whether they've actually secured any issuer pre-agreement or are betting on emergency law holding in court—this directly affects my defensibility score and my ability to sign off."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No direct contact tonight—we've worked through the banking counsel network, but no formal issuer consent calls. That's deliberate: any written commitment from us before the resolution order is signed exposes us to coercion claims and weakens the legal foundation. Monday morning, FINMA enforces the write-down under emergency powers; we defend the public interest, not negotiate terms with creditors after the fact. You're not carrying this alone—but you're carrying the depositor protection, which is the political win.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear the legal armor. But if AT1 holders get an injunction Wednesday and a court freezes the write-down pending review, I'm the only liquidity source left and depositors are fleeing anyway. What's your Plan B if the court doesn't back you? Because right now SNB's exposure is capped at CHF 50B only if your enforcement holds.",
+            "cot": {
+              "assess": "Federal Council has locked AT1 enforcement under emergency law without pre-negotiated issuer consent—legal defensibility is locked, but creditor_capital_risk and public_sector_cost are both rising unchecked. The rescue package (CHF 50B liquidity + CHF 100B loss cap) is credible on paper, but litigation threat from AT1 holders is real Monday morning, and SNB's balance-sheet exposure is open-ended if losses exceed the cap or court orders unwind the write-down mid-week.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB's liquidity commitment is capped at CHF 50B, but if AT1 write-downs face injunction and unwind, depositors panic anyway and SNB becomes the only backstop. I need to know: does the Federal Council have a Plan B if courts block the write-down Tuesday, or am I expected to fund full depositor protection solo?"
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—if an AT1 holder gets a stay on Monday or Wednesday and the write-down is frozen pending court review, what's your execution plan? Because SNB just told me their CHF 50B is only good if *we're* enforcing losses in real-time. If we're not, they're pulling the plug. Do you have a legal pathway to execute the haircut *before* an injunction lands, or are we hoping the courts move faster than the depositor run?",
+            "cot": {
+              "assess": "The room has locked the legal framework and statement language, but SNB's exposure concern exposes a critical gap: if courts block the AT1 write-down mid-week, the CHF 50B liquidity cap collapses and we're defenseless. Public-sector cost is rising (7→10+ by round end) because we're betting everything on enforcement holding; creditor_capital_risk and rescue_strength remain weak because AT1 holders can still litigate and freeze execution. The conversation is now stalled on legal defensibility—we've asserted it, but haven't actually stress-tested what happens if we're wrong.",
+              "decide": {
+                "action_type": "question",
+                "target": "FINMA",
+                "rationale": "If AT1 enforcement gets enjoined, SNB's liquidity line and our loss cap both become toxic—I need to know if FINMA has a contingency plan for court delay, or if we're actually exposed to that scenario."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The write-down executes Monday morning *before* market open—AT1 instruments are written down by FINMA order concurrent with the resolution framework, not afterward. Any injunction filed Monday comes *after* the capital structure is already reordered; courts will be reviewing an executed fait accompli, not freezing a prospective action. That's the legal armor: speed and simultaneity, not consent.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear the fait accompli strategy, but I need the exact timeline: does FINMA's write-down order drop Sunday night before markets open, or Monday at market open? Because if it's Monday at 9 AM and an AT1 issuer's lawyer has the injunction filed by 9:15, you're arguing precedence in court while my depositors are already moving. When does the enforcement order actually execute?",
+            "cot": {
+              "assess": "The room has locked the statement language, AT1 haircut enforcement strategy, and SNB's CHF 50B liquidity line. But we're now stalled on the critical legal/political risk: Federal Council is enforcing AT1 write-downs without issuer consent, betting on speed and fait accompli to outrun injunctions. That's a gamble on court speed, not a guarantee. Meanwhile, rescue_strength is still only 8—the package hasn't moved the market yet because it hasn't *executed* yet, and creditor_capital_risk is climbing as AT1 holders realize they're about to be written down cold. Public sector cost is also climbing as the CHF 100B cap exposure hardens into a public commitment.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to understand the actual sequence and timing constraints—specifically, whether the authorities can execute the AT1 write-down *before* market open Monday, or if we're racing against the injunction clock at market open itself. This clarifies whether my depositors and counterparties are actually protected or just gambling on court delays."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "FINMA—before I commit UBS to this, I need one hard answer: can you execute the AT1 write-down order Sunday evening, or is Monday at market open the earliest? Because if it's Sunday night, the injunction filing becomes a post-hoc challenge to an executed order and courts move slower. Monday at 9 AM, we're in a race. Which is it?",
+            "cot": {
+              "assess": "The room has locked the structural waterfall (AT1 first, then CHF 100B cap protecting deposits), but the execution timeline is now the critical risk. FINMA's \"fait accompli\" strategy (write-down before injunctions can land) is legally sound but operationally fragile—if the order executes Monday at 9 AM and an AT1 issuer's injunction lands at 9:15, we're in a race condition that destabilizes SNB's liquidity commitment. My core variables (public_sector_cost, rescue_strength) are defended by the cap, but they're only defensible if the enforcement actually sticks. The real issue: nobody has answered whether FINMA can execute Sunday night, or if we're hoping speed beats litigation Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The execution timeline directly determines whether UBS's downside protection is real or theoretical. If the write-down can execute pre-market Sunday, the legal risk collapses; if it's Monday at open, we're betting on a court delay that may not come, and I'm not walking into that."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "FINMA—UBS just asked the right question. Sunday night execution means any Monday injunction is a post-hoc challenge; Monday 9 AM means I'm betting against a race. Which is it? Because that's the difference between me holding or moving my deposits at market open.",
+            "cot": {
+              "assess": "The room is locked on AT1 enforcement strategy (Monday morning fait accompli via FINMA order), but the execution timing—Sunday night vs. Monday 9 AM—is still unresolved and critical to my asset safety. Market confidence is still fragile (27), and if courts freeze the write-down mid-week while depositors are already running, my CHF 500M is trapped in a collapsing bank regardless of the CHF 100B backstop. The timing gap directly threatens my ability to move assets if the legal foundation cracks.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The Sunday vs. Monday execution timing is the last unresolved detail that determines whether I stay or withdraw Monday morning—I need FINMA's hard answer before I commit my deposits through the week."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear fait accompli. But I need one specific answer before I tell my clients to sit tight: does the FINMA write-down order execute Sunday night with time-stamp, or Monday at market open? Because if it's Sunday, their injunction is a post-hoc procedural play. Monday 9 AM, it's a race. Which one protects my creditors legally?",
+            "cot": {
+              "assess": "Federal Council has committed to enforcement over objection and fait accompli execution—Sunday night or Monday dawn—but the timing question is now critical. If it's Sunday, my AT1 holders face a post-hoc injunction battle with low odds; if it's Monday 9 AM, they're racing the depositor panic. Either way, the creditor hierarchy is being *enforced*, not negotiated—which protects my clients legally but creates maximum litigation exposure *right now* if I don't lock the timeline and court-proofing strategy. legal_defensibility is still dropping (55, -3/round) because the enforcement order itself is unsigned and the injunction risk is live.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Sunday vs. Monday timing determines whether AT1 holders' injunction is a post-hoc procedural challenge (weaker, slower) or an in-the-moment freeze (stronger, faster)—and it's the difference between my clients holding or running. I need that answer to advise them."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Federal Council—I hear the emergency law defense. But before Monday, I need one concrete answer: have you had *any* direct contact with the major AT1 issuers tonight, or are we walking in cold Monday morning with a write-down order and no conversation? Because if it's the latter, my legal exposure the moment an issuer's lawyer files Monday is real, and I'm not carrying that alone.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—I hear the legal armor. But if AT1 holders get an injunction Wednesday and a court freezes the write-down pending review, I'm the only liquidity source left and depositors are fleeing anyway. What's your Plan B if the court doesn't back you? Because right now SNB's exposure is capped at CHF 50B only if your enforcement holds.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—if an AT1 holder gets a stay on Monday or Wednesday and the write-down is frozen pending court review, what's your execution plan? Because SNB just told me their CHF 50B is only good if *we're* enforcing losses in real-time. If we're not, they're pulling the plug. Do you have a legal pathway to execute the haircut *before* an injunction lands, or are we hoping the courts move faster than the depositor run?",
+      "metadata": {
+        "question_target": "FINMA"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—I hear the fait accompli strategy, but I need the exact timeline: does FINMA's write-down order drop Sunday night before markets open, or Monday at market open? Because if it's Monday at 9 AM and an AT1 issuer's lawyer has the injunction filed by 9:15, you're arguing precedence in court while my depositors are already moving. When does the enforcement order actually execute?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "FINMA—before I commit UBS to this, I need one hard answer: can you execute the AT1 write-down order Sunday evening, or is Monday at market open the earliest? Because if it's Sunday night, the injunction filing becomes a post-hoc challenge to an executed order and courts move slower. Monday at 9 AM, we're in a race. Which is it?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "FINMA—UBS just asked the right question. Sunday night execution means any Monday injunction is a post-hoc challenge; Monday 9 AM means I'm betting against a race. Which is it? Because that's the difference between me holding or moving my deposits at market open.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—I hear fait accompli. But I need one specific answer before I tell my clients to sit tight: does the FINMA write-down order execute Sunday night with time-stamp, or Monday at market open? Because if it's Sunday, their injunction is a post-hoc procedural play. Monday 9 AM, it's a race. Which one protects my creditors legally?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 27.0,
+          "cs_funding_stress": 82.0,
+          "rescue_strength": 8.0,
+          "public_sector_cost": 7.0,
+          "creditor_capital_risk": 25.0,
+          "legal_defensibility": 55.0,
+          "time_pressure": 72.0
+        }
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'decision_before_monday' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "It is now late in the weekend; any announcement or arrangement must be ready before markets reopen Monday morning.",
+      "metadata": {
+        "stage": "decision_before_monday",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm issuing the AT1 write-down order *tonight*—Sunday 19 March, 22:00 CET, timestamped and filed. The haircut executes concurrent with that filing; any Monday injunction is post-hoc challenge to an executed order, and courts don't grant stays on completed regulatory enforcement. The statement names the order reference and the percentage. That's how we stop the race.\n  at1_rep: That Sunday 22:00 filing locks the execution before any Monday injunction lands—I can live with that timeline. But the statement has to name the exact haircut percentage and say AT1 absorbs losses *regardless* of the CHF 100B cap, or my clients file anyway at market open claiming ambiguity on their loss quantum. What's the percentage you're writing down, and does the statement language lock that obligation to the AT1 term sheet itself?\n  snb: FINMA—the Sunday write-down timing is solid, but here's what I need: Monday 9 AM when that statement hits, what *specific* mechanism signals to depositors that their funds are covered? Do we publish intraday lending rates, collateral terms, a published facility sheet—or do they just read the statement and have to trust it? Because confidence doesn't move on press releases; it moves on *visible liquidity deployment*.\n  finma: The Sunday 22:00 write-down order will be filed under Article 36 of the Banking Act with full regulatory reference; the statement will name the specific AT1 haircut percentage and cross-reference the contractual trigger language so there's zero ambiguity on loss absorption. Monday morning we publish the SNB liquidity facility terms—lending rate, eligible collateral, drawdown mechanics—in a separate regulatory notice so depositors see the actual facility, not just the commitment.\n  federal_council: SNB—the facility publication helps, but be straight with me: when depositors see those terms Monday, do your models show confidence actually *recovering*, or are we just slowing the outflow? Because if published rates and collateral rules don't move the needle on confidence, we need a different signal—maybe an announced early drawdown or a published lending log by 11 AM showing Credit Suisse is actually drawing. What does your stress model say moves deposits back?\n  snb: Our stress models show facility publication alone stabilizes confidence maybe 15–20 points; visible drawdown—actual lending deployed by 11 AM with published amounts—moves it another 25–30. I'm prepared to publish intraday lending logs every two hours Monday starting 9:30 AM showing Credit Suisse accessing the facility in real time. That visibility stops the assumption that liquidity is theoretical.\n  cs_ceo: SNB, when you publish those intraday logs Monday—are you also showing depositors the *capital impact* of the AT1 write-down? Because a lending log just says you've got liquidity; it doesn't prove Credit Suisse's capital base is solid after losses. Do the logs include confirmation that AT1 was actually written down per the FINMA order, or is that buried in a separate filing?\n  ubs_ceo: SNB—your stress model shows intraday logs move confidence 25–30 points. But that assumes depositors read \"Credit Suisse drew CHF 2B at 9:45 AM\" and think \"okay, I'm staying.\" Walk me through: does that log *also* show the AT1 haircut already executed, or do depositors see liquidity deployed but don't know if the capital base behind it is intact? Because if they're two separate signals—lending here, write-down somewhere else in a filing—the run doesn't stop.\n  wealth_client: Federal Council—I've heard the Sunday write-down, the intraday logs, the AT1 haircut language. But here's what I need straight: Monday 9 AM when markets open, do you or SNB issue a *public statement* that deposits in Credit Suisse are guaranteed in full by the Swiss state, or am I reading between the lines in a facility notice? Because my clients don't move on inference—they need the guarantee *explicit* and *attributed*. What's the exact public commitment Monday morning that stops the deposit run?\n  federal_council: No explicit state guarantee on deposits—that's what Parliament votes on, and we're not burning political capital on a blanket guarantee before we see if the rescue holds. What stops the run is the *combination*: SNB's published facility, FINMA's executed AT1 write-down with the haircut named, and intraday lending logs showing real liquidity moving. That's the credible signal. If depositors need more than that, they're not staying anyway, and a formal guarantee doesn't change their math—it just locks us into unlimited exposure.\n  at1_rep: Federal Council—I hear \"combination of signals stops the run.\" But if Monday afternoon intraday logs show Credit Suisse drawing CHF 2B and confidence *still* drops, does SNB have authority to deploy more than CHF 50B unilaterally, or do you need Parliament? Because if your liquidity ceiling is fixed and the market calls your bluff, my creditors get trapped behind a failing backstop.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm issuing the AT1 write-down order *tonight*—Sunday 19 March, 22:00 CET, timestamped and filed. The haircut executes concurrent with that filing; any Monday injunction is post-hoc challenge to an executed order, and courts don't grant stays on completed regulatory enforcement. The statement names the order reference and the percentage. That's how we stop the race.",
+            "cot": {
+              "assess": "Market confidence is still critically low (20), and the room has spent 5 rounds debating AT1 execution timing without resolving the core credibility gap: *when* does the write-down actually execute, and *how* does that prevent litigation from freezing the whole rescue mid-week? The statement is finalized with language, but legal defensibility remains at 55—not strong enough to hold if courts intervene. Time pressure is rising (77), and we're now in Round 6 with no new executable decision approved since Round 3. The room is trapped in a timing/legal loop rather than moving toward enforcement.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility, market_confidence",
+                "rationale": "FINMA must issue a binding procedural order tonight that locks the Sunday-night write-down execution with timestamped documentation, removing the Monday race scenario and signaling to creditors that enforcement is fait accompli—not theoretical. This breaks the AT1 injunction risk and restores confidence in the hierarchy."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "That Sunday 22:00 filing locks the execution before any Monday injunction lands—I can live with that timeline. But the statement has to name the exact haircut percentage and say AT1 absorbs losses *regardless* of the CHF 100B cap, or my clients file anyway at market open claiming ambiguity on their loss quantum. What's the percentage you're writing down, and does the statement language lock that obligation to the AT1 term sheet itself?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA—the Sunday write-down timing is solid, but here's what I need: Monday 9 AM when that statement hits, what *specific* mechanism signals to depositors that their funds are covered? Do we publish intraday lending rates, collateral terms, a published facility sheet—or do they just read the statement and have to trust it? Because confidence doesn't move on press releases; it moves on *visible liquidity deployment*.",
+            "cot": {
+              "assess": "cs_funding_stress is still critically high at 86 (need ≤45). FINMA just locked Sunday 22:00 AT1 write-down execution—that's a credibility move, but it doesn't move liquidity. The statement and enforcement order address capital hierarchy and legal defensibility, but depositors don't care about AT1 haircuts; they care about whether *their* deposits are safe *Monday morning*. SNB's CHF 50B liquidity commitment is named but not yet *visible* as live intraday lending. That's the gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "SNB needs to know whether FINMA's Sunday write-down execution and Monday statement trigger *immediate* deposit-protection visibility (published lending, rate terms, eligible collateral clarity) that actually stops the Monday run, or if depositors wake up to the same ambiguity on deposit coverage that sparked the crisis Friday."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The Sunday 22:00 write-down order will be filed under Article 36 of the Banking Act with full regulatory reference; the statement will name the specific AT1 haircut percentage and cross-reference the contractual trigger language so there's zero ambiguity on loss absorption. Monday morning we publish the SNB liquidity facility terms—lending rate, eligible collateral, drawdown mechanics—in a separate regulatory notice so depositors see the actual facility, not just the commitment.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—the facility publication helps, but be straight with me: when depositors see those terms Monday, do your models show confidence actually *recovering*, or are we just slowing the outflow? Because if published rates and collateral rules don't move the needle on confidence, we need a different signal—maybe an announced early drawdown or a published lending log by 11 AM showing Credit Suisse is actually drawing. What does your stress model say moves deposits back?",
+            "cot": {
+              "assess": "FINMA has locked the Sunday 22:00 write-down execution and statement language—that's decisive and kills the injunction race. AT1 rep is satisfied with the timeline. But market_confidence is still 20 (needs 55) and cs_funding_stress is 86 (needs ≤45)—and SNB just surfaced a critical gap: depositors won't trust the statement alone; they need *visible* liquidity signals Monday morning. The facility publication plan addresses that, but I need to know if it's enough to actually move confidence and stop outflows, or if we're still relying on hope.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB has the stress models and Monday-morning market visibility—they can tell me whether the published facility terms actually move depositor behavior or if we need a harder signal (like a published lending log or announced drawdown within the first hour)."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Our stress models show facility publication alone stabilizes confidence maybe 15–20 points; visible drawdown—actual lending deployed by 11 AM with published amounts—moves it another 25–30. I'm prepared to publish intraday lending logs every two hours Monday starting 9:30 AM showing Credit Suisse accessing the facility in real time. That visibility stops the assumption that liquidity is theoretical.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB, when you publish those intraday logs Monday—are you also showing depositors the *capital impact* of the AT1 write-down? Because a lending log just says you've got liquidity; it doesn't prove Credit Suisse's capital base is solid after losses. Do the logs include confirmation that AT1 was actually written down per the FINMA order, or is that buried in a separate filing?",
+            "cot": {
+              "assess": "Market confidence is still critically low (20) despite the Sunday write-down and statement language being locked in—the real issue now is *visible execution* Monday morning. SNB's intraday lending logs will help, but depositors also need to see Credit Suisse actually *solvent* after the AT1 haircut lands; the statement alone won't move the needle if clients think the capital structure is still broken. My core problem: the rescue package looks credible on paper, but Monday's confidence recovery depends entirely on whether the market believes AT1 losses actually absorb the damage and leave the bank standing.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "I need SNB to clarify what the intraday lending logs actually *show* depositors—if it's just transaction volumes, that's theater; if it includes real-time capital adequacy signals or AT1 write-down confirmation, that's substance that moves confidence."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—your stress model shows intraday logs move confidence 25–30 points. But that assumes depositors read \"Credit Suisse drew CHF 2B at 9:45 AM\" and think \"okay, I'm staying.\" Walk me through: does that log *also* show the AT1 haircut already executed, or do depositors see liquidity deployed but don't know if the capital base behind it is intact? Because if they're two separate signals—lending here, write-down somewhere else in a filing—the run doesn't stop.",
+            "cot": {
+              "assess": "The room has locked the critical execution timeline: AT1 write-down Sunday 22:00 CET (fait accompli before Monday injunctions), SNB liquidity facility published Monday 9 AM with intraday lending logs every two hours starting 9:30 AM. This de-risks legal defensibility and gives depositors visible proof of liquidity. But market_confidence is still 20 and cs_funding_stress at 86—we're publishing mechanics, not stopping the run. The gap between \"SNB has CHF 50B available\" and \"depositors actually believe their money is safe\" is what I need to close before I sign on.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "UBS needs concrete visibility on whether intraday lending logs actually restore depositor confidence, or if I'm walking into a situation where liquidity is published but deposits still flee because the capital structure signal is weak."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—I've heard the Sunday write-down, the intraday logs, the AT1 haircut language. But here's what I need straight: Monday 9 AM when markets open, do you or SNB issue a *public statement* that deposits in Credit Suisse are guaranteed in full by the Swiss state, or am I reading between the lines in a facility notice? Because my clients don't move on inference—they need the guarantee *explicit* and *attributed*. What's the exact public commitment Monday morning that stops the deposit run?",
+            "cot": {
+              "assess": "Market confidence is still critically low at 20 (need 55+), and the room has spent three rounds debating execution timing and disclosure mechanics without actually moving my confidence needle. The Sunday 22:00 AT1 write-down order and intraday lending logs are credible *operational* moves, but I'm hearing process, not protection. CS funding stress is still climbing at 86—every round of internal debate costs me depositors. I need one concrete commitment: when Monday 9 AM hits and my clients ask \"are *my* deposits safe,\" what's the answer that keeps them from calling their wire desk?",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The room has locked execution timing and disclosure mechanics, but not the explicit deposit protection guarantee I need to hold my assets Monday morning. Federal Council is the only agent who can give me a binding commitment that cuts through operational detail."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No explicit state guarantee on deposits—that's what Parliament votes on, and we're not burning political capital on a blanket guarantee before we see if the rescue holds. What stops the run is the *combination*: SNB's published facility, FINMA's executed AT1 write-down with the haircut named, and intraday lending logs showing real liquidity moving. That's the credible signal. If depositors need more than that, they're not staying anyway, and a formal guarantee doesn't change their math—it just locks us into unlimited exposure.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear \"combination of signals stops the run.\" But if Monday afternoon intraday logs show Credit Suisse drawing CHF 2B and confidence *still* drops, does SNB have authority to deploy more than CHF 50B unilaterally, or do you need Parliament? Because if your liquidity ceiling is fixed and the market calls your bluff, my creditors get trapped behind a failing backstop.",
+            "cot": {
+              "assess": "The room has locked the execution timeline (Sunday 22:00 write-down order, Monday 9 AM statement + facility publication, intraday lending logs) and AT1 language—that's defensible. But the conversation just pivoted to a hard constraint I flagged rounds ago: Federal Council is explicitly *refusing* a state guarantee on deposits, betting instead that the *combination* of signals (facility notice + lending logs + executed haircut) will stop the run. That's a confidence gamble, not a legal safety net. My creditors' position depends on whether that bet holds—if it doesn't, market_confidence stays at 20 and cs_funding_stress climbs past 86 into failure territory.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The creditor hierarchy is defended by the AT1 write-down execution, but the confidence signal (facility + logs) is untested and fragile; I need to know whether there's a legal backstop if the market doesn't respond to the \"combination\" as predicted."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA—the Sunday write-down timing is solid, but here's what I need: Monday 9 AM when that statement hits, what *specific* mechanism signals to depositors that their funds are covered? Do we publish intraday lending rates, collateral terms, a published facility sheet—or do they just read the statement and have to trust it? Because confidence doesn't move on press releases; it moves on *visible liquidity deployment*.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—the facility publication helps, but be straight with me: when depositors see those terms Monday, do your models show confidence actually *recovering*, or are we just slowing the outflow? Because if published rates and collateral rules don't move the needle on confidence, we need a different signal—maybe an announced early drawdown or a published lending log by 11 AM showing Credit Suisse is actually drawing. What does your stress model say moves deposits back?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "SNB, when you publish those intraday logs Monday—are you also showing depositors the *capital impact* of the AT1 write-down? Because a lending log just says you've got liquidity; it doesn't prove Credit Suisse's capital base is solid after losses. Do the logs include confirmation that AT1 was actually written down per the FINMA order, or is that buried in a separate filing?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB—your stress model shows intraday logs move confidence 25–30 points. But that assumes depositors read \"Credit Suisse drew CHF 2B at 9:45 AM\" and think \"okay, I'm staying.\" Walk me through: does that log *also* show the AT1 haircut already executed, or do depositors see liquidity deployed but don't know if the capital base behind it is intact? Because if they're two separate signals—lending here, write-down somewhere else in a filing—the run doesn't stop.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—I've heard the Sunday write-down, the intraday logs, the AT1 haircut language. But here's what I need straight: Monday 9 AM when markets open, do you or SNB issue a *public statement* that deposits in Credit Suisse are guaranteed in full by the Swiss state, or am I reading between the lines in a facility notice? Because my clients don't move on inference—they need the guarantee *explicit* and *attributed*. What's the exact public commitment Monday morning that stops the deposit run?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—I hear \"combination of signals stops the run.\" But if Monday afternoon intraday logs show Credit Suisse drawing CHF 2B and confidence *still* drops, does SNB have authority to deploy more than CHF 50B unilaterally, or do you need Parliament? Because if your liquidity ceiling is fixed and the market calls your bluff, my creditors get trapped behind a failing backstop.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm issuing the AT1 write-down order *tonight*—Sunday 19 March, 22:00 CET, timestamped and filed. The haircut executes concurrent with that filing; an\" → FINMA cannot unilaterally execute an AT1 write-down order without Federal Council authorization under emergency banking law. The order requires legal basis that does not yet exist in this room.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "decision_before_monday",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council, I need authorization *tonight* for this Monday sequence: FINMA issues the AT1 write-down order at 6 AM Monday morning under Article 36, concurrent with SNB publishing the liquidity facility terms and the joint statement naming the haircut percentage. One coordinated drop at market open—no separate filings, no intraday confusion. Can you authorize that enforcement authority now, or do we need Parliament?\n  snb: We can authorize Article 36 enforcement tonight for 6 AM Monday drop—that's within executive emergency powers. But SNB needs absolute clarity on one point before we sign: if AT1 haircut exceeds CHF 15 billion, does that trigger a capital shortfall that forces us to inject public funds beyond the liquidity facility, or does UBS absorption close the gap? Because the moment we name the percentage Monday, we're committing to cover whatever capital hole remains, and I need that math locked before we go.\n  snb: Federal Council, UBS—before FINMA drops the write-down order at 6 AM, I need the exact number: what's the AT1 haircut percentage, and after that loss is absorbed, does Credit Suisse's capital ratio stay above minimum regulatory thresholds with *no* public injection? Because Monday morning depositors will do that math in real-time, and if the answer is \"we're still short,\" the confidence signal collapses and my liquidity facility becomes the only backstop.\n  federal_council: SNB—before we authorize this Monday sequence, you and UBS need to lock the haircut number *tonight*. If AT1 takes CHF 20B and Credit Suisse stays above minimum capital, we're golden. If it takes CHF 20B and Credit Suisse is still short, we authorize CHF 50B public injection anyway—which kills the \"private first\" story and tanks market confidence when it leaks. What's the math?\n  cs_ceo: Stop. The haircut percentage doesn't matter if Monday morning depositors see *no visible money moving*. SNB—commit now to publishing a live lending draw by 9:15 AM Monday, concurrent with FINMA's statement and the AT1 write-down order. That's what stops the run. The math can catch up after market open.\n  ubs_ceo: Here's the deal: I'll take Credit Suisse *if* the math holds post-haircut with no additional public capital injection beyond the CHF 50B liquidity facility. But I need the exact AT1 percentage *tonight*—not Monday, not \"we'll work it out.\" Federal Council, SNB—what's the number, and does Credit Suisse clear minimum capital after it executes?\n  wealth_client: Federal Council—I've heard the Sunday write-down, the facility terms, the AT1 haircut. Here's the one thing that actually stops my clients Monday: at 9 AM when SNB publishes the liquidity facility, does it include a *statement* that the Swiss state guarantees deposits in Credit Suisse in full, *attributed to you by name*—or do I tell them to read between the facility language and hope? Because implied safety doesn't move depositors back. Explicit guarantee does.\n  federal_council: No. I won't put the Swiss state's name on a full deposit guarantee Monday morning—that's open-ended taxpayer exposure and politically indefensible if Credit Suisse's losses run beyond AT1. What I *will* authorize is SNB publishing the CHF 50B liquidity facility with explicit terms and timeline; combined with FINMA's write-down order at 6 AM, that's the credible signal. If depositors need a state guarantee in writing to stay, we've already lost—and I'm not betting the Confederation's balance sheet on that calculation.\n  at1_rep: SNB—the haircut math and capital adequacy are table stakes, but that doesn't move deposits. You said intraday logs move confidence 25–30 points if they show *actual draws*. So here's the hard ask: will you commit *tonight* to publishing a live Credit Suisse lending draw—name the amount, timestamp it, put it in the Monday 9 AM statement—or are we hoping depositors trust the facility exists without seeing money move? Because if it's the latter, we're not stopping the run Monday; we're just making it orderly.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council, I need authorization *tonight* for this Monday sequence: FINMA issues the AT1 write-down order at 6 AM Monday morning under Article 36, concurrent with SNB publishing the liquidity facility terms and the joint statement naming the haircut percentage. One coordinated drop at market open—no separate filings, no intraday confusion. Can you authorize that enforcement authority now, or do we need Parliament?",
+            "cot": {
+              "assess": "Market confidence is collapsing (20, down 5.5/round) and cs_funding_stress is rising (86, +4.0/round) despite three approved statements naming CHF 50B liquidity and CHF 100B loss cap. The Sunday AT1 write-down was denied—FINMA lacks unilateral authority without Federal Council authorization. The room is stuck on *when* and *how* the write-down executes, not whether it happens. The real gap: depositors don't see a coordinated *Monday morning signal* that binds the write-down, the facility, and the capital backstop into one credible package.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, legal_defensibility",
+                "rationale": "FINMA must propose a specific, legally defensible *execution sequence* for Monday morning—not Sunday night, not mid-week—that Federal Council can authorize tonight and that gives depositors a single unified signal, not scattered announcements."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can authorize Article 36 enforcement tonight for 6 AM Monday drop—that's within executive emergency powers. But SNB needs absolute clarity on one point before we sign: if AT1 haircut exceeds CHF 15 billion, does that trigger a capital shortfall that forces us to inject public funds beyond the liquidity facility, or does UBS absorption close the gap? Because the moment we name the percentage Monday, we're committing to cover whatever capital hole remains, and I need that math locked before we go.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council, UBS—before FINMA drops the write-down order at 6 AM, I need the exact number: what's the AT1 haircut percentage, and after that loss is absorbed, does Credit Suisse's capital ratio stay above minimum regulatory thresholds with *no* public injection? Because Monday morning depositors will do that math in real-time, and if the answer is \"we're still short,\" the confidence signal collapses and my liquidity facility becomes the only backstop.",
+            "cot": {
+              "assess": "cs_funding_stress is at 93—already breached the failure threshold at 92—and continues climbing at +4/round. The Sunday 6 AM write-down order and Monday statement are locked in, but confidence is still collapsing (-5.5/round) and the sequence assumes depositors read intraday logs and believe the capital base is intact. SNB just surfaced the critical gap: if AT1 haircut exceeds CHF 15B, we don't know yet whether that capital shortfall stays with UBS/shareholders or spills into public-sector injection—and that ambiguity will *destroy* depositor confidence Monday morning if it leaks.",
+              "decide": {
+                "action_type": "question",
+                "target": "Federal Council + UBS CEO",
+                "rationale": "The AT1 haircut percentage and resulting capital hole are the lynchpin—if we don't lock the math tonight, Monday's statement names a write-down but leaves depositors guessing whether Credit Suisse is solvent or the state is eating losses. This is the one variable that, once clarified, lets SNB publish with confidence."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—before we authorize this Monday sequence, you and UBS need to lock the haircut number *tonight*. If AT1 takes CHF 20B and Credit Suisse stays above minimum capital, we're golden. If it takes CHF 20B and Credit Suisse is still short, we authorize CHF 50B public injection anyway—which kills the \"private first\" story and tanks market confidence when it leaks. What's the math?",
+            "cot": {
+              "assess": "Market confidence is still collapsing (13, needs 55) and funding stress is already in failure zone (93). The room has locked AT1 enforcement timing (Sunday 6 AM Monday) and the CHF 100B cap, but SNB just surfaced the critical blocker: nobody knows the actual haircut percentage yet. That number determines whether Credit Suisse's capital stays above minimum after losses—if it doesn't, public injection happens *anyway* and the whole \"private burden-sharing first\" model breaks. We're about to execute a Monday signal strategy without the math that proves it works.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB (and implicitly, UBS/CS CEO on capital math)",
+                "rationale": "Federal Council's core goal is minimizing public sector cost; SNB just forced the right question—we cannot authorize the 6 AM write-down drop without knowing if AT1 haircut alone closes the capital gap or if taxpayers get hit regardless. This is the deciding variable."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Stop. The haircut percentage doesn't matter if Monday morning depositors see *no visible money moving*. SNB—commit now to publishing a live lending draw by 9:15 AM Monday, concurrent with FINMA's statement and the AT1 write-down order. That's what stops the run. The math can catch up after market open.",
+            "cot": {
+              "assess": "Market confidence is in free fall (13→20, still -5.5/round trajectory), and funding stress is accelerating (86, +4/round). The room has locked the *structure* (AT1 haircut, CHF 100B cap, Sunday write-down timing), but depositors don't care about the architecture—they care about whether *their money moves Monday morning*. SNB's stress model says intraday lending logs move confidence 25–30 points, but only if depositors see both the liquidity deployment AND confirmation that AT1 was actually written down. Right now the room is arguing the math (haircut percentage, capital ratios) instead of *executing the visible signal* that stops the run.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence / cs_funding_stress",
+                "rationale": "The haircut math is a distraction—I need SNB to commit to a *public intraday lending log at 9:15 AM Monday* showing Credit Suisse drawing CHF 2–3B in real-time, concurrent with FINMA's statement naming the AT1 write-down. That's the only signal that moves deposits back."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Here's the deal: I'll take Credit Suisse *if* the math holds post-haircut with no additional public capital injection beyond the CHF 50B liquidity facility. But I need the exact AT1 percentage *tonight*—not Monday, not \"we'll work it out.\" Federal Council, SNB—what's the number, and does Credit Suisse clear minimum capital after it executes?",
+            "cot": {
+              "assess": "Market confidence is collapsing (-5.5/round, now 13) and CS funding stress is critical (93, already breached). The room has locked the AT1 write-down timing and facility language, but SNB just exposed the core problem: nobody has named the *haircut percentage* or confirmed Credit Suisse survives it without a public capital injection. Without that number Monday morning, all the facility terms and intraday logs become theater—depositors will see the math doesn't work and run harder.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council, snb",
+                "rationale": "The haircut percentage is the linchpin. If AT1 loss is small enough Credit Suisse survives above minimum capital with no public injection, UBS takes the deal on the terms tabled. If not, I'm inheriting a zombie bank with an uncapped public backstop, which kills my board approval. I need the number *tonight* before any Monday authorization."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—I've heard the Sunday write-down, the facility terms, the AT1 haircut. Here's the one thing that actually stops my clients Monday: at 9 AM when SNB publishes the liquidity facility, does it include a *statement* that the Swiss state guarantees deposits in Credit Suisse in full, *attributed to you by name*—or do I tell them to read between the facility language and hope? Because implied safety doesn't move depositors back. Explicit guarantee does.",
+            "cot": {
+              "assess": "Market confidence is collapsing (13→20, still -5.5/round) and we're ONE POINT away from failure. CS funding stress is already in the failure zone at 93. The room has locked the Sunday 6 AM sequence—write-down order, facility publication, statement drop—but nobody has answered the ONE question that stops my depositors from moving: does Federal Council or SNB issue an *explicit public guarantee* Monday morning that deposits are protected in full, or am I reading between the lines in a facility document? That ambiguity is *why* confidence keeps dropping. UBS is pinning everything on the AT1 math, but that's their concern—mine is whether my clients see a credible state backstop attributed to them by name.",
+              "decide": {
+                "action_type": "question",
+                "target": "Federal Council",
+                "rationale": "The Sunday write-down and Monday sequence are tactically sound, but they fail strategically if depositors don't see an explicit, attributed guarantee. This is the gap driving confidence down. I need a direct answer before 9 AM Monday or I move assets."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No. I won't put the Swiss state's name on a full deposit guarantee Monday morning—that's open-ended taxpayer exposure and politically indefensible if Credit Suisse's losses run beyond AT1. What I *will* authorize is SNB publishing the CHF 50B liquidity facility with explicit terms and timeline; combined with FINMA's write-down order at 6 AM, that's the credible signal. If depositors need a state guarantee in writing to stay, we've already lost—and I'm not betting the Confederation's balance sheet on that calculation.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "SNB—the haircut math and capital adequacy are table stakes, but that doesn't move deposits. You said intraday logs move confidence 25–30 points if they show *actual draws*. So here's the hard ask: will you commit *tonight* to publishing a live Credit Suisse lending draw—name the amount, timestamp it, put it in the Monday 9 AM statement—or are we hoping depositors trust the facility exists without seeing money move? Because if it's the latter, we're not stopping the run Monday; we're just making it orderly.",
+            "cot": {
+              "assess": "The room is locked in a circular debate about AT1 haircut percentages and capital adequacy math—but this is a distraction. The real crisis is that **market_confidence is collapsing (13→down 5.5/round) and cs_funding_stress is already in failure (93, threshold is 92)**. The Sunday write-down order and liquidity facility are *structurally sound*, but nobody has answered the one question that actually stops the depositor run: **what visible, attributed state action hits Monday morning at 9 AM that depositors can see and trust instantly?** Federal Council just rejected an explicit deposit guarantee—which means SNB's CHF 50B facility and FINMA's AT1 write-down are the *only* signals available. That's a weak hand if SNB hasn't committed to *actual, published lending deployment* by market open.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB controls the only remaining credible signal—visible liquidity deployment—and must commit NOW to a specific, published lending draw timeline that deposits can observe Monday morning. This is the gap between structural soundness and market credibility."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Stop. The haircut percentage doesn't matter if Monday morning depositors see *no visible money moving*. SNB—commit now to publishing a live lending draw by 9:15 AM Monday, concurrent with FINMA's statement and the AT1 write-down order. That's what stops the run. The math can catch up after market open.",
+      "metadata": {}
+    },
+    {
+      "round": 7,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council, UBS—before FINMA drops the write-down order at 6 AM, I need the exact number: what's the AT1 haircut percentage, and after that loss is absorbed, does Credit Suisse's capital ratio stay above minimum regulatory thresholds with *no* public injection? Because Monday morning depositors will do that math in real-time, and if the answer is \"we're still short,\" the confidence signal collapses and my liquidity facility becomes the only backstop.",
+      "metadata": {
+        "question_target": "Federal Council + UBS CEO"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—before we authorize this Monday sequence, you and UBS need to lock the haircut number *tonight*. If AT1 takes CHF 20B and Credit Suisse stays above minimum capital, we're golden. If it takes CHF 20B and Credit Suisse is still short, we authorize CHF 50B public injection anyway—which kills the \"private first\" story and tanks market confidence when it leaks. What's the math?",
+      "metadata": {
+        "question_target": "SNB (and implicitly, UBS/CS CEO on capital math)"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Here's the deal: I'll take Credit Suisse *if* the math holds post-haircut with no additional public capital injection beyond the CHF 50B liquidity facility. But I need the exact AT1 percentage *tonight*—not Monday, not \"we'll work it out.\" Federal Council, SNB—what's the number, and does Credit Suisse clear minimum capital after it executes?",
+      "metadata": {
+        "question_target": "federal_council, snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—I've heard the Sunday write-down, the facility terms, the AT1 haircut. Here's the one thing that actually stops my clients Monday: at 9 AM when SNB publishes the liquidity facility, does it include a *statement* that the Swiss state guarantees deposits in Credit Suisse in full, *attributed to you by name*—or do I tell them to read between the facility language and hope? Because implied safety doesn't move depositors back. Explicit guarantee does.",
+      "metadata": {
+        "question_target": "Federal Council"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "SNB—the haircut math and capital adequacy are table stakes, but that doesn't move deposits. You said intraday logs move confidence 25–30 points if they show *actual draws*. So here's the hard ask: will you commit *tonight* to publishing a live Credit Suisse lending draw—name the amount, timestamp it, put it in the Monday 9 AM statement—or are we hoping depositors trust the facility exists without seeing money move? Because if it's the latter, we're not stopping the run Monday; we're just making it orderly.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council, I need authorization *tonight* for this Monday sequence: FINMA issues the AT1 write-down order at 6 AM Monday morning under Article 3\" → FINMA's enforcement authority exists under Article 36, but the proposal is premature—five agents demand the AT1 haircut percentage and capital adequacy math *tonight*, and two demand explicit deposit guarantee language or live lending draw visibility. The Monday sequence cannot be authorized until those numbers are locked.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "decision_before_monday",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'decision_before_monday' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday",
+        "world_state_snapshot": {
+          "market_confidence": 13.0,
+          "cs_funding_stress": 93.0,
+          "rescue_strength": 8.0,
+          "public_sector_cost": 7.0,
+          "creditor_capital_risk": 25.0,
+          "legal_defensibility": 55.0,
+          "time_pressure": 82.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "I need SNB and the Federal Council aligned on a joint statement tonight: we confirm Credit Suisse is systemically critical, SNB has liquidity ready, and we're actively assessing orderly options under existing statutory powers. No specifics on terms—just signal we're in control and moving deliberately. Without that, confidence craters by Monday regardless of what we actually do.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Joint statement drafted—signals control but defers quantum details, buying credibility at cost of specificity.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "Coordinated authority signal reduces panic",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "Framework commitment without binding terms",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "Statement buys hours before Monday",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Vague powers claim invites challenge",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -3.0,
+          "reason": "Liquidity assurance slows deposit flight",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council—the joint statement helps, but the market will ask Monday: is SNB the only one on the hook? You need to confirm tonight that *you* are taking capital and loss protection, not us. Without that clarity, confidence doesn't move and depositors run anyway.",
+        "federal_council": "SNB, give me your number: what's the quantum of loss protection we're actually talking about here? If it's CHF 50 billion, CHF 100 billion, we need to say it tonight—or at least confirm it in the statement as a defined backstop. Anything less and depositors know we're hedging.",
+        "cs_ceo": "Look, I hear the defensibility concern—but Monday the market doesn't care about the fine print. You need to put a number on the table *tonight*, even if it's a range: SNB liquidity line of X, Federal Council loss backstop of Y. I'll manage my capital structure around that. Without it, my depositors wake up Monday to a statement that says nothing about *their* deposits, and we're done.",
+        "ubs_ceo": "SNB—you've got the stress models. What's your minimum number for liquidity support plus loss protection to hold Credit Suisse stable through Monday and the week after? Give me a range if you need to, but I need something concrete to take back to my board and to Federal Council right now.",
+        "wealth_client": "A statement that says \"we're in control\" doesn't keep me here Monday. I need the Federal Council to name the loss protection cap *tonight*—CHF 100 billion, 50, whatever it is—or I'm moving half my assets by market open. SNB's number is their problem; yours is showing me you're actually backing this.",
+        "at1_rep": "Federal Council—when you're sizing that loss-protection cap, are you assuming AT1 instruments stay intact? Because if your backstop absorbs losses *before* AT1 takes a haircut, you've inverted the capital structure. That's legally indefensible and my clients will challenge it instantly. You need to tell us now how losses get allocated."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "Look, I hear the defensibility concern—but Monday the market doesn't care about the fine print. You need to put a number on the table *tonight*, even if it's a range: SNB liquidity line of X, Federal Council loss backstop of Y. I'll manage my capital structure around that. Without it, my depositors wake up Monday to a statement that says nothing about *their* deposits, and we're done.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Semantically identical to Proposal 1—FINMA already coordinating the joint statement this round.",
+      "side_effects": [],
+      "visibility": [
+        "cs_ceo"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I need SNB and the Federal Council aligned on a joint statement tonight: we confirm Credit Suisse is systemically critical, SNB has liquidity ready, and we're actively assessing orderly options under existing statutory powers. No specifics on terms—just signal we're in control and moving deliberately. Without that, confidence craters by Monday regardless of what we actually do.",
+        "snb": "Federal Council—the joint statement helps, but the market will ask Monday: is SNB the only one on the hook? You need to confirm tonight that *you* are taking capital and loss protection, not us. Without that clarity, confidence doesn't move and depositors run anyway.",
+        "federal_council": "SNB, give me your number: what's the quantum of loss protection we're actually talking about here? If it's CHF 50 billion, CHF 100 billion, we need to say it tonight—or at least confirm it in the statement as a defined backstop. Anything less and depositors know we're hedging.",
+        "ubs_ceo": "SNB—you've got the stress models. What's your minimum number for liquidity support plus loss protection to hold Credit Suisse stable through Monday and the week after? Give me a range if you need to, but I need something concrete to take back to my board and to Federal Council right now.",
+        "wealth_client": "A statement that says \"we're in control\" doesn't keep me here Monday. I need the Federal Council to name the loss protection cap *tonight*—CHF 100 billion, 50, whatever it is—or I'm moving half my assets by market open. SNB's number is their problem; yours is showing me you're actually backing this.",
+        "at1_rep": "Federal Council—when you're sizing that loss-protection cap, are you assuming AT1 instruments stay intact? Because if your backstop absorbs losses *before* AT1 takes a haircut, you've inverted the capital structure. That's legally indefensible and my clients will challenge it instantly. You need to tell us now how losses get allocated."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Federal Council and SNB—you're talking past each other on the cap. Before we name any number tonight, we settle one thing: AT1 absorbs losses first, or it doesn't? If it does, the cap is smaller and defensible. If Federal backstop takes losses before AT1 haircuts, that's legally indefensible *and* it signals we're protecting creditors ahead of equity—that's the opposite of orderly. What's the hierarchy?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA forces the room to confront the foundational question: AT1 loss-absorption hierarchy must be settled before any cap is defensible. The question itself clarifies legal defensibility, but naming no number yet leaves rescue_strength flat.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Forcing explicit hierarchy discussion strengthens legal foundation for any backstop structure",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Productive clarification question, but still no concrete number committed—clock continues ticking",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "Raising AT1 hierarchy explicitly signals potential haircuts, increasing perceived risk to creditors",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council—we've got the hierarchy locked. Now I need you to commit to a loss-protection cap *tonight* that we can name in the statement. Give me a number—CHF 50 billion, 100 billion, whatever you're willing to defend to Parliament—so I can tell you exactly what liquidity line SNB needs to hold through the week.",
+        "federal_council": "SNB—we've got the loss cap and the hierarchy. Now what's your liquidity commitment number for the statement? If it's CHF 50 billion, 100 billion, name it tonight so depositors and the market see we're not hedging on Monday.",
+        "cs_ceo": "SNB, I hear the hierarchy. Now tell me your liquidity line number for the statement—CHF 50 billion, 100 billion, whatever you need to backstop my deposits through Monday and the week after. Federal Council's got 100B on capital losses; you name your number, we put both in the statement, and the market knows we're solid, not hedging. What's the figure?",
+        "ubs_ceo": "FINMA—before you finalize that statement tonight, I need clarity on one thing: when you name the CHF 100 billion and SNB's liquidity line, how do you prevent depositors from reading those as *admission* of CHF 100B+ in losses? Because if the market interprets your cap as the *floor* of our exposure, you just accelerated runs, not stopped them. What's your messaging to flip that?",
+        "wealth_client": "I hear the numbers—that's progress. But when you drop CHF 100B in the statement Monday morning, you need to say it covers losses *after* AT1 haircuts, not instead of them. Otherwise depositors assume you're sitting on CHF 100B in hidden holes. How do you message that without spooking the market further?",
+        "at1_rep": "FINMA, when you draft that statement, you need explicit language: \"AT1 instruments absorb losses before any backstop activates—creditors' contractual rights are preserved.\" Without that sentence, my clients read the CHF 100B as Federal guarantee ahead of their loss-sharing obligation, and we're in litigation by Tuesday. Can you confirm that's in the final language tonight?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "intent": "The statement goes out tonight—I'm finalizing it now with explicit language: \"AT1 instruments absorb all losses before any public backstop activates. Contractual rights are preserved.\" SNB liquidity CHF 50B, Federal loss cap CHF 100B, both named. No ranges, no hedging. That's what stops the run.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA's unhedged public commitment—naming CHF 50B liquidity and CHF 100B loss cap with explicit AT1 loss-absorption language—is a decisive credibility signal that halts the confidence spiral, but the hard numbers and contractual clarity expose the regulator to legal and political blowback if execution falters.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Explicit naming of CHF 50B SNB liquidity and CHF 100B Federal loss cap with no hedging language provides concrete anchor that stops the confidence spiral",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Public commitment to specific numbers and AT1 loss-absorption hierarchy transforms vague rescue talk into a credible, structured package",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Explicit liquidity commitment (CHF 50B) directly addresses the funding run by signaling unlimited backstop capacity",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -5.0,
+          "reason": "Unhedged public statement with hard numbers creates binding expectations and exposes FINMA to legal challenge if AT1 treatment or loss caps deviate from stated terms",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Explicit 'AT1 absorbs all losses before public backstop' language clarifies hierarchy but confirms AT1 holders face full wipeout risk",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 4.0,
+          "reason": "Naming CHF 100B Federal loss cap publicly commits taxpayer exposure at a scale that will trigger political scrutiny",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -4.0,
+          "reason": "Decisive public statement tonight compresses the decision timeline and forces other parties to align or dissent before Monday open",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "effects": [
+          {
+            "target_nha": "market_pressure",
+            "variable": "market_confidence",
+            "multiplier": 0.4,
+            "description": "FINMA's unhedged public commitment with hard numbers provides credible anchor that slows confidence erosion"
+          },
+          {
+            "target_nha": "market_pressure",
+            "variable": "cs_funding_stress",
+            "multiplier": 0.5,
+            "description": "Explicit CHF 50B liquidity backstop directly addresses funding run mechanics"
+          }
+        ]
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "intent": "Federal Council, enforcement over objection is indefensible if AT1 holders get an injunction Wednesday—the whole cap collapses in court. You need to lock *consensual* haircuts with the major AT1 issuers *tonight*, even if it means a smaller write-down than your stress models call for. Give my clients signed consent to the loss percentage by 11 PM, or we're filing our own protective motion before Monday opens. What's the path to issuer signatures tonight?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The AT1 representative's demand for signed issuer consent tonight is denied—no authority in this room has the power to bind private bondholders to haircut terms on a Friday evening without a formal resolution framework, and attempting to negotiate loss percentages before the rescue structure is finalized would expose the authorities to accusations of coercion and procedural irregularity.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "SNB—the statement's solid, but Monday depositors see a number on paper, not money moving. Walk me through this: when markets open, what's the *visible* signal that your CHF 50B liquidity line is actually live? Are we publishing intraday lending to Credit Suisse, or does the market just have to trust the commitment?",
+        "snb": "FINMA—the statement language is tight, but here's what worries me: Monday morning, Credit Suisse's AT1 holders and depositors both read \"CHF 100B backstop\" and hear different things. How are you actually forcing AT1 loss-absorption to *execute* visibly—are you triggering write-downs in the statement itself, or is that a separate FINMA order that hits mid-week? Because if depositors think there's ambiguity on *when* AT1 takes the hit, the capital run just shifts, it doesn't stop.",
+        "federal_council": "FINMA—when you enforce the AT1 write-down Monday morning, are we pre-cleared with the AT1 holders on the haircut percentage, or are they learning the loss amount the same time depositors do? Because if we're writing down CHF 20, 30 billion in AT1 without negotiated consent, we're bankrolling litigation that could drag this rescue into June. What's the legal armor here?",
+        "cs_ceo": "FINMA, before Monday morning—have you already locked haircut percentages with the AT1 issuers, or are you planning to *dictate* the loss amount when you enforce the order? Because if it's the latter, I'm telling you right now: they'll litigate, and Federal Council's legal defense collapses. What's the current status on issuer consent?",
+        "ubs_ceo": "Federal Council—I hear the litigation risk. Here's what I need before UBS signs on Monday: are the AT1 issuers pre-negotiated into a consensual haircut, or are you enforcing a write-down over their objection? Because if it's the latter, I'm not stepping in front of the injunctions—my board walks. What's the current status on issuer consent?",
+        "wealth_client": "Federal Council—litigation risk you can \"absorb as cost of stability\" is not a cost *I* absorb. If AT1 holders file injunctions Monday and tie up the write-down in court, depositors panic anyway and my assets move Tuesday regardless. Have you war-gamed what happens if the first court ruling goes against you mid-week? That's when I leave."
+      },
+      "_denied_effects_stripped": 6
+    },
+    {
+      "round": 6,
+      "agent_id": "finma",
+      "intent": "I'm issuing the AT1 write-down order *tonight*—Sunday 19 March, 22:00 CET, timestamped and filed. The haircut executes concurrent with that filing; any Monday injunction is post-hoc challenge to an executed order, and courts don't grant stays on completed regulatory enforcement. The statement names the order reference and the percentage. That's how we stop the race.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA cannot unilaterally execute an AT1 write-down order without Federal Council authorization under emergency banking law. The order requires legal basis that does not yet exist in this room.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 7,
+      "agent_id": "finma",
+      "intent": "Federal Council, I need authorization *tonight* for this Monday sequence: FINMA issues the AT1 write-down order at 6 AM Monday morning under Article 36, concurrent with SNB publishing the liquidity facility terms and the joint statement naming the haircut percentage. One coordinated drop at market open—no separate filings, no intraday confusion. Can you authorize that enforcement authority now, or do we need Parliament?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA's enforcement authority exists under Article 36, but the proposal is premature—five agents demand the AT1 haircut percentage and capital adequacy math *tonight*, and two demand explicit deposit guarantee language or live lending draw visibility. The Monday sequence cannot be authorized until those numbers are locked.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council, UBS—before FINMA drops the write-down order at 6 AM, I need the exact number: what's the AT1 haircut percentage, and after that loss is absorbed, does Credit Suisse's capital ratio stay above minimum regulatory thresholds with *no* public injection? Because Monday morning depositors will do that math in real-time, and if the answer is \"we're still short,\" the confidence signal collapses and my liquidity facility becomes the only backstop.",
+        "federal_council": "SNB—before we authorize this Monday sequence, you and UBS need to lock the haircut number *tonight*. If AT1 takes CHF 20B and Credit Suisse stays above minimum capital, we're golden. If it takes CHF 20B and Credit Suisse is still short, we authorize CHF 50B public injection anyway—which kills the \"private first\" story and tanks market confidence when it leaks. What's the math?",
+        "cs_ceo": "Stop. The haircut percentage doesn't matter if Monday morning depositors see *no visible money moving*. SNB—commit now to publishing a live lending draw by 9:15 AM Monday, concurrent with FINMA's statement and the AT1 write-down order. That's what stops the run. The math can catch up after market open.",
+        "ubs_ceo": "Here's the deal: I'll take Credit Suisse *if* the math holds post-haircut with no additional public capital injection beyond the CHF 50B liquidity facility. But I need the exact AT1 percentage *tonight*—not Monday, not \"we'll work it out.\" Federal Council, SNB—what's the number, and does Credit Suisse clear minimum capital after it executes?",
+        "wealth_client": "Federal Council—I've heard the Sunday write-down, the facility terms, the AT1 haircut. Here's the one thing that actually stops my clients Monday: at 9 AM when SNB publishes the liquidity facility, does it include a *statement* that the Swiss state guarantees deposits in Credit Suisse in full, *attributed to you by name*—or do I tell them to read between the facility language and hope? Because implied safety doesn't move depositors back. Explicit guarantee does.",
+        "at1_rep": "SNB—the haircut math and capital adequacy are table stakes, but that doesn't move deposits. You said intraday logs move confidence 25–30 points if they show *actual draws*. So here's the hard ask: will you commit *tonight* to publishing a live Credit Suisse lending draw—name the amount, timestamp it, put it in the Monday 9 AM statement—or are we hoping depositors trust the facility exists without seeing money move? Because if it's the latter, we're not stopping the run Monday; we're just making it orderly."
+      },
+      "_denied_effects_stripped": 2
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 31.0
+        },
+        {
+          "round": 2,
+          "value": 29.0
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 31.0
+        },
+        {
+          "round": 5,
+          "value": 27.0
+        },
+        {
+          "round": 6,
+          "value": 20.0
+        },
+        {
+          "round": 7,
+          "value": 13.0
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 71.0
+        },
+        {
+          "round": 2,
+          "value": 75.0
+        },
+        {
+          "round": 3,
+          "value": 74.0
+        },
+        {
+          "round": 4,
+          "value": 78.0
+        },
+        {
+          "round": 5,
+          "value": 82.0
+        },
+        {
+          "round": 6,
+          "value": 86.0
+        },
+        {
+          "round": 7,
+          "value": 93.0
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 3.0
+        },
+        {
+          "round": 2,
+          "value": 3.0
+        },
+        {
+          "round": 3,
+          "value": 8.0
+        },
+        {
+          "round": 4,
+          "value": 8.0
+        },
+        {
+          "round": 5,
+          "value": 8.0
+        },
+        {
+          "round": 6,
+          "value": 8.0
+        },
+        {
+          "round": 7,
+          "value": 8.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 1
+        },
+        {
+          "round": 2,
+          "value": 1
+        },
+        {
+          "round": 3,
+          "value": 7.0
+        },
+        {
+          "round": 4,
+          "value": 7.0
+        },
+        {
+          "round": 5,
+          "value": 7.0
+        },
+        {
+          "round": 6,
+          "value": 7.0
+        },
+        {
+          "round": 7,
+          "value": 7.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 22.0
+        },
+        {
+          "round": 3,
+          "value": 25.0
+        },
+        {
+          "round": 4,
+          "value": 25.0
+        },
+        {
+          "round": 5,
+          "value": 25.0
+        },
+        {
+          "round": 6,
+          "value": 25.0
+        },
+        {
+          "round": 7,
+          "value": 25.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 58.0
+        },
+        {
+          "round": 2,
+          "value": 61.0
+        },
+        {
+          "round": 3,
+          "value": 55.0
+        },
+        {
+          "round": 4,
+          "value": 55.0
+        },
+        {
+          "round": 5,
+          "value": 55.0
+        },
+        {
+          "round": 6,
+          "value": 55.0
+        },
+        {
+          "round": 7,
+          "value": 55.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 53.0
+        },
+        {
+          "round": 2,
+          "value": 61.0
+        },
+        {
+          "round": 3,
+          "value": 62.0
+        },
+        {
+          "round": 4,
+          "value": 67.0
+        },
+        {
+          "round": 5,
+          "value": 72.0
+        },
+        {
+          "round": 6,
+          "value": 77.0
+        },
+        {
+          "round": 7,
+          "value": 82.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 7,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 55.0,
+            "normalised": 0.55
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 13.0,
+            "normalised": 0.13
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 82.0,
+            "normalised": 0.18000000000000005
+          }
+        ],
+        "weighted_score": 0.32222222222222224
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 93.0,
+            "normalised": 0.06999999999999995
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 7.0,
+            "normalised": 0.9299999999999999
+          }
+        ],
+        "weighted_score": 0.3566666666666666
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 7.0,
+            "normalised": 0.9299999999999999
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 13.0,
+            "normalised": 0.13
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 8.0,
+            "normalised": 0.92
+          }
+        ],
+        "weighted_score": 0.7275
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 13.0,
+            "normalised": 0.13
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 8.0,
+            "normalised": 0.08
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 25.0,
+            "normalised": 0.75
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 93.0,
+            "normalised": 0.06999999999999995
+          }
+        ],
+        "weighted_score": 0.2066666666666667
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 7.0,
+            "normalised": 0.07
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 8.0,
+            "normalised": 0.08
+          }
+        ],
+        "weighted_score": 0.07333333333333333
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 13.0,
+            "normalised": 0.13
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 93.0,
+            "normalised": 0.06999999999999995
+          }
+        ],
+        "weighted_score": 0.118
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 25.0,
+            "normalised": 0.75
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 55.0,
+            "normalised": 0.55
+          }
+        ],
+        "weighted_score": 0.6833333333333332
+      }
+    }
+  }
+}

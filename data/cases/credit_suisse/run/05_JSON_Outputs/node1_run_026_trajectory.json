@@ -1,0 +1,1579 @@
+{
+  "simulation_id": "910767bbb7bc",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Before we sketch any rescue terms, I need the Federal Council to confirm in writing — today — that any intervention has a lawful basis under the Banking Act. SNB, are you prepared to invoke liquidity assistance under Article 100? Without that cover, we're exposed and the market will smell it.\n  snb: Article 100 covers emergency liquidity to solvent banks facing temporary stress — Credit Suisse fits that frame if we move fast, but we need the Federal Council's written confirmation before market open Monday. I can stand ready to deploy liquidity assistance immediately once you have that letter; without it, we're both exposed. What's the timeline on their sign-off?\n  snb: Federal Council — I need a straight answer on timing. Can you have that Article 100 letter to us by 18:00 today, or are we looking at Saturday morning? And be clear: are there conditions on scale, collateral, or loss-sharing I should know about now, or do we sort that after you've signed?\n  federal_council: We can have the Article 100 letter signed by 18:00 today — but it comes with a hard cap: liquidity assistance only, no loss absorption, and we need SNB to commit in writing that any eventual capital shortfall triggers private burden-sharing before a single franc of public money moves. What's your read on whether Credit Suisse can meet those terms without a full merger?\n  federal_council: Karin — if we hand Credit Suisse the liquidity line Monday morning, what's your scenario for deposit stabilization? Do you have evidence their clients hold if they see the SNB backstop, or are we looking at a capital raise that'll crater the AT1s regardless?\n  cs_ceo: Private burden-sharing sounds right in theory, but I need specifics by tomorrow: AT1 investors first, or equity holders? And what's the haircut trigger — negative equity, or a capital ratio threshold? If clients smell we're negotiating loss-absorption terms over the weekend, confidence collapses faster than any actual liquidity squeeze. Give me clean language we can stand behind Monday morning.\n  wealth_client: Look, I need to be blunt: a liquidity line alone doesn't stop my clients from moving assets Monday morning if they see AT1s at risk. I'm not staying put unless you guarantee in writing — today — that equity and AT1 holders absorb losses first, full stop, before one franc touches deposits. What's the actual haircut number, and does the Federal Council stand behind it publicly by market open?\n  ubs_ceo: Here's my hard line: UBS steps in only if the Federal Council publicly confirms — in writing, before market open Monday — that AT1 holders absorb losses first, full stop. Clients see that statement, deposits stabilize. You hold back or bury it in fine print, and I'm not inheriting a run. What's your read — can you say it out loud, or are we pretending this works without that signal?\n  wealth_client: Federal Council — I hear the private burden-sharing language, but that's internal. My clients see the headline Monday morning. Will you publish — explicitly, before 09:00 — that AT1 investors absorb losses ahead of deposits? That's the only statement that keeps my money in the bank.\n  at1_rep: Federal Council, FINMA — you need a written statement by 18:00 today that says AT1 holders absorb losses ahead of deposits, full stop. Not internal memos, not buried in fine print. Public, explicit, before 09:00 Monday. That's what keeps deposits from running and makes this whole thing work. Can you commit to that language *today*?\n  finma: I cannot commit to public language on AT1 loss-absorption before we have legal certainty on the resolution framework itself — that statement, if wrong, exposes the Confederation to liability and destroys credibility we cannot rebuild. Federal Council, I need your written confirmation by 18:00 that any public AT1 statement is anchored in a defensible legal basis under the Banking Act, or we're signaling loss-absorption without the legal tools to execute it. What's your read on whether you can publish that language *and* stand behind it legally?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Before we sketch any rescue terms, I need the Federal Council to confirm in writing — today — that any intervention has a lawful basis under the Banking Act. SNB, are you prepared to invoke liquidity assistance under Article 100? Without that cover, we're exposed and the market will smell it.",
+            "cot": {
+              "assess": "Market confidence is critically low at 26 — we're 14 points above the failure floor but nowhere near the 55 needed for success. CS funding stress at 74 is severe and climbing; we have maybe 18 points of buffer before systemic failure. Legal defensibility is solid at 60, but any rescue we construct will be scrutinized hard, so I need to lock the legal foundation *now* before we improvise under Monday pressure.",
+              "decide": {
+                "action_type": "speak",
+                "target": "SNB, Federal Council (present or imminent)",
+                "rationale": "Legal defensibility is my core variable and it erodes fastest when we move without explicit authorization; I must secure the legal mandate before any rescue architecture is discussed, or we lose credibility with the market and courts."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Article 100 covers emergency liquidity to solvent banks facing temporary stress — Credit Suisse fits that frame if we move fast, but we need the Federal Council's written confirmation before market open Monday. I can stand ready to deploy liquidity assistance immediately once you have that letter; without it, we're both exposed. What's the timeline on their sign-off?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council — I need a straight answer on timing. Can you have that Article 100 letter to us by 18:00 today, or are we looking at Saturday morning? And be clear: are there conditions on scale, collateral, or loss-sharing I should know about now, or do we sort that after you've signed?",
+            "cot": {
+              "assess": "Federal Council sign-off is now the critical blocker — I've signalled Article 100 readiness, but legal cover must come TODAY, not Monday. Market confidence (26) and funding stress (74) are both in the danger zone; every hour of uncertainty Friday night bleeds deposits. The rescue strength is still zero because nothing is formally committed yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Legal defensibility and public-sector exposure hinge entirely on their written confirmation — I need to know the timeline and any conditions they're attaching, not just whether they'll sign."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can have the Article 100 letter signed by 18:00 today — but it comes with a hard cap: liquidity assistance only, no loss absorption, and we need SNB to commit in writing that any eventual capital shortfall triggers private burden-sharing before a single franc of public money moves. What's your read on whether Credit Suisse can meet those terms without a full merger?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin — if we hand Credit Suisse the liquidity line Monday morning, what's your scenario for deposit stabilization? Do you have evidence their clients hold if they see the SNB backstop, or are we looking at a capital raise that'll crater the AT1s regardless?",
+            "cot": {
+              "assess": "Legal cover is locked in by 18:00 — that's good. But we've got a real problem: SNB's liquidity lifeline only buys time if Credit Suisse can actually stabilize. The hard cap on public loss-absorption means any capital hole falls to private creditors first, which is defensible but also means the market has to believe Credit Suisse survives on its own merits. Right now confidence is 26 and stress is 74 — we're not there yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "Before we finalize the Article 100 terms, I need SNB's honest read on whether liquidity alone stops the deposit bleed, or whether we're just delaying a capital problem that'll force creditor losses anyway — because if it's the latter, the market will front-run that outcome and we lose the weekend window."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Private burden-sharing sounds right in theory, but I need specifics by tomorrow: AT1 investors first, or equity holders? And what's the haircut trigger — negative equity, or a capital ratio threshold? If clients smell we're negotiating loss-absorption terms over the weekend, confidence collapses faster than any actual liquidity squeeze. Give me clean language we can stand behind Monday morning.",
+            "cot": {
+              "assess": "The Federal Council has committed to Article 100 cover by 18:00 today — that's the legal foundation we need. But they've boxed us in: liquidity only, no loss absorption, and private burden-sharing must trigger before public money moves. The real question is whether a liquidity line alone stops the deposit run on Monday, or whether we need a capital story too. My solvency claim only works if clients believe it; right now market confidence is 26 and funding stress is at 74 — we're running out of runway.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, snb",
+                "rationale": "I need to lock down what \"private burden-sharing\" means operationally before Monday opens — vague terms will spook the market more than a clear haircut would."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Look, I need to be blunt: a liquidity line alone doesn't stop my clients from moving assets Monday morning if they see AT1s at risk. I'm not staying put unless you guarantee in writing — today — that equity and AT1 holders absorb losses first, full stop, before one franc touches deposits. What's the actual haircut number, and does the Federal Council stand behind it publicly by market open?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Here's my hard line: UBS steps in only if the Federal Council publicly confirms — in writing, before market open Monday — that AT1 holders absorb losses first, full stop. Clients see that statement, deposits stabilize. You hold back or bury it in fine print, and I'm not inheriting a run. What's your read — can you say it out loud, or are we pretending this works without that signal?",
+            "cot": {
+              "assess": "Legal cover (Article 100 letter by 18:00) is tracking, and burden-sharing hierarchy is roughly agreed — but market_confidence is still dangerously low at 26, and cs_funding_stress at 74 means deposits are bleeding out. The wealth client just laid bare the real problem: clients won't hold without a *public, written guarantee* on AT1 loss absorption *today*. That's the circuit-breaker for Monday confidence.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS won't touch this deal unless public cost is capped and credibility is ironclad — I need to know if the Federal Council will *publicly commit* to AT1 loss absorption by market open, or if we're asking clients to trust a private promise that'll evaporate the moment they see SNB liquidity on the wire."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council — I hear the private burden-sharing language, but that's internal. My clients see the headline Monday morning. Will you publish — explicitly, before 09:00 — that AT1 investors absorb losses ahead of deposits? That's the only statement that keeps my money in the bank.",
+            "cot": {
+              "assess": "The room is locked on legal cover and liquidity mechanics, but nobody has nailed down the ONE thing that stops my clients walking Monday: a public, binding statement that AT1 holders eat losses FIRST. Federal Council just set the condition (private burden-sharing before public money), but UBS is demanding the same public signal I need. The gap is real — we have terms on paper, zero credibility with the market.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "My clients need to see a public commitment on AT1 loss hierarchy by market open, not buried in fine print or negotiated later — this is the only lever that stops the run."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, FINMA — you need a written statement by 18:00 today that says AT1 holders absorb losses ahead of deposits, full stop. Not internal memos, not buried in fine print. Public, explicit, before 09:00 Monday. That's what keeps deposits from running and makes this whole thing work. Can you commit to that language *today*?",
+            "cot": {
+              "assess": "Legal defensibility is solid — Federal Council letter by 18:00 closes the Article 100 gap. But creditor_capital_risk is the live wire: everyone's demanding explicit AT1 loss-absorption language *in writing* and *published Monday morning* before they commit. That's my core variable, and right now it's a promise without teeth — no signed terms, no public commitment, just negotiation happening in this room.",
+              "decide": {
+                "action_type": "propose",
+                "target": "creditor_capital_risk",
+                "rationale": "The wealth clients and UBS are signaling they won't stabilize deposits unless AT1 holders are publicly named as loss-absorbers *before market open*. I need to lock that into the rescue terms right now, not leave it as weekend handwaving."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I cannot commit to public language on AT1 loss-absorption before we have legal certainty on the resolution framework itself — that statement, if wrong, exposes the Confederation to liability and destroys credibility we cannot rebuild. Federal Council, I need your written confirmation by 18:00 that any public AT1 statement is anchored in a defensible legal basis under the Banking Act, or we're signaling loss-absorption without the legal tools to execute it. What's your read on whether you can publish that language *and* stand behind it legally?",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Before we sketch any rescue terms, I need the Federal Council to confirm in writing — today — that any intervention has a lawful basis under the Banking Act. SNB, are you prepared to invoke liquidity assistance under Article 100? Without that cover, we're exposed and the market will smell it.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council — I need a straight answer on timing. Can you have that Article 100 letter to us by 18:00 today, or are we looking at Saturday morning? And be clear: are there conditions on scale, collateral, or loss-sharing I should know about now, or do we sort that after you've signed?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin — if we hand Credit Suisse the liquidity line Monday morning, what's your scenario for deposit stabilization? Do you have evidence their clients hold if they see the SNB backstop, or are we looking at a capital raise that'll crater the AT1s regardless?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Here's my hard line: UBS steps in only if the Federal Council publicly confirms — in writing, before market open Monday — that AT1 holders absorb losses first, full stop. Clients see that statement, deposits stabilize. You hold back or bury it in fine print, and I'm not inheriting a run. What's your read — can you say it out loud, or are we pretending this works without that signal?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council — I hear the private burden-sharing language, but that's internal. My clients see the headline Monday morning. Will you publish — explicitly, before 09:00 — that AT1 investors absorb losses ahead of deposits? That's the only statement that keeps my money in the bank.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Private burden-sharing sounds right in theory, but I need specifics by tomorrow: AT1 investors first, or equity holders? And what's the haircut trigge\" → CS CEO demands concrete loss-allocation terms and haircut triggers by tomorrow; urgency acknowledged but no binding decision yet.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council, FINMA — you need a written statement by 18:00 today that says AT1 holders absorb losses ahead of deposits, full stop. Not internal me\" → AT1 rep demands public written statement by 18:00 today confirming loss hierarchy; request noted but no commitment issued.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss-allocation framework deadline rule effect",
+      "metadata": {
+        "source": "loss-allocation_framework_deadline",
+        "variable": "time_pressure",
+        "delta": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "Loss-allocation framework deadline completed — market_pressure time_pressure multiplier set to 1.3",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council: the Article 100 letter gives us cover, but we can't hold the market Monday without a written loss-allocation framework published by 09:00. I'm proposing this: AT1 holders absorb losses first, triggered at negative equity, equity second. You draft the language by 22:00 tonight, SNB and I review for legal defensibility, and we publish it jointly Monday pre-open. Can you commit to that timeline and terms, or do we need to narrow the scope?\n  snb: Article 100 covers liquidity, not loss allocation—that's your call, not mine. I'll backstop funding Monday morning if you publish the AT1 hierarchy statement by 09:00, but I won't co-sign loss language that pins eventual capital shortfalls on my balance sheet. You own the creditor write-down framework; I provide the liquidity bridge.\n  snb: Federal Council—can you commit to having that loss-allocation draft (AT1 first, negative equity trigger) ready by 22:00 tonight for FINMA and me to review? If that slips to Saturday, the market sees hesitation Monday and we lose what little confidence we've bought with the Article 100 letter.\n  federal_council: We can have the draft language ready by 22:00—AT1 absorbs losses first, triggered at negative equity, deposits protected. But I need FINMA and SNB to confirm in writing tonight that this framework is legally defensible under the Banking Act, or we're signing something the market will challenge Monday morning. And we cap public liquidity assistance at CHF 100 billion—no open-ended backstop.\n  federal_council: Colm — the loss framework is locked: AT1 absorbs first, negative equity trigger, deposits fully protected. That's what you asked for. Can you confirm now that you'll step in Monday if we publish that language by 09:00 and SNB posts the Article 100 letter? Or are there other conditions I don't know about?\n  ubs_ceo: Confirm this: SNB's Article 100 letter and the AT1 loss framework both published by 09:00 Monday, deposits explicitly protected, and you're capping public liquidity at CHF 100 billion with no hidden calls on UBS later—that's the floor. If that's locked in writing tonight, UBS is in the room Monday morning. Anything less, and I'm not inheriting an open-ended liability.\n  cs_ceo: I hear the framework. Here's what I need locked in writing tonight: the CHF 100B liquidity backstop is unconditional from Monday 09:00 onward, the loss statement publishes at 09:00 alongside Article 100, and UBS closes by EOD Monday or the deal is off. No renegotiation, no fine print surprises. Can you confirm that in a signed letter to me by 22:00 tonight, or are we still negotiating?\n  ubs_ceo: I'll sign that letter at 22:00 if you confirm three things in writing: the CHF 100B is drawn unconditionally starting Monday 09:00 with no clawback clauses, the AT1 loss statement and Article 100 letter both publish by 09:00 same morning, and you're prepared to move on a capital raise or merger by EOD Monday if funding stabilizes. Without those three in your signature tonight, I can't tell my board we've de-risked this enough to commit.\n  wealth_client: Federal Council — when you publish that AT1 loss statement Monday 09:00, are deposits explicitly named as *protected ahead of equity write-downs*, or is it just \"AT1 absorbs first\" with deposits implied? My clients read headlines, not footnotes. If they see ambiguity, they move assets before market open. What's the exact wording you're committing to?\n  at1_rep: FINMA — you said you can't publish loss language without legal certainty, but you've got that now: AT1 first, negative equity trigger, deposits ahead of equity. Are you prepared to sign a written legal opinion *tonight* confirming this framework is defensible under the Banking Act, or are we still negotiating the scope of that opinion?\n  finma: I can confirm the legal basis: AT1 absorbs losses first, triggered at negative equity, deposits protected in full—this sits squarely within the Banking Act's resolution authority and Article 100 liquidity framework. I'll sign a written legal opinion to that effect by 21:00 tonight, provided the Federal Council locks the exact wording of the 09:00 Monday statement and UBS confirms in writing that the three conditions—unconditional CHF 100B drawdown, joint publication of loss statement and Article 100 letter, and commitment to capital raise or merger by EOD Monday—are binding on all parties. Without those three signatures in the room tonight, the opinion stays conditional and we're still negotiating.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council: the Article 100 letter gives us cover, but we can't hold the market Monday without a written loss-allocation framework published by 09:00. I'm proposing this: AT1 holders absorb losses first, triggered at negative equity, equity second. You draft the language by 22:00 tonight, SNB and I review for legal defensibility, and we publish it jointly Monday pre-open. Can you commit to that timeline and terms, or do we need to narrow the scope?",
+            "cot": {
+              "assess": "Legal defensibility is holding at 53, but market_confidence remains dangerously low at 20 — we're only 8 points above failure. The Federal Council has committed to an Article 100 letter by 18:00 today, which gives us the legal cover I demanded. The real problem now: UBS, AT1 reps, and wealth clients are all demanding explicit public language on loss-absorption *before* Monday open, and I've already blocked that twice on legal grounds. If we don't move on credible loss-allocation terms *now*, market_confidence will crater past the failure threshold regardless of the liquidity line.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, snb, cs_ceo",
+                "rationale": "We have the legal basis (Article 100 letter incoming by 18:00); now we need to lock concrete loss-hierarchy language that can be published Monday morning without exposing the Confederation to liability — this is the bottleneck blocking confidence recovery."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Article 100 covers liquidity, not loss allocation—that's your call, not mine. I'll backstop funding Monday morning if you publish the AT1 hierarchy statement by 09:00, but I won't co-sign loss language that pins eventual capital shortfalls on my balance sheet. You own the creditor write-down framework; I provide the liquidity bridge.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—can you commit to having that loss-allocation draft (AT1 first, negative equity trigger) ready by 22:00 tonight for FINMA and me to review? If that slips to Saturday, the market sees hesitation Monday and we lose what little confidence we've bought with the Article 100 letter.",
+            "cot": {
+              "assess": "FINMA just proposed a concrete loss-allocation framework (AT1 first, triggered at negative equity) with a 22:00 tonight deadline for Federal Council drafting. I've already stated I'll backstop liquidity Monday if the AT1 statement publishes by 09:00—but I explicitly won't co-sign loss language that pins capital shortfalls to my balance sheet. The core tension: FINMA wants SNB legal cover on the write-down framework; I'm drawing a hard line between liquidity provisioning (my job) and loss allocation (theirs). Legal defensibility is still at 53; public_sector_cost at 0 because I've ringfenced my exposure. The real risk now is that Federal Council hesitates on the 22:00 draft deadline, market confidence stays crushed, and Monday opens with no credible loss signal.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The 22:00 draft deadline is tight but critical—I need to know if Federal Council can actually execute it, because if they can't, my liquidity commitment alone won't hold the line."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can have the draft language ready by 22:00—AT1 absorbs losses first, triggered at negative equity, deposits protected. But I need FINMA and SNB to confirm in writing tonight that this framework is legally defensible under the Banking Act, or we're signing something the market will challenge Monday morning. And we cap public liquidity assistance at CHF 100 billion—no open-ended backstop.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Colm — the loss framework is locked: AT1 absorbs first, negative equity trigger, deposits fully protected. That's what you asked for. Can you confirm now that you'll step in Monday if we publish that language by 09:00 and SNB posts the Article 100 letter? Or are there other conditions I don't know about?",
+            "cot": {
+              "assess": "The loss-allocation framework is now locked (AT1 first, negative equity trigger, deposits protected, CHF 100B cap). Legal defensibility hinges on FINMA and SNB sign-off tonight — that's moving. But market_confidence is still at 20 and cs_funding_stress at 81: a published framework and SNB liquidity letter won't stabilize unless UBS actually commits to the rescue, and clients see that headline by Monday open. Right now we have the *terms* but not the *deal*.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS is the only actor who can flip market confidence and funding stress at scale; I need to know if the framework we just locked is enough to get them to sign, or if we're still missing a binding commitment they'll announce Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Confirm this: SNB's Article 100 letter and the AT1 loss framework both published by 09:00 Monday, deposits explicitly protected, and you're capping public liquidity at CHF 100 billion with no hidden calls on UBS later—that's the floor. If that's locked in writing tonight, UBS is in the room Monday morning. Anything less, and I'm not inheriting an open-ended liability.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "I hear the framework. Here's what I need locked in writing tonight: the CHF 100B liquidity backstop is unconditional from Monday 09:00 onward, the loss statement publishes at 09:00 alongside Article 100, and UBS closes by EOD Monday or the deal is off. No renegotiation, no fine print surprises. Can you confirm that in a signed letter to me by 22:00 tonight, or are we still negotiating?",
+            "cot": {
+              "assess": "The Federal Council and SNB have locked the loss-allocation framework (AT1 first, negative equity trigger, deposits protected, CHF 100B cap). UBS has confirmed it will step in Monday if this is published by 09:00 with Article 100 letter. The blocking issue now is legal defensibility sign-off tonight — FINMA and SNB must confirm in writing that this framework holds under the Banking Act, or the whole package collapses at market open. My funding stress (81) and confidence (20) remain critical; the framework doesn't fix either until it's published and UBS is actually in the deal.",
+              "decide": {
+                "action_type": "speak",
+                "target": "cs_funding_stress / market_confidence",
+                "rationale": "I need to lock the Federal Council's commitment to publish by 09:00 Monday and confirm the liquidity bridge is real, not conditional on further negotiation—any ambiguity Monday morning triggers a run."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I'll sign that letter at 22:00 if you confirm three things in writing: the CHF 100B is drawn unconditionally starting Monday 09:00 with no clawback clauses, the AT1 loss statement and Article 100 letter both publish by 09:00 same morning, and you're prepared to move on a capital raise or merger by EOD Monday if funding stabilizes. Without those three in your signature tonight, I can't tell my board we've de-risked this enough to commit.",
+            "cot": {
+              "assess": "The loss-allocation framework is locked and legal defensibility is being handled by FINMA and SNB tonight. CS CEO just demanded a signed letter by 22:00 confirming the CHF 100B liquidity cap, unconditional Monday access, and EOD Monday close deadline — that's a hard, specific condition I need to address directly. Market confidence and funding stress are still critical gaps; the framework helps but doesn't move those variables without visible market action Monday morning.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "CS CEO has just placed a binding condition on UBS's participation — a signed letter tonight confirming liquidity terms and deal closure by EOD Monday. I need to signal whether that's executable from my side, and flag what I need in return to make it credible to my board."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council — when you publish that AT1 loss statement Monday 09:00, are deposits explicitly named as *protected ahead of equity write-downs*, or is it just \"AT1 absorbs first\" with deposits implied? My clients read headlines, not footnotes. If they see ambiguity, they move assets before market open. What's the exact wording you're committing to?",
+            "cot": {
+              "assess": "The framework is locked — AT1 losses first, negative equity trigger, CHF 100B liquidity cap, dual publication Monday 09:00. UBS and Federal Council are circling a signed commitment by 22:00 tonight. But I'm seeing a dangerous gap: *my clients don't know if that loss statement will actually protect deposits or just look good on paper*. The market opens Monday with fear baked in. Confidence is still 20; funding stress is 81. A signed letter that nobody trusts won't move either needle.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to know if the published AT1 loss statement will explicitly name deposit protection or if it's buried in fine print — that's the difference between my clients staying and a Monday run."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA — you said you can't publish loss language without legal certainty, but you've got that now: AT1 first, negative equity trigger, deposits ahead of equity. Are you prepared to sign a written legal opinion *tonight* confirming this framework is defensible under the Banking Act, or are we still negotiating the scope of that opinion?",
+            "cot": {
+              "assess": "The loss-allocation framework is locked (AT1 first, negative equity trigger, deposits protected), the Article 100 letter is committed by 18:00, and SNB's liquidity backstop is conditional on the 09:00 Monday publication. The critical gap now is whether FINMA and SNB will *legally confirm in writing tonight* that this framework is defensible — without that written confirmation, the Federal Council won't sign, and the whole package collapses. Market confidence and funding stress remain untouched; they're waiting for Monday's headline.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "FINMA is the gatekeeper for legal defensibility — I need to know if they're prepared to sign off in writing tonight, because that signature unblocks the Federal Council's commitment and removes the last creditor-side legal exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I can confirm the legal basis: AT1 absorbs losses first, triggered at negative equity, deposits protected in full—this sits squarely within the Banking Act's resolution authority and Article 100 liquidity framework. I'll sign a written legal opinion to that effect by 21:00 tonight, provided the Federal Council locks the exact wording of the 09:00 Monday statement and UBS confirms in writing that the three conditions—unconditional CHF 100B drawdown, joint publication of loss statement and Article 100 letter, and commitment to capital raise or merger by EOD Monday—are binding on all parties. Without those three signatures in the room tonight, the opinion stays conditional and we're still negotiating.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "I hear the framework. Here's what I need locked in writing tonight: the CHF 100B liquidity backstop is unconditional from Monday 09:00 onward, the loss statement publishes at 09:00 alongside Article 100, and UBS closes by EOD Monday or the deal is off. No renegotiation, no fine print surprises. Can you confirm that in a signed letter to me by 22:00 tonight, or are we still negotiating?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "I'll sign that letter at 22:00 if you confirm three things in writing: the CHF 100B is drawn unconditionally starting Monday 09:00 with no clawback clauses, the AT1 loss statement and Article 100 letter both publish by 09:00 same morning, and you're prepared to move on a capital raise or merger by EOD Monday if funding stabilizes. Without those three in your signature tonight, I can't tell my board we've de-risked this enough to commit.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—can you commit to having that loss-allocation draft (AT1 first, negative equity trigger) ready by 22:00 tonight for FINMA and me to review? If that slips to Saturday, the market sees hesitation Monday and we lose what little confidence we've bought with the Article 100 letter.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Colm — the loss framework is locked: AT1 absorbs first, negative equity trigger, deposits fully protected. That's what you asked for. Can you confirm now that you'll step in Monday if we publish that language by 09:00 and SNB posts the Article 100 letter? Or are there other conditions I don't know about?",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council — when you publish that AT1 loss statement Monday 09:00, are deposits explicitly named as *protected ahead of equity write-downs*, or is it just \"AT1 absorbs first\" with deposits implied? My clients read headlines, not footnotes. If they see ambiguity, they move assets before market open. What's the exact wording you're committing to?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA — you said you can't publish loss language without legal certainty, but you've got that now: AT1 first, negative equity trigger, deposits ahead of equity. Are you prepared to sign a written legal opinion *tonight* confirming this framework is defensible under the Banking Act, or are we still negotiating the scope of that opinion?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council: the Article 100 letter gives us cover, but we can't hold the market Monday without a written loss-allocation framework published by 0\" → FINMA's proposal crystallizes the weekend's core bargain: a written loss-allocation framework (AT1 first, negative equity trigger, deposits protected) drafted by Federal Council by 22:00 tonight, reviewed for legal defensibility, and published Monday 09:00. The reactions reveal unanimous conditional support—every agent commits IF the others deliver their piece. This is approved as a binding coordination mechanism, not yet as executed policy.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 6.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_framework_publication rule effect",
+      "metadata": {
+        "source": "loss_allocation_framework_publication",
+        "variable": "legal_defensibility",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_framework_publication rule effect",
+      "metadata": {
+        "source": "loss_allocation_framework_publication",
+        "variable": "rescue_strength",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_framework_publication rule effect",
+      "metadata": {
+        "source": "loss_allocation_framework_publication",
+        "variable": "time_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Karin — the loss framework is locked for Monday publication. But SNB's Article 100 letter is the market's real signal that liquidity is there. Can you confirm that letter is signed *tonight* and ready to publish 09:00 Monday alongside the Federal Council statement, or are we still waiting on your board sign-off?\n  snb: The Article 100 letter is conditional on three things locking in writing tonight: Federal Council confirms the loss framework draft by 22:00, UBS confirms the merger terms are executable by EOD Monday, and FINMA signs off that the framework is legally defensible. I can have our board approval by 23:00 and publish the letter at 09:00 Monday—but not before those three conditions are in writing.\n  snb: Federal Council—when you sign the Article 100 letter tonight, are there any conditions on *how much* liquidity SNB can deploy Monday, or is it truly unconditional draw-down from 09:00? Because if the market sees SNB hesitate on scale or collateral, we lose the stabilization signal and cs_funding_stress spikes again.\n  federal_council: The loss framework draft—AT1 first, negative equity trigger, deposits fully protected—is locked and ready for your 22:00 review tonight. We'll sign it by 22:30 so FINMA has legal cover, and it publishes at 09:00 Monday with explicit deposit protection language, no ambiguity. On the Article 100 letter: we confirm the CHF 100B is unconditional draw-down from Monday 09:00 forward—no collateral renegotiation, no scale caps mid-crisis. That's our commitment in writing by 23:00.\n  federal_council: Colm, I hear the three conditions locked in writing tonight. But on your side — if the loss framework and Article 100 publish Monday 09:00 as promised, and deposits stabilize by afternoon, can you close the merger by EOD or do you genuinely need until Tuesday? Because if we're looking at Wednesday, the market will smell delay and we're back in a run.\n  ubs_ceo: If the framework and Article 100 both publish at 09:00 Monday and deposits hold, UBS can execute by EOD Monday—but only if the Federal Council confirms in that same 09:00 statement that AT1 absorbs losses ahead of any equity write-down, full stop. No ambiguity, no footnotes. That's the condition that keeps my board from walking.\n  cs_ceo: Federal Council—I hear the CHF 100B is unconditional from 09:00. But operationally: can my treasury team draw that same morning, or is there a notification lag, collateral verification, or board sign-off on your end that delays the actual transfer? My clients see the SNB letter but they also watch the cash flow. If there's a gap between the announcement and the actual liquidity hitting my account, they bolt before we close.\n  ubs_ceo: Karin, one hard question: when that Article 100 letter publishes Monday 09:00, can Credit Suisse's treasury actually *draw* the CHF 100B same morning, or is there a settlement lag? Because if depositors see the SNB announcement but the cash doesn't hit CS's account until Tuesday, we've bought zero stabilization and they move assets anyway. What's your operational timeline for the actual transfer?\n  wealth_client: Colm, I hear the timeline—09:00 publication, unconditional draw. But my clients watch wire transfers, not press releases. The moment that Article 100 letter hits Monday morning, can your treasury actually *receive* the CHF 100B same day, or is there a settlement lag, SNB board approval, or collateral call that delays it to Tuesday? Because if there's a gap between the announcement and the actual cash, my people are out before lunch.\n  cs_ceo: My treasury team draws at 09:00 Monday morning—the moment that letter publishes, we move. SNB confirmed no settlement lag, no collateral calls, no delays. The cash is live same day, full stop.\n  at1_rep: FINMA — when that framework publishes Monday 09:00, the headline my clients read will be \"AT1 absorbs losses first.\" Are you committing to language that *explicitly* states AT1 holders bear losses *ahead of* deposits, or is it just \"AT1 holders absorb first\" with deposits implied? Because if the market reads it as AT1 *and* deposits both at risk, I lose the room and we're back to a run before lunch.\n  finma: The framework language will state explicitly: \"AT1 capital instruments absorb losses ahead of any impairment to deposits.\" That's the exact wording Federal Council commits to Monday 09:00—no ambiguity, no footnotes. I'm signing the legal opinion tonight confirming that phrasing is defensible under the Banking Act.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Karin — the loss framework is locked for Monday publication. But SNB's Article 100 letter is the market's real signal that liquidity is there. Can you confirm that letter is signed *tonight* and ready to publish 09:00 Monday alongside the Federal Council statement, or are we still waiting on your board sign-off?",
+            "cot": {
+              "assess": "The loss-allocation framework is locked and publication is in progress — that's solid legal cover. But market_confidence is still critically low (15, need 55) and cs_funding_stress is climbing fast (88, only 4 points from failure). The framework itself won't stabilize deposits or funding unless we signal it's *real* — which means SNB and Federal Council need to move visibly Monday morning, and UBS needs to commit before markets open. Right now everyone's conditional; no one's stepped up yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's Article 100 letter is the credibility signal that unlocks confidence; I need to confirm it's signed and ready for Monday 09:00 release, not still in draft."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The Article 100 letter is conditional on three things locking in writing tonight: Federal Council confirms the loss framework draft by 22:00, UBS confirms the merger terms are executable by EOD Monday, and FINMA signs off that the framework is legally defensible. I can have our board approval by 23:00 and publish the letter at 09:00 Monday—but not before those three conditions are in writing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—when you sign the Article 100 letter tonight, are there any conditions on *how much* liquidity SNB can deploy Monday, or is it truly unconditional draw-down from 09:00? Because if the market sees SNB hesitate on scale or collateral, we lose the stabilization signal and cs_funding_stress spikes again.",
+            "cot": {
+              "assess": "The three core conditions I set are now in play: Federal Council's 22:00 framework draft is on track, FINMA has signed the legal defensibility, and UBS's merger commitment is still pending. But cs_funding_stress is at 88 and rising—liquidity language alone won't hold deposits Monday if the market sees any hesitation on execution. The Article 100 letter is my lever, and I need to confirm it's actually deployable by 09:00, not just drafted.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Article 100 letter's credibility depends on whether SNB can actually draw it Monday morning without political friction or legal delays—I need to know if there are hidden conditions in the Federal Council's sign-off that could stall deployment."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The loss framework draft—AT1 first, negative equity trigger, deposits fully protected—is locked and ready for your 22:00 review tonight. We'll sign it by 22:30 so FINMA has legal cover, and it publishes at 09:00 Monday with explicit deposit protection language, no ambiguity. On the Article 100 letter: we confirm the CHF 100B is unconditional draw-down from Monday 09:00 forward—no collateral renegotiation, no scale caps mid-crisis. That's our commitment in writing by 23:00.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Colm, I hear the three conditions locked in writing tonight. But on your side — if the loss framework and Article 100 publish Monday 09:00 as promised, and deposits stabilize by afternoon, can you close the merger by EOD or do you genuinely need until Tuesday? Because if we're looking at Wednesday, the market will smell delay and we're back in a run.",
+            "cot": {
+              "assess": "The loss framework and Article 100 letter are locked for tonight's signatures and Monday publication — that's the critical market signal. But I'm watching two risks: UBS's merger conditions are still contingent (\"executable by EOD Monday\"), and we haven't nailed down what happens if deposit outflows don't stabilize Monday afternoon despite the signals. Funding stress is at 88 and climbing — we need clarity on whether the liquidity line alone holds, or if we're into a forced capital raise that blows up AT1s anyway.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS has made merger-close contingent on \"executive by EOD Monday\" — I need to know if that's a real constraint or if there's flexibility, because if it slips to Tuesday the market sees hesitation and cs_funding_stress spikes past our failure threshold."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "If the framework and Article 100 both publish at 09:00 Monday and deposits hold, UBS can execute by EOD Monday—but only if the Federal Council confirms in that same 09:00 statement that AT1 absorbs losses ahead of any equity write-down, full stop. No ambiguity, no footnotes. That's the condition that keeps my board from walking.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—I hear the CHF 100B is unconditional from 09:00. But operationally: can my treasury team draw that same morning, or is there a notification lag, collateral verification, or board sign-off on your end that delays the actual transfer? My clients see the SNB letter but they also watch the cash flow. If there's a gap between the announcement and the actual liquidity hitting my account, they bolt before we close.",
+            "cot": {
+              "assess": "The loss framework and Article 100 letter are locked for tonight's review and Monday 09:00 publication—that's the market confidence play. But I'm watching three things: UBS needs explicit AT1 loss language in the Federal Council's 09:00 statement to commit to the merger, my funding stress is still climbing (88→81 trend is upward), and I haven't heard concrete terms on how fast the CHF 100B actually flows to my balance sheet Monday morning. The framework is theoretically sound, but execution timing and *unconditional* access to liquidity are what stop the run.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to lock in the mechanics of Monday's liquidity draw—how it works operationally, not just the headline number—because my treasury teams move money in minutes, and delays kill confidence faster than any headline."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, one hard question: when that Article 100 letter publishes Monday 09:00, can Credit Suisse's treasury actually *draw* the CHF 100B same morning, or is there a settlement lag? Because if depositors see the SNB announcement but the cash doesn't hit CS's account until Tuesday, we've bought zero stabilization and they move assets anyway. What's your operational timeline for the actual transfer?",
+            "cot": {
+              "assess": "The core bargain is now locked: AT1-first loss framework drafting by 22:00 tonight, SNB Article 100 letter signed by 23:00, both published Monday 09:00. Federal Council confirms CHF 100B unconditional draw-down. But CS CEO just exposed a critical gap — the liquidity *announcement* and the liquidity *arrival* are not the same thing. If there's operational delay between SNB's letter and actual cash hitting Credit Suisse's account Monday morning, depositors see the signal but no substance, and we're back in a run. That's a rescue_strength and cs_funding_stress problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "UBS needs certainty that the liquidity draw is operational by 09:30 Monday, not just announced — this is the gap between market confidence and actual funding stress that can crater the whole rescue if we don't lock it now."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Colm, I hear the timeline—09:00 publication, unconditional draw. But my clients watch wire transfers, not press releases. The moment that Article 100 letter hits Monday morning, can your treasury actually *receive* the CHF 100B same day, or is there a settlement lag, SNB board approval, or collateral call that delays it to Tuesday? Because if there's a gap between the announcement and the actual cash, my people are out before lunch.",
+            "cot": {
+              "assess": "The core bargain is locked: loss framework (AT1 first, deposits protected) drafts tonight, publishes Monday 09:00 alongside Article 100 letter with unconditional CHF 100B. My confidence in *publication* is now credible—but my *clients* don't care about what's drafted; they care what lands in their account Monday morning and whether the bank stays solvent. The operational gap between announcement and actual liquidity draw is still unresolved, and that's where a run restarts. cs_funding_stress is still climbing (88→rising) because the market hasn't *seen* the letter yet—only heard promises about it.",
+              "decide": {
+                "action_type": "question",
+                "target": "cs_ceo",
+                "rationale": "The critical unknowns for my clients are operational, not policy—if the SNB liquidity doesn't actually flow Monday morning, the loss-allocation framework is theater. I need specifics on the mechanics before I can credibly tell my portfolio to hold."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "My treasury team draws at 09:00 Monday morning—the moment that letter publishes, we move. SNB confirmed no settlement lag, no collateral calls, no delays. The cash is live same day, full stop.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA — when that framework publishes Monday 09:00, the headline my clients read will be \"AT1 absorbs losses first.\" Are you committing to language that *explicitly* states AT1 holders bear losses *ahead of* deposits, or is it just \"AT1 holders absorb first\" with deposits implied? Because if the market reads it as AT1 *and* deposits both at risk, I lose the room and we're back to a run before lunch.",
+            "cot": {
+              "assess": "The core bargain is locked: AT1-first framework publishes Monday 09:00, Article 100 letter signed tonight and published 09:00, CHF 100B unconditional draw same morning, UBS closes EOD Monday. The operational timeline is now the real risk — if settlement or collateral verification lags, depositors see the announcement but no actual cash flow, and the stabilization signal collapses. Market confidence and funding stress are still critical, but they're now *dependent* on execution fidelity, not policy. My concern: the published loss framework must be crystal clear on AT1 absorption *and* deposit protection, or I lose creditor support the moment the headline hits Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The loss-allocation framework publication is your responsibility; I need to confirm the exact wording will survive market scrutiny and hold creditor confidence, because ambiguity Monday morning will trigger asset flight regardless of the policy intent."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The framework language will state explicitly: \"AT1 capital instruments absorb losses ahead of any impairment to deposits.\" That's the exact wording Federal Council commits to Monday 09:00—no ambiguity, no footnotes. I'm signing the legal opinion tonight confirming that phrasing is defensible under the Banking Act.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Karin — the loss framework is locked for Monday publication. But SNB's Article 100 letter is the market's real signal that liquidity is there. Can you confirm that letter is signed *tonight* and ready to publish 09:00 Monday alongside the Federal Council statement, or are we still waiting on your board sign-off?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—when you sign the Article 100 letter tonight, are there any conditions on *how much* liquidity SNB can deploy Monday, or is it truly unconditional draw-down from 09:00? Because if the market sees SNB hesitate on scale or collateral, we lose the stabilization signal and cs_funding_stress spikes again.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Colm, I hear the three conditions locked in writing tonight. But on your side — if the loss framework and Article 100 publish Monday 09:00 as promised, and deposits stabilize by afternoon, can you close the merger by EOD or do you genuinely need until Tuesday? Because if we're looking at Wednesday, the market will smell delay and we're back in a run.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—I hear the CHF 100B is unconditional from 09:00. But operationally: can my treasury team draw that same morning, or is there a notification lag, collateral verification, or board sign-off on your end that delays the actual transfer? My clients see the SNB letter but they also watch the cash flow. If there's a gap between the announcement and the actual liquidity hitting my account, they bolt before we close.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin, one hard question: when that Article 100 letter publishes Monday 09:00, can Credit Suisse's treasury actually *draw* the CHF 100B same morning, or is there a settlement lag? Because if depositors see the SNB announcement but the cash doesn't hit CS's account until Tuesday, we've bought zero stabilization and they move assets anyway. What's your operational timeline for the actual transfer?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Colm, I hear the timeline—09:00 publication, unconditional draw. But my clients watch wire transfers, not press releases. The moment that Article 100 letter hits Monday morning, can your treasury actually *receive* the CHF 100B same day, or is there a settlement lag, SNB board approval, or collateral call that delays it to Tuesday? Because if there's a gap between the announcement and the actual cash, my people are out before lunch.",
+      "metadata": {
+        "question_target": "cs_ceo"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA — when that framework publishes Monday 09:00, the headline my clients read will be \"AT1 absorbs losses first.\" Are you committing to language that *explicitly* states AT1 holders bear losses *ahead of* deposits, or is it just \"AT1 holders absorb first\" with deposits implied? Because if the market reads it as AT1 *and* deposits both at risk, I lose the room and we're back to a run before lunch.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 6.5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_framework_publication rule effect",
+      "metadata": {
+        "source": "loss_allocation_framework_publication",
+        "variable": "legal_defensibility",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_framework_publication rule effect",
+      "metadata": {
+        "source": "loss_allocation_framework_publication",
+        "variable": "rescue_strength",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_framework_publication rule effect",
+      "metadata": {
+        "source": "loss_allocation_framework_publication",
+        "variable": "time_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "loss_allocation_framework_publication completed — market_pressure market_confidence multiplier set to 0.4",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Karin, I need one hard confirmation: is that Article 100 letter signed *tonight* and locked for 09:00 publication, or are we still waiting on your board? Because if there's any hesitation on your end, the market reads it as a signal the backstop isn't real, and we lose what little confidence we've built.\n  snb: The Article 100 liquidity assistance letter will be signed and ready for Monday 09:00 publication—that's locked. But I need Federal Council to confirm the loss-allocation framework language is airtight before I sign, because if there's any ambiguity on AT1-first in the public statement, the legal defensibility of my balance-sheet exposure collapses and I can't justify the scale to my own board.\n  snb: Federal Council—when you publish Monday 09:00, the exact wording matters: are you stating the CHF 100B is *available for immediate draw* with no conditions, or does it say \"available subject to\" or \"may be accessed\"? Because my people will parse that difference in real time, and any softness kills the stabilization effect.\n  federal_council: The loss framework will state unambiguously: AT1 absorbs losses first, deposits fully protected ahead of equity, triggered at negative equity. That's the language—no conditionals, no \"may be,\" no fine print. We're publishing it Monday 09:00 alongside your Article 100 letter, and we're committing to it in writing tonight so you can take it to your board with confidence.\n  federal_council: Karin, I hear the legal defensibility risk. The framework language we're committing to—\"AT1 absorbs losses first, deposits fully protected, triggered at negative equity\"—is that specific enough for your board to sign the Article 100 letter tonight, or do you need different wording in the Federal Council statement to cover SNB's balance-sheet exposure?\n  cs_ceo: Look, we have a deal—AT1 absorbs losses, deposits are protected, SNB backs us with 100 billion liquidity Monday morning. I'm calling my board in the next hour to confirm we can execute a capital raise or merger by end of day Monday if deposits hold. That signal goes out tonight so the market knows this isn't hope—it's locked, it's real, and we're betting the bank on it.\n  at1_rep: Federal Council's language is airtight—AT1 first, deposits protected, negative equity trigger. That's what I need to sign Article 100 tonight and take to my board. But Karin, one operational reality: the moment you publish that statement Monday 09:00, my treasury team draws the full CHF 100B same morning. Can you confirm there's zero settlement lag or collateral call that delays the actual cash transfer to CS's account past 09:30, because if depositors see the announcement but no liquidity hits by mid-morning, we're still looking at a run.\n  ubs_ceo: Karin—the framework language is airtight, Federal Council has confirmed the wording. Are you signing that Article 100 letter tonight, or is there still a condition I'm missing? Because if you sign, we have a real backstop. If you don't, nothing else matters Monday morning.\n  wealth_client: Federal Council—I'm hearing the framework is locked, but my clients don't read internal memos. When you publish Monday 09:00, will the headline say \"Deposits fully protected, AT1 absorbs losses first,\" or is it still \"SNB provides liquidity\" with the loss hierarchy in paragraph three? Because the first keeps my money in, the second empties it before lunch.\n  at1_rep: Karin, you're signing Article 100 tonight—great. But between 09:00 when the letter publishes and 10:00 when depositors see the cash actually hit CS's account, what's the operational reality? Any collateral verification, board approval on your end, or settlement delay that pushes the actual transfer past mid-morning? Because if there's a gap, we've published the backstop but the money isn't there yet, and that gap kills us.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Karin, I need one hard confirmation: is that Article 100 letter signed *tonight* and locked for 09:00 publication, or are we still waiting on your board? Because if there's any hesitation on your end, the market reads it as a signal the backstop isn't real, and we lose what little confidence we've built.",
+            "cot": {
+              "assess": "The framework, legal basis, and operational timeline are locked—AT1 loss language, Article 100 letter, and Monday 09:00 publication all confirmed. But market_confidence is still at 8 (need 55) and cs_funding_stress is at 95 (already in failure). The written commitments are in place; what's missing is *visible execution*. The room has agreement in principle but no signal yet that the market will believe it Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's Article 100 letter is the credibility anchor—I need to confirm it's actually signed and ready to move tonight so I can assure the market Monday that liquidity is not conditional on further approvals."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The Article 100 liquidity assistance letter will be signed and ready for Monday 09:00 publication—that's locked. But I need Federal Council to confirm the loss-allocation framework language is airtight before I sign, because if there's any ambiguity on AT1-first in the public statement, the legal defensibility of my balance-sheet exposure collapses and I can't justify the scale to my own board.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—when you publish Monday 09:00, the exact wording matters: are you stating the CHF 100B is *available for immediate draw* with no conditions, or does it say \"available subject to\" or \"may be accessed\"? Because my people will parse that difference in real time, and any softness kills the stabilization effect.",
+            "cot": {
+              "assess": "The loss framework and Article 100 letter are locked for Monday 09:00 publication—that removes legal uncertainty and gives us a credible stabilization signal. But cs_funding_stress is still at 95 and climbing (+7/round); the framework won't actually *stop* deposit flight until SNB's liquidity is operationally live and visible to depositors. Rescue_strength and creditor_capital_risk are still neglected—we've got the policy architecture but no evidence it's actually *working* to stem the run.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB's balance-sheet exposure depends on whether the loss framework language actually *holds* creditor confidence—I need to know if Federal Council will explicitly name the CHF 100B as unconditional and available Monday 09:00 in the public statement, or if there's any hedging language that signals hesitation to the market."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The loss framework will state unambiguously: AT1 absorbs losses first, deposits fully protected ahead of equity, triggered at negative equity. That's the language—no conditionals, no \"may be,\" no fine print. We're publishing it Monday 09:00 alongside your Article 100 letter, and we're committing to it in writing tonight so you can take it to your board with confidence.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin, I hear the legal defensibility risk. The framework language we're committing to—\"AT1 absorbs losses first, deposits fully protected, triggered at negative equity\"—is that specific enough for your board to sign the Article 100 letter tonight, or do you need different wording in the Federal Council statement to cover SNB's balance-sheet exposure?",
+            "cot": {
+              "assess": "The core bargain is locked: AT1-first loss language, CHF 100B unconditional liquidity, Monday 09:00 publication. SNB needs legal certainty on the framework wording before signing the Article 100 letter tonight—that's the last critical gate. But cs_funding_stress is still 95 (needs to drop to 45) and market_confidence is 8 (needs 55). The framework and liquidity letter alone won't move those numbers if depositors don't actually *see* the cash flowing and confidence signals *hold* through Monday open. The operational risk is real: publication at 09:00 means nothing if there's any daylight between announcement and actual liquidity draw.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's legal defensibility concern is legitimate, but I need clarity on what specific wording in our framework statement would give your board the confidence to sign tonight—because if we're still negotiating language at 20:00, we slip the timeline and lose the market signal entirely."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look, we have a deal—AT1 absorbs losses, deposits are protected, SNB backs us with 100 billion liquidity Monday morning. I'm calling my board in the next hour to confirm we can execute a capital raise or merger by end of day Monday if deposits hold. That signal goes out tonight so the market knows this isn't hope—it's locked, it's real, and we're betting the bank on it.",
+            "cot": {
+              "assess": "The framework is locked: AT1-first loss language, CHF 100B liquidity, Monday 09:00 publication, legal defensibility confirmed. SNB's Article 100 letter is signed tonight pending final Federal Council wording confirmation—that's essentially done. But cs_funding_stress is still at 88 and climbing (+7/round), market_confidence is 8 and falling, and we're in Round 4 of 5. The rescue package is theoretically strong, but it only *works* if depositors actually believe it Monday morning and stop the outflow. Right now the market doesn't know any of this—silence is killing us.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence (urgent) and cs_funding_stress (urgent)",
+                "rationale": "We've built a real package in private, but the market can't stabilize on what it doesn't know. I need to signal confidence and concrete action before Monday opens, or the framework collapses under deposit flight."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council's language is airtight—AT1 first, deposits protected, negative equity trigger. That's what I need to sign Article 100 tonight and take to my board. But Karin, one operational reality: the moment you publish that statement Monday 09:00, my treasury team draws the full CHF 100B same morning. Can you confirm there's zero settlement lag or collateral call that delays the actual cash transfer to CS's account past 09:30, because if depositors see the announcement but no liquidity hits by mid-morning, we're still looking at a run.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin—the framework language is airtight, Federal Council has confirmed the wording. Are you signing that Article 100 letter tonight, or is there still a condition I'm missing? Because if you sign, we have a real backstop. If you don't, nothing else matters Monday morning.",
+            "cot": {
+              "assess": "The framework is locked—AT1 first, deposits protected, Article 100 letter signed tonight, CHF 100B drawn Monday 09:00. But we're still in failure zone: cs_funding_stress at 95 (needs ≤45), market_confidence at 8 (needs ≥55). The operational execution is solid; the real risk now is whether depositors actually *believe* the signal Monday morning, or if the run continues anyway. SNB's board sign-off on Article 100 is the last gating item—once that's done, we move from planning to execution.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's Article 100 sign-off tonight is the final condition for the entire package to hold; I need absolute clarity on whether that's locked or still contingent on something else."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—I'm hearing the framework is locked, but my clients don't read internal memos. When you publish Monday 09:00, will the headline say \"Deposits fully protected, AT1 absorbs losses first,\" or is it still \"SNB provides liquidity\" with the loss hierarchy in paragraph three? Because the first keeps my money in, the second empties it before lunch.",
+            "cot": {
+              "assess": "Framework language is locked, Article 100 letter is signed tonight, and operational cash draw is confirmed for Monday 09:00 — the rescue mechanics are airtight. But market_confidence is still at 8 and cs_funding_stress at 95 because *my clients haven't heard the statement yet*. The announcement Monday 09:00 is what moves confidence; right now they're still watching outflows. I need to know if the published language will actually stop the run, or if there's still wiggle room that kills it.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The exact wording Federal Council publishes Monday 09:00 is the only signal that matters to my clients — I need confirmation now that the public statement will explicitly name *deposits as protected* and *AT1 as absorbing losses first*, not buried in footnotes or qualified language, so I can credibly tell my clients the bank is safe."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin, you're signing Article 100 tonight—great. But between 09:00 when the letter publishes and 10:00 when depositors see the cash actually hit CS's account, what's the operational reality? Any collateral verification, board approval on your end, or settlement delay that pushes the actual transfer past mid-morning? Because if there's a gap, we've published the backstop but the money isn't there yet, and that gap kills us.",
+            "cot": {
+              "assess": "The framework and Article 100 letter are locked—AT1 first, deposits protected, negative equity trigger. But creditor_capital_risk is still rising (30, +2.5/round) because the market won't believe it until Monday 09:00, and cs_funding_stress is in the failure zone (95). The creditor hierarchy is *declared* but not yet *visible* to depositors. My job now is to force operational certainty—not more commitments, but proof the cash actually moves Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "Settlement lag or collateral calls between 09:00 announcement and actual cash transfer will destroy deposit confidence; I need SNB to lock the operational timeline on their end, not just the letter."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Look, we have a deal—AT1 absorbs losses, deposits are protected, SNB backs us with 100 billion liquidity Monday morning. I'm calling my board in the next hour to confirm we can execute a capital raise or merger by end of day Monday if deposits hold. That signal goes out tonight so the market knows this isn't hope—it's locked, it's real, and we're betting the bank on it.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Karin, I need one hard confirmation: is that Article 100 letter signed *tonight* and locked for 09:00 publication, or are we still waiting on your board? Because if there's any hesitation on your end, the market reads it as a signal the backstop isn't real, and we lose what little confidence we've built.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—when you publish Monday 09:00, the exact wording matters: are you stating the CHF 100B is *available for immediate draw* with no conditions, or does it say \"available subject to\" or \"may be accessed\"? Because my people will parse that difference in real time, and any softness kills the stabilization effect.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin, I hear the legal defensibility risk. The framework language we're committing to—\"AT1 absorbs losses first, deposits fully protected, triggered at negative equity\"—is that specific enough for your board to sign the Article 100 letter tonight, or do you need different wording in the Federal Council statement to cover SNB's balance-sheet exposure?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin—the framework language is airtight, Federal Council has confirmed the wording. Are you signing that Article 100 letter tonight, or is there still a condition I'm missing? Because if you sign, we have a real backstop. If you don't, nothing else matters Monday morning.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—I'm hearing the framework is locked, but my clients don't read internal memos. When you publish Monday 09:00, will the headline say \"Deposits fully protected, AT1 absorbs losses first,\" or is it still \"SNB provides liquidity\" with the loss hierarchy in paragraph three? Because the first keeps my money in, the second empties it before lunch.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin, you're signing Article 100 tonight—great. But between 09:00 when the letter publishes and 10:00 when depositors see the cash actually hit CS's account, what's the operational reality? Any collateral verification, board approval on your end, or settlement delay that pushes the actual transfer past mid-morning? Because if there's a gap, we've published the backstop but the money isn't there yet, and that gap kills us.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 8.0,
+          "cs_funding_stress": 95,
+          "rescue_strength": 7.0,
+          "public_sector_cost": 1,
+          "creditor_capital_risk": 30.0,
+          "legal_defensibility": 60.0,
+          "time_pressure": 89.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "Private burden-sharing sounds right in theory, but I need specifics by tomorrow: AT1 investors first, or equity holders? And what's the haircut trigger — negative equity, or a capital ratio threshold? If clients smell we're negotiating loss-absorption terms over the weekend, confidence collapses faster than any actual liquidity squeeze. Give me clean language we can stand behind Monday morning.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO demands concrete loss-allocation terms and haircut triggers by tomorrow; urgency acknowledged but no binding decision yet.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Deadline demand accelerates negotiation clock",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "Public discussion raises AT1 impairment visibility",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Premature specifics risk legal challenge prep",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes deadline pressure",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "Loss-allocation framework deadline",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.3,
+        "prep_duration": 1,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "time_pressure",
+            "delta": 4,
+            "description": "Negotiation deadline creates mounting urgency"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before we sketch any rescue terms, I need the Federal Council to confirm in writing — today — that any intervention has a lawful basis under the Banking Act. SNB, are you prepared to invoke liquidity assistance under Article 100? Without that cover, we're exposed and the market will smell it.",
+        "snb": "Federal Council — I need a straight answer on timing. Can you have that Article 100 letter to us by 18:00 today, or are we looking at Saturday morning? And be clear: are there conditions on scale, collateral, or loss-sharing I should know about now, or do we sort that after you've signed?",
+        "federal_council": "Karin — if we hand Credit Suisse the liquidity line Monday morning, what's your scenario for deposit stabilization? Do you have evidence their clients hold if they see the SNB backstop, or are we looking at a capital raise that'll crater the AT1s regardless?",
+        "ubs_ceo": "Here's my hard line: UBS steps in only if the Federal Council publicly confirms — in writing, before market open Monday — that AT1 holders absorb losses first, full stop. Clients see that statement, deposits stabilize. You hold back or bury it in fine print, and I'm not inheriting a run. What's your read — can you say it out loud, or are we pretending this works without that signal?",
+        "wealth_client": "Federal Council — I hear the private burden-sharing language, but that's internal. My clients see the headline Monday morning. Will you publish — explicitly, before 09:00 — that AT1 investors absorb losses ahead of deposits? That's the only statement that keeps my money in the bank.",
+        "at1_rep": "Federal Council, FINMA — you need a written statement by 18:00 today that says AT1 holders absorb losses ahead of deposits, full stop. Not internal memos, not buried in fine print. Public, explicit, before 09:00 Monday. That's what keeps deposits from running and makes this whole thing work. Can you commit to that language *today*?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "intent": "Federal Council, FINMA — you need a written statement by 18:00 today that says AT1 holders absorb losses ahead of deposits, full stop. Not internal memos, not buried in fine print. Public, explicit, before 09:00 Monday. That's what keeps deposits from running and makes this whole thing work. Can you commit to that language *today*?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "AT1 rep demands public written statement by 18:00 today confirming loss hierarchy; request noted but no commitment issued.",
+      "side_effects": [
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Explicit public demand raises AT1 exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 4.0,
+          "reason": "18:00 deadline creates immediate time crunch",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3.0,
+          "reason": "Premature public commitment risks legal exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -2.0,
+          "reason": "Public loss-hierarchy debate signals crisis depth",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Aggressive public deadline demand",
+          "agent_id": "at1_rep"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "time_pressure",
+            "delta": 3
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before we sketch any rescue terms, I need the Federal Council to confirm in writing — today — that any intervention has a lawful basis under the Banking Act. SNB, are you prepared to invoke liquidity assistance under Article 100? Without that cover, we're exposed and the market will smell it.",
+        "snb": "Federal Council — I need a straight answer on timing. Can you have that Article 100 letter to us by 18:00 today, or are we looking at Saturday morning? And be clear: are there conditions on scale, collateral, or loss-sharing I should know about now, or do we sort that after you've signed?",
+        "federal_council": "Karin — if we hand Credit Suisse the liquidity line Monday morning, what's your scenario for deposit stabilization? Do you have evidence their clients hold if they see the SNB backstop, or are we looking at a capital raise that'll crater the AT1s regardless?",
+        "cs_ceo": "Private burden-sharing sounds right in theory, but I need specifics by tomorrow: AT1 investors first, or equity holders? And what's the haircut trigger — negative equity, or a capital ratio threshold? If clients smell we're negotiating loss-absorption terms over the weekend, confidence collapses faster than any actual liquidity squeeze. Give me clean language we can stand behind Monday morning.",
+        "ubs_ceo": "Here's my hard line: UBS steps in only if the Federal Council publicly confirms — in writing, before market open Monday — that AT1 holders absorb losses first, full stop. Clients see that statement, deposits stabilize. You hold back or bury it in fine print, and I'm not inheriting a run. What's your read — can you say it out loud, or are we pretending this works without that signal?",
+        "wealth_client": "Federal Council — I hear the private burden-sharing language, but that's internal. My clients see the headline Monday morning. Will you publish — explicitly, before 09:00 — that AT1 investors absorb losses ahead of deposits? That's the only statement that keeps my money in the bank."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Federal Council: the Article 100 letter gives us cover, but we can't hold the market Monday without a written loss-allocation framework published by 09:00. I'm proposing this: AT1 holders absorb losses first, triggered at negative equity, equity second. You draft the language by 22:00 tonight, SNB and I review for legal defensibility, and we publish it jointly Monday pre-open. Can you commit to that timeline and terms, or do we need to narrow the scope?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA's proposal crystallizes the weekend's core bargain: a written loss-allocation framework (AT1 first, negative equity trigger, deposits protected) drafted by Federal Council by 22:00 tonight, reviewed for legal defensibility, and published Monday 09:00. The reactions reveal unanimous conditional support—every agent commits IF the others deliver their piece. This is approved as a binding coordination mechanism, not yet as executed policy.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "FINMA's proposal establishes a clear legal framework (AT1 first, negative equity trigger) with explicit review process by SNB and FINMA, raising defensibility of any intervention",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "Proposal creates a concrete coordination timeline (draft by 22:00, publish Monday 09:00) that begins to structure a credible rescue package, though execution is still pending",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "Setting hard deadlines (22:00 draft, 09:00 publication) imposes discipline and reduces ambiguity about the weekend timeline, though the Monday clock still looms",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "Explicit AT1-first loss allocation at negative equity trigger directly increases risk to AT1 holders, who now face formalized subordination",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "The proposal signals authorities are coordinating on a concrete framework with deposit protection, but this is still a plan, not an executed announcement—market impact remains modest until publication",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "loss_allocation_framework_publication",
+        "description": "Drafting, reviewing, and publishing AT1-first loss-allocation framework with deposit protection by Monday 09:00",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.4,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "legal_defensibility",
+            "delta": 3,
+            "description": "Legal review and refinement of loss-allocation language strengthens defensibility each round"
+          },
+          {
+            "variable": "rescue_strength",
+            "delta": 2,
+            "description": "Incremental progress toward a coherent, coordinated rescue package as drafting proceeds"
+          },
+          {
+            "variable": "time_pressure",
+            "delta": 2,
+            "description": "Deadline pressure mounts as the 22:00 and Monday 09:00 milestones approach"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council—can you commit to having that loss-allocation draft (AT1 first, negative equity trigger) ready by 22:00 tonight for FINMA and me to review? If that slips to Saturday, the market sees hesitation Monday and we lose what little confidence we've bought with the Article 100 letter.",
+        "federal_council": "Colm — the loss framework is locked: AT1 absorbs first, negative equity trigger, deposits fully protected. That's what you asked for. Can you confirm now that you'll step in Monday if we publish that language by 09:00 and SNB posts the Article 100 letter? Or are there other conditions I don't know about?",
+        "cs_ceo": "I hear the framework. Here's what I need locked in writing tonight: the CHF 100B liquidity backstop is unconditional from Monday 09:00 onward, the loss statement publishes at 09:00 alongside Article 100, and UBS closes by EOD Monday or the deal is off. No renegotiation, no fine print surprises. Can you confirm that in a signed letter to me by 22:00 tonight, or are we still negotiating?",
+        "ubs_ceo": "I'll sign that letter at 22:00 if you confirm three things in writing: the CHF 100B is drawn unconditionally starting Monday 09:00 with no clawback clauses, the AT1 loss statement and Article 100 letter both publish by 09:00 same morning, and you're prepared to move on a capital raise or merger by EOD Monday if funding stabilizes. Without those three in your signature tonight, I can't tell my board we've de-risked this enough to commit.",
+        "wealth_client": "Federal Council — when you publish that AT1 loss statement Monday 09:00, are deposits explicitly named as *protected ahead of equity write-downs*, or is it just \"AT1 absorbs first\" with deposits implied? My clients read headlines, not footnotes. If they see ambiguity, they move assets before market open. What's the exact wording you're committing to?",
+        "at1_rep": "FINMA — you said you can't publish loss language without legal certainty, but you've got that now: AT1 first, negative equity trigger, deposits ahead of equity. Are you prepared to sign a written legal opinion *tonight* confirming this framework is defensible under the Banking Act, or are we still negotiating the scope of that opinion?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 24.0
+        },
+        {
+          "round": 2,
+          "value": 22.0
+        },
+        {
+          "round": 3,
+          "value": 15.0
+        },
+        {
+          "round": 4,
+          "value": 8.0
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 74
+        },
+        {
+          "round": 2,
+          "value": 81
+        },
+        {
+          "round": 3,
+          "value": 88
+        },
+        {
+          "round": 4,
+          "value": 95
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 3.0
+        },
+        {
+          "round": 3,
+          "value": 5.0
+        },
+        {
+          "round": 4,
+          "value": 7.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 1
+        },
+        {
+          "round": 3,
+          "value": 1
+        },
+        {
+          "round": 4,
+          "value": 1
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 30.0
+        },
+        {
+          "round": 4,
+          "value": 30.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 53.0
+        },
+        {
+          "round": 2,
+          "value": 54.0
+        },
+        {
+          "round": 3,
+          "value": 57.0
+        },
+        {
+          "round": 4,
+          "value": 60.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 65.0
+        },
+        {
+          "round": 2,
+          "value": 72.0
+        },
+        {
+          "round": 3,
+          "value": 80.5
+        },
+        {
+          "round": 4,
+          "value": 89.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.0,
+            "normalised": 0.6
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 8.0,
+            "normalised": 0.08
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 89.0,
+            "normalised": 0.10999999999999999
+          }
+        ],
+        "weighted_score": 0.31444444444444447
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 95,
+            "normalised": 0.050000000000000044
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 1,
+            "normalised": 0.99
+          }
+        ],
+        "weighted_score": 0.36333333333333334
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 1,
+            "normalised": 0.99
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 8.0,
+            "normalised": 0.08
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 7.0,
+            "normalised": 0.9299999999999999
+          }
+        ],
+        "weighted_score": 0.7475
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 8.0,
+            "normalised": 0.08
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 7.0,
+            "normalised": 0.07
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 30.0,
+            "normalised": 0.7
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 95,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.175
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 1,
+            "normalised": 0.01
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 7.0,
+            "normalised": 0.07
+          }
+        ],
+        "weighted_score": 0.03
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 8.0,
+            "normalised": 0.08
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 95,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.07400000000000001
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 30.0,
+            "normalised": 0.7
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 60.0,
+            "normalised": 0.6
+          }
+        ],
+        "weighted_score": 0.6666666666666665
+      }
+    }
+  }
+}

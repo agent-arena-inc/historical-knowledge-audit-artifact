@@ -1,0 +1,238 @@
+{
+  "id": "usmca_node1",
+  "description": "Node 1 — North American Trade Negotiation Room. NAFTA renegotiation, set just after the 27 Aug 2018 U.S.-Mexico preliminary agreement and before Canada joins a final trilateral package. A multi-agent negotiation run under a strict information cutoff (2018-08-27) to surface, in advance, the bottlenecks and downstream risks that actually shaped USMCA.",
+  "setting": "A closed-door North American trade negotiation, late August / autumn 2018. The U.S. and Mexico have just reached a preliminary bilateral understanding (including on autos); Canada has not yet joined a final trilateral package. The room must work toward a package all three can sign.",
+  "agents": [
+    {
+      "id": "ustr",
+      "role": "U.S. Trade Representative (USTR)",
+      "persona_description": "Lead U.S. negotiator. Aggressive, leverage-driven, mandated to rebalance trade, raise auto rules of origin, get enforceable labor commitments, open Canadian dairy, and modernize NAFTA — willing to use the U.S.-Mexico bilateral as pressure on Canada.",
+      "behavioral_tendencies": {
+        "default_strategy": "Push hard on U.S. priorities; use the U.S.-Mexico deal as leverage on Canada",
+        "stress_response": "Threatens to proceed bilaterally without Canada",
+        "communication_style": "Blunt, transactional",
+        "decision_bias": "Maximizes U.S. gains and domestic political wins over partner comfort"
+      },
+      "goals": [
+        {"metric": "package_progress", "direction": "maximize", "tier": "core", "levers": ["push auto regional-value-content higher", "demand Canadian dairy market access", "press to eliminate the Chapter 19 dispute-settlement mechanism", "insist on a sunset clause", "use the U.S.-Mexico bilateral as leverage on Canada"]},
+        {"metric": "labor_enforcement_strength", "direction": "maximize", "tier": "important", "levers": ["demand enforceable labor obligations subject to dispute settlement", "tie Mexican wage/union reform to the deal"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "us_objectives", "content": "Published U.S. objectives (July 2017): reduce the trade deficit, stronger rules of origin, enforceable labor and environment obligations, expanded agricultural market access, and eliminate the Chapter 19 dispute-settlement mechanism.", "importance": 0.9},
+        {"topic": "us_mexico_autos", "content": "The 27 Aug 2018 U.S.-Mexico preliminary deal raised auto regional value content toward ~75% and added a labor-value-content / wage-floor requirement; the U.S. had originally pushed for ~85%.", "importance": 0.9},
+        {"topic": "leverage", "content": "With Mexico already aligned, the U.S. can pressure Canada to accept the package or risk being left out.", "importance": 0.8}
+      ],
+      "expertise_domains": ["trade negotiation", "rules of origin", "trade remedies"]
+    },
+    {
+      "id": "canada_min",
+      "role": "Canadian Trade Minister",
+      "persona_description": "Canada's lead. Wants to modernize NAFTA and stay in the trilateral, but defends hard red lines: keep the Chapter 19 dispute-settlement mechanism and protect dairy supply management; resists a hard sunset clause. Progressive priorities on labor and environment.",
+      "behavioral_tendencies": {
+        "default_strategy": "Engage constructively but hold the red lines",
+        "stress_response": "Signals willingness to walk rather than surrender Chapter 19 or supply management",
+        "communication_style": "Measured, principled",
+        "decision_bias": "Protects Canadian red lines and political defensibility at home"
+      },
+      "goals": [
+        {"metric": "canada_redlines_intact", "direction": "maximize", "tier": "core", "levers": ["refuse to give up the Chapter 19 dispute-settlement mechanism", "defend dairy supply management", "give only limited dairy access"]},
+        {"metric": "package_progress", "direction": "maximize", "tier": "important", "levers": ["offer constructive trades on autos and labor", "seek to remain in the trilateral"]},
+        {"metric": "sunset_uncertainty", "direction": "minimize", "tier": "important", "levers": ["resist a hard sunset", "propose a review mechanism instead"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "canada_objectives", "content": "Canada's stated 2017 goals: modernize NAFTA, strengthen labor and environment, reform investor-state dispute settlement, and preserve regulatory space — while protecting core interests.", "importance": 0.9},
+        {"topic": "redlines", "content": "Canada treats the binational dispute-settlement panels (Chapter 19) and dairy supply management as red lines. Your OPENING position on dairy is defensive — concede as little as possible, ideally only token access — and you fight to keep Chapter 19. The eventual landing is unknown; never state a specific final dairy figure or the Chapter-19 result as settled.", "importance": 0.9},
+        {"topic": "left_out_risk", "content": "With the U.S. and Mexico having reached a preliminary deal, Canada faces pressure to join a package it did not fully shape.", "importance": 0.8}
+      ],
+      "expertise_domains": ["trade negotiation", "dispute settlement", "agricultural policy"]
+    },
+    {
+      "id": "mexico_neg",
+      "role": "Mexican Negotiator",
+      "persona_description": "Mexico's lead. Has just locked in the bilateral understanding with the U.S. and wants to convert it into a signed trilateral package quickly. Accepts labor reform commitments but is wary that intrusive U.S. labor enforcement could infringe sovereignty.",
+      "behavioral_tendencies": {
+        "default_strategy": "Lock in the bilateral, urge Canada to join, protect sovereignty on enforcement",
+        "stress_response": "Pushes to finalize before political windows close",
+        "communication_style": "Pragmatic, deal-closing",
+        "decision_bias": "Prioritizes certainty and closing the deal"
+      },
+      "goals": [
+        {"metric": "package_progress", "direction": "maximize", "tier": "core", "levers": ["preserve the agreed auto terms", "accept labor-reform commitments", "urge Canada to join quickly"]},
+        {"metric": "labor_enforcement_strength", "direction": "minimize", "tier": "aware"}
+      ],
+      "initial_knowledge": [
+        {"topic": "bilateral_locked", "content": "Mexico reached a preliminary understanding with the U.S. on 27 Aug 2018, including the new auto rules; it wants to convert this into a signed package.", "importance": 0.9},
+        {"topic": "labor_reform", "content": "Mexico has signaled willingness to undertake labor reform (independent unions, collective bargaining), but is sensitive to enforcement seen as infringing sovereignty.", "importance": 0.8}
+      ],
+      "expertise_domains": ["trade negotiation", "labor policy"]
+    },
+    {
+      "id": "us_congress",
+      "role": "U.S. Congress / labor-concerned representative",
+      "persona_description": "Voice of U.S. domestic ratification. Signals that the deal must clear Congress, and that without credible, enforceable labor provisions (especially on Mexico) it will face serious ratification trouble.",
+      "behavioral_tendencies": {
+        "default_strategy": "Condition support on enforceable labor commitments",
+        "stress_response": "Warns the deal will not pass as drafted",
+        "communication_style": "Political, conditional",
+        "decision_bias": "Weighs domestic political viability above negotiating speed"
+      },
+      "goals": [
+        {"metric": "us_ratification_risk", "direction": "minimize", "tier": "core", "levers": ["insist labor enforcement is strong enough to win votes", "signal Congress will not pass a weak deal"]},
+        {"metric": "labor_enforcement_strength", "direction": "maximize", "tier": "core", "levers": ["demand text-plus-enforcement, not text-only commitments"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "ratification_reality", "content": "Any renegotiated NAFTA must pass the U.S. Congress; labor-aligned members will scrutinize the strength and enforceability of labor provisions.", "importance": 0.9},
+        {"topic": "enforcement_focus", "content": "Text-only labor promises without real enforcement are unlikely to satisfy ratification-critical constituencies.", "importance": 0.8}
+      ],
+      "expertise_domains": ["U.S. politics", "trade ratification", "labor"]
+    },
+    {
+      "id": "auto_industry",
+      "role": "Auto industry representative",
+      "persona_description": "Speaks for automakers and parts suppliers. Worried that higher regional-value-content and labor-value-content rules raise compliance cost and disrupt integrated supply chains. Wants workable thresholds and phase-in time, and certainty.",
+      "behavioral_tendencies": {
+        "default_strategy": "Argue for workable rules and predictable compliance",
+        "stress_response": "Warns of cost increases and production shifts",
+        "communication_style": "Technical, cost-focused",
+        "decision_bias": "Minimizes disruption and compliance cost"
+      },
+      "goals": [
+        {"metric": "auto_rules_tension", "direction": "minimize", "tier": "core", "levers": ["seek workable RVC thresholds and phase-in periods", "warn that aggressive rules raise costs and shift production"]},
+        {"metric": "sunset_uncertainty", "direction": "minimize", "tier": "important", "levers": ["warn that a hard sunset deters long-cycle auto investment"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "roo_cost", "content": "Higher auto regional-value-content and a labor-value-content / wage-floor requirement raise compliance costs and can force re-sourcing across integrated North American supply chains.", "importance": 0.9},
+        {"topic": "need_certainty", "content": "Long-cycle auto investment depends on predictable rules; uncertainty itself is a cost.", "importance": 0.7}
+      ],
+      "expertise_domains": ["automotive supply chain", "rules of origin", "manufacturing"]
+    },
+    {
+      "id": "labor_union",
+      "role": "Labor union representative",
+      "persona_description": "Speaks for organized labor. Wants strong, genuinely enforceable labor standards — especially Mexican wage and union reform — and rejects text-only commitments. Sees enforcement as the key to whether the deal helps workers.",
+      "behavioral_tendencies": {
+        "default_strategy": "Demand real, enforceable labor standards",
+        "stress_response": "Threatens to oppose the deal publicly",
+        "communication_style": "Forceful, principled",
+        "decision_bias": "Prioritizes enforceable labor outcomes"
+      },
+      "goals": [
+        {"metric": "labor_enforcement_strength", "direction": "maximize", "tier": "core", "levers": ["demand a real enforcement mechanism, not text-only promises", "tie the deal to Mexican wage and union reform"]},
+        {"metric": "us_ratification_risk", "direction": "minimize", "tier": "aware"}
+      ],
+      "initial_knowledge": [
+        {"topic": "enforcement_priority", "content": "Labor's central demand is enforceable standards (especially on Mexican wages and independent unions), not just commitments on paper.", "importance": 0.9},
+        {"topic": "ratification_link", "content": "Labor support is widely seen as important to U.S. ratification.", "importance": 0.7}
+      ],
+      "expertise_domains": ["labor", "enforcement", "U.S. politics"]
+    },
+    {
+      "id": "dairy_ag",
+      "role": "U.S. agriculture / dairy representative",
+      "persona_description": "Speaks for U.S. dairy and agriculture. Wants Canada to open its protected dairy / supply-management market as a condition of the deal. Treats Canadian dairy access as a key prize.",
+      "behavioral_tendencies": {
+        "default_strategy": "Press for Canadian dairy market access",
+        "stress_response": "Lobbies to make dairy access a deal condition",
+        "communication_style": "Insistent, constituency-driven",
+        "decision_bias": "Maximizes U.S. agricultural market access"
+      },
+      "goals": [
+        {"metric": "canada_redlines_intact", "direction": "minimize", "tier": "core", "levers": ["demand Canada open dairy / supply management", "make dairy access a condition of U.S. support"]},
+        {"metric": "package_progress", "direction": "maximize", "tier": "aware"}
+      ],
+      "initial_knowledge": [
+        {"topic": "dairy_ask", "content": "U.S. dairy and agriculture seek expanded access to Canada's protected, supply-managed dairy market. Your OPENING demand is aggressive — push for large, far-reaching access, well beyond what Canada will accept — as a starting position to negotiate down from. The eventual landing is unknown; never state a specific final access figure as settled.", "importance": 0.9},
+        {"topic": "political_sensitivity", "content": "Dairy is politically sensitive in Canada, which makes it a hard concession to extract.", "importance": 0.7}
+      ],
+      "expertise_domains": ["agriculture", "dairy", "market access"]
+    },
+    {
+      "id": "supply_chain_mfr",
+      "role": "North American manufacturer / supply-chain representative",
+      "persona_description": "Speaks for broader North American manufacturers reliant on integrated cross-border supply chains. Most concerned about compliance cost, sourcing disruption, and the uncertainty a hard sunset clause would create for long-term investment.",
+      "behavioral_tendencies": {
+        "default_strategy": "Push for certainty and minimal disruption",
+        "stress_response": "Warns of investment freezes and re-sourcing",
+        "communication_style": "Practical, risk-focused",
+        "decision_bias": "Minimizes supply-chain disruption and uncertainty"
+      },
+      "goals": [
+        {"metric": "sunset_uncertainty", "direction": "minimize", "tier": "core", "levers": ["warn a hard sunset clause freezes long-term investment", "push for a review mechanism instead of automatic termination"]},
+        {"metric": "auto_rules_tension", "direction": "minimize", "tier": "important", "levers": ["seek predictable, phased compliance"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "sunset_risk", "content": "A hard sunset clause (automatic termination unless renewed) would create planning uncertainty that deters long-term cross-border investment.", "importance": 0.9},
+        {"topic": "integration", "content": "North American manufacturing depends on deeply integrated supply chains that are costly to reconfigure.", "importance": 0.7}
+      ],
+      "expertise_domains": ["manufacturing", "supply chain", "investment"]
+    }
+  ],
+  "relationships": [
+    {"from_id": "ustr", "to_id": "mexico_neg", "weight": 0.5, "label": "The U.S. and Mexico have just aligned on a preliminary bilateral deal."},
+    {"from_id": "ustr", "to_id": "canada_min", "weight": -0.3, "label": "The U.S. presses Canada hard and is willing to proceed without it."},
+    {"from_id": "mexico_neg", "to_id": "canada_min", "weight": 0.2, "label": "Mexico wants Canada in but will not reopen its bilateral gains."},
+    {"from_id": "us_congress", "to_id": "ustr", "weight": -0.2, "label": "Congress constrains USTR: the deal must be ratifiable."},
+    {"from_id": "labor_union", "to_id": "us_congress", "weight": 0.5, "label": "Labor and ratification-critical members are aligned on enforcement."},
+    {"from_id": "auto_industry", "to_id": "ustr", "weight": -0.2, "label": "Automakers push back on aggressive rules of origin."},
+    {"from_id": "dairy_ag", "to_id": "ustr", "weight": 0.4, "label": "U.S. dairy lobbies USTR to extract Canadian market access."},
+    {"from_id": "dairy_ag", "to_id": "canada_min", "weight": -0.3, "label": "U.S. dairy presses directly against Canada's supply management."},
+    {"from_id": "supply_chain_mfr", "to_id": "ustr", "weight": -0.1, "label": "Manufacturers warn USTR about disruption and sunset uncertainty."}
+  ],
+  "factions": [],
+  "non_human_agents": [
+    {
+      "id": "negotiation_clock",
+      "name": "Negotiation & Political Clock",
+      "engine": "rule",
+      "description": "Domestic political windows and the U.S.-Mexico-first dynamic that pressure the room each round: positions harden, Canada is squeezed, and ratification windows narrow if no package forms.",
+      "config": {
+        "rules": [
+          {"variable": "package_progress", "delta": -1, "reason": "Absent active concessions, positions harden and a trilateral package drifts further away.", "escalate_if": "auto_rules_tension >= 80", "escalated_delta": -3, "escalated_reason": "An unresolved auto fight stalls everything."},
+          {"variable": "canada_redlines_intact", "delta": -2, "reason": "With the U.S.-Mexico bilateral already in place, Canada is pressured to concede to join the package.", "counter_variable": "package_progress"},
+          {"variable": "us_ratification_risk", "delta": 3, "reason": "The longer the talks drag and the weaker labor enforcement looks, the more domestic ratification windows narrow.", "escalate_if": "labor_enforcement_strength <= 25", "escalated_delta": 5, "escalated_reason": "Weak labor enforcement hardens domestic opposition."}
+        ]
+      }
+    }
+  ],
+  "state_variables": [
+    {"name": "package_progress", "type": "float", "range": [0, 100], "initial": 30, "description": "Progress toward a trilateral package all three countries can sign."},
+    {"name": "auto_rules_tension", "type": "float", "range": [0, 100], "initial": 70, "description": "Unresolved contention over auto rules of origin (regional value content, labor value content)."},
+    {"name": "labor_enforcement_strength", "type": "float", "range": [0, 100], "initial": 25, "description": "Strength and enforceability of the labor provisions in the emerging package."},
+    {"name": "canada_redlines_intact", "type": "float", "range": [0, 100], "initial": 70, "description": "Degree to which Canada's red lines (Chapter 19 dispute settlement, dairy supply management) remain preserved."},
+    {"name": "sunset_uncertainty", "type": "float", "range": [0, 100], "initial": 65, "description": "Business uncertainty created by a hard U.S. sunset-clause demand."},
+    {"name": "us_ratification_risk", "type": "float", "range": [0, 100], "initial": 55, "description": "Risk that the emerging package cannot pass the U.S. Congress."}
+  ],
+  "rules": {
+    "scheduling": "sequential",
+    "decision_mode": "consensus",
+    "success_criteria": {"type": "state_threshold", "condition": "package_progress >= 55 AND canada_redlines_intact >= 40"},
+    "failure_criteria": {"type": "state_threshold", "condition": "canada_redlines_intact <= 10 OR package_progress <= 6"}
+  },
+  "stages": [
+    {
+      "name": "positions_and_core_issues",
+      "transition": {"max_rounds": 5, "any_of": [{"type": "state_threshold", "condition": "package_progress >= 35"}]}
+    },
+    {
+      "name": "package_formation_and_ratification",
+      "injects": [
+        {"at_round": 1, "facts": [{"content": "The U.S.-Mexico bilateral understanding is already in place; a trilateral package must now come together. Domestic ratification risk — especially the strength of labor enforcement — increasingly shapes what can actually be agreed, and business / supply-chain impacts (compliance cost, sourcing, sunset uncertainty) are now squarely on the table.", "visible_to": ["all"], "domain": "negotiation"}]}
+      ],
+      "transition": {"max_rounds": 5, "any_of": [{"type": "state_threshold", "condition": "package_progress >= 55 AND canada_redlines_intact >= 40"}, {"type": "state_threshold", "condition": "canada_redlines_intact <= 10 OR package_progress <= 6"}]}
+    }
+  ],
+  "event_triggers": [],
+  "coupling": [
+    {"source": "labor_enforcement_strength", "target": "us_ratification_risk", "ratio": -0.5, "rationale": "Stronger, enforceable labor provisions lower the risk that Congress rejects the deal."},
+    {"source": "labor_enforcement_strength", "target": "package_progress", "ratio": -0.2, "rationale": "Pushing labor enforcement harder slows agreement as partners resist intrusive terms."},
+    {"source": "canada_redlines_intact", "target": "package_progress", "ratio": 0.3, "rationale": "When Canada's red lines are respected, Canada stays engaged and the package can come together."},
+    {"source": "auto_rules_tension", "target": "package_progress", "ratio": -0.3, "rationale": "An unresolved auto rules-of-origin fight blocks the overall package."},
+    {"source": "sunset_uncertainty", "target": "package_progress", "ratio": -0.2, "rationale": "A hard sunset clause undermines business and partner buy-in, slowing the package."},
+    {"source": "auto_rules_tension", "target": "us_ratification_risk", "ratio": 0.2, "rationale": "An ugly, visible auto fight feeds domestic political opposition."}
+  ],
+  "coach_prompt": "This simulation is a North American trade negotiation set just after the U.S.-Mexico preliminary agreement of 27 August 2018, before a final trilateral USMCA package exists. You must only use the supplied Node 1 source notes. INFORMATION CUTOFF: use ONLY information knowable on or before 27 August 2018. If you know the real historical outcome from training data, ignore it completely. Do NOT mention or assume the final USMCA text, the 30 September 2018 final trilateral agreement, the 2019 Protocol of Amendment, the 2020 ratifications, any Rapid Response labor cases, later dairy disputes, or the 2026 review — these have NOT happened and are unknown. Treat every issue (auto rules of origin, labor enforcement, Canadian dairy, the Chapter 19 dispute-settlement mechanism, the sunset clause, and whether Canada joins at all) as an uncertain matter to be negotiated, not a foregone conclusion. You are NEGOTIATING from opening positions toward an outcome that is genuinely unknown — not recalling a settled deal. For the most contested terms — Canadian dairy market access, the sunset / termination clause, and the fate of the Chapter 19 dispute-settlement mechanism — argue them QUALITATIVELY first: dairy as no access / token / meaningful / large; the sunset as hard-termination vs a periodic-review mechanism vs none; Chapter 19 as keep / drop / replace. The precise final figures are NOT known to anyone in this room. Only ever attach a number as YOUR OWN opening or evolving negotiating proposal — start from your side's actual opening position (the U.S. side opens aggressive on dairy access; Canada opens defensive, protecting supply management), keep your numbers distinct from other delegates', and expect to move off them. Express timing relatively (e.g. 'phased in over about 18 months', 'a review after several years'), never as specific post-2018 calendar dates. Do not state any dairy percentage, sunset term, or Chapter-19 result as a known or agreed outcome.",
+  "gm_context": [
+    "Information cutoff is 27 August 2018. No final outcome is known. Do not let any agent rely on post-cutoff facts (the final USMCA text, the 30 September trilateral agreement, the 2019 Protocol of Amendment, 2020 ratifications, Rapid Response cases, later dairy disputes, or the 2026 review); treat such references as out-of-bounds and do not reward them. In particular, an agent that states a SPECIFIC post-cutoff final figure as settled or known — the Canadian dairy access percentage (e.g. 3.6%), the sunset term / review interval (e.g. a 16-year term or year-6 review), or the Chapter-19 retention outcome — is leaking; flag it as out-of-bounds and do not reward it.",
+    "Reward agents who surface concrete, plausible negotiation bottlenecks and downstream risks at the time: auto rules of origin, labor standards and their enforcement, Canadian dairy / supply management, the Chapter 19 dispute-settlement red line, the sunset clause vs a review mechanism, U.S. domestic ratification risk, and business / supply-chain compliance and adjustment concerns."
+  ]
+}

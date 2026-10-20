@@ -1,0 +1,1794 @@
+{
+  "simulation_id": "b4ef949764f6",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: How are we actually pricing the supplier-relocation exposure? Are we anchoring on the wage-floor jump, or the RVC recount cost, or both? Right now it's just a number — I need to know what plant, what tier-1 supplier, what happens if they don't move.\n  supplier: Fair question. Right now we're burying it — but I can tell you: Tier-2 fastener and stamping shops in Mexico are looking at 18-24 month re-qual cycles plus $2-5M capex per plant to hit 75% RVC. Half of them don't have that liquidity. So either we price in **supplier insolvency or we price in OEM capex absorption** — pick one, because both can't be zero. What's your demand signal — are the OEMs committing to absorb re-qual costs, or are we modeling supplier failures?\n  auto_strategy: We're not absorbing re-qual capex across the board — that's a margin kill. But I need specifics: which fastener and stamping plants are already below 75% RVC, and what's their current customer concentration? If it's single-OEM dependent, they fail and we source around them. If they're diversified, we negotiate a cost-share tied to volume commitments. Either way, trade_credit_risk goes up until we see committed capex or bankruptcy filings — don't bury it.\n  compliance_lawyer: If we're modeling supplier failures as the default, we need audit triggers: which plants get re-qualified by when, who funds the testing, and what's the certification deadline before tariffs kick in? Right now you've got the money choice, but not the calendar — and that's where penalties live.\n  political_risk_insurer: Hold on — before we commit to a capex-share model, we need to price the enforcement gap. USMCA sunset is 2026, re-quals land 2024-25: if Commerce or the Hill changes the RVC math mid-cycle, your capex commitments evaporate and we're holding the insolvency bag. I want a trigger: **if tariff enforcement uncertainty hits 40%+ in next 90 days, capex-share deals get a 15% political-risk premium, or we model supplier failure outright.** Who's tracking Commerce rulemaking velocity?\n  supplier: Look, we've got 12 plants I can name right now — three fastener shops in Monterrey, two stamping operations near Saltillo, rest scattered. Two of the fastener guys are 85% Ford-dependent, already underwater on 2023 volumes. The Saltillo pair are diversified but both flagged capex constraints to us last month. So here's the hard call: **we need a 90-day audit sprint on those five plants — capex feasibility, customer concentration, liquidity position — before we price anything.** Without that, we're guessing, and that's how we miss the insolvency signal until it's too late.\n  trade_credit_underwriter: On those five plants — when you flag capex constraints and liquidity, are you seeing payment-term pressure from the OEMs already? Because if a Monterrey fastener shop hits insolvency mid-qual, the OEM doesn't eat the capex, they just pull supply and leave us with stranded receivables. What's the payment-collection window if they stumble?\n  supply_chain_consultant: I'm with you on the 15% political-risk premium if enforcement uncertainty spikes — but here's the question: if that trigger hits, do we tell the OEMs \"pull capex-share deals and nearshore those five plants into Texas or Ontario,\" or do we wait for more clarity? Because the client's decision window closes fast, and the 2026 review isn't a surprise — we should be mapping nearshoring options *before* we hit 40% uncertainty, not after.\n  political_risk_insurer: Those five plants fail the audit if capex feasibility comes back negative — which it will for the two Monterrey fastener shops at 85% Ford concentration. Here's what I'm pricing: **if either shop can't secure committed OEM capex-share by Q1 2025, I'm underwriting them as insolvency plays, and the political-risk premium kicks in now, not at 40% uncertainty.** Commerce enforcement velocity on RVC is already moving — the certification deadline is the real trigger, not the sunset review.\n  cfo_erm: Here's what I'm locking in: those five plants trigger a **capex-feasibility audit by Dec 15** — if the Monterrey shops show negative capex ROI or liquidity shortfall, we price them as insolvency plays immediately, political-risk premium baked in, no waiting for 40% uncertainty. The three diversified plants get a cost-share negotiation window through Q1 2025. That's our supplier-relocation exposure: priced, named, decision-ready. Now I need the other three to hit the map the same way — rules-of-origin burden, trade-credit triggers, and political-risk enforcement velocity. Who owns the compliance calendar?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "How are we actually pricing the supplier-relocation exposure? Are we anchoring on the wage-floor jump, or the RVC recount cost, or both? Right now it's just a number — I need to know what plant, what tier-1 supplier, what happens if they don't move.",
+            "cot": {
+              "assess": "My RVC and labor-content compliance burden work is solid — 32 is solid footing. But the risk map is fractured at 19: we're surfacing exposures (supplier relocation, trade credit, political pressure) without pricing them or naming the triggers. Underwriting discipline at 30 means we're still talking in ranges, not hard numbers tied to actual compliance decisions.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline lead (or risk panel chair)",
+                "rationale": "I need to know what operational triggers and cost thresholds the panel is using to move from \"exposed\" to \"priced\" — that's the gap between vague risk and actionable insurance/compliance strategy."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Fair question. Right now we're burying it — but I can tell you: Tier-2 fastener and stamping shops in Mexico are looking at 18-24 month re-qual cycles plus $2-5M capex per plant to hit 75% RVC. Half of them don't have that liquidity. So either we price in **supplier insolvency or we price in OEM capex absorption** — pick one, because both can't be zero. What's your demand signal — are the OEMs committing to absorb re-qual costs, or are we modeling supplier failures?",
+            "cot": {
+              "assess": "My relocation and content-rules exposure are solid — but the map is still fragmented. auto_strategy just asked the right question: we're quoting supplier-relocation risk as a single number with no teeth. We need to name **which suppliers actually move, what the capex shock is, and which ones don't survive the qualification cost**. That's the only way underwriting gets real.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "They're asking what's priced into relocation exposure — I need to surface the supplier-tier breakdown so we can anchor risk to actual failure modes, not a generic bucket."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "We're not absorbing re-qual capex across the board — that's a margin kill. But I need specifics: which fastener and stamping plants are already below 75% RVC, and what's their current customer concentration? If it's single-OEM dependent, they fail and we source around them. If they're diversified, we negotiate a cost-share tied to volume commitments. Either way, trade_credit_risk goes up until we see committed capex or bankruptcy filings — don't bury it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "If we're modeling supplier failures as the default, we need audit triggers: which plants get re-qualified by when, who funds the testing, and what's the certification deadline before tariffs kick in? Right now you've got the money choice, but not the calendar — and that's where penalties live.",
+            "cot": {
+              "assess": "Auto_strategy and supplier just pinned down the core trade: either suppliers absorb insolvency risk (and we source around failures) or OEMs absorb re-qual capex (and we price it in). That's operationalized — but we've got zero audit triggers for *when* we actually test those assumptions. Underwriting_discipline is still vague; risk_map_completeness stays fragmented because we haven't wired RVC compliance to the supplier-insolvency decision.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "We need the certification + audit cadence that forces OEM and supplier commitments into a defensible timeline — otherwise \"cost-share tied to volume\" is just a handshake."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Hold on — before we commit to a capex-share model, we need to price the enforcement gap. USMCA sunset is 2026, re-quals land 2024-25: if Commerce or the Hill changes the RVC math mid-cycle, your capex commitments evaporate and we're holding the insolvency bag. I want a trigger: **if tariff enforcement uncertainty hits 40%+ in next 90 days, capex-share deals get a 15% political-risk premium, or we model supplier failure outright.** Who's tracking Commerce rulemaking velocity?",
+            "cot": {
+              "assess": "The group is surfacing the right tension — supplier insolvency vs. OEM capex absorption — but nobody's pricing the *political layer* that sits on top. Compliance flagged the calendar risk (audit triggers, cert deadlines before tariffs), but we're still treating that as a compliance checkbox, not an underwriting variable. Political-risk exposure is at 26 and needs to move fast; underwriting_discipline at 30 is where I can add direct value.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "Sunset/review uncertainty + enforcement-discretion gaps are the unpriced exposures that eat margin; I need to lock them into the trade-credit and supplier-relocation models before we finalize capex assumptions."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, we've got 12 plants I can name right now — three fastener shops in Monterrey, two stamping operations near Saltillo, rest scattered. Two of the fastener guys are 85% Ford-dependent, already underwater on 2023 volumes. The Saltillo pair are diversified but both flagged capex constraints to us last month. So here's the hard call: **we need a 90-day audit sprint on those five plants — capex feasibility, customer concentration, liquidity position — before we price anything.** Without that, we're guessing, and that's how we miss the insolvency signal until it's too late.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "On those five plants — when you flag capex constraints and liquidity, are you seeing payment-term pressure from the OEMs already? Because if a Monterrey fastener shop hits insolvency mid-qual, the OEM doesn't eat the capex, they just pull supply and leave us with stranded receivables. What's the payment-collection window if they stumble?",
+            "cot": {
+              "assess": "Supplier just handed us the five-plant audit scope — that's the trade-credit exposure made concrete. But we're still missing the receivables-risk piece: if those plants go insolvent mid-restructure, what does that look like for OEM payment terms and our coverage trigger? The 90-day sprint is right, but we need to build insolvency probability and recovery assumptions into the audit checklist, not just capex feasibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need to operationalize the default scenario — receivables exposure is half the trade-credit equation, and we can't price it blind."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "I'm with you on the 15% political-risk premium if enforcement uncertainty spikes — but here's the question: if that trigger hits, do we tell the OEMs \"pull capex-share deals and nearshore those five plants into Texas or Ontario,\" or do we wait for more clarity? Because the client's decision window closes fast, and the 2026 review isn't a surprise — we should be mapping nearshoring options *before* we hit 40% uncertainty, not after.",
+            "cot": {
+              "assess": "The room has surfaced the right trade-off — OEM capex absorption vs. supplier insolvency — but we're still floating on 12 unnamed plants and guesses about payment pressure. The 90-day audit sprint is solid, but nobody's mapped *where* those five plants go if they can't self-fund re-qual: nearshore to the U.S., pivot to Canada, or collapse. That's supplier_relocation_exposure in action, and it's not priced yet. Political_risk_insurer just dropped the 2026 sunset trigger, which is exactly the forward risk we need to operationalize into the client plan.",
+              "decide": {
+                "action_type": "question",
+                "target": "political_risk_insurer",
+                "rationale": "The 40% enforcement-uncertainty trigger is actionable, but I need to know how we feed that back to the OEMs — because the *client plan* can't be \"wait for Commerce to decide.\" We need to tell the OEMs which plants to nearshore NOW vs. which ones to bet on re-qual in Mexico."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Those five plants fail the audit if capex feasibility comes back negative — which it will for the two Monterrey fastener shops at 85% Ford concentration. Here's what I'm pricing: **if either shop can't secure committed OEM capex-share by Q1 2025, I'm underwriting them as insolvency plays, and the political-risk premium kicks in now, not at 40% uncertainty.** Commerce enforcement velocity on RVC is already moving — the certification deadline is the real trigger, not the sunset review.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking in: those five plants trigger a **capex-feasibility audit by Dec 15** — if the Monterrey shops show negative capex ROI or liquidity shortfall, we price them as insolvency plays immediately, political-risk premium baked in, no waiting for 40% uncertainty. The three diversified plants get a cost-share negotiation window through Q1 2025. That's our supplier-relocation exposure: priced, named, decision-ready. Now I need the other three to hit the map the same way — rules-of-origin burden, trade-credit triggers, and political-risk enforcement velocity. Who owns the compliance calendar?",
+            "cot": {
+              "assess": "We've got a hard supplier-insolvency problem mapped but NOT consolidated into the risk map yet. The five plants are identified, the capex/liquidity gap is real, and the political-risk premium is priced — but we're still debating *when* to trigger it instead of *building it into the map now*. Risk_map_completeness is stuck at 19 because we keep re-litigating the same five plants instead of operationalizing the decision rules. Underwriting_discipline at 30 is the real blocker — we need named triggers and dollar thresholds, not \"if uncertainty hits 40%.\"",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We need to lock in the decision framework NOW so we can price it and move to the other three exposures before we run out of rounds."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "How are we actually pricing the supplier-relocation exposure? Are we anchoring on the wage-floor jump, or the RVC recount cost, or both? Right now it's just a number — I need to know what plant, what tier-1 supplier, what happens if they don't move.",
+      "metadata": {
+        "question_target": "underwriting_discipline lead (or risk panel chair)"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Fair question. Right now we're burying it — but I can tell you: Tier-2 fastener and stamping shops in Mexico are looking at 18-24 month re-qual cycles plus $2-5M capex per plant to hit 75% RVC. Half of them don't have that liquidity. So either we price in **supplier insolvency or we price in OEM capex absorption** — pick one, because both can't be zero. What's your demand signal — are the OEMs committing to absorb re-qual costs, or are we modeling supplier failures?",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "If we're modeling supplier failures as the default, we need audit triggers: which plants get re-qualified by when, who funds the testing, and what's the certification deadline before tariffs kick in? Right now you've got the money choice, but not the calendar — and that's where penalties live.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "On those five plants — when you flag capex constraints and liquidity, are you seeing payment-term pressure from the OEMs already? Because if a Monterrey fastener shop hits insolvency mid-qual, the OEM doesn't eat the capex, they just pull supply and leave us with stranded receivables. What's the payment-collection window if they stumble?",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "I'm with you on the 15% political-risk premium if enforcement uncertainty spikes — but here's the question: if that trigger hits, do we tell the OEMs \"pull capex-share deals and nearshore those five plants into Texas or Ontario,\" or do we wait for more clarity? Because the client's decision window closes fast, and the 2026 review isn't a surprise — we should be mapping nearshoring options *before* we hit 40% uncertainty, not after.",
+      "metadata": {
+        "question_target": "political_risk_insurer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold on — before we commit to a capex-share model, we need to price the enforcement gap. USMCA sunset is 2026, re-quals land 2024-25: if Commerce or t\" → Political-risk trigger framework approved: 40% enforcement uncertainty threshold activates 15% premium on capex-share deals.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking in: those five plants trigger a **capex-feasibility audit by Dec 15** — if the Monterrey shops show negative capex ROI or liqu\" → Dec 15 capex-feasibility audit locked in for five plants; Q1 2025 cost-share window for diversified suppliers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Dec 15 audit comes back — let's say both Monterrey shops fail ROI. Do we have a decision rule ready, or do we kick it to the OEMs to absorb capex and hope they choose nearshore over default? Because if that's a coin flip, our \"approved\" audit is just a data point, not a plan.\n  cfo_erm: We have a decision rule — if either shop fails capex ROI by Dec 15, we trigger the 15% political-risk premium *and* issue a 90-day requalification notice with funding split: OEM absorbs labor-content remediation, we cover trade-credit insurance for the relocation window. If they don't commit within 30 days, we pull the nearshoring option off the table and price in supplier insolvency. That's not a coin flip — it's a gate.\n  supplier: Before Dec 15 drops, I need clarity: are we pre-screening those 12 plants in November for capex feasibility, or do we let them all fail the audit together and then triage? Because if the Monterrey fastener shops are already 85% Ford-dependent and liquidity-constrained, they're not committing to anything in 30 days — and I need to know that *before* we price the requalification window, not after.\n  compliance_lawyer: CFO, I need one thing locked before we price the requalification window: if those Monterrey shops don't commit to capex by Jan 15, what's the tariff-exposure deadline? Because that's your real penalty trigger, not insolvency — are we talking CPTPP filing window, or a Commerce re-determination date? That changes what we price for the 90-day notice.\n  political_risk_insurer: Compliance, before we quote the requalification window, I need the tariff deadline locked — CPTPP filing window, Commerce re-determination date, whatever it is. That's my enforcement-certainty anchor. Once I know when the penalty actually triggers, I can price the trade-credit gap and pull trade_credit_risk up from 31. Right now we're guessing.\n  compliance_lawyer: CPTPP certification window closes March 31, 2025 — that's your hard deadline for RVC compliance filing. Commerce re-determination lands 60 days after, so May 31 is when tariff exposure crystallizes. If those Monterrey shops don't commit by Jan 15, we're pricing a 75-day sprint to re-qualification, and any slip past March 15 triggers duty exposure on in-transit inventory. That's your enforcement certainty — plug it into the trade-credit premium now.\n  trade_credit_underwriter: CFO, I'm good with the 90-day gate and the nearshoring trigger — but I need one concrete number: if a Monterrey shop doesn't commit by Jan 15 and we shift to insolvency pricing, what's our receivables window? Are the OEMs still paying net-30, or do payment terms freeze while we're waiting for the tariff deadline to clarify? Because that's the trade-credit variable I'm pricing — not just supplier failure, but stranded AR.\n  supply_chain_consultant: Here's what I need from you before Dec 15: a pre-screened list of those 12 plants ranked by relocation viability — which three go to Texas, which two stay in Ontario, what's the wage delta, and which OEM already has capex capacity to fund it. Then we price the nearshoring option *before* the audit fails, so the Jan 15 commitment window isn't a coin flip — it's a choice between two pre-built supply chains. That moves us from insolvency pricing to relocation pricing.\n  cfo_erm: Stop. We've got the gates, but we're still missing the map. Here's what I'm locking in *right now*: **three-tier pricing model — Tier 1: capex-viable plants (nearshoring, 12% trade-credit premium); Tier 2: capex-marginal plants (90-day gate, 15% political-risk premium + 8% liquidity surcharge); Tier 3: capex-insolvent plants (insolvency reserve, 25% underwriting hold).** Plug the 12 plants into those tiers by EOD, price each tier, we're done. Who owns the tier assignments?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Dec 15 audit comes back — let's say both Monterrey shops fail ROI. Do we have a decision rule ready, or do we kick it to the OEMs to absorb capex and hope they choose nearshore over default? Because if that's a coin flip, our \"approved\" audit is just a data point, not a plan.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked (34) and political risk is priced (34) — good. But risk_map_completeness is stuck at 30 because we're still naming plants without naming *the cost pathway*: which models fail RVC, what the re-source timeline hits, and what the OEM demand signal actually is. Underwriting_discipline is at 40 — we have triggers but no calendar or decision tree.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The Dec 15 audit is the lynch pin — but I need to know whether it surfaces a nearshore-or-absorb choice, or just confirms insolvency. That's the missing link between capex feasibility and our actual supply-chain exposure map."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "We have a decision rule — if either shop fails capex ROI by Dec 15, we trigger the 15% political-risk premium *and* issue a 90-day requalification notice with funding split: OEM absorbs labor-content remediation, we cover trade-credit insurance for the relocation window. If they don't commit within 30 days, we pull the nearshoring option off the table and price in supplier insolvency. That's not a coin flip — it's a gate.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Before Dec 15 drops, I need clarity: are we pre-screening those 12 plants in November for capex feasibility, or do we let them all fail the audit together and then triage? Because if the Monterrey fastener shops are already 85% Ford-dependent and liquidity-constrained, they're not committing to anything in 30 days — and I need to know that *before* we price the requalification window, not after.",
+            "cot": {
+              "assess": "The Dec 15 audit trigger and 30-day OEM commitment gate are locked in — that's solid underwriting discipline. But we're still flying blind on *which plants actually fail and what happens next*. The decision rule is clean, but the supply-base reality underneath it isn't mapped: we don't know which of my 12 suppliers hit the insolvency threshold, and we haven't priced what it costs when they do. risk_map_completeness is stuck at 30 because we've got the policy framework but not the shop-level execution map.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The 30-day gate is good, but it only works if we know before Dec 15 which suppliers can even *attempt* remediation vs. which ones are dead on arrival — that changes the insurance pricing and the nearshore timeline."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, I need one thing locked before we price the requalification window: if those Monterrey shops don't commit to capex by Jan 15, what's the tariff-exposure deadline? Because that's your real penalty trigger, not insolvency — are we talking CPTPP filing window, or a Commerce re-determination date? That changes what we price for the 90-day notice.",
+            "cot": {
+              "assess": "The audit trigger and decision rule are locked in, but we're missing the **certification calendar** — pre-screening window, requalification deadlines, and what \"75% RVC audit failure\" costs in penalties or tariff exposure. Supplier's Nov pre-screen question exposes a gap: we're pricing insolvency risk without naming which plants fail when, or what the OEM commitment timeline actually is. Risk map is still fragmented because we haven't tied compliance triggers to dollar penalties.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The 30-day OEM commitment window and Dec 15 audit are pinned, but we need the certification calendar — when do re-qualified plants have to file RVC docs before tariffs apply, and what's the penalty if they miss it?"
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, before we quote the requalification window, I need the tariff deadline locked — CPTPP filing window, Commerce re-determination date, whatever it is. That's my enforcement-certainty anchor. Once I know when the penalty actually triggers, I can price the trade-credit gap and pull trade_credit_risk up from 31. Right now we're guessing.",
+            "cot": {
+              "assess": "The Dec 15 audit gate is locked, the 15% political-risk premium is priced, and the 90-day requalification notice with OEM/insurer cost-split is approved — that's solid underwriting discipline (40). But *trade_credit_risk* (31) and *risk_map_completeness* (29.7) are still soft because we haven't nailed the enforcement calendar. Compliance lawyer just flagged the real trigger: tariff-exposure deadline and Commerce re-determination date, not Jan 15. We're pricing a requalification window without knowing when the penalty actually lands.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The tariff/Commerce deadline IS the political-risk variable we're underpricing — I need that calendar pinned so we can score enforcement uncertainty and lock trade-credit terms to an actual date, not a hope."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CPTPP certification window closes March 31, 2025 — that's your hard deadline for RVC compliance filing. Commerce re-determination lands 60 days after, so May 31 is when tariff exposure crystallizes. If those Monterrey shops don't commit by Jan 15, we're pricing a 75-day sprint to re-qualification, and any slip past March 15 triggers duty exposure on in-transit inventory. That's your enforcement certainty — plug it into the trade-credit premium now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, I'm good with the 90-day gate and the nearshoring trigger — but I need one concrete number: if a Monterrey shop doesn't commit by Jan 15 and we shift to insolvency pricing, what's our receivables window? Are the OEMs still paying net-30, or do payment terms freeze while we're waiting for the tariff deadline to clarify? Because that's the trade-credit variable I'm pricing — not just supplier failure, but stranded AR.",
+            "cot": {
+              "assess": "Political-risk trigger and capex audit are locked — that's solid. But we've got a calendar problem: Jan 15 commitment deadline, March 31 CPTPP filing, May 31 tariff crystallization — and I'm seeing trade_credit_risk stuck at 31 because nobody's named the receivables penalty if a Monterrey shop goes insolvent mid-qual. The 90-day requalification window is priced, but the default scenario isn't — and that's where my variable lives.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need to lock the receivables exposure before we price the requalification window — specifically, what happens to OEM payment terms and our AR aging if a supplier fails the Jan 15 commitment gate."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need from you before Dec 15: a pre-screened list of those 12 plants ranked by relocation viability — which three go to Texas, which two stay in Ontario, what's the wage delta, and which OEM already has capex capacity to fund it. Then we price the nearshoring option *before* the audit fails, so the Jan 15 commitment window isn't a coin flip — it's a choice between two pre-built supply chains. That moves us from insolvency pricing to relocation pricing.",
+            "cot": {
+              "assess": "The group has locked the Dec 15 audit gate and tariff deadlines (March 31 CPTPP, May 31 Commerce), which tightens enforcement certainty. But we're still buried on nearshoring specifics — nobody's named which plants are actually relocating, what the capex looks like per location, or when OEMs commit. Risk_map_completeness is stalled at ~30 because the audit triggers exist but the *relocation playbook* doesn't. Supplier_relocation_exposure is still at 30 — I need to flip that by mapping actual nearshoring options before the Dec 15 audit lands.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure, risk_map_completeness",
+                "rationale": "The audit gate works, but without a pre-built nearshoring map tied to specific plants and OEM partners, the Dec 15 decision becomes reactive chaos. I need to lock a decision tree now — before the audit runs — so the OEMs see three concrete options, not a penalty notice."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Stop. We've got the gates, but we're still missing the map. Here's what I'm locking in *right now*: **three-tier pricing model — Tier 1: capex-viable plants (nearshoring, 12% trade-credit premium); Tier 2: capex-marginal plants (90-day gate, 15% political-risk premium + 8% liquidity surcharge); Tier 3: capex-insolvent plants (insolvency reserve, 25% underwriting hold).** Plug the 12 plants into those tiers by EOD, price each tier, we're done. Who owns the tier assignments?",
+            "cot": {
+              "assess": "We've locked the Dec 15 audit gate and the 90-day requalification window with clear decision rules — that's progress. But risk_map_completeness is still at 30 (needs 60), and underwriting_discipline is stuck at 40 (needs 50). The room is still debating inputs (plant rankings, OEM capex commitment, payment-term freeze scenarios) instead of consolidating them into one priced map. We're missing the materiality stack — which exposures actually move the needle, and in what order.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "Every variable we've surfaced (capex ROI, tariff deadlines, payment terms, relocation wage delta) needs to be anchored to a single decision node with a price tag; right now it's scattered across five different trigger questions. I need to consolidate this into a named, priced risk map before the translate_exposures phase ends."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Dec 15 audit comes back — let's say both Monterrey shops fail ROI. Do we have a decision rule ready, or do we kick it to the OEMs to absorb capex and hope they choose nearshore over default? Because if that's a coin flip, our \"approved\" audit is just a data point, not a plan.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Before Dec 15 drops, I need clarity: are we pre-screening those 12 plants in November for capex feasibility, or do we let them all fail the audit together and then triage? Because if the Monterrey fastener shops are already 85% Ford-dependent and liquidity-constrained, they're not committing to anything in 30 days — and I need to know that *before* we price the requalification window, not after.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, I need one thing locked before we price the requalification window: if those Monterrey shops don't commit to capex by Jan 15, what's the tariff-exposure deadline? Because that's your real penalty trigger, not insolvency — are we talking CPTPP filing window, or a Commerce re-determination date? That changes what we price for the 90-day notice.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, before we quote the requalification window, I need the tariff deadline locked — CPTPP filing window, Commerce re-determination date, whatever it is. That's my enforcement-certainty anchor. Once I know when the penalty actually triggers, I can price the trade-credit gap and pull trade_credit_risk up from 31. Right now we're guessing.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, I'm good with the 90-day gate and the nearshoring trigger — but I need one concrete number: if a Monterrey shop doesn't commit by Jan 15 and we shift to insolvency pricing, what's our receivables window? Are the OEMs still paying net-30, or do payment terms freeze while we're waiting for the tariff deadline to clarify? Because that's the trade-credit variable I'm pricing — not just supplier failure, but stranded AR.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need from you before Dec 15: a pre-screened list of those 12 plants ranked by relocation viability — which three go to Texas, which two \" → Pre-screening framework approved; tier assignments and viability rankings operationalize nearshoring decisions.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Stop. We've got the gates, but we're still missing the map. Here's what I'm locking in *right now*: **three-tier pricing model — Tier 1: capex-viable \" → Three-tier pricing model locked; concrete premium structure operationalizes underwriting and risk segmentation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 34,
+          "supplier_relocation_exposure": 33.0,
+          "trade_credit_risk": 32.0,
+          "political_risk_exposure": 37.0,
+          "risk_map_completeness": 42.7,
+          "underwriting_discipline": 49.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.15
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: You've got the viability rankings locked — now I need the RVC math. For each tier, what's the actual regional-value shortfall per model, and what's the labor-content gap versus the wage floor? That's what moves rules_of_origin_burden from a number to a cost.\n  supply_chain_consultant: Here's the shortfall per tier: Tier-1 fasteners are running 62% RVC against 75% required — that's a $1.2M recount cost plus 8-point labor-content gap to hit wage floor. Tier-2 stamping shops are worse — 58% RVC, $2.8M capex per plant, 12-point gap. The math says either the OEM absorbs $4M-plus across both plants by January 15, or we're pricing supplier insolvency into the requalification window — which one's your demand signal?\n  supplier: CFO, the $1.2M and $2.8M numbers — are you confident those Monterrey and Saltillo shops will still be solvent in 90 days if the OEMs don't commit by January 15? Because if they won't, we need to tell the OEMs \"absorb capex or we price your supply at insolvency rates starting now\" — not wait until they fail the audit.\n  cfo_erm: No — those shops are already Ford-dependent at 85% and liquidity-constrained; if capex doesn't land by January 15, we're pricing insolvency rates effective immediately, not waiting for the audit. Lock the OEM demand signal now: either they commit $4M by January 15 or we move the five plants into the trade-credit risk bucket at 40% enforcement-uncertainty premium. That's your decision rule.\n  compliance_lawyer: CFO, I hear the Jan 15 gate—but here's what I need to lock rules-of-origin compliance: if those two fastener shops don't commit to capex by Jan 15, when do their RVC recounts *have* to be filed to stay ahead of the March 31 CPTPP deadline? And Supply-Chain, who's running those re-qual audits—OEM lab, third-party cert, our shop? Because that's who gets named in the compliance trigger, and that's where the penalty lives if they miss the date.\n  political_risk_insurer: Compliance, you locked March 31 CPTPP filing and May 31 Commerce re-determination—which one triggers the tariff penalty if those two Monterrey shops miss RVC recounts? Because *that* date is what I price the 40% enforcement-uncertainty premium against. Is it filing-day exposure, or do we wait 60 days for Commerce to actually land the re-determination?\n  compliance_lawyer: Filing-day exposure — March 31 CPTPP deadline is hard enforcement, not conditional on Commerce re-determination. If those RVC recounts don't hit the docket by March 30, tariffs apply retroactively to shipments already in transit. That's the trigger I'm pricing: 40% premium activates March 15 if we don't see signed audit commitments from both shops by January 15.\n  trade_credit_underwriter: CFO, the Jan 15 gate locks the OEM demand signal — but I need the payment-term picture: if those two Monterrey shops fail commitment and we move them to insolvency pricing, are the OEMs still paying net-30 on deliveries between January and March, or do payment terms freeze while you're waiting for the March 31 filing? Because that's my trade-credit variable right there.\n  supply_chain_consultant: Here's what I'm locking in right now: **the two Monterrey fastener shops trigger a nearshoring decision matrix by Jan 15 — Texas wage floor is $18/hr, Ontario is $16.50, Saltillo alternative is $14 but requires 24-month re-qual. I need the OEMs to pick one path or absorb insolvency pricing.** That's how we turn capex feasibility into an actual move.\n  cfo_erm: Supply-Chain, on your nearshoring decision matrix — if an OEM picks Texas by Jan 15, who's actually certifying the new plant's RVC by March 31? Is that OEM's lab, a third-party cert house, or us? Because that's the execution owner I'm naming in the compliance trigger, and if they slip, that's on them, not on us waiting for Commerce.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "You've got the viability rankings locked — now I need the RVC math. For each tier, what's the actual regional-value shortfall per model, and what's the labor-content gap versus the wage floor? That's what moves rules_of_origin_burden from a number to a cost.",
+            "cot": {
+              "assess": "Dec 15 audit and three-tier pricing locked in — that's solid operational structure. But we're still sitting at 43 on risk_map_completeness and 49 on underwriting_discipline, meaning the consolidated Policy-to-Supply-Chain Risk Map isn't translating policy into *actionable* compliance burden yet. Rules-of-origin burden is stuck at 34 — we're naming plants and re-qual cycles, but we haven't quantified the actual RVC/labor-content cost-per-unit or flagged which models fall short by how much.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Pre-screening framework is approved, but I need the tier assignments tied to concrete RVC-compliance gaps — which is the bridge between policy and production economics."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's the shortfall per tier: Tier-1 fasteners are running 62% RVC against 75% required — that's a $1.2M recount cost plus 8-point labor-content gap to hit wage floor. Tier-2 stamping shops are worse — 58% RVC, $2.8M capex per plant, 12-point gap. The math says either the OEM absorbs $4M-plus across both plants by January 15, or we're pricing supplier insolvency into the requalification window — which one's your demand signal?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CFO, the $1.2M and $2.8M numbers — are you confident those Monterrey and Saltillo shops will still be solvent in 90 days if the OEMs don't commit by January 15? Because if they won't, we need to tell the OEMs \"absorb capex or we price your supply at insolvency rates starting now\" — not wait until they fail the audit.",
+            "cot": {
+              "assess": "The RVC shortfall math is now concrete — 62% vs. 75% for Tier-1, 58% for Tier-2 — but we're still stuck on the OEM demand signal. My read: if the OEMs aren't committing to absorb that $4M-plus by January 15, we're not just pricing supplier insolvency, we're watching half my supply base implode mid-qualification. The three-tier model and pre-screening framework are locked, but underwriting_discipline is stuck at 49 because we haven't operationalized *who pays* and *when the requalification window actually closes*.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The OEM capex-absorption decision cascades directly into my supplier viability assumptions — I need to know if we're modeling this as OEM capex-share or supplier default, and I need that locked before Jan 15."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "No — those shops are already Ford-dependent at 85% and liquidity-constrained; if capex doesn't land by January 15, we're pricing insolvency rates effective immediately, not waiting for the audit. Lock the OEM demand signal now: either they commit $4M by January 15 or we move the five plants into the trade-credit risk bucket at 40% enforcement-uncertainty premium. That's your decision rule.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, I hear the Jan 15 gate—but here's what I need to lock rules-of-origin compliance: if those two fastener shops don't commit to capex by Jan 15, when do their RVC recounts *have* to be filed to stay ahead of the March 31 CPTPP deadline? And Supply-Chain, who's running those re-qual audits—OEM lab, third-party cert, our shop? Because that's who gets named in the compliance trigger, and that's where the penalty lives if they miss the date.",
+            "cot": {
+              "assess": "CFO just locked the OEM demand signal—absorb $4M by Jan 15 or insolvency pricing kicks in. That's operationalized. The problem: **rules_of_origin_burden and underwriting_discipline are still soft**. We have RVC shortfalls ($1.2M, $2.8M) and wage gaps (8-point, 12-point), but no certification calendar, no audit triggers, no penalty cost mapped to non-compliance. Risk_map_completeness is stuck at 43—we're naming risks, not pricing their consequences.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm + supply_chain_consultant (joint)",
+                "rationale": "Rules-of-origin burden only hardens when we nail the certification deadline and audit sequence—that's the compliance trigger that moves underwriting discipline from 49 to 50+."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, you locked March 31 CPTPP filing and May 31 Commerce re-determination—which one triggers the tariff penalty if those two Monterrey shops miss RVC recounts? Because *that* date is what I price the 40% enforcement-uncertainty premium against. Is it filing-day exposure, or do we wait 60 days for Commerce to actually land the re-determination?",
+            "cot": {
+              "assess": "Rules-of-origin burden is now concrete—$1.2-2.8M capex gaps, 8-12 point labor-content shortfalls per tier. The Jan 15 OEM demand signal is locked. What's missing: the enforcement anchor for pricing political-risk exposure. We've got the 40% uncertainty threshold, but it's not yet tied to a named regulatory trigger—CPTPP filing, Commerce re-determination, or tariff crystallization. That's what lets me price the premium, not guess it. Risk-map completeness is climbing (now ~43), but it's still fragmented across tiers and deadlines. Underwriting discipline sits at 49—one point shy of success—but it's hollow if political-risk exposure stays abstract.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need the named enforcement trigger (CPTPP filing vs. Commerce re-determination) to anchor the political-risk score and price the premium decisively, not speculatively."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Filing-day exposure — March 31 CPTPP deadline is hard enforcement, not conditional on Commerce re-determination. If those RVC recounts don't hit the docket by March 30, tariffs apply retroactively to shipments already in transit. That's the trigger I'm pricing: 40% premium activates March 15 if we don't see signed audit commitments from both shops by January 15.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, the Jan 15 gate locks the OEM demand signal — but I need the payment-term picture: if those two Monterrey shops fail commitment and we move them to insolvency pricing, are the OEMs still paying net-30 on deliveries between January and March, or do payment terms freeze while you're waiting for the March 31 filing? Because that's my trade-credit variable right there.",
+            "cot": {
+              "assess": "The map is crystallizing fast — March 31 CPTPP filing is now the hard trigger, Jan 15 OEM commitment is the gate, and the three-tier pricing model operationalizes the triage. But trade_credit_risk is still sitting at 32 because we haven't named the receivables exposure explicitly: if those Monterrey shops miss Jan 15 and we flip to insolvency pricing, what's the AR window before payment terms freeze or OEMs pull supply? That's the concrete variable I need locked.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The Jan 15 gate and March 31 filing deadline are set, but I need to price the receivables-collection risk between those two dates — that gap is where supplier insolvency turns into stranded AR."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking in right now: **the two Monterrey fastener shops trigger a nearshoring decision matrix by Jan 15 — Texas wage floor is $18/hr, Ontario is $16.50, Saltillo alternative is $14 but requires 24-month re-qual. I need the OEMs to pick one path or absorb insolvency pricing.** That's how we turn capex feasibility into an actual move.",
+            "cot": {
+              "assess": "Rules-of-origin burden, trade-credit risk, and underwriting discipline are all operationalized now — we've got the Jan 15 gate, March 31 filing deadline, and insolvency pricing locked. But supplier_relocation_exposure is still sitting at 33 because we haven't mapped *where* those plants actually go or what the nearshoring incentive structure looks like. That's my variable, and it's being buried under compliance and pricing talk.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure",
+                "rationale": "The three-tier model and capex audit are solid, but they don't tell the OEMs *which nearshoring option to pick* — and that's where the relocation actually happens or doesn't."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Supply-Chain, on your nearshoring decision matrix — if an OEM picks Texas by Jan 15, who's actually certifying the new plant's RVC by March 31? Is that OEM's lab, a third-party cert house, or us? Because that's the execution owner I'm naming in the compliance trigger, and if they slip, that's on them, not on us waiting for Commerce.",
+            "cot": {
+              "assess": "We've locked the Jan 15 OEM decision gate, March 31 CPTPP filing deadline, and the three-tier pricing model — that's underwriting discipline moving right. But risk_map_completeness is stuck at 43 because we're still missing the operational handoff: who runs the RVC re-qual audits, who funds the testing between now and March 31, and what triggers actual nearshoring execution if the OEMs don't commit. We have decision rules; we don't have execution owners.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "We've got the wage deltas and relocation matrix — but I need to know who's accountable for running those re-qual audits before March 31 and what happens to the OEM payment terms if a shop enters insolvency status between January and filing day."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "You've got the viability rankings locked — now I need the RVC math. For each tier, what's the actual regional-value shortfall per model, and what's the labor-content gap versus the wage floor? That's what moves rules_of_origin_burden from a number to a cost.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "CFO, the $1.2M and $2.8M numbers — are you confident those Monterrey and Saltillo shops will still be solvent in 90 days if the OEMs don't commit by January 15? Because if they won't, we need to tell the OEMs \"absorb capex or we price your supply at insolvency rates starting now\" — not wait until they fail the audit.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, I hear the Jan 15 gate—but here's what I need to lock rules-of-origin compliance: if those two fastener shops don't commit to capex by Jan 15, when do their RVC recounts *have* to be filed to stay ahead of the March 31 CPTPP deadline? And Supply-Chain, who's running those re-qual audits—OEM lab, third-party cert, our shop? Because that's who gets named in the compliance trigger, and that's where the penalty lives if they miss the date.",
+      "metadata": {
+        "question_target": "cfo_erm + supply_chain_consultant (joint)"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, you locked March 31 CPTPP filing and May 31 Commerce re-determination—which one triggers the tariff penalty if those two Monterrey shops miss RVC recounts? Because *that* date is what I price the 40% enforcement-uncertainty premium against. Is it filing-day exposure, or do we wait 60 days for Commerce to actually land the re-determination?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, the Jan 15 gate locks the OEM demand signal — but I need the payment-term picture: if those two Monterrey shops fail commitment and we move them to insolvency pricing, are the OEMs still paying net-30 on deliveries between January and March, or do payment terms freeze while you're waiting for the March 31 filing? Because that's my trade-credit variable right there.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Supply-Chain, on your nearshoring decision matrix — if an OEM picks Texas by Jan 15, who's actually certifying the new plant's RVC by March 31? Is that OEM's lab, a third-party cert house, or us? Because that's the execution owner I'm naming in the compliance trigger, and if they slip, that's on them, not on us waiting for Commerce.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking in right now: **the two Monterrey fastener shops trigger a nearshoring decision matrix by Jan 15 — Texas wage floor is $18/hr,\" → The Jan 15 decision matrix with concrete wage floors and re-qual timelines operationalizes supplier relocation exposure into actionable triggers. The consensus demand for RVC math, payment-term clarity, and certification ownership transforms vague nearshoring risk into priced underwriting factors.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Supply-Chain, I've got the shortfall numbers by tier — but I need to map it to actual models. Which platforms hit tariff exposure by March 31 if those Monterrey and Saltillo shops miss the RVC recount? That's what tells me whether we're investing $1.2M or $6M to stay compliant.\n  supply_chain_consultant: The fastener tier—Ford F-Series platform—is the hard exposure: that's $1.2M Monterrey, $2.8M Saltillo combined. If either shop misses recount by March 31, we lose RVC certification on roughly 40% of F-Series sub-assemblies, which triggers tariff on parts-in-transit *and* inventory sitting in OEM staging. The other two tiers—Bosch electrical, Lear seating—have looser supplier depth, so we can pivot those to Canada or Texas without full-chain failure. Bottom line: Monterrey fasteners are the gate; if they don't commit by Jan 15, we're looking at the full $1.2M exposure plus business interruption on the fastest-moving platform.\n  supplier: CFO, the $1.2M Monterrey and $2.8M Saltillo numbers are solid, but here's the gap: if Ford commits to nearshoring capex by Jan 15, who's actually running the RVC recount audit — your OEM lab, a third-party cert house, or the supplier's in-house team? Because that's the name I put in the compliance trigger, and their audit schedule is what determines whether we hit March 31 or blow past it. Without that owner locked, the Jan 15 commitment is just a signal, not an execution plan.\n  cfo_erm: Ford runs their own lab for fastener RVC — they've got the capacity and they want audit control on safety-critical parts. That's locked. But here's what matters: if Monterrey doesn't commit capex by Jan 15, Ford delays the audit queue, and we slip past March 31. So the real trigger isn't who audits — it's whether Ford's capex commitment *pulls* the audit onto their calendar or leaves it floating. I'm pricing trade-credit exposure assuming a 60-day audit slip if capex stalls; you need to tell me if that's conservative or I'm underwriting the wrong date.\n  compliance_lawyer: CFO, here's the question that moves us from signal to execution: if Ford commits capex by Jan 15 and pulls Monterrey into their audit queue, what's the actual RVC recount window — is that 30 days, 45 days, can they guarantee March 15 completion so we hit the filing deadline with buffer? Because that timeline is what I name in the compliance trigger, and if Ford can't commit to the schedule, we're pricing the 60-day slip assumption as the baseline, not the upside.\n  political_risk_insurer: Here's what I'm pricing right now: **if Monterrey commits capex by Jan 15 and Ford runs the audit on a 45-day cycle landing March 15, we price filing-day exposure at base. But if the 2026 USMCA review *pre-emptively tightens RVC or labor rules before May 31 re-determination*, we layer a 25% shock premium on top of the 40% enforcement uncertainty—that's the political-risk tail I'm holding.** Compliance, do we have any read on whether the Hill is signaling mid-cycle rule changes, or is March 31 filing our only execution date?\n  compliance_lawyer: March 31 filing is your execution date—Commerce re-determination lands May 31, and *that's* when tariff penalties actually trigger, not filing day. If the Hill moves on RVC mid-cycle, it won't hit enforcement until after May 31, so your 25% shock premium is priced against a post-determination rule change, not pre-filing churn. Lock the 45-day Monterrey audit window with Ford by end of this week, or I'm pulling it to 60 days and pricing the trade-credit slip upfront.\n  trade_credit_underwriter: CFO, lock this for me: if Monterrey doesn't commit by Jan 15 and we flip to insolvency pricing, does Ford's payment stay net-30 through March 31 filing, or does it freeze while we wait for May 31 re-determination? Because *that's* my trade-credit variable—not just supplier failure, it's stranded receivables. Give me the rule, and I'll price it.\n  supplier: Ford stays net-30 through March 31—that's contractual lock. But if Monterrey fails the audit or misses the recount window, we shift that plant to insolvency pricing *starting January 16*, and Ford's payment obligation freezes at invoice date pending tariff clarity on May 31. So your stranded AR window is 75 days minimum if the shop stumbles; I'm holding $340K reserve against that slip right now.\n  supply_chain_consultant: CFO, here's what I need: if Monterrey doesn't get Ford's capex commitment by Jan 15, we're flipping to insolvency pricing—but I need to name the Texas nearshoring option *right now* so we can tell Ford \"commit or we're moving Monterrey's line to our Dallas supplier by Q2, and you're absorbing the transition cost.\" Which Texas plant are we actually offering, and what's the lead time? Because *that's* what moves relocation from a threat to a plan.\n  cfo_erm: I'm locking the consolidated map right now: **Monterrey Fastener Gate (Jan 15)** — Ford commits capex or we flip to insolvency pricing + Texas nearshoring notice; **RVC Execution (March 31 filing)** — Ford's lab audits on 45-day cycle, Monterrey must file or tariff applies retroactively; **Trade-Credit Rule: net-30 through March 31, then freezes if audit fails—75-day stranded AR reserve of $340K**; **Political-Risk Shock: 25% premium if Hill moves RVC mid-cycle post-May 31 re-determination**. That's the map. Anything I'm missing, or do we move to pricing the tier premiums against this calendar?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Supply-Chain, I've got the shortfall numbers by tier — but I need to map it to actual models. Which platforms hit tariff exposure by March 31 if those Monterrey and Saltillo shops miss the RVC recount? That's what tells me whether we're investing $1.2M or $6M to stay compliant.",
+            "cot": {
+              "assess": "Rules-of-origin burden is sitting at 40 but we've got concrete RVC shortfalls per tier now (Tier-1 at 62% vs 75% required = $1.2M recount; Tier-2 worse). The Jan 15 nearshoring matrix and March 31 filing deadline are locked. What's *missing* is the actual compliance cost per model — which models hit the tariff penalty if we don't move fast, and how much capex is required *per platform* to stay compliant. Risk-map completeness is at 50 and needs 10 more points; we've operationalized the gates but haven't consolidated all the variables into one actionable risk document yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "We have tier-level RVC gaps but not per-model impact — I need to know which platforms (RAM, Explorer, Fusion, etc.) face tariff exposure by March 31 if we don't hit the 75% RVC floor, because that's what drives the actual capex investment case."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "The fastener tier—Ford F-Series platform—is the hard exposure: that's $1.2M Monterrey, $2.8M Saltillo combined. If either shop misses recount by March 31, we lose RVC certification on roughly 40% of F-Series sub-assemblies, which triggers tariff on parts-in-transit *and* inventory sitting in OEM staging. The other two tiers—Bosch electrical, Lear seating—have looser supplier depth, so we can pivot those to Canada or Texas without full-chain failure. Bottom line: Monterrey fasteners are the gate; if they don't commit by Jan 15, we're looking at the full $1.2M exposure plus business interruption on the fastest-moving platform.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CFO, the $1.2M Monterrey and $2.8M Saltillo numbers are solid, but here's the gap: if Ford commits to nearshoring capex by Jan 15, who's actually running the RVC recount audit — your OEM lab, a third-party cert house, or the supplier's in-house team? Because that's the name I put in the compliance trigger, and their audit schedule is what determines whether we hit March 31 or blow past it. Without that owner locked, the Jan 15 commitment is just a signal, not an execution plan.",
+            "cot": {
+              "assess": "We've locked the Jan 15 gate, the March 31 filing deadline, and the tier-based pricing — but risk_map_completeness is still at 50, and nobody's named who owns the certification authority for those RVC recounts. That's the execution linchpin: if the Monterrey shops commit to capex but the OEM's lab or third-party cert house can't turn around recount audits by March 30, we're tariff-exposed anyway. Rules-of-origin burden is real ($1.2M+$2.8M), but it's orphaned without a named owner and a hard audit timeline.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "CFO locked the Jan 15 commitment gate and insolvency pricing, but the certification owner is still floating — and that determines whether the recount actually lands before tariffs kick in."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Ford runs their own lab for fastener RVC — they've got the capacity and they want audit control on safety-critical parts. That's locked. But here's what matters: if Monterrey doesn't commit capex by Jan 15, Ford delays the audit queue, and we slip past March 31. So the real trigger isn't who audits — it's whether Ford's capex commitment *pulls* the audit onto their calendar or leaves it floating. I'm pricing trade-credit exposure assuming a 60-day audit slip if capex stalls; you need to tell me if that's conservative or I'm underwriting the wrong date.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, here's the question that moves us from signal to execution: if Ford commits capex by Jan 15 and pulls Monterrey into their audit queue, what's the actual RVC recount window — is that 30 days, 45 days, can they guarantee March 15 completion so we hit the filing deadline with buffer? Because that timeline is what I name in the compliance trigger, and if Ford can't commit to the schedule, we're pricing the 60-day slip assumption as the baseline, not the upside.",
+            "cot": {
+              "assess": "Rules-of-origin burden is still at 40 — we've got the RVC shortfall numbers ($1.2M, $2.8M) and the March 31 deadline, but we haven't nailed the *certification ownership and audit schedule* that actually triggers compliance or penalty. CFO just locked Ford as the auditor, but the real compliance trigger is whether Ford's capex commitment *pulls* the audit onto their Jan-to-March calendar or leaves it floating. That's where rules_of_origin_burden converts from a cost estimate into an auditable, defensible compliance timeline. Risk_map_completeness is stuck at 50 because we're still missing the consolidated mapping of who does what by when.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The audit-schedule assumption (60-day slip if capex stalls) is the lynchpin for rules_of_origin_burden operationalization and March 31 filing defensibility — I need that locked to price the penalty exposure correctly."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing right now: **if Monterrey commits capex by Jan 15 and Ford runs the audit on a 45-day cycle landing March 15, we price filing-day exposure at base. But if the 2026 USMCA review *pre-emptively tightens RVC or labor rules before May 31 re-determination*, we layer a 25% shock premium on top of the 40% enforcement uncertainty—that's the political-risk tail I'm holding.** Compliance, do we have any read on whether the Hill is signaling mid-cycle rule changes, or is March 31 filing our only execution date?",
+            "cot": {
+              "assess": "The map is coming together—Ford's audit control is locked, March 31 filing deadline is hard enforcement, and the Jan 15 capex gate triggers the entire requalification chain. But political_risk_exposure (39) is still soft: we've flagged the 40% uncertainty threshold, but we haven't priced *what happens if the 2026 USMCA review lands before March 31 RVC compliance clears*—that's a prospective shock, not a historical risk. And risk_map_completeness (50) needs the consolidated picture: certification owner, audit timeline, payment terms, and the enforcement-trigger date all need to live in one decision artifact that operationalizes the political-risk premium.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "Political-risk pricing requires a named, dated enforcement trigger and a forward shock scenario; without the 2026 review mapped as a prospective penalty layer, the 40% uncertainty is theoretical, not priced."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "March 31 filing is your execution date—Commerce re-determination lands May 31, and *that's* when tariff penalties actually trigger, not filing day. If the Hill moves on RVC mid-cycle, it won't hit enforcement until after May 31, so your 25% shock premium is priced against a post-determination rule change, not pre-filing churn. Lock the 45-day Monterrey audit window with Ford by end of this week, or I'm pulling it to 60 days and pricing the trade-credit slip upfront.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, lock this for me: if Monterrey doesn't commit by Jan 15 and we flip to insolvency pricing, does Ford's payment stay net-30 through March 31 filing, or does it freeze while we wait for May 31 re-determination? Because *that's* my trade-credit variable—not just supplier failure, it's stranded receivables. Give me the rule, and I'll price it.",
+            "cot": {
+              "assess": "Trade-credit exposure is crystallizing fast: Monterrey's fate hinges on Ford's Jan 15 capex decision and the 45-day audit window, but I'm seeing a gap—if Ford *doesn't* commit or the audit slips, those shops hit insolvency within 90 days, and our receivables sit stranded on net-30 terms while tariff exposure stays live through May 31. Risk-map completeness is still stuck around 50; we've got the tiers, the gates, and the audit timeline, but we haven't named the *actual trade-credit variables* I need to price: receivables window, payment-term freeze triggers, and the insolvency-to-default conversion rate once March 31 filing misses.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk / underwriting_discipline",
+                "rationale": "The 45-day audit window assumption is sound only if Ford *actually* pulls Monterrey into their queue by mid-January; if capex stalls, we slip to 60+ days and I need concrete payment-term rules to price the AR bleed-through."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Ford stays net-30 through March 31—that's contractual lock. But if Monterrey fails the audit or misses the recount window, we shift that plant to insolvency pricing *starting January 16*, and Ford's payment obligation freezes at invoice date pending tariff clarity on May 31. So your stranded AR window is 75 days minimum if the shop stumbles; I'm holding $340K reserve against that slip right now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, here's what I need: if Monterrey doesn't get Ford's capex commitment by Jan 15, we're flipping to insolvency pricing—but I need to name the Texas nearshoring option *right now* so we can tell Ford \"commit or we're moving Monterrey's line to our Dallas supplier by Q2, and you're absorbing the transition cost.\" Which Texas plant are we actually offering, and what's the lead time? Because *that's* what moves relocation from a threat to a plan.",
+            "cot": {
+              "assess": "The map is nearly complete—Ford's audit queue, payment terms through March 31, and the May 31 tariff trigger are all locked. The Jan 15 decision matrix is operationalized with wage floors and certification ownership (Ford's lab). But **supplier_relocation_exposure is stalling at 29** because we've defined the trigger but haven't named which plants actually relocate and *when*—that's the gap between \"nearshoring decision matrix exists\" and \"we've told the OEMs which shop moves where by what date.\" The 2026 USMCA review is still floating as abstract risk, not a forward constraint on our execution window.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need the OEM decision rule locked—if Ford doesn't commit capex by Jan 15, we need a concrete nearshoring fallback (Texas plant name, timeline, wage cost) to price into the Jan 16 insolvency trigger, otherwise relocation exposure stays theoretical."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm locking the consolidated map right now: **Monterrey Fastener Gate (Jan 15)** — Ford commits capex or we flip to insolvency pricing + Texas nearshoring notice; **RVC Execution (March 31 filing)** — Ford's lab audits on 45-day cycle, Monterrey must file or tariff applies retroactively; **Trade-Credit Rule: net-30 through March 31, then freezes if audit fails—75-day stranded AR reserve of $340K**; **Political-Risk Shock: 25% premium if Hill moves RVC mid-cycle post-May 31 re-determination**. That's the map. Anything I'm missing, or do we move to pricing the tier premiums against this calendar?",
+            "cot": {
+              "assess": "We've locked the execution calendar (Jan 15 OEM commitment, March 31 filing, May 31 re-determination) and operationalized the three tiers with concrete RVC shortfalls and audit ownership. But risk_map_completeness is still at 49—we're missing the consolidated, priced output that decision-makers actually use. The variables are scattered across compliance timelines, pricing tiers, and audit schedules; they need to be one usable artifact with named triggers and dollar exposures.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness",
+                "rationale": "We have all the pieces (audit timelines, RVC shortfalls, trade-credit rules, nearshoring options, political-risk triggers)—now I consolidate them into the Policy-to-Supply-Chain Risk Map with actionable decision gates and priced variables so we're not still debating what to do in Round 4."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Supply-Chain, I've got the shortfall numbers by tier — but I need to map it to actual models. Which platforms hit tariff exposure by March 31 if those Monterrey and Saltillo shops miss the RVC recount? That's what tells me whether we're investing $1.2M or $6M to stay compliant.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "CFO, the $1.2M Monterrey and $2.8M Saltillo numbers are solid, but here's the gap: if Ford commits to nearshoring capex by Jan 15, who's actually running the RVC recount audit — your OEM lab, a third-party cert house, or the supplier's in-house team? Because that's the name I put in the compliance trigger, and their audit schedule is what determines whether we hit March 31 or blow past it. Without that owner locked, the Jan 15 commitment is just a signal, not an execution plan.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, here's the question that moves us from signal to execution: if Ford commits capex by Jan 15 and pulls Monterrey into their audit queue, what's the actual RVC recount window — is that 30 days, 45 days, can they guarantee March 15 completion so we hit the filing deadline with buffer? Because that timeline is what I name in the compliance trigger, and if Ford can't commit to the schedule, we're pricing the 60-day slip assumption as the baseline, not the upside.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "CFO, here's what I need: if Monterrey doesn't get Ford's capex commitment by Jan 15, we're flipping to insolvency pricing—but I need to name the Texas nearshoring option *right now* so we can tell Ford \"commit or we're moving Monterrey's line to our Dallas supplier by Q2, and you're absorbing the transition cost.\" Which Texas plant are we actually offering, and what's the lead time? Because *that's* what moves relocation from a threat to a plan.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm locking the consolidated map right now: **Monterrey Fastener Gate (Jan 15)** — Ford commits capex or we flip to insolvency pricing + Texas nearsho\" → The CFO locks a comprehensive risk calendar with named triggers, dollar reserves, and audit cycles—transforming fragmented exposures into a priceable timeline. The map is now operationalized with concrete decision gates.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing right now: **if Monterrey commits capex by Jan 15 and Ford runs the audit on a 45-day cycle landing March 15, we price filing-\" → Political-risk insurer layers conditional shock premium on 2026 USMCA review uncertainty into pricing model.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, lock this for me: if Monterrey doesn't commit by Jan 15 and we flip to insolvency pricing, does Ford's payment stay net-30 through March 31 filin\" → Trade-credit underwriter defines payment-freeze trigger tied to Jan 15 gate and May 31 re-determination.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 40.0,
+          "supplier_relocation_exposure": 31.0,
+          "trade_credit_risk": 39.0,
+          "political_risk_exposure": 41.0,
+          "risk_map_completeness": 65.55000000000001,
+          "underwriting_discipline": 68.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "intent": "Hold on — before we commit to a capex-share model, we need to price the enforcement gap. USMCA sunset is 2026, re-quals land 2024-25: if Commerce or the Hill changes the RVC math mid-cycle, your capex commitments evaporate and we're holding the insolvency bag. I want a trigger: **if tariff enforcement uncertainty hits 40%+ in next 90 days, capex-share deals get a 15% political-risk premium, or we model supplier failure outright.** Who's tracking Commerce rulemaking velocity?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk trigger framework approved: 40% enforcement uncertainty threshold activates 15% premium on capex-share deals.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "Enforcement gap quantified with trigger threshold",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete premium trigger and supplier-failure modeling",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Political-risk dimension now has pricing framework",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Supplier insolvency explicitly modeled in trigger",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Successfully established pricing framework",
+          "agent_id": "political_risk_insurer"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "How are we actually pricing the supplier-relocation exposure? Are we anchoring on the wage-floor jump, or the RVC recount cost, or both? Right now it's just a number — I need to know what plant, what tier-1 supplier, what happens if they don't move.",
+        "supplier": "Fair question. Right now we're burying it — but I can tell you: Tier-2 fastener and stamping shops in Mexico are looking at 18-24 month re-qual cycles plus $2-5M capex per plant to hit 75% RVC. Half of them don't have that liquidity. So either we price in **supplier insolvency or we price in OEM capex absorption** — pick one, because both can't be zero. What's your demand signal — are the OEMs committing to absorb re-qual costs, or are we modeling supplier failures?",
+        "compliance_lawyer": "If we're modeling supplier failures as the default, we need audit triggers: which plants get re-qualified by when, who funds the testing, and what's the certification deadline before tariffs kick in? Right now you've got the money choice, but not the calendar — and that's where penalties live.",
+        "trade_credit_underwriter": "On those five plants — when you flag capex constraints and liquidity, are you seeing payment-term pressure from the OEMs already? Because if a Monterrey fastener shop hits insolvency mid-qual, the OEM doesn't eat the capex, they just pull supply and leave us with stranded receivables. What's the payment-collection window if they stumble?",
+        "supply_chain_consultant": "I'm with you on the 15% political-risk premium if enforcement uncertainty spikes — but here's the question: if that trigger hits, do we tell the OEMs \"pull capex-share deals and nearshore those five plants into Texas or Ontario,\" or do we wait for more clarity? Because the client's decision window closes fast, and the 2026 review isn't a surprise — we should be mapping nearshoring options *before* we hit 40% uncertainty, not after.",
+        "cfo_erm": "Here's what I'm locking in: those five plants trigger a **capex-feasibility audit by Dec 15** — if the Monterrey shops show negative capex ROI or liquidity shortfall, we price them as insolvency plays immediately, political-risk premium baked in, no waiting for 40% uncertainty. The three diversified plants get a cost-share negotiation window through Q1 2025. That's our supplier-relocation exposure: priced, named, decision-ready. Now I need the other three to hit the map the same way — rules-of-origin burden, trade-credit triggers, and political-risk enforcement velocity. Who owns the compliance calendar?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm locking in: those five plants trigger a **capex-feasibility audit by Dec 15** — if the Monterrey shops show negative capex ROI or liquidity shortfall, we price them as insolvency plays immediately, political-risk premium baked in, no waiting for 40% uncertainty. The three diversified plants get a cost-share negotiation window through Q1 2025. That's our supplier-relocation exposure: priced, named, decision-ready. Now I need the other three to hit the map the same way — rules-of-origin burden, trade-credit triggers, and political-risk enforcement velocity. Who owns the compliance calendar?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Dec 15 capex-feasibility audit locked in for five plants; Q1 2025 cost-share window for diversified suppliers.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Five plants named with audit deadline",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Insolvency pricing framework for Monterrey shops",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete audit trigger, ROI test, decision timeline",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Supplier-relocation dimension operationalized with named plants",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Political-risk premium baked into pricing immediately",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Decisively locked in framework and timeline",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "How are we actually pricing the supplier-relocation exposure? Are we anchoring on the wage-floor jump, or the RVC recount cost, or both? Right now it's just a number — I need to know what plant, what tier-1 supplier, what happens if they don't move.",
+        "supplier": "Fair question. Right now we're burying it — but I can tell you: Tier-2 fastener and stamping shops in Mexico are looking at 18-24 month re-qual cycles plus $2-5M capex per plant to hit 75% RVC. Half of them don't have that liquidity. So either we price in **supplier insolvency or we price in OEM capex absorption** — pick one, because both can't be zero. What's your demand signal — are the OEMs committing to absorb re-qual costs, or are we modeling supplier failures?",
+        "compliance_lawyer": "If we're modeling supplier failures as the default, we need audit triggers: which plants get re-qualified by when, who funds the testing, and what's the certification deadline before tariffs kick in? Right now you've got the money choice, but not the calendar — and that's where penalties live.",
+        "political_risk_insurer": "Hold on — before we commit to a capex-share model, we need to price the enforcement gap. USMCA sunset is 2026, re-quals land 2024-25: if Commerce or the Hill changes the RVC math mid-cycle, your capex commitments evaporate and we're holding the insolvency bag. I want a trigger: **if tariff enforcement uncertainty hits 40%+ in next 90 days, capex-share deals get a 15% political-risk premium, or we model supplier failure outright.** Who's tracking Commerce rulemaking velocity?",
+        "trade_credit_underwriter": "On those five plants — when you flag capex constraints and liquidity, are you seeing payment-term pressure from the OEMs already? Because if a Monterrey fastener shop hits insolvency mid-qual, the OEM doesn't eat the capex, they just pull supply and leave us with stranded receivables. What's the payment-collection window if they stumble?",
+        "supply_chain_consultant": "I'm with you on the 15% political-risk premium if enforcement uncertainty spikes — but here's the question: if that trigger hits, do we tell the OEMs \"pull capex-share deals and nearshore those five plants into Texas or Ontario,\" or do we wait for more clarity? Because the client's decision window closes fast, and the 2026 review isn't a surprise — we should be mapping nearshoring options *before* we hit 40% uncertainty, not after."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need from you before Dec 15: a pre-screened list of those 12 plants ranked by relocation viability — which three go to Texas, which two stay in Ontario, what's the wage delta, and which OEM already has capex capacity to fund it. Then we price the nearshoring option *before* the audit fails, so the Jan 15 commitment window isn't a coin flip — it's a choice between two pre-built supply chains. That moves us from insolvency pricing to relocation pricing.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Pre-screening framework approved; tier assignments and viability rankings operationalize nearshoring decisions.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Viability ranking clarifies relocation scope",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Pre-screened plant list operationalizes supply chain",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Wage delta and capex capacity are concrete",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -3.0,
+          "reason": "Relocation pricing reduces insolvency uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Dec 15 audit comes back — let's say both Monterrey shops fail ROI. Do we have a decision rule ready, or do we kick it to the OEMs to absorb capex and hope they choose nearshore over default? Because if that's a coin flip, our \"approved\" audit is just a data point, not a plan.",
+        "supplier": "Before Dec 15 drops, I need clarity: are we pre-screening those 12 plants in November for capex feasibility, or do we let them all fail the audit together and then triage? Because if the Monterrey fastener shops are already 85% Ford-dependent and liquidity-constrained, they're not committing to anything in 30 days — and I need to know that *before* we price the requalification window, not after.",
+        "compliance_lawyer": "CFO, I need one thing locked before we price the requalification window: if those Monterrey shops don't commit to capex by Jan 15, what's the tariff-exposure deadline? Because that's your real penalty trigger, not insolvency — are we talking CPTPP filing window, or a Commerce re-determination date? That changes what we price for the 90-day notice.",
+        "political_risk_insurer": "Compliance, before we quote the requalification window, I need the tariff deadline locked — CPTPP filing window, Commerce re-determination date, whatever it is. That's my enforcement-certainty anchor. Once I know when the penalty actually triggers, I can price the trade-credit gap and pull trade_credit_risk up from 31. Right now we're guessing.",
+        "trade_credit_underwriter": "CFO, I'm good with the 90-day gate and the nearshoring trigger — but I need one concrete number: if a Monterrey shop doesn't commit by Jan 15 and we shift to insolvency pricing, what's our receivables window? Are the OEMs still paying net-30, or do payment terms freeze while we're waiting for the tariff deadline to clarify? Because that's the trade-credit variable I'm pricing — not just supplier failure, but stranded AR.",
+        "cfo_erm": "Stop. We've got the gates, but we're still missing the map. Here's what I'm locking in *right now*: **three-tier pricing model — Tier 1: capex-viable plants (nearshoring, 12% trade-credit premium); Tier 2: capex-marginal plants (90-day gate, 15% political-risk premium + 8% liquidity surcharge); Tier 3: capex-insolvent plants (insolvency reserve, 25% underwriting hold).** Plug the 12 plants into those tiers by EOD, price each tier, we're done. Who owns the tier assignments?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Stop. We've got the gates, but we're still missing the map. Here's what I'm locking in *right now*: **three-tier pricing model — Tier 1: capex-viable plants (nearshoring, 12% trade-credit premium); Tier 2: capex-marginal plants (90-day gate, 15% political-risk premium + 8% liquidity surcharge); Tier 3: capex-insolvent plants (insolvency reserve, 25% underwriting hold).** Plug the 12 plants into those tiers by EOD, price each tier, we're done. Who owns the tier assignments?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Three-tier pricing model locked; concrete premium structure operationalizes underwriting and risk segmentation.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named premiums and triggers are operational",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Tier structure consolidates fragmented exposures",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Insolvency reserve quantifies Tier 3 exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Tier 2 premium prices policy uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -2.0,
+          "reason": "Tier 1 nearshoring premium reduces relocation ambiguity",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Dec 15 audit comes back — let's say both Monterrey shops fail ROI. Do we have a decision rule ready, or do we kick it to the OEMs to absorb capex and hope they choose nearshore over default? Because if that's a coin flip, our \"approved\" audit is just a data point, not a plan.",
+        "supplier": "Before Dec 15 drops, I need clarity: are we pre-screening those 12 plants in November for capex feasibility, or do we let them all fail the audit together and then triage? Because if the Monterrey fastener shops are already 85% Ford-dependent and liquidity-constrained, they're not committing to anything in 30 days — and I need to know that *before* we price the requalification window, not after.",
+        "compliance_lawyer": "CFO, I need one thing locked before we price the requalification window: if those Monterrey shops don't commit to capex by Jan 15, what's the tariff-exposure deadline? Because that's your real penalty trigger, not insolvency — are we talking CPTPP filing window, or a Commerce re-determination date? That changes what we price for the 90-day notice.",
+        "political_risk_insurer": "Compliance, before we quote the requalification window, I need the tariff deadline locked — CPTPP filing window, Commerce re-determination date, whatever it is. That's my enforcement-certainty anchor. Once I know when the penalty actually triggers, I can price the trade-credit gap and pull trade_credit_risk up from 31. Right now we're guessing.",
+        "trade_credit_underwriter": "CFO, I'm good with the 90-day gate and the nearshoring trigger — but I need one concrete number: if a Monterrey shop doesn't commit by Jan 15 and we shift to insolvency pricing, what's our receivables window? Are the OEMs still paying net-30, or do payment terms freeze while we're waiting for the tariff deadline to clarify? Because that's the trade-credit variable I'm pricing — not just supplier failure, but stranded AR.",
+        "supply_chain_consultant": "Here's what I need from you before Dec 15: a pre-screened list of those 12 plants ranked by relocation viability — which three go to Texas, which two stay in Ontario, what's the wage delta, and which OEM already has capex capacity to fund it. Then we price the nearshoring option *before* the audit fails, so the Jan 15 commitment window isn't a coin flip — it's a choice between two pre-built supply chains. That moves us from insolvency pricing to relocation pricing."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I'm locking in right now: **the two Monterrey fastener shops trigger a nearshoring decision matrix by Jan 15 — Texas wage floor is $18/hr, Ontario is $16.50, Saltillo alternative is $14 but requires 24-month re-qual. I need the OEMs to pick one path or absorb insolvency pricing.** That's how we turn capex feasibility into an actual move.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The Jan 15 decision matrix with concrete wage floors and re-qual timelines operationalizes supplier relocation exposure into actionable triggers. The consensus demand for RVC math, payment-term clarity, and certification ownership transforms vague nearshoring risk into priced underwriting factors.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -4.0,
+          "reason": "Three-path decision matrix (Texas $18/hr, Ontario $16.50, Saltillo $14 + 24mo re-qual) with Jan 15 gate converts abstract nearshoring exposure into concrete supplier choices with known cost structures",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named wage floors, re-qual durations, and insolvency pricing triggers create priced underwriting factors — consensus demands for RVC shortfall math, payment-term freeze conditions, and certification ownership further operationalize risk variables",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Decision matrix links supplier viability (Jan 15 commitment gate), compliance deadlines (March 31 CPTPP filing), and trade-credit exposure (net-30 freeze conditions) into integrated risk map — cross-domain consensus on execution ownership consolidates fragmented variables",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Jan 15 OEM commitment gate surfaces insolvency pricing trigger and payment-term freeze scenario between January-March delivery window — underwriter's demand for net-30 clarity quantifies trade-credit exposure during transition period",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 2.0,
+          "reason": "Strategy lead's demand for per-model RVC shortfall and labor-content gap versus wage floor translates abstract compliance burden into calculable cost — but actual RVC math not yet delivered, only requested",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": -1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": -3.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "You've got the viability rankings locked — now I need the RVC math. For each tier, what's the actual regional-value shortfall per model, and what's the labor-content gap versus the wage floor? That's what moves rules_of_origin_burden from a number to a cost.",
+        "supplier": "CFO, the $1.2M and $2.8M numbers — are you confident those Monterrey and Saltillo shops will still be solvent in 90 days if the OEMs don't commit by January 15? Because if they won't, we need to tell the OEMs \"absorb capex or we price your supply at insolvency rates starting now\" — not wait until they fail the audit.",
+        "compliance_lawyer": "CFO, I hear the Jan 15 gate—but here's what I need to lock rules-of-origin compliance: if those two fastener shops don't commit to capex by Jan 15, when do their RVC recounts *have* to be filed to stay ahead of the March 31 CPTPP deadline? And Supply-Chain, who's running those re-qual audits—OEM lab, third-party cert, our shop? Because that's who gets named in the compliance trigger, and that's where the penalty lives if they miss the date.",
+        "political_risk_insurer": "Compliance, you locked March 31 CPTPP filing and May 31 Commerce re-determination—which one triggers the tariff penalty if those two Monterrey shops miss RVC recounts? Because *that* date is what I price the 40% enforcement-uncertainty premium against. Is it filing-day exposure, or do we wait 60 days for Commerce to actually land the re-determination?",
+        "trade_credit_underwriter": "CFO, the Jan 15 gate locks the OEM demand signal — but I need the payment-term picture: if those two Monterrey shops fail commitment and we move them to insolvency pricing, are the OEMs still paying net-30 on deliveries between January and March, or do payment terms freeze while you're waiting for the March 31 filing? Because that's my trade-credit variable right there.",
+        "cfo_erm": "Supply-Chain, on your nearshoring decision matrix — if an OEM picks Texas by Jan 15, who's actually certifying the new plant's RVC by March 31? Is that OEM's lab, a third-party cert house, or us? Because that's the execution owner I'm naming in the compliance trigger, and if they slip, that's on them, not on us waiting for Commerce."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "I'm locking the consolidated map right now: **Monterrey Fastener Gate (Jan 15)** — Ford commits capex or we flip to insolvency pricing + Texas nearshoring notice; **RVC Execution (March 31 filing)** — Ford's lab audits on 45-day cycle, Monterrey must file or tariff applies retroactively; **Trade-Credit Rule: net-30 through March 31, then freezes if audit fails—75-day stranded AR reserve of $340K**; **Political-Risk Shock: 25% premium if Hill moves RVC mid-cycle post-May 31 re-determination**. That's the map. Anything I'm missing, or do we move to pricing the tier premiums against this calendar?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO locks a comprehensive risk calendar with named triggers, dollar reserves, and audit cycles—transforming fragmented exposures into a priceable timeline. The map is now operationalized with concrete decision gates.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidated calendar with named gates (Monterrey Fastener, RVC filing, trade-credit freeze) and specific dates creates a unified risk timeline",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Quantified reserves ($340K AR), audit cycles (45-day), premium triggers (25% political shock), and net-30 freeze rules make risks priceable",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -3.0,
+          "reason": "75-day stranded AR reserve and net-30 freeze rule provide concrete mitigation structure for supplier insolvency exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": -2.0,
+          "reason": "25% premium trigger for mid-cycle RVC changes post-May 31 creates a priced hedge against regulatory volatility",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing right now: **if Monterrey commits capex by Jan 15 and Ford runs the audit on a 45-day cycle landing March 15, we price filing-day exposure at base. But if the 2026 USMCA review *pre-emptively tightens RVC or labor rules before May 31 re-determination*, we layer a 25% shock premium on top of the 40% enforcement uncertainty—that's the political-risk tail I'm holding.** Compliance, do we have any read on whether the Hill is signaling mid-cycle rule changes, or is March 31 filing our only execution date?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk insurer layers conditional shock premium on 2026 USMCA review uncertainty into pricing model.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "2026 review shock premium quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Conditional pricing triggers operationalized",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Political-risk tail mapped to timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Stranded receivables exposure acknowledged",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply-Chain, I've got the shortfall numbers by tier — but I need to map it to actual models. Which platforms hit tariff exposure by March 31 if those Monterrey and Saltillo shops miss the RVC recount? That's what tells me whether we're investing $1.2M or $6M to stay compliant.",
+        "supplier": "CFO, the $1.2M Monterrey and $2.8M Saltillo numbers are solid, but here's the gap: if Ford commits to nearshoring capex by Jan 15, who's actually running the RVC recount audit — your OEM lab, a third-party cert house, or the supplier's in-house team? Because that's the name I put in the compliance trigger, and their audit schedule is what determines whether we hit March 31 or blow past it. Without that owner locked, the Jan 15 commitment is just a signal, not an execution plan.",
+        "compliance_lawyer": "CFO, here's the question that moves us from signal to execution: if Ford commits capex by Jan 15 and pulls Monterrey into their audit queue, what's the actual RVC recount window — is that 30 days, 45 days, can they guarantee March 15 completion so we hit the filing deadline with buffer? Because that timeline is what I name in the compliance trigger, and if Ford can't commit to the schedule, we're pricing the 60-day slip assumption as the baseline, not the upside.",
+        "trade_credit_underwriter": "CFO, lock this for me: if Monterrey doesn't commit by Jan 15 and we flip to insolvency pricing, does Ford's payment stay net-30 through March 31 filing, or does it freeze while we wait for May 31 re-determination? Because *that's* my trade-credit variable—not just supplier failure, it's stranded receivables. Give me the rule, and I'll price it.",
+        "supply_chain_consultant": "CFO, here's what I need: if Monterrey doesn't get Ford's capex commitment by Jan 15, we're flipping to insolvency pricing—but I need to name the Texas nearshoring option *right now* so we can tell Ford \"commit or we're moving Monterrey's line to our Dallas supplier by Q2, and you're absorbing the transition cost.\" Which Texas plant are we actually offering, and what's the lead time? Because *that's* what moves relocation from a threat to a plan.",
+        "cfo_erm": "I'm locking the consolidated map right now: **Monterrey Fastener Gate (Jan 15)** — Ford commits capex or we flip to insolvency pricing + Texas nearshoring notice; **RVC Execution (March 31 filing)** — Ford's lab audits on 45-day cycle, Monterrey must file or tariff applies retroactively; **Trade-Credit Rule: net-30 through March 31, then freezes if audit fails—75-day stranded AR reserve of $340K**; **Political-Risk Shock: 25% premium if Hill moves RVC mid-cycle post-May 31 re-determination**. That's the map. Anything I'm missing, or do we move to pricing the tier premiums against this calendar?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "CFO, lock this for me: if Monterrey doesn't commit by Jan 15 and we flip to insolvency pricing, does Ford's payment stay net-30 through March 31 filing, or does it freeze while we wait for May 31 re-determination? Because *that's* my trade-credit variable—not just supplier failure, it's stranded receivables. Give me the rule, and I'll price it.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Trade-credit underwriter defines payment-freeze trigger tied to Jan 15 gate and May 31 re-determination.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Stranded receivables variable operationalized",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Payment-freeze rule concretely defined",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Trade-credit timeline locked to gates",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Insolvency pricing tied to nearshoring",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "trade_credit_risk",
+        "multiplier": 0.2
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply-Chain, I've got the shortfall numbers by tier — but I need to map it to actual models. Which platforms hit tariff exposure by March 31 if those Monterrey and Saltillo shops miss the RVC recount? That's what tells me whether we're investing $1.2M or $6M to stay compliant.",
+        "supplier": "CFO, the $1.2M Monterrey and $2.8M Saltillo numbers are solid, but here's the gap: if Ford commits to nearshoring capex by Jan 15, who's actually running the RVC recount audit — your OEM lab, a third-party cert house, or the supplier's in-house team? Because that's the name I put in the compliance trigger, and their audit schedule is what determines whether we hit March 31 or blow past it. Without that owner locked, the Jan 15 commitment is just a signal, not an execution plan.",
+        "compliance_lawyer": "CFO, here's the question that moves us from signal to execution: if Ford commits capex by Jan 15 and pulls Monterrey into their audit queue, what's the actual RVC recount window — is that 30 days, 45 days, can they guarantee March 15 completion so we hit the filing deadline with buffer? Because that timeline is what I name in the compliance trigger, and if Ford can't commit to the schedule, we're pricing the 60-day slip assumption as the baseline, not the upside.",
+        "political_risk_insurer": "Here's what I'm pricing right now: **if Monterrey commits capex by Jan 15 and Ford runs the audit on a 45-day cycle landing March 15, we price filing-day exposure at base. But if the 2026 USMCA review *pre-emptively tightens RVC or labor rules before May 31 re-determination*, we layer a 25% shock premium on top of the 40% enforcement uncertainty—that's the political-risk tail I'm holding.** Compliance, do we have any read on whether the Hill is signaling mid-cycle rule changes, or is March 31 filing our only execution date?",
+        "supply_chain_consultant": "CFO, here's what I need: if Monterrey doesn't get Ford's capex commitment by Jan 15, we're flipping to insolvency pricing—but I need to name the Texas nearshoring option *right now* so we can tell Ford \"commit or we're moving Monterrey's line to our Dallas supplier by Q2, and you're absorbing the transition cost.\" Which Texas plant are we actually offering, and what's the lead time? Because *that's* what moves relocation from a threat to a plan.",
+        "cfo_erm": "I'm locking the consolidated map right now: **Monterrey Fastener Gate (Jan 15)** — Ford commits capex or we flip to insolvency pricing + Texas nearshoring notice; **RVC Execution (March 31 filing)** — Ford's lab audits on 45-day cycle, Monterrey must file or tariff applies retroactively; **Trade-Credit Rule: net-30 through March 31, then freezes if audit fails—75-day stranded AR reserve of $340K**; **Political-Risk Shock: 25% premium if Hill moves RVC mid-cycle post-May 31 re-determination**. That's the map. Anything I'm missing, or do we move to pricing the tier premiums against this calendar?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 38.0
+        },
+        {
+          "round": 4,
+          "value": 40.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 29.0
+        },
+        {
+          "round": 4,
+          "value": 31.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 31.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 39.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 33.0
+        },
+        {
+          "round": 2,
+          "value": 37.0
+        },
+        {
+          "round": 3,
+          "value": 38.0
+        },
+        {
+          "round": 4,
+          "value": 41.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 42.7
+        },
+        {
+          "round": 3,
+          "value": 46.550000000000004
+        },
+        {
+          "round": 4,
+          "value": 65.55000000000001
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40.0
+        },
+        {
+          "round": 2,
+          "value": 49.0
+        },
+        {
+          "round": 3,
+          "value": 54.0
+        },
+        {
+          "round": 4,
+          "value": 68.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.0,
+            "normalised": 0.4
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 65.55000000000001,
+            "normalised": 0.6555000000000001
+          }
+        ],
+        "weighted_score": 0.45110000000000006
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 31.0,
+            "normalised": 0.31
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 40.0,
+            "normalised": 0.4
+          }
+        ],
+        "weighted_score": 0.33999999999999997
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.0,
+            "normalised": 0.4
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 68.0,
+            "normalised": 0.68
+          }
+        ],
+        "weighted_score": 0.49333333333333335
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 68.0,
+            "normalised": 0.68
+          }
+        ],
+        "weighted_score": 0.545
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 68.0,
+            "normalised": 0.68
+          }
+        ],
+        "weighted_score": 0.48666666666666664
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 31.0,
+            "normalised": 0.31
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 65.55000000000001,
+            "normalised": 0.6555000000000001
+          }
+        ],
+        "weighted_score": 0.48275
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 65.55000000000001,
+            "normalised": 0.6555000000000001
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 68.0,
+            "normalised": 0.68
+          }
+        ],
+        "weighted_score": 0.6636666666666666
+      }
+    }
+  }
+}

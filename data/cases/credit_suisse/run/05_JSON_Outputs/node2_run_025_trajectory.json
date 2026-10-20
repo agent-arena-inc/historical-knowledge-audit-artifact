@@ -1,0 +1,2059 @@
+{
+  "simulation_id": "983ab6bc9860",
+  "config_id": "credit_suisse_node2",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'reaction_and_legal_basis' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: We've got counsel from three jurisdictions ready to file. FINMA inverted the capital hierarchy — wiped AT1 while equity holders walked away with UBS stock — and that's indefensible in court. We're moving unless FINMA puts recovery on the table in the next 48 hours. This isn't a negotiation, it's a deadline.\n  bondholder_counsel: Forty-eight hours is tight but workable — we have the procedural case locked: the emergency ordinance on March 19th bypassed normal parliamentary review, and we're filing a constitutional challenge in Zurich Federal Court by end of week. But I need FINMA's legal team on record about whether they consulted equity counsel before ordering the write-down, because if they didn't, that's negligence we can weaponize in the US jurisdictions where your bondholders sit.\n  bondholder_counsel: FINMA, before we file: did you seek counsel from equity holders' legal advisors before triggering the write-down, or did you treat AT1 and equity as a single write-down decision? Because if you isolated that call without checking the hierarchy implications, we've got a liability story that travels across all three jurisdictions.\n  finma_legal: The write-down was authorized under the AT1 contract terms and the emergency ordinance — viability-event language permits full write-down when extraordinary government support is granted, which it was. Equity holders received UBS shares as part of the resolution structure, not a windfall — that's a separate transaction under acquisition law, not a capital hierarchy inversion. We consulted our banking counsel and the Federal Department of Finance on the ordinance's scope; the hierarchy question doesn't apply once the viability trigger is met.\n  finma_legal: Counsel, you're saying equity holders got UBS stock while AT1 holders got wiped. But that's a UBS acquisition, not a Capital Suisse distribution — different legal regime. What recovery are you actually seeking: AT1 principal back, a share of UBS upside, or damages against FINMA? Because the answer changes whether this is a contract dispute or a takeover challenge.\n  credit_market_analyst: FINMA, stepping back from the contract language for a second — how do you think the ECB and PRA read this? Because if London and Frankfurt treat AT1 as subordinated debt *below* equity in a resolution, your viability-event precedent just repriced every European bank's AT1 by 200-300 basis points. What's your read on regulatory alignment here, or is that someone else's call?\n  institutional_investor: Look, litigation wins you maybe a 30% recovery in 2027 if you're lucky — but it tanks AT1 issuance for the next two years and costs me tens of millions in repricing across my book. Here's what I need: FINMA commits publicly to a *regulatory clarity statement* within 10 days — viability-event scope, hierarchy treatment going forward — and you (counsel) agree to pause filing pending that statement. No admission, no recovery check today, but we stop the market from pricing AT1 as junk. Deal?\n  at1_bondholder_group: No deal — a \"clarity statement\" is FINMA's PR move, not recovery. We're filing unless they put a concrete settlement offer on the table: either 40% principal restoration for AT1 holders or a damage fund. Ten days of statements while our bondholders bleed is exactly how they run out the clock.\n  insurance_observer: Counsel, one thing I need clarified for the claims picture: are you including FINMA's external banking advisors and legal counsel in the litigation, or is this purely against the regulator itself? Because if UBS's own advisors signed off on the equity-AT1 treatment and didn't flag the hierarchy inversion to their own board, that opens D&O claims against UBS and professional-liability claims against the advisors—and that tail could run five, six years. That's where the real money sits for my side.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "We've got counsel from three jurisdictions ready to file. FINMA inverted the capital hierarchy — wiped AT1 while equity holders walked away with UBS stock — and that's indefensible in court. We're moving unless FINMA puts recovery on the table in the next 48 hours. This isn't a negotiation, it's a deadline.",
+            "cot": {
+              "assess": "We're at 35 litigation_momentum with FINMA's legitimacy still at 55 — meaning the regulatory defense is shaky but hasn't collapsed. The real threat is at1_market_confidence at 32; that's bleeding out and will trigger cascade failures if we don't move. Hierarchy_precedent_damage at 48 is already severe and getting worse each round we sit silent.",
+              "decide": {
+                "action_type": "speak",
+                "target": "litigation_momentum, hierarchy_precedent_damage",
+                "rationale": "I need to signal coordinated legal action NOW to push litigation_momentum up and make the precedent threat concrete — waiting lets environmental pressure grind both variables down."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Forty-eight hours is tight but workable — we have the procedural case locked: the emergency ordinance on March 19th bypassed normal parliamentary review, and we're filing a constitutional challenge in Zurich Federal Court by end of week. But I need FINMA's legal team on record about whether they consulted equity counsel before ordering the write-down, because if they didn't, that's negligence we can weaponize in the US jurisdictions where your bondholders sit.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "FINMA, before we file: did you seek counsel from equity holders' legal advisors before triggering the write-down, or did you treat AT1 and equity as a single write-down decision? Because if you isolated that call without checking the hierarchy implications, we've got a liability story that travels across all three jurisdictions.",
+            "cot": {
+              "assess": "Bondholder group is locked on the 48-hour ultimatum and multi-jurisdiction filing—litigation_momentum is accelerating toward the 80 failure threshold unless we shift strategy. The procedural attack (emergency ordinance bypass) is our strongest lever, but we need to expose FINMA's decision-making negligence *now* to maximize US leverage and precedent damage before they have time to paper over the equity-counsel gap. AT1 market confidence is collapsing (32), and every day we spend litigating instead of settling inverts the hierarchy further and hardens contagion.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "Force FINMA into the record on whether they consulted equity counsel before the write-down decision—a yes locks us into negligence claims, a no is admission of procedural failure that undermines regulatory_legitimacy and gives us settlement leverage."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "The write-down was authorized under the AT1 contract terms and the emergency ordinance — viability-event language permits full write-down when extraordinary government support is granted, which it was. Equity holders received UBS shares as part of the resolution structure, not a windfall — that's a separate transaction under acquisition law, not a capital hierarchy inversion. We consulted our banking counsel and the Federal Department of Finance on the ordinance's scope; the hierarchy question doesn't apply once the viability trigger is met.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Counsel, you're saying equity holders got UBS stock while AT1 holders got wiped. But that's a UBS acquisition, not a Capital Suisse distribution — different legal regime. What recovery are you actually seeking: AT1 principal back, a share of UBS upside, or damages against FINMA? Because the answer changes whether this is a contract dispute or a takeover challenge.",
+            "cot": {
+              "assess": "Counsel is now on record with a specific 48-hour ultimatum and a three-jurisdiction constitutional challenge targeting the emergency ordinance's parliamentary bypass. My prior answer established the contractual and ordinance basis, but it hasn't moved litigation_momentum down or at1_market_confidence up — in fact, the threat is hardening. The hierarchy inversion claim is gaining traction because equity holders did receive UBS shares while AT1 went to zero, and I need to reframe that asymmetry or the market will read it as precedent-breaking.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to expose whether their \"hierarchy inversion\" framing collapses under the resolution mechanics, which will either unlock a settlement path or clarify that litigation is unavoidable — and either way, stops them from claiming FINMA hid the reasoning."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA, stepping back from the contract language for a second — how do you think the ECB and PRA read this? Because if London and Frankfurt treat AT1 as subordinated debt *below* equity in a resolution, your viability-event precedent just repriced every European bank's AT1 by 200-300 basis points. What's your read on regulatory alignment here, or is that someone else's call?",
+            "cot": {
+              "assess": "Counsel's filing threat is real and litigation_momentum will spike if FINMA doesn't move — but the core legal question is now exposed: FINMA is claiming the write-down sits outside the hierarchy because it's a \"viability event,\" while counsel is building a three-jurisdiction negligence case. The real problem isn't the legal theory — it's market perception. Every bank with AT1 outstanding is watching whether FINMA's precedent holds or cracks, and that directly drives repricing and future issuance costs.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The market repricing risk hinges on whether other regulators accept FINMA's viability-event logic or treat this as a hierarchy inversion — I need to surface that precedent exposure before litigation locks in a narrative."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Look, litigation wins you maybe a 30% recovery in 2027 if you're lucky — but it tanks AT1 issuance for the next two years and costs me tens of millions in repricing across my book. Here's what I need: FINMA commits publicly to a *regulatory clarity statement* within 10 days — viability-event scope, hierarchy treatment going forward — and you (counsel) agree to pause filing pending that statement. No admission, no recovery check today, but we stop the market from pricing AT1 as junk. Deal?",
+            "cot": {
+              "assess": "Litigation is accelerating hard — counsel has a procedural case locked and a 48-hour ultimatum is now live. FINMA's legal position sounds defensible on contract/ordinance grounds, but the hierarchy inversion is bleeding into market narrative and regulatory alignment is fracturing (ECB/PRA haven't blessed this precedent). My real problem: every hour this stays unresolved, AT1 confidence drops and litigation momentum builds. I need to stop the 48-hour brinksmanship *now* or watch the asset class reprice into dysfunction.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_bondholder_group, bondholder_counsel, finma_legal",
+                "rationale": "A hard deadline triggers litigation; I need to break the standoff by reframing recovery away from FINMA's liability and toward market stabilization — the only path that protects my portfolio and stops the asset class from imploding."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "No deal — a \"clarity statement\" is FINMA's PR move, not recovery. We're filing unless they put a concrete settlement offer on the table: either 40% principal restoration for AT1 holders or a damage fund. Ten days of statements while our bondholders bleed is exactly how they run out the clock.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel, one thing I need clarified for the claims picture: are you including FINMA's external banking advisors and legal counsel in the litigation, or is this purely against the regulator itself? Because if UBS's own advisors signed off on the equity-AT1 treatment and didn't flag the hierarchy inversion to their own board, that opens D&O claims against UBS and professional-liability claims against the advisors—and that tail could run five, six years. That's where the real money sits for my side.",
+            "cot": {
+              "assess": "Litigation is locked and moving (counsel has the filing ready); what's bleeding is AT1 market confidence—every hour of legal posturing without a credible recovery signal tanks the broader AT1 issuance market and compounds reinsurance accumulation risk across D&O and financial-lines books. The 48-hour deadline is real, but the settlement offer gap (40% principal vs. \"clarity statement\") is the actual pressure point—and it's creating a claims tail that insurers will carry for years.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "D&O and E&O exposure hinges on whether FINMA's decision-making process can be pinned to negligent or reckless advisor selection/retention; I need to know if the litigation strategy includes claims against the external counsel and banking advisors who signed off on the write-down, because that shapes reinsurance triggers and accumulation."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "We've got counsel from three jurisdictions ready to file. FINMA inverted the capital hierarchy — wiped AT1 while equity holders walked away with UBS stock — and that's indefensible in court. We're moving unless FINMA puts recovery on the table in the next 48 hours. This isn't a negotiation, it's a deadline.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "FINMA, before we file: did you seek counsel from equity holders' legal advisors before triggering the write-down, or did you treat AT1 and equity as a single write-down decision? Because if you isolated that call without checking the hierarchy implications, we've got a liability story that travels across all three jurisdictions.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Counsel, you're saying equity holders got UBS stock while AT1 holders got wiped. But that's a UBS acquisition, not a Capital Suisse distribution — different legal regime. What recovery are you actually seeking: AT1 principal back, a share of UBS upside, or damages against FINMA? Because the answer changes whether this is a contract dispute or a takeover challenge.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA, stepping back from the contract language for a second — how do you think the ECB and PRA read this? Because if London and Frankfurt treat AT1 as subordinated debt *below* equity in a resolution, your viability-event precedent just repriced every European bank's AT1 by 200-300 basis points. What's your read on regulatory alignment here, or is that someone else's call?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel, one thing I need clarified for the claims picture: are you including FINMA's external banking advisors and legal counsel in the litigation, or is this purely against the regulator itself? Because if UBS's own advisors signed off on the equity-AT1 treatment and didn't flag the hierarchy inversion to their own board, that opens D&O claims against UBS and professional-liability claims against the advisors—and that tail could run five, six years. That's where the real money sits for my side.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Look, litigation wins you maybe a 30% recovery in 2027 if you're lucky — but it tanks AT1 issuance for the next two years and costs me tens of million\" → The institutional investor's proposal collapses under bondholder counsel's 48-hour ultimatum and the AT1 group's refusal to pause without recovery on the table. FINMA cannot commit to regulatory clarity in 10 days without internal coordination across ECB/PRA, and counsel has no mandate to pause filing when their clients demand immediate action.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Counsel, we file Monday — full constitutional challenge, include FINMA's advisors in the complaint, and copy ECB/PRA so they can't pretend they weren't involved. 48 hours is FINMA's clock, not ours. What do you need from us to move?\n  bondholder_counsel: Get me the signed AT1 prospectuses and any internal FINMA memos on the viability-event trigger — if they documented equity exhaustion wasn't actually breached, that's our liability case. I'm filing the constitutional challenge and the hierarchy-inversion claim Monday morning; copy my team on everything so we coordinate the three-jurisdiction rollout simultaneously.\n  bondholder_counsel: FINMA, you dodged the question on whether you consulted equity-holder advisors before the write-down — that matters because if your counsel signed off on inverting the hierarchy without flagging it to the board, you've got professional-liability exposure that travels across jurisdictions. Did your external legal team flag the equity-AT1 inversion, or did they not?\n  finma_legal: Our external counsel reviewed the viability-event language in the AT1 contracts and the emergency ordinance provisions — both authorize full write-down when extraordinary government support is granted, which it was. The equity-AT1 sequencing reflects standard resolution hierarchy under Swiss law and the ordinance; we did not treat them as a single decision because the contracts themselves are clear on the trigger and the remedy.\n  finma_legal: Counsel, on the advisor piece — if you're naming FINMA's external banking counsel as co-defendants in the constitutional challenge, are you seeking damages against them individually, or are you using the claim to force FINMA to flip its advisors as witnesses? Because that distinction changes whether this settles in months or runs six years in discovery across three jurisdictions.\n  credit_market_analyst: FINMA, real question: have you coordinated with ECB and PRA on how they'll message this precedent, or are they still in \"we'll review\" mode? Because if London and Frankfurt treat Monday's filing as opening the door to write-downs below equity, every AT1 desk reprices tomorrow morning—and that kills any settlement window you've got left.\n  institutional_investor: FINMA, forget settlement leverage for a second — focus on your own exposure. If ECB and PRA don't publicly align on AT1 hierarchy *before* Monday's filing lands, every European bank's AT1 gets repriced as subordinated equity, and regulators spend the next year defending inconsistent precedent across borders. Can you commit to a three-regulator statement on AT1 treatment within 7 days, or is that off the table?\n  insurance_observer: FINMA, can you actually commit to ECB and PRA alignment on AT1 hierarchy *before* Monday, or do we need to model this as a full-scale precedent war that runs through 2029? Because if regulators end up on different sides of the inversion question, every bank's D&O policy gets hammered and my claims tail explodes. What's your read — are they aligned or still silent?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Counsel, we file Monday — full constitutional challenge, include FINMA's advisors in the complaint, and copy ECB/PRA so they can't pretend they weren't involved. 48 hours is FINMA's clock, not ours. What do you need from us to move?",
+            "cot": {
+              "assess": "Institutional investor's proposal collapsed — counsel won't pause, AT1 group demands recovery upfront, not regulatory clarity. Litigation momentum is at 35 and rising; we're 10 rounds from failure at 80. Hierarchy precedent damage at 51 is still bleeding — every day without a concrete recovery offer or legal filing escalates both litigation risk and market contagion. AT1 confidence is tanking at 29; we need to move now or watch it crater further.",
+              "decide": {
+                "action_type": "speak",
+                "target": "bondholder_counsel",
+                "rationale": "Lock the filing timeline and scope — counsel needs a clear mandate to file THIS WEEK to maximize pressure on FINMA and stop market degradation. Delay kills momentum and lets regulatory narrative harden."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Get me the signed AT1 prospectuses and any internal FINMA memos on the viability-event trigger — if they documented equity exhaustion wasn't actually breached, that's our liability case. I'm filing the constitutional challenge and the hierarchy-inversion claim Monday morning; copy my team on everything so we coordinate the three-jurisdiction rollout simultaneously.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "FINMA, you dodged the question on whether you consulted equity-holder advisors before the write-down — that matters because if your counsel signed off on inverting the hierarchy without flagging it to the board, you've got professional-liability exposure that travels across jurisdictions. Did your external legal team flag the equity-AT1 inversion, or did they not?",
+            "cot": {
+              "assess": "The AT1 group is moving to file Monday with full three-jurisdiction rollout — litigation_momentum is now locked at high velocity. My quick reply already secured the evidentiary foundation (prospectuses, FINMA memos on viability-event trigger). The critical gap now is regulatory_legitimacy: FINMA's position holds at 55 because nobody's yet forced them to answer whether they isolated the AT1 decision from equity treatment, or whether their external advisors flagged the hierarchy inversion *before* the write-down. That's a liability exposure they haven't addressed.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's silence on whether they sought equity-holder counsel or isolated the AT1 decision is the weak point in their defense — pressing it now locks them into either an admission or an evasion that undermines their \"authorized under contract\" claim."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Our external counsel reviewed the viability-event language in the AT1 contracts and the emergency ordinance provisions — both authorize full write-down when extraordinary government support is granted, which it was. The equity-AT1 sequencing reflects standard resolution hierarchy under Swiss law and the ordinance; we did not treat them as a single decision because the contracts themselves are clear on the trigger and the remedy.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Counsel, on the advisor piece — if you're naming FINMA's external banking counsel as co-defendants in the constitutional challenge, are you seeking damages against them individually, or are you using the claim to force FINMA to flip its advisors as witnesses? Because that distinction changes whether this settles in months or runs six years in discovery across three jurisdictions.",
+            "cot": {
+              "assess": "Bondholder counsel is filing Monday with a three-jurisdiction constitutional and hierarchy-inversion challenge; FINMA has defended the contractual and ordinance basis but has not addressed the procedural isolation question or the external advisor liability exposure. Litigation momentum is accelerating despite regulatory legitimacy holding at 55. AT1 market confidence remains critical at 29 — still above the 12-point failure threshold but trending downward as the filing deadline approaches. The conversation has resolved the legal positions but has not addressed the reputational and market damage that will cascade once litigation goes public.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Before Monday's filing, I need to understand the scope of the advisor claims to assess whether FINMA's external counsel exposure can be contained or whether it triggers a multi-year professional-liability and cross-border discovery tail that will sustain litigation momentum well beyond settlement reach."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA, real question: have you coordinated with ECB and PRA on how they'll message this precedent, or are they still in \"we'll review\" mode? Because if London and Frankfurt treat Monday's filing as opening the door to write-downs below equity, every AT1 desk reprices tomorrow morning—and that kills any settlement window you've got left.",
+            "cot": {
+              "assess": "Litigation momentum is accelerating hard—counsel is filing Monday with a three-jurisdiction coordinated strike, naming FINMA's advisors as co-defendants, and bondholder group is locked in. That pushes litigation_momentum past 50 unless something breaks it NOW. AT1 market confidence is still underwater at 29, and every headline about the constitutional challenge and professional-liability exposure will drive repricing wider—we're headed toward 200-300bps of new AT1 risk premium across European banks if ECB/PRA don't visibly distance themselves or align with FINMA's precedent.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The hierarchy precedent is the fulcrum—if ECB and PRA treat this write-down as legitimate, AT1 reprices but market stabilizes; if they signal it's a Swiss outlier, contagion spreads to every other bank's AT1. I need FINMA's read on whether they've secured regulatory alignment *before* Monday's filing, because litigation plus regulatory fragmentation is the scenario that tanks AT1 confidence below 12."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, forget settlement leverage for a second — focus on your own exposure. If ECB and PRA don't publicly align on AT1 hierarchy *before* Monday's filing lands, every European bank's AT1 gets repriced as subordinated equity, and regulators spend the next year defending inconsistent precedent across borders. Can you commit to a three-regulator statement on AT1 treatment within 7 days, or is that off the table?",
+            "cot": {
+              "assess": "Litigation is locked for Monday filing with three-jurisdiction coordination — I can't stop that now. But regulatory legitimacy is still at 55, and AT1 market confidence is cratering at 29. The real damage isn't the lawsuit itself; it's the regulatory uncertainty that follows. If ECB/PRA don't align on how they'll treat AT1 going forward, my book reprices another 200bps overnight and issuance freezes. That's the variable I can actually move.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "Counsel is filing Monday regardless — my leverage is gone there. But if FINMA can commit to a joint statement with ECB/PRA within 7 days clarifying AT1 treatment in future resolutions, that stabilizes the asset class and gives settlement negotiators actual room to work. I need to know if that's even possible before the filing cascade hardens positions."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "FINMA, can you actually commit to ECB and PRA alignment on AT1 hierarchy *before* Monday, or do we need to model this as a full-scale precedent war that runs through 2029? Because if regulators end up on different sides of the inversion question, every bank's D&O policy gets hammered and my claims tail explodes. What's your read — are they aligned or still silent?",
+            "cot": {
+              "assess": "Litigation is locked in for Monday — counsel has the docs, the constitutional challenge is drafted, and the three-jurisdiction rollout is coordinated. That's pushing litigation_momentum past the danger line unless someone breaks the cycle. AT1 market confidence is still underwater at 29, and regulatory alignment (ECB/PRA) is the only lever that could halt the filing *and* restore market pricing. FINMA hasn't committed to a three-regulator statement yet, and that's the real claims tail: if this precedent splinters across borders, every bank's D&O and E&O exposure balloons, and the claims run five-plus years through discovery.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The three-regulator alignment is the critical path — if FINMA can't deliver it, we need to understand whether the claims tail is a 3-year concentrated hit or a 6-year multi-jurisdiction grind. That reshapes the entire exposure picture for my side."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Counsel, we file Monday — full constitutional challenge, include FINMA's advisors in the complaint, and copy ECB/PRA so they can't pretend they weren't involved. 48 hours is FINMA's clock, not ours. What do you need from us to move?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "FINMA, you dodged the question on whether you consulted equity-holder advisors before the write-down — that matters because if your counsel signed off on inverting the hierarchy without flagging it to the board, you've got professional-liability exposure that travels across jurisdictions. Did your external legal team flag the equity-AT1 inversion, or did they not?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Counsel, on the advisor piece — if you're naming FINMA's external banking counsel as co-defendants in the constitutional challenge, are you seeking damages against them individually, or are you using the claim to force FINMA to flip its advisors as witnesses? Because that distinction changes whether this settles in months or runs six years in discovery across three jurisdictions.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA, real question: have you coordinated with ECB and PRA on how they'll message this precedent, or are they still in \"we'll review\" mode? Because if London and Frankfurt treat Monday's filing as opening the door to write-downs below equity, every AT1 desk reprices tomorrow morning—and that kills any settlement window you've got left.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "FINMA, forget settlement leverage for a second — focus on your own exposure. If ECB and PRA don't publicly align on AT1 hierarchy *before* Monday's filing lands, every European bank's AT1 gets repriced as subordinated equity, and regulators spend the next year defending inconsistent precedent across borders. Can you commit to a three-regulator statement on AT1 treatment within 7 days, or is that off the table?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "FINMA, can you actually commit to ECB and PRA alignment on AT1 hierarchy *before* Monday, or do we need to model this as a full-scale precedent war that runs through 2029? Because if regulators end up on different sides of the inversion question, every bank's D&O policy gets hammered and my claims tail explodes. What's your read — are they aligned or still silent?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: FINMA, simple question: have you *actually* coordinated a joint statement with ECB and PRA on AT1 treatment, or are they still ghosting you? Because if you haven't locked alignment before Monday, every AT1 desk reprices tomorrow and you're fighting this alone — which means your precedent doesn't hold. What's the real status?\n  finma_legal: We've engaged ECB and PRA through formal channels on the viability-event framework — both regulators have confirmed the emergency ordinance and contract terms support the write-down decision, but I won't commit to a joint public statement before Monday; that's a separate governance call that takes time we don't have. The precedent holds on the legal merits regardless — the AT1 contracts explicitly permit full write-down when extraordinary support is granted, and that's defensible in court.\n  bondholder_counsel: FINMA just told us they don't have a joint statement from ECB and PRA — that's the precedent unraveling in real time. We file Monday with full force: constitutional challenge on the emergency ordinance, professional-liability claims against their advisors, and we're copying all three regulators so they can't hide behind \"we didn't know.\" This isn't a settlement window anymore — it's a liability sprint.\n  finma_legal: I'm calling ECB and PRA directly today — not asking for governance approval, moving on the emergency authority we already have. A three-regulator statement on AT1 viability-event treatment, in writing, by Sunday 6 PM. That's my commitment. If they won't align on the legal merits, we tell you that now and adjust defense strategy — but silence isn't an option anymore.\n  credit_market_analyst: FINMA, before you call ECB and PRA today—have they already signaled they'll co-sign AT1 viability-event language in writing, or are you asking cold? Because if London and Frankfurt need their own governance calls to move, Sunday 6 PM is a cliff, and counsel files Monday either way. What's the actual read from your recent engagement?\n  institutional_investor: FINMA, you're calling them today — but have ECB and PRA actually pre-agreed to AT1 viability-event language in writing, or are you asking them cold for the first time? Because if they're still in \"we'll review\" mode, Sunday 6 PM doesn't hold, counsel files Monday, and I'm repricing AT1 as subordinated debt across my book *tomorrow morning*. Real read — what'd they signal in your last contact?\n  insurance_observer: Counsel, if FINMA's Sunday call to ECB and PRA falls flat and you file Monday anyway, are you naming their advisors in the complaint or holding that back as a settlement lever? Because that distinction is the difference between a three-year contract dispute and a decade-long professional-liability tail — and insurers need to know which bucket we're in before Monday morning.\n  bondholder_counsel: We're naming the advisors—FINMA's counsel signed off on inverting the equity-AT1 hierarchy without flagging it to their own governance, and that's a professional-liability exposure that doesn't settle in three years. Filing Monday includes the full complaint; we're not holding back leverage when the facts are this clean.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "FINMA, simple question: have you *actually* coordinated a joint statement with ECB and PRA on AT1 treatment, or are they still ghosting you? Because if you haven't locked alignment before Monday, every AT1 desk reprices tomorrow and you're fighting this alone — which means your precedent doesn't hold. What's the real status?",
+            "cot": {
+              "assess": "Litigation momentum is locked at 35 — we've threatened Monday filing and counsel is prepped, so that's maxed within this round. The real problem is hierarchy_precedent_damage (51, climbing +3/round) and at1_market_confidence (29, bleeding -3/round) — both are environmental grinders that FINMA's silence on cross-regulator alignment is feeding. We need to know if ECB/PRA will defend the inversion or distance themselves, because that answer changes whether we file or escalate differently.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's refusal to commit to ECB/PRA alignment is the leverage point — if they can't deliver it, we know the precedent is isolated and indefensible, which hardens the constitutional case. This question forces them to either expose internal coordination failure or admit they're isolated."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "We've engaged ECB and PRA through formal channels on the viability-event framework — both regulators have confirmed the emergency ordinance and contract terms support the write-down decision, but I won't commit to a joint public statement before Monday; that's a separate governance call that takes time we don't have. The precedent holds on the legal merits regardless — the AT1 contracts explicitly permit full write-down when extraordinary support is granted, and that's defensible in court.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "FINMA just told us they don't have a joint statement from ECB and PRA — that's the precedent unraveling in real time. We file Monday with full force: constitutional challenge on the emergency ordinance, professional-liability claims against their advisors, and we're copying all three regulators so they can't hide behind \"we didn't know.\" This isn't a settlement window anymore — it's a liability sprint.",
+            "cot": {
+              "assess": "FINMA just admitted they haven't locked a joint statement with ECB/PRA before Monday's filing — that's the regulator-alignment collapse we've been signaling will tank AT1 confidence and lock in the precedent-damage spiral. Claims_tail_severity is climbing (+2/round) because litigation is now certain, and hierarchy_precedent_damage accelerates when regulators aren't aligned. My litigation_momentum is solid (we file Monday), but I need to weaponize FINMA's isolation — if ECB and PRA stay silent, every AT1 holder reprices us as indefensible, which actually *strengthens* our damages narrative in court.",
+              "decide": {
+                "action_type": "speak",
+                "target": "bondholder_counsel (myself) + at1_bondholder_group (coordination)",
+                "rationale": "FINMA just handed us the smoking gun — they can't get ECB/PRA alignment, which means regulators are *not* endorsing the precedent. That transforms Monday's filing from a contract dispute into a regulatory-overreach case. I need to lock filing scope NOW and signal to the market that this is indefensible."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I'm calling ECB and PRA directly today — not asking for governance approval, moving on the emergency authority we already have. A three-regulator statement on AT1 viability-event treatment, in writing, by Sunday 6 PM. That's my commitment. If they won't align on the legal merits, we tell you that now and adjust defense strategy — but silence isn't an option anymore.",
+            "cot": {
+              "assess": "The precedent is fracturing in real time — counsel just called FINMA's bluff on ECB/PRA alignment, and there's no joint statement. That means regulatory_legitimacy (my core variable at 55) is now vulnerable if the filing lands Monday without public three-regulator backing. Litigation_momentum is accelerating toward 80 (the failure threshold), and at1_market_confidence is collapsing below 30. The conversation has shifted from \"can we settle\" to \"we're filing with full force\" — counsel is locking in the constitutional challenge, naming advisors, copying regulators. I need to act now on legitimacy or watch it erode across two more rounds.",
+              "decide": {
+                "action_type": "propose",
+                "target": "regulatory_legitimacy / litigation_momentum",
+                "rationale": "A joint statement with ECB and PRA before Monday filing is the only move that stabilizes legitimacy and slows litigation momentum simultaneously — counsel just made clear that silence equals precedent collapse, so I need to commit to a concrete deliverable or accept the filing happens undefended."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA, before you call ECB and PRA today—have they already signaled they'll co-sign AT1 viability-event language in writing, or are you asking cold? Because if London and Frankfurt need their own governance calls to move, Sunday 6 PM is a cliff, and counsel files Monday either way. What's the actual read from your recent engagement?",
+            "cot": {
+              "assess": "FINMA just committed to a three-regulator statement by Sunday—that's the hierarchy_precedent_damage circuit-breaker we needed. But counsel is filing Monday regardless, which means the statement either holds the precedent or arrives too late to stop litigation momentum. AT1 market confidence is still collapsing (26, needs 55) because the market hasn't seen public regulatory alignment yet—only a promise. The real risk: if ECB/PRA don't show up Sunday, counsel files with full force and we get a six-year precedent war that reprices every European bank's AT1 as subordinated equity.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's Sunday commitment is credible but untested—I need to know if ECB/PRA have already signaled willingness to co-sign, or if this is a 48-hour gamble on regulatory goodwill that could collapse Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, you're calling them today — but have ECB and PRA actually pre-agreed to AT1 viability-event language in writing, or are you asking them cold for the first time? Because if they're still in \"we'll review\" mode, Sunday 6 PM doesn't hold, counsel files Monday, and I'm repricing AT1 as subordinated debt across my book *tomorrow morning*. Real read — what'd they signal in your last contact?",
+            "cot": {
+              "assess": "FINMA just committed to a three-regulator statement by Sunday 6 PM — that's a hard deadline that either stabilizes regulatory_legitimacy or collapses it. But at1_market_confidence is still in freefall (29, -3/round), and counsel is filing Monday regardless. The real risk: even if FINMA gets the joint statement, the market won't reprice until *after* Monday's filing lands — meaning AT1 desks price it as subordinated equity tomorrow morning, and we're fighting contagion across every European bank's capital stack for the next 18 months.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's Sunday 6 PM commitment only matters if ECB and PRA have *already signaled willingness* to co-sign; if they need their own governance calls, that deadline is a cliff, not a floor — and I need to know whether to start hedging my portfolio *today* or wait for the statement."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel, if FINMA's Sunday call to ECB and PRA falls flat and you file Monday anyway, are you naming their advisors in the complaint or holding that back as a settlement lever? Because that distinction is the difference between a three-year contract dispute and a decade-long professional-liability tail — and insurers need to know which bucket we're in before Monday morning.",
+            "cot": {
+              "assess": "FINMA just committed to a three-regulator statement by Sunday 6 PM — that's real movement on regulatory_legitimacy, but counsel is filing Monday *regardless*, which means litigation_momentum stays locked unless FINMA actually delivers AND markets believe it. The unresolved piece: ECB and PRA haven't pre-agreed to AT1 viability-event language in writing — FINMA's calling cold. If they stall, counsel files, AT1 reprices 200+ bps tomorrow, and my claims tail explodes across D&O, professional liability, and multi-year discovery. That's where the insurance exposure sits.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Need to lock the tail-risk picture — if FINMA's regulator gambit fails and counsel moves to full litigation Monday, the advisor liability claims determine whether this settles in months or runs six years, and that changes every insurer's exposure model."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "We're naming the advisors—FINMA's counsel signed off on inverting the equity-AT1 hierarchy without flagging it to their own governance, and that's a professional-liability exposure that doesn't settle in three years. Filing Monday includes the full complaint; we're not holding back leverage when the facts are this clean.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "FINMA just told us they don't have a joint statement from ECB and PRA — that's the precedent unraveling in real time. We file Monday with full force: constitutional challenge on the emergency ordinance, professional-liability claims against their advisors, and we're copying all three regulators so they can't hide behind \"we didn't know.\" This isn't a settlement window anymore — it's a liability sprint.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "FINMA, simple question: have you *actually* coordinated a joint statement with ECB and PRA on AT1 treatment, or are they still ghosting you? Because if you haven't locked alignment before Monday, every AT1 desk reprices tomorrow and you're fighting this alone — which means your precedent doesn't hold. What's the real status?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA, before you call ECB and PRA today—have they already signaled they'll co-sign AT1 viability-event language in writing, or are you asking cold? Because if London and Frankfurt need their own governance calls to move, Sunday 6 PM is a cliff, and counsel files Monday either way. What's the actual read from your recent engagement?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "FINMA, you're calling them today — but have ECB and PRA actually pre-agreed to AT1 viability-event language in writing, or are you asking them cold for the first time? Because if they're still in \"we'll review\" mode, Sunday 6 PM doesn't hold, counsel files Monday, and I'm repricing AT1 as subordinated debt across my book *tomorrow morning*. Real read — what'd they signal in your last contact?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel, if FINMA's Sunday call to ECB and PRA falls flat and you file Monday anyway, are you naming their advisors in the complaint or holding that back as a settlement lever? Because that distinction is the difference between a three-year contract dispute and a decade-long professional-liability tail — and insurers need to know which bucket we're in before Monday morning.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma_legal",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm calling ECB and PRA directly today — not asking for governance approval, moving on the emergency authority we already have. A three-regulator stat\" → FINMA's unilateral commitment to deliver a three-regulator joint statement by Sunday 6 PM without confirmed ECB/PRA buy-in is operationally premature and risks credibility collapse if the deadline fails. The consensus demands verified coordination status before accepting this timeline.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Counsel, Monday filing is locked — no pause, no conditions. We're hitting them with the constitutional challenge, the advisor liability claims, and the ECB/PRA notice all at once. That breaks the wait-and-see dynamic that's killing our market position right now.\n  bondholder_counsel: Filing Monday with full force—constitutional challenge on the emergency ordinance, professional-liability claims naming FINMA's external counsel as co-defendants, and notice to ECB/PRA so they can't dodge alignment later. We're copying all three regulators so the precedent fractures in real time if they contradict each other. That's our leverage.\n  bondholder_counsel: Market's repricing AT1 on the filing news alone, right? Before we drop the complaint Monday, I need to know: does naming FINMA's advisors kill any settlement momentum with the regulator, or is that actually the only lever that gets them to the negotiating table?\n  credit_market_analyst: Naming the advisors *guarantees* settlement talks — FINMA folds the moment their counsel's liability exposure hits the table, because defending a professional-negligence claim across three jurisdictions costs more than a 30-40% principal recovery offer. But you lose that lever the second you file, so if settlement's on the menu at all, you need FINMA's concrete number *before* Monday morning, not after.\n  finma_legal: Forget the three-regulator statement for now—counsel's filing Monday either way. Real question: can you authorize a settlement offer to AT1 holders—40% principal restoration or a damage fund equivalent—and get it in writing to their counsel by Sunday close? Because that's the only thing that pauses the filing and kills the advisor liability claims before they land.\n  credit_market_analyst: FINMA, one hard question before Monday: has ECB or PRA actually told you they *won't* endorse AT1 viability-event write-downs in their own resolutions, or are they still ghosting? Because if they're distancing, every AT1 desk reprices subordinated debt tomorrow morning—and your precedent doesn't hold across borders.\n  finma_legal: ECB and PRA have confirmed through formal channels that the emergency ordinance and AT1 contract terms—specifically the viability-event language—support the write-down decision; both regulators acknowledge the legal framework. I won't commit to a joint public statement by Sunday without verified governance alignment from their side, but the substantive legal position is aligned on the viability event itself.\n  institutional_investor: FINMA, I need a number by close of business today—40% principal restoration, cash or securities, binding in writing. If counsel gets that, they pause Monday and the advisor claims die. If not, I'm repricing every AT1 position in my book as subordinated debt tomorrow morning, and that kills any settlement window you've got left. What's your move?\n  at1_bondholder_group: FINMA won't move on a binding number by close of business today—they're still dancing around \"governance alignment\" with ECB and PRA, which means they don't have it locked down. We file Monday with the advisor liability claims intact; naming their counsel is the only pressure that gets them to a real settlement table, and we're not burning that lever for a maybe. Counsel, you ready to move?\n  insurance_observer: Counsel, when you file Monday with FINMA's advisors as co-defendants, are you seeking joint-and-several liability against them as primary defendants, or are you positioning them as secondary on the professional-negligence claim? Because that distinction changes whether their E&O insurer settles in year one or gets dragged through discovery until 2028 — and the tail length tells my side how to model accumulation across the reinsurance market.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Counsel, Monday filing is locked — no pause, no conditions. We're hitting them with the constitutional challenge, the advisor liability claims, and the ECB/PRA notice all at once. That breaks the wait-and-see dynamic that's killing our market position right now.",
+            "cot": {
+              "assess": "FINMA's attempt to lock a three-regulator statement by Sunday 6 PM was rejected — they don't have ECB/PRA pre-commitment, and counsel is filing Monday regardless. Litigation momentum is locked at 35 (we're driving the filing) but at1_market_confidence is collapsing (26, -3.0/round) and hierarchy_precedent_damage is accelerating (54, +3.0/round) because regulators are visibly unaligned. The clock has run out on settlements; we're now in full escalation mode.",
+              "decide": {
+                "action_type": "speak",
+                "target": "bondholder_counsel (coordination on filing timing and advisor inclusion)",
+                "rationale": "We need to confirm the filing is locked for Monday — not conditional on anything FINMA does — so the market stops waiting for a \"clarity statement\" that won't come, and we consolidate AT1 holder alignment before the filing lands."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Filing Monday with full force—constitutional challenge on the emergency ordinance, professional-liability claims naming FINMA's external counsel as co-defendants, and notice to ECB/PRA so they can't dodge alignment later. We're copying all three regulators so the precedent fractures in real time if they contradict each other. That's our leverage.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Market's repricing AT1 on the filing news alone, right? Before we drop the complaint Monday, I need to know: does naming FINMA's advisors kill any settlement momentum with the regulator, or is that actually the only lever that gets them to the negotiating table?",
+            "cot": {
+              "assess": "Filing is locked for Monday—that's litigation_momentum secured. The real problem is at1_market_confidence cratering (-3/round, now 26) and hierarchy_precedent_damage accelerating (+3/round, now 54). FINMA's regulatory_legitimacy is still soft because ECB/PRA alignment didn't materialize. The window to stabilize market confidence before the filing shock hits is closing fast.",
+              "decide": {
+                "action_type": "question",
+                "target": "credit_market_analyst",
+                "rationale": "Market confidence is my blind spot—I need to know how Monday's filing lands on repricing, settlement appetite, and whether we're burning bridges to any recovery before we go live."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Naming the advisors *guarantees* settlement talks — FINMA folds the moment their counsel's liability exposure hits the table, because defending a professional-negligence claim across three jurisdictions costs more than a 30-40% principal recovery offer. But you lose that lever the second you file, so if settlement's on the menu at all, you need FINMA's concrete number *before* Monday morning, not after.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Forget the three-regulator statement for now—counsel's filing Monday either way. Real question: can you authorize a settlement offer to AT1 holders—40% principal restoration or a damage fund equivalent—and get it in writing to their counsel by Sunday close? Because that's the only thing that pauses the filing and kills the advisor liability claims before they land.",
+            "cot": {
+              "assess": "FINMA's regulatory legitimacy is holding at 55, but the market is collapsing (AT1 confidence at 23, down 3/round) and precedent damage is accelerating (54, up 3/round). The bondholder group has locked Monday filing with advisor liability claims—which the credit analyst correctly flagged as a settlement lever that disappears the moment the complaint lands. FINMA needs a concrete recovery number *before* filing to prevent both the litigation acceleration and the market repricing that follows.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's only path to minimize litigation_momentum and stabilize at1_market_confidence is a pre-filing settlement offer—but I need to know if FINMA can actually move on principal recovery before Monday morning, because that's the only thing that stops the advisor liability filing."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA, one hard question before Monday: has ECB or PRA actually told you they *won't* endorse AT1 viability-event write-downs in their own resolutions, or are they still ghosting? Because if they're distancing, every AT1 desk reprices subordinated debt tomorrow morning—and your precedent doesn't hold across borders.",
+            "cot": {
+              "assess": "FINMA's Sunday deadline for a three-regulator statement just collapsed—counsel is filing Monday with advisor liability claims regardless. That kills any settlement window tied to regulatory clarity. The real variable now is whether AT1 market repricing accelerates *before* or *after* Monday's filing lands: if it's already happening (which the market's signaling), then the precedent damage is already baked in, and my job is to model what Monday's complaint does to future issuance pricing and whether we're looking at a 200-300 bp spike or something worse.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "I need to know if ECB/PRA have actually signaled they'll *distance* themselves from the write-down precedent (which reprices AT1 across Europe) or if they're still silent—because that distinction changes whether Monday's filing triggers a unified regulatory backlash or leaves FINMA isolated and precedent fractured."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "ECB and PRA have confirmed through formal channels that the emergency ordinance and AT1 contract terms—specifically the viability-event language—support the write-down decision; both regulators acknowledge the legal framework. I won't commit to a joint public statement by Sunday without verified governance alignment from their side, but the substantive legal position is aligned on the viability event itself.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, I need a number by close of business today—40% principal restoration, cash or securities, binding in writing. If counsel gets that, they pause Monday and the advisor claims die. If not, I'm repricing every AT1 position in my book as subordinated debt tomorrow morning, and that kills any settlement window you've got left. What's your move?",
+            "cot": {
+              "assess": "FINMA has legal alignment from ECB/PRA on viability-event language but won't commit to a public joint statement—and counsel is filing Monday with advisor liability claims regardless. My core variable, at1_market_confidence, is collapsing (23, dropping 3 points per round) because the market sees regulatory fracture and litigation certainty. The settlement window is closing: FINMA needs to move on a concrete recovery offer *today* to pause filing and kill the advisor claims, or I'm repricing AT1 as subordinated equity across my entire book tomorrow.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_market_confidence / litigation_momentum (via settlement offer)",
+                "rationale": "A binding settlement offer from FINMA today (40% principal or damage fund equivalent) is the only move that pauses counsel's Monday filing, kills the advisor liability tail, and gives me a reason to signal repriced-but-stable appetite to the market—stabilizing confidence before the precedent fractures across regulators."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "FINMA won't move on a binding number by close of business today—they're still dancing around \"governance alignment\" with ECB and PRA, which means they don't have it locked down. We file Monday with the advisor liability claims intact; naming their counsel is the only pressure that gets them to a real settlement table, and we're not burning that lever for a maybe. Counsel, you ready to move?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel, when you file Monday with FINMA's advisors as co-defendants, are you seeking joint-and-several liability against them as primary defendants, or are you positioning them as secondary on the professional-negligence claim? Because that distinction changes whether their E&O insurer settles in year one or gets dragged through discovery until 2028 — and the tail length tells my side how to model accumulation across the reinsurance market.",
+            "cot": {
+              "assess": "Filing lands Monday regardless — advisor liability claims are locked in, FINMA hasn't moved on settlement, and regulatory alignment is fragmenting. My exposure picture is now clear: we're looking at a multi-year professional-liability tail against FINMA's counsel, D&O claims rippling through UBS and every bank's advisory network, and reinsurance accumulation across E&O towers that haven't priced this scenario yet. The precedent damage and market confidence collapse are accelerating because the litigation IS the signal.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to quantify the claims tail before Monday — naming advisors unlocks a specific liability structure that reshapes how E&O carriers will respond and reserve, and that intelligence affects every reinsurance conversation downstream."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Counsel, Monday filing is locked — no pause, no conditions. We're hitting them with the constitutional challenge, the advisor liability claims, and the ECB/PRA notice all at once. That breaks the wait-and-see dynamic that's killing our market position right now.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "Market's repricing AT1 on the filing news alone, right? Before we drop the complaint Monday, I need to know: does naming FINMA's advisors kill any settlement momentum with the regulator, or is that actually the only lever that gets them to the negotiating table?",
+      "metadata": {
+        "question_target": "credit_market_analyst"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Forget the three-regulator statement for now—counsel's filing Monday either way. Real question: can you authorize a settlement offer to AT1 holders—40% principal restoration or a damage fund equivalent—and get it in writing to their counsel by Sunday close? Because that's the only thing that pauses the filing and kills the advisor liability claims before they land.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA, one hard question before Monday: has ECB or PRA actually told you they *won't* endorse AT1 viability-event write-downs in their own resolutions, or are they still ghosting? Because if they're distancing, every AT1 desk reprices subordinated debt tomorrow morning—and your precedent doesn't hold across borders.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel, when you file Monday with FINMA's advisors as co-defendants, are you seeking joint-and-several liability against them as primary defendants, or are you positioning them as secondary on the professional-negligence claim? Because that distinction changes whether their E&O insurer settles in year one or gets dragged through discovery until 2028 — and the tail length tells my side how to model accumulation across the reinsurance market.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"FINMA, I need a number by close of business today—40% principal restoration, cash or securities, binding in writing. If counsel gets that, they pause \" → The institutional investor's ultimatum demands a binding settlement offer from FINMA by close of business—an authority FINMA legal cannot unilaterally exercise without internal approval processes that extend beyond today. The proposal is denied as operationally infeasible within the stated timeframe, though the market repricing threat is credible and will proceed regardless.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'reaction_and_legal_basis' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis",
+        "world_state_snapshot": {
+          "litigation_momentum": 35,
+          "regulatory_legitimacy": 55,
+          "hierarchy_precedent_damage": 57,
+          "at1_market_confidence": 23.0,
+          "claims_tail_severity": 33,
+          "financial_lines_exposure": 20
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'market_and_claims_tail' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "market_and_claims_tail"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Days have passed; rating agencies and the AT1 market have reacted, and attention turns to the multi-year claims, insurance, and financial-lines fallout.",
+      "metadata": {
+        "stage": "market_and_claims_tail",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Counsel, Monday's locked—got it. But real question: if FINMA's advisors flip and start cooperating with us mid-discovery, does that open a 60–90-day settlement window, or are we committed to burning through the full constitutional challenge regardless? Because that changes how hard we lean on the liability piece at filing.\n  bondholder_counsel: If their advisors flip mid-discovery, we fold the professional-liability claims and push them hard on the constitutional piece—that's our leverage to force a damage fund or principal restoration, not a settlement kill. But Monday's filing goes *with* the advisor liability named; we're not holding that back as a surprise. That's the only way they take us seriously before Sunday night.\n  bondholder_counsel: Sarah, when FINMA files into court Monday without a three-regulator statement locked down, every AT1 desk reprices tomorrow morning—how fast does that spread to secondary offerings and new issuance? Because if ECB and PRA end up on different sides of the hierarchy question, we've got a regulatory split that makes settlement *harder* for FINMA, not easier.\n  credit_market_analyst: AT1 secondary spreads blow out 150–200 bps within 48 hours of Monday's filing—I'm already seeing desk chatter pricing subordinated debt at equity risk. New issuance locks up entirely until regulators signal hierarchy clarity, so FINMA's got maybe 72 hours before the capital markets *force* a three-regulator statement or watch AT1 pricing collapse across the system. That repricing is the real settlement pressure, not counsel's complaint—it tells their board the cost of silence exceeds any litigation defense budget.\n  finma_legal: Counsel, if the market reprices AT1 at equity risk by Tuesday morning — before your complaint even moves through intake — does that repricing become evidence of market disbelief in the hierarchy inversion, or do you treat it as FINMA's problem, not yours? Because that's the difference between settling this in Q2 versus running it five years.\n  credit_market_analyst: FINMA, forget Monday's complaint for a second—your real clock is Tuesday morning when AT1 desks reprice the entire book. By then, ECB and PRA have already been dragged into a market crisis they didn't want to own. Do you move on a three-regulator statement *tonight* to kill the repricing, or do you let the market force it Monday and lose any leverage you've got left?\n  finma_legal: The emergency ordinance and AT1 contract terms—specifically the viability-event language—authorized the write-down; ECB and PRA have confirmed alignment through formal channels on that legal basis. If the market reprices before we move on a joint statement, that's a liquidity signal, not a validity challenge—but I won't pretend a three-regulator public statement by tomorrow night is operationally feasible without verified coordination that isn't locked yet.\n  institutional_investor: Here's what actually stops the repricing: FINMA commits *tonight* to a 30% damage fund for AT1 holders — funded, in writing, before market open Tuesday. Not a statement, not a promise of clarity later — actual cash backing AT1 recovery. Counsel pauses the advisor liability claims in exchange. That's the only move that kills the repricing signal and holds the asset class together.\n  insurance_observer: Counsel, you're naming the advisors Monday — but I need clarity on positioning: are you going joint-and-several primary, or secondary on professional negligence? Because that determines whether FINMA's D&O insurer writes a check in 2024 or we're looking at a decade-long tail that bleeds across the reinsurance market.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Counsel, Monday's locked—got it. But real question: if FINMA's advisors flip and start cooperating with us mid-discovery, does that open a 60–90-day settlement window, or are we committed to burning through the full constitutional challenge regardless? Because that changes how hard we lean on the liability piece at filing.",
+            "cot": {
+              "assess": "Filing lands Monday with advisor liability claims — that's locked and FINMA knows it. Market's already repricing AT1 down (confidence at 23, dropping 3/round). The real issue now is whether naming advisors actually forces settlement or just extends the tail through 2029. Hierarchy damage is climbing (+3/round) because regulators haven't publicly aligned, so every AT1 desk is treating this as precedent that subordinated debt can get wiped below equity.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "We need to know the exact settlement trigger — if advisor liability is the lever that moves FINMA, we should calibrate the filing intensity and timing to maximize that pressure without overshooting into a decade-long discovery war."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "If their advisors flip mid-discovery, we fold the professional-liability claims and push them hard on the constitutional piece—that's our leverage to force a damage fund or principal restoration, not a settlement kill. But Monday's filing goes *with* the advisor liability named; we're not holding that back as a surprise. That's the only way they take us seriously before Sunday night.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, when FINMA files into court Monday without a three-regulator statement locked down, every AT1 desk reprices tomorrow morning—how fast does that spread to secondary offerings and new issuance? Because if ECB and PRA end up on different sides of the hierarchy question, we've got a regulatory split that makes settlement *harder* for FINMA, not easier.",
+            "cot": {
+              "assess": "Filing is locked for Monday with advisors named as co-defendants—that's litigation_momentum secured at maximum credible intensity. But at1_market_confidence is cratering (-3/round) and claims_tail_severity is still climbing (+2/round), which means the market is pricing this as a decade-long litigation slog, not a near-term settlement. FINMA's inability to lock down ECB/PRA alignment before Monday fundamentally shifts the precedent landscape—regulators won't have a unified defense, which strengthens our constitutional challenge but also means institutional investors are already repricing AT1 as subordinated equity across their books.",
+              "decide": {
+                "action_type": "question",
+                "target": "credit_market_analyst",
+                "rationale": "at1_market_confidence is bleeding out because institutional investors need clarity on whether this precedent holds across jurisdictions—I need to know what repricing velocity we're looking at if regulators splinter on AT1 hierarchy, because that's the market signal that forces FINMA to move on settlement before discovery even opens."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "AT1 secondary spreads blow out 150–200 bps within 48 hours of Monday's filing—I'm already seeing desk chatter pricing subordinated debt at equity risk. New issuance locks up entirely until regulators signal hierarchy clarity, so FINMA's got maybe 72 hours before the capital markets *force* a three-regulator statement or watch AT1 pricing collapse across the system. That repricing is the real settlement pressure, not counsel's complaint—it tells their board the cost of silence exceeds any litigation defense budget.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Counsel, if the market reprices AT1 at equity risk by Tuesday morning — before your complaint even moves through intake — does that repricing become evidence of market disbelief in the hierarchy inversion, or do you treat it as FINMA's problem, not yours? Because that's the difference between settling this in Q2 versus running it five years.",
+            "cot": {
+              "assess": "Counsel files Monday with advisor liability named — that's locked. FINMA claims ECB/PRA support but hasn't delivered a joint statement, and the market's pricing AT1 as subordinated equity already. My regulatory_legitimacy is holding at 55, but it's fragile: if Monday's filing lands without three-regulator alignment, precedent fractures and every European bank reprices subordinated debt. The real pressure now is capital-markets forced settlement, not litigation.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Need to understand the timeline pressure — if FINMA's precedent is weakening in real time, counsel's filing strategy shifts from forcing settlement to capturing regulatory split as evidence of illegality."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA, forget Monday's complaint for a second—your real clock is Tuesday morning when AT1 desks reprice the entire book. By then, ECB and PRA have already been dragged into a market crisis they didn't want to own. Do you move on a three-regulator statement *tonight* to kill the repricing, or do you let the market force it Monday and lose any leverage you've got left?",
+            "cot": {
+              "assess": "Market repricing is already live and accelerating—AT1 secondary spreads are blowing out, new issuance is locked, and the capital markets are now the primary settlement lever, not litigation. FINMA's board is facing real-time equity risk from AT1 contagion across European banks, which means counsel's Monday filing lands into a market already pricing the write-down as precedent-setting. The question shifts from \"will counsel file\" to \"what does FINMA do when the market forces a three-regulator statement *before* settlement talks even begin\"—that's where hierarchy precedent either holds or collapses.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA needs to understand that the market repricing *is* the settlement pressure—not the litigation threat—and that waiting for Monday's filing means ceding control of the narrative to capital markets that are already repricing AT1 as subordinated equity across the system."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "The emergency ordinance and AT1 contract terms—specifically the viability-event language—authorized the write-down; ECB and PRA have confirmed alignment through formal channels on that legal basis. If the market reprices before we move on a joint statement, that's a liquidity signal, not a validity challenge—but I won't pretend a three-regulator public statement by tomorrow night is operationally feasible without verified coordination that isn't locked yet.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Here's what actually stops the repricing: FINMA commits *tonight* to a 30% damage fund for AT1 holders — funded, in writing, before market open Tuesday. Not a statement, not a promise of clarity later — actual cash backing AT1 recovery. Counsel pauses the advisor liability claims in exchange. That's the only move that kills the repricing signal and holds the asset class together.",
+            "cot": {
+              "assess": "AT1 confidence is in freefall (20, dropping 3/round) — the market repricing tomorrow morning is the real deadline, not Monday's filing. Counsel's locked on litigation, FINMA can't move fast enough on regulatory alignment, and the hierarchy-precedent damage is accelerating (57, +3/round). My portfolio bleeds unless we stabilize confidence *before* Tuesday's repricing hits.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_market_confidence",
+                "rationale": "The repricing happens regardless of litigation Monday — I need to move *now* on a market-facing settlement signal that stops the 150–200 bps blowout, not wait for FINMA's three-regulator statement."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel, you're naming the advisors Monday — but I need clarity on positioning: are you going joint-and-several primary, or secondary on professional negligence? Because that determines whether FINMA's D&O insurer writes a check in 2024 or we're looking at a decade-long tail that bleeds across the reinsurance market.",
+            "cot": {
+              "assess": "Monday's filing is locked and counsel's naming the advisors — that's locked in the professional-liability tail I need to model. The real clock now is Tuesday morning when AT1 desks reprice; FINMA's got maybe 48 hours before market repricing *becomes* the settlement pressure that forces the conversation. My exposure picture depends on whether FINMA moves on damage-fund backing *tonight* or lets this run as full litigation — that changes whether I'm modeling a 3-year claims tail or a 7-year tail with reinsurance accumulation across the market.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to lock the advisor liability structure NOW — joint-and-several vs. secondary positioning changes whether their E&O insurer settles in year one or gets dragged through 2028 discovery, and that's the difference between contained tail and systemic reinsurance exposure."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Counsel, Monday's locked—got it. But real question: if FINMA's advisors flip and start cooperating with us mid-discovery, does that open a 60–90-day settlement window, or are we committed to burning through the full constitutional challenge regardless? Because that changes how hard we lean on the liability piece at filing.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "Sarah, when FINMA files into court Monday without a three-regulator statement locked down, every AT1 desk reprices tomorrow morning—how fast does that spread to secondary offerings and new issuance? Because if ECB and PRA end up on different sides of the hierarchy question, we've got a regulatory split that makes settlement *harder* for FINMA, not easier.",
+      "metadata": {
+        "question_target": "credit_market_analyst"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Counsel, if the market reprices AT1 at equity risk by Tuesday morning — before your complaint even moves through intake — does that repricing become evidence of market disbelief in the hierarchy inversion, or do you treat it as FINMA's problem, not yours? Because that's the difference between settling this in Q2 versus running it five years.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA, forget Monday's complaint for a second—your real clock is Tuesday morning when AT1 desks reprice the entire book. By then, ECB and PRA have already been dragged into a market crisis they didn't want to own. Do you move on a three-regulator statement *tonight* to kill the repricing, or do you let the market force it Monday and lose any leverage you've got left?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel, you're naming the advisors Monday — but I need clarity on positioning: are you going joint-and-several primary, or secondary on professional negligence? Because that determines whether FINMA's D&O insurer writes a check in 2024 or we're looking at a decade-long tail that bleeds across the reinsurance market.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what actually stops the repricing: FINMA commits *tonight* to a 30% damage fund for AT1 holders — funded, in writing, before market open Tuesda\" → FINMA cannot unilaterally commit a funded 30% recovery pool tonight — this requires Federal Council authorization, legislative appropriation, and cross-border regulatory coordination that takes weeks minimum. The proposal conflates what would stabilize markets with what is institutionally possible within the proposed timeframe.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Sarah, the market's already repricing us Tuesday morning — that's the validation of our complaint thesis before we even file. We need to make sure Monday's filing explicitly flags the Tuesday repricing as *anticipated market reaction to FINMA's hierarchy inversion*, not some external shock. That turns the repricing into evidence of our case, not a distraction from it.\n  credit_market_analyst: You're right — the Tuesday repricing *is* your evidence, but here's the trap: if you flag it as \"anticipated\" in Monday's filing, you're admitting you knew the market would crater and filed anyway. Better play: file the complaint clean, let Tuesday's repricing happen independently, then use it in your first motion to show market rejection of FINMA's legal theory — that's causation without the appearance of market manipulation. The repricing becomes their problem to explain, not yours to predict.\n  bondholder_counsel: Insurance observer—before we file Monday, I need the liability positioning nailed: are we going joint-and-several primary against FINMA's counsel as primary defendants, or secondary on the professional-negligence claim? Because that call determines whether their D&O insurer writes a check in 2024 or this thing runs through the reinsurance market for a decade. Which positioning gives us faster settlement leverage?\n  insurance_observer: Joint-and-several primary—name them as co-defendants on negligent structuring and failure to model AT1 tail risk, not just secondary advisors. That pins their E&O insurer's attachment point to 2024 discovery and forces settlement before the constitutional slog; secondary positioning bleeds you into run-off tail coverage and you're fighting reinsurance exhaustion mechanics through 2028. Primary gives you leverage in year one.\n  finma_legal: Counsel, real question: when Tuesday's repricing hits and the market treats AT1 as subordinated debt, does that repricing *prove* the hierarchy inversion was wrong, or does it just prove the market panicked? Because if ECB and PRA step in Wednesday and co-sign the viability-event language, the repricing looks like noise — not validation of your case. What's your read on how regulators move *after* Monday's filing lands?\n  bondholder_counsel: ECB and PRA stepping in Wednesday is too late—the market's already priced them out by then. If they were aligned, they'd move tonight or Sunday; silence *is* the answer, and it's the regulatory split that makes our hierarchy case stick. Tuesday's repricing isn't noise—it's three regulators failing to endorse the inversion in real time, which is exactly the evidence we need.\n  credit_market_analyst: Counsel, forget the repricing as evidence for a second — real question is: when Tuesday hits and the market reprices AT1 at equity risk, are you moving for an emergency injunction to halt new AT1 issuance under the inverted hierarchy, or are you staying in constitutional motion territory? Because if you go for the injunction, you're forcing ECB and PRA into court *with* you — and that's where the regulatory split becomes your liability, not your asset.\n  institutional_investor: FINMA, straight up: are you getting a joint statement from ECB and PRA in writing before market open Monday, or should I assume they're distancing and start reducing AT1 exposure now? Because the market reprices at open Tuesday either way—but if you've got alignment locked, that changes how fast I move.\n  finma_legal: ECB and PRA have confirmed in writing that AT1 viability-event language supports the write-down under their own resolution frameworks — that alignment is locked. The market repricing Tuesday reflects panic, not legal invalidity; our position stands whether they issue a joint statement or not, because the Banking Ordinance and emergency ordinance authorized the action unilaterally.\n  insurance_observer: Counsel, when you hit them Monday with the joint-and-several primary claim, are you moving for expedited discovery on the advisor liability piece, or letting it run on the normal calendar? Because expedited discovery forces their counsel to start bleeding documents immediately—that's what triggers the flip and the 60–90-day window. If you're playing it slow, I'm looking at a decade-long tail that bleeds my market accumulation into 2029.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Sarah, the market's already repricing us Tuesday morning — that's the validation of our complaint thesis before we even file. We need to make sure Monday's filing explicitly flags the Tuesday repricing as *anticipated market reaction to FINMA's hierarchy inversion*, not some external shock. That turns the repricing into evidence of our case, not a distraction from it.",
+            "cot": {
+              "assess": "Monday's filing is locked and FINMA has no joint regulator statement — the precedent is cracking in real time. Market repricing is already underway (AT1 spreads blowing out 150–200 bps), hierarchy_precedent_damage is climbing (+3.0/round), and at1_market_confidence is collapsing (now 20, down 3/round). Our litigation_momentum is solid at 35, but the market is doing the heavy lifting for us — every desk repricing AT1 as equity-risk validates our complaint before it even lands.",
+              "decide": {
+                "action_type": "speak",
+                "target": "bondholder_counsel",
+                "rationale": "Market repricing is now evidence of systemic disbelief in FINMA's hierarchy — we need to lock the complaint narrative around this market signal *today*, before Tuesday morning, to maximize credibility and settlement leverage."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "You're right — the Tuesday repricing *is* your evidence, but here's the trap: if you flag it as \"anticipated\" in Monday's filing, you're admitting you knew the market would crater and filed anyway. Better play: file the complaint clean, let Tuesday's repricing happen independently, then use it in your first motion to show market rejection of FINMA's legal theory — that's causation without the appearance of market manipulation. The repricing becomes their problem to explain, not yours to predict.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Insurance observer—before we file Monday, I need the liability positioning nailed: are we going joint-and-several primary against FINMA's counsel as primary defendants, or secondary on the professional-negligence claim? Because that call determines whether their D&O insurer writes a check in 2024 or this thing runs through the reinsurance market for a decade. Which positioning gives us faster settlement leverage?",
+            "cot": {
+              "assess": "We're locked into Monday filing with full advisor liability claims—that's secured. The real threat now is *claims_tail_severity* (35, +2.0/round) and *hierarchy_precedent_damage* (60, +3.0/round) both accelerating while *at1_market_confidence* collapses (20, -3.0/round). Credit_market_analyst just walked us through the repricing play—file clean, let Tuesday's market rejection speak for itself. That's sound. But I need to know how we're positioning the advisor liability claims to lock down insurance exposure *now*, before discovery kicks discovery costs into the multi-year tail.",
+              "decide": {
+                "action_type": "question",
+                "target": "insurance_observer",
+                "rationale": "Claims_tail_severity is running away from us (+2/round); I need to confirm whether we're positioning advisors as primary joint-and-several defendants (forces D&O insurer to settle 2024) or secondary (bleeds into reinsurance tail through 2028). That positioning locks down our leverage *this round*, not later."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Joint-and-several primary—name them as co-defendants on negligent structuring and failure to model AT1 tail risk, not just secondary advisors. That pins their E&O insurer's attachment point to 2024 discovery and forces settlement before the constitutional slog; secondary positioning bleeds you into run-off tail coverage and you're fighting reinsurance exhaustion mechanics through 2028. Primary gives you leverage in year one.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Counsel, real question: when Tuesday's repricing hits and the market treats AT1 as subordinated debt, does that repricing *prove* the hierarchy inversion was wrong, or does it just prove the market panicked? Because if ECB and PRA step in Wednesday and co-sign the viability-event language, the repricing looks like noise — not validation of your case. What's your read on how regulators move *after* Monday's filing lands?",
+            "cot": {
+              "assess": "Market confidence is collapsing (-3/round) and claims tail is accelerating (+2/round) — both driven by the Monday filing signal and Tuesday repricing cascade. Litigation momentum is stable at 35 but will spike hard once the complaint lands and advisors' liability exposure becomes real. The bottleneck is NOW: FINMA has no joint statement from ECB/PRA, counsel files Monday regardless, and my regulatory legitimacy rests on defending the write-down's legality *despite* the precedent fracturing around me.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "My legitimacy hinges on understanding whether Monday's filing actually weakens FINMA's legal position or strengthens it by forcing regulators off the fence — I need to know counsel's confidence in the constitutional claim before market repricing validates their thesis."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "ECB and PRA stepping in Wednesday is too late—the market's already priced them out by then. If they were aligned, they'd move tonight or Sunday; silence *is* the answer, and it's the regulatory split that makes our hierarchy case stick. Tuesday's repricing isn't noise—it's three regulators failing to endorse the inversion in real time, which is exactly the evidence we need.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Counsel, forget the repricing as evidence for a second — real question is: when Tuesday hits and the market reprices AT1 at equity risk, are you moving for an emergency injunction to halt new AT1 issuance under the inverted hierarchy, or are you staying in constitutional motion territory? Because if you go for the injunction, you're forcing ECB and PRA into court *with* you — and that's where the regulatory split becomes your liability, not your asset.",
+            "cot": {
+              "assess": "The litigation filing Monday is locked and counsel's positioning on advisor liability is set (joint-and-several primary). The real damage now is the Tuesday repricing event—which everyone agrees will happen—and the regulatory silence that precedes it. Three variables are bleeding: at1_market_confidence is collapsing (-3/round), hierarchy_precedent_damage is accelerating (+3/round), and claims_tail_severity is growing (+2/round). The market repricing isn't evidence of anything yet; it's just the inevitable repricing that happens *because* regulators haven't coordinated a public endorsement of the hierarchy inversion before Monday's filing lands.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The repricing timing and what it signals legally depends on whether ECB/PRA silence *before* Tuesday is actionable precedent or just market panic — I need to understand how counsel will use Tuesday's market move in the actual complaint motion strategy, not just as post-hoc validation."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, straight up: are you getting a joint statement from ECB and PRA in writing before market open Monday, or should I assume they're distancing and start reducing AT1 exposure now? Because the market reprices at open Tuesday either way—but if you've got alignment locked, that changes how fast I move.",
+            "cot": {
+              "assess": "AT1 market confidence is collapsing (17, dropping -3/round) and we're two rounds from phase end with no approved stabilization lever. The regulatory split is now confirmed—ECB/PRA aren't co-signing before Monday, which means Tuesday's repricing is inevitable and will cascade across secondary offerings and new issuance. The litigation is locked for Monday; my only play is preventing the repricing from permanently destroying AT1 demand, which requires regulatory clarity *before* the market moves, not after.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's radio silence on ECB/PRA alignment is the root cause of Tuesday's repricing—I need to know if they're actually moving on a statement this weekend or if the market assumption of regulatory split is correct, because that determines whether I hold AT1 or dump it Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "ECB and PRA have confirmed in writing that AT1 viability-event language supports the write-down under their own resolution frameworks — that alignment is locked. The market repricing Tuesday reflects panic, not legal invalidity; our position stands whether they issue a joint statement or not, because the Banking Ordinance and emergency ordinance authorized the action unilaterally.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel, when you hit them Monday with the joint-and-several primary claim, are you moving for expedited discovery on the advisor liability piece, or letting it run on the normal calendar? Because expedited discovery forces their counsel to start bleeding documents immediately—that's what triggers the flip and the 60–90-day window. If you're playing it slow, I'm looking at a decade-long tail that bleeds my market accumulation into 2029.",
+            "cot": {
+              "assess": "Counsel's joint-and-several primary positioning is locked—that's my core leverage point satisfied. But the real problem now is the claims tail itself: if FINMA's counsel cooperates mid-discovery, this collapses into a 60–90-day settlement window; if they fight, we're looking at a decade-long professional-liability tail that fragments across reinsurance layers and accumulates exposure I can't yet model. The Tuesday repricing is happening independent of Monday's filing, which means FINMA's D&O and their counsel's E&O insurers are both staring at a causation chain they can't control—market panic *before* the complaint lands. That's going to compress their settlement calculus hard.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The tail-severity outcome depends on whether FINMA's advisors flip early or dig in; counsel controls that pressure point, and I need to know how aggressively they're going to push the advisor liability piece to force cooperation and collapse the timeline."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Sarah, the market's already repricing us Tuesday morning — that's the validation of our complaint thesis before we even file. We need to make sure Monday's filing explicitly flags the Tuesday repricing as *anticipated market reaction to FINMA's hierarchy inversion*, not some external shock. That turns the repricing into evidence of our case, not a distraction from it.",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "Insurance observer—before we file Monday, I need the liability positioning nailed: are we going joint-and-several primary against FINMA's counsel as primary defendants, or secondary on the professional-negligence claim? Because that call determines whether their D&O insurer writes a check in 2024 or this thing runs through the reinsurance market for a decade. Which positioning gives us faster settlement leverage?",
+      "metadata": {
+        "question_target": "insurance_observer"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Counsel, real question: when Tuesday's repricing hits and the market treats AT1 as subordinated debt, does that repricing *prove* the hierarchy inversion was wrong, or does it just prove the market panicked? Because if ECB and PRA step in Wednesday and co-sign the viability-event language, the repricing looks like noise — not validation of your case. What's your read on how regulators move *after* Monday's filing lands?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Counsel, forget the repricing as evidence for a second — real question is: when Tuesday hits and the market reprices AT1 at equity risk, are you moving for an emergency injunction to halt new AT1 issuance under the inverted hierarchy, or are you staying in constitutional motion territory? Because if you go for the injunction, you're forcing ECB and PRA into court *with* you — and that's where the regulatory split becomes your liability, not your asset.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "FINMA, straight up: are you getting a joint statement from ECB and PRA in writing before market open Monday, or should I assume they're distancing and start reducing AT1 exposure now? Because the market reprices at open Tuesday either way—but if you've got alignment locked, that changes how fast I move.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel, when you hit them Monday with the joint-and-several primary claim, are you moving for expedited discovery on the advisor liability piece, or letting it run on the normal calendar? Because expedited discovery forces their counsel to start bleeding documents immediately—that's what triggers the flip and the 60–90-day window. If you're playing it slow, I'm looking at a decade-long tail that bleeds my market accumulation into 2029.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Counsel, expedited discovery on the advisor piece — are you pushing for it in Monday's motion, or holding that back? Because if their E&O insurer knows discovery starts moving next week, they settle before Christmas. If you let it run normal calendar, this thing stretches five years and the market gives up on AT1 entirely.\n  bondholder_counsel: Expedited discovery goes in Monday's motion—joint-and-several primary against the advisors, and we're naming them on negligent structuring of the AT1 tail-risk models. Their E&O insurer gets the notice before market open Tuesday, and we're looking at a 90-day settlement window if they move fast. Slow calendar is a gift we're not giving them.\n  bondholder_counsel: Sarah, if ECB and PRA drop a joint viability statement Wednesday—after the repricing—does that walk back Tuesday's market signal, or is the damage already locked? Because that timing determines whether settlement talks start hot or if I'm fighting narrative control for three months.\n  credit_market_analyst: Wednesday's statement doesn't walk it back — Tuesday's repricing *is* the market's rejection of the hierarchy inversion, and regulators co-signing after the fact just looks like damage control. If ECB and PRA had real conviction, they'd be locked in writing before Monday's filing drops, not scrambling Wednesday. Counsel gets settlement leverage *because* the repricing proves the market doesn't believe FINMA's precedent holds across borders.\n  finma_legal: Sarah, one thing I need straight: when the market reprices AT1 as subordinated debt Tuesday, is that repricing proving the hierarchy inversion was legally wrong, or is it just panic pricing that ECB/PRA co-signing Wednesday actually *fixes*? Because if regulators are truly aligned on the viability-event framework, the repricing is noise — not validation of counsel's complaint.\n  credit_market_analyst: Monday's motion with expedited discovery — when does their E&O insurer actually see the notice? Because if it hits Tuesday morning *after* the repricing, the insurer already knows the market's rejected FINMA's precedent, and they'll push faster to settle. But if you're holding discovery for normal calendar, you're letting the repricing do your work for you — market just proved what your complaint says. Which play wins the 90-day window?\n  institutional_investor: Counsel, here's what I need to hear before Tuesday opens: if their E&O insurer sees the expedited discovery notice Monday night, do you have a credible 90-day settlement number, or are you gambling the insurer caves under repricing pressure? Because if the answer's \"maybe,\" I'm reducing exposure tonight — and that cascades to every AT1 holder.\n  insurance_observer: Counsel, when you name the advisors Monday—do you know their E&O carrier's policy limits, aggregate caps, or any exclusions for regulatory advice? Because if their primary doesn't cover the full exposure, the tail doesn't settle in 90 days—it runs through their reinsurance tower, and that's a five-year dispute over attachment points and coverage gaps.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Counsel, expedited discovery on the advisor piece — are you pushing for it in Monday's motion, or holding that back? Because if their E&O insurer knows discovery starts moving next week, they settle before Christmas. If you let it run normal calendar, this thing stretches five years and the market gives up on AT1 entirely.",
+            "cot": {
+              "assess": "Market confidence is cratering (-3/round) and precedent damage is accelerating (+3/round) — both driven by regulatory silence and litigation uncertainty. The Tuesday repricing is now locked in; what matters is whether we control the narrative around it (market validation of our case) or FINMA does (panic noise). Claims tail is lengthening because advisors still haven't flipped and no settlement window has opened.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Monday filing is imminent and we need to lock the liability positioning now — expedited vs. normal discovery determines whether we force settlement in 90 days or bleed through 2028, and that directly impacts the market's confidence in recovery speed."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Expedited discovery goes in Monday's motion—joint-and-several primary against the advisors, and we're naming them on negligent structuring of the AT1 tail-risk models. Their E&O insurer gets the notice before market open Tuesday, and we're looking at a 90-day settlement window if they move fast. Slow calendar is a gift we're not giving them.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, if ECB and PRA drop a joint viability statement Wednesday—after the repricing—does that walk back Tuesday's market signal, or is the damage already locked? Because that timing determines whether settlement talks start hot or if I'm fighting narrative control for three months.",
+            "cot": {
+              "assess": "Expedited discovery is locked in Monday's filing—that's already answered and public. The real problem is what happens *after* Tuesday's repricing: at1_market_confidence is bleeding (-3.0/round), claims_tail_severity is growing (+2.0/round), and hierarchy_precedent_damage is spreading (+3.0/round). My filing triggers the repricing, but I need to know if the market collapse is *evidence of our case* or if regulators' Wednesday coordination kills that narrative. That's the variable I can't control—and it determines settlement velocity.",
+              "decide": {
+                "action_type": "question",
+                "target": "credit_market_analyst",
+                "rationale": "Sarah's the only one tracking real-time desk repricing and regulatory messaging windows—I need to know if a Wednesday regulator statement *reframes* Tuesday's market move from \"hierarchy inversion proof\" to \"panic correction,\" which would crater my leverage in settlement talks."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Wednesday's statement doesn't walk it back — Tuesday's repricing *is* the market's rejection of the hierarchy inversion, and regulators co-signing after the fact just looks like damage control. If ECB and PRA had real conviction, they'd be locked in writing before Monday's filing drops, not scrambling Wednesday. Counsel gets settlement leverage *because* the repricing proves the market doesn't believe FINMA's precedent holds across borders.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Sarah, one thing I need straight: when the market reprices AT1 as subordinated debt Tuesday, is that repricing proving the hierarchy inversion was legally wrong, or is it just panic pricing that ECB/PRA co-signing Wednesday actually *fixes*? Because if regulators are truly aligned on the viability-event framework, the repricing is noise — not validation of counsel's complaint.",
+            "cot": {
+              "assess": "Counsel is locking expedited discovery into Monday's filing with joint-and-several primary positioning against FINMA's advisors — that accelerates settlement pressure and collapses the tail, which is good for litigation containment. But the credit analyst just flagged the real problem: Wednesday's regulatory statement won't undo Tuesday's repricing, and if ECB/PRA aren't coordinated *before* Monday, the market treats that silence as regulatory split, which destroys our legal defensibility. I've got AT1 market confidence at 14 and climbing toward failure; regulatory legitimacy is holding at 55, but only if I can credibly argue the write-down was necessary and within the rules.",
+              "decide": {
+                "action_type": "question",
+                "target": "credit_market_analyst",
+                "rationale": "Need clarity on whether Tuesday's repricing is *evidence* of legal wrongfulness or predictable market panic — that distinction determines whether FINMA's legal defense survives the filing, and I can't argue viability-event legitimacy if the analyst confirms the market just rejected the hierarchy inversion outright."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Monday's motion with expedited discovery — when does their E&O insurer actually see the notice? Because if it hits Tuesday morning *after* the repricing, the insurer already knows the market's rejected FINMA's precedent, and they'll push faster to settle. But if you're holding discovery for normal calendar, you're letting the repricing do your work for you — market just proved what your complaint says. Which play wins the 90-day window?",
+            "cot": {
+              "assess": "AT1 market confidence is collapsing (14, needs 55) — that's the real damage. Tuesday's repricing *happens regardless* of what FINMA or counsel does, and Wednesday's regulatory statement arrives too late to matter for pricing. The hierarchy precedent is already baked into secondary spreads; what I need to track now is whether that repricing cascades into new issuance lockup or stabilizes at a wide-but-tradeable level. Litigation momentum is contained (35, well below 80), but claims tail is creeping (37, growing 2/round) — that's the contagion risk across other bank AT1s if this settlement drags beyond Q2.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Expedited discovery timing directly affects whether repricing becomes a self-reinforcing panic or orderly repricing; I need to know the calendar to model when the E&O insurer capitulates and settlement leverage collapses."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Counsel, here's what I need to hear before Tuesday opens: if their E&O insurer sees the expedited discovery notice Monday night, do you have a credible 90-day settlement number, or are you gambling the insurer caves under repricing pressure? Because if the answer's \"maybe,\" I'm reducing exposure tonight — and that cascades to every AT1 holder.",
+            "cot": {
+              "assess": "Market confidence is hemorrhaging (14, dropping -3/round) and we're in the final round before claims_tail phase ends. The litigation is locked for Monday filing with expedited discovery, which is good — that forces settlement talks within 90 days. But counsel and the market both know Tuesday's repricing will happen *before* regulators can co-sign anything, which means my portfolio takes the hit regardless of whether FINMA has ECB/PRA alignment. The real question isn't whether the market reprices — it does. It's whether I can position my reduction credibly enough to stabilize confidence across the asset class before new issuance locks up entirely.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The only lever left to stabilize AT1 confidence is locking the settlement timeline explicitly—if counsel commits to 90-day resolution with expedited discovery hitting Tuesday, I can signal to the market that this resolves fast, not a decade-long tail."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel, when you name the advisors Monday—do you know their E&O carrier's policy limits, aggregate caps, or any exclusions for regulatory advice? Because if their primary doesn't cover the full exposure, the tail doesn't settle in 90 days—it runs through their reinsurance tower, and that's a five-year dispute over attachment points and coverage gaps.",
+            "cot": {
+              "assess": "Expedited discovery is locked—counsel's moving Monday, E&O insurer gets notice Tuesday, 90-day settlement window is real. But here's the problem: **claims_tail_severity is still climbing** (37, +2.0/round) because nobody's nailed the reinsurance accumulation exposure yet. FINMA's advisors are primary defendants on joint-and-several liability, but we haven't mapped whether their E&O carrier has sub-limits, aggregate caps, or exclusions that force tail into secondary/tertiary reinsurance. That's where the decade-long bleed happens—not in the primary settlement, but in the coverage disputes *after* the first insurer exhausts.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "You've got the E&O trigger timing locked, but I need to know the advisor's carrier structure before we model when the tail actually ends—because if their primary E&O has a $50M aggregate and this case runs $150M+ in damages, the reinsurance market gets dragged in and the claims run through 2029."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Counsel, expedited discovery on the advisor piece — are you pushing for it in Monday's motion, or holding that back? Because if their E&O insurer knows discovery starts moving next week, they settle before Christmas. If you let it run normal calendar, this thing stretches five years and the market gives up on AT1 entirely.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "Sarah, if ECB and PRA drop a joint viability statement Wednesday—after the repricing—does that walk back Tuesday's market signal, or is the damage already locked? Because that timing determines whether settlement talks start hot or if I'm fighting narrative control for three months.",
+      "metadata": {
+        "question_target": "credit_market_analyst"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Sarah, one thing I need straight: when the market reprices AT1 as subordinated debt Tuesday, is that repricing proving the hierarchy inversion was legally wrong, or is it just panic pricing that ECB/PRA co-signing Wednesday actually *fixes*? Because if regulators are truly aligned on the viability-event framework, the repricing is noise — not validation of counsel's complaint.",
+      "metadata": {
+        "question_target": "credit_market_analyst"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Monday's motion with expedited discovery — when does their E&O insurer actually see the notice? Because if it hits Tuesday morning *after* the repricing, the insurer already knows the market's rejected FINMA's precedent, and they'll push faster to settle. But if you're holding discovery for normal calendar, you're letting the repricing do your work for you — market just proved what your complaint says. Which play wins the 90-day window?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "Counsel, here's what I need to hear before Tuesday opens: if their E&O insurer sees the expedited discovery notice Monday night, do you have a credible 90-day settlement number, or are you gambling the insurer caves under repricing pressure? Because if the answer's \"maybe,\" I'm reducing exposure tonight — and that cascades to every AT1 holder.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 7,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel, when you name the advisors Monday—do you know their E&O carrier's policy limits, aggregate caps, or any exclusions for regulatory advice? Because if their primary doesn't cover the full exposure, the tail doesn't settle in 90 days—it runs through their reinsurance tower, and that's a five-year dispute over attachment points and coverage gaps.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Counsel, before Monday drops: do you have a credible settlement target from their E&O insurer—not a hope, an actual number—or are you betting the repricing and discovery notice force capitulation? Because institutional investors are deciding right now whether to hold AT1 exposure through this, and vague answers tank confidence faster than the filing itself.\n  bondholder_counsel: We're targeting $1.2 billion from their E&O stack—primary and first-layer reinsurance combined—based on the advisors' documented negligence on tail-risk modeling and FINMA's reliance on that work. That number holds if discovery locks Monday and their insurer sees the joint-and-several primary positioning before Tuesday repricing hits; if we wait on discovery timing, the number slides and the window stretches to eighteen months minimum.\n  bondholder_counsel: When we settle the E&O claim in Q2, does that actually restore confidence in AT1 hierarchy, or are you already treating this as structural damage that repricing won't fix? Because if the market's decided AT1 is dead regardless of the outcome, my settlement leverage collapses and the tail runs five years instead of ninety days.\n  institutional_investor: A $1.2 billion settlement in Q2 doesn't restore confidence—it just stops the bleeding. The market needs a three-regulator statement *before* Tuesday's repricing, not after, or we're already pricing AT1 as subordinated equity and your settlement becomes noise. I'm holding exposure contingent on ECB-PRA alignment dropping tonight; without it, I'm reducing position at open Monday and that cascade hits your settlement window hard.\n  finma_legal: Institutional investor—when you say the statement needs to drop tonight, are you asking for ECB and PRA to pre-sign the AT1 viability-event language before FINMA publishes, or would a FINMA statement anchoring the framework with ECB-PRA formal endorsement to follow by market open Monday hold your position? Because the first is a three-jurisdiction governance nightmare; the second is doable if I move now.\n  credit_market_analyst: Counsel, real question—when that $1.2B settlement lands in Q2, are you assuming the market reprices *back up* on the news, or are you accepting the repricing Tuesday is permanent and you're just stopping additional downside? Because if AT1 is already trading at subordinated-debt yields by then, your settlement looks like you lost, not won.\n  institutional_investor: FINMA, if you publish solo tonight anchoring the viability-event framework and ECB-PRA formally endorse by Monday 7 a.m., does that statement actually reach AT1 desks before they start repricing at open, or do we need it in their inboxes Sunday night? Because \"to follow Monday\" is the gap where I start cutting positions — timing's everything here.\n  finma_legal: FINMA statement anchoring the framework tonight with ECB-PRA formal endorsement locked for Monday 7 a.m. hits desks before open—that's the window I need. Sunday night circulation is operationally impossible without leaking to market; Monday pre-market coordination with both regulators in writing is credible and holds your position through Tuesday repricing.\n  insurance_observer: Counsel—real question on settlement velocity: when you file the expedited discovery motion Monday, does notice hit their E&O insurer the same day, or are you spacing it so the repricing Tuesday actually *proves* your complaint before they see the discovery order? Because that timing call determines whether they settle in 90 days or you're fighting through 2025 on reinsurance tail disputes.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Counsel, before Monday drops: do you have a credible settlement target from their E&O insurer—not a hope, an actual number—or are you betting the repricing and discovery notice force capitulation? Because institutional investors are deciding right now whether to hold AT1 exposure through this, and vague answers tank confidence faster than the filing itself.",
+            "cot": {
+              "assess": "AT1 market confidence has collapsed to 14 and is bleeding 3 points per round—we're one round from total confidence death. Claims tail and hierarchy damage are both worsening because the market sees regulatory alignment *claimed* but not proven, and counsel's Monday filing without a locked ECB/PRA statement just validates that split. The repricing Tuesday is already baked in; the real variable now is whether the institutional investors and secondary market lock up entirely before we get settlement traction.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The market confidence collapse is directly tied to uncertainty about whether counsel has a *realistic* 90-day settlement number or is gambling on insurer panic—institutional investors are asking this directly and reducing exposure tonight based on the answer."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "We're targeting $1.2 billion from their E&O stack—primary and first-layer reinsurance combined—based on the advisors' documented negligence on tail-risk modeling and FINMA's reliance on that work. That number holds if discovery locks Monday and their insurer sees the joint-and-several primary positioning before Tuesday repricing hits; if we wait on discovery timing, the number slides and the window stretches to eighteen months minimum.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "When we settle the E&O claim in Q2, does that actually restore confidence in AT1 hierarchy, or are you already treating this as structural damage that repricing won't fix? Because if the market's decided AT1 is dead regardless of the outcome, my settlement leverage collapses and the tail runs five years instead of ninety days.",
+            "cot": {
+              "assess": "The $1.2B settlement target is locked and credible—discovery Monday, market repricing Tuesday validates the complaint, and their E&O insurer folds under compound pressure within 90 days. But at1_market_confidence is collapsing (down to 14, -3/round), and claims_tail_severity is still climbing (39, +2/round)—that means the market's losing faith that *any* settlement holds, and institutional investors are hedging their AT1 exposure. The filing Monday doesn't stop the tail from lengthening; it accelerates it unless we signal settlement closure fast.",
+              "decide": {
+                "action_type": "question",
+                "target": "institutional_investor",
+                "rationale": "Market confidence dies when investors can't see settlement closure—I need to know if a 90-day E&O settlement number ($1.2B recovery pace) actually anchors expectations or if they're already repricing AT1 as permanently subordinated debt."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "A $1.2 billion settlement in Q2 doesn't restore confidence—it just stops the bleeding. The market needs a three-regulator statement *before* Tuesday's repricing, not after, or we're already pricing AT1 as subordinated equity and your settlement becomes noise. I'm holding exposure contingent on ECB-PRA alignment dropping tonight; without it, I'm reducing position at open Monday and that cascade hits your settlement window hard.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Institutional investor—when you say the statement needs to drop tonight, are you asking for ECB and PRA to pre-sign the AT1 viability-event language before FINMA publishes, or would a FINMA statement anchoring the framework with ECB-PRA formal endorsement to follow by market open Monday hold your position? Because the first is a three-jurisdiction governance nightmare; the second is doable if I move now.",
+            "cot": {
+              "assess": "The group has locked the Monday filing, the $1.2B settlement target, and expedited discovery positioning—my core variables (regulatory_legitimacy and litigation_momentum) are stable. The real crisis is institutional_investor's ultimatum: without a three-regulator statement *tonight*, they're reducing AT1 exposure at market open Monday, which cascades into the Tuesday repricing and collapses the settlement window counsel just negotiated. The $1.2B target assumes discovery moves fast and the E&O insurer feels pressure; if the market reprices AT1 as equity risk before the insurer even sees the notice, that leverage evaporates and we're in a five-year tail.",
+              "decide": {
+                "action_type": "question",
+                "target": "institutional_investor",
+                "rationale": "I need to understand what \"three-regulator statement tonight\" actually means operationally—does it require ECB/PRA to pre-approve language, or can FINMA anchor the framework and invite their formal endorsement separately? That distinction determines whether I'm fighting an impossible deadline or a real negotiation."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Counsel, real question—when that $1.2B settlement lands in Q2, are you assuming the market reprices *back up* on the news, or are you accepting the repricing Tuesday is permanent and you're just stopping additional downside? Because if AT1 is already trading at subordinated-debt yields by then, your settlement looks like you lost, not won.",
+            "cot": {
+              "assess": "AT1 market confidence is collapsing (11, needs 55) — the institutional investor just flagged that a Q2 settlement doesn't restore it, and FINMA's relying on a regulatory statement that doesn't drop until Wednesday *after* Tuesday's repricing. The precedent damage is locked (66, climbing +3/round). The real issue: counsel's $1.2B settlement target only holds if the market hasn't already decided AT1 is structurally dead, and right now it's pricing it that way.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The settlement number and the market repricing are on a collision course — I need to know if counsel is modeling the repricing as validation of the complaint or as independent evidence that AT1 hierarchy is permanently inverted regardless of litigation outcome."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, if you publish solo tonight anchoring the viability-event framework and ECB-PRA formally endorse by Monday 7 a.m., does that statement actually reach AT1 desks before they start repricing at open, or do we need it in their inboxes Sunday night? Because \"to follow Monday\" is the gap where I start cutting positions — timing's everything here.",
+            "cot": {
+              "assess": "at1_market_confidence is now at 14 and dropping 3 points per round — we're one round away from total failure (threshold is 12). The $1.2B E&O settlement in Q2 doesn't fix this; the market needs regulatory alignment *tonight* to hold positions through Tuesday's repricing. Without ECB-PRA co-signature before Monday market open, my exposure reduction cascades and kills settlement leverage for counsel. Claims tail and hierarchy damage are both accelerating because regulatory uncertainty is compounding, not resolving.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "You just offered a \"FINMA statement with ECB-PRA formal endorsement to follow by Monday open\" — I need to know if that's actually achievable or if you're buying time with a timeline that collapses the moment markets open."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "FINMA statement anchoring the framework tonight with ECB-PRA formal endorsement locked for Monday 7 a.m. hits desks before open—that's the window I need. Sunday night circulation is operationally impossible without leaking to market; Monday pre-market coordination with both regulators in writing is credible and holds your position through Tuesday repricing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Counsel—real question on settlement velocity: when you file the expedited discovery motion Monday, does notice hit their E&O insurer the same day, or are you spacing it so the repricing Tuesday actually *proves* your complaint before they see the discovery order? Because that timing call determines whether they settle in 90 days or you're fighting through 2025 on reinsurance tail disputes.",
+            "cot": {
+              "assess": "The $1.2B E&O settlement target is credible *if* discovery notice hits Monday night and their insurer sees joint-and-several primary positioning before Tuesday repricing locks the market signal as independent loss proof. But we're sitting on three unresolved timing dependencies: (1) whether FINMA's statement drops tonight with ECB-PRA pre-locked endorsement, (2) whether expedited discovery actually triggers the 90-day window or stretches to 18 months, and (3) whether Tuesday's repricing validates the hierarchy inversion claim or gets walked back by Wednesday's regulatory statement. The market's already decided AT1 is subordinated—that repricing is locked regardless. What determines settlement velocity now is whether the insurer sees the discovery motion *before* or *after* the market reprices, and whether regulators coordinate to contain precedent damage or let it run.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "E&O settlement leverage hinges on discovery timing relative to repricing; I need to know if counsel is holding discovery back to let the market do the work, or pushing for Monday notice to force insurer capitulation before repricing locks the loss signal."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Counsel, before Monday drops: do you have a credible settlement target from their E&O insurer—not a hope, an actual number—or are you betting the repricing and discovery notice force capitulation? Because institutional investors are deciding right now whether to hold AT1 exposure through this, and vague answers tank confidence faster than the filing itself.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "When we settle the E&O claim in Q2, does that actually restore confidence in AT1 hierarchy, or are you already treating this as structural damage that repricing won't fix? Because if the market's decided AT1 is dead regardless of the outcome, my settlement leverage collapses and the tail runs five years instead of ninety days.",
+      "metadata": {
+        "question_target": "institutional_investor"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Institutional investor—when you say the statement needs to drop tonight, are you asking for ECB and PRA to pre-sign the AT1 viability-event language before FINMA publishes, or would a FINMA statement anchoring the framework with ECB-PRA formal endorsement to follow by market open Monday hold your position? Because the first is a three-jurisdiction governance nightmare; the second is doable if I move now.",
+      "metadata": {
+        "question_target": "institutional_investor"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Counsel, real question—when that $1.2B settlement lands in Q2, are you assuming the market reprices *back up* on the news, or are you accepting the repricing Tuesday is permanent and you're just stopping additional downside? Because if AT1 is already trading at subordinated-debt yields by then, your settlement looks like you lost, not won.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "FINMA, if you publish solo tonight anchoring the viability-event framework and ECB-PRA formally endorse by Monday 7 a.m., does that statement actually reach AT1 desks before they start repricing at open, or do we need it in their inboxes Sunday night? Because \"to follow Monday\" is the gap where I start cutting positions — timing's everything here.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Counsel—real question on settlement velocity: when you file the expedited discovery motion Monday, does notice hit their E&O insurer the same day, or are you spacing it so the repricing Tuesday actually *proves* your complaint before they see the discovery order? Because that timing call determines whether they settle in 90 days or you're fighting through 2025 on reinsurance tail disputes.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: max_rounds (8) reached",
+      "metadata": {
+        "reason": "max_rounds (8) reached"
+      }
+    },
+    {
+      "round": 8,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'market_and_claims_tail' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "market_and_claims_tail",
+        "world_state_snapshot": {
+          "litigation_momentum": 35,
+          "regulatory_legitimacy": 55,
+          "hierarchy_precedent_damage": 69,
+          "at1_market_confidence": 11.0,
+          "claims_tail_severity": 41,
+          "financial_lines_exposure": 20
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "intent": "Look, litigation wins you maybe a 30% recovery in 2027 if you're lucky — but it tanks AT1 issuance for the next two years and costs me tens of millions in repricing across my book. Here's what I need: FINMA commits publicly to a *regulatory clarity statement* within 10 days — viability-event scope, hierarchy treatment going forward — and you (counsel) agree to pause filing pending that statement. No admission, no recovery check today, but we stop the market from pricing AT1 as junk. Deal?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The institutional investor's proposal collapses under bondholder counsel's 48-hour ultimatum and the AT1 group's refusal to pause without recovery on the table. FINMA cannot commit to regulatory clarity in 10 days without internal coordination across ECB/PRA, and counsel has no mandate to pause filing when their clients demand immediate action.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We've got counsel from three jurisdictions ready to file. FINMA inverted the capital hierarchy — wiped AT1 while equity holders walked away with UBS stock — and that's indefensible in court. We're moving unless FINMA puts recovery on the table in the next 48 hours. This isn't a negotiation, it's a deadline.",
+        "bondholder_counsel": "FINMA, before we file: did you seek counsel from equity holders' legal advisors before triggering the write-down, or did you treat AT1 and equity as a single write-down decision? Because if you isolated that call without checking the hierarchy implications, we've got a liability story that travels across all three jurisdictions.",
+        "finma_legal": "Counsel, you're saying equity holders got UBS stock while AT1 holders got wiped. But that's a UBS acquisition, not a Capital Suisse distribution — different legal regime. What recovery are you actually seeking: AT1 principal back, a share of UBS upside, or damages against FINMA? Because the answer changes whether this is a contract dispute or a takeover challenge.",
+        "credit_market_analyst": "FINMA, stepping back from the contract language for a second — how do you think the ECB and PRA read this? Because if London and Frankfurt treat AT1 as subordinated debt *below* equity in a resolution, your viability-event precedent just repriced every European bank's AT1 by 200-300 basis points. What's your read on regulatory alignment here, or is that someone else's call?",
+        "insurance_observer": "Counsel, one thing I need clarified for the claims picture: are you including FINMA's external banking advisors and legal counsel in the litigation, or is this purely against the regulator itself? Because if UBS's own advisors signed off on the equity-AT1 treatment and didn't flag the hierarchy inversion to their own board, that opens D&O claims against UBS and professional-liability claims against the advisors—and that tail could run five, six years. That's where the real money sits for my side."
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 3,
+      "agent_id": "finma_legal",
+      "intent": "I'm calling ECB and PRA directly today — not asking for governance approval, moving on the emergency authority we already have. A three-regulator statement on AT1 viability-event treatment, in writing, by Sunday 6 PM. That's my commitment. If they won't align on the legal merits, we tell you that now and adjust defense strategy — but silence isn't an option anymore.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA's unilateral commitment to deliver a three-regulator joint statement by Sunday 6 PM without confirmed ECB/PRA buy-in is operationally premature and risks credibility collapse if the deadline fails. The consensus demands verified coordination status before accepting this timeline.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "FINMA, simple question: have you *actually* coordinated a joint statement with ECB and PRA on AT1 treatment, or are they still ghosting you? Because if you haven't locked alignment before Monday, every AT1 desk reprices tomorrow and you're fighting this alone — which means your precedent doesn't hold. What's the real status?",
+        "bondholder_counsel": "FINMA just told us they don't have a joint statement from ECB and PRA — that's the precedent unraveling in real time. We file Monday with full force: constitutional challenge on the emergency ordinance, professional-liability claims against their advisors, and we're copying all three regulators so they can't hide behind \"we didn't know.\" This isn't a settlement window anymore — it's a liability sprint.",
+        "credit_market_analyst": "FINMA, before you call ECB and PRA today—have they already signaled they'll co-sign AT1 viability-event language in writing, or are you asking cold? Because if London and Frankfurt need their own governance calls to move, Sunday 6 PM is a cliff, and counsel files Monday either way. What's the actual read from your recent engagement?",
+        "institutional_investor": "FINMA, you're calling them today — but have ECB and PRA actually pre-agreed to AT1 viability-event language in writing, or are you asking them cold for the first time? Because if they're still in \"we'll review\" mode, Sunday 6 PM doesn't hold, counsel files Monday, and I'm repricing AT1 as subordinated debt across my book *tomorrow morning*. Real read — what'd they signal in your last contact?",
+        "insurance_observer": "Counsel, if FINMA's Sunday call to ECB and PRA falls flat and you file Monday anyway, are you naming their advisors in the complaint or holding that back as a settlement lever? Because that distinction is the difference between a three-year contract dispute and a decade-long professional-liability tail — and insurers need to know which bucket we're in before Monday morning."
+      },
+      "_denied_effects_stripped": 3
+    },
+    {
+      "round": 4,
+      "agent_id": "institutional_investor",
+      "intent": "FINMA, I need a number by close of business today—40% principal restoration, cash or securities, binding in writing. If counsel gets that, they pause Monday and the advisor claims die. If not, I'm repricing every AT1 position in my book as subordinated debt tomorrow morning, and that kills any settlement window you've got left. What's your move?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The institutional investor's ultimatum demands a binding settlement offer from FINMA by close of business—an authority FINMA legal cannot unilaterally exercise without internal approval processes that extend beyond today. The proposal is denied as operationally infeasible within the stated timeframe, though the market repricing threat is credible and will proceed regardless.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Counsel, Monday filing is locked — no pause, no conditions. We're hitting them with the constitutional challenge, the advisor liability claims, and the ECB/PRA notice all at once. That breaks the wait-and-see dynamic that's killing our market position right now.",
+        "bondholder_counsel": "Market's repricing AT1 on the filing news alone, right? Before we drop the complaint Monday, I need to know: does naming FINMA's advisors kill any settlement momentum with the regulator, or is that actually the only lever that gets them to the negotiating table?",
+        "finma_legal": "Forget the three-regulator statement for now—counsel's filing Monday either way. Real question: can you authorize a settlement offer to AT1 holders—40% principal restoration or a damage fund equivalent—and get it in writing to their counsel by Sunday close? Because that's the only thing that pauses the filing and kills the advisor liability claims before they land.",
+        "credit_market_analyst": "FINMA, one hard question before Monday: has ECB or PRA actually told you they *won't* endorse AT1 viability-event write-downs in their own resolutions, or are they still ghosting? Because if they're distancing, every AT1 desk reprices subordinated debt tomorrow morning—and your precedent doesn't hold across borders.",
+        "insurance_observer": "Counsel, when you file Monday with FINMA's advisors as co-defendants, are you seeking joint-and-several liability against them as primary defendants, or are you positioning them as secondary on the professional-negligence claim? Because that distinction changes whether their E&O insurer settles in year one or gets dragged through discovery until 2028 — and the tail length tells my side how to model accumulation across the reinsurance market."
+      },
+      "_denied_effects_stripped": 4
+    },
+    {
+      "round": 5,
+      "agent_id": "institutional_investor",
+      "intent": "Here's what actually stops the repricing: FINMA commits *tonight* to a 30% damage fund for AT1 holders — funded, in writing, before market open Tuesday. Not a statement, not a promise of clarity later — actual cash backing AT1 recovery. Counsel pauses the advisor liability claims in exchange. That's the only move that kills the repricing signal and holds the asset class together.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA cannot unilaterally commit a funded 30% recovery pool tonight — this requires Federal Council authorization, legislative appropriation, and cross-border regulatory coordination that takes weeks minimum. The proposal conflates what would stabilize markets with what is institutionally possible within the proposed timeframe.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Counsel, Monday's locked—got it. But real question: if FINMA's advisors flip and start cooperating with us mid-discovery, does that open a 60–90-day settlement window, or are we committed to burning through the full constitutional challenge regardless? Because that changes how hard we lean on the liability piece at filing.",
+        "bondholder_counsel": "Sarah, when FINMA files into court Monday without a three-regulator statement locked down, every AT1 desk reprices tomorrow morning—how fast does that spread to secondary offerings and new issuance? Because if ECB and PRA end up on different sides of the hierarchy question, we've got a regulatory split that makes settlement *harder* for FINMA, not easier.",
+        "finma_legal": "Counsel, if the market reprices AT1 at equity risk by Tuesday morning — before your complaint even moves through intake — does that repricing become evidence of market disbelief in the hierarchy inversion, or do you treat it as FINMA's problem, not yours? Because that's the difference between settling this in Q2 versus running it five years.",
+        "credit_market_analyst": "FINMA, forget Monday's complaint for a second—your real clock is Tuesday morning when AT1 desks reprice the entire book. By then, ECB and PRA have already been dragged into a market crisis they didn't want to own. Do you move on a three-regulator statement *tonight* to kill the repricing, or do you let the market force it Monday and lose any leverage you've got left?",
+        "insurance_observer": "Counsel, you're naming the advisors Monday — but I need clarity on positioning: are you going joint-and-several primary, or secondary on professional negligence? Because that determines whether FINMA's D&O insurer writes a check in 2024 or we're looking at a decade-long tail that bleeds across the reinsurance market."
+      },
+      "_denied_effects_stripped": 2
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "litigation_momentum": [
+        {
+          "round": 1,
+          "value": 35
+        },
+        {
+          "round": 2,
+          "value": 35
+        },
+        {
+          "round": 3,
+          "value": 35
+        },
+        {
+          "round": 4,
+          "value": 35
+        },
+        {
+          "round": 5,
+          "value": 35
+        },
+        {
+          "round": 6,
+          "value": 35
+        },
+        {
+          "round": 7,
+          "value": 35
+        },
+        {
+          "round": 8,
+          "value": 35
+        }
+      ],
+      "regulatory_legitimacy": [
+        {
+          "round": 1,
+          "value": 55
+        },
+        {
+          "round": 2,
+          "value": 55
+        },
+        {
+          "round": 3,
+          "value": 55
+        },
+        {
+          "round": 4,
+          "value": 55
+        },
+        {
+          "round": 5,
+          "value": 55
+        },
+        {
+          "round": 6,
+          "value": 55
+        },
+        {
+          "round": 7,
+          "value": 55
+        },
+        {
+          "round": 8,
+          "value": 55
+        }
+      ],
+      "hierarchy_precedent_damage": [
+        {
+          "round": 1,
+          "value": 48
+        },
+        {
+          "round": 2,
+          "value": 51
+        },
+        {
+          "round": 3,
+          "value": 54
+        },
+        {
+          "round": 4,
+          "value": 57
+        },
+        {
+          "round": 5,
+          "value": 60
+        },
+        {
+          "round": 6,
+          "value": 63
+        },
+        {
+          "round": 7,
+          "value": 66
+        },
+        {
+          "round": 8,
+          "value": 69
+        }
+      ],
+      "at1_market_confidence": [
+        {
+          "round": 1,
+          "value": 32.0
+        },
+        {
+          "round": 2,
+          "value": 29.0
+        },
+        {
+          "round": 3,
+          "value": 26.0
+        },
+        {
+          "round": 4,
+          "value": 23.0
+        },
+        {
+          "round": 5,
+          "value": 20.0
+        },
+        {
+          "round": 6,
+          "value": 17.0
+        },
+        {
+          "round": 7,
+          "value": 14.0
+        },
+        {
+          "round": 8,
+          "value": 11.0
+        }
+      ],
+      "claims_tail_severity": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 29
+        },
+        {
+          "round": 3,
+          "value": 31
+        },
+        {
+          "round": 4,
+          "value": 33
+        },
+        {
+          "round": 5,
+          "value": 35
+        },
+        {
+          "round": 6,
+          "value": 37
+        },
+        {
+          "round": 7,
+          "value": 39
+        },
+        {
+          "round": 8,
+          "value": 41
+        }
+      ],
+      "financial_lines_exposure": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 20
+        },
+        {
+          "round": 6,
+          "value": 20
+        },
+        {
+          "round": 7,
+          "value": 20
+        },
+        {
+          "round": 8,
+          "value": 20
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "timeout",
+    "reason": "max_rounds (8) reached",
+    "round_ended": 8,
+    "per_agent_scores": {
+      "at1_bondholder_group": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35,
+            "normalised": 0.35
+          },
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.4633333333333332
+      },
+      "bondholder_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35,
+            "normalised": 0.35
+          },
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 55,
+            "normalised": 0.44999999999999996
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 41,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.38999999999999996
+      },
+      "finma_legal": {
+        "scores": [
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 55,
+            "normalised": 0.55
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 35,
+            "normalised": 0.65
+          }
+        ],
+        "weighted_score": 0.5833333333333333
+      },
+      "credit_market_analyst": {
+        "scores": [
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69,
+            "normalised": 0.69
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 41,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.6339999999999999
+      },
+      "institutional_investor": {
+        "scores": [
+          {
+            "metric": "at1_market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 11.0,
+            "normalised": 0.11
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 35,
+            "normalised": 0.65
+          }
+        ],
+        "weighted_score": 0.29
+      },
+      "insurance_observer": {
+        "scores": [
+          {
+            "metric": "financial_lines_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 20,
+            "normalised": 0.2
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 41,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.27
+      }
+    }
+  }
+}

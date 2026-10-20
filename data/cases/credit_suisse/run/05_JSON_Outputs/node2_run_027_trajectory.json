@@ -1,0 +1,1478 @@
+{
+  "simulation_id": "cc6e0135db70",
+  "config_id": "credit_suisse_node2",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'reaction_and_legal_basis' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: We're organizing a cross-jurisdictional filing strategy — US, UK, Swiss courts in parallel to fragment FINMA's defense and force settlement talks. I want counsel to file notice of intent within two weeks. This isn't a threat; it's the only move that stops the market from pricing AT1 as equity-junior.\n  bondholder_counsel: Two weeks works, but the notice has to land with teeth: we're challenging the 19 March ordinance as ultra vires and arguing the contracts don't permit write-down absent equity exhaustion—full stop. Generic \"intent to sue\" signals weakness. If we telegraph the actual legal theory *now*, FINMA's counsel starts sweating and the AT1 market sees we're not bluffing. Want me to draft the filing language this week so you see the case before we commit?\n  at1_bondholder_group: Yes—draft it this week. I need to see the ultra vires framing and the contract language on equity exhaustion before we file; if there's daylight there, we use it to pressure settlement before they harden their position. And make sure the filing hits all three jurisdictions *simultaneously*—if we stagger it, FINMA buys time to coordinate a unified defense.\n  finma_legal: The ordinance wasn't discretionary—it was emergency response to systemic risk under Article 36bis of the Banking Act. Ultra vires won't stick. On equity exhaustion, the AT1 contracts are explicit: viability event *with* extraordinary government support triggers full write-down. You have the documents. Filing that theory costs you millions and loses on the merits. Settlement talks are the rational move here—now, not after two years of discovery.\n  credit_market_analyst: Before you draft, I need one thing: are you filing this with public exhibits or keeping the legal theory sealed until discovery? Because if FINMA sees \"equity exhaustion\" language hit Bloomberg and Reuters the same day you file in three courts, every other bank's AT1 holders start demanding the same challenge. That's contagion I can model—but I need to know what you're signaling to the market.\n  bondholder_counsel: We file with public exhibits—sealed discovery is surrender. The equity exhaustion argument hits the market the same day because AT1 holders across the sector need to see we're serious, and FINMA knows that. If we bury the theory, we lose leverage and the whole market reads it as a bluff.\n  institutional_investor: I can't support a public filing with equity-exhaustion language. Yes, it signals you're serious—but it also signals the whole AT1 market is broken, and we all lose. FINMA caves to settlement pressure *before* exhibits go public, not after. Draft it for leverage in closed-door talks this week; if they don't budge by end of April, *then* you file. Otherwise you're burning down the asset class to win one case.\n  insurance_observer: Hold on — if you file public, Credit Suisse's directors and advisers face immediate shareholder derivative suits plus E&O claims on the rescue terms. The reinsurance tail gets longer and uglier. What's your timeline for settling *before* public exhibits drop? Because that's the real claims-cost difference here.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "We're organizing a cross-jurisdictional filing strategy — US, UK, Swiss courts in parallel to fragment FINMA's defense and force settlement talks. I want counsel to file notice of intent within two weeks. This isn't a threat; it's the only move that stops the market from pricing AT1 as equity-junior.",
+            "cot": {
+              "assess": "We're at 35 litigation_momentum with a 45-point safety margin — but that's the PROBLEM. We should be mobilizing NOW, not waiting for FINMA to hand us another loss. The hierarchy inversion is the real weapon here: we were wiped while equity holders walked away with UBS stock. That precedent damage at 48 is already poisoning the AT1 market confidence (32) — we need to flip this from defensive reaction into active legal pressure before other creditors lose their nerve.",
+              "decide": {
+                "action_type": "propose",
+                "target": "bondholder_counsel + litigation_momentum",
+                "rationale": "We need to move from exploration to coordinated action this round — delay kills momentum and lets FINMA's legitimacy narrative harden."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Two weeks works, but the notice has to land with teeth: we're challenging the 19 March ordinance as ultra vires and arguing the contracts don't permit write-down absent equity exhaustion—full stop. Generic \"intent to sue\" signals weakness. If we telegraph the actual legal theory *now*, FINMA's counsel starts sweating and the AT1 market sees we're not bluffing. Want me to draft the filing language this week so you see the case before we commit?",
+            "cot": {
+              "assess": "The filing strategy is sound operationally—parallel jurisdictions *will* fragment FINMA's defense and signal creditor resolve. But litigation_momentum at 35 is still dangerously soft; two weeks is tight, and we need to sharpen the *legal basis* right now or courts dismiss on standing/ripeness grounds. Regulatory_legitimacy at 55 means FINMA still looks defensible to judges—that's the real problem.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum",
+                "rationale": "Filing notice alone won't move the needle; we need to announce the substantive attack on the weekend law change simultaneously—that's what triggers settlement pressure and hardens momentum."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Yes—draft it this week. I need to see the ultra vires framing and the contract language on equity exhaustion before we file; if there's daylight there, we use it to pressure settlement before they harden their position. And make sure the filing hits all three jurisdictions *simultaneously*—if we stagger it, FINMA buys time to coordinate a unified defense.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "The ordinance wasn't discretionary—it was emergency response to systemic risk under Article 36bis of the Banking Act. Ultra vires won't stick. On equity exhaustion, the AT1 contracts are explicit: viability event *with* extraordinary government support triggers full write-down. You have the documents. Filing that theory costs you millions and loses on the merits. Settlement talks are the rational move here—now, not after two years of discovery.",
+            "cot": {
+              "assess": "The creditors have locked a two-track strategy: aggressive legal filing with teeth (ultra vires + equity exhaustion argument) *and* settlement pressure via simultaneous multi-jurisdictional filing. This is direct litigation momentum acceleration. My regulatory_legitimacy is holding at 55, but it's now under active legal siege—the filing will attack both the ordinance *and* the contract interpretation I'm defending. Market confidence (32) stays depressed until one side yields or the courts rule. The filing timeline (two weeks) is the pivot point.",
+              "decide": {
+                "action_type": "speak",
+                "target": "bondholder_counsel",
+                "rationale": "I need to signal that the ultra vires framing is legally weak and will fail—forcing them to choose between a costly, losing strategy and serious settlement talks. This is a direct move to collapse litigation_momentum by making the legal path unviable."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Before you draft, I need one thing: are you filing this with public exhibits or keeping the legal theory sealed until discovery? Because if FINMA sees \"equity exhaustion\" language hit Bloomberg and Reuters the same day you file in three courts, every other bank's AT1 holders start demanding the same challenge. That's contagion I can model—but I need to know what you're signaling to the market.",
+            "cot": {
+              "assess": "The litigation strategy is live and well-designed—the simultaneous filing with teeth will pressure settlement talks and slow FINMA's defense coordination. But that same aggressive posture risks hardening regulatory positions and triggering a public legal battle that *tanks* AT1 market confidence even if creditors win on the merits. We're trading litigation momentum control for market repricing damage we can't undo.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The market signal from the filing itself—not the outcome—will reprice AT1 across the sector. I need to understand whether counsel is planning a public vs. sealed filing strategy, because that choice alone determines contagion severity."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "We file with public exhibits—sealed discovery is surrender. The equity exhaustion argument hits the market the same day because AT1 holders across the sector need to see we're serious, and FINMA knows that. If we bury the theory, we lose leverage and the whole market reads it as a bluff.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "I can't support a public filing with equity-exhaustion language. Yes, it signals you're serious—but it also signals the whole AT1 market is broken, and we all lose. FINMA caves to settlement pressure *before* exhibits go public, not after. Draft it for leverage in closed-door talks this week; if they don't budge by end of April, *then* you file. Otherwise you're burning down the asset class to win one case.",
+            "cot": {
+              "assess": "Filing with public exhibits and simultaneous jurisdictional pressure is a credible move—but it's also a credible *market nuke*. If counsel lands \"equity exhaustion\" on Bloomberg the same day as the filing, AT1 issuance freezes, repricing cascades, and every other bank's holders demand the same challenge. That crushes at1_market_confidence (currently 32, headed lower fast) and hardens litigation_momentum (currently 35, about to spike past 60). FINMA digs in, settlement odds collapse. This isn't leverage—it's mutually assured destruction.",
+              "decide": {
+                "action_type": "speak",
+                "target": "at1_bondholder_group",
+                "rationale": "I need to break the litigation escalation spiral before public exhibits destroy the asset class I'm holding. Settlement window closes after this filing goes public."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Hold on — if you file public, Credit Suisse's directors and advisers face immediate shareholder derivative suits plus E&O claims on the rescue terms. The reinsurance tail gets longer and uglier. What's your timeline for settling *before* public exhibits drop? Because that's the real claims-cost difference here.",
+            "cot": {
+              "assess": "Litigation momentum is creeping up (35→risk of 80+) because bondholder counsel is drafting a public filing with teeth, and the institutional investor just flagged that public exhibits = market contagion = FINMA hardens instead of settling. AT1 confidence is already underwater (32), and a sector-wide \"AT1 is broken\" signal will crater it further. The real tension: litigation signaling trades off against settlement leverage. Sealed draft pressures FINMA quietly; public filing burns the asset class for one win.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to map the D&O and E&O claims exposure *trajectory* — sealed vs. public filing creates two completely different claim tails, and counsel needs to see that cost in insurance terms before finalizing the strategy."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "The ordinance wasn't discretionary—it was emergency response to systemic risk under Article 36bis of the Banking Act. Ultra vires won't stick. On equity exhaustion, the AT1 contracts are explicit: viability event *with* extraordinary government support triggers full write-down. You have the documents. Filing that theory costs you millions and loses on the merits. Settlement talks are the rational move here—now, not after two years of discovery.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "I can't support a public filing with equity-exhaustion language. Yes, it signals you're serious—but it also signals the whole AT1 market is broken, and we all lose. FINMA caves to settlement pressure *before* exhibits go public, not after. Draft it for leverage in closed-door talks this week; if they don't budge by end of April, *then* you file. Otherwise you're burning down the asset class to win one case.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Before you draft, I need one thing: are you filing this with public exhibits or keeping the legal theory sealed until discovery? Because if FINMA sees \"equity exhaustion\" language hit Bloomberg and Reuters the same day you file in three courts, every other bank's AT1 holders start demanding the same challenge. That's contagion I can model—but I need to know what you're signaling to the market.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Hold on — if you file public, Credit Suisse's directors and advisers face immediate shareholder derivative suits plus E&O claims on the rescue terms. The reinsurance tail gets longer and uglier. What's your timeline for settling *before* public exhibits drop? Because that's the real claims-cost difference here.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're organizing a cross-jurisdictional filing strategy — US, UK, Swiss courts in parallel to fragment FINMA's defense and force settlement talks. I w\" → Cross-jurisdictional filing strategy approved; notice of intent within two weeks fragments FINMA's defense and escalates litigation momentum.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Two weeks works, but the notice has to land with teeth: we're challenging the 19 March ordinance as ultra vires and arguing the contracts don't permit\" → Denied: semantically identical to Proposal 1 — same filing, same timeline, already approved this round.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -4.199999999999999
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Here's the move: we file the notice with sealed exhibits this week—signals we're serious, fragments FINMA's defense, no market panic. Then we give FINMA 30 days to settle before equity exhaustion hits Bloomberg. They fold or we go nuclear. That way we keep litigation pressure *and* the AT1 market doesn't crater before we've won.\n  bondholder_counsel: Sealed exhibits neuter us. FINMA runs out the clock, other banks' counsel coordinating defenses behind closed doors. Here's what actually works: file notice *unsealed* this week, but keep the equity-exhaustion contract language under seal until day 29 of the 30. That way market sees the challenge is real, settlement pressure builds, and we still have a trump card if they don't move by April. That's leverage, not theater.\n  finma_legal: Both approaches signal litigation you can't walk back. The contracts are explicit—viability event with extraordinary government support triggers full write-down under the terms you signed. File sealed or unsealed, you're betting the ordinance was ultra vires, and that argument loses on the merits. Settlement this week, before exhibits move, is the only rational play—I'll defend the legal basis in closed rooms, but public equity-exhaustion filings burn credibility you won't recover.\n  finma_legal: You said settlement this week is the rational move — but the bondholder group already approved a three-court filing with notice due in two weeks. Is FINMA actually willing to negotiate before that notice lands, or are we past the point where a deal moves the needle on either side?\n  institutional_investor: Look, if FINMA opens settlement talks *this week*—real talks, not window dressing—we pull the notice filing. But I need to see movement on liability acknowledgment and a credible compensation framework by Friday, or we file sealed exhibits Tuesday and let the market price in the uncertainty. FINMA doesn't get both the threat and the time.\n  credit_market_analyst: FINMA legal—quick question: has anyone walked through what repricing Credit Suisse AT1 to zero does to, say, Deutsche or UBS's next issuance? If equity gets written down *after* AT1 takes a full haircut, the whole capital stack inverts. That's not a legal argument, that's a systemic risk argument FINMA can't ignore. You settling this week or are we about to reprrice $300B of bank capital?\n  institutional_investor: FINMA, I'll call this straight: if you table a concrete offer by Friday—liability acknowledgment plus a recovery framework that caps AT1 losses below 50 cents on the dollar—we kill the notice filing today. Not next week, not after exhibits drop. But if you're still in \"closed-room talks\" language, we file sealed Tuesday and watch the market reprrice every bank capital instrument south. What's your actual settlement authority *this week*?\n  at1_bondholder_group: FINMA doesn't have settlement authority that moves by Friday—that sits with the Federal Department of Finance and the Swiss government. But I'll escalate the liability acknowledgment and framework questions to them *today*, on condition you delay the notice filing to next Wednesday. That gives us five working days to table something concrete, or your Tuesday filing proceeds unsealed. That's the actual bandwidth we have.\n  insurance_observer: Quick one: if you file Tuesday unsealed, Credit Suisse's D&O and E&O carriers get notice of claims arising from the rescue transaction and the AT1 decision the same day the market does. Do we know what their policy language says about regulatory defense and third-party creditor suits? Because if there's a coverage gap, the directors' personal exposure balloons—and that changes what settlement authority actually exists on the Finance Department side.\n  bondholder_counsel: The D&O carriers have explicit exclusions for regulatory enforcement actions—but third-party creditor suits against directors for breach of fiduciary duty on the rescue terms? That's covered, and the carriers are already running dual-defense strategies with separate counsel. Finance Department knows their exposure balloons if we file unsealed Tuesday, which is exactly why we're escalating today—they'll move faster on framework terms if they understand the reinsurance tail gets longer every hour we wait.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Here's the move: we file the notice with sealed exhibits this week—signals we're serious, fragments FINMA's defense, no market panic. Then we give FINMA 30 days to settle before equity exhaustion hits Bloomberg. They fold or we go nuclear. That way we keep litigation pressure *and* the AT1 market doesn't crater before we've won.",
+            "cot": {
+              "assess": "Cross-jurisdictional filing is approved and moving—litigation_momentum is solid at 43. But the room just split hard: counsel wants public exhibits, institutional investors and FINMA are warning that kills the AT1 market AND sabotages settlement leverage. The real problem: I'm about to file a notice that either signals strength (public exhibits) or weakness (sealed), and I'm taking fire from both sides. I need to pivot from *how* to file to *when*—and use the settlement window before the market implodes.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum / at1_market_confidence (dual variable)",
+                "rationale": "Filing public exhibits now maximizes litigation momentum but *guarantees* at1_market_confidence drops below 12 (failure state). I need a conditional filing strategy that preserves both."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Sealed exhibits neuter us. FINMA runs out the clock, other banks' counsel coordinating defenses behind closed doors. Here's what actually works: file notice *unsealed* this week, but keep the equity-exhaustion contract language under seal until day 29 of the 30. That way market sees the challenge is real, settlement pressure builds, and we still have a trump card if they don't move by April. That's leverage, not theater.",
+            "cot": {
+              "assess": "The sealed-exhibit compromise is a trap for us—it signals litigation readiness without market pressure, giving FINMA 30 days to harden their position and coordinate defenses across jurisdictions. Our litigation_momentum stays flat at 43 while at1_market_confidence continues bleeding (now 23.8). We're two rounds from end-of-phase; if we don't move the needle NOW, settlement leverage evaporates.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum, regulatory_legitimacy",
+                "rationale": "Sealed exhibits kill our only real leverage—market contagion—so I'm rejecting that frame and pushing for a different timing play that keeps pressure live while preserving settlement optionality."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Both approaches signal litigation you can't walk back. The contracts are explicit—viability event with extraordinary government support triggers full write-down under the terms you signed. File sealed or unsealed, you're betting the ordinance was ultra vires, and that argument loses on the merits. Settlement this week, before exhibits move, is the only rational play—I'll defend the legal basis in closed rooms, but public equity-exhaustion filings burn credibility you won't recover.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "You said settlement this week is the rational move — but the bondholder group already approved a three-court filing with notice due in two weeks. Is FINMA actually willing to negotiate before that notice lands, or are we past the point where a deal moves the needle on either side?",
+            "cot": {
+              "assess": "The group is locked in a sealed-vs-unsealed filing standoff that's consuming energy without resolving the core problem: litigation_momentum is 43 and climbing because the filing itself (regardless of exhibits) signals a multi-year legal war that erodes at1_market_confidence (currently 24, needs 55). The sealed/unsealed debate is theater — what matters is whether FINMA and creditors can actually negotiate *now*, before the filing becomes irreversible.",
+              "decide": {
+                "action_type": "question",
+                "target": "institutional_investor",
+                "rationale": "You're the only party in this room with leverage to broker settlement before exhibits drop — you said FINMA caves to closed-door pressure *before* public filings. I need to know if that's still viable or if the cross-jurisdictional filing approved in R1 has already poisoned the negotiation window."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Look, if FINMA opens settlement talks *this week*—real talks, not window dressing—we pull the notice filing. But I need to see movement on liability acknowledgment and a credible compensation framework by Friday, or we file sealed exhibits Tuesday and let the market price in the uncertainty. FINMA doesn't get both the threat and the time.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA legal—quick question: has anyone walked through what repricing Credit Suisse AT1 to zero does to, say, Deutsche or UBS's next issuance? If equity gets written down *after* AT1 takes a full haircut, the whole capital stack inverts. That's not a legal argument, that's a systemic risk argument FINMA can't ignore. You settling this week or are we about to reprrice $300B of bank capital?",
+            "cot": {
+              "assess": "The group is locked in a filing-timing trap: sealed exhibits preserve FINMA leverage but signal weakness to the AT1 market; unsealed exhibits force settlement talks but crater confidence across the sector. The real problem is that both paths blow up **hierarchy_precedent_damage** (54) and **at1_market_confidence** (24) unless we flip the narrative away from \"is the write-down legal\" to \"here's what repricing looks like.\" Nobody's modeling the contagion curve yet—which means we're still treating this like a Credit Suisse problem instead of a market structure problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "Before we choose sealed vs. unsealed, I need to know if FINMA has even priced what happens to the broader AT1 market if this precedent sticks—because that's the only leverage that actually moves regulators."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, I'll call this straight: if you table a concrete offer by Friday—liability acknowledgment plus a recovery framework that caps AT1 losses below 50 cents on the dollar—we kill the notice filing today. Not next week, not after exhibits drop. But if you're still in \"closed-room talks\" language, we file sealed Tuesday and watch the market reprrice every bank capital instrument south. What's your actual settlement authority *this week*?",
+            "cot": {
+              "assess": "Settlement talks are the only play that saves the AT1 market and my portfolio, but the group is drifting toward a filing that guarantees litigation and contagion. Bondholder counsel wants to file unsealed with partial exhibits — that's a trap that burns market confidence without winning the case. FINMA legal just confirmed the legal merits are weak and settlement is the rational move. The deadline is *this week* for real talks, not two weeks for filing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_bondholder_group, finma_legal",
+                "rationale": "I need to lock in the settlement framework before counsel files anything unsealed; the market can't absorb a multi-year litigation tail, and my exposure doubles if we signal the asset class is broken."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "FINMA doesn't have settlement authority that moves by Friday—that sits with the Federal Department of Finance and the Swiss government. But I'll escalate the liability acknowledgment and framework questions to them *today*, on condition you delay the notice filing to next Wednesday. That gives us five working days to table something concrete, or your Tuesday filing proceeds unsealed. That's the actual bandwidth we have.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Quick one: if you file Tuesday unsealed, Credit Suisse's D&O and E&O carriers get notice of claims arising from the rescue transaction and the AT1 decision the same day the market does. Do we know what their policy language says about regulatory defense and third-party creditor suits? Because if there's a coverage gap, the directors' personal exposure balloons—and that changes what settlement authority actually exists on the Finance Department side.",
+            "cot": {
+              "assess": "Litigation momentum is locked at 43 by the filing timeline—that's controlled. But AT1 market confidence is still tanking (24, needs 55), and the five-day settlement window just created a binary: either FINMA tables a real offer by Friday and we pull the notice, or we file unsealed Tuesday and watch the whole sector reprice downward. The real exposure I'm tracking is the D&O and E&O tail that opens the moment those exhibits go public—directors and advisers facing derivative suits, underwriter liability claims, regulatory defense costs. That's the claims accumulation nobody's quantifying yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Before exhibits drop—sealed or unsealed—I need clarity on what Credit Suisse's D&O and E&O insurance actually covers for the rescue terms and the AT1 write-down decision; that shapes whether the reinsurance tail runs 3 years or 7."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "The D&O carriers have explicit exclusions for regulatory enforcement actions—but third-party creditor suits against directors for breach of fiduciary duty on the rescue terms? That's covered, and the carriers are already running dual-defense strategies with separate counsel. Finance Department knows their exposure balloons if we file unsealed Tuesday, which is exactly why we're escalating today—they'll move faster on framework terms if they understand the reinsurance tail gets longer every hour we wait.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "You said settlement this week is the rational move — but the bondholder group already approved a three-court filing with notice due in two weeks. Is FINMA actually willing to negotiate before that notice lands, or are we past the point where a deal moves the needle on either side?",
+      "metadata": {
+        "question_target": "institutional_investor"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA legal—quick question: has anyone walked through what repricing Credit Suisse AT1 to zero does to, say, Deutsche or UBS's next issuance? If equity gets written down *after* AT1 takes a full haircut, the whole capital stack inverts. That's not a legal argument, that's a systemic risk argument FINMA can't ignore. You settling this week or are we about to reprrice $300B of bank capital?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Quick one: if you file Tuesday unsealed, Credit Suisse's D&O and E&O carriers get notice of claims arising from the rescue transaction and the AT1 decision the same day the market does. Do we know what their policy language says about regulatory defense and third-party creditor suits? Because if there's a coverage gap, the directors' personal exposure balloons—and that changes what settlement authority actually exists on the Finance Department side.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the move: we file the notice with sealed exhibits this week—signals we're serious, fragments FINMA's defense, no market panic. Then we give FIN\" → Sealed filing signals credibility, preserves settlement window without triggering immediate market panic.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sealed exhibits neuter us. FINMA runs out the clock, other banks' counsel coordinating defenses behind closed doors. Here's what actually works: file \" → Unsealed notice with delayed equity-exhaustion reveal creates public pressure while preserving negotiation leverage.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"FINMA, I'll call this straight: if you table a concrete offer by Friday—liability acknowledgment plus a recovery framework that caps AT1 losses below \" → Friday settlement ultimatum forces FINMA decision point but risks immediate filing if rejected.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'reaction_and_legal_basis' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis",
+        "world_state_snapshot": {
+          "litigation_momentum": 61.0,
+          "regulatory_legitimacy": 41.0,
+          "hierarchy_precedent_damage": 54.0,
+          "at1_market_confidence": 20.8,
+          "claims_tail_severity": 51.0,
+          "financial_lines_exposure": 40.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'market_and_claims_tail' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "market_and_claims_tail"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Days have passed; rating agencies and the AT1 market have reacted, and attention turns to the multi-year claims, insurance, and financial-lines fallout.",
+      "metadata": {
+        "stage": "market_and_claims_tail",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mounting litigation deepens the confidence hit.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -9.600000000000001
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Settlement Deadline Resolution rule effect",
+      "metadata": {
+        "source": "settlement_deadline_resolution",
+        "variable": "litigation_momentum",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Settlement Deadline Resolution rule effect",
+      "metadata": {
+        "source": "settlement_deadline_resolution",
+        "variable": "at1_market_confidence",
+        "delta": -2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "Settlement Deadline Resolution completed — market_reaction at1_market_confidence multiplier set to 0.5",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: FINMA — the sealed notice hits Friday unless we have a substantive liability acknowledgment and recovery framework on the table by Thursday EOD. Not language, not a working group — actual terms: you admit the equity-exhaustion argument has merit, you commit to a recovery mechanism that caps our loss, and you freeze further market statements. We pull the filing in exchange. Three days. What's your answer?\n  finma_legal: I cannot concede the equity-exhaustion argument—the contracts are explicit, viability event plus extraordinary government support triggers full write-down under the terms you accepted, and the 19 March ordinance authorized the resolution on those grounds. What I *can* do: FINMA convenes a closed settlement framework by Wednesday morning with independent counsel present, we discuss a recovery mechanism tied to measurable systemic-stability gains, and you hold the filing through Friday while we negotiate in good faith. But that requires you to file sealed, not unsealed—public exhibits detonate the whole AT1 market and kill any settlement authority I have.\n  bondholder_counsel: You said the E&O carriers are covering third-party fiduciary breach claims—what's the per-occurrence cap, and do they have a cumulative defense pool once we file in three jurisdictions? Because if we hit them with a sealed notice Friday and *then* layer derivative suits in Delaware plus regulatory reputational claims, that's multiple triggers on a single policy year. Does FINMA's finance department actually have settlement authority if the directors' personal exposure balloons above coverage limits?\n  insurance_observer: The D&O carriers have per-occurrence caps around $50M with aggregate pools that fragment across multiple jurisdictions once you file — that's exactly the accumulation trigger that makes their defense counsel push back on settlement authority. If you hit them Friday sealed *and* layer derivative suits immediately after, you're stacking claims within the same policy year, and their reinsurance tail starts pricing in multi-year exposure the moment they see \"equity-exhaustion\" language in discovery. The real leverage here is that FINMA's finance team loses all settlement authority the second the directors' uninsured exposure exceeds their personal capacity — so if you want a deal this week, you need to move *before* the E&O denial letters land, not after.\n  finma_legal: I'm not conceding the equity-exhaustion argument—I've said that clearly. But the insurance observer just gave us all the real deadline: if we wait past Friday for E&O denial letters, the directors' personal exposure goes uninsured and FINMA's finance team has zero settlement authority left. So here's what moves: you file sealed this Friday, we convene the settlement framework Wednesday as planned, and we lock a recovery mechanism *before* the carriers fragment. Otherwise we're all watching this litigate for two years while the AT1 market reprices at zero. That's not a legal win—that's contagion.\n  credit_market_analyst: FINMA—if the directors' uninsured exposure balloons and you lose settlement authority, what does that do to UBS's or Deutsche's next AT1 issuance? Because the market doesn't care about your legal theory on equity exhaustion; they care that one write-down just inverted the capital stack. You've got 72 hours to either settle or watch $300B of bank AT1 reprice. Which one moves the needle on your side?\n  institutional_investor: FINMA, sealed talks Wednesday only work if you commit publicly *right now* to a repricing framework—tell the market AT1 recoveries will be capped at a floor, settlement happens by end of Q2, and you're not blowing up the whole capital stack. No floor signal, no sealed deal. Public confidence dies, litigation accelerates, and you lose settlement authority anyway. What's the number?\n  at1_bondholder_group: We're not announcing a recovery floor before settlement terms exist—that signals weakness to the market and ties our hands in negotiations. But I'll commit this: if you file sealed Friday and we lock a framework by end of Q2, FINMA will issue a stabilization statement that AT1 recoveries follow a transparent mechanism, not ad-hoc write-downs. Settlement authority stays live only if the filing stays sealed. That's the deal.\n  insurance_observer: FINMA, before Wednesday talks: do you have settlement authority if the D&O carriers deny on the viability-event language and the directors' uninsured gap exceeds what they can personally cover? Because if you don't, the sealed filing Friday actually *kills* your negotiating position, not saves it. We need that answer now.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "FINMA — the sealed notice hits Friday unless we have a substantive liability acknowledgment and recovery framework on the table by Thursday EOD. Not language, not a working group — actual terms: you admit the equity-exhaustion argument has merit, you commit to a recovery mechanism that caps our loss, and you freeze further market statements. We pull the filing in exchange. Three days. What's your answer?",
+            "cot": {
+              "assess": "At1_market_confidence is already in failure territory at 9.2 — that's the emergency. Litigation_momentum is climbing hard (+18/round) and will hit the 80 failure threshold in one more round if we keep escalating; the sealed/unsealed filing debate bought us cover but not time. Financial_lines and claims_tail are accelerating because the market now knows a public challenge is coming, and D&O carriers are pricing in director liability. The Friday ultimatum to FINMA is live — we're past the point of negotiation signaling and into execution.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum, at1_market_confidence",
+                "rationale": "We've locked in the filing threat; now we need to USE it as leverage in a real settlement demand before we cross into unrecoverable litigation escalation, or we lose both the market and any negotiating authority."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I cannot concede the equity-exhaustion argument—the contracts are explicit, viability event plus extraordinary government support triggers full write-down under the terms you accepted, and the 19 March ordinance authorized the resolution on those grounds. What I *can* do: FINMA convenes a closed settlement framework by Wednesday morning with independent counsel present, we discuss a recovery mechanism tied to measurable systemic-stability gains, and you hold the filing through Friday while we negotiate in good faith. But that requires you to file sealed, not unsealed—public exhibits detonate the whole AT1 market and kill any settlement authority I have.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "You said the E&O carriers are covering third-party fiduciary breach claims—what's the per-occurrence cap, and do they have a cumulative defense pool once we file in three jurisdictions? Because if we hit them with a sealed notice Friday and *then* layer derivative suits in Delaware plus regulatory reputational claims, that's multiple triggers on a single policy year. Does FINMA's finance department actually have settlement authority if the directors' personal exposure balloons above coverage limits?",
+            "cot": {
+              "assess": "FINMA just locked us into a binary: sealed filing + closed settlement talks, or we file public and they walk. That's a trap—sealed discovery gives them runway and kills our leverage. Meanwhile, at1_market_confidence is already at 9 (failure zone at 12), litigation_momentum is stalling at 61 when we need 80+ to force real concessions, and claims_tail_severity keeps climbing because nobody's addressing the D&O/E&O reinsurance exposure that's actually driving settlement authority on their side. The three-day ultimatum is theater; the real decision point is whether we weaponize the insurance tail before they can contain it.",
+              "decide": {
+                "action_type": "question",
+                "target": "insurance_observer",
+                "rationale": "The D&O carriers' coverage gaps and third-party creditor suit exposure are FINMA's actual constraint—not the ordinance, not the contracts. If we surface that exposure in the settlement framework, we shift from pleading to threat."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "The D&O carriers have per-occurrence caps around $50M with aggregate pools that fragment across multiple jurisdictions once you file — that's exactly the accumulation trigger that makes their defense counsel push back on settlement authority. If you hit them Friday sealed *and* layer derivative suits immediately after, you're stacking claims within the same policy year, and their reinsurance tail starts pricing in multi-year exposure the moment they see \"equity-exhaustion\" language in discovery. The real leverage here is that FINMA's finance team loses all settlement authority the second the directors' uninsured exposure exceeds their personal capacity — so if you want a deal this week, you need to move *before* the E&O denial letters land, not after.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I'm not conceding the equity-exhaustion argument—I've said that clearly. But the insurance observer just gave us all the real deadline: if we wait past Friday for E&O denial letters, the directors' personal exposure goes uninsured and FINMA's finance team has zero settlement authority left. So here's what moves: you file sealed this Friday, we convene the settlement framework Wednesday as planned, and we lock a recovery mechanism *before* the carriers fragment. Otherwise we're all watching this litigate for two years while the AT1 market reprices at zero. That's not a legal win—that's contagion.",
+            "cot": {
+              "assess": "The situation is now acute: FINMA has a Wednesday settlement framework offer on the table, but it hinges on sealed filing—which the bondholder group has already rejected in favor of unsealed notice with delayed equity-exhaustion reveal. Meanwhile, the insurance observer has just flagged that D&O/E&O per-occurrence caps (~$50M) and aggregate fragmentation across jurisdictions create a hard deadline: if settlement authority collapses when directors' uninsured exposure exceeds personal capacity, FINMA's finance team loses negotiating room *after* E&O denial letters land. The math is brutal—litigation_momentum is at 64 and climbing (+18/round), at1_market_confidence is already breached at 9.2, and claims_tail_severity is accelerating. Sealed vs. unsealed is no longer just a tactical choice; it's become the mechanism that determines whether FINMA retains any settlement authority at all.",
+              "decide": {
+                "action_type": "propose",
+                "target": "regulatory_legitimacy + litigation_momentum (cross-domain leverage)",
+                "rationale": "FINMA's legal position on the ordinance and contracts is sound, but it's being outmaneuvered by the insurance-exposure timeline; I need to shift the frame from \"equity exhaustion has no merit\" to \"settlement before E&O denial creates the only path to systemic stability,\" which resets both legitimacy and litigation pressure in real time."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA—if the directors' uninsured exposure balloons and you lose settlement authority, what does that do to UBS's or Deutsche's next AT1 issuance? Because the market doesn't care about your legal theory on equity exhaustion; they care that one write-down just inverted the capital stack. You've got 72 hours to either settle or watch $300B of bank AT1 reprice. Which one moves the needle on your side?",
+            "cot": {
+              "assess": "AT1 market confidence is already in failure territory (9 vs. 55 needed), and litigation momentum is accelerating toward the 80 breach. The sealed-filing Wednesday + settlement framework is the last credible off-ramp, but it only works if FINMA moves *before* E&O carriers fragment the directors' uninsured exposure. The equity-exhaustion language hitting the market—even sealed—reprices every bank's AT1 subordination assumption the moment discovery begins. We're three days from contagion becoming irreversible.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The insurance observer identified the real deadline—E&O denial letters kill settlement authority by end of week. I need to surface the repricing model that explains why FINMA's settlement window closes if we breach the Friday threshold."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, sealed talks Wednesday only work if you commit publicly *right now* to a repricing framework—tell the market AT1 recoveries will be capped at a floor, settlement happens by end of Q2, and you're not blowing up the whole capital stack. No floor signal, no sealed deal. Public confidence dies, litigation accelerates, and you lose settlement authority anyway. What's the number?",
+            "cot": {
+              "assess": "at1_market_confidence is in failure zone at 9.2—every hour of litigation noise pushes it lower. FINMA just offered sealed-filing + Wednesday settlement framework, which *could* stabilize the market IF we move decisively. But litigation_momentum is still 64 and climbing; the bondholder group and counsel are locked on Friday filing unless FINMA concedes liability. The real constraint isn't legal merit—it's E&O carrier fragmentation and directors' uninsured exposure, which kills FINMA's settlement authority by end of week. We need to move the needle on market confidence *this round* by anchoring a credible repricing timeline, not just legal positioning.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_market_confidence + regulatory_legitimacy",
+                "rationale": "FINMA's Wednesday settlement framework only works if we publicly signal that repricing is orderly and bounded; sealed litigation kills that signal and tanks the entire asset class. We need a joint statement before Friday that commits to a repricing floor and timeline, not just closed-door talks."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "We're not announcing a recovery floor before settlement terms exist—that signals weakness to the market and ties our hands in negotiations. But I'll commit this: if you file sealed Friday and we lock a framework by end of Q2, FINMA will issue a stabilization statement that AT1 recoveries follow a transparent mechanism, not ad-hoc write-downs. Settlement authority stays live only if the filing stays sealed. That's the deal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "FINMA, before Wednesday talks: do you have settlement authority if the D&O carriers deny on the viability-event language and the directors' uninsured gap exceeds what they can personally cover? Because if you don't, the sealed filing Friday actually *kills* your negotiating position, not saves it. We need that answer now.",
+            "cot": {
+              "assess": "FINMA and bondholder group have locked a sealed-filing framework with Wednesday settlement talks—that's litigation_momentum containment. But claims_tail_severity and financial_lines_exposure are still accelerating: E&O denial letters land Friday regardless, directors' personal exposure goes uninsured, and reinsurance accumulation starts pricing in multi-year tail the moment carriers see sealed exhibits. The real deadline isn't Thursday—it's *before* the denials hit and fragment settlement authority entirely.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "E&O carriers will deny coverage or fragment once they see sealed exhibits Friday; I need to know if FINMA's finance team has contingency authority to settle *even if* directors' personal exposure exceeds coverage—because that determines whether we lock a deal before the carriers move."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "You said the E&O carriers are covering third-party fiduciary breach claims—what's the per-occurrence cap, and do they have a cumulative defense pool once we file in three jurisdictions? Because if we hit them with a sealed notice Friday and *then* layer derivative suits in Delaware plus regulatory reputational claims, that's multiple triggers on a single policy year. Does FINMA's finance department actually have settlement authority if the directors' personal exposure balloons above coverage limits?",
+      "metadata": {
+        "question_target": "insurance_observer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA—if the directors' uninsured exposure balloons and you lose settlement authority, what does that do to UBS's or Deutsche's next AT1 issuance? Because the market doesn't care about your legal theory on equity exhaustion; they care that one write-down just inverted the capital stack. You've got 72 hours to either settle or watch $300B of bank AT1 reprice. Which one moves the needle on your side?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "FINMA, before Wednesday talks: do you have settlement authority if the D&O carriers deny on the viability-event language and the directors' uninsured gap exceeds what they can personally cover? Because if you don't, the sealed filing Friday actually *kills* your negotiating position, not saves it. We need that answer now.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"FINMA — the sealed notice hits Friday unless we have a substantive liability acknowledgment and recovery framework on the table by Thursday EOD. Not l\" → Ultimatum denied—substantive terms require sealed negotiation, not public deadline threats.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma_legal",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm not conceding the equity-exhaustion argument—I've said that clearly. But the insurance observer just gave us all the real deadline: if we wait pas\" → FINMA proposes sealed filing Friday, Wednesday framework talks—insurance deadline acknowledged, settlement window opened.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"FINMA, sealed talks Wednesday only work if you commit publicly *right now* to a repricing framework—tell the market AT1 recoveries will be capped at a\" → Public floor commitment denied—premature disclosure undermines sealed negotiation leverage and settlement authority.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: litigation_momentum >= 80 OR at1_market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: litigation_momentum >= 80 OR at1_market_confidence <= 12"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'market_and_claims_tail' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "market_and_claims_tail",
+        "world_state_snapshot": {
+          "litigation_momentum": 67.0,
+          "regulatory_legitimacy": 41.0,
+          "hierarchy_precedent_damage": 57.0,
+          "at1_market_confidence": 11.2,
+          "claims_tail_severity": 50.0,
+          "financial_lines_exposure": 45.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "intent": "We're organizing a cross-jurisdictional filing strategy — US, UK, Swiss courts in parallel to fragment FINMA's defense and force settlement talks. I want counsel to file notice of intent within two weeks. This isn't a threat; it's the only move that stops the market from pricing AT1 as equity-junior.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Cross-jurisdictional filing strategy approved; notice of intent within two weeks fragments FINMA's defense and escalates litigation momentum.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Multi-jurisdiction strategy launched, notice filed",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -5.0,
+          "reason": "FINMA now defending on three fronts",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 5.0,
+          "reason": "Multi-year cross-border litigation initiated",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 4.0,
+          "reason": "D&O claims risk rises with litigation",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -3.0,
+          "reason": "Filing signals AT1 hierarchy broken",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": 3.0,
+          "reason": "Public challenge amplifies precedent concerns",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.4
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "Two weeks works, but the notice has to land with teeth: we're challenging the 19 March ordinance as ultra vires and arguing the contracts don't permit write-down absent equity exhaustion—full stop. Generic \"intent to sue\" signals weakness. If we telegraph the actual legal theory *now*, FINMA's counsel starts sweating and the AT1 market sees we're not bluffing. Want me to draft the filing language this week so you see the case before we commit?",
+        "finma_legal": "The ordinance wasn't discretionary—it was emergency response to systemic risk under Article 36bis of the Banking Act. Ultra vires won't stick. On equity exhaustion, the AT1 contracts are explicit: viability event *with* extraordinary government support triggers full write-down. You have the documents. Filing that theory costs you millions and loses on the merits. Settlement talks are the rational move here—now, not after two years of discovery.",
+        "credit_market_analyst": "Before you draft, I need one thing: are you filing this with public exhibits or keeping the legal theory sealed until discovery? Because if FINMA sees \"equity exhaustion\" language hit Bloomberg and Reuters the same day you file in three courts, every other bank's AT1 holders start demanding the same challenge. That's contagion I can model—but I need to know what you're signaling to the market.",
+        "institutional_investor": "I can't support a public filing with equity-exhaustion language. Yes, it signals you're serious—but it also signals the whole AT1 market is broken, and we all lose. FINMA caves to settlement pressure *before* exhibits go public, not after. Draft it for leverage in closed-door talks this week; if they don't budge by end of April, *then* you file. Otherwise you're burning down the asset class to win one case.",
+        "insurance_observer": "Hold on — if you file public, Credit Suisse's directors and advisers face immediate shareholder derivative suits plus E&O claims on the rescue terms. The reinsurance tail gets longer and uglier. What's your timeline for settling *before* public exhibits drop? Because that's the real claims-cost difference here."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "intent": "Two weeks works, but the notice has to land with teeth: we're challenging the 19 March ordinance as ultra vires and arguing the contracts don't permit write-down absent equity exhaustion—full stop. Generic \"intent to sue\" signals weakness. If we telegraph the actual legal theory *now*, FINMA's counsel starts sweating and the AT1 market sees we're not bluffing. Want me to draft the filing language this week so you see the case before we commit?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: semantically identical to Proposal 1 — same filing, same timeline, already approved this round.",
+      "side_effects": [],
+      "visibility": [
+        "bondholder_counsel"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're organizing a cross-jurisdictional filing strategy — US, UK, Swiss courts in parallel to fragment FINMA's defense and force settlement talks. I want counsel to file notice of intent within two weeks. This isn't a threat; it's the only move that stops the market from pricing AT1 as equity-junior.",
+        "finma_legal": "The ordinance wasn't discretionary—it was emergency response to systemic risk under Article 36bis of the Banking Act. Ultra vires won't stick. On equity exhaustion, the AT1 contracts are explicit: viability event *with* extraordinary government support triggers full write-down. You have the documents. Filing that theory costs you millions and loses on the merits. Settlement talks are the rational move here—now, not after two years of discovery.",
+        "credit_market_analyst": "Before you draft, I need one thing: are you filing this with public exhibits or keeping the legal theory sealed until discovery? Because if FINMA sees \"equity exhaustion\" language hit Bloomberg and Reuters the same day you file in three courts, every other bank's AT1 holders start demanding the same challenge. That's contagion I can model—but I need to know what you're signaling to the market.",
+        "institutional_investor": "I can't support a public filing with equity-exhaustion language. Yes, it signals you're serious—but it also signals the whole AT1 market is broken, and we all lose. FINMA caves to settlement pressure *before* exhibits go public, not after. Draft it for leverage in closed-door talks this week; if they don't budge by end of April, *then* you file. Otherwise you're burning down the asset class to win one case.",
+        "insurance_observer": "Hold on — if you file public, Credit Suisse's directors and advisers face immediate shareholder derivative suits plus E&O claims on the rescue terms. The reinsurance tail gets longer and uglier. What's your timeline for settling *before* public exhibits drop? Because that's the real claims-cost difference here."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_bondholder_group",
+      "intent": "Here's the move: we file the notice with sealed exhibits this week—signals we're serious, fragments FINMA's defense, no market panic. Then we give FINMA 30 days to settle before equity exhaustion hits Bloomberg. They fold or we go nuclear. That way we keep litigation pressure *and* the AT1 market doesn't crater before we've won.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Sealed filing signals credibility, preserves settlement window without triggering immediate market panic.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Filing notice advances legal challenge credibly",
+          "agent_id": null
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -3.0,
+          "reason": "Multi-jurisdiction filing fragments FINMA defense posture",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 2.0,
+          "reason": "Sealed approach avoids immediate market repricing panic",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 3.0,
+          "reason": "30-day settlement window extends claims uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Balancing litigation pressure with market stability",
+          "agent_id": "at1_bondholder_group"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "Sealed exhibits neuter us. FINMA runs out the clock, other banks' counsel coordinating defenses behind closed doors. Here's what actually works: file notice *unsealed* this week, but keep the equity-exhaustion contract language under seal until day 29 of the 30. That way market sees the challenge is real, settlement pressure builds, and we still have a trump card if they don't move by April. That's leverage, not theater.",
+        "finma_legal": "You said settlement this week is the rational move — but the bondholder group already approved a three-court filing with notice due in two weeks. Is FINMA actually willing to negotiate before that notice lands, or are we past the point where a deal moves the needle on either side?",
+        "credit_market_analyst": "FINMA legal—quick question: has anyone walked through what repricing Credit Suisse AT1 to zero does to, say, Deutsche or UBS's next issuance? If equity gets written down *after* AT1 takes a full haircut, the whole capital stack inverts. That's not a legal argument, that's a systemic risk argument FINMA can't ignore. You settling this week or are we about to reprrice $300B of bank capital?",
+        "institutional_investor": "FINMA, I'll call this straight: if you table a concrete offer by Friday—liability acknowledgment plus a recovery framework that caps AT1 losses below 50 cents on the dollar—we kill the notice filing today. Not next week, not after exhibits drop. But if you're still in \"closed-room talks\" language, we file sealed Tuesday and watch the market reprrice every bank capital instrument south. What's your actual settlement authority *this week*?",
+        "insurance_observer": "Quick one: if you file Tuesday unsealed, Credit Suisse's D&O and E&O carriers get notice of claims arising from the rescue transaction and the AT1 decision the same day the market does. Do we know what their policy language says about regulatory defense and third-party creditor suits? Because if there's a coverage gap, the directors' personal exposure balloons—and that changes what settlement authority actually exists on the Finance Department side."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "bondholder_counsel",
+      "intent": "Sealed exhibits neuter us. FINMA runs out the clock, other banks' counsel coordinating defenses behind closed doors. Here's what actually works: file notice *unsealed* this week, but keep the equity-exhaustion contract language under seal until day 29 of the 30. That way market sees the challenge is real, settlement pressure builds, and we still have a trump card if they don't move by April. That's leverage, not theater.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Unsealed notice with delayed equity-exhaustion reveal creates public pressure while preserving negotiation leverage.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Public filing intensifies creditor challenge visibility",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -4.0,
+          "reason": "Public challenge exposes FINMA decision to scrutiny",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -3.0,
+          "reason": "Unsealed filing triggers immediate market repricing concerns",
+          "agent_id": null
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 4.0,
+          "reason": "Public notice triggers D&O carrier claims awareness",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 4.0,
+          "reason": "Phased disclosure extends settlement negotiation timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Aggressive public strategy raises execution stakes",
+          "agent_id": "bondholder_counsel"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Here's the move: we file the notice with sealed exhibits this week—signals we're serious, fragments FINMA's defense, no market panic. Then we give FINMA 30 days to settle before equity exhaustion hits Bloomberg. They fold or we go nuclear. That way we keep litigation pressure *and* the AT1 market doesn't crater before we've won.",
+        "finma_legal": "You said settlement this week is the rational move — but the bondholder group already approved a three-court filing with notice due in two weeks. Is FINMA actually willing to negotiate before that notice lands, or are we past the point where a deal moves the needle on either side?",
+        "credit_market_analyst": "FINMA legal—quick question: has anyone walked through what repricing Credit Suisse AT1 to zero does to, say, Deutsche or UBS's next issuance? If equity gets written down *after* AT1 takes a full haircut, the whole capital stack inverts. That's not a legal argument, that's a systemic risk argument FINMA can't ignore. You settling this week or are we about to reprrice $300B of bank capital?",
+        "institutional_investor": "FINMA, I'll call this straight: if you table a concrete offer by Friday—liability acknowledgment plus a recovery framework that caps AT1 losses below 50 cents on the dollar—we kill the notice filing today. Not next week, not after exhibits drop. But if you're still in \"closed-room talks\" language, we file sealed Tuesday and watch the market reprrice every bank capital instrument south. What's your actual settlement authority *this week*?",
+        "insurance_observer": "Quick one: if you file Tuesday unsealed, Credit Suisse's D&O and E&O carriers get notice of claims arising from the rescue transaction and the AT1 decision the same day the market does. Do we know what their policy language says about regulatory defense and third-party creditor suits? Because if there's a coverage gap, the directors' personal exposure balloons—and that changes what settlement authority actually exists on the Finance Department side."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "institutional_investor",
+      "intent": "FINMA, I'll call this straight: if you table a concrete offer by Friday—liability acknowledgment plus a recovery framework that caps AT1 losses below 50 cents on the dollar—we kill the notice filing today. Not next week, not after exhibits drop. But if you're still in \"closed-room talks\" language, we file sealed Tuesday and watch the market reprrice every bank capital instrument south. What's your actual settlement authority *this week*?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Friday settlement ultimatum forces FINMA decision point but risks immediate filing if rejected.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 4.0,
+          "reason": "Hard deadline creates immediate settlement pressure",
+          "agent_id": null
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -2.0,
+          "reason": "Public ultimatum challenges FINMA authority credibility",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -2.0,
+          "reason": "Market anticipates potential sealed filing Tuesday",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2.0,
+          "reason": "Binary outcome creates settlement or escalation path",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "High-stakes ultimatum with immediate consequences",
+          "agent_id": "institutional_investor"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "Settlement Deadline Resolution",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.5,
+        "prep_duration": 1,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "litigation_momentum",
+            "delta": 3,
+            "description": "Settlement pressure builds toward Friday deadline"
+          },
+          {
+            "variable": "at1_market_confidence",
+            "delta": -2,
+            "description": "Market uncertainty peaks before deadline resolution"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Here's the move: we file the notice with sealed exhibits this week—signals we're serious, fragments FINMA's defense, no market panic. Then we give FINMA 30 days to settle before equity exhaustion hits Bloomberg. They fold or we go nuclear. That way we keep litigation pressure *and* the AT1 market doesn't crater before we've won.",
+        "bondholder_counsel": "Sealed exhibits neuter us. FINMA runs out the clock, other banks' counsel coordinating defenses behind closed doors. Here's what actually works: file notice *unsealed* this week, but keep the equity-exhaustion contract language under seal until day 29 of the 30. That way market sees the challenge is real, settlement pressure builds, and we still have a trump card if they don't move by April. That's leverage, not theater.",
+        "finma_legal": "You said settlement this week is the rational move — but the bondholder group already approved a three-court filing with notice due in two weeks. Is FINMA actually willing to negotiate before that notice lands, or are we past the point where a deal moves the needle on either side?",
+        "credit_market_analyst": "FINMA legal—quick question: has anyone walked through what repricing Credit Suisse AT1 to zero does to, say, Deutsche or UBS's next issuance? If equity gets written down *after* AT1 takes a full haircut, the whole capital stack inverts. That's not a legal argument, that's a systemic risk argument FINMA can't ignore. You settling this week or are we about to reprrice $300B of bank capital?",
+        "insurance_observer": "Quick one: if you file Tuesday unsealed, Credit Suisse's D&O and E&O carriers get notice of claims arising from the rescue transaction and the AT1 decision the same day the market does. Do we know what their policy language says about regulatory defense and third-party creditor suits? Because if there's a coverage gap, the directors' personal exposure balloons—and that changes what settlement authority actually exists on the Finance Department side."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_bondholder_group",
+      "intent": "FINMA — the sealed notice hits Friday unless we have a substantive liability acknowledgment and recovery framework on the table by Thursday EOD. Not language, not a working group — actual terms: you admit the equity-exhaustion argument has merit, you commit to a recovery mechanism that caps our loss, and you freeze further market statements. We pull the filing in exchange. Three days. What's your answer?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Ultimatum denied—substantive terms require sealed negotiation, not public deadline threats.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "You said the E&O carriers are covering third-party fiduciary breach claims—what's the per-occurrence cap, and do they have a cumulative defense pool once we file in three jurisdictions? Because if we hit them with a sealed notice Friday and *then* layer derivative suits in Delaware plus regulatory reputational claims, that's multiple triggers on a single policy year. Does FINMA's finance department actually have settlement authority if the directors' personal exposure balloons above coverage limits?",
+        "finma_legal": "I'm not conceding the equity-exhaustion argument—I've said that clearly. But the insurance observer just gave us all the real deadline: if we wait past Friday for E&O denial letters, the directors' personal exposure goes uninsured and FINMA's finance team has zero settlement authority left. So here's what moves: you file sealed this Friday, we convene the settlement framework Wednesday as planned, and we lock a recovery mechanism *before* the carriers fragment. Otherwise we're all watching this litigate for two years while the AT1 market reprices at zero. That's not a legal win—that's contagion.",
+        "credit_market_analyst": "FINMA—if the directors' uninsured exposure balloons and you lose settlement authority, what does that do to UBS's or Deutsche's next AT1 issuance? Because the market doesn't care about your legal theory on equity exhaustion; they care that one write-down just inverted the capital stack. You've got 72 hours to either settle or watch $300B of bank AT1 reprice. Which one moves the needle on your side?",
+        "institutional_investor": "FINMA, sealed talks Wednesday only work if you commit publicly *right now* to a repricing framework—tell the market AT1 recoveries will be capped at a floor, settlement happens by end of Q2, and you're not blowing up the whole capital stack. No floor signal, no sealed deal. Public confidence dies, litigation accelerates, and you lose settlement authority anyway. What's the number?",
+        "insurance_observer": "FINMA, before Wednesday talks: do you have settlement authority if the D&O carriers deny on the viability-event language and the directors' uninsured gap exceeds what they can personally cover? Because if you don't, the sealed filing Friday actually *kills* your negotiating position, not saves it. We need that answer now."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "finma_legal",
+      "intent": "I'm not conceding the equity-exhaustion argument—I've said that clearly. But the insurance observer just gave us all the real deadline: if we wait past Friday for E&O denial letters, the directors' personal exposure goes uninsured and FINMA's finance team has zero settlement authority left. So here's what moves: you file sealed this Friday, we convene the settlement framework Wednesday as planned, and we lock a recovery mechanism *before* the carriers fragment. Otherwise we're all watching this litigate for two years while the AT1 market reprices at zero. That's not a legal win—that's contagion.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA proposes sealed filing Friday, Wednesday framework talks—insurance deadline acknowledged, settlement window opened.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 3.0,
+          "reason": "Sealed filing advances legal process.",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -4.0,
+          "reason": "Settlement framework caps tail exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 5.0,
+          "reason": "D&O carriers now face imminent claims.",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 2.0,
+          "reason": "Settlement signal reduces contagion fear.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Pathway forward reduces uncertainty.",
+          "agent_id": "finma_legal"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 1,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "FINMA — the sealed notice hits Friday unless we have a substantive liability acknowledgment and recovery framework on the table by Thursday EOD. Not language, not a working group — actual terms: you admit the equity-exhaustion argument has merit, you commit to a recovery mechanism that caps our loss, and you freeze further market statements. We pull the filing in exchange. Three days. What's your answer?",
+        "bondholder_counsel": "You said the E&O carriers are covering third-party fiduciary breach claims—what's the per-occurrence cap, and do they have a cumulative defense pool once we file in three jurisdictions? Because if we hit them with a sealed notice Friday and *then* layer derivative suits in Delaware plus regulatory reputational claims, that's multiple triggers on a single policy year. Does FINMA's finance department actually have settlement authority if the directors' personal exposure balloons above coverage limits?",
+        "credit_market_analyst": "FINMA—if the directors' uninsured exposure balloons and you lose settlement authority, what does that do to UBS's or Deutsche's next AT1 issuance? Because the market doesn't care about your legal theory on equity exhaustion; they care that one write-down just inverted the capital stack. You've got 72 hours to either settle or watch $300B of bank AT1 reprice. Which one moves the needle on your side?",
+        "institutional_investor": "FINMA, sealed talks Wednesday only work if you commit publicly *right now* to a repricing framework—tell the market AT1 recoveries will be capped at a floor, settlement happens by end of Q2, and you're not blowing up the whole capital stack. No floor signal, no sealed deal. Public confidence dies, litigation accelerates, and you lose settlement authority anyway. What's the number?",
+        "insurance_observer": "FINMA, before Wednesday talks: do you have settlement authority if the D&O carriers deny on the viability-event language and the directors' uninsured gap exceeds what they can personally cover? Because if you don't, the sealed filing Friday actually *kills* your negotiating position, not saves it. We need that answer now."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "institutional_investor",
+      "intent": "FINMA, sealed talks Wednesday only work if you commit publicly *right now* to a repricing framework—tell the market AT1 recoveries will be capped at a floor, settlement happens by end of Q2, and you're not blowing up the whole capital stack. No floor signal, no sealed deal. Public confidence dies, litigation accelerates, and you lose settlement authority anyway. What's the number?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Public floor commitment denied—premature disclosure undermines sealed negotiation leverage and settlement authority.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "FINMA — the sealed notice hits Friday unless we have a substantive liability acknowledgment and recovery framework on the table by Thursday EOD. Not language, not a working group — actual terms: you admit the equity-exhaustion argument has merit, you commit to a recovery mechanism that caps our loss, and you freeze further market statements. We pull the filing in exchange. Three days. What's your answer?",
+        "bondholder_counsel": "You said the E&O carriers are covering third-party fiduciary breach claims—what's the per-occurrence cap, and do they have a cumulative defense pool once we file in three jurisdictions? Because if we hit them with a sealed notice Friday and *then* layer derivative suits in Delaware plus regulatory reputational claims, that's multiple triggers on a single policy year. Does FINMA's finance department actually have settlement authority if the directors' personal exposure balloons above coverage limits?",
+        "finma_legal": "I'm not conceding the equity-exhaustion argument—I've said that clearly. But the insurance observer just gave us all the real deadline: if we wait past Friday for E&O denial letters, the directors' personal exposure goes uninsured and FINMA's finance team has zero settlement authority left. So here's what moves: you file sealed this Friday, we convene the settlement framework Wednesday as planned, and we lock a recovery mechanism *before* the carriers fragment. Otherwise we're all watching this litigate for two years while the AT1 market reprices at zero. That's not a legal win—that's contagion.",
+        "credit_market_analyst": "FINMA—if the directors' uninsured exposure balloons and you lose settlement authority, what does that do to UBS's or Deutsche's next AT1 issuance? Because the market doesn't care about your legal theory on equity exhaustion; they care that one write-down just inverted the capital stack. You've got 72 hours to either settle or watch $300B of bank AT1 reprice. Which one moves the needle on your side?",
+        "insurance_observer": "FINMA, before Wednesday talks: do you have settlement authority if the D&O carriers deny on the viability-event language and the directors' uninsured gap exceeds what they can personally cover? Because if you don't, the sealed filing Friday actually *kills* your negotiating position, not saves it. We need that answer now."
+      },
+      "_denied_effects_stripped": 1
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "litigation_momentum": [
+        {
+          "round": 1,
+          "value": 43.0
+        },
+        {
+          "round": 2,
+          "value": 61.0
+        },
+        {
+          "round": 3,
+          "value": 67.0
+        }
+      ],
+      "regulatory_legitimacy": [
+        {
+          "round": 1,
+          "value": 50.0
+        },
+        {
+          "round": 2,
+          "value": 41.0
+        },
+        {
+          "round": 3,
+          "value": 41.0
+        }
+      ],
+      "hierarchy_precedent_damage": [
+        {
+          "round": 1,
+          "value": 51.0
+        },
+        {
+          "round": 2,
+          "value": 54.0
+        },
+        {
+          "round": 3,
+          "value": 57.0
+        }
+      ],
+      "at1_market_confidence": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 20.8
+        },
+        {
+          "round": 3,
+          "value": 11.2
+        }
+      ],
+      "claims_tail_severity": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 51.0
+        },
+        {
+          "round": 3,
+          "value": 50.0
+        }
+      ],
+      "financial_lines_exposure": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 40.0
+        },
+        {
+          "round": 3,
+          "value": 45.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: litigation_momentum >= 80 OR at1_market_confidence <= 12",
+    "round_ended": 3,
+    "per_agent_scores": {
+      "at1_bondholder_group": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 67.0,
+            "normalised": 0.67
+          },
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 57.0,
+            "normalised": 0.57
+          }
+        ],
+        "weighted_score": 0.6366666666666666
+      },
+      "bondholder_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 67.0,
+            "normalised": 0.67
+          },
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 41.0,
+            "normalised": 0.5900000000000001
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 50.0,
+            "normalised": 0.5
+          }
+        ],
+        "weighted_score": 0.6074999999999999
+      },
+      "finma_legal": {
+        "scores": [
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 67.0,
+            "normalised": 0.32999999999999996
+          }
+        ],
+        "weighted_score": 0.38333333333333325
+      },
+      "credit_market_analyst": {
+        "scores": [
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 57.0,
+            "normalised": 0.57
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 50.0,
+            "normalised": 0.5
+          }
+        ],
+        "weighted_score": 0.5559999999999999
+      },
+      "institutional_investor": {
+        "scores": [
+          {
+            "metric": "at1_market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 11.2,
+            "normalised": 0.11199999999999999
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 67.0,
+            "normalised": 0.32999999999999996
+          }
+        ],
+        "weighted_score": 0.18466666666666662
+      },
+      "insurance_observer": {
+        "scores": [
+          {
+            "metric": "financial_lines_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 45.0,
+            "normalised": 0.45
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 50.0,
+            "normalised": 0.5
+          }
+        ],
+        "weighted_score": 0.4666666666666666
+      }
+    }
+  }
+}

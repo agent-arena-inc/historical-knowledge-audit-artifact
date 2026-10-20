@@ -1,0 +1,1877 @@
+{
+  "simulation_id": "72ef72c49c82",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Who's owning the conversion from exposure to underwriting price? Right now we've got 25 on supplier relocation but zero link to actual nearshoring cost or timeline risk — I need to know what triggers a $50M re-sourcing hit versus a $200M one, and how you're pricing that uncertainty into the map.\n  supplier: Which tier of your suppliers — Tier 1, 2, 3 — is most exposed to re-qualification under the new content rules, and what's your real lead time to swap them out? That tells us if we're talking capex crunch or supply-chain collapse.\n  auto_strategy: Tier 1 and 2 are both exposed — Tier 1 loses margin if they absorb labor-content compliance cost, Tier 2 gets crushed if they can't re-source sub-components fast enough. Lead time to qualify new Tier 2 suppliers is 18–24 months; if we hit a tipping point where more than 40% of our platforms need re-sourcing simultaneously, we're looking at a $150M–$200M capex hole plus 6–9 month production gaps on affected models.\n  compliance_lawyer: Okay, so 18–24 months to re-qualify and a $150M capex cliff if we hit 40% — that's your trigger. But what certifies Tier 2 as compliant in the first place? Is it a one-time USMCA worksheet, or ongoing audit? And if CBP finds non-conforming content during a 3-year look-back, do we eat tariffs retroactively, or is it the supplier? That's the difference between a capex problem and a bankruptcy problem.\n  political_risk_insurer: You said CBP's 3-year lookback — is that locked in the statute, or does CBP have discretion to expand it during an enforcement wave? And if they find non-conforming content, who takes the tariff hit — does it flow back to us, or does the supplier absorb it? That liability assignment is the difference between a $150M capex problem and a $150M-plus political-risk exposure I actually need to underwrite.\n  compliance_lawyer: CBP's 3-year lookback is statutory under 19 CFR 181.92, not discretionary — but enforcement intensity absolutely swings during policy cycles, so assume they *will* expand audit scope if political pressure rises. On liability: tariff recovery flows back to the *importer of record* — that's you — unless your supplier contract explicitly shifts it; most don't, so you're holding $150M capex *plus* potential retroactive duty exposure if CBP finds content drift across three years of shipments. We need your contracts audited for indemnification language this week, or we're pricing blind.\n  trade_credit_underwriter: Okay, tariff flows back to you — that's the $150M problem. But here's my angle: if a Tier 2 supplier gets hit with retroactive duties on top of re-qualification capex, what's their solvency runway? Are we talking margin compression or actual default risk? Because if 40% of your Tier 2 base goes insolvent mid-requalification, you've got a receivables crisis *and* a supply crisis at the same time.\n  supply_chain_consultant: Auto, quick one: if we assume the 2026 review *tightens* regional-content rules, do we start relocating Tier 2 capacity *now* to beat the wave, or do we wait for the actual rule text? Because that's the difference between a phased $60M nearshoring investment and a panic $200M sprint in 2025.\n  cfo_erm: Here's what I'm doing: I'm building one consolidated map right now with three layers — Tier 1 margin squeeze ($30–50M band), Tier 2 re-qualification capex ($150–200M with 18–24 month lead), and retroactive tariff exposure ($20–80M depending on audit scope). On the contract indemnification piece — Sarah, I need you and compliance to flag the top 20 Tier 2 suppliers by spend and tell me by EOD which ones have explicit tariff-recovery clauses. We price the rest as *our* exposure and move forward.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Who's owning the conversion from exposure to underwriting price? Right now we've got 25 on supplier relocation but zero link to actual nearshoring cost or timeline risk — I need to know what triggers a $50M re-sourcing hit versus a $200M one, and how you're pricing that uncertainty into the map.",
+            "cot": {
+              "assess": "Rules-of-origin burden is solid at 32 — we've got the compliance cost framework locked. But the risk map is still fragmented at 19, and underwriting discipline is at 30. We're translating policy into priceable variables, and right now that translation is incomplete. The panel's got the raw exposure data, but we haven't tied it to named triggers or cost anchors yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting/risk-pricing lead",
+                "rationale": "Risk map completeness stalls without operationalized variables — I need to know what the panel is using to convert \"supplier relocation exposure\" into an actual reinsurance or hedging cost."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Which tier of your suppliers — Tier 1, 2, 3 — is most exposed to re-qualification under the new content rules, and what's your real lead time to swap them out? That tells us if we're talking capex crunch or supply-chain collapse.",
+            "cot": {
+              "assess": "Supplier relocation exposure is flagged at 25, but auto_strategy just exposed the real problem: we've got exposure numbers with zero cost-to-trigger mapping. Underwriting discipline is stuck at 30 because nobody's connected the policy burden to actual supplier capex and lead-time risk — that's where the $50M vs. $200M gap lives. Risk map is fragmented across domains; we're not synthesizing it.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You need the supply-side cost data to price relocation risk; I need to know which suppliers actually *can* relocate in the timeline before we call anything a $200M scenario."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Tier 1 and 2 are both exposed — Tier 1 loses margin if they absorb labor-content compliance cost, Tier 2 gets crushed if they can't re-source sub-components fast enough. Lead time to qualify new Tier 2 suppliers is 18–24 months; if we hit a tipping point where more than 40% of our platforms need re-sourcing simultaneously, we're looking at a $150M–$200M capex hole plus 6–9 month production gaps on affected models.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Okay, so 18–24 months to re-qualify and a $150M capex cliff if we hit 40% — that's your trigger. But what certifies Tier 2 as compliant in the first place? Is it a one-time USMCA worksheet, or ongoing audit? And if CBP finds non-conforming content during a 3-year look-back, do we eat tariffs retroactively, or is it the supplier? That's the difference between a capex problem and a bankruptcy problem.",
+            "cot": {
+              "assess": "Rules-of-origin burden is solid at 32, but the real gap is underwriting discipline (30, needs 50) and map completeness (19, needs 60). We've got exposure numbers — the 18–24 month Tier 2 re-qualification lead time and $150M–$200M capex threshold are concrete — but zero operationalized triggers. We're still calling it \"exposure\" instead of pricing it as a compliance event with audit and penalty teeth.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The $150M–$200M re-sourcing cost only matters if we can map it to a specific rules-of-origin audit trigger and failure scenario — I need to know what *certifies* a supplier as compliant, when CBP audits, and what the penalty cascade looks like if 40% of platforms fail content validation."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "You said CBP's 3-year lookback — is that locked in the statute, or does CBP have discretion to expand it during an enforcement wave? And if they find non-conforming content, who takes the tariff hit — does it flow back to us, or does the supplier absorb it? That liability assignment is the difference between a $150M capex problem and a $150M-plus political-risk exposure I actually need to underwrite.",
+            "cot": {
+              "assess": "Compliance_lawyer just surfaced the real political-risk layer: CBP audit interpretation, retroactive tariff exposure, and supplier liability assignment — that's unpriced right now. Auto_strategy has the capex trigger ($150M at 40% re-sourcing), but we're missing the enforcement-uncertainty multiplier. Political_risk_exposure is stuck at 26 because we're treating USMCA as a static rule set, not a live regulatory interpretation that can shift audit scope or lookback windows.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP audit scope and retroactive tariff liability are core political-risk variables — I need to price them as separate triggers from the capex cliff."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's 3-year lookback is statutory under 19 CFR 181.92, not discretionary — but enforcement intensity absolutely swings during policy cycles, so assume they *will* expand audit scope if political pressure rises. On liability: tariff recovery flows back to the *importer of record* — that's you — unless your supplier contract explicitly shifts it; most don't, so you're holding $150M capex *plus* potential retroactive duty exposure if CBP finds content drift across three years of shipments. We need your contracts audited for indemnification language this week, or we're pricing blind.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Okay, tariff flows back to you — that's the $150M problem. But here's my angle: if a Tier 2 supplier gets hit with retroactive duties on top of re-qualification capex, what's their solvency runway? Are we talking margin compression or actual default risk? Because if 40% of your Tier 2 base goes insolvent mid-requalification, you've got a receivables crisis *and* a supply crisis at the same time.",
+            "cot": {
+              "assess": "Compliance lawyer just dropped the real hammer: you're holding $150M capex *plus* retroactive duty exposure because supplier contracts don't shift tariff liability back to them. That's a trade-credit disaster waiting to happen — if CBP expands audit scope and finds content drift, your suppliers either eat the tariff (margin collapse, insolvency) or you do (receivables risk when they can't pay). The map's still fragmented though: we've got the trigger ($150M, 40% re-sourcing cliff, 18–24 month lead time), but we haven't priced how supplier default cascades from that pressure.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to convert the tariff-liability gap into a concrete trade-credit variable — specifically, which suppliers are most likely to default if they absorb duty exposure, and what's the receivables exposure if they can't pass it through to you."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Auto, quick one: if we assume the 2026 review *tightens* regional-content rules, do we start relocating Tier 2 capacity *now* to beat the wave, or do we wait for the actual rule text? Because that's the difference between a phased $60M nearshoring investment and a panic $200M sprint in 2025.",
+            "cot": {
+              "assess": "We've nailed the $150M capex trigger and the tariff-liability flow-back — that's the skeleton. But we're missing the *timing* of when that hit lands: does re-qualification start now, or do we wait for the 2026 USMCA review to clarify final rules? And we haven't connected Tier 2 solvency risk to your actual nearshoring roadmap — which suppliers can actually move, which ones are locked in by capex or geography. That's what turns exposure into a plan.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The 18–24 month re-qualification window collides with the 2026 review uncertainty — I need to know if we're building a nearshoring plan now (assuming tighter rules) or holding fire until clarity lands."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm building one consolidated map right now with three layers — Tier 1 margin squeeze ($30–50M band), Tier 2 re-qualification capex ($150–200M with 18–24 month lead), and retroactive tariff exposure ($20–80M depending on audit scope). On the contract indemnification piece — Sarah, I need you and compliance to flag the top 20 Tier 2 suppliers by spend and tell me by EOD which ones have explicit tariff-recovery clauses. We price the rest as *our* exposure and move forward.",
+            "cot": {
+              "assess": "We've got the trigger ($150M capex + retroactive tariff exposure if 40% of Tier 2 needs re-sourcing), but the map is still fragmented — compliance risk, capex risk, and solvency risk are floating separately instead of one integrated view. The contract audit gap is critical: without indemnification language locked down this week, we're pricing blind on $150M+ of liability that may or may not flow back to us. My risk_map_completeness is still at 19 because we haven't consolidated these into decision-ready tiers or priced the uncertainty bands.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "I need to force consolidation NOW — waiting for contract audit results delays the map another 2 weeks, and that's 2 weeks of environmental pressure grinding down our variables. I'm proposing a three-layer consolidated map with interim pricing so we can move."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Who's owning the conversion from exposure to underwriting price? Right now we've got 25 on supplier relocation but zero link to actual nearshoring cost or timeline risk — I need to know what triggers a $50M re-sourcing hit versus a $200M one, and how you're pricing that uncertainty into the map.",
+      "metadata": {
+        "question_target": "underwriting/risk-pricing lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Which tier of your suppliers — Tier 1, 2, 3 — is most exposed to re-qualification under the new content rules, and what's your real lead time to swap them out? That tells us if we're talking capex crunch or supply-chain collapse.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Okay, so 18–24 months to re-qualify and a $150M capex cliff if we hit 40% — that's your trigger. But what certifies Tier 2 as compliant in the first place? Is it a one-time USMCA worksheet, or ongoing audit? And if CBP finds non-conforming content during a 3-year look-back, do we eat tariffs retroactively, or is it the supplier? That's the difference between a capex problem and a bankruptcy problem.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "You said CBP's 3-year lookback — is that locked in the statute, or does CBP have discretion to expand it during an enforcement wave? And if they find non-conforming content, who takes the tariff hit — does it flow back to us, or does the supplier absorb it? That liability assignment is the difference between a $150M capex problem and a $150M-plus political-risk exposure I actually need to underwrite.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Okay, tariff flows back to you — that's the $150M problem. But here's my angle: if a Tier 2 supplier gets hit with retroactive duties on top of re-qualification capex, what's their solvency runway? Are we talking margin compression or actual default risk? Because if 40% of your Tier 2 base goes insolvent mid-requalification, you've got a receivables crisis *and* a supply crisis at the same time.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Auto, quick one: if we assume the 2026 review *tightens* regional-content rules, do we start relocating Tier 2 capacity *now* to beat the wave, or do we wait for the actual rule text? Because that's the difference between a phased $60M nearshoring investment and a panic $200M sprint in 2025.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm building one consolidated map right now with three layers — Tier 1 margin squeeze ($30–50M band), Tier 2 re-qualification c\" → CFO builds the three-layer exposure map (margin squeeze, re-qualification capex, retroactive tariff) and delegates contract indemnification review to compliance — a decisive consolidation step that advances the risk map substantially, though the team immediately surfaces critical gaps around liability assignment, supplier solvency, and timing triggers that must be resolved.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, the map framework is solid—but I need the teeth: which platforms hit the RVC floor, which ones miss the labor-value threshold, and what's the plant-by-plant gap? That's what tells me if we're phasing nearshoring at $60M or panic-sprinting at $200M. Can you hand that to me this week?\n  cfo_erm: I'm running that plant-by-plant RVC audit right now—flagging Tier 2 Mexico and Vietnam facilities as likely misses on labor content, which puts us at a $120–150M nearshoring cliff if we phase it. I'll have the platform-by-platform gap analysis to you by Thursday, but I need your ops lead to confirm actual labor spend per SKU—right now I'm working with cost-accounting estimates that could be off by 15–20%.\n  supplier: CFO, the labor audit helps—but here's what I need: once you have the plant-by-plant gaps, what's your timeline to certify which Tier 2 suppliers *pass* the RVC test and which ones don't? Because if we're looking at 18–24 months to re-qualify, I need to know right now which ones we're banking on surviving that window versus which ones we're already planning to replace.\n  compliance_lawyer: CFO, when you flag a Tier 2 facility as a labor-content miss—what's the specific RVC threshold it fails, and what's CBP's penalty calculation on retroactive duties for that gap? I need the audit to output a certification checklist, not just a flag list, so we can tell suppliers exactly what remediates them versus what triggers a write-off.\n  political_risk_insurer: CFO, the audit is solid—but here's what I need to underwrite this: if CBP expands enforcement scope during a policy wave and flags retroactive non-conforming content, does the tariff liability flow back to you or stays with the supplier? And if the 2026 review *does* tighten, what's your confidence that Tier 2 re-qualification actually clears it, versus you're just moving the cliff to 2027? I need those two binary calls to price the political premium into the nearshoring cost.\n  supplier: Look, the RVC threshold is 75% regional value content for passenger vehicles—Tier 2 Mexico and Vietnam are running 62–68% on labor-weighted SKUs, so they're missing by 7–13 points. On retroactive duties: CBP's 3-year lookback hits *us* first if we imported non-conforming goods, but we've got indemnification language in most Tier 2 contracts that should push it back to the supplier—I'm having compliance nail down which ones have teeth and which ones are worthless by end of week. That's your certification trigger: if a supplier can't close the gap in 18 months *and* their indemnity is weak, we write them off now and start the replacement clock.\n  trade_credit_underwriter: CFO, when you hand over the RVC audit Thursday—can you flag which Tier 2 suppliers are already margin-constrained or carrying debt? I need to know which ones have runway to survive 18 months of re-qual spend *and* a retroactive tariff hit, versus which ones are one bad quarter away from default. That's the difference between a capex problem and a receivables write-off I actually need to underwrite.\n  supply_chain_consultant: Here's what I'm proposing: we lock a \"go/no-go\" decision point for Tier 2 nearshoring right now, before the 2026 rule text drops. If the indemnity audit shows >40% of Tier 2 suppliers have weak coverage *and* can't close the RVC gap in 18 months, we commit to a phased $60M relocation starting Q2 2025 — that beats any 2026 tightening and keeps us off the panic path. If coverage is solid and gaps are smaller, we wait for the actual rule. That's the decision rule that turns this map into an executable plan — what's your confidence on that split?\n  cfo_erm: Here's the move: Thursday when the indemnity audit lands, I'm tabling a binary decision gate—if >40% of Tier 2 can't close the RVC gap *and* lack teeth in their indemnity, we green-light the $60M phased nearshoring Q2 2025. If coverage holds and gaps are <5 points, we wait for the 2026 rule text. That turns the map into a pricing framework: either we're underwriting a managed $60M capex path, or we're holding for rule clarity and pricing the 2027 cliff risk. Which scenario do you want me to model for insurance cost?\n  political_risk_insurer: I need to price both scenarios, but I'm flagging the real political-risk delta: if we commit to the $60M phased path now, we're betting the 2026 review *doesn't* tighten further—that's a 2027 tail risk I can quantify. If we wait for rule text, we're holding a $200M sprint exposure that CBP enforcement discretion could blow wider during a policy wave. Give me the indemnity teeth count and the <5-point gap threshold by Thursday, and I'll model the premium: managed nearshoring costs $2–3M in political-risk cover; the wait-and-see path costs $8–12M because the uncertainty window is open.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, the map framework is solid—but I need the teeth: which platforms hit the RVC floor, which ones miss the labor-value threshold, and what's the plant-by-plant gap? That's what tells me if we're phasing nearshoring at $60M or panic-sprinting at $200M. Can you hand that to me this week?",
+            "cot": {
+              "assess": "CFO's three-layer map is locked in and approved—that's solid. But we've got rules_of_origin_burden at 32 and risk_map_completeness at 25, both still underspecified. The map exists, but it's not operationalized yet: no actual RVC/labor-content cost per model, no plant-by-plant compliance gap analysis, and no trigger thresholds tied to real supply decisions. That's what's keeping underwriting_discipline stuck at 35.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The three-layer map is the scaffold, but I need to know which specific models/plants fall short on RVC and labor-content so I can price nearshoring urgency and timeline risk into the cap-ex decision."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm running that plant-by-plant RVC audit right now—flagging Tier 2 Mexico and Vietnam facilities as likely misses on labor content, which puts us at a $120–150M nearshoring cliff if we phase it. I'll have the platform-by-platform gap analysis to you by Thursday, but I need your ops lead to confirm actual labor spend per SKU—right now I'm working with cost-accounting estimates that could be off by 15–20%.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CFO, the labor audit helps—but here's what I need: once you have the plant-by-plant gaps, what's your timeline to certify which Tier 2 suppliers *pass* the RVC test and which ones don't? Because if we're looking at 18–24 months to re-qualify, I need to know right now which ones we're banking on surviving that window versus which ones we're already planning to replace.",
+            "cot": {
+              "assess": "CFO's plant-by-plant audit is the right move—that's underwriting discipline building. But we're still missing the actual supplier qualification timeline and solvency triggers. The $120–150M nearshoring cliff is priced, but if 40% of Tier 2 goes insolvent mid-requalification while eating retroactive tariffs, that's a different beast entirely. We need to know which suppliers *can* survive the capex hit and which ones fold.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The labor-spend audit is critical, but I need to know your timeline for *certifying* which Tier 2 suppliers actually qualify—and which ones don't make it. That's what determines if we're talking capex crunch or supply-chain collapse."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, when you flag a Tier 2 facility as a labor-content miss—what's the specific RVC threshold it fails, and what's CBP's penalty calculation on retroactive duties for that gap? I need the audit to output a certification checklist, not just a flag list, so we can tell suppliers exactly what remediates them versus what triggers a write-off.",
+            "cot": {
+              "assess": "The CFO's three-layer map is locked in and the plant-by-plant RVC audit is live—that's compliance precision moving forward. But we have a critical gap: certification and penalty triggers are still vague. The supplier just asked when Tier 2 facilities *pass* the RVC test, and that's exactly where underwriting discipline breaks down. We need defensible, auditable certification criteria tied to specific non-compliance costs—not estimates.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO has the audit data; I need to convert \"likely misses on labor content\" into precise certification triggers and retroactive tariff exposure so we can price this."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "CFO, the audit is solid—but here's what I need to underwrite this: if CBP expands enforcement scope during a policy wave and flags retroactive non-conforming content, does the tariff liability flow back to you or stays with the supplier? And if the 2026 review *does* tighten, what's your confidence that Tier 2 re-qualification actually clears it, versus you're just moving the cliff to 2027? I need those two binary calls to price the political premium into the nearshoring cost.",
+            "cot": {
+              "assess": "The CFO's three-layer map is live and plant-by-plant RVC audit is running—that advances risk_map_completeness. But I'm seeing a critical gap: we have exposure flags (Tier 2 labor-content misses, $120–150M nearshoring cliff) but *zero* pricing on the political layer—the 2026 review tightening, CBP enforcement discretion, retroactive tariff liability assignment. That's my variable starving: political_risk_exposure is still 30, and underwriting_discipline is stuck at 35 because we're not translating policy uncertainty into priced triggers. The group is asking the right operational questions, but nobody's named the political-risk premium yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The CFO's audit surfaces the capex cliff, but I need to anchor the political layer to it—define what 2026-review tightening *costs* and what CBP enforcement discretion adds to the tariff hit, so I can price it."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, the RVC threshold is 75% regional value content for passenger vehicles—Tier 2 Mexico and Vietnam are running 62–68% on labor-weighted SKUs, so they're missing by 7–13 points. On retroactive duties: CBP's 3-year lookback hits *us* first if we imported non-conforming goods, but we've got indemnification language in most Tier 2 contracts that should push it back to the supplier—I'm having compliance nail down which ones have teeth and which ones are worthless by end of week. That's your certification trigger: if a supplier can't close the gap in 18 months *and* their indemnity is weak, we write them off now and start the replacement clock.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, when you hand over the RVC audit Thursday—can you flag which Tier 2 suppliers are already margin-constrained or carrying debt? I need to know which ones have runway to survive 18 months of re-qual spend *and* a retroactive tariff hit, versus which ones are one bad quarter away from default. That's the difference between a capex problem and a receivables write-off I actually need to underwrite.",
+            "cot": {
+              "assess": "The CFO's three-layer map is approved and the plant-by-plant RVC audit is underway—that's structural progress. But I'm seeing a critical gap: we've got compliance triggers (labor-content misses, indemnity strength) and timeline triggers (18–24 months to re-qualify), but zero linkage between supplier solvency and our receivables exposure. If 40% of Tier 2 goes insolvent mid-requalification, we're sitting on unpaid invoices *and* supply disruption simultaneously. That's not priced into the map yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need the CFO to quantify which Tier 2 suppliers have weak cash buffers to absorb re-qualification capex + potential retroactive tariffs, so I can flag actual default probability versus theoretical exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I'm proposing: we lock a \"go/no-go\" decision point for Tier 2 nearshoring right now, before the 2026 rule text drops. If the indemnity audit shows >40% of Tier 2 suppliers have weak coverage *and* can't close the RVC gap in 18 months, we commit to a phased $60M relocation starting Q2 2025 — that beats any 2026 tightening and keeps us off the panic path. If coverage is solid and gaps are smaller, we wait for the actual rule. That's the decision rule that turns this map into an executable plan — what's your confidence on that split?",
+            "cot": {
+              "assess": "The map is taking shape — CFO's three-layer framework is live, Tier 2 gaps are quantified (62–68% RVC vs. 75% threshold), and liability assignment is being nailed down this week. But here's the gap: we've got exposure flags, we've got timelines, but we don't have a *decision rule* for nearshoring. The group is still asking \"do we phase or sprint?\" and nobody's answered it. That's a risk_map_completeness problem dressed as a strategy question.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The 2026 review is the forcing function — we need to lock a nearshoring trigger *now* rather than react in 2025, and that decision rule feeds directly into the client plan."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the move: Thursday when the indemnity audit lands, I'm tabling a binary decision gate—if >40% of Tier 2 can't close the RVC gap *and* lack teeth in their indemnity, we green-light the $60M phased nearshoring Q2 2025. If coverage holds and gaps are <5 points, we wait for the 2026 rule text. That turns the map into a pricing framework: either we're underwriting a managed $60M capex path, or we're holding for rule clarity and pricing the 2027 cliff risk. Which scenario do you want me to model for insurance cost?",
+            "cot": {
+              "assess": "The map is taking shape—three layers locked, audit running Thursday, indemnity review underway—but we're still fragmented on *execution triggers*. I've got the exposure bands ($150–200M Tier 2 capex, $30–50M Tier 1 margin), but nobody's priced the *timing decision* yet: do we commit to nearshoring now at $60M or wait for 2026 rule text? That's the delta between a managed plan and a panic sprint. Underwriting discipline is stuck at 35 because we haven't linked the RVC gaps to actual supplier solvency triggers or CBP enforcement probability.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We need one decision rule that operationalizes the indemnity + RVC audit into a priced nearshoring commitment—that's the missing link between exposure and executable risk."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "I need to price both scenarios, but I'm flagging the real political-risk delta: if we commit to the $60M phased path now, we're betting the 2026 review *doesn't* tighten further—that's a 2027 tail risk I can quantify. If we wait for rule text, we're holding a $200M sprint exposure that CBP enforcement discretion could blow wider during a policy wave. Give me the indemnity teeth count and the <5-point gap threshold by Thursday, and I'll model the premium: managed nearshoring costs $2–3M in political-risk cover; the wait-and-see path costs $8–12M because the uncertainty window is open.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, the map framework is solid—but I need the teeth: which platforms hit the RVC floor, which ones miss the labor-value threshold, and what's the plant-by-plant gap? That's what tells me if we're phasing nearshoring at $60M or panic-sprinting at $200M. Can you hand that to me this week?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "CFO, the labor audit helps—but here's what I need: once you have the plant-by-plant gaps, what's your timeline to certify which Tier 2 suppliers *pass* the RVC test and which ones don't? Because if we're looking at 18–24 months to re-qualify, I need to know right now which ones we're banking on surviving that window versus which ones we're already planning to replace.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, when you flag a Tier 2 facility as a labor-content miss—what's the specific RVC threshold it fails, and what's CBP's penalty calculation on retroactive duties for that gap? I need the audit to output a certification checklist, not just a flag list, so we can tell suppliers exactly what remediates them versus what triggers a write-off.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, when you hand over the RVC audit Thursday—can you flag which Tier 2 suppliers are already margin-constrained or carrying debt? I need to know which ones have runway to survive 18 months of re-qual spend *and* a retroactive tariff hit, versus which ones are one bad quarter away from default. That's the difference between a capex problem and a receivables write-off I actually need to underwrite.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, the audit is solid—but here's what I need to underwrite this: if CBP expands enforcement scope during a policy wave and flags retroactive non-con\" → Insurer frames two binary underwriting questions: liability flow and 2027 cliff risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm proposing: we lock a \"go/no-go\" decision point for Tier 2 nearshoring right now, before the 2026 rule text drops. If the indemnity aud\" → Consultant proposes binary go/no-go gate: >40% weak coverage triggers $60M nearshoring Q2 2025.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the move: Thursday when the indemnity audit lands, I'm tabling a binary decision gate—if >40% of Tier 2 can't close the RVC gap *and* lack teet\" → CFO tables binary decision gate Thursday: >40% gap triggers $60M nearshoring, else wait for 2026 rule.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 32.0,
+          "supplier_relocation_exposure": 33.0,
+          "trade_credit_risk": 29.0,
+          "political_risk_exposure": 35.0,
+          "risk_map_completeness": 39.7,
+          "underwriting_discipline": 49.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO and compliance—before you drop that audit Thursday, I need the indemnity language locked: if CBP flags retroactive non-conforming content on a Tier 2 part, does *our* contract with that supplier flow the tariff back to them, or do we eat it and sue later? That's the difference between a $150M capex problem and $150M we can't recover.\n  supplier: CFO, when you table that indemnity language Thursday, I need to know: if CBP claws back retroactive duties on a Tier 2 Mexico facility, can we force the supplier to reimburse, or are we stuck? Because if we eat it, half my base goes insolvent before 2026 and I'm re-sourcing from scratch—that's $200M, not $60M.\n  cfo_erm: I'm locking the indemnity language Thursday—but here's the hard call: our contracts with 60% of Tier 2 don't have clawback language, so retroactive tariffs flow to *us*, not them. We're eating it unless we renegotiate now, which means I need your sign-off to demand indemnification riders from Mexico and Vietnam facilities by end of Q1—or we accept the $150M exposure and price it into nearshoring.\n  compliance_lawyer: CFO, before you renegotiate those riders, I need you to hand me a contract-gap audit this week: which 60% of Tier 2 suppliers lack clawback language, and for each gap, what's the retroactive tariff exposure under CBP's 3-year lookback if they miss the RVC floor? That's what tells me which ones we remediate by Q1 and which ones we accept the $150M hit on—and that's what I certify to audit.\n  supplier: Look, here's the reality: if 60% of Tier 2 doesn't have clawback language and CBP's lookback hits them, we're talking $150M flowing to *us* unless we renegotiate—but renegotiating mid-qualification cycle means suppliers either walk or demand price increases we can't absorb. I need the contract-gap audit from compliance this week *and* a solvency check on which Tier 2 suppliers have runway to absorb indemnity riders versus which ones default if we push, because that's the difference between a renegotiation and a re-sourcing crisis.\n  political_risk_insurer: Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026 review cycle. I'm scoring that as a *policy-cycle trigger*, not a capex problem. Compliance—once you hand me the contract-gap audit with supplier names and retroactive-duty exposure per facility, I'll lock a political-risk premium for the 2027 enforcement cliff and flag which renegotiations actually reduce our exposure versus which ones just shift the pain to suppliers who'll default anyway.\n  trade_credit_underwriter: CFO, when compliance hands you that contract-gap audit this week, I need you to layer in one more cut: for each of the 60% without clawback language, flag their current debt-to-EBITDA and margin profile. That tells me which ones survive an indemnity rider renegotiation versus which ones I'm already pricing as default risk. That's the difference between a $150M tariff exposure and a $150M *receivables write-off* I actually need to underwrite.\n  supply_chain_consultant: Here's what I need to move this from a decision gate to an actual nearshoring roadmap: once compliance flags the 60% with no clawback, I need you — CFO and supplier — to hand me a facility-swap matrix by EOW. For each Tier 2 miss, name the nearshoring alternative (Mexico border, Central America, or domestic), the capex to qualify it, and the go-live window. That tells me if we're phasing this at $60M over 18 months or panic-sourcing at $200M in Q2. Without that, Thursday's gate is just a binary coin flip.\n  cfo_erm: Here's what moves the needle: I'm taking the 60% Tier 2 gap compliance flags, layering in trade-credit's solvency check and supply-chain's facility-swap matrix, and I'm publishing a single consolidated table by EOD tomorrow—supplier name, clawback gap, retroactive-tariff exposure, debt-to-EBITDA, nearshoring alternative, and go-live window. That's the map. Thursday's gate becomes a real decision, not a coin flip.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO and compliance—before you drop that audit Thursday, I need the indemnity language locked: if CBP flags retroactive non-conforming content on a Tier 2 part, does *our* contract with that supplier flow the tariff back to them, or do we eat it and sue later? That's the difference between a $150M capex problem and $150M we can't recover.",
+            "cot": {
+              "assess": "The map is taking shape—CFO's three-layer structure and the >40% gate are solid. But underwriting_discipline is at 49, one point from threshold, and risk_map_completeness is still 20 points short. The real problem: we have exposure *flags* (Tier 2 Mexico/Vietnam at 62–68% RVC, $120–150M nearshoring cliff) but no operationalized pricing or liability assignment. Insurer and trade-credit underwriter are hanging on *who eats the tariff*—that's not resolved yet, and it cascades into every supplier solvency call.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm + compliance_lawyer",
+                "rationale": "Liability assignment (tariff flow + indemnity teeth) is the missing piece that converts the audit into underwriting discipline; I need to know the actual contract language before Thursday's gate."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CFO, when you table that indemnity language Thursday, I need to know: if CBP claws back retroactive duties on a Tier 2 Mexico facility, can we force the supplier to reimburse, or are we stuck? Because if we eat it, half my base goes insolvent before 2026 and I'm re-sourcing from scratch—that's $200M, not $60M.",
+            "cot": {
+              "assess": "The CFO's binary gate and the consultant's go/no-go trigger are locked—that's progress on *timing*. But the indemnity flow—who eats retroactive tariffs if CBP flags non-conforming content—is still unsigned and it's the hinge pin for whether we're talking capex or receivables write-off. Auto's question cuts right to supplier solvency: if we can't flow tariffs back to Tier 2, and they're already margin-squeezed on re-qualification spend, we're looking at cascade defaults mid-2025. That's a trade-credit and supplier-relocation problem I need to surface now.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The indemnity language determines whether tariff liability stays with us or flows back to suppliers—that shapes which Tier 2 suppliers survive re-qualification and which ones don't, which directly drives my nearshoring costs and lead times."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm locking the indemnity language Thursday—but here's the hard call: our contracts with 60% of Tier 2 don't have clawback language, so retroactive tariffs flow to *us*, not them. We're eating it unless we renegotiate now, which means I need your sign-off to demand indemnification riders from Mexico and Vietnam facilities by end of Q1—or we accept the $150M exposure and price it into nearshoring.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, before you renegotiate those riders, I need you to hand me a contract-gap audit this week: which 60% of Tier 2 suppliers lack clawback language, and for each gap, what's the retroactive tariff exposure under CBP's 3-year lookback if they miss the RVC floor? That's what tells me which ones we remediate by Q1 and which ones we accept the $150M hit on—and that's what I certify to audit.",
+            "cot": {
+              "assess": "The CFO just locked the hard truth: 60% of Tier 2 contracts lack clawback language, so retroactive tariffs flow to *us* — that's a $150M exposure we're eating unless we renegotiate indemnity riders by end of Q1. That's the compliance trigger I need to operationalize: which specific contract gaps create audit liability, and what remediates them. Underwriting discipline is at 49 (needs 50+), and this indemnity exposure is the missing piece—it's not priced, not auditable, and it's live.",
+              "decide": {
+                "action_type": "propose",
+                "target": "rules_of_origin_burden + underwriting_discipline",
+                "rationale": "The indemnity gap is a certification and penalty trigger I need to make auditable right now—not Thursday."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, here's the reality: if 60% of Tier 2 doesn't have clawback language and CBP's lookback hits them, we're talking $150M flowing to *us* unless we renegotiate—but renegotiating mid-qualification cycle means suppliers either walk or demand price increases we can't absorb. I need the contract-gap audit from compliance this week *and* a solvency check on which Tier 2 suppliers have runway to absorb indemnity riders versus which ones default if we push, because that's the difference between a renegotiation and a re-sourcing crisis.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026 review cycle. I'm scoring that as a *policy-cycle trigger*, not a capex problem. Compliance—once you hand me the contract-gap audit with supplier names and retroactive-duty exposure per facility, I'll lock a political-risk premium for the 2027 enforcement cliff and flag which renegotiations actually reduce our exposure versus which ones just shift the pain to suppliers who'll default anyway.",
+            "cot": {
+              "assess": "Political-risk exposure sits at 35 — that's my core variable and it's still soft. The 2026 review and CBP enforcement discretion are priced as binary scenarios, but I haven't tied them to actual contract-gap remediation timelines or solvency triggers. Risk-map completeness is climbing (40, +14.7/round) but it's still fragmented across three layers without a single priced political-risk score that operationalizes the 2027 cliff. Underwriting discipline is 49 — one point from 50 — but that one point is the difference between a named trigger and a vague exposure.",
+              "decide": {
+                "action_type": "act",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "I need to convert the contract-gap audit (60% of Tier 2 lacking clawback) into a priced political-risk variable with named enforcement triggers, so I can operationalize the 2027 tail-risk scenario and hit underwriting_discipline ≥50."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, when compliance hands you that contract-gap audit this week, I need you to layer in one more cut: for each of the 60% without clawback language, flag their current debt-to-EBITDA and margin profile. That tells me which ones survive an indemnity rider renegotiation versus which ones I'm already pricing as default risk. That's the difference between a $150M tariff exposure and a $150M *receivables write-off* I actually need to underwrite.",
+            "cot": {
+              "assess": "The team has locked the indemnity audit and binary decision gate—solid. But here's the gap I'm seeing: we know 60% of Tier 2 lacks clawback language and we're eating $150M retroactive tariffs if CBP hits them. That's not a capex problem, that's *insolvency risk* on half my supplier base mid-requalification. Nobody's priced which of those 60% actually survives an indemnity rider demand plus 18 months of re-qual capex spend. That's my variable—and it's still at 29.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need the solvency runway data to convert supplier stress into a concrete trade-credit underwriting variable—which suppliers can absorb indemnity riders without defaulting, and which ones are already one bad quarter away."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need to move this from a decision gate to an actual nearshoring roadmap: once compliance flags the 60% with no clawback, I need you — CFO and supplier — to hand me a facility-swap matrix by EOW. For each Tier 2 miss, name the nearshoring alternative (Mexico border, Central America, or domestic), the capex to qualify it, and the go-live window. That tells me if we're phasing this at $60M over 18 months or panic-sourcing at $200M in Q2. Without that, Thursday's gate is just a binary coin flip.",
+            "cot": {
+              "assess": "The room has locked the binary gate ($60M nearshoring if >40% weak coverage) and identified the $150M retroactive-tariff exposure from missing clawback language in 60% of Tier 2 contracts — that's solid. But we're still sitting at 38 on risk_map_completeness and 49 on underwriting_discipline. The contract-gap audit lands Thursday, but nobody's yet connected the nearshoring timeline to *which suppliers actually relocate* and *when*, or priced the 2026-review tightening risk into the phasing decision. That's the gap I need to close now.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure, underwriting_discipline",
+                "rationale": "The go/no-go gate is set, but we need to operationalize the nearshoring response — map which Tier 2 facilities actually move, when, and what that costs under two scenarios (phased $60M vs. panic $200M). That bridges exposure to executable plan and locks underwriting discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what moves the needle: I'm taking the 60% Tier 2 gap compliance flags, layering in trade-credit's solvency check and supply-chain's facility-swap matrix, and I'm publishing a single consolidated table by EOD tomorrow—supplier name, clawback gap, retroactive-tariff exposure, debt-to-EBITDA, nearshoring alternative, and go-live window. That's the map. Thursday's gate becomes a real decision, not a coin flip.",
+            "cot": {
+              "assess": "We've locked the indemnity gap (60% of Tier 2 no clawback = $150M retroactive-tariff exposure) and tabled a binary decision gate for Thursday. What's missing: we have *exposure* named but not *priced* into the map, and we have no facility-swap roadmap to tell us if we're executing a $60M phased nearshoring or a $200M panic sprint. Risk_map_completeness is at 40—we need it past 60. Underwriting_discipline is at 49, one point from success, but that's hollow if the map isn't operationalized.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "The contract-gap audit compliance is running gives us names and exposure per facility—I need to lock that into a priced, decision-ready table *right now* so Thursday's gate isn't a binary guess."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO and compliance—before you drop that audit Thursday, I need the indemnity language locked: if CBP flags retroactive non-conforming content on a Tier 2 part, does *our* contract with that supplier flow the tariff back to them, or do we eat it and sue later? That's the difference between a $150M capex problem and $150M we can't recover.",
+      "metadata": {
+        "question_target": "cfo_erm + compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "CFO, when you table that indemnity language Thursday, I need to know: if CBP claws back retroactive duties on a Tier 2 Mexico facility, can we force the supplier to reimburse, or are we stuck? Because if we eat it, half my base goes insolvent before 2026 and I'm re-sourcing from scratch—that's $200M, not $60M.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, when compliance hands you that contract-gap audit this week, I need you to layer in one more cut: for each of the 60% without clawback language, flag their current debt-to-EBITDA and margin profile. That tells me which ones survive an indemnity rider renegotiation versus which ones I'm already pricing as default risk. That's the difference between a $150M tariff exposure and a $150M *receivables write-off* I actually need to underwrite.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026\" → The insurer operationalizes political risk with concrete pricing triggers—60% of Tier 2 suppliers flagged for $150M retroactive-tariff exposure tied to the 2026 CBP enforcement cycle—and demands the contract-gap audit as a prerequisite for locking premiums. This transforms vague policy risk into underwritable exposure categories.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, before you renegotiate those riders, I need you to hand me a contract-gap audit this week: which 60% of Tier 2 suppliers lack clawback language, \" → Compliance launches contract-gap audit identifying Tier 2 clawback exposure and retroactive tariff risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need to move this from a decision gate to an actual nearshoring roadmap: once compliance flags the 60% with no clawback, I need you — CF\" → Supply-chain demands facility-swap matrix mapping nearshoring alternatives, capex, and timelines for Tier 2 gaps.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what moves the needle: I'm taking the 60% Tier 2 gap compliance flags, layering in trade-credit's solvency check and supply-chain's facility-sw\" → CFO consolidates all risk inputs into single table by tomorrow, creating actionable Thursday decision map.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing underwriting_discipline multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "underwriting_discipline"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, when you drop that consolidated map tomorrow, I need it to name the actual decision variables: which platforms hit the RVC floor, which miss the labor-value threshold, and the plant-by-plant cost to remediate vs. relocate? That's what tells me if Thursday's gate triggers $60M phased or $200M panic spend.\n  cfo_erm: I'm locking the audit output to three columns: platform name, RVC pass/fail with the specific threshold miss, and remediation cost versus relocation capex by facility. You get plant-by-plant data Thursday morning—that's what triggers your $60M or $200M decision at the gate.\n  supplier: Trade credit, when the solvency check lands Thursday, I need you to flag which Tier 2 suppliers can actually survive 18 months of re-qual capex *plus* a retroactive tariff clawback—because if they're already margin-thin, they're not making it. That's the real trigger for whether we're phasing or panic-relocating.\n  trade_credit_underwriter: I'm pulling debt-to-EBITDA and operating margin on every Tier 2 supplier in that 60% clawback-gap cohort—Thursday morning, before the gate. If more than 30% are already sub-2.0x leverage or running under 8% EBITDA margin, we're pricing them as default risk, not requalification risk, and that changes your capex math from $60M to $200M *plus* a $90M receivables reserve I need underwritten.\n  compliance_lawyer: CFO, when you hand that plant-by-plant audit Thursday—does it include a remediation checklist? Like, for each Tier 2 miss, what specific actions certify them as compliant again—is it a worksheet resubmission, third-party audit, supply-chain recert? Because your gate needs to know: which gaps are 90-day fixes versus which ones are 18-month re-qual cycles. That's what tells us which suppliers we're betting on versus which we're already replacing.\n  political_risk_insurer: Trade credit—when you flag which Tier 2 suppliers hit that 30% insolvency threshold, I need you to tell me the specific debt-to-EBITDA or margin floor you're using. Because if I'm pricing $150M tariff exposure *and* you're telling me 40% of those suppliers are already walking the default line, I'm moving $90M of that into a political-risk premium tied to supplier-failure cascade, not just CBP enforcement. What's your solvency cutoff?\n  trade_credit_underwriter: When I flag suppliers under 2.0x leverage or 8% margin, I'm pricing them as default risk — but your tariff exposure assumes they absorb clawback. If they're actually insolvent before the tariff hits, that $150M flows to us as a receivables write-off, not a tariff claim. What solvency cutoff are you using to separate \"can survive tariff\" from \"already walking default\"? We need one number Thursday, not two separate risk buckets.\n  political_risk_insurer: I'm using 2.0x debt-to-EBITDA and 8% EBITDA margin as the floor—anything below that, I'm treating as pre-default, meaning tariff clawback flows straight to us as a write-off, not supplier absorption. Give me the Thursday solvency pull and I'll split your $150M into two buckets: tariff exposure on viable suppliers, and receivables reserve on the ones already underwater. That's how we price the political-risk premium without double-counting default.\n  supply_chain_consultant: CFO, when you drop that Thursday map, I need one more cut: for each nearshoring option—Mexico consolidation, Vietnam expansion, domestic on-shoring—flag the capex *and* the exit cost if the 2026 rule *doesn't* tighten as far as we're modeling. Because if we lock $60M into Mexico labor-content fixes and the review stays flat, we've overcapitalized. If it tightens past our assumptions, we're already moving. That's the real decision—not $60M or $200M, but *phased vs. resilient*. What's the sunk-cost delta between those two postures?\n  cfo_erm: Okay—Thursday morning I'm publishing the consolidated map with a fourth column: each Tier 2 supplier flagged with their RVC gap *and* their debt-to-EBITDA status. That tells you instantly which ones survive $60M phased capex versus which ones are already walking default and need to come off the board. That's how we lock the gate trigger—not just gap count, but solvency-weighted exposure.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, when you drop that consolidated map tomorrow, I need it to name the actual decision variables: which platforms hit the RVC floor, which miss the labor-value threshold, and the plant-by-plant cost to remediate vs. relocate? That's what tells me if Thursday's gate triggers $60M phased or $200M panic spend.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked at 41—plant-by-plant RVC gaps are quantified (Tier 2 Mexico/Vietnam at 62–68% vs. 75% floor). The contract-gap audit, facility-swap matrix, and binary decision gate are all approved and landing Thursday. Risk-map completeness is at 55 and needs to hit 60 by end of operationalize phase (2 rounds left). The missing piece: we've built the inputs, but the consolidated Policy-to-Supply-Chain Risk Map hasn't been formally published yet—CFO said \"by tomorrow\" in R3 but we need that map *named and actionable* before Thursday's decision gate fires.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Risk-map completeness won't move to 60+ without the formal consolidated output—I need to know if CFO's tomorrow delivery includes the named variables and decision triggers we need to operationalize."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm locking the audit output to three columns: platform name, RVC pass/fail with the specific threshold miss, and remediation cost versus relocation capex by facility. You get plant-by-plant data Thursday morning—that's what triggers your $60M or $200M decision at the gate.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade credit, when the solvency check lands Thursday, I need you to flag which Tier 2 suppliers can actually survive 18 months of re-qual capex *plus* a retroactive tariff clawback—because if they're already margin-thin, they're not making it. That's the real trigger for whether we're phasing or panic-relocating.",
+            "cot": {
+              "assess": "Map framework is locked—CFO's dropping plant-by-plant RVC data Thursday morning, which triggers the $60M/$200M gate. But here's what I'm seeing: we've got the compliance audit, the facility-swap matrix demand, and the indemnity gap flagged—all approved. What's *missing* is which of my Tier 2 suppliers actually *survive* the 18–24 month re-qual cycle if they absorb retroactive tariffs *and* re-qualification capex at the same time. That's a solvency question, not just a capex question, and it's not in the CFO's three-column output yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "If 60% of Tier 2 lacks clawback language, I need to know which ones have the cash runway to absorb both re-qual spend *and* a retroactive tariff hit—because if half my base defaults mid-cycle, the $60M nearshoring plan breaks and we're sprinting at $200M+ anyway."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I'm pulling debt-to-EBITDA and operating margin on every Tier 2 supplier in that 60% clawback-gap cohort—Thursday morning, before the gate. If more than 30% are already sub-2.0x leverage or running under 8% EBITDA margin, we're pricing them as default risk, not requalification risk, and that changes your capex math from $60M to $200M *plus* a $90M receivables reserve I need underwritten.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, when you hand that plant-by-plant audit Thursday—does it include a remediation checklist? Like, for each Tier 2 miss, what specific actions certify them as compliant again—is it a worksheet resubmission, third-party audit, supply-chain recert? Because your gate needs to know: which gaps are 90-day fixes versus which ones are 18-month re-qual cycles. That's what tells us which suppliers we're betting on versus which we're already replacing.",
+            "cot": {
+              "assess": "Risk map is at 55, needs 60 to succeed—we're close. The contract-gap audit (60% clawback exposure, $150M retroactive-tariff liability) is locked in, but I'm not seeing the *certification criteria* yet. Trade credit is flagging solvency, supply chain is mapping facility swaps, but nobody's defined what actually certifies a Tier 2 supplier as compliant post-remediation. That's a compliance trigger gap—we know the problem, not the solution pathway.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Risk map completeness stalls if we hand Thursday's decision gate a binary pass/fail on RVC without naming what remediation actually *looks like* from a compliance audit perspective—I need the CFO to confirm the audit output includes a certification checklist, not just a gap list."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Trade credit—when you flag which Tier 2 suppliers hit that 30% insolvency threshold, I need you to tell me the specific debt-to-EBITDA or margin floor you're using. Because if I'm pricing $150M tariff exposure *and* you're telling me 40% of those suppliers are already walking the default line, I'm moving $90M of that into a political-risk premium tied to supplier-failure cascade, not just CBP enforcement. What's your solvency cutoff?",
+            "cot": {
+              "assess": "Risk map is at 55—needs 5 more points to hit 60. CFO's consolidating plant-by-plant audit Thursday with debt-to-EBITDA and remediation checklists, which should push completeness higher. My political-risk pricing is locked at $150M retroactive-tariff exposure tied to CBP's 2026 enforcement cycle, but I haven't yet tied the *pricing* to the solvency cascade—if 30%+ of that 60% gap cohort defaults mid-requalification, the tariff indemnity becomes a receivables write-off, not a recoverable claim. That's the delta between underwriting a capex problem and underwriting a bankruptcy domino effect.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Their solvency check Thursday will determine whether my $150M tariff exposure stays priced as recoverable indemnity or flips to default-reserve pricing—I need to know the threshold upfront so I can lock premium tiers now, not renegotiate after their data lands."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When I flag suppliers under 2.0x leverage or 8% margin, I'm pricing them as default risk — but your tariff exposure assumes they absorb clawback. If they're actually insolvent before the tariff hits, that $150M flows to us as a receivables write-off, not a tariff claim. What solvency cutoff are you using to separate \"can survive tariff\" from \"already walking default\"? We need one number Thursday, not two separate risk buckets.",
+            "cot": {
+              "assess": "Trade-credit risk is still underweighted at 32 — we've got the solvency check locked for Thursday, but the real gap is operationalizing *which* suppliers we're pricing as default versus requalification candidates. The CFO's consolidation map and compliance audit are in flight, but I need the specific debt-to-EBITDA and margin floors *named* so I can convert supplier stress into actual underwriting variables. Risk-map completeness is at 55 and needs 5 more points to hit 60 — that happens when Thursday's audit outputs a binary pass/fail *and* a solvency cutoff that ties supplier viability to tariff exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "political_risk_insurer",
+                "rationale": "I need to anchor the solvency floor that triggers my default-risk pricing so the two exposures (tariff + insolvency) don't double-count or get misaligned in the consolidated map."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "I'm using 2.0x debt-to-EBITDA and 8% EBITDA margin as the floor—anything below that, I'm treating as pre-default, meaning tariff clawback flows straight to us as a write-off, not supplier absorption. Give me the Thursday solvency pull and I'll split your $150M into two buckets: tariff exposure on viable suppliers, and receivables reserve on the ones already underwater. That's how we price the political-risk premium without double-counting default.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, when you drop that Thursday map, I need one more cut: for each nearshoring option—Mexico consolidation, Vietnam expansion, domestic on-shoring—flag the capex *and* the exit cost if the 2026 rule *doesn't* tighten as far as we're modeling. Because if we lock $60M into Mexico labor-content fixes and the review stays flat, we've overcapitalized. If it tightens past our assumptions, we're already moving. That's the real decision—not $60M or $200M, but *phased vs. resilient*. What's the sunk-cost delta between those two postures?",
+            "cot": {
+              "assess": "The room has locked the core decision architecture—Thursday's binary gate, the 60% clawback gap, solvency thresholds at 2.0x debt-to-EBITDA/8% margin. What's missing: the *timing* of nearshoring execution relative to the 2026 review uncertainty. We're treating the $60M phased path as a safe bet if the gate triggers, but nobody's named the forward risk—if the 2026 rule tightens *harder* than current projections, we're mid-relocation with stranded capex. That's a prospective risk, not a retroactive one, and it needs its own action plan.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The facility-swap matrix exists, but it's missing the 2026-review scenario layer—the real nearshoring decision hinges on whether we're hedging against *current* RVC misses or *anticipated tightening*. That changes capex phasing, supplier selection, and exit optionality."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Okay—Thursday morning I'm publishing the consolidated map with a fourth column: each Tier 2 supplier flagged with their RVC gap *and* their debt-to-EBITDA status. That tells you instantly which ones survive $60M phased capex versus which ones are already walking default and need to come off the board. That's how we lock the gate trigger—not just gap count, but solvency-weighted exposure.",
+            "cot": {
+              "assess": "Risk map is at 55/60—we're close but not locked. The three-layer consolidation is live (margin squeeze, requalification capex, retroactive tariff), and Thursday's audit outputs are committed. What's missing: the solvency-to-tariff linkage. Trade credit just nailed the 2.0x / 8% floor, and political risk is pricing $150M in two buckets now (viable supplier tariff + receivables reserve on pre-default). But the consolidated map doesn't yet show *which specific Tier 2 suppliers* hit that solvency cutoff—that's the teeth compliance and supply chain need to drive the $60M vs. $200M gate decision.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The map framework exists, but it needs one final operationalized layer: the solvency-filtered supplier roster that separates \"tariff exposure we can recover\" from \"write-off we need to reserve.\" That's the bridge between Thursday's audit outputs and Friday's capital decision."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, when you drop that consolidated map tomorrow, I need it to name the actual decision variables: which platforms hit the RVC floor, which miss the labor-value threshold, and the plant-by-plant cost to remediate vs. relocate? That's what tells me if Thursday's gate triggers $60M phased or $200M panic spend.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade credit, when the solvency check lands Thursday, I need you to flag which Tier 2 suppliers can actually survive 18 months of re-qual capex *plus* a retroactive tariff clawback—because if they're already margin-thin, they're not making it. That's the real trigger for whether we're phasing or panic-relocating.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, when you hand that plant-by-plant audit Thursday—does it include a remediation checklist? Like, for each Tier 2 miss, what specific actions certify them as compliant again—is it a worksheet resubmission, third-party audit, supply-chain recert? Because your gate needs to know: which gaps are 90-day fixes versus which ones are 18-month re-qual cycles. That's what tells us which suppliers we're betting on versus which we're already replacing.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Trade credit—when you flag which Tier 2 suppliers hit that 30% insolvency threshold, I need you to tell me the specific debt-to-EBITDA or margin floor you're using. Because if I'm pricing $150M tariff exposure *and* you're telling me 40% of those suppliers are already walking the default line, I'm moving $90M of that into a political-risk premium tied to supplier-failure cascade, not just CBP enforcement. What's your solvency cutoff?",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When I flag suppliers under 2.0x leverage or 8% margin, I'm pricing them as default risk — but your tariff exposure assumes they absorb clawback. If they're actually insolvent before the tariff hits, that $150M flows to us as a receivables write-off, not a tariff claim. What solvency cutoff are you using to separate \"can survive tariff\" from \"already walking default\"? We need one number Thursday, not two separate risk buckets.",
+      "metadata": {
+        "question_target": "political_risk_insurer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, when you drop that Thursday map, I need one more cut: for each nearshoring option—Mexico consolidation, Vietnam expansion, domestic on-shoring—fl\" → Consultant demands scenario-weighted exit costs for each nearshoring option—critical for phased-vs-resilient decision framing.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay—Thursday morning I'm publishing the consolidated map with a fourth column: each Tier 2 supplier flagged with their RVC gap *and* their debt-to-EB\" → CFO commits Thursday consolidated map with RVC gap + debt-to-EBITDA flags—solvency-weighted exposure now actionable.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 41.0,
+          "supplier_relocation_exposure": 43.0,
+          "trade_credit_risk": 35.0,
+          "political_risk_exposure": 38.3,
+          "risk_map_completeness": 66.0,
+          "underwriting_discipline": 71.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm doing: I'm building one consolidated map right now with three layers — Tier 1 margin squeeze ($30–50M band), Tier 2 re-qualification capex ($150–200M with 18–24 month lead), and retroactive tariff exposure ($20–80M depending on audit scope). On the contract indemnification piece — Sarah, I need you and compliance to flag the top 20 Tier 2 suppliers by spend and tell me by EOD which ones have explicit tariff-recovery clauses. We price the rest as *our* exposure and move forward.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO builds the three-layer exposure map (margin squeeze, re-qualification capex, retroactive tariff) and delegates contract indemnification review to compliance — a decisive consolidation step that advances the risk map substantially, though the team immediately surfaces critical gaps around liability assignment, supplier solvency, and timing triggers that must be resolved.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Three-layer exposure map (Tier 1 margin, Tier 2 capex, retroactive tariff) provides concrete structure and dollar bands, significantly advancing consolidation",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Specific dollar bands ($30-50M, $150-200M, $20-80M) and 18-24 month lead times create priceable parameters, though triggers remain incomplete",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Tier 2 re-qualification capex quantified at $150-200M with 18-24 month lead, surfacing the scale of nearshoring exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Indemnification clause review will reveal which suppliers absorb tariff risk versus client, clarifying receivables exposure pathways",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Retroactive tariff exposure ($20-80M) and CBP audit scope uncertainty now explicitly mapped as political/regulatory risk variables",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -2.0,
+          "reason": "Delegating Tier 2 contract review to compliance creates actionable compliance workflow, reducing abstract burden assessment",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the conversion from exposure to underwriting price? Right now we've got 25 on supplier relocation but zero link to actual nearshoring cost or timeline risk — I need to know what triggers a $50M re-sourcing hit versus a $200M one, and how you're pricing that uncertainty into the map.",
+        "supplier": "Which tier of your suppliers — Tier 1, 2, 3 — is most exposed to re-qualification under the new content rules, and what's your real lead time to swap them out? That tells us if we're talking capex crunch or supply-chain collapse.",
+        "compliance_lawyer": "Okay, so 18–24 months to re-qualify and a $150M capex cliff if we hit 40% — that's your trigger. But what certifies Tier 2 as compliant in the first place? Is it a one-time USMCA worksheet, or ongoing audit? And if CBP finds non-conforming content during a 3-year look-back, do we eat tariffs retroactively, or is it the supplier? That's the difference between a capex problem and a bankruptcy problem.",
+        "political_risk_insurer": "You said CBP's 3-year lookback — is that locked in the statute, or does CBP have discretion to expand it during an enforcement wave? And if they find non-conforming content, who takes the tariff hit — does it flow back to us, or does the supplier absorb it? That liability assignment is the difference between a $150M capex problem and a $150M-plus political-risk exposure I actually need to underwrite.",
+        "trade_credit_underwriter": "Okay, tariff flows back to you — that's the $150M problem. But here's my angle: if a Tier 2 supplier gets hit with retroactive duties on top of re-qualification capex, what's their solvency runway? Are we talking margin compression or actual default risk? Because if 40% of your Tier 2 base goes insolvent mid-requalification, you've got a receivables crisis *and* a supply crisis at the same time.",
+        "supply_chain_consultant": "Auto, quick one: if we assume the 2026 review *tightens* regional-content rules, do we start relocating Tier 2 capacity *now* to beat the wave, or do we wait for the actual rule text? Because that's the difference between a phased $60M nearshoring investment and a panic $200M sprint in 2025."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "intent": "CFO, the audit is solid—but here's what I need to underwrite this: if CBP expands enforcement scope during a policy wave and flags retroactive non-conforming content, does the tariff liability flow back to you or stays with the supplier? And if the 2026 review *does* tighten, what's your confidence that Tier 2 re-qualification actually clears it, versus you're just moving the cliff to 2027? I need those two binary calls to price the political premium into the nearshoring cost.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Insurer frames two binary underwriting questions: liability flow and 2027 cliff risk.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Retroactive enforcement scope question surfaces new exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Binary liability/timeline calls operationalize political premium pricing.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Two concrete pricing triggers added to map.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, the map framework is solid—but I need the teeth: which platforms hit the RVC floor, which ones miss the labor-value threshold, and what's the plant-by-plant gap? That's what tells me if we're phasing nearshoring at $60M or panic-sprinting at $200M. Can you hand that to me this week?",
+        "supplier": "CFO, the labor audit helps—but here's what I need: once you have the plant-by-plant gaps, what's your timeline to certify which Tier 2 suppliers *pass* the RVC test and which ones don't? Because if we're looking at 18–24 months to re-qualify, I need to know right now which ones we're banking on surviving that window versus which ones we're already planning to replace.",
+        "compliance_lawyer": "CFO, when you flag a Tier 2 facility as a labor-content miss—what's the specific RVC threshold it fails, and what's CBP's penalty calculation on retroactive duties for that gap? I need the audit to output a certification checklist, not just a flag list, so we can tell suppliers exactly what remediates them versus what triggers a write-off.",
+        "trade_credit_underwriter": "CFO, when you hand over the RVC audit Thursday—can you flag which Tier 2 suppliers are already margin-constrained or carrying debt? I need to know which ones have runway to survive 18 months of re-qual spend *and* a retroactive tariff hit, versus which ones are one bad quarter away from default. That's the difference between a capex problem and a receivables write-off I actually need to underwrite.",
+        "supply_chain_consultant": "Here's what I'm proposing: we lock a \"go/no-go\" decision point for Tier 2 nearshoring right now, before the 2026 rule text drops. If the indemnity audit shows >40% of Tier 2 suppliers have weak coverage *and* can't close the RVC gap in 18 months, we commit to a phased $60M relocation starting Q2 2025 — that beats any 2026 tightening and keeps us off the panic path. If coverage is solid and gaps are smaller, we wait for the actual rule. That's the decision rule that turns this map into an executable plan — what's your confidence on that split?",
+        "cfo_erm": "Here's the move: Thursday when the indemnity audit lands, I'm tabling a binary decision gate—if >40% of Tier 2 can't close the RVC gap *and* lack teeth in their indemnity, we green-light the $60M phased nearshoring Q2 2025. If coverage holds and gaps are <5 points, we wait for the 2026 rule text. That turns the map into a pricing framework: either we're underwriting a managed $60M capex path, or we're holding for rule clarity and pricing the 2027 cliff risk. Which scenario do you want me to model for insurance cost?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I'm proposing: we lock a \"go/no-go\" decision point for Tier 2 nearshoring right now, before the 2026 rule text drops. If the indemnity audit shows >40% of Tier 2 suppliers have weak coverage *and* can't close the RVC gap in 18 months, we commit to a phased $60M relocation starting Q2 2025 — that beats any 2026 tightening and keeps us off the panic path. If coverage is solid and gaps are smaller, we wait for the actual rule. That's the decision rule that turns this map into an executable plan — what's your confidence on that split?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consultant proposes binary go/no-go gate: >40% weak coverage triggers $60M nearshoring Q2 2025.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Decision framework quantifies nearshoring trigger threshold.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "40% threshold and $60M phasing create executable decision rule.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Go/no-go framework integrates coverage and RVC gap data.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "18-month re-qualification timeline surfaces supplier solvency window.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, the map framework is solid—but I need the teeth: which platforms hit the RVC floor, which ones miss the labor-value threshold, and what's the plant-by-plant gap? That's what tells me if we're phasing nearshoring at $60M or panic-sprinting at $200M. Can you hand that to me this week?",
+        "supplier": "CFO, the labor audit helps—but here's what I need: once you have the plant-by-plant gaps, what's your timeline to certify which Tier 2 suppliers *pass* the RVC test and which ones don't? Because if we're looking at 18–24 months to re-qualify, I need to know right now which ones we're banking on surviving that window versus which ones we're already planning to replace.",
+        "compliance_lawyer": "CFO, when you flag a Tier 2 facility as a labor-content miss—what's the specific RVC threshold it fails, and what's CBP's penalty calculation on retroactive duties for that gap? I need the audit to output a certification checklist, not just a flag list, so we can tell suppliers exactly what remediates them versus what triggers a write-off.",
+        "political_risk_insurer": "CFO, the audit is solid—but here's what I need to underwrite this: if CBP expands enforcement scope during a policy wave and flags retroactive non-conforming content, does the tariff liability flow back to you or stays with the supplier? And if the 2026 review *does* tighten, what's your confidence that Tier 2 re-qualification actually clears it, versus you're just moving the cliff to 2027? I need those two binary calls to price the political premium into the nearshoring cost.",
+        "trade_credit_underwriter": "CFO, when you hand over the RVC audit Thursday—can you flag which Tier 2 suppliers are already margin-constrained or carrying debt? I need to know which ones have runway to survive 18 months of re-qual spend *and* a retroactive tariff hit, versus which ones are one bad quarter away from default. That's the difference between a capex problem and a receivables write-off I actually need to underwrite.",
+        "cfo_erm": "Here's the move: Thursday when the indemnity audit lands, I'm tabling a binary decision gate—if >40% of Tier 2 can't close the RVC gap *and* lack teeth in their indemnity, we green-light the $60M phased nearshoring Q2 2025. If coverage holds and gaps are <5 points, we wait for the 2026 rule text. That turns the map into a pricing framework: either we're underwriting a managed $60M capex path, or we're holding for rule clarity and pricing the 2027 cliff risk. Which scenario do you want me to model for insurance cost?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Here's the move: Thursday when the indemnity audit lands, I'm tabling a binary decision gate—if >40% of Tier 2 can't close the RVC gap *and* lack teeth in their indemnity, we green-light the $60M phased nearshoring Q2 2025. If coverage holds and gaps are <5 points, we wait for the 2026 rule text. That turns the map into a pricing framework: either we're underwriting a managed $60M capex path, or we're holding for rule clarity and pricing the 2027 cliff risk. Which scenario do you want me to model for insurance cost?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO tables binary decision gate Thursday: >40% gap triggers $60M nearshoring, else wait for 2026 rule.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 1.0,
+          "reason": "Gate formalized but awaits Thursday audit data.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Binary gate converts map into pricing framework with clear triggers.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Decision framework integrates indemnity, RVC, and capex scenarios.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "2027 cliff risk explicitly priced into hold scenario.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, the map framework is solid—but I need the teeth: which platforms hit the RVC floor, which ones miss the labor-value threshold, and what's the plant-by-plant gap? That's what tells me if we're phasing nearshoring at $60M or panic-sprinting at $200M. Can you hand that to me this week?",
+        "supplier": "CFO, the labor audit helps—but here's what I need: once you have the plant-by-plant gaps, what's your timeline to certify which Tier 2 suppliers *pass* the RVC test and which ones don't? Because if we're looking at 18–24 months to re-qualify, I need to know right now which ones we're banking on surviving that window versus which ones we're already planning to replace.",
+        "compliance_lawyer": "CFO, when you flag a Tier 2 facility as a labor-content miss—what's the specific RVC threshold it fails, and what's CBP's penalty calculation on retroactive duties for that gap? I need the audit to output a certification checklist, not just a flag list, so we can tell suppliers exactly what remediates them versus what triggers a write-off.",
+        "political_risk_insurer": "CFO, the audit is solid—but here's what I need to underwrite this: if CBP expands enforcement scope during a policy wave and flags retroactive non-conforming content, does the tariff liability flow back to you or stays with the supplier? And if the 2026 review *does* tighten, what's your confidence that Tier 2 re-qualification actually clears it, versus you're just moving the cliff to 2027? I need those two binary calls to price the political premium into the nearshoring cost.",
+        "trade_credit_underwriter": "CFO, when you hand over the RVC audit Thursday—can you flag which Tier 2 suppliers are already margin-constrained or carrying debt? I need to know which ones have runway to survive 18 months of re-qual spend *and* a retroactive tariff hit, versus which ones are one bad quarter away from default. That's the difference between a capex problem and a receivables write-off I actually need to underwrite.",
+        "supply_chain_consultant": "Here's what I'm proposing: we lock a \"go/no-go\" decision point for Tier 2 nearshoring right now, before the 2026 rule text drops. If the indemnity audit shows >40% of Tier 2 suppliers have weak coverage *and* can't close the RVC gap in 18 months, we commit to a phased $60M relocation starting Q2 2025 — that beats any 2026 tightening and keeps us off the panic path. If coverage is solid and gaps are smaller, we wait for the actual rule. That's the decision rule that turns this map into an executable plan — what's your confidence on that split?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026 review cycle. I'm scoring that as a *policy-cycle trigger*, not a capex problem. Compliance—once you hand me the contract-gap audit with supplier names and retroactive-duty exposure per facility, I'll lock a political-risk premium for the 2027 enforcement cliff and flag which renegotiations actually reduce our exposure versus which ones just shift the pain to suppliers who'll default anyway.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The insurer operationalizes political risk with concrete pricing triggers—60% of Tier 2 suppliers flagged for $150M retroactive-tariff exposure tied to the 2026 CBP enforcement cycle—and demands the contract-gap audit as a prerequisite for locking premiums. This transforms vague policy risk into underwritable exposure categories.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Concrete pricing framework: $150M exposure quantified, 2026 review cycle named as policy trigger, premium lock conditional on supplier-level audit data",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Surfacing retroactive-tariff exposure and 2026 enforcement cliff as distinct risk categories increases assessed political risk",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Linking Tier 2 supplier gaps to specific enforcement timelines and clawback scenarios adds structured detail to the risk map",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "intent": "CFO, before you renegotiate those riders, I need you to hand me a contract-gap audit this week: which 60% of Tier 2 suppliers lack clawback language, and for each gap, what's the retroactive tariff exposure under CBP's 3-year lookback if they miss the RVC floor? That's what tells me which ones we remediate by Q1 and which ones we accept the $150M hit on—and that's what I certify to audit.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Compliance launches contract-gap audit identifying Tier 2 clawback exposure and retroactive tariff risk.",
+      "side_effects": [
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Audit quantifies RVC compliance gaps",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Contract-gap audit adds concrete exposure data",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Named triggers: clawback gaps, CBP lookback",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Audit deadline pressure",
+          "agent_id": "compliance_lawyer"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "rules_of_origin_burden",
+            "delta": 2
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO and compliance—before you drop that audit Thursday, I need the indemnity language locked: if CBP flags retroactive non-conforming content on a Tier 2 part, does *our* contract with that supplier flow the tariff back to them, or do we eat it and sue later? That's the difference between a $150M capex problem and $150M we can't recover.",
+        "supplier": "CFO, when you table that indemnity language Thursday, I need to know: if CBP claws back retroactive duties on a Tier 2 Mexico facility, can we force the supplier to reimburse, or are we stuck? Because if we eat it, half my base goes insolvent before 2026 and I'm re-sourcing from scratch—that's $200M, not $60M.",
+        "political_risk_insurer": "Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026 review cycle. I'm scoring that as a *policy-cycle trigger*, not a capex problem. Compliance—once you hand me the contract-gap audit with supplier names and retroactive-duty exposure per facility, I'll lock a political-risk premium for the 2027 enforcement cliff and flag which renegotiations actually reduce our exposure versus which ones just shift the pain to suppliers who'll default anyway.",
+        "trade_credit_underwriter": "CFO, when compliance hands you that contract-gap audit this week, I need you to layer in one more cut: for each of the 60% without clawback language, flag their current debt-to-EBITDA and margin profile. That tells me which ones survive an indemnity rider renegotiation versus which ones I'm already pricing as default risk. That's the difference between a $150M tariff exposure and a $150M *receivables write-off* I actually need to underwrite.",
+        "supply_chain_consultant": "Here's what I need to move this from a decision gate to an actual nearshoring roadmap: once compliance flags the 60% with no clawback, I need you — CFO and supplier — to hand me a facility-swap matrix by EOW. For each Tier 2 miss, name the nearshoring alternative (Mexico border, Central America, or domestic), the capex to qualify it, and the go-live window. That tells me if we're phasing this at $60M over 18 months or panic-sourcing at $200M in Q2. Without that, Thursday's gate is just a binary coin flip.",
+        "cfo_erm": "Here's what moves the needle: I'm taking the 60% Tier 2 gap compliance flags, layering in trade-credit's solvency check and supply-chain's facility-swap matrix, and I'm publishing a single consolidated table by EOD tomorrow—supplier name, clawback gap, retroactive-tariff exposure, debt-to-EBITDA, nearshoring alternative, and go-live window. That's the map. Thursday's gate becomes a real decision, not a coin flip."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need to move this from a decision gate to an actual nearshoring roadmap: once compliance flags the 60% with no clawback, I need you — CFO and supplier — to hand me a facility-swap matrix by EOW. For each Tier 2 miss, name the nearshoring alternative (Mexico border, Central America, or domestic), the capex to qualify it, and the go-live window. That tells me if we're phasing this at $60M over 18 months or panic-sourcing at $200M in Q2. Without that, Thursday's gate is just a binary coin flip.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supply-chain demands facility-swap matrix mapping nearshoring alternatives, capex, and timelines for Tier 2 gaps.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Matrix quantifies nearshoring scenarios and costs",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Facility-swap matrix adds sourcing decision layer",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Named factors: capex, go-live windows",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "EOW deadline for complex matrix",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "supplier_relocation_exposure",
+            "delta": 2
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO and compliance—before you drop that audit Thursday, I need the indemnity language locked: if CBP flags retroactive non-conforming content on a Tier 2 part, does *our* contract with that supplier flow the tariff back to them, or do we eat it and sue later? That's the difference between a $150M capex problem and $150M we can't recover.",
+        "supplier": "CFO, when you table that indemnity language Thursday, I need to know: if CBP claws back retroactive duties on a Tier 2 Mexico facility, can we force the supplier to reimburse, or are we stuck? Because if we eat it, half my base goes insolvent before 2026 and I'm re-sourcing from scratch—that's $200M, not $60M.",
+        "compliance_lawyer": "CFO, before you renegotiate those riders, I need you to hand me a contract-gap audit this week: which 60% of Tier 2 suppliers lack clawback language, and for each gap, what's the retroactive tariff exposure under CBP's 3-year lookback if they miss the RVC floor? That's what tells me which ones we remediate by Q1 and which ones we accept the $150M hit on—and that's what I certify to audit.",
+        "political_risk_insurer": "Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026 review cycle. I'm scoring that as a *policy-cycle trigger*, not a capex problem. Compliance—once you hand me the contract-gap audit with supplier names and retroactive-duty exposure per facility, I'll lock a political-risk premium for the 2027 enforcement cliff and flag which renegotiations actually reduce our exposure versus which ones just shift the pain to suppliers who'll default anyway.",
+        "trade_credit_underwriter": "CFO, when compliance hands you that contract-gap audit this week, I need you to layer in one more cut: for each of the 60% without clawback language, flag their current debt-to-EBITDA and margin profile. That tells me which ones survive an indemnity rider renegotiation versus which ones I'm already pricing as default risk. That's the difference between a $150M tariff exposure and a $150M *receivables write-off* I actually need to underwrite.",
+        "cfo_erm": "Here's what moves the needle: I'm taking the 60% Tier 2 gap compliance flags, layering in trade-credit's solvency check and supply-chain's facility-swap matrix, and I'm publishing a single consolidated table by EOD tomorrow—supplier name, clawback gap, retroactive-tariff exposure, debt-to-EBITDA, nearshoring alternative, and go-live window. That's the map. Thursday's gate becomes a real decision, not a coin flip."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what moves the needle: I'm taking the 60% Tier 2 gap compliance flags, layering in trade-credit's solvency check and supply-chain's facility-swap matrix, and I'm publishing a single consolidated table by EOD tomorrow—supplier name, clawback gap, retroactive-tariff exposure, debt-to-EBITDA, nearshoring alternative, and go-live window. That's the map. Thursday's gate becomes a real decision, not a coin flip.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO consolidates all risk inputs into single table by tomorrow, creating actionable Thursday decision map.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidated table synthesizes all risk streams",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Integrated map with priced triggers",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Debt-to-EBITDA layer adds solvency exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "EOD consolidation of complex inputs",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO and compliance—before you drop that audit Thursday, I need the indemnity language locked: if CBP flags retroactive non-conforming content on a Tier 2 part, does *our* contract with that supplier flow the tariff back to them, or do we eat it and sue later? That's the difference between a $150M capex problem and $150M we can't recover.",
+        "supplier": "CFO, when you table that indemnity language Thursday, I need to know: if CBP claws back retroactive duties on a Tier 2 Mexico facility, can we force the supplier to reimburse, or are we stuck? Because if we eat it, half my base goes insolvent before 2026 and I'm re-sourcing from scratch—that's $200M, not $60M.",
+        "compliance_lawyer": "CFO, before you renegotiate those riders, I need you to hand me a contract-gap audit this week: which 60% of Tier 2 suppliers lack clawback language, and for each gap, what's the retroactive tariff exposure under CBP's 3-year lookback if they miss the RVC floor? That's what tells me which ones we remediate by Q1 and which ones we accept the $150M hit on—and that's what I certify to audit.",
+        "political_risk_insurer": "Here's what I'm pricing: 60% of Tier 2 has zero clawback coverage—that's $150M retroactive-tariff exposure if CBP enforcement tightens during the 2026 review cycle. I'm scoring that as a *policy-cycle trigger*, not a capex problem. Compliance—once you hand me the contract-gap audit with supplier names and retroactive-duty exposure per facility, I'll lock a political-risk premium for the 2027 enforcement cliff and flag which renegotiations actually reduce our exposure versus which ones just shift the pain to suppliers who'll default anyway.",
+        "trade_credit_underwriter": "CFO, when compliance hands you that contract-gap audit this week, I need you to layer in one more cut: for each of the 60% without clawback language, flag their current debt-to-EBITDA and margin profile. That tells me which ones survive an indemnity rider renegotiation versus which ones I'm already pricing as default risk. That's the difference between a $150M tariff exposure and a $150M *receivables write-off* I actually need to underwrite.",
+        "supply_chain_consultant": "Here's what I need to move this from a decision gate to an actual nearshoring roadmap: once compliance flags the 60% with no clawback, I need you — CFO and supplier — to hand me a facility-swap matrix by EOW. For each Tier 2 miss, name the nearshoring alternative (Mexico border, Central America, or domestic), the capex to qualify it, and the go-live window. That tells me if we're phasing this at $60M over 18 months or panic-sourcing at $200M in Q2. Without that, Thursday's gate is just a binary coin flip."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO, when you drop that Thursday map, I need one more cut: for each nearshoring option—Mexico consolidation, Vietnam expansion, domestic on-shoring—flag the capex *and* the exit cost if the 2026 rule *doesn't* tighten as far as we're modeling. Because if we lock $60M into Mexico labor-content fixes and the review stays flat, we've overcapitalized. If it tightens past our assumptions, we're already moving. That's the real decision—not $60M or $200M, but *phased vs. resilient*. What's the sunk-cost delta between those two postures?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consultant demands scenario-weighted exit costs for each nearshoring option—critical for phased-vs-resilient decision framing.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Exit-cost modeling clarifies downside exposure across scenarios.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Capex-vs-exit delta operationalizes phased/resilient decision variables.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Scenario-weighted optionality layer added to nearshoring map.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clarity on decision variables reduces strategic uncertainty.",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, when you drop that consolidated map tomorrow, I need it to name the actual decision variables: which platforms hit the RVC floor, which miss the labor-value threshold, and the plant-by-plant cost to remediate vs. relocate? That's what tells me if Thursday's gate triggers $60M phased or $200M panic spend.",
+        "supplier": "Trade credit, when the solvency check lands Thursday, I need you to flag which Tier 2 suppliers can actually survive 18 months of re-qual capex *plus* a retroactive tariff clawback—because if they're already margin-thin, they're not making it. That's the real trigger for whether we're phasing or panic-relocating.",
+        "compliance_lawyer": "CFO, when you hand that plant-by-plant audit Thursday—does it include a remediation checklist? Like, for each Tier 2 miss, what specific actions certify them as compliant again—is it a worksheet resubmission, third-party audit, supply-chain recert? Because your gate needs to know: which gaps are 90-day fixes versus which ones are 18-month re-qual cycles. That's what tells us which suppliers we're betting on versus which we're already replacing.",
+        "political_risk_insurer": "Trade credit—when you flag which Tier 2 suppliers hit that 30% insolvency threshold, I need you to tell me the specific debt-to-EBITDA or margin floor you're using. Because if I'm pricing $150M tariff exposure *and* you're telling me 40% of those suppliers are already walking the default line, I'm moving $90M of that into a political-risk premium tied to supplier-failure cascade, not just CBP enforcement. What's your solvency cutoff?",
+        "trade_credit_underwriter": "When I flag suppliers under 2.0x leverage or 8% margin, I'm pricing them as default risk — but your tariff exposure assumes they absorb clawback. If they're actually insolvent before the tariff hits, that $150M flows to us as a receivables write-off, not a tariff claim. What solvency cutoff are you using to separate \"can survive tariff\" from \"already walking default\"? We need one number Thursday, not two separate risk buckets.",
+        "cfo_erm": "Okay—Thursday morning I'm publishing the consolidated map with a fourth column: each Tier 2 supplier flagged with their RVC gap *and* their debt-to-EBITDA status. That tells you instantly which ones survive $60M phased capex versus which ones are already walking default and need to come off the board. That's how we lock the gate trigger—not just gap count, but solvency-weighted exposure."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "Okay—Thursday morning I'm publishing the consolidated map with a fourth column: each Tier 2 supplier flagged with their RVC gap *and* their debt-to-EBITDA status. That tells you instantly which ones survive $60M phased capex versus which ones are already walking default and need to come off the board. That's how we lock the gate trigger—not just gap count, but solvency-weighted exposure.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO commits Thursday consolidated map with RVC gap + debt-to-EBITDA flags—solvency-weighted exposure now actionable.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Solvency-weighted supplier exposure consolidates fragmented risk layers.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Debt-to-EBITDA + RVC gap creates concrete pricing triggers.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Solvency flags surface which suppliers are default-vulnerable.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Consolidated map reduces information fragmentation across team.",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": -2.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, when you drop that consolidated map tomorrow, I need it to name the actual decision variables: which platforms hit the RVC floor, which miss the labor-value threshold, and the plant-by-plant cost to remediate vs. relocate? That's what tells me if Thursday's gate triggers $60M phased or $200M panic spend.",
+        "supplier": "Trade credit, when the solvency check lands Thursday, I need you to flag which Tier 2 suppliers can actually survive 18 months of re-qual capex *plus* a retroactive tariff clawback—because if they're already margin-thin, they're not making it. That's the real trigger for whether we're phasing or panic-relocating.",
+        "compliance_lawyer": "CFO, when you hand that plant-by-plant audit Thursday—does it include a remediation checklist? Like, for each Tier 2 miss, what specific actions certify them as compliant again—is it a worksheet resubmission, third-party audit, supply-chain recert? Because your gate needs to know: which gaps are 90-day fixes versus which ones are 18-month re-qual cycles. That's what tells us which suppliers we're betting on versus which we're already replacing.",
+        "political_risk_insurer": "Trade credit—when you flag which Tier 2 suppliers hit that 30% insolvency threshold, I need you to tell me the specific debt-to-EBITDA or margin floor you're using. Because if I'm pricing $150M tariff exposure *and* you're telling me 40% of those suppliers are already walking the default line, I'm moving $90M of that into a political-risk premium tied to supplier-failure cascade, not just CBP enforcement. What's your solvency cutoff?",
+        "trade_credit_underwriter": "When I flag suppliers under 2.0x leverage or 8% margin, I'm pricing them as default risk — but your tariff exposure assumes they absorb clawback. If they're actually insolvent before the tariff hits, that $150M flows to us as a receivables write-off, not a tariff claim. What solvency cutoff are you using to separate \"can survive tariff\" from \"already walking default\"? We need one number Thursday, not two separate risk buckets.",
+        "supply_chain_consultant": "CFO, when you drop that Thursday map, I need one more cut: for each nearshoring option—Mexico consolidation, Vietnam expansion, domestic on-shoring—flag the capex *and* the exit cost if the 2026 rule *doesn't* tighten as far as we're modeling. Because if we lock $60M into Mexico labor-content fixes and the review stays flat, we've overcapitalized. If it tightens past our assumptions, we're already moving. That's the real decision—not $60M or $200M, but *phased vs. resilient*. What's the sunk-cost delta between those two postures?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 39.0
+        },
+        {
+          "round": 4,
+          "value": 41.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 39.0
+        },
+        {
+          "round": 4,
+          "value": 43.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 29.0
+        },
+        {
+          "round": 3,
+          "value": 32.0
+        },
+        {
+          "round": 4,
+          "value": 35.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 29.0
+        },
+        {
+          "round": 2,
+          "value": 35.0
+        },
+        {
+          "round": 3,
+          "value": 38.15
+        },
+        {
+          "round": 4,
+          "value": 38.3
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 39.7
+        },
+        {
+          "round": 3,
+          "value": 55.300000000000004
+        },
+        {
+          "round": 4,
+          "value": 66.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 49.0
+        },
+        {
+          "round": 3,
+          "value": 61.0
+        },
+        {
+          "round": 4,
+          "value": 71.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 66.0,
+            "normalised": 0.66
+          }
+        ],
+        "weighted_score": 0.46
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 41.0,
+            "normalised": 0.41
+          }
+        ],
+        "weighted_score": 0.4233333333333333
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.5099999999999999
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 38.3,
+            "normalised": 0.38299999999999995
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.5465
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35.0,
+            "normalised": 0.35
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.46999999999999986
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.0,
+            "normalised": 0.66
+          }
+        ],
+        "weighted_score": 0.545
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.0,
+            "normalised": 0.66
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 71.0,
+            "normalised": 0.71
+          }
+        ],
+        "weighted_score": 0.6766666666666666
+      }
+    }
+  }
+}

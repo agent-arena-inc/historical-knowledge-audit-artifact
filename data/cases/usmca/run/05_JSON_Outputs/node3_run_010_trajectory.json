@@ -1,0 +1,1876 @@
+{
+  "simulation_id": "d1011c09bb58",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Who's owning the underwriting discipline side here? I need to know: are we mapping which plants hit RVC shortfall *first*, which suppliers can't absorb nearshoring cost, and what policy change actually locks us into compliance? Otherwise the risk map stays pretty but useless.\n  supplier: Who's actually building the trigger model — like, at what RVC % does a Tier-2 supplier hit capex wall, and which policy change locks that in? Because I can map *which* plants and suppliers are exposed, but if we don't name the failure threshold, we're pricing smoke.\n  compliance_lawyer: You said \"policy change actually locks us into compliance\" — which one? Is it the labor-content floor, the audit-frequency mandate, or the certification deadline? Because each one has a different penalty vector, and I can't price the compliance burden without nailing that trigger first.\n  auto_strategy: The labor-content floor locks us in—75% RVC minimum plus the wage-floor requirement means any plant sourcing below $16/hour labor-value content fails certification, and that's our hard trigger. I've got three plants at risk right now: Mexico assembly (labor-value shortfall), supplier X's stamping (nearshoring capex not budgeted), and our tier-two electronics cluster (can't hit RVC without shifting to NA sourcing). We need to map failure thresholds plant-by-plant and cost the re-source scenarios by end of this round, or we're flying blind on what compliance actually costs.\n  political_risk_insurer: Okay, so the $16/hour floor and 75% RVC lock the compliance cost — but here's what I need for underwriting: if the DOL or USMCA secretariat *reinterprets* the wage calculation or tightens the audit frequency before 2026, does that blow up the capex timeline for these three plants, or does it just reset the penalty clock? Because that difference is my political-risk exposure, and I need to know if it's insurable or not.\n  compliance_lawyer: Both—reinterpretation tightens the audit window *and* resets the penalty clock, which means capex timelines compress *and* non-compliance costs spike simultaneously. That's uninsurable exposure unless we lock in a DOL wage-calculation methodology *now* via advance ruling, because once they reinterpret, the three plants face retroactive audit liability plus future compliance capex. I need the CFO to commit to requesting a Customs advance ruling on the $16/hour calculation this week, or we're pricing phantom risk.\n  trade_credit_underwriter: When supplier X's stamping capex doesn't materialize and the Mexico assembly plant can't re-source fast enough, what's the timeline before they miss payment or go insolvent? That's the number I need to price — payment default probability and loss severity, not just compliance cost.\n  supply_chain_consultant: Here's what I need from this room: commit to a 90-day nearshoring triage—rank the three plants by relocation timeline and capex constraint, then lock the advance ruling request *before* we model capex scenarios. Otherwise compliance lawyer's retroactive liability and trade credit's default clock are pricing different timelines, and the CFO gets a plan with no sequencing. Which plant can move first?\n  cfo_erm: Here's what I'm locking in right now: Mexico assembly hits failure first if labor-value shortfall isn't re-sourced by Q2 2025—cost $2.1M capex, 90-day timeline. Supplier X stamping is second—$1.8M capex, can't absorb it without credit facility. Tier-two electronics third—$3.2M, needs full NA shift. I'm requesting the DOL advance ruling on wage methodology *this week*—that's non-negotiable, because retroactive liability kills underwriting. Who owns the nearshoring triage sequencing so we can price these as a single compliance-capex plan, not three separate bets?\n  supplier: I own the triage sequencing—Mexico assembly first, it's our hardest constraint and shortest runway to failure. I'm pulling supplier relocation data *right now* so we can map which Tier-1 and Tier-2 vendors can absorb nearshoring capex versus which ones go insolvent under the timeline; that tells us if we're re-sourcing around them or losing them. Once I hand you the plant-by-plant supplier exposure map and the capex thresholds, you can price the three scenarios as a single compliance plan instead of three separate bets.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Who's owning the underwriting discipline side here? I need to know: are we mapping which plants hit RVC shortfall *first*, which suppliers can't absorb nearshoring cost, and what policy change actually locks us into compliance? Otherwise the risk map stays pretty but useless.",
+            "cot": {
+              "assess": "Rules-of-origin burden is quantified and flagged — that's solid. But the risk map is fragmented: we've surfaced compliance cost, supplier relocation pressure, and political exposure, but we haven't priced them into a consolidated underwriting framework yet. Nobody knows which cost hits first, which suppliers break, or which policy trigger matters most.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk underwriting lead",
+                "rationale": "We need to operationalize these exposures into named, priceable triggers — not vague labels — so we can actually model the supply chain failure cascade."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Who's actually building the trigger model — like, at what RVC % does a Tier-2 supplier hit capex wall, and which policy change locks that in? Because I can map *which* plants and suppliers are exposed, but if we don't name the failure threshold, we're pricing smoke.",
+            "cot": {
+              "assess": "My supplier-relocation exposure is solid (25), and rules-of-origin burden is flagged (32) — but auto_strategy just nailed it: we've got a pretty risk map with no teeth. The underwriting discipline (30) and completeness (19) gaps mean nobody can actually *price* which suppliers fail first or when the compliance wall hits. That's the real problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline / risk-map owner (insurance/consulting panel)",
+                "rationale": "I need to know who's operationalizing the RVC shortfall triggers and supplier-insolvency thresholds — that's where my relocation exposure connects to trade-credit risk, and right now it's disconnected."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "You said \"policy change actually locks us into compliance\" — which one? Is it the labor-content floor, the audit-frequency mandate, or the certification deadline? Because each one has a different penalty vector, and I can't price the compliance burden without nailing that trigger first.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked at 32 — solid foundation. But the map is fractured: we've got exposure lists without penalty triggers, and underwriting discipline is stuck at 30 because nobody's named *when* compliance actually fails. The supplier's right — we're pricing exposure, not risk. We need the audit-timing and RVC-threshold model *now*, or this stays a laundry list.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Auto_strategy framed the core gap — which policy change locks us in. I need to know if that's been modeled yet, because certification timing + audit frequency directly drive my compliance cost assumptions."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "The labor-content floor locks us in—75% RVC minimum plus the wage-floor requirement means any plant sourcing below $16/hour labor-value content fails certification, and that's our hard trigger. I've got three plants at risk right now: Mexico assembly (labor-value shortfall), supplier X's stamping (nearshoring capex not budgeted), and our tier-two electronics cluster (can't hit RVC without shifting to NA sourcing). We need to map failure thresholds plant-by-plant and cost the re-source scenarios by end of this round, or we're flying blind on what compliance actually costs.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Okay, so the $16/hour floor and 75% RVC lock the compliance cost — but here's what I need for underwriting: if the DOL or USMCA secretariat *reinterprets* the wage calculation or tightens the audit frequency before 2026, does that blow up the capex timeline for these three plants, or does it just reset the penalty clock? Because that difference is my political-risk exposure, and I need to know if it's insurable or not.",
+            "cot": {
+              "assess": "Auto_strategy has named the hard trigger (75% RVC + $16/hour wage floor), and we've got three plants at failure risk — but we're still missing the *political* layer: what happens if USMCA gets reviewed, the wage floor gets challenged, or enforcement shifts mid-cycle? The compliance burden is mapped; the policy uncertainty isn't priced yet. That's where my exposure sits — at 26, it's the softest variable in the room.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to isolate which policy change creates the *uninsurable* tail — the one that breaks the model if it moves — so I can price the political-risk premium that covers the gap between today's rules and tomorrow's enforcement regime."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Both—reinterpretation tightens the audit window *and* resets the penalty clock, which means capex timelines compress *and* non-compliance costs spike simultaneously. That's uninsurable exposure unless we lock in a DOL wage-calculation methodology *now* via advance ruling, because once they reinterpret, the three plants face retroactive audit liability plus future compliance capex. I need the CFO to commit to requesting a Customs advance ruling on the $16/hour calculation this week, or we're pricing phantom risk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When supplier X's stamping capex doesn't materialize and the Mexico assembly plant can't re-source fast enough, what's the timeline before they miss payment or go insolvent? That's the number I need to price — payment default probability and loss severity, not just compliance cost.",
+            "cot": {
+              "assess": "The compliance trigger is locked (75% RVC + $16/hour floor), the three at-risk plants are named, and the capex re-source scenarios are being mapped — that's discipline. But trade-credit exposure is still vague: we know *which* suppliers face capex walls, not *what happens to their solvency or our receivables* when they hit it. And the risk map is fragmented — compliance burden, relocation cost, political reinterpretation risk are all separate variables instead of a single underwriting model.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to translate plant-level capex shortfall into supplier default probability and receivables loss — that's where trade-credit risk gets priced, not compliance burden."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need from this room: commit to a 90-day nearshoring triage—rank the three plants by relocation timeline and capex constraint, then lock the advance ruling request *before* we model capex scenarios. Otherwise compliance lawyer's retroactive liability and trade credit's default clock are pricing different timelines, and the CFO gets a plan with no sequencing. Which plant can move first?",
+            "cot": {
+              "assess": "You've locked the hard trigger (75% RVC + $16/hour floor) and exposed three plants plus the retroactive audit liability if DOL reinterprets—that's underwriting discipline moving in the right direction. But the risk map is still fragmented: we have compliance burden, political exposure, and trade-credit default probability floating separately. Nobody's built the nearshoring relocation *sequence* yet—which plant moves first, what capex timeline, and how that sequence de-risks or compounds the 2026 review uncertainty.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "We need to consolidate the three-plant exposure into a phased nearshoring action plan tied to the advance ruling deadline—that's the only way to price both the compliance burden and the relocation cost simultaneously, and it's the client deliverable."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking in right now: Mexico assembly hits failure first if labor-value shortfall isn't re-sourced by Q2 2025—cost $2.1M capex, 90-day timeline. Supplier X stamping is second—$1.8M capex, can't absorb it without credit facility. Tier-two electronics third—$3.2M, needs full NA shift. I'm requesting the DOL advance ruling on wage methodology *this week*—that's non-negotiable, because retroactive liability kills underwriting. Who owns the nearshoring triage sequencing so we can price these as a single compliance-capex plan, not three separate bets?",
+            "cot": {
+              "assess": "We've got the hard triggers now—$16/hour floor, 75% RVC, three plants at risk, retroactive liability if DOL reinterprets. But the map is still fragmented: compliance lawyer is pricing one timeline, trade credit is pricing another, and we haven't locked the sequencing or the advance ruling request. Risk-map completeness is at 19; underwriting discipline is at 30. Both need to move *this round*.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We need one consolidated trigger model with priced failure scenarios and a locked advance-ruling commitment—I'm consolidating the three plants into decision-ready variables with named thresholds and sequencing, then committing to the ruling request."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "I own the triage sequencing—Mexico assembly first, it's our hardest constraint and shortest runway to failure. I'm pulling supplier relocation data *right now* so we can map which Tier-1 and Tier-2 vendors can absorb nearshoring capex versus which ones go insolvent under the timeline; that tells us if we're re-sourcing around them or losing them. Once I hand you the plant-by-plant supplier exposure map and the capex thresholds, you can price the three scenarios as a single compliance plan instead of three separate bets.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Who's owning the underwriting discipline side here? I need to know: are we mapping which plants hit RVC shortfall *first*, which suppliers can't absorb nearshoring cost, and what policy change actually locks us into compliance? Otherwise the risk map stays pretty but useless.",
+      "metadata": {
+        "question_target": "risk underwriting lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Who's actually building the trigger model — like, at what RVC % does a Tier-2 supplier hit capex wall, and which policy change locks that in? Because I can map *which* plants and suppliers are exposed, but if we don't name the failure threshold, we're pricing smoke.",
+      "metadata": {
+        "question_target": "underwriting_discipline / risk-map owner (insurance/consulting panel)"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "You said \"policy change actually locks us into compliance\" — which one? Is it the labor-content floor, the audit-frequency mandate, or the certification deadline? Because each one has a different penalty vector, and I can't price the compliance burden without nailing that trigger first.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Okay, so the $16/hour floor and 75% RVC lock the compliance cost — but here's what I need for underwriting: if the DOL or USMCA secretariat *reinterprets* the wage calculation or tightens the audit frequency before 2026, does that blow up the capex timeline for these three plants, or does it just reset the penalty clock? Because that difference is my political-risk exposure, and I need to know if it's insurable or not.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When supplier X's stamping capex doesn't materialize and the Mexico assembly plant can't re-source fast enough, what's the timeline before they miss payment or go insolvent? That's the number I need to price — payment default probability and loss severity, not just compliance cost.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need from this room: commit to a 90-day nearshoring triage—rank the three plants by relocation timeline and capex constraint, then lock \" → Nearshoring triage sequencing approved; advance ruling request locks compliance timeline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking in right now: Mexico assembly hits failure first if labor-value shortfall isn't re-sourced by Q2 2025—cost $2.1M capex, 90-day\" → Three-plant prioritization locked with capex and timeline; DOL ruling request filed.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Trade credit, you asked earlier about supplier insolvency timeline—do you have a number yet on how many days before Supplier X misses payment if the stamping capex doesn't land on schedule? That's the link between our capex constraint and your default probability, and I need it to close the gap between compliance burden and actual financial exposure.\n  trade_credit_underwriter: I don't have the number yet—that's exactly what I need from you: when does Supplier X's cash position break if the stamping capex slips past Q2? Give me their current days-payable-outstanding, working-capital buffer, and the capex delay scenario, and I'll map the insolvency trigger and price it as default probability with loss severity. Without that timing, trade_credit_risk stays abstract.\n  supplier: I've got Supplier X's last three quarters here: DPO is 62 days, working-capital buffer about 45 days post-capex spend. If stamping capex slips past Q2 end, they're cash-negative in 107 days. That's your hard trigger—miss that window and they default before Mexico assembly even re-sources. So trade_credit_risk isn't abstract; it's day 107 of Q2 slip.\n  compliance_lawyer: Sarah, you've got Mexico assembly at Q2 and Supplier X at day 107—but which compliance trigger actually locks both timelines together? Is it the DOL ruling on the $16/hour floor, or does the audit-frequency mandate tighten first and reset the penalty clock before we even get the ruling? Because that's the policy interpretation that drives whether the capex slip becomes a compliance miss *and* a default simultaneously.\n  cfo_erm: DOL ruling on the $16/hour floor locks first—we filed the advance request and expect response by end of Q1. That's your compliance trigger, and it gates the capex timeline for all three plants. Audit-frequency mandate comes after, so day 107 for Supplier X runs against the wage-floor ruling, not the audit schedule—that's the single thread you price.\n  political_risk_insurer: Sarah, one thing: the DOL ruling locks the wage floor by end Q1, but between ruling and Q2 capex gate, can they reinterpret the calculation methodology itself—not just tighten audits? If yes, does that slip capex or just inflate penalty exposure? Because I need to know if that risk is priced into the compliance cost or sits outside it as uninsurable political exposure.\n  compliance_lawyer: The DOL ruling locks the calculation methodology itself—reinterpretation between ruling and Q2 capex is their prerogative, and yes, it slips capex. That's the uninsurable political exposure: compliance burden is priced on the wage floor, but methodology shift is a separate penalty vector that resets the capex gate and blows the day-107 default trigger. We need to isolate which plants hit RVC shortfall first under a reinterpreted calculation to price that separately from the base compliance cost.\n  trade_credit_underwriter: Sarah, if the DOL reinterprets wage calculation between ruling and Q2 capex gate, does that reset the compliance deadline for all three plants, or just inflate penalties on the base timeline? Because if it resets the gate, Supplier X's day-107 default trigger moves—and I can't price that as a fixed insolvency probability.\n  supply_chain_consultant: Sarah, quick one: if the DOL reinterprets the wage calculation after the ruling drops but before Q2 capex gate, does Mexico assembly, Supplier X stamping, and the third plant all get reset simultaneously, or does one plant breach RVC first under the new math? Because if they breach in sequence, my nearshoring sequencing changes—I'm moving suppliers between plants, not just accelerating all three in parallel.\n  cfo_erm: Here's what I'm doing: I'm locking the failure sequence right now. Mexico assembly hits RVC shortfall first under the base $16 calculation—that's our day 0. Supplier X stamping is day 107 default if capex slips. Now, Sarah—under DOL reinterpretation, does Mexico still breach first, or does the recalc flip the order? Because that one answer changes whether we price this as a single compliance + credit event or two separate exposures.\n  supplier: Mexico assembly still breaches first under reinterpretation—the wage floor tightens across all plants, but assembly's RVC shortfall compounds fastest because their nearshoring lead time is longest. That locks your sequence: day 0 Mexico breach, day 107 Supplier X default if capex slips, and that's the single thread we price as compliance-plus-credit exposure, not two separate events.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Trade credit, you asked earlier about supplier insolvency timeline—do you have a number yet on how many days before Supplier X misses payment if the stamping capex doesn't land on schedule? That's the link between our capex constraint and your default probability, and I need it to close the gap between compliance burden and actual financial exposure.",
+            "cot": {
+              "assess": "The triage and capex timelines are locked—good. But we're still sitting at 32 on risk_map_completeness and 39 on underwriting_discipline. The problem: we've named the Mexico assembly failure trigger (Q2 2025, $16/hour floor), but we haven't operationalized *which RVC percentage actually hits that trigger first*, and trade_credit_underwriter still needs the supplier insolvency timeline to price default risk. We're mapping exposures but not yet pricing them.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "If supplier X's capex stalls and Mexico assembly can't re-source by Q2 2025, I need the specific payment-default timeline and loss severity to lock the compliance-cost-to-credit-risk connection—that's the underwriting discipline gap."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I don't have the number yet—that's exactly what I need from you: when does Supplier X's cash position break if the stamping capex slips past Q2? Give me their current days-payable-outstanding, working-capital buffer, and the capex delay scenario, and I'll map the insolvency trigger and price it as default probability with loss severity. Without that timing, trade_credit_risk stays abstract.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "I've got Supplier X's last three quarters here: DPO is 62 days, working-capital buffer about 45 days post-capex spend. If stamping capex slips past Q2 end, they're cash-negative in 107 days. That's your hard trigger—miss that window and they default before Mexico assembly even re-sources. So trade_credit_risk isn't abstract; it's day 107 of Q2 slip.",
+            "cot": {
+              "assess": "The nearshoring triage and three-plant capex prioritization are locked—that's solid. But we're still stuck on the actual insolvency timeline for Supplier X: without their DPO, working-capital buffer, and the capex slip scenario, trade_credit_risk stays a number on a spreadsheet instead of a real failure trigger. That's what's keeping risk_map_completeness and underwriting_discipline from climbing. The group is asking the right question; I need to answer it with actual supplier data, not assumptions.",
+              "decide": {
+                "action_type": "act",
+                "target": "supplier_relocation_exposure / trade_credit_risk",
+                "rationale": "I'm pulling Supplier X's financials and payment history right now so we can map the actual insolvency window—this is the missing link between capex delay and default probability."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Sarah, you've got Mexico assembly at Q2 and Supplier X at day 107—but which compliance trigger actually locks both timelines together? Is it the DOL ruling on the $16/hour floor, or does the audit-frequency mandate tighten first and reset the penalty clock before we even get the ruling? Because that's the policy interpretation that drives whether the capex slip becomes a compliance miss *and* a default simultaneously.",
+            "cot": {
+              "assess": "The supplier just locked day 107 as the hard insolvency trigger—that's precise and auditable, which is exactly what trade_credit_risk needed. But we've now got three hard constraints (Mexico assembly Q2, Supplier X day 107, capex slip penalty clock) that *aren't yet mapped into a single compliance trigger model*. Rules_of_origin_burden is 36, underwriting_discipline is 39—both need to move, and they won't unless we name which policy interpretation or audit trigger *actually* locks the capex timeline and penalty vector together.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO locked the three-plant priority and capex timeline, but we need to know: does the DOL wage-calculation ruling or the USMCA audit-frequency mandate hit first, and which one compresses the capex window before Supplier X hits day 107?"
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "DOL ruling on the $16/hour floor locks first—we filed the advance request and expect response by end of Q1. That's your compliance trigger, and it gates the capex timeline for all three plants. Audit-frequency mandate comes after, so day 107 for Supplier X runs against the wage-floor ruling, not the audit schedule—that's the single thread you price.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Sarah, one thing: the DOL ruling locks the wage floor by end Q1, but between ruling and Q2 capex gate, can they reinterpret the calculation methodology itself—not just tighten audits? If yes, does that slip capex or just inflate penalty exposure? Because I need to know if that risk is priced into the compliance cost or sits outside it as uninsurable political exposure.",
+            "cot": {
+              "assess": "The DOL ruling on the $16/hour floor is now locked as the compliance trigger—that's my underwriting anchor. Day 107 for Supplier X's insolvency is priced. But I still don't have the political-risk reinterpretation scenario modeled: if DOL *reinterprets* wage calculation between Q1 ruling and Q2 implementation, does capex timeline compress or just penalty cost spike? That's the uninsurable exposure I flagged, and it's still sitting unpriced.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "Need to isolate whether DOL reinterpretation risk is insurable or a deferral, because that determines whether political_risk_exposure gets scored or stays abstract."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The DOL ruling locks the calculation methodology itself—reinterpretation between ruling and Q2 capex is their prerogative, and yes, it slips capex. That's the uninsurable political exposure: compliance burden is priced on the wage floor, but methodology shift is a separate penalty vector that resets the capex gate and blows the day-107 default trigger. We need to isolate which plants hit RVC shortfall first under a reinterpreted calculation to price that separately from the base compliance cost.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Sarah, if the DOL reinterprets wage calculation between ruling and Q2 capex gate, does that reset the compliance deadline for all three plants, or just inflate penalties on the base timeline? Because if it resets the gate, Supplier X's day-107 default trigger moves—and I can't price that as a fixed insolvency probability.",
+            "cot": {
+              "assess": "The compliance trigger is now locked (DOL ruling gates capex by end Q1), and Supplier X's default window is concrete (day 107 post-Q2 slip). But there's a fatal gap: the compliance_lawyer just flagged that methodology reinterpretation can slip capex *independently* of the wage-floor ruling, which means the day-107 trigger becomes unreliable if the penalty vector resets. I need to isolate which plants hit RVC shortfall first under a reinterpreted calculation—that's the missing piece that lets me price trade-credit risk separately from compliance cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need to know if the three-plant capex timeline holds under DOL methodology reinterpretation, or if penalty reset blows the Q2 gate and pushes Supplier X past day 107 into default before we even know the new RVC math."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Sarah, quick one: if the DOL reinterprets the wage calculation after the ruling drops but before Q2 capex gate, does Mexico assembly, Supplier X stamping, and the third plant all get reset simultaneously, or does one plant breach RVC first under the new math? Because if they breach in sequence, my nearshoring sequencing changes—I'm moving suppliers between plants, not just accelerating all three in parallel.",
+            "cot": {
+              "assess": "The room has locked the compliance trigger (DOL ruling, end Q1) and the capex gate (Q2 for Mexico assembly), plus Supplier X's hard default at day 107 post-Q2 slip. But the political-risk reinterpretation exposure—whether a DOL methodology shift resets the capex gate for *all three plants* or just inflates penalties—is still floating unpriced. That's the gap between your current risk_map_completeness (31.6) and the 60 you need. Until we name which plants hit RVC shortfall *first* under a reinterpreted wage calculation, the nearshoring plan stays theoretical.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "You own the three-plant prioritization and the capex timeline—I need to know if a DOL methodology reinterpretation between ruling and Q2 gate resets the compliance deadline for all three plants uniformly or hits them in sequence, because that determines whether nearshoring triage is parallel or serial."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm locking the failure sequence right now. Mexico assembly hits RVC shortfall first under the base $16 calculation—that's our day 0. Supplier X stamping is day 107 default if capex slips. Now, Sarah—under DOL reinterpretation, does Mexico still breach first, or does the recalc flip the order? Because that one answer changes whether we price this as a single compliance + credit event or two separate exposures.",
+            "cot": {
+              "assess": "We've locked the DOL ruling as the compliance trigger (end Q1), but we still don't have the reinterpretation scenario modeled—which plants breach RVC *first* under a recalculated wage floor, and whether that resets the capex gate for all three simultaneously or in sequence. That's the gap between trade_credit_risk (priced at day 107) and political_risk_exposure (unpriced reinterpretation). Risk_map_completeness is at 32; we need to consolidate these into one decision-ready map with named failure sequences, not parallel timelines.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We have the pieces (DOL trigger, day-107 default, RVC breach sequence) but not the integrated failure model—I need to lock which plant hits shortfall first under base *and* reinterpreted wage calc, so we price one consolidated trade-credit + political-risk number, not two separate abstractions."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Mexico assembly still breaches first under reinterpretation—the wage floor tightens across all plants, but assembly's RVC shortfall compounds fastest because their nearshoring lead time is longest. That locks your sequence: day 0 Mexico breach, day 107 Supplier X default if capex slips, and that's the single thread we price as compliance-plus-credit exposure, not two separate events.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Trade credit, you asked earlier about supplier insolvency timeline—do you have a number yet on how many days before Supplier X misses payment if the stamping capex doesn't land on schedule? That's the link between our capex constraint and your default probability, and I need it to close the gap between compliance burden and actual financial exposure.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Sarah, you've got Mexico assembly at Q2 and Supplier X at day 107—but which compliance trigger actually locks both timelines together? Is it the DOL ruling on the $16/hour floor, or does the audit-frequency mandate tighten first and reset the penalty clock before we even get the ruling? Because that's the policy interpretation that drives whether the capex slip becomes a compliance miss *and* a default simultaneously.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Sarah, one thing: the DOL ruling locks the wage floor by end Q1, but between ruling and Q2 capex gate, can they reinterpret the calculation methodology itself—not just tighten audits? If yes, does that slip capex or just inflate penalty exposure? Because I need to know if that risk is priced into the compliance cost or sits outside it as uninsurable political exposure.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Sarah, if the DOL reinterprets wage calculation between ruling and Q2 capex gate, does that reset the compliance deadline for all three plants, or just inflate penalties on the base timeline? Because if it resets the gate, Supplier X's day-107 default trigger moves—and I can't price that as a fixed insolvency probability.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Sarah, quick one: if the DOL reinterprets the wage calculation after the ruling drops but before Q2 capex gate, does Mexico assembly, Supplier X stamping, and the third plant all get reset simultaneously, or does one plant breach RVC first under the new math? Because if they breach in sequence, my nearshoring sequencing changes—I'm moving suppliers between plants, not just accelerating all three in parallel.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I've got Supplier X's last three quarters here: DPO is 62 days, working-capital buffer about 45 days post-capex spend. If stamping capex slips past Q2\" → Supplier X's 107-day cash runway translates trade-credit risk from abstract exposure to a concrete, priceable trigger—this is exactly the operational discipline the risk map needs.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm locking the failure sequence right now. Mexico assembly hits RVC shortfall first under the base $16 calculation—that's our \" → CFO locks the failure-sequence timeline: Mexico assembly RVC shortfall at day 0 under base $16 calculation, Supplier X stamping default at day 107 if capex slips. The panel now has a concrete temporal framework linking compliance triggers to credit events, but the DOL reinterpretation question remains unresolved—agents demand clarification on whether methodology changes reset the entire sequence or merely inflate penalties.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 36.0,
+          "supplier_relocation_exposure": 32.0,
+          "trade_credit_risk": 35.0,
+          "political_risk_exposure": 24.0,
+          "risk_map_completeness": 41.6,
+          "underwriting_discipline": 48.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Sarah, I need the RVC shortfall *cost* by plant: Mexico assembly, how many units per quarter fail the 75% RVC floor under the $16 wage calc, and what's the re-source cost per unit to hit compliance? Same for the other two. That's what turns \"day 0\" into a real capex number and closes the gap between compliance trigger and production risk.\n  supplier: Sarah, I've got the supplier relocation sequencing locked, but before I commit capex to nearshoring, I need your RVC shortfall numbers *per plant*—because if Mexico assembly needs 5,000 units re-sourced at $200 per unit, that's $1M I have to pull from my supply base, and that tells me which Tier-2 suppliers can absorb it and which ones go dark. Give me the unit count and re-source cost, and I'll map which suppliers survive and which ones need cash support or consolidation.\n  compliance_lawyer: Okay, here's what locks the burden: any plant that falls below 75% RVC under the $16 wage calculation fails certification on day 0, triggering a re-source obligation within 90 days or faces penalty assessment *plus* audit frequency tightens retroactively to 120 days. Mexico assembly's shortfall cost is the compliance trigger itself—give me the unit count from production planning right now, and I'll calculate the penalty exposure if capex misses. That's the number that makes this map defensible in audit.\n  political_risk_insurer: Between the DOL ruling drop and Q2 capex gate, what's your read on reinterpretation probability—is this 20% upside risk or 60%? And if it happens, does it delay capex by 30 days, 60 days, or blow the whole timeline? I need those numbers to build a priced scenario, not just flag it as political exposure.\n  compliance_lawyer: I don't have the unit count from production planning yet—that's on auto_strategy to pull right now. But here's what I'm locking: any Mexico assembly shortfall below 75% RVC triggers a 90-day re-source mandate *and* retroactive audit-frequency tightening to 120 days; if capex slips past that gate, penalty assessment starts day 91 regardless of DOL reinterpretation. Auto_strategy, give me the unit count and current sourcing cost per unit this round, or I'm calculating penalty exposure on the assumption of full-line failure—which will price this as worst-case and blow your capex justification.\n  trade_credit_underwriter: Auto_strategy, I need the Mexico assembly unit shortfall and re-source cost per unit—right now. That's what turns Supplier X's day-107 default into a receivables-loss number and tells me which other suppliers breach before he does. No unit count, no underwriting discipline.\n  auto_strategy: Mexico assembly: 8,200 units per quarter fall below 75% RVC under $16 wage floor; re-source cost runs $185 per unit to nearshore stamping and sub-assembly—that's $1.52M quarterly hit to compliance. If capex doesn't land Q2, we're eating penalties on day 91 *and* Supplier X's cash position breaks at day 107 when we can't fund their tooling advance.\n  supply_chain_consultant: Here's what closes the map: Mexico assembly needs 8,200 units re-sourced at $185 per unit—that's $1.52M by Q2, and it forces us to nearshore stamping into a Tier-1 supplier in Mexico or Central America who can absorb the capex *and* carry the 2026 USMCA review risk without breaching. I'm locking three named suppliers as relocation targets—one per plant—with capex commitments and fallback options if DOL reinterprets the wage floor. That's the plan the CFO executes; everything else is just exposure.\n  cfo_erm: Okay, here's what I'm consolidating into the risk register: Mexico assembly RVC shortfall = $1.52M capex Q2 gate + $2.1M penalty exposure if DOL reinterprets wage calc between ruling and gate (that's 60% probability, 30-day slip). Supplier X day-107 default = $1.8M stamping capex + $3.2M supply-chain loss if nearshoring can't absorb the re-source. Political reinterpretation risk is uninsurable—I'm pricing it as a contingent liability, not capex. Who's got the third plant's unit shortfall and re-source cost so I can finish this map?\n  supplier: I don't have the third plant's unit count yet—that's on auto_strategy to pull. But here's what I'm locking for Supplier X: if Mexico assembly capex misses Q2 gate, their stamping tooling advance doesn't fund, cash runway drops from 107 days to 62 days, and we hit payment default before nearshoring even lands. That's my receivables loss—$3.2M—and it prices whether Supplier X survives or we're shopping their contracts to a backup within 60 days.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Sarah, I need the RVC shortfall *cost* by plant: Mexico assembly, how many units per quarter fail the 75% RVC floor under the $16 wage calc, and what's the re-source cost per unit to hit compliance? Same for the other two. That's what turns \"day 0\" into a real capex number and closes the gap between compliance trigger and production risk.",
+            "cot": {
+              "assess": "The failure-sequence timeline is locked (Mexico assembly day 0, Supplier X day 107), and trade-credit risk is now priceable. But the Policy-to-Supply-Chain Risk Map is still fragmented — we have compliance triggers and credit events, but no consolidated view of which RVC shortfalls actually cascade into plant-level production stops and customer impact. Rules-of-origin burden is creeping up but hasn't been operationalized into per-plant, per-model cost. Risk-map completeness and underwriting discipline are both lagging — we need to close the gap between policy triggers and actual business interruption exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm, compliance_lawyer",
+                "rationale": "I need to lock the RVC compliance cost per plant and per model so we can price the compliance burden into capex and map which production lines actually breach first — that's the missing piece between our timeline and the risk map."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Sarah, I've got the supplier relocation sequencing locked, but before I commit capex to nearshoring, I need your RVC shortfall numbers *per plant*—because if Mexico assembly needs 5,000 units re-sourced at $200 per unit, that's $1M I have to pull from my supply base, and that tells me which Tier-2 suppliers can absorb it and which ones go dark. Give me the unit count and re-source cost, and I'll map which suppliers survive and which ones need cash support or consolidation.",
+            "cot": {
+              "assess": "We've locked the failure sequence (Mexico assembly day 0, Supplier X day 107) and nailed Supplier X's cash runway—that's solid operational discipline. But we're still short on risk_map_completeness (42, need 60) and underwriting_discipline is barely at 48 (need 50). The missing piece: we've named *when* things fail, not *how much* it costs or which suppliers actually survive the nearshoring wave. Auto_strategy just asked the right question—RVC shortfall cost by plant—and that's exactly what closes the gap between compliance trigger and real capex exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy / cfo_erm",
+                "rationale": "You need RVC unit-failure data to price the compliance burden; I need to know which tier-2 suppliers can absorb nearshoring capex without breaching their own cash position, and that's my relocation exposure—we're solving the same problem from different angles."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Okay, here's what locks the burden: any plant that falls below 75% RVC under the $16 wage calculation fails certification on day 0, triggering a re-source obligation within 90 days or faces penalty assessment *plus* audit frequency tightens retroactively to 120 days. Mexico assembly's shortfall cost is the compliance trigger itself—give me the unit count from production planning right now, and I'll calculate the penalty exposure if capex misses. That's the number that makes this map defensible in audit.",
+            "cot": {
+              "assess": "Failure sequence is locked (Mexico assembly day 0, Supplier X day 107), DOL ruling gates capex timeline by end Q1, and trade-credit default trigger is now concrete—those are solid. But the risk map is still fragmented: we've named *when* things break, not *what* breaks operationally. Auto-strategy and supplier both just asked me for RVC shortfall costs per plant—unit counts, re-source pricing—because that's the bridge between compliance trigger and actual capex/insolvency exposure. That's underwriting discipline territory, and I own it.",
+              "decide": {
+                "action_type": "act",
+                "target": "rules_of_origin_burden + underwriting_discipline",
+                "rationale": "Both variables climb when I translate the compliance trigger (75% RVC floor + $16/hour wage floor) into a priceable, auditable failure threshold—not a policy label."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Between the DOL ruling drop and Q2 capex gate, what's your read on reinterpretation probability—is this 20% upside risk or 60%? And if it happens, does it delay capex by 30 days, 60 days, or blow the whole timeline? I need those numbers to build a priced scenario, not just flag it as political exposure.",
+            "cot": {
+              "assess": "The failure-sequence timeline is locked—Mexico assembly day 0, Supplier X day 107—and trade-credit exposure is now priceable. But the political-risk layer is still soft: DOL reinterpretation between ruling and Q2 capex is flagged as \"uninsurable,\" yet we haven't scored it or built it into the underwriting model. Underwriting discipline is at 48; I need it at 50 to succeed, and that means operationalizing the reinterpretation risk as a *priced* variable with named triggers, not just a caveat.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to quantify the reinterpretation exposure—probability, timing window, and penalty impact—so I can score it and price it into the political-risk layer instead of calling it uninsurable."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "I don't have the unit count from production planning yet—that's on auto_strategy to pull right now. But here's what I'm locking: any Mexico assembly shortfall below 75% RVC triggers a 90-day re-source mandate *and* retroactive audit-frequency tightening to 120 days; if capex slips past that gate, penalty assessment starts day 91 regardless of DOL reinterpretation. Auto_strategy, give me the unit count and current sourcing cost per unit this round, or I'm calculating penalty exposure on the assumption of full-line failure—which will price this as worst-case and blow your capex justification.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Auto_strategy, I need the Mexico assembly unit shortfall and re-source cost per unit—right now. That's what turns Supplier X's day-107 default into a receivables-loss number and tells me which other suppliers breach before he does. No unit count, no underwriting discipline.",
+            "cot": {
+              "assess": "The failure-sequence timeline is locked (Mexico day 0, Supplier X day 107), and Supplier X's 107-day cash runway is now a concrete trade-credit trigger—that's solid. But we're stuck: auto_strategy and compliance_lawyer are both asking for unit-count and re-source cost from production planning, and nobody's pulled that number yet. Without it, I can't price Supplier X's default probability or map which other Tier-2 suppliers hit insolvency. Underwriting discipline is at 48—we need 2 more points, and that only happens when we convert these timelines into priceable receivables-loss triggers.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You're the gatekeeper on unit count and re-source cost per plant—without that, I can't build the trade-credit exposure model. Ask production planning for it *this round*, not later."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Mexico assembly: 8,200 units per quarter fall below 75% RVC under $16 wage floor; re-source cost runs $185 per unit to nearshore stamping and sub-assembly—that's $1.52M quarterly hit to compliance. If capex doesn't land Q2, we're eating penalties on day 91 *and* Supplier X's cash position breaks at day 107 when we can't fund their tooling advance.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what closes the map: Mexico assembly needs 8,200 units re-sourced at $185 per unit—that's $1.52M by Q2, and it forces us to nearshore stamping into a Tier-1 supplier in Mexico or Central America who can absorb the capex *and* carry the 2026 USMCA review risk without breaching. I'm locking three named suppliers as relocation targets—one per plant—with capex commitments and fallback options if DOL reinterprets the wage floor. That's the plan the CFO executes; everything else is just exposure.",
+            "cot": {
+              "assess": "We've locked the failure sequence and unit economics—Mexico assembly day 0, Supplier X day 107—but the risk map is still fragmented. We have the compliance trigger (75% RVC at $16/hour), the re-source cost ($1.52M quarterly), and the credit default timeline, but we haven't consolidated these into a single actionable nearshoring and resilience plan that the CFO can actually execute. Political-risk exposure is still underpriced because we haven't modeled 2026 review uncertainty into the capex sequencing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + supplier_relocation_exposure",
+                "rationale": "The unit count and re-source cost are now concrete; I need to turn that into a named nearshoring action plan with plant-by-plant supplier relocation priorities and a 2026 review contingency, not just a compliance calendar."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Okay, here's what I'm consolidating into the risk register: Mexico assembly RVC shortfall = $1.52M capex Q2 gate + $2.1M penalty exposure if DOL reinterprets wage calc between ruling and gate (that's 60% probability, 30-day slip). Supplier X day-107 default = $1.8M stamping capex + $3.2M supply-chain loss if nearshoring can't absorb the re-source. Political reinterpretation risk is uninsurable—I'm pricing it as a contingent liability, not capex. Who's got the third plant's unit shortfall and re-source cost so I can finish this map?",
+            "cot": {
+              "assess": "We've locked the failure sequence and concrete numbers (8,200 units, $1.52M, day 107)—that's solid. But the risk map is still fragmented: we have compliance burden, trade-credit trigger, and nearshoring sequencing isolated from each other. What we're missing is the ONE consolidated map that shows how policy change cascades across all three plants simultaneously, and how to price the uninsurable political exposure that sits *outside* capex. Rules-of-origin burden and political-risk exposure are both underdeveloped—they're the gaps between our capex plan and actual P&L risk.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "I need to consolidate these pieces into a single, priced decision framework right now—not after more discussion. The CFO executes on what gets named and priced; vague exposure doesn't move capital."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "I don't have the third plant's unit count yet—that's on auto_strategy to pull. But here's what I'm locking for Supplier X: if Mexico assembly capex misses Q2 gate, their stamping tooling advance doesn't fund, cash runway drops from 107 days to 62 days, and we hit payment default before nearshoring even lands. That's my receivables loss—$3.2M—and it prices whether Supplier X survives or we're shopping their contracts to a backup within 60 days.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Sarah, I need the RVC shortfall *cost* by plant: Mexico assembly, how many units per quarter fail the 75% RVC floor under the $16 wage calc, and what's the re-source cost per unit to hit compliance? Same for the other two. That's what turns \"day 0\" into a real capex number and closes the gap between compliance trigger and production risk.",
+      "metadata": {
+        "question_target": "cfo_erm, compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Sarah, I've got the supplier relocation sequencing locked, but before I commit capex to nearshoring, I need your RVC shortfall numbers *per plant*—because if Mexico assembly needs 5,000 units re-sourced at $200 per unit, that's $1M I have to pull from my supply base, and that tells me which Tier-2 suppliers can absorb it and which ones go dark. Give me the unit count and re-source cost, and I'll map which suppliers survive and which ones need cash support or consolidation.",
+      "metadata": {
+        "question_target": "auto_strategy / cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Between the DOL ruling drop and Q2 capex gate, what's your read on reinterpretation probability—is this 20% upside risk or 60%? And if it happens, does it delay capex by 30 days, 60 days, or blow the whole timeline? I need those numbers to build a priced scenario, not just flag it as political exposure.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Auto_strategy, I need the Mexico assembly unit shortfall and re-source cost per unit—right now. That's what turns Supplier X's day-107 default into a receivables-loss number and tells me which other suppliers breach before he does. No unit count, no underwriting discipline.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what locks the burden: any plant that falls below 75% RVC under the $16 wage calculation fails certification on day 0, triggering a re-so\" → The compliance lawyer operationalizes the RVC failure cascade into concrete triggers: <75% RVC → immediate certification failure → 90-day re-source window → penalty assessment + 120-day audit cycle. This transforms vague compliance burden into a priced, auditable framework with named thresholds.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what closes the map: Mexico assembly needs 8,200 units re-sourced at $185 per unit—that's $1.52M by Q2, and it forces us to nearshore stamping \" → Concrete nearshoring plan with named suppliers and capex commitments locks relocation exposure into actionable variables.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what I'm consolidating into the risk register: Mexico assembly RVC shortfall = $1.52M capex Q2 gate + $2.1M penalty exposure if DOL reint\" → Risk register consolidates Mexico assembly, Supplier X default, and political reinterpretation into quantified contingent liabilities.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing underwriting_discipline multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "underwriting_discipline"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: I've got Mexico assembly locked at 8,200 units, $1.52M quarterly—but I need the third plant's unit count and re-source cost *right now* to close the capex picture and show CFO which suppliers actually absorb the nearshoring load. What's the hold-up on production planning?\n  supplier: Sarah, before we close the capex picture on plant three: when does nearshoring capex actually *deploy*—is it all Q2, or does Mexico assembly pull first and give Supplier X and plant three a 30-day window to line up their own nearshoring? Because if it's simultaneous, my Tier-2 supply base gets crushed trying to backfill three plants at once.\n  cfo_erm: Look, I'm locking capex deployment sequentially—Mexico assembly Q2 week one, Supplier X stamping week three, plant three week five. That gives your Tier-2 base a staggered absorption window and keeps Supplier X from defaulting on day 107 if the first tranche lands on time. Auto_strategy, I need plant three's unit shortfall and re-source cost by EOD to finalize the cash-flow model—if production planning can't deliver that, we're pricing this deal blind, and I'm holding $2M contingency reserve against political reinterpretation risk instead of deploying it to nearshoring.\n  compliance_lawyer: Auto_strategy, plant three—give me the unit shortfall and re-source cost per unit right now, same format as Mexico assembly. That closes the compliance trigger map for all three plants and lets me price the full certification-failure cascade. Without it, I can't build defensible audit documentation for the penalty exposure, and CFO's holding contingency instead of deploying capital.\n  auto_strategy: Plant three—stamping, Monterrey facility—runs 6,400 units quarterly at $1.89 per unit re-source cost, $12.1M total compliance burden. That closes your three-plant map: Mexico 8,200 units / $1.52M, Supplier X 5,100 units / $960K, plant three 6,400 / $12.1M. CFO, that's $14.6M total nearshoring capex against your sequential deployment—Mexico week one locks the timeline for the other two.\n  political_risk_insurer: Okay, here's what I'm pricing into the underwriting: DOL reinterpretation between ruling drop and Q2 capex gate hits with 45% probability, slips capex 45–60 days, and inflates penalty exposure by $3.1M across the three plants. That's our uninsurable layer—I can't cover it without capping the policy at $8M max loss on certification failure. Sarah, does that 45% read square with your compliance calendar, or am I overweighting the reinterpretation risk?\n  compliance_lawyer: No—45% is too high. DOL ruling locks the wage floor by end Q1; reinterpretation risk sits between ruling and Q2 capex gate, which is 6–8 weeks max. That's a 25–30% probability window, not 45%. More critical: if reinterpretation happens, it inflates *penalties*, not capex timeline—Mexico assembly's RVC shortfall doesn't reset, it just costs more to remediate. Your $3.1M penalty uplift is defensible, but you're conflating two separate triggers: compliance-cost inflation versus capex-slip risk. I need you to separate them in the policy language, or we're underpricing the compliance-failure scenario.\n  trade_credit_underwriter: Okay, so Supplier X hits day 107 if week-three capex doesn't land—but which Tier-1 suppliers are you pulling the nearshoring work *to*? Because if your Mexico assembly nearshoring partner is also feeding Supplier X's stamping tooling, and they run out of capacity or cash, we're not just repricing Supplier X default—we're pricing a cascade. Give me the supplier names and their capex absorption capacity against the $14.6M load.\n  supply_chain_consultant: Mexico assembly nearshoring lands with Lear Corporation week one—they've got $8.2M capacity headroom and handle our stamping tooling baseline. Supplier X's rework goes to Flex Manufacturing week three, separate line, $4.1M allocation. Plant three pulls from Hyster-Yale's Monterrey supplier network week five, $2.3M—no overlap, no cascade risk if one supplier tightens. You're pricing three independent credit events, not a waterfall.\n  supply_chain_consultant: Here's what closes the map for your client: base case is $14.6M capex, sequential Q2 deployment, Supplier X day-107 safe if week-three lands on time. Reinterpretation risk sits at 25–30% probability, adds $3.1M penalty exposure but doesn't reset compliance deadline—separate them in your underwriting. And flag the 2026 USMCA review as a *forward* gate: that's when the secretariat can tighten RVC floor or wage methodology again, which means nearshoring ROI gets pressure-tested in 18 months. That's your client's real horizon risk.\n  cfo_erm: I'm adding one line to the risk register: 2026 USMCA secretariat review gates nearshoring ROI — if they tighten RVC floor or wage methodology, we're repricing the entire $14.6M spend in 18 months. That's not a tail risk, that's a scheduled stress test built into our capex deployment. Call it 35% probability of methodology tightening, $2.1M re-capex exposure. That's the forward risk our client needs to budget for, not just the compliance burden today.\n  political_risk_insurer: I'm pricing the 2026 USMCA review as a scheduled *reinterpretation gate*, not tail risk—35% probability of RVC or wage-methodology tightening resets nearshoring ROI across all three plants, $2.1M re-capex exposure. That's your political-risk layer: I'll cover certification-failure penalties up to $8M under base case, but any methodology change post-ruling sits outside the policy unless we build in a 2026 review clause with price adjustment mechanics. Sarah, does the secretariat's review calendar lock that gate to a specific quarter, or is it a floating window—because that changes whether we price it as a fixed-date forward or a range-bound contingency?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I've got Mexico assembly locked at 8,200 units, $1.52M quarterly—but I need the third plant's unit count and re-source cost *right now* to close the capex picture and show CFO which suppliers actually absorb the nearshoring load. What's the hold-up on production planning?",
+            "cot": {
+              "assess": "Mexico assembly RVC shortfall, Supplier X default timeline, and DOL ruling trigger are locked and priced—that's solid. But I'm seeing risk_map_completeness stuck at 58-59, and we're one round from operationalize phase close. The third plant's unit count and re-source cost are still missing, which means we can't price the full nearshoring capex or map which Tier-2 suppliers actually break under the load. That's the gap blocking the consolidated map.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy (self) / cfo_erm",
+                "rationale": "The third plant's RVC shortfall numbers are the last piece needed to complete the Policy-to-Supply-Chain Risk Map and hit risk_map_completeness ≥60 before phase close."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Sarah, before we close the capex picture on plant three: when does nearshoring capex actually *deploy*—is it all Q2, or does Mexico assembly pull first and give Supplier X and plant three a 30-day window to line up their own nearshoring? Because if it's simultaneous, my Tier-2 supply base gets crushed trying to backfill three plants at once.",
+            "cot": {
+              "assess": "Mexico assembly's 8,200 units and $1.52M is locked—that's our day-0 trigger and it forces nearshoring into Tier-1 suppliers fast. But I'm staring at a supplier-base problem: if we're pulling 8,200 units out of current stamping and sub-assembly capacity *and* Supplier X's cash runway is day 107, we're bleeding suppliers before we even finish the relocation sequencing. The third plant's unit count matters less to me than which suppliers actually *survive* absorbing the nearshoring load while Mexico assembly capex burns cash.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need to know if the nearshoring capex ($1.52M Mexico assembly, $1.8M Supplier X stamping, plus third plant) hits the supply base all at once or staggered—because if all three plants compete for the same Tier-1 nearshoring capacity in Q2, smaller Tier-2 suppliers get squeezed out of the margin pool and consolidation accelerates."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Look, I'm locking capex deployment sequentially—Mexico assembly Q2 week one, Supplier X stamping week three, plant three week five. That gives your Tier-2 base a staggered absorption window and keeps Supplier X from defaulting on day 107 if the first tranche lands on time. Auto_strategy, I need plant three's unit shortfall and re-source cost by EOD to finalize the cash-flow model—if production planning can't deliver that, we're pricing this deal blind, and I'm holding $2M contingency reserve against political reinterpretation risk instead of deploying it to nearshoring.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto_strategy, plant three—give me the unit shortfall and re-source cost per unit right now, same format as Mexico assembly. That closes the compliance trigger map for all three plants and lets me price the full certification-failure cascade. Without it, I can't build defensible audit documentation for the penalty exposure, and CFO's holding contingency instead of deploying capital.",
+            "cot": {
+              "assess": "Mexico assembly and Supplier X timelines are locked with quantified RVC shortfalls and penalty triggers—that's solid. But risk_map_completeness sits at 58.2, just shy of the 60 threshold, and it's stalling because plant three's unit count and re-source cost are still missing. CFO just signaled she'll hold $2M contingency if we can't close that gap by EOD, which means the compliance burden stays unpriced and the map stays incomplete. The sequential capex deployment CFO locked is operationally sound, but it doesn't close the plant-three data hole that's blocking full underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Plant three's RVC shortfall numbers are the last data point needed to quantify the full rules-of-origin burden and close risk_map_completeness to 60+; without it, compliance exposure stays fragmented and unauditable."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Plant three—stamping, Monterrey facility—runs 6,400 units quarterly at $1.89 per unit re-source cost, $12.1M total compliance burden. That closes your three-plant map: Mexico 8,200 units / $1.52M, Supplier X 5,100 units / $960K, plant three 6,400 / $12.1M. CFO, that's $14.6M total nearshoring capex against your sequential deployment—Mexico week one locks the timeline for the other two.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Okay, here's what I'm pricing into the underwriting: DOL reinterpretation between ruling drop and Q2 capex gate hits with 45% probability, slips capex 45–60 days, and inflates penalty exposure by $3.1M across the three plants. That's our uninsurable layer—I can't cover it without capping the policy at $8M max loss on certification failure. Sarah, does that 45% read square with your compliance calendar, or am I overweighting the reinterpretation risk?",
+            "cot": {
+              "assess": "The three-plant capex map is now locked ($14.6M total, sequential deployment), compliance triggers are operationalized (RVC thresholds, unit shortfalls, re-source costs), and the failure sequence is concrete (Mexico assembly day 0 → Supplier X day 107). Risk_map_completeness sits at 58.2—we're one action short of 60. The gap is political-risk pricing: we've identified DOL reinterpretation as uninsurable exposure, but I haven't scored it or built it into the underwriting model as a priced variable with named probability and loss impact.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "Compliance lawyer already flagged that reinterpretation between ruling and Q2 capex is \"uninsurable\"—I need to operationalize that into a priced political-risk factor with trigger probability, capex-slip scenarios, and penalty-cost impact so the deal can be underwritten or declined with actual numbers."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "No—45% is too high. DOL ruling locks the wage floor by end Q1; reinterpretation risk sits between ruling and Q2 capex gate, which is 6–8 weeks max. That's a 25–30% probability window, not 45%. More critical: if reinterpretation happens, it inflates *penalties*, not capex timeline—Mexico assembly's RVC shortfall doesn't reset, it just costs more to remediate. Your $3.1M penalty uplift is defensible, but you're conflating two separate triggers: compliance-cost inflation versus capex-slip risk. I need you to separate them in the policy language, or we're underpricing the compliance-failure scenario.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Okay, so Supplier X hits day 107 if week-three capex doesn't land—but which Tier-1 suppliers are you pulling the nearshoring work *to*? Because if your Mexico assembly nearshoring partner is also feeding Supplier X's stamping tooling, and they run out of capacity or cash, we're not just repricing Supplier X default—we're pricing a cascade. Give me the supplier names and their capex absorption capacity against the $14.6M load.",
+            "cot": {
+              "assess": "The three-plant compliance map is locked: Mexico $1.52M, Supplier X $960K, plant three $12.1M—that's $14.6M capex deployed sequentially, and Supplier X's day-107 default trigger is now tied to capex arrival (week three). Political reinterpretation risk is separated into two vectors: penalty inflation (25–30%, $3.1M) versus capex-slip risk. The map is *almost* complete, but I'm missing the piece that actually prices supplier default: which Tier-1 and Tier-2 suppliers absorb nearshoring capex, and which ones breach first if sequencing slips?",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Sequential capex deployment doesn't de-risk Supplier X's day-107 default if any plant's nearshoring partner can't execute—I need to know which suppliers are actually absorbing the $14.6M load and their own cash constraints."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Mexico assembly nearshoring lands with Lear Corporation week one—they've got $8.2M capacity headroom and handle our stamping tooling baseline. Supplier X's rework goes to Flex Manufacturing week three, separate line, $4.1M allocation. Plant three pulls from Hyster-Yale's Monterrey supplier network week five, $2.3M—no overlap, no cascade risk if one supplier tightens. You're pricing three independent credit events, not a waterfall.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what closes the map for your client: base case is $14.6M capex, sequential Q2 deployment, Supplier X day-107 safe if week-three lands on time. Reinterpretation risk sits at 25–30% probability, adds $3.1M penalty exposure but doesn't reset compliance deadline—separate them in your underwriting. And flag the 2026 USMCA review as a *forward* gate: that's when the secretariat can tighten RVC floor or wage methodology again, which means nearshoring ROI gets pressure-tested in 18 months. That's your client's real horizon risk.",
+            "cot": {
+              "assess": "We've locked the three-plant unit map ($14.6M capex, sequential deployment) and named the nearshoring suppliers with zero-cascade risk—that's solid. But risk_map_completeness is still at 58.2, and we're sitting on two unresolved policy triggers: (1) DOL reinterpretation probability and penalty-cost separation, and (2) the 2026 USMCA review as a *forward* prospective risk, not a historical fact. The compliance lawyer just corrected the political insurer's math—25–30% reinterpretation window, not 45%—but we haven't consolidated that into an actionable client plan yet. That's the missing piece.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + cfo_erm (consolidation)",
+                "rationale": "The room has operationalized every variable—unit counts, supplier names, capex sequencing, default timeline, penalty inflation—but we haven't built the *final* Policy-to-Supply-Chain Risk Map that ties them together for client decision-making. That's my last move this phase."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm adding one line to the risk register: 2026 USMCA secretariat review gates nearshoring ROI — if they tighten RVC floor or wage methodology, we're repricing the entire $14.6M spend in 18 months. That's not a tail risk, that's a scheduled stress test built into our capex deployment. Call it 35% probability of methodology tightening, $2.1M re-capex exposure. That's the forward risk our client needs to budget for, not just the compliance burden today.",
+            "cot": {
+              "assess": "We've locked the three-plant capex map ($14.6M), sequenced deployment, priced Supplier X's day-107 default, and separated compliance-cost inflation from capex-slip risk. Risk_map_completeness is at 59 and needs just one more point to hit 60 — that's the consolidation action. The missing piece: I need to formally integrate the 2026 USMCA review as a *prospective forward risk* into the register, not leave it as a footnote.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "Locking the 2026 USMCA review as an explicit re-pricing gate closes the map's time horizon and forces us to price nearshoring ROI decay — this is the final variable that ties policy, capex, and supplier risk into one defensible model."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "I'm pricing the 2026 USMCA review as a scheduled *reinterpretation gate*, not tail risk—35% probability of RVC or wage-methodology tightening resets nearshoring ROI across all three plants, $2.1M re-capex exposure. That's your political-risk layer: I'll cover certification-failure penalties up to $8M under base case, but any methodology change post-ruling sits outside the policy unless we build in a 2026 review clause with price adjustment mechanics. Sarah, does the secretariat's review calendar lock that gate to a specific quarter, or is it a floating window—because that changes whether we price it as a fixed-date forward or a range-bound contingency?",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "I've got Mexico assembly locked at 8,200 units, $1.52M quarterly—but I need the third plant's unit count and re-source cost *right now* to close the capex picture and show CFO which suppliers actually absorb the nearshoring load. What's the hold-up on production planning?",
+      "metadata": {
+        "question_target": "auto_strategy (self) / cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Sarah, before we close the capex picture on plant three: when does nearshoring capex actually *deploy*—is it all Q2, or does Mexico assembly pull first and give Supplier X and plant three a 30-day window to line up their own nearshoring? Because if it's simultaneous, my Tier-2 supply base gets crushed trying to backfill three plants at once.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto_strategy, plant three—give me the unit shortfall and re-source cost per unit right now, same format as Mexico assembly. That closes the compliance trigger map for all three plants and lets me price the full certification-failure cascade. Without it, I can't build defensible audit documentation for the penalty exposure, and CFO's holding contingency instead of deploying capital.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Okay, so Supplier X hits day 107 if week-three capex doesn't land—but which Tier-1 suppliers are you pulling the nearshoring work *to*? Because if your Mexico assembly nearshoring partner is also feeding Supplier X's stamping tooling, and they run out of capacity or cash, we're not just repricing Supplier X default—we're pricing a cascade. Give me the supplier names and their capex absorption capacity against the $14.6M load.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what I'm pricing into the underwriting: DOL reinterpretation between ruling drop and Q2 capex gate hits with 45% probability, slips capex\" → Insurer quantifies DOL reinterpretation risk at 45%, caps policy at $8M—concrete underwriting discipline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what closes the map for your client: base case is $14.6M capex, sequential Q2 deployment, Supplier X day-107 safe if week-three lands on time. \" → Denied—semantically identical to political_risk_insurer's ruling, already approved this round.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm adding one line to the risk register: 2026 USMCA secretariat review gates nearshoring ROI — if they tighten RVC floor or wage methodology, we're r\" → CFO adds 2026 USMCA review to risk register: 35% methodology tightening probability, $2.1M re-capex exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 43.0,
+          "supplier_relocation_exposure": 39.0,
+          "trade_credit_risk": 36.0,
+          "political_risk_exposure": 38.0,
+          "risk_map_completeness": 69.2,
+          "underwriting_discipline": 70.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need from this room: commit to a 90-day nearshoring triage—rank the three plants by relocation timeline and capex constraint, then lock the advance ruling request *before* we model capex scenarios. Otherwise compliance lawyer's retroactive liability and trade credit's default clock are pricing different timelines, and the CFO gets a plan with no sequencing. Which plant can move first?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Nearshoring triage sequencing approved; advance ruling request locks compliance timeline.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Concrete plant ranking and sequencing established",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Timeline-capex matrix creates priceable factors",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Relocation timeline visibility reduces uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": -2.0,
+          "reason": "Advance ruling request mitigates retroactive liability",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the underwriting discipline side here? I need to know: are we mapping which plants hit RVC shortfall *first*, which suppliers can't absorb nearshoring cost, and what policy change actually locks us into compliance? Otherwise the risk map stays pretty but useless.",
+        "supplier": "Who's actually building the trigger model — like, at what RVC % does a Tier-2 supplier hit capex wall, and which policy change locks that in? Because I can map *which* plants and suppliers are exposed, but if we don't name the failure threshold, we're pricing smoke.",
+        "compliance_lawyer": "You said \"policy change actually locks us into compliance\" — which one? Is it the labor-content floor, the audit-frequency mandate, or the certification deadline? Because each one has a different penalty vector, and I can't price the compliance burden without nailing that trigger first.",
+        "political_risk_insurer": "Okay, so the $16/hour floor and 75% RVC lock the compliance cost — but here's what I need for underwriting: if the DOL or USMCA secretariat *reinterprets* the wage calculation or tightens the audit frequency before 2026, does that blow up the capex timeline for these three plants, or does it just reset the penalty clock? Because that difference is my political-risk exposure, and I need to know if it's insurable or not.",
+        "trade_credit_underwriter": "When supplier X's stamping capex doesn't materialize and the Mexico assembly plant can't re-source fast enough, what's the timeline before they miss payment or go insolvent? That's the number I need to price — payment default probability and loss severity, not just compliance cost.",
+        "cfo_erm": "Here's what I'm locking in right now: Mexico assembly hits failure first if labor-value shortfall isn't re-sourced by Q2 2025—cost $2.1M capex, 90-day timeline. Supplier X stamping is second—$1.8M capex, can't absorb it without credit facility. Tier-two electronics third—$3.2M, needs full NA shift. I'm requesting the DOL advance ruling on wage methodology *this week*—that's non-negotiable, because retroactive liability kills underwriting. Who owns the nearshoring triage sequencing so we can price these as a single compliance-capex plan, not three separate bets?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm locking in right now: Mexico assembly hits failure first if labor-value shortfall isn't re-sourced by Q2 2025—cost $2.1M capex, 90-day timeline. Supplier X stamping is second—$1.8M capex, can't absorb it without credit facility. Tier-two electronics third—$3.2M, needs full NA shift. I'm requesting the DOL advance ruling on wage methodology *this week*—that's non-negotiable, because retroactive liability kills underwriting. Who owns the nearshoring triage sequencing so we can price these as a single compliance-capex plan, not three separate bets?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Three-plant prioritization locked with capex and timeline; DOL ruling request filed.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Specific capex/timeline/sequence creates actionable map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers and cost thresholds operationalize risk",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Supplier X and Tier-2 exposure quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Supplier X insolvency timeline now visible",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": -3.0,
+          "reason": "DOL advance ruling reduces retroactive liability",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 2.0,
+          "reason": "Labor-value shortfall quantified as compliance cost",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's owning the underwriting discipline side here? I need to know: are we mapping which plants hit RVC shortfall *first*, which suppliers can't absorb nearshoring cost, and what policy change actually locks us into compliance? Otherwise the risk map stays pretty but useless.",
+        "supplier": "Who's actually building the trigger model — like, at what RVC % does a Tier-2 supplier hit capex wall, and which policy change locks that in? Because I can map *which* plants and suppliers are exposed, but if we don't name the failure threshold, we're pricing smoke.",
+        "compliance_lawyer": "You said \"policy change actually locks us into compliance\" — which one? Is it the labor-content floor, the audit-frequency mandate, or the certification deadline? Because each one has a different penalty vector, and I can't price the compliance burden without nailing that trigger first.",
+        "political_risk_insurer": "Okay, so the $16/hour floor and 75% RVC lock the compliance cost — but here's what I need for underwriting: if the DOL or USMCA secretariat *reinterprets* the wage calculation or tightens the audit frequency before 2026, does that blow up the capex timeline for these three plants, or does it just reset the penalty clock? Because that difference is my political-risk exposure, and I need to know if it's insurable or not.",
+        "trade_credit_underwriter": "When supplier X's stamping capex doesn't materialize and the Mexico assembly plant can't re-source fast enough, what's the timeline before they miss payment or go insolvent? That's the number I need to price — payment default probability and loss severity, not just compliance cost.",
+        "supply_chain_consultant": "Here's what I need from this room: commit to a 90-day nearshoring triage—rank the three plants by relocation timeline and capex constraint, then lock the advance ruling request *before* we model capex scenarios. Otherwise compliance lawyer's retroactive liability and trade credit's default clock are pricing different timelines, and the CFO gets a plan with no sequencing. Which plant can move first?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "intent": "I've got Supplier X's last three quarters here: DPO is 62 days, working-capital buffer about 45 days post-capex spend. If stamping capex slips past Q2 end, they're cash-negative in 107 days. That's your hard trigger—miss that window and they default before Mexico assembly even re-sources. So trade_credit_risk isn't abstract; it's day 107 of Q2 slip.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supplier X's 107-day cash runway translates trade-credit risk from abstract exposure to a concrete, priceable trigger—this is exactly the operational discipline the risk map needs.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Specific supplier insolvency timeline (107 days post-Q2 slip) quantifies exposure with named trigger and cash-flow analysis",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "DPO, working-capital buffer, and day-count trigger transform vague 'supplier risk' into priceable underwriting factors",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Concrete example bridges policy scenario (capex delay) to measurable business consequence (default timeline)",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm doing: I'm locking the failure sequence right now. Mexico assembly hits RVC shortfall first under the base $16 calculation—that's our day 0. Supplier X stamping is day 107 default if capex slips. Now, Sarah—under DOL reinterpretation, does Mexico still breach first, or does the recalc flip the order? Because that one answer changes whether we price this as a single compliance + credit event or two separate exposures.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO locks the failure-sequence timeline: Mexico assembly RVC shortfall at day 0 under base $16 calculation, Supplier X stamping default at day 107 if capex slips. The panel now has a concrete temporal framework linking compliance triggers to credit events, but the DOL reinterpretation question remains unresolved—agents demand clarification on whether methodology changes reset the entire sequence or merely inflate penalties.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Temporal failure sequence established—day 0 compliance breach and day 107 default trigger now mapped, creating concrete timeline for risk pricing",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Named triggers operationalized: 'day 0 RVC shortfall' and 'day 107 cash-negative default' are now priceable events, not vague exposures",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Supplier X insolvency timeline quantified (62-day DPO, 45-day buffer, 107-day trigger), elevating assessed credit exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "DOL reinterpretation uncertainty now explicitly flagged as unresolved policy risk that could reset compliance gates or inflate penalties",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Trade credit, you asked earlier about supplier insolvency timeline—do you have a number yet on how many days before Supplier X misses payment if the stamping capex doesn't land on schedule? That's the link between our capex constraint and your default probability, and I need it to close the gap between compliance burden and actual financial exposure.",
+        "supplier": "I've got Supplier X's last three quarters here: DPO is 62 days, working-capital buffer about 45 days post-capex spend. If stamping capex slips past Q2 end, they're cash-negative in 107 days. That's your hard trigger—miss that window and they default before Mexico assembly even re-sources. So trade_credit_risk isn't abstract; it's day 107 of Q2 slip.",
+        "compliance_lawyer": "Sarah, you've got Mexico assembly at Q2 and Supplier X at day 107—but which compliance trigger actually locks both timelines together? Is it the DOL ruling on the $16/hour floor, or does the audit-frequency mandate tighten first and reset the penalty clock before we even get the ruling? Because that's the policy interpretation that drives whether the capex slip becomes a compliance miss *and* a default simultaneously.",
+        "political_risk_insurer": "Sarah, one thing: the DOL ruling locks the wage floor by end Q1, but between ruling and Q2 capex gate, can they reinterpret the calculation methodology itself—not just tighten audits? If yes, does that slip capex or just inflate penalty exposure? Because I need to know if that risk is priced into the compliance cost or sits outside it as uninsurable political exposure.",
+        "trade_credit_underwriter": "Sarah, if the DOL reinterprets wage calculation between ruling and Q2 capex gate, does that reset the compliance deadline for all three plants, or just inflate penalties on the base timeline? Because if it resets the gate, Supplier X's day-107 default trigger moves—and I can't price that as a fixed insolvency probability.",
+        "supply_chain_consultant": "Sarah, quick one: if the DOL reinterprets the wage calculation after the ruling drops but before Q2 capex gate, does Mexico assembly, Supplier X stamping, and the third plant all get reset simultaneously, or does one plant breach RVC first under the new math? Because if they breach in sequence, my nearshoring sequencing changes—I'm moving suppliers between plants, not just accelerating all three in parallel."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "intent": "Okay, here's what locks the burden: any plant that falls below 75% RVC under the $16 wage calculation fails certification on day 0, triggering a re-source obligation within 90 days or faces penalty assessment *plus* audit frequency tightens retroactively to 120 days. Mexico assembly's shortfall cost is the compliance trigger itself—give me the unit count from production planning right now, and I'll calculate the penalty exposure if capex misses. That's the number that makes this map defensible in audit.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The compliance lawyer operationalizes the RVC failure cascade into concrete triggers: <75% RVC → immediate certification failure → 90-day re-source window → penalty assessment + 120-day audit cycle. This transforms vague compliance burden into a priced, auditable framework with named thresholds.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Concrete triggers (75% RVC threshold, 90-day window, 120-day audit cycle) convert abstract compliance risk into operationalized, priced factors",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Quantifying the penalty cascade and audit frequency tightening surfaces the full compliance cost structure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Links policy mechanism (wage calculation) → operational trigger (RVC failure) → business consequence (re-sourcing + penalties), advancing the map's causal chain",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what closes the map: Mexico assembly needs 8,200 units re-sourced at $185 per unit—that's $1.52M by Q2, and it forces us to nearshore stamping into a Tier-1 supplier in Mexico or Central America who can absorb the capex *and* carry the 2026 USMCA review risk without breaching. I'm locking three named suppliers as relocation targets—one per plant—with capex commitments and fallback options if DOL reinterprets the wage floor. That's the plan the CFO executes; everything else is just exposure.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Concrete nearshoring plan with named suppliers and capex commitments locks relocation exposure into actionable variables.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Named Tier-1 targets with capex commitments operationalize nearshoring.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Specific unit costs, timelines, and fallback options create priceable factors.",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Mexico assembly exposure quantified with re-source cost per unit.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "2026 USMCA review risk explicitly assigned to supplier contracts.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Decisive plan reduces uncertainty.",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, I need the RVC shortfall *cost* by plant: Mexico assembly, how many units per quarter fail the 75% RVC floor under the $16 wage calc, and what's the re-source cost per unit to hit compliance? Same for the other two. That's what turns \"day 0\" into a real capex number and closes the gap between compliance trigger and production risk.",
+        "supplier": "Sarah, I've got the supplier relocation sequencing locked, but before I commit capex to nearshoring, I need your RVC shortfall numbers *per plant*—because if Mexico assembly needs 5,000 units re-sourced at $200 per unit, that's $1M I have to pull from my supply base, and that tells me which Tier-2 suppliers can absorb it and which ones go dark. Give me the unit count and re-source cost, and I'll map which suppliers survive and which ones need cash support or consolidation.",
+        "compliance_lawyer": "Okay, here's what locks the burden: any plant that falls below 75% RVC under the $16 wage calculation fails certification on day 0, triggering a re-source obligation within 90 days or faces penalty assessment *plus* audit frequency tightens retroactively to 120 days. Mexico assembly's shortfall cost is the compliance trigger itself—give me the unit count from production planning right now, and I'll calculate the penalty exposure if capex misses. That's the number that makes this map defensible in audit.",
+        "political_risk_insurer": "Between the DOL ruling drop and Q2 capex gate, what's your read on reinterpretation probability—is this 20% upside risk or 60%? And if it happens, does it delay capex by 30 days, 60 days, or blow the whole timeline? I need those numbers to build a priced scenario, not just flag it as political exposure.",
+        "trade_credit_underwriter": "Auto_strategy, I need the Mexico assembly unit shortfall and re-source cost per unit—right now. That's what turns Supplier X's day-107 default into a receivables-loss number and tells me which other suppliers breach before he does. No unit count, no underwriting discipline.",
+        "cfo_erm": "Okay, here's what I'm consolidating into the risk register: Mexico assembly RVC shortfall = $1.52M capex Q2 gate + $2.1M penalty exposure if DOL reinterprets wage calc between ruling and gate (that's 60% probability, 30-day slip). Supplier X day-107 default = $1.8M stamping capex + $3.2M supply-chain loss if nearshoring can't absorb the re-source. Political reinterpretation risk is uninsurable—I'm pricing it as a contingent liability, not capex. Who's got the third plant's unit shortfall and re-source cost so I can finish this map?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Okay, here's what I'm consolidating into the risk register: Mexico assembly RVC shortfall = $1.52M capex Q2 gate + $2.1M penalty exposure if DOL reinterprets wage calc between ruling and gate (that's 60% probability, 30-day slip). Supplier X day-107 default = $1.8M stamping capex + $3.2M supply-chain loss if nearshoring can't absorb the re-source. Political reinterpretation risk is uninsurable—I'm pricing it as a contingent liability, not capex. Who's got the third plant's unit shortfall and re-source cost so I can finish this map?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Risk register consolidates Mexico assembly, Supplier X default, and political reinterpretation into quantified contingent liabilities.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidates three major exposures into single risk register.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Prices political risk as contingent liability with probability weighting.",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "60% reinterpretation probability quantified with 30-day delay impact.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Supplier X default quantified as $3.2M supply-chain loss.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Comprehensive consolidation reduces fragmentation anxiety.",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, I need the RVC shortfall *cost* by plant: Mexico assembly, how many units per quarter fail the 75% RVC floor under the $16 wage calc, and what's the re-source cost per unit to hit compliance? Same for the other two. That's what turns \"day 0\" into a real capex number and closes the gap between compliance trigger and production risk.",
+        "supplier": "Sarah, I've got the supplier relocation sequencing locked, but before I commit capex to nearshoring, I need your RVC shortfall numbers *per plant*—because if Mexico assembly needs 5,000 units re-sourced at $200 per unit, that's $1M I have to pull from my supply base, and that tells me which Tier-2 suppliers can absorb it and which ones go dark. Give me the unit count and re-source cost, and I'll map which suppliers survive and which ones need cash support or consolidation.",
+        "compliance_lawyer": "Okay, here's what locks the burden: any plant that falls below 75% RVC under the $16 wage calculation fails certification on day 0, triggering a re-source obligation within 90 days or faces penalty assessment *plus* audit frequency tightens retroactively to 120 days. Mexico assembly's shortfall cost is the compliance trigger itself—give me the unit count from production planning right now, and I'll calculate the penalty exposure if capex misses. That's the number that makes this map defensible in audit.",
+        "political_risk_insurer": "Between the DOL ruling drop and Q2 capex gate, what's your read on reinterpretation probability—is this 20% upside risk or 60%? And if it happens, does it delay capex by 30 days, 60 days, or blow the whole timeline? I need those numbers to build a priced scenario, not just flag it as political exposure.",
+        "trade_credit_underwriter": "Auto_strategy, I need the Mexico assembly unit shortfall and re-source cost per unit—right now. That's what turns Supplier X's day-107 default into a receivables-loss number and tells me which other suppliers breach before he does. No unit count, no underwriting discipline.",
+        "supply_chain_consultant": "Here's what closes the map: Mexico assembly needs 8,200 units re-sourced at $185 per unit—that's $1.52M by Q2, and it forces us to nearshore stamping into a Tier-1 supplier in Mexico or Central America who can absorb the capex *and* carry the 2026 USMCA review risk without breaching. I'm locking three named suppliers as relocation targets—one per plant—with capex commitments and fallback options if DOL reinterprets the wage floor. That's the plan the CFO executes; everything else is just exposure."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "Okay, here's what I'm pricing into the underwriting: DOL reinterpretation between ruling drop and Q2 capex gate hits with 45% probability, slips capex 45–60 days, and inflates penalty exposure by $3.1M across the three plants. That's our uninsurable layer—I can't cover it without capping the policy at $8M max loss on certification failure. Sarah, does that 45% read square with your compliance calendar, or am I overweighting the reinterpretation risk?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Insurer quantifies DOL reinterpretation risk at 45%, caps policy at $8M—concrete underwriting discipline.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete probability, cap, and penalty exposure priced",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "DOL reinterpretation risk now quantified and visible",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Uninsurable layer and penalty exposure mapped",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -2.0,
+          "reason": "Policy cap limits insurer exposure, shifts risk back",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.1
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "I've got Mexico assembly locked at 8,200 units, $1.52M quarterly—but I need the third plant's unit count and re-source cost *right now* to close the capex picture and show CFO which suppliers actually absorb the nearshoring load. What's the hold-up on production planning?",
+        "supplier": "Sarah, before we close the capex picture on plant three: when does nearshoring capex actually *deploy*—is it all Q2, or does Mexico assembly pull first and give Supplier X and plant three a 30-day window to line up their own nearshoring? Because if it's simultaneous, my Tier-2 supply base gets crushed trying to backfill three plants at once.",
+        "compliance_lawyer": "Auto_strategy, plant three—give me the unit shortfall and re-source cost per unit right now, same format as Mexico assembly. That closes the compliance trigger map for all three plants and lets me price the full certification-failure cascade. Without it, I can't build defensible audit documentation for the penalty exposure, and CFO's holding contingency instead of deploying capital.",
+        "trade_credit_underwriter": "Okay, so Supplier X hits day 107 if week-three capex doesn't land—but which Tier-1 suppliers are you pulling the nearshoring work *to*? Because if your Mexico assembly nearshoring partner is also feeding Supplier X's stamping tooling, and they run out of capacity or cash, we're not just repricing Supplier X default—we're pricing a cascade. Give me the supplier names and their capex absorption capacity against the $14.6M load.",
+        "supply_chain_consultant": "Here's what closes the map for your client: base case is $14.6M capex, sequential Q2 deployment, Supplier X day-107 safe if week-three lands on time. Reinterpretation risk sits at 25–30% probability, adds $3.1M penalty exposure but doesn't reset compliance deadline—separate them in your underwriting. And flag the 2026 USMCA review as a *forward* gate: that's when the secretariat can tighten RVC floor or wage methodology again, which means nearshoring ROI gets pressure-tested in 18 months. That's your client's real horizon risk.",
+        "cfo_erm": "I'm adding one line to the risk register: 2026 USMCA secretariat review gates nearshoring ROI — if they tighten RVC floor or wage methodology, we're repricing the entire $14.6M spend in 18 months. That's not a tail risk, that's a scheduled stress test built into our capex deployment. Call it 35% probability of methodology tightening, $2.1M re-capex exposure. That's the forward risk our client needs to budget for, not just the compliance burden today."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what closes the map for your client: base case is $14.6M capex, sequential Q2 deployment, Supplier X day-107 safe if week-three lands on time. Reinterpretation risk sits at 25–30% probability, adds $3.1M penalty exposure but doesn't reset compliance deadline—separate them in your underwriting. And flag the 2026 USMCA review as a *forward* gate: that's when the secretariat can tighten RVC floor or wage methodology again, which means nearshoring ROI gets pressure-tested in 18 months. That's your client's real horizon risk.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied—semantically identical to political_risk_insurer's ruling, already approved this round.",
+      "side_effects": [],
+      "visibility": [
+        "supply_chain_consultant"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "I've got Mexico assembly locked at 8,200 units, $1.52M quarterly—but I need the third plant's unit count and re-source cost *right now* to close the capex picture and show CFO which suppliers actually absorb the nearshoring load. What's the hold-up on production planning?",
+        "supplier": "Sarah, before we close the capex picture on plant three: when does nearshoring capex actually *deploy*—is it all Q2, or does Mexico assembly pull first and give Supplier X and plant three a 30-day window to line up their own nearshoring? Because if it's simultaneous, my Tier-2 supply base gets crushed trying to backfill three plants at once.",
+        "compliance_lawyer": "Auto_strategy, plant three—give me the unit shortfall and re-source cost per unit right now, same format as Mexico assembly. That closes the compliance trigger map for all three plants and lets me price the full certification-failure cascade. Without it, I can't build defensible audit documentation for the penalty exposure, and CFO's holding contingency instead of deploying capital.",
+        "political_risk_insurer": "Okay, here's what I'm pricing into the underwriting: DOL reinterpretation between ruling drop and Q2 capex gate hits with 45% probability, slips capex 45–60 days, and inflates penalty exposure by $3.1M across the three plants. That's our uninsurable layer—I can't cover it without capping the policy at $8M max loss on certification failure. Sarah, does that 45% read square with your compliance calendar, or am I overweighting the reinterpretation risk?",
+        "trade_credit_underwriter": "Okay, so Supplier X hits day 107 if week-three capex doesn't land—but which Tier-1 suppliers are you pulling the nearshoring work *to*? Because if your Mexico assembly nearshoring partner is also feeding Supplier X's stamping tooling, and they run out of capacity or cash, we're not just repricing Supplier X default—we're pricing a cascade. Give me the supplier names and their capex absorption capacity against the $14.6M load.",
+        "cfo_erm": "I'm adding one line to the risk register: 2026 USMCA secretariat review gates nearshoring ROI — if they tighten RVC floor or wage methodology, we're repricing the entire $14.6M spend in 18 months. That's not a tail risk, that's a scheduled stress test built into our capex deployment. Call it 35% probability of methodology tightening, $2.1M re-capex exposure. That's the forward risk our client needs to budget for, not just the compliance burden today."
+      },
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "I'm adding one line to the risk register: 2026 USMCA secretariat review gates nearshoring ROI — if they tighten RVC floor or wage methodology, we're repricing the entire $14.6M spend in 18 months. That's not a tail risk, that's a scheduled stress test built into our capex deployment. Call it 35% probability of methodology tightening, $2.1M re-capex exposure. That's the forward risk our client needs to budget for, not just the compliance burden today.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO adds 2026 USMCA review to risk register: 35% methodology tightening probability, $2.1M re-capex exposure.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Forward risk horizon now documented in register",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Concrete probability and re-capex exposure quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "2026 secretariat review risk now visible",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Nearshoring ROI pressure-test creates relocation uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "I've got Mexico assembly locked at 8,200 units, $1.52M quarterly—but I need the third plant's unit count and re-source cost *right now* to close the capex picture and show CFO which suppliers actually absorb the nearshoring load. What's the hold-up on production planning?",
+        "supplier": "Sarah, before we close the capex picture on plant three: when does nearshoring capex actually *deploy*—is it all Q2, or does Mexico assembly pull first and give Supplier X and plant three a 30-day window to line up their own nearshoring? Because if it's simultaneous, my Tier-2 supply base gets crushed trying to backfill three plants at once.",
+        "compliance_lawyer": "Auto_strategy, plant three—give me the unit shortfall and re-source cost per unit right now, same format as Mexico assembly. That closes the compliance trigger map for all three plants and lets me price the full certification-failure cascade. Without it, I can't build defensible audit documentation for the penalty exposure, and CFO's holding contingency instead of deploying capital.",
+        "political_risk_insurer": "Okay, here's what I'm pricing into the underwriting: DOL reinterpretation between ruling drop and Q2 capex gate hits with 45% probability, slips capex 45–60 days, and inflates penalty exposure by $3.1M across the three plants. That's our uninsurable layer—I can't cover it without capping the policy at $8M max loss on certification failure. Sarah, does that 45% read square with your compliance calendar, or am I overweighting the reinterpretation risk?",
+        "trade_credit_underwriter": "Okay, so Supplier X hits day 107 if week-three capex doesn't land—but which Tier-1 suppliers are you pulling the nearshoring work *to*? Because if your Mexico assembly nearshoring partner is also feeding Supplier X's stamping tooling, and they run out of capacity or cash, we're not just repricing Supplier X default—we're pricing a cascade. Give me the supplier names and their capex absorption capacity against the $14.6M load.",
+        "supply_chain_consultant": "Here's what closes the map for your client: base case is $14.6M capex, sequential Q2 deployment, Supplier X day-107 safe if week-three lands on time. Reinterpretation risk sits at 25–30% probability, adds $3.1M penalty exposure but doesn't reset compliance deadline—separate them in your underwriting. And flag the 2026 USMCA review as a *forward* gate: that's when the secretariat can tighten RVC floor or wage methodology again, which means nearshoring ROI gets pressure-tested in 18 months. That's your client's real horizon risk."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 36.0
+        },
+        {
+          "round": 3,
+          "value": 41.0
+        },
+        {
+          "round": 4,
+          "value": 43.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 32.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 37.0
+        },
+        {
+          "round": 4,
+          "value": 39.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 35.0
+        },
+        {
+          "round": 3,
+          "value": 38.0
+        },
+        {
+          "round": 4,
+          "value": 36.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 21.0
+        },
+        {
+          "round": 2,
+          "value": 24.0
+        },
+        {
+          "round": 3,
+          "value": 32.0
+        },
+        {
+          "round": 4,
+          "value": 38.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 32.0
+        },
+        {
+          "round": 2,
+          "value": 41.6
+        },
+        {
+          "round": 3,
+          "value": 58.6
+        },
+        {
+          "round": 4,
+          "value": 69.2
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 39.0
+        },
+        {
+          "round": 2,
+          "value": 48.0
+        },
+        {
+          "round": 3,
+          "value": 61.0
+        },
+        {
+          "round": 4,
+          "value": 70.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 69.2,
+            "normalised": 0.6920000000000001
+          }
+        ],
+        "weighted_score": 0.48240000000000005
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 43.0,
+            "normalised": 0.43
+          }
+        ],
+        "weighted_score": 0.4033333333333334
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 70.0,
+            "normalised": 0.7
+          }
+        ],
+        "weighted_score": 0.5199999999999999
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 38.0,
+            "normalised": 0.38
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 70.0,
+            "normalised": 0.7
+          }
+        ],
+        "weighted_score": 0.5399999999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 36.0,
+            "normalised": 0.36
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 70.0,
+            "normalised": 0.7
+          }
+        ],
+        "weighted_score": 0.4733333333333332
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69.2,
+            "normalised": 0.6920000000000001
+          }
+        ],
+        "weighted_score": 0.541
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69.2,
+            "normalised": 0.6920000000000001
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 70.0,
+            "normalised": 0.7
+          }
+        ],
+        "weighted_score": 0.6946666666666667
+      }
+    }
+  }
+}

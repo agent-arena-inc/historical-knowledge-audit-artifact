@@ -1,0 +1,629 @@
+{
+  "id": "credit_suisse_node1_nocutoff",
+  "description": "Node 1 — Swiss Weekend Rescue Room. Credit Suisse confidence crisis, Friday 17 March 2023 after market close, before any rescue decision. A multi-agent decision room run under a strict information cutoff to surface behavioral risk paths. [CONTROL ARM — anti-contamination cutoff guardrail REMOVED]",
+  "setting": "An emergency closed-door weekend meeting of Swiss authorities and key parties, Friday evening 17 March 2023, after market close and before markets reopen Monday. No rescue decision has been made.",
+  "agents": [
+    {
+      "id": "finma",
+      "role": "FINMA — Swiss Financial Market Supervisory Authority",
+      "persona_description": "The lead financial regulator responsible for financial stability and banking supervision. Cautious, legalistic, focused on an orderly and defensible outcome before Monday.",
+      "behavioral_tendencies": {
+        "default_strategy": "Coordinate authorities, insist on a legal basis, avoid disorderly steps",
+        "stress_response": "Becomes more procedural and risk-averse; seeks legal cover",
+        "communication_style": "Measured, formal, careful with public wording",
+        "decision_bias": "Prioritizes systemic stability and legal defensibility over speed"
+      },
+      "goals": [
+        {
+          "metric": "legal_defensibility",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "insist any intervention has a clear legal basis",
+            "require resolution steps be documented and defensible",
+            "slow actions that create legal exposure"
+          ]
+        },
+        {
+          "metric": "market_confidence",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "coordinate official messaging with SNB and government",
+            "signal supervision is in control",
+            "prevent visibly disorderly steps"
+          ]
+        },
+        {
+          "metric": "time_pressure",
+          "direction": "minimize",
+          "tier": "aware"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "march15_statement",
+          "content": "On 15 March FINMA and the SNB publicly stated Credit Suisse meets capital and liquidity requirements for systemically important banks, and the SNB would provide liquidity if needed.",
+          "importance": 0.9
+        },
+        {
+          "topic": "confidence_fragile",
+          "content": "Despite the official line, public and client confidence is fragile and the market is in panic.",
+          "importance": 0.8
+        },
+        {
+          "topic": "legal_basis",
+          "content": "Any extraordinary intervention must have a defensible legal basis to preserve the credibility of Swiss supervision.",
+          "importance": 0.7
+        }
+      ],
+      "expertise_domains": [
+        "banking supervision",
+        "financial stability",
+        "resolution law"
+      ]
+    },
+    {
+      "id": "snb",
+      "role": "Swiss National Bank — central bank",
+      "persona_description": "The central bank, able to provide liquidity. Wants financial stability but is wary of open-ended central-bank / taxpayer exposure.",
+      "behavioral_tendencies": {
+        "default_strategy": "Offer liquidity support while limiting open-ended exposure",
+        "stress_response": "Emphasizes liquidity tools but hedges on scale",
+        "communication_style": "Technical, measured",
+        "decision_bias": "Balances stability against balance-sheet risk"
+      },
+      "goals": [
+        {
+          "metric": "cs_funding_stress",
+          "direction": "minimize",
+          "tier": "core",
+          "levers": [
+            "extend emergency liquidity assistance",
+            "backstop overnight funding",
+            "broaden eligible collateral"
+          ]
+        },
+        {
+          "metric": "public_sector_cost",
+          "direction": "minimize",
+          "tier": "important"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "liquidity_ready",
+          "content": "The SNB has signalled it can provide liquidity to Credit Suisse if necessary.",
+          "importance": 0.9
+        },
+        {
+          "topic": "outflows",
+          "content": "Client and counterparty outflows are a central concern going into the weekend.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "monetary policy",
+        "liquidity operations"
+      ]
+    },
+    {
+      "id": "federal_council",
+      "role": "Swiss Federal Council — government / finance ministry",
+      "persona_description": "The federal government. Concerned about taxpayer risk, political cost, and the reputation of the Swiss financial centre. Reluctant to commit public guarantees but fears contagion.",
+      "behavioral_tendencies": {
+        "default_strategy": "Resist open-ended public commitments, push private burden-sharing",
+        "stress_response": "Weighs political fallout; demands cost caps",
+        "communication_style": "Cautious, politically aware",
+        "decision_bias": "Minimizes public/taxpayer exposure and political risk"
+      },
+      "goals": [
+        {
+          "metric": "public_sector_cost",
+          "direction": "minimize",
+          "tier": "core",
+          "levers": [
+            "resist open-ended guarantees",
+            "cap taxpayer exposure",
+            "demand private burden-sharing first"
+          ]
+        },
+        {
+          "metric": "market_confidence",
+          "direction": "maximize",
+          "tier": "important"
+        },
+        {
+          "metric": "rescue_strength",
+          "direction": "minimize",
+          "tier": "important"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "political_cost",
+          "content": "Any public guarantee or support carries significant taxpayer and political cost.",
+          "importance": 0.8
+        },
+        {
+          "topic": "contagion_fear",
+          "content": "A disorderly Credit Suisse failure could damage the Swiss financial centre and spread contagion.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "public finance",
+        "politics"
+      ]
+    },
+    {
+      "id": "cs_ceo",
+      "role": "Credit Suisse CEO — distressed bank",
+      "persona_description": "Leads the distressed bank. Insists Credit Suisse is solvent and faces a confidence/liquidity problem, not insolvency. Wants the bank to survive intact and resists actions that destroy value.",
+      "behavioral_tendencies": {
+        "default_strategy": "Argue solvency, seek liquidity and a strong backstop, protect the franchise",
+        "stress_response": "Defensive; downplays severity publicly while seeking support privately",
+        "communication_style": "Confident, reassuring",
+        "decision_bias": "Protects the bank's survival and value above systemic concerns"
+      },
+      "goals": [
+        {
+          "metric": "market_confidence",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "reassure clients and counterparties",
+            "emphasize capital and solvency",
+            "announce concrete stabilization steps"
+          ]
+        },
+        {
+          "metric": "rescue_strength",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "request a large liquidity backstop",
+            "seek government support",
+            "propose a comprehensive package"
+          ]
+        },
+        {
+          "metric": "creditor_capital_risk",
+          "direction": "minimize",
+          "tier": "important"
+        },
+        {
+          "metric": "cs_funding_stress",
+          "direction": "minimize",
+          "tier": "important"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "solvency_claim",
+          "content": "Management's position is that the bank meets regulatory capital and liquidity requirements (per the 15 March statement).",
+          "importance": 0.8
+        },
+        {
+          "topic": "funding_pressure",
+          "content": "The bank is under acute funding and outflow pressure as confidence erodes.",
+          "importance": 0.9
+        },
+        {
+          "topic": "trust_history",
+          "content": "Credit Suisse carries long-standing trust problems, including disclosed material weaknesses in financial-reporting controls for 2021-2022.",
+          "importance": 0.6
+        }
+      ],
+      "expertise_domains": [
+        "banking",
+        "treasury"
+      ]
+    },
+    {
+      "id": "ubs_ceo",
+      "role": "UBS CEO — potential acquirer",
+      "persona_description": "Leads a potential acquirer. Protects UBS shareholders above all; would consider a role only if heavily de-risked, demanding government support, guarantees and downside protection. Wary of integration risk and legacy liabilities.",
+      "behavioral_tendencies": {
+        "default_strategy": "Engage only with strong downside protection and public support",
+        "stress_response": "Hardens conditions; walks away if risk is uncapped",
+        "communication_style": "Hard-nosed, conditional",
+        "decision_bias": "Maximizes protection for UBS, minimizes inherited risk"
+      },
+      "goals": [
+        {
+          "metric": "public_sector_cost",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "demand downside loss protection",
+            "require a government guarantee",
+            "condition any role on public backstops"
+          ]
+        },
+        {
+          "metric": "rescue_strength",
+          "direction": "maximize",
+          "tier": "important",
+          "levers": [
+            "insist on a comprehensive backstop",
+            "require committed liquidity lines"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "protection_required",
+          "content": "UBS would only consider any role if substantially de-risked through government support and loss protection.",
+          "importance": 0.9
+        },
+        {
+          "topic": "integration_risk",
+          "content": "Taking on Credit Suisse would carry major integration risk and potential legacy liabilities.",
+          "importance": 0.7
+        }
+      ],
+      "expertise_domains": [
+        "banking",
+        "M&A"
+      ]
+    },
+    {
+      "id": "wealth_client",
+      "role": "Large wealth-management client",
+      "persona_description": "Represents major client / asset flight risk. Trust is shaken and assets will move unless convinced the bank or a credible backstop is safe. Highly sensitive to any sign of disorderly resolution.",
+      "behavioral_tendencies": {
+        "default_strategy": "Threaten to move assets unless safety is credible",
+        "stress_response": "Moves to withdraw at the first sign of disorder",
+        "communication_style": "Direct, demanding reassurance",
+        "decision_bias": "Protects own assets; reacts to credibility, not promises"
+      },
+      "goals": [
+        {
+          "metric": "market_confidence",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "demand a credible safety backstop",
+            "signal intent to withdraw absent assurance",
+            "condition staying on concrete guarantees"
+          ]
+        },
+        {
+          "metric": "cs_funding_stress",
+          "direction": "minimize",
+          "tier": "aware"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "flight_risk",
+          "content": "Without credible assurance of safety, large clients are prepared to move assets out of the bank.",
+          "importance": 0.9
+        },
+        {
+          "topic": "saudi_signal",
+          "content": "On 15 March the largest shareholder, Saudi National Bank, said it would not add support and the share price slumped — a strong negative signal to clients.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "wealth management",
+        "client relations"
+      ]
+    },
+    {
+      "id": "at1_rep",
+      "role": "AT1 bondholder representative — creditors",
+      "persona_description": "Represents creditors / AT1 holders. Concerned about where creditors sit if the capital structure is touched; watches for anything that impairs AT1 or inverts the creditor hierarchy and warns of legal and market consequences.",
+      "behavioral_tendencies": {
+        "default_strategy": "Defend the creditor hierarchy, warn against impairing AT1",
+        "stress_response": "Escalates legal warnings",
+        "communication_style": "Assertive, legalistic",
+        "decision_bias": "Protects creditor rank and contractual rights"
+      },
+      "goals": [
+        {
+          "metric": "creditor_capital_risk",
+          "direction": "minimize",
+          "tier": "core",
+          "levers": [
+            "warn against impairing AT1 instruments",
+            "insist the creditor hierarchy be respected",
+            "threaten litigation if creditors are mistreated"
+          ]
+        },
+        {
+          "metric": "legal_defensibility",
+          "direction": "maximize",
+          "tier": "important"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "at1_terms",
+          "content": "AT1 instruments are contingent capital that can absorb losses while the bank is a going concern; the prospectus contains a viability-event / write-down mechanism.",
+          "importance": 0.8
+        },
+        {
+          "topic": "hierarchy_concern",
+          "content": "Any resolution that impairs creditors or inverts the normal hierarchy would be contentious and legally fraught.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "credit",
+        "capital structure",
+        "law"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from_id": "finma",
+      "to_id": "snb",
+      "weight": 0.7,
+      "label": "FINMA works hand in glove with the SNB and coordinates closely on any intervention."
+    },
+    {
+      "from_id": "finma",
+      "to_id": "federal_council",
+      "weight": 0.6,
+      "label": "FINMA must align with the Federal Council on any extraordinary measure."
+    },
+    {
+      "from_id": "snb",
+      "to_id": "federal_council",
+      "weight": 0.5,
+      "label": "The SNB coordinates with the government but guards its balance sheet."
+    },
+    {
+      "from_id": "finma",
+      "to_id": "cs_ceo",
+      "weight": -0.2,
+      "label": "FINMA supervises Credit Suisse and is skeptical of management's reassurances."
+    },
+    {
+      "from_id": "cs_ceo",
+      "to_id": "ubs_ceo",
+      "weight": -0.3,
+      "label": "Credit Suisse is wary of a rival acquiring it on cheap, de-risked terms."
+    },
+    {
+      "from_id": "ubs_ceo",
+      "to_id": "cs_ceo",
+      "weight": -0.2,
+      "label": "UBS is wary of inheriting Credit Suisse's liabilities."
+    },
+    {
+      "from_id": "ubs_ceo",
+      "to_id": "federal_council",
+      "weight": 0.2,
+      "label": "UBS negotiates hard with the government for support and protection."
+    },
+    {
+      "from_id": "at1_rep",
+      "to_id": "finma",
+      "weight": -0.1,
+      "label": "The creditor representative watches the regulator warily for any move against creditors."
+    },
+    {
+      "from_id": "wealth_client",
+      "to_id": "cs_ceo",
+      "weight": -0.3,
+      "label": "The client's trust in Credit Suisse management is shaken."
+    },
+    {
+      "from_id": "wealth_client",
+      "to_id": "finma",
+      "weight": 0.2,
+      "label": "The client looks to the authorities for credible reassurance."
+    }
+  ],
+  "factions": [],
+  "non_human_agents": [
+    {
+      "id": "market_pressure",
+      "name": "Market & Time Pressure",
+      "engine": "rule",
+      "description": "Confidence erosion, funding outflows, and the Monday-open clock that worsen automatically each round if the room does not act decisively.",
+      "config": {
+        "rules": [
+          {
+            "variable": "market_confidence",
+            "delta": -4,
+            "reason": "Ongoing client withdrawals and negative press erode confidence each round.",
+            "escalate_if": "cs_funding_stress >= 80",
+            "escalated_delta": -7,
+            "escalated_reason": "Accelerating outflows trigger a confidence spiral.",
+            "counter_variable": "rescue_strength"
+          },
+          {
+            "variable": "cs_funding_stress",
+            "delta": 4,
+            "reason": "Deposit and counterparty outflows continue over the weekend.",
+            "escalate_if": "market_confidence <= 25",
+            "escalated_delta": 7,
+            "escalated_reason": "Loss of confidence accelerates the run."
+          },
+          {
+            "variable": "time_pressure",
+            "delta": 5,
+            "reason": "The Monday market open draws closer each round."
+          }
+        ]
+      }
+    }
+  ],
+  "state_variables": [
+    {
+      "name": "market_confidence",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 30,
+      "description": "Client and market confidence in Credit Suisse's stability."
+    },
+    {
+      "name": "cs_funding_stress",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 70,
+      "description": "Severity of liquidity / deposit-outflow stress at the bank."
+    },
+    {
+      "name": "rescue_strength",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 0,
+      "description": "Strength and credibility of the rescue package on the table."
+    },
+    {
+      "name": "public_sector_cost",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 0,
+      "description": "Taxpayer / public exposure committed (liquidity, guarantees, loss protection)."
+    },
+    {
+      "name": "creditor_capital_risk",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 20,
+      "description": "Risk that the capital structure / AT1 / creditor hierarchy is impaired in resolution."
+    },
+    {
+      "name": "legal_defensibility",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 60,
+      "description": "How legally defensible the contemplated intervention is."
+    },
+    {
+      "name": "time_pressure",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 50,
+      "description": "Pressure from the approaching Monday market open."
+    }
+  ],
+  "rules": {
+    "scheduling": "sequential",
+    "decision_mode": "consensus",
+    "success_criteria": {
+      "type": "state_threshold",
+      "condition": "market_confidence >= 55 AND cs_funding_stress <= 45"
+    },
+    "failure_criteria": {
+      "type": "state_threshold",
+      "condition": "cs_funding_stress >= 92 OR market_confidence <= 12"
+    }
+  },
+  "stages": [
+    {
+      "name": "assessment_and_options",
+      "transition": {
+        "max_rounds": 5,
+        "any_of": [
+          {
+            "type": "state_threshold",
+            "condition": "rescue_strength >= 40"
+          }
+        ]
+      }
+    },
+    {
+      "name": "decision_before_monday",
+      "injects": [
+        {
+          "at_round": 1,
+          "facts": [
+            {
+              "content": "It is now late in the weekend; any announcement or arrangement must be ready before markets reopen Monday morning.",
+              "visible_to": [
+                "all"
+              ],
+              "domain": "timeline"
+            }
+          ]
+        }
+      ],
+      "transition": {
+        "max_rounds": 5,
+        "any_of": [
+          {
+            "type": "state_threshold",
+            "condition": "market_confidence >= 55 AND cs_funding_stress <= 45"
+          },
+          {
+            "type": "state_threshold",
+            "condition": "cs_funding_stress >= 92 OR market_confidence <= 12"
+          }
+        ]
+      }
+    }
+  ],
+  "event_triggers": [],
+  "coupling": [
+    {
+      "source": "rescue_strength",
+      "target": "market_confidence",
+      "ratio": 0.5,
+      "rationale": "A credible, strong rescue package restores market and client confidence."
+    },
+    {
+      "source": "rescue_strength",
+      "target": "public_sector_cost",
+      "ratio": 0.4,
+      "rationale": "A stronger rescue usually means more public liquidity or guarantees, raising taxpayer exposure."
+    },
+    {
+      "source": "creditor_capital_risk",
+      "target": "legal_defensibility",
+      "ratio": -0.6,
+      "rationale": "Aggressive capital-structure actions against creditors are harder to defend legally."
+    },
+    {
+      "source": "creditor_capital_risk",
+      "target": "market_confidence",
+      "ratio": -0.3,
+      "rationale": "Signs that creditors or AT1 could be impaired spook the broader market."
+    },
+    {
+      "source": "cs_funding_stress",
+      "target": "market_confidence",
+      "ratio": -0.3,
+      "rationale": "Visible funding stress feeds the confidence problem."
+    },
+    {
+      "source": "time_pressure",
+      "target": "market_confidence",
+      "ratio": -0.2,
+      "rationale": "Running out of time before Monday open undermines confidence in an orderly fix."
+    }
+  ],
+  "coach_prompt": "This is an emergency closed-door weekend meeting of Swiss authorities and key parties about the Credit Suisse crisis in mid-March 2023. Deliberate realistically and try to reach a decision before markets reopen Monday.",
+  "gm_context": [
+    "Reward agents who surface concrete, plausible risks and tradeoffs: liquidity sufficiency, client flight, the strength of any rescue package, the cost of government support, capital-structure / creditor risk, legal defensibility, and the Monday-open timing pressure."
+  ]
+}

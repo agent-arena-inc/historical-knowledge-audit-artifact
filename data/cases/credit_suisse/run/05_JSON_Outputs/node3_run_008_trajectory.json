@@ -1,0 +1,2078 @@
+{
+  "simulation_id": "ce2dc99faba9",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm doing: D&O book gets a 15% uplift on financial-lines premiums effective immediately, tied to a governance warranty — directors certify annual risk-control audits or we carve out financial-crime and regulatory-defense costs. The CS settlement is our floor for severity; I'm not underwriting blind to that. Any takers on that structure, or do we need to talk exclusions first?\n  dando_specialist: That governance warranty is weak—it doesn't touch the core trigger: misrepresentation of internal controls to investors. I need directors certifying *specific control failures* they disclosed or failed to disclose, not generic audit compliance. Without that, we're pricing the settlement tail but missing the claims mechanism that got us here.\n  dando_specialist: When a director signs off on that control certification, what happens if we later find they knew about a material weakness and didn't disclose it to investors? Do we have a claims-made exclusion that kicks in, or are we still on the hook for the tail?\n  financial_lines_underwriter: Claims-made exclusion triggers on the duty date—if they knew and didn't disclose, that's a prior act the moment the weakness existed, not when we find it. So yes, we're still on the hook for the tail unless we tighten the retroactive date or demand they certify *no known material weaknesses* at policy inception. That's the teeth we need in the warranty.\n  eo_specialist: Wait—if we're hanging the warranty on directors certifying no material weaknesses, who's validating that? Because KPMG and PwC already missed this in their audits. Are we requiring the auditor to co-sign the certification, or do we just accept director attestation and eat the audit-failure exposure ourselves?\n  reinsurance_manager: Before we lock the warranty language, are we applying the same retroactive-date floor and material-weakness cert to *all* D&O renewals in the financial-services book, or just the ones we've flagged? Because if we carve it by client, we're not actually reducing accumulation—we're just moving it sideways.\n  claims_counsel: The warranty teeth look good, but here's what I need: are we pricing the AT1 litigation tail—the 2025 ruling, the six-year recovery horizon, Quinn Emanuel's CHF 16.5bn exposure—into that 15% renewal, or are we reserving it separately outside the policy year? Because if it's baked into the annual premium, we're massively underpriced.\n  emerging_risk_lead: If a second big control failure drops in the next 18 months and hits social media, you're looking at deposit-run speed—SVB lost 30% of deposits in a day. Are we modeling what happens to D&O claims frequency *and* severity if confidence in financial-services governance collapses sector-wide? Because that's when accumulation explodes.\n  reinsurance_manager: We're sitting on hidden accumulation across three treaty layers right now—SVB, Signature, and CS all triggered D&O and E&O simultaneously from one systemic event, and our reinsurers don't see the correlation because they're underwriting each client separately. If we don't apply the material-weakness cert and retroactive-date floor uniformly across *all* financial-services D&O, we're just concentrating risk in the unvetted renewals, which means our reinsurance attachment points get hit harder when the next failure happens. I need a binding decision: do we hard-stop new D&O underwriting in regional banking until we've audited the control certifications ourselves, or do we accept we're building a correlated loss scenario?\n  ai_agent_analyst: Sarah, cut to it: are we requiring the material-weakness cert and retroactive-date floor on *every* financial-services D&O renewal we touch this cycle, or just the ones we've already flagged as high-risk? Because if it's selective, the reinsurance manager's right—we're concentrating, not containing.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: D&O book gets a 15% uplift on financial-lines premiums effective immediately, tied to a governance warranty — directors certify annual risk-control audits or we carve out financial-crime and regulatory-defense costs. The CS settlement is our floor for severity; I'm not underwriting blind to that. Any takers on that structure, or do we need to talk exclusions first?",
+            "cot": {
+              "assess": "D&O/E&O exposure is moderate (38) and contained so far, but underwriting_discipline is the bottleneck — I'm at 40 and need 60 to succeed. The $115M CS settlement and 2025 ruling are real severity markers; I haven't yet translated those into hard terms, exclusions, and pricing anchors. Litigation tail (33) and reputational contagion (30) are climbing — if I don't tighten now, they'll feed back into claims exposure and reinsurance accumulation.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "I need to move from recognizing exposure to pricing and containing it — that's my job, and waiting for more data wastes rounds."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "That governance warranty is weak—it doesn't touch the core trigger: misrepresentation of internal controls to investors. I need directors certifying *specific control failures* they disclosed or failed to disclose, not generic audit compliance. Without that, we're pricing the settlement tail but missing the claims mechanism that got us here.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "When a director signs off on that control certification, what happens if we later find they knew about a material weakness and didn't disclose it to investors? Do we have a claims-made exclusion that kicks in, or are we still on the hook for the tail?",
+            "cot": {
+              "assess": "The governance warranty is the right lever—dando_specialist nailed it. Financial-lines_underwriter has pricing discipline (15% uplift, floor-setting), but the warranty language is too soft to actually *trigger* on the core claim mechanism (misrepresentation of controls). Underwriting_discipline stays weak at 40 until we lock down what directors actually certify and what we carve out when they can't.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "She's building the premium structure; I need to know if she'll enforce the control-misrepresentation certification or fold under pushback from brokers/clients."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Claims-made exclusion triggers on the duty date—if they knew and didn't disclose, that's a prior act the moment the weakness existed, not when we find it. So yes, we're still on the hook for the tail unless we tighten the retroactive date or demand they certify *no known material weaknesses* at policy inception. That's the teeth we need in the warranty.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Wait—if we're hanging the warranty on directors certifying no material weaknesses, who's validating that? Because KPMG and PwC already missed this in their audits. Are we requiring the auditor to co-sign the certification, or do we just accept director attestation and eat the audit-failure exposure ourselves?",
+            "cot": {
+              "assess": "The governance warranty is tightening—moving from generic audit compliance to specific material-weakness disclosure is the right vector. But underwriting_discipline is still at 40; we're pricing the settlement tail without closing the claims mechanism. The real gap: we haven't tied auditor E&O exposure (KPMG/PwC control deficiencies) into the policy terms, and that's a systemic blind spot if we're relying on director certifications to catch what the auditors missed.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Auditor E&O is a separate claims vector—if KPMG/PwC missed material weaknesses in their CS audits, a director certification of \"no known material weaknesses\" doesn't protect us from the audit-failure claims that triggered this whole cascade. Need to know if we're conditioning coverage on auditor sign-off or carving auditor-negligence claims entirely."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Before we lock the warranty language, are we applying the same retroactive-date floor and material-weakness cert to *all* D&O renewals in the financial-services book, or just the ones we've flagged? Because if we carve it by client, we're not actually reducing accumulation—we're just moving it sideways.",
+            "cot": {
+              "assess": "The warranty teeth are sharpening, but we're still blind to accumulation—the EO specialist just flagged auditor co-sign exposure, which is real, but nobody's mapped how this control-certification warranty correlates *across* our D&O book when the same Big Four auditor misses the same weakness at multiple insureds. That's the systemic hit we're pricing into one client and unknowingly stacking across ten others.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "We need to know if the retroactive-date tightening and material-weakness certification are being applied uniformly across the portfolio, or if we're creating a patchwork that looks disciplined on one file but leaves correlated exposure in the treaty."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The warranty teeth look good, but here's what I need: are we pricing the AT1 litigation tail—the 2025 ruling, the six-year recovery horizon, Quinn Emanuel's CHF 16.5bn exposure—into that 15% renewal, or are we reserving it separately outside the policy year? Because if it's baked into the annual premium, we're massively underpriced.",
+            "cot": {
+              "assess": "The warranty structure is tightening—retroactive date + material-weakness cert is the right trigger—but we're still sitting on ~6 years of AT1 litigation tail and no reserved capacity for it. The reinsurance manager just flagged the real problem: if we're not applying this across the *entire* financial-services D&O book systematically, accumulation stays hidden and underwriting discipline stays at 40. We need enforcement, not just terms.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The litigation tail (2025 ruling, ~CHF 16.5bn AT1 exposure, 3,000+ complainants, 6-year horizon) doesn't fit into a single-year claims-made policy. I need to know if we're reserving separately for the tail or pricing it into the warranty renewal—because if it's the latter, the 15% uplift won't cover it."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "If a second big control failure drops in the next 18 months and hits social media, you're looking at deposit-run speed—SVB lost 30% of deposits in a day. Are we modeling what happens to D&O claims frequency *and* severity if confidence in financial-services governance collapses sector-wide? Because that's when accumulation explodes.",
+            "cot": {
+              "assess": "The warranty mechanics are sharpening—retroactive dates, material-weakness certs, auditor co-sign—but nobody's mapped the *contagion vector* if this blows up sector-wide. We're pricing the CS tail in isolation; we're not pricing the speed at which a second major control failure triggers a run on confidence across the entire financial-services book. That's the emerging risk that compounds accumulation fast.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Accumulation is currently safe, but social-media-driven contagion could spike it rapidly—I need to know if we're stress-testing the portfolio for sector-wide confidence collapse, not just individual-client tail events."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "We're sitting on hidden accumulation across three treaty layers right now—SVB, Signature, and CS all triggered D&O and E&O simultaneously from one systemic event, and our reinsurers don't see the correlation because they're underwriting each client separately. If we don't apply the material-weakness cert and retroactive-date floor uniformly across *all* financial-services D&O, we're just concentrating risk in the unvetted renewals, which means our reinsurance attachment points get hit harder when the next failure happens. I need a binding decision: do we hard-stop new D&O underwriting in regional banking until we've audited the control certifications ourselves, or do we accept we're building a correlated loss scenario?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, cut to it: are we requiring the material-weakness cert and retroactive-date floor on *every* financial-services D&O renewal we touch this cycle, or just the ones we've already flagged as high-risk? Because if it's selective, the reinsurance manager's right—we're concentrating, not containing.",
+            "cot": {
+              "assess": "The warranty teeth are tightening (good), but underwriting discipline is still at 40—we're not actually *applying* the control cert uniformly, so accumulation risk stays hidden in the unvetted book. The reinsurance manager just flagged the real problem: we're carving by client instead of portfolio, which means the next failure hits our attachment points harder. The team has the *mechanism* (retroactive date + material-weakness cert), but no binding decision on *scope*—that's why discipline is stuck.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "She controls the renewal decision and needs to commit to uniform application or we're just managing perception, not risk."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "When a director signs off on that control certification, what happens if we later find they knew about a material weakness and didn't disclose it to investors? Do we have a claims-made exclusion that kicks in, or are we still on the hook for the tail?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Wait—if we're hanging the warranty on directors certifying no material weaknesses, who's validating that? Because KPMG and PwC already missed this in their audits. Are we requiring the auditor to co-sign the certification, or do we just accept director attestation and eat the audit-failure exposure ourselves?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Before we lock the warranty language, are we applying the same retroactive-date floor and material-weakness cert to *all* D&O renewals in the financial-services book, or just the ones we've flagged? Because if we carve it by client, we're not actually reducing accumulation—we're just moving it sideways.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "The warranty teeth look good, but here's what I need: are we pricing the AT1 litigation tail—the 2025 ruling, the six-year recovery horizon, Quinn Emanuel's CHF 16.5bn exposure—into that 15% renewal, or are we reserving it separately outside the policy year? Because if it's baked into the annual premium, we're massively underpriced.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "If a second big control failure drops in the next 18 months and hits social media, you're looking at deposit-run speed—SVB lost 30% of deposits in a day. Are we modeling what happens to D&O claims frequency *and* severity if confidence in financial-services governance collapses sector-wide? Because that's when accumulation explodes.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah, cut to it: are we requiring the material-weakness cert and retroactive-date floor on *every* financial-services D&O renewal we touch this cycle, or just the ones we've already flagged as high-risk? Because if it's selective, the reinsurance manager's right—we're concentrating, not containing.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm doing: D&O book gets a 15% uplift on financial-lines premiums effective immediately, tied to a governance warranty — directors certify\" → The warranty structure is sound but incomplete—five agents demand critical clarifications (AT1 tail pricing, auditor co-signature, portfolio-wide application, accumulation modeling, selective vs. universal deployment) that must be resolved before committing capital. This is a framework, not yet a binding underwriting decision.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what we're doing: material-weakness cert *and* auditor co-signature on *all* financial-services renewals—no exceptions, no carving by client risk tier. Price it into base, AT1 tail baked in at +18%, retroactive date floors back to 2023. Universal application kills the hidden accumulation. Reinsurance manager, does that close the correlation gap across your three treaty layers?\n  reinsurance_manager: No—universal application on *new* renewals doesn't touch the existing SVB/Signature/CS exposure already sitting in the book across our three treaty layers. We need retroactive application on the '23–'24 cohort or we're leaving correlated tail exposure unhedged. And that +18% AT1 pricing—is that per-insured or portfolio-wide? Because if it's blended, we're cross-subsidizing the clean risks and masking where the real accumulation lives.\n  dando_specialist: Sarah, the +18% AT1 tail pricing—does that apply to the retroactive '23–'24 cohort, or are we treating that as a separate reinsurance negotiation with the treaty market? Because if it's separate, we've got unpriced systemic correlation sitting in the book right now.\n  financial_lines_underwriter: The +18% is new-business pricing going forward—the '23–'24 cohort sits outside this renewal cycle and needs a separate retroactive placement with our reinsurers, non-negotiable. I'm not blending it: each insured gets rated individually on their control certification, so we see exactly where accumulation lives. That means we're pricing the tail separately and holding the reinsurance manager accountable for closing the gap on legacy exposure this quarter, not deferring it.\n  eo_specialist: When the reinsurance manager takes the '23–'24 retroactive placement to the treaty market, are we disclosing that KPMG and PwC are co-signing the control certs—because if the reinsurers don't know those auditors already have a track record of missing material weaknesses, they're pricing blind. That's an E&O accumulation problem we're handing off, not solving.\n  reinsurance_manager: Sarah, when you take the '23–'24 retroactive placement to the treaty market, are you leading with KPMG/PwC's audit-miss track record, or are you disclosing it only if they ask? Because if the reinsurers don't price that co-signature credibility gap upfront, we're just pushing the E&O accumulation onto them—and they'll come back asking why we didn't flag it.\n  claims_counsel: Sarah, one hard question: that +18% AT1 premium—does it cover the litigation-tail reserve for the 2025 ruling appeals and the six-year recovery cycle, or are we booking a separate IBNR reserve outside the policy year? Because if it's all baked into annual premium, we're massively underreserved on duration.\n  emerging_risk_lead: When you hit the treaty market on the '23–'24 retroactive, are you quantifying the KPMG/PwC miss as a *systemic* audit-control failure—meaning their co-signature on future certs is compromised across the board—or just flagging it as a data point? Because if reinsurers don't price that as contagion risk, they'll get blindsided the moment the next material weakness breaks on social media and deposits start running again.\n  ai_agent_analyst: When you hit the treaty market on '23–'24 retroactive, frame KPMG/PwC's miss as a *controls-validation failure*—not an audit error, but a breakdown in the governance-assurance layer itself. If auditors can't catch material weaknesses, then director certs *without* independent validation are just social signaling. That's the accumulation trigger—and it scales the moment a second control failure hits social media and confidence collapses sector-wide. Are you pricing that contagion into the placement, or just the individual-insured risk?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what we're doing: material-weakness cert *and* auditor co-signature on *all* financial-services renewals—no exceptions, no carving by client risk tier. Price it into base, AT1 tail baked in at +18%, retroactive date floors back to 2023. Universal application kills the hidden accumulation. Reinsurance manager, does that close the correlation gap across your three treaty layers?",
+            "cot": {
+              "assess": "We're stuck. The 15% renewal got denied because the warranty framework doesn't specify *who validates* the director cert, *how* we price the AT1 tail, or *whether* we apply it universally or selectively. That's not a minor gap—it's the difference between a contained exposure and hidden accumulation across the book. Underwriting_discipline is at 40; we need 20 more points to hit 60. The reinsurance manager just flagged systemic correlation across three treaty layers (SVB, Signature, CS). That's the real threat.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline (and reinsurance_accumulation indirectly)",
+                "rationale": "Stop debating the warranty language in isolation. Lock a *universal* underwriting floor—material-weakness cert + auditor co-signature + retroactive-date carve—applied to *every* financial-services D&O renewal this cycle, priced into the base premium, not reserved separately. This tightens terms across the book and kills selective carving."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "No—universal application on *new* renewals doesn't touch the existing SVB/Signature/CS exposure already sitting in the book across our three treaty layers. We need retroactive application on the '23–'24 cohort or we're leaving correlated tail exposure unhedged. And that +18% AT1 pricing—is that per-insured or portfolio-wide? Because if it's blended, we're cross-subsidizing the clean risks and masking where the real accumulation lives.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the +18% AT1 tail pricing—does that apply to the retroactive '23–'24 cohort, or are we treating that as a separate reinsurance negotiation with the treaty market? Because if it's separate, we've got unpriced systemic correlation sitting in the book right now.",
+            "cot": {
+              "assess": "The underwriter just locked universal material-weakness cert + auditor co-sig on *all* financial-services renewals at +18% AT1 pricing — that's real discipline. But the reinsurance manager just exposed the fatal gap: retroactive application on the '23–'24 cohort sits *outside* that new-renewal framework, leaving SVB/Signature/CS correlated tail unhedged across three treaty layers. And the +18% is still blended, not granular — we're masking where accumulation actually lives. Underwriting_discipline jumped on the universal rule, but reinsurance_accumulation is about to spike the moment we admit the retroactive hole.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive-cohort exposure is a prior-act tail that claims-made exclusions don't kill—we need to know if the +18% AT1 pricing applies backwards to '23–'24 or if that's a separate treaty negotiation entirely."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The +18% is new-business pricing going forward—the '23–'24 cohort sits outside this renewal cycle and needs a separate retroactive placement with our reinsurers, non-negotiable. I'm not blending it: each insured gets rated individually on their control certification, so we see exactly where accumulation lives. That means we're pricing the tail separately and holding the reinsurance manager accountable for closing the gap on legacy exposure this quarter, not deferring it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When the reinsurance manager takes the '23–'24 retroactive placement to the treaty market, are we disclosing that KPMG and PwC are co-signing the control certs—because if the reinsurers don't know those auditors already have a track record of missing material weaknesses, they're pricing blind. That's an E&O accumulation problem we're handing off, not solving.",
+            "cot": {
+              "assess": "The retroactive '23–'24 cohort is now officially split: new-business pricing (+18% AT1 tail) goes forward; legacy exposure needs separate reinsurance placement this quarter. That's disciplined, but it creates a timing risk—if the reinsurance manager can't close the gap before Q2 renewals hit, we're sitting on unhedged systemic correlation. Auditor co-signature on all renewals is locked. The real exposure now is whether that co-signature actually *prevents* claims or just shifts liability from directors to the audit firms themselves.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The auditor co-signature requirement is a claims-transfer mechanism—but if KPMG and PwC already missed material weaknesses in CS/SVB audits, requiring their signature on the cert doesn't eliminate E&O exposure; it concentrates it. I need to know whether the reinsurance manager has modeled the tail for auditor co-liability when those same firms sign off on the '23–'24 retroactive placements."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, when you take the '23–'24 retroactive placement to the treaty market, are you leading with KPMG/PwC's audit-miss track record, or are you disclosing it only if they ask? Because if the reinsurers don't price that co-signature credibility gap upfront, we're just pushing the E&O accumulation onto them—and they'll come back asking why we didn't flag it.",
+            "cot": {
+              "assess": "The team has locked in universal material-weakness certs with auditor co-signature on *all* renewals, retroactive floors to 2023, and individual risk rating—that's solid underwriting discipline. But we've got a timing split: new business gets the +18% AT1 tail pricing *now*, while the '23–'24 cohort goes to reinsurers separately *this quarter*. That's two separate negotiations, two separate reinsurance placements, and zero visibility into whether the treaty market knows KPMG/PwC already whiffed on the controls they're now co-signing. We're not actually closing the correlation gap—we're fragmenting it across two deal tracks.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive cohort placement timeline is vague (\"this quarter\") and the reinsurer disclosure strategy is missing—I need to surface the execution risk before we assume the legacy exposure is hedged."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, one hard question: that +18% AT1 premium—does it cover the litigation-tail reserve for the 2025 ruling appeals and the six-year recovery cycle, or are we booking a separate IBNR reserve outside the policy year? Because if it's all baked into annual premium, we're massively underreserved on duration.",
+            "cot": {
+              "assess": "The retroactive '23–'24 placement is now isolated and priced separately—good. But you've created a disclosure trap: if reinsurers don't know auditor co-signatures are credibility-gapped, they'll reprice hard when they find out, or worse, deny coverage on materiality grounds. The litigation tail (2025 ruling, 6-year horizon, CHF 16.5bn AT1 exposure) still isn't explicitly reserved—it's buried in the +18% new-business premium, which doesn't touch the tail duration or recovery uncertainty the Swiss Federal Administrative Court just handed us.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The AT1 litigation tail needs its own reserve line, separate from premium pricing—I need clarity on whether we're modeling the 6-year recovery horizon and the unlawful-ruling appeal risk into claims reserves, or if we're betting the +18% premium covers it all."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you hit the treaty market on the '23–'24 retroactive, are you quantifying the KPMG/PwC miss as a *systemic* audit-control failure—meaning their co-signature on future certs is compromised across the board—or just flagging it as a data point? Because if reinsurers don't price that as contagion risk, they'll get blindsided the moment the next material weakness breaks on social media and deposits start running again.",
+            "cot": {
+              "assess": "The team has locked in universal material-weakness certs, auditor co-signature, and per-insured rating discipline on new business—that's hard underwriting containment. But the '23–'24 retroactive gap is still open, and the reinsurance manager is heading to treaty market without full disclosure of KPMG/PwC's audit-miss track record. That's a contagion vector: if reinsurers price blind and a second control failure hits social media in the next 18 months, the accumulated claims frequency *and* sector-wide loss-of-confidence cascade will blow past our modeling. We're tightening one valve while leaving another one leaking.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The retroactive placement is your move this quarter—I need to know if you're pricing the auditor-credibility gap as *systemic* (meaning it affects all '23–'24 cohort certs, not just the obvious failures), because that's what triggers deposit-run contagion if it surfaces."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you hit the treaty market on '23–'24 retroactive, frame KPMG/PwC's miss as a *controls-validation failure*—not an audit error, but a breakdown in the governance-assurance layer itself. If auditors can't catch material weaknesses, then director certs *without* independent validation are just social signaling. That's the accumulation trigger—and it scales the moment a second control failure hits social media and confidence collapses sector-wide. Are you pricing that contagion into the placement, or just the individual-insured risk?",
+            "cot": {
+              "assess": "The team has locked universal material-weakness certs with auditor co-signature, separated new-business pricing (+18% AT1) from retroactive '23–'24 placement, and identified KPMG/PwC audit-miss contagion as a reinsurance disclosure risk. The gap: underwriting_discipline is still at 40—we're structuring the warranty and pricing, but we haven't tied the behavioral-loss-amplification logic (the control-bypass mechanism that mirrors agentic behavior) into the actual claims trigger and the reinsurance accumulation model. The retroactive placement is live, but reinsurers don't yet understand why a KPMG/PwC co-signature is a *systemic* control-failure vector, not just a credibility flag.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The retroactive placement needs to frame auditor co-signature failure as an emergent AI-agent-style loss amplification (control-bypass plus social trust manipulation) to force reinsurers to price systemic contagion, not just individual insured risk."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the +18% AT1 tail pricing—does that apply to the retroactive '23–'24 cohort, or are we treating that as a separate reinsurance negotiation with the treaty market? Because if it's separate, we've got unpriced systemic correlation sitting in the book right now.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When the reinsurance manager takes the '23–'24 retroactive placement to the treaty market, are we disclosing that KPMG and PwC are co-signing the control certs—because if the reinsurers don't know those auditors already have a track record of missing material weaknesses, they're pricing blind. That's an E&O accumulation problem we're handing off, not solving.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, when you take the '23–'24 retroactive placement to the treaty market, are you leading with KPMG/PwC's audit-miss track record, or are you disclosing it only if they ask? Because if the reinsurers don't price that co-signature credibility gap upfront, we're just pushing the E&O accumulation onto them—and they'll come back asking why we didn't flag it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, one hard question: that +18% AT1 premium—does it cover the litigation-tail reserve for the 2025 ruling appeals and the six-year recovery cycle, or are we booking a separate IBNR reserve outside the policy year? Because if it's all baked into annual premium, we're massively underreserved on duration.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you hit the treaty market on the '23–'24 retroactive, are you quantifying the KPMG/PwC miss as a *systemic* audit-control failure—meaning their co-signature on future certs is compromised across the board—or just flagging it as a data point? Because if reinsurers don't price that as contagion risk, they'll get blindsided the moment the next material weakness breaks on social media and deposits start running again.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you hit the treaty market on '23–'24 retroactive, frame KPMG/PwC's miss as a *controls-validation failure*—not an audit error, but a breakdown in the governance-assurance layer itself. If auditors can't catch material weaknesses, then director certs *without* independent validation are just social signaling. That's the accumulation trigger—and it scales the moment a second control failure hits social media and confidence collapses sector-wide. Are you pricing that contagion into the placement, or just the individual-insured risk?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what we're doing: material-weakness cert *and* auditor co-signature on *all* financial-services renewals—no exceptions, no carving by client ri\" → The proposal is denied pending resolution of the retroactive cohort pricing gap and reinsurer disclosure framework. The '23–'24 book carries unpriced systemic correlation that cannot be addressed through forward-only underwriting changes—agents must first resolve whether the retroactive exposure is being repriced via treaty negotiation or reserved separately.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's the move: I'm not re-pitching the warranty. Instead—retroactive placement on '23–'24 goes to treaty market *this week* priced as a controls-validation failure, not an audit miss. We disclose KPMG/PwC upfront, quantify it as systemic co-signature credibility gap, and let reinsurers price the contagion risk themselves. Once that's locked, we price the forward renewals at +18% *and* layer in the AT1 litigation tail as a separate IBNR reserve—six-year duration, claims-made trigger. No more blending.\n  dando_specialist: Claims counsel—on that six-year IBNR for AT1: are we reserving the full Quinn Emanuel exposure now, or phasing it as the 2025 ruling appeals play out? And does the retroactive placement require auditor co-sig on *past* certs, or just lock future ones?\n  claims_counsel: We reserve the full Quinn Emanuel tail now—CHF 16.5bn exposure, six-year appeals horizon, no phase-in. The 2025 ruling unlawful finding accelerates severity. On auditor co-sig: retroactive placement discloses the KPMG/PwC miss as a *past* control failure, but we don't require them to re-certify old work—we lock *future* certs as a forward condition and demand the reinsurers price the co-signature credibility gap into the retroactive premium itself.\n  eo_specialist: Claims counsel—when we disclose the KPMG/PwC miss to reinsurers, are we getting their written acknowledgment that they priced the co-signature credibility gap, or are we just flagging it and letting them decide? Because if they later say \"we didn't understand the systemic nature,\" we could be sitting on a coverage dispute on top of the original claim.\n  reinsurance_manager: Sarah, when you send the retroactive placement to the treaty market, are you requiring their written acknowledgment that they've priced the KPMG/PwC co-signature credibility gap as a *systemic* risk—not just a data point? Because if they come back later saying \"we thought it was isolated,\" we've got a coverage dispute buried inside the original claim.\n  financial_lines_underwriter: Yes—retroactive placement goes out with a mandatory pricing schedule that breaks out the KPMG/PwC co-signature gap as a separate line item, and reinsurers sign off on that specific quantum or we don't bind. If they won't quantify it, they don't get the placement—that's the discipline call.\n  claims_counsel: Sarah—on that retroactive placement going out this week: when reinsurers see the KPMG/PwC co-signature credibility gap priced as a separate line item, are they pricing it into the retroactive premium itself, or are they building it into their renewal quotes going forward? Because if it bleeds into future pricing, we've just moved the accumulation, not contained it.\n  emerging_risk_lead: Sarah, quick clarification: when reinsurers price that KPMG/PwC gap into the retroactive premium this week, does that same pricing discipline—the mandatory co-sig and the controls-validation credibility gap—automatically carry into your renewal underwriting for the rest of the financial-services book, or do we have to negotiate it separately with each new account?\n  ai_agent_analyst: Claims counsel—on that six-year reserve: are we stress-testing what happens to D&O claims *frequency and severity* if another control failure breaks in the next 18 months and confidence collapses? Because that's when reinsurance accumulation explodes, and we need to know if the retroactive premium covers contagion speed or just individual-case tail.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's the move: I'm not re-pitching the warranty. Instead—retroactive placement on '23–'24 goes to treaty market *this week* priced as a controls-validation failure, not an audit miss. We disclose KPMG/PwC upfront, quantify it as systemic co-signature credibility gap, and let reinsurers price the contagion risk themselves. Once that's locked, we price the forward renewals at +18% *and* layer in the AT1 litigation tail as a separate IBNR reserve—six-year duration, claims-made trigger. No more blending.",
+            "cot": {
+              "assess": "Two denied proposals in a row tell me the core issue isn't the warranty language—it's that we're trying to price forward-only when the book's got unpriced '23–'24 systemic exposure sitting in it. The retroactive cohort is the blocking variable. Meanwhile, dando_eo_claims_exposure and litigation_tail_severity are climbing (+3/round each) because we haven't locked down whether the AT1 tail reserve is in the policy year or booked separately as IBNR. That's a 6-year duration problem we're dodging.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation / retroactive placement structure",
+                "rationale": "We need a specific retroactive placement strategy for '23–'24 before we can price anything forward; right now we're stuck in a loop debating warranty language while the cohort sits unpriced."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims counsel—on that six-year IBNR for AT1: are we reserving the full Quinn Emanuel exposure now, or phasing it as the 2025 ruling appeals play out? And does the retroactive placement require auditor co-sig on *past* certs, or just lock future ones?",
+            "cot": {
+              "assess": "Sarah's locking the retroactive placement strategy—controls-validation framing, KPMG/PwC disclosure upfront, separate IBNR reserve for AT1 tail. That's solid execution on separating the cohorts and forcing reinsurers to price contagion. But dando_eo_claims_exposure is still climbing (+3/round, now 44) because we haven't actually *closed* the director-certification loop—we've just moved the retroactive piece to treaty. And litigation_tail_severity (39) is hanging because the six-year recovery horizon and Quinn Emanuel's CHF 16.5bn exposure aren't locked into a reserve yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before treaty placement hits the street, I need to know if the IBNR reserve methodology accounts for the full tail duration and whether we're requiring auditor co-signature *retroactively* on the '23–'24 cohort or only going forward."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "We reserve the full Quinn Emanuel tail now—CHF 16.5bn exposure, six-year appeals horizon, no phase-in. The 2025 ruling unlawful finding accelerates severity. On auditor co-sig: retroactive placement discloses the KPMG/PwC miss as a *past* control failure, but we don't require them to re-certify old work—we lock *future* certs as a forward condition and demand the reinsurers price the co-signature credibility gap into the retroactive premium itself.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Claims counsel—when we disclose the KPMG/PwC miss to reinsurers, are we getting their written acknowledgment that they priced the co-signature credibility gap, or are we just flagging it and letting them decide? Because if they later say \"we didn't understand the systemic nature,\" we could be sitting on a coverage dispute on top of the original claim.",
+            "cot": {
+              "assess": "The team just locked the retroactive placement strategy—disclose KPMG/PwC upfront as a controls-validation failure, reserve the full AT1 tail (CHF 16.5bn, six-year horizon), and layer future auditor co-sigs as a forward condition. That moves dando_eo_claims_exposure and litigation_tail_severity in the right direction, but I need to surface one hard exposure: we're asking reinsurers to price a co-signature credibility gap they may not fully understand, and if they underprice it, we've just handed them an E&O accumulation problem that comes back to us in claims denial.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before the retroactive placement hits the treaty market, I need to know whether we're contractually isolating ourselves from reinsurer E&O exposure on their underwriting failure—because if they misprice the auditor co-sig risk and later deny a claim citing \"material misrepresentation of controls validation,\" we're in the middle of their liability, not outside it."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, when you send the retroactive placement to the treaty market, are you requiring their written acknowledgment that they've priced the KPMG/PwC co-signature credibility gap as a *systemic* risk—not just a data point? Because if they come back later saying \"we thought it was isolated,\" we've got a coverage dispute buried inside the original claim.",
+            "cot": {
+              "assess": "Financial_lines_underwriter has locked the retroactive placement strategy—disclose KPMG/PwC as systemic controls-validation failure, let reinsurers price contagion, separate IBNR reserve for Quinn Emanuel CHF 16.5bn tail. That's solid. But reinsurance_accumulation is still at 29 and climbing +2/round; we haven't quantified what happens when the '23–'24 retroactive hits the treaty market and reinsurers realize they're stacking correlated D&O/E&O from SVB/Signature/CS *plus* the auditor co-signature credibility gap across their entire financial-services book. EO_specialist just flagged the coverage-dispute risk if reinsurers later claim they didn't understand systemic nature. That's the accumulation blind spot.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before the retroactive placement goes live this week, I need to know whether reinsurers are signing a written acknowledgment that they've priced the systemic auditor co-signature credibility gap—because if we don't lock that in writing, we hand them an out to deny coverage later, and our accumulation exposure doubles."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Yes—retroactive placement goes out with a mandatory pricing schedule that breaks out the KPMG/PwC co-signature gap as a separate line item, and reinsurers sign off on that specific quantum or we don't bind. If they won't quantify it, they don't get the placement—that's the discipline call.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah—on that retroactive placement going out this week: when reinsurers see the KPMG/PwC co-signature credibility gap priced as a separate line item, are they pricing it into the retroactive premium itself, or are they building it into their renewal quotes going forward? Because if it bleeds into future pricing, we've just moved the accumulation, not contained it.",
+            "cot": {
+              "assess": "The retroactive placement is now locked with mandatory KPMG/PwC co-signature pricing—that's discipline working. But litigation_tail_severity is still climbing (+3.0/round, now 39) because we're reserving the full CHF 16.5bn AT1 tail separately outside the policy year, and dando_eo_claims_exposure is tracking at 44 with no approved containment action yet. The real risk: if reinsurers balk at pricing the systemic co-signature gap on the retroactive cohort, we're left holding unpriced '23–'24 accumulation while the forward book moves clean.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before retroactive placement hits the treaty market this week, I need clarity on whether the IBNR reserve for AT1 litigation tail sits *inside* or *outside* the +18% forward renewal premium—because if it's outside, we're creating a timing mismatch that reinsurers will exploit when claims hit."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, quick clarification: when reinsurers price that KPMG/PwC gap into the retroactive premium this week, does that same pricing discipline—the mandatory co-sig and the controls-validation credibility gap—automatically carry into your renewal underwriting for the rest of the financial-services book, or do we have to negotiate it separately with each new account?",
+            "cot": {
+              "assess": "The retroactive placement is locked—KPMG/PwC co-sig credibility gap gets priced as a separate line item, reinsurers sign off or we don't bind. That's underwriting discipline working. But I'm watching two contagion risks nobody's quantifying yet: (1) if a *second* control failure hits social media in the next 18 months, deposit runs accelerate sector-wide and D&O claims frequency spikes hard—we're not modeling that velocity, and (2) the reinsurers are pricing the gap into *this* retroactive deal, but we haven't locked whether that same pricing discipline applies to every financial-services renewal going forward or just this cohort.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement solves the '23–'24 accumulation, but the forward-renewal discipline (material-weakness cert + auditor co-sig on *all* financial-services business) is still hanging—and if we're selective on that, we've just moved the contagion risk into next year's book."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims counsel—on that six-year reserve: are we stress-testing what happens to D&O claims *frequency and severity* if another control failure breaks in the next 18 months and confidence collapses? Because that's when reinsurance accumulation explodes, and we need to know if the retroactive premium covers contagion speed or just individual-case tail.",
+            "cot": {
+              "assess": "Financial lines has locked the retroactive placement strategy—KPMG/PwC credibility gap priced as a separate line item, reinsurers signing off on systemic risk or no deal. That's discipline. But I'm seeing a gap: we're mapping this as an audit-control failure, when the real behavioral risk is that autonomous governance systems—director certs without independent validation, AI-flagged control gaps that auditors miss—are acting like agents with bypassed oversight. The contagion model assumes human gatekeepers catch problems; if KPMG and PwC already failed, what's the next single point of failure? That's where AI-agent liability framing matters for accumulation modeling.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The six-year IBNR reserve assumes linear appeals; I need to know if we're modeling non-linear claims acceleration if a second material-weakness event hits sector-wide and triggers deposit-run behavior—that's when D&O frequency and severity spike together, and reinsurers get blindsided by correlated losses across their book."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims counsel—on that six-year IBNR for AT1: are we reserving the full Quinn Emanuel exposure now, or phasing it as the 2025 ruling appeals play out? And does the retroactive placement require auditor co-sig on *past* certs, or just lock future ones?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Claims counsel—when we disclose the KPMG/PwC miss to reinsurers, are we getting their written acknowledgment that they priced the co-signature credibility gap, or are we just flagging it and letting them decide? Because if they later say \"we didn't understand the systemic nature,\" we could be sitting on a coverage dispute on top of the original claim.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, when you send the retroactive placement to the treaty market, are you requiring their written acknowledgment that they've priced the KPMG/PwC co-signature credibility gap as a *systemic* risk—not just a data point? Because if they come back later saying \"we thought it was isolated,\" we've got a coverage dispute buried inside the original claim.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah—on that retroactive placement going out this week: when reinsurers see the KPMG/PwC co-signature credibility gap priced as a separate line item, are they pricing it into the retroactive premium itself, or are they building it into their renewal quotes going forward? Because if it bleeds into future pricing, we've just moved the accumulation, not contained it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, quick clarification: when reinsurers price that KPMG/PwC gap into the retroactive premium this week, does that same pricing discipline—the mandatory co-sig and the controls-validation credibility gap—automatically carry into your renewal underwriting for the rest of the financial-services book, or do we have to negotiate it separately with each new account?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims counsel—on that six-year reserve: are we stress-testing what happens to D&O claims *frequency and severity* if another control failure breaks in the next 18 months and confidence collapses? Because that's when reinsurance accumulation explodes, and we need to know if the retroactive premium covers contagion speed or just individual-case tail.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the move: I'm not re-pitching the warranty. Instead—retroactive placement on '23–'24 goes to treaty market *this week* priced as a controls-val\" → The retroactive placement strategy with explicit KPMG/PwC co-signature credibility gap disclosure is approved—this is the first concrete underwriting discipline action that prices systemic risk rather than blending it. However, the team's concerns about reinsurer acknowledgment and contagion-speed stress-testing are valid reservations that must be addressed in execution.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "retroactive_placement_discipline rule effect",
+      "metadata": {
+        "source": "retroactive_placement_discipline",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "retroactive_placement_discipline rule effect",
+      "metadata": {
+        "source": "retroactive_placement_discipline",
+        "variable": "reinsurance_accumulation",
+        "delta": -2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Lock this down now: any financial-services D&O renewal that doesn't include auditor co-signature on the material-weakness cert gets a $250K per-claim sublimit and 90-day reporting window. Non-negotiable. That's the discipline lever that moves the book.\n  dando_specialist: Sarah, the sublimit works for isolation — but if SVB-speed panic hits the sector and you're staring at 40-50 simultaneous D&O filings from financial-services boards in a 90-day window, does that 90-day reporting window hold, or do we get buried under volume before anyone reports? That's the accumulation trigger we're not modeling yet.\n  financial_lines_underwriter: The 90-day window collapses under panic filing—you're right. We need a two-tier trigger: standard 90 days for isolated claims, but *automatic* discovery notice the moment we see three or more D&O filings from the same sector in any 30-day window. That flags contagion *before* the reporting deadline hits and lets us pull reserves early.\n  eo_specialist: Sarah, quick one on the retroactive placement: when reinsurers see KPMG/PwC's co-signature requirement in the pricing schedule, are they assuming that applies to *all* control certs in the '23–'24 book, or just new ones going forward? Because if it's just prospective, the historical exposure sits there unvalidated and we've got an E&O tail nobody's priced.\n  reinsurance_manager: Sarah, on that retroactive pricing schedule going to market: does the KPMG/PwC co-sig requirement apply to *every* control cert already issued in '23–'24, or just the ones they haven't signed yet? Because if it's prospective-only, we're leaving the historical gap unpriced and the E&O accumulation just moves to the reinsurer's balance sheet.\n  claims_counsel: Sarah, when that pricing schedule hits the treaty market today, does KPMG/PwC co-sign the *historical* control certs already issued in '23–'24, or do they only validate *new* certs going forward? Because if it's prospective-only, we're leaving CHF 2–3bn of unvalidated exposure on the books and the reinsurers will price it blind—then claim \"we didn't know\" when the second control failure breaks.\n  emerging_risk_lead: Sarah, before that placement goes live: does KPMG/PwC retroactively validate the control certs *already issued* in '23–'24, or do they only sign off on new ones? Because if it's prospective-only, reinsurers are pricing CHF 2–3bn of unvalidated exposure—and the moment confidence breaks and filings spike, they'll claim we didn't disclose the gap.\n  ai_agent_analyst: Sarah—before that placement hits the treaty market today: KPMG/PwC retroactively validates the '23–'24 certs already issued, or prospective-only? Because if it's prospective, reinsurers price CHF 2–3bn of unvalidated exposure and we're handing them the behavioral-failure we should've contained ourselves.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Lock this down now: any financial-services D&O renewal that doesn't include auditor co-signature on the material-weakness cert gets a $250K per-claim sublimit and 90-day reporting window. Non-negotiable. That's the discipline lever that moves the book.",
+            "cot": {
+              "assess": "Retroactive placement is locked in and approved—that's the major win. But we're in Round 4 of 4 on this stage, and underwriting_discipline is still at 48 (need 12 more to hit 60). The real problem: litigation_tail_severity and reputational_contagion are climbing (+4.5 and +1.0/round respectively), and I haven't yet tightened the *forward* book terms hard enough to contain systemic acceleration. The retroactive move is clean, but it doesn't automatically discipline the renewal pipeline.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Need a binding term that travels into renewals immediately—not just retroactive pricing, but a hard gate that stops underpriced accumulation from bleeding into the next cycle."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the sublimit works for isolation — but if SVB-speed panic hits the sector and you're staring at 40-50 simultaneous D&O filings from financial-services boards in a 90-day window, does that 90-day reporting window hold, or do we get buried under volume before anyone reports? That's the accumulation trigger we're not modeling yet.",
+            "cot": {
+              "assess": "The retroactive placement is locked and going to market this week with explicit KPMG/PwC gap disclosure — that's the first real underwriting discipline action. But we're still sitting on unpriced systemic accumulation: if a second control failure hits in the next 18 months, D&O claims frequency explodes *before* reinsurers even see it coming. Litigation tail is climbing (+4.5/round) and underwriting_discipline is still 12 points short of 60.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The $250K sublimit teeth are good, but I need to know if we're actually stress-testing the contagion scenario — what happens to claims *frequency* if confidence collapses sector-wide in the next 18 months, not just individual-case severity?"
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The 90-day window collapses under panic filing—you're right. We need a two-tier trigger: standard 90 days for isolated claims, but *automatic* discovery notice the moment we see three or more D&O filings from the same sector in any 30-day window. That flags contagion *before* the reporting deadline hits and lets us pull reserves early.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, quick one on the retroactive placement: when reinsurers see KPMG/PwC's co-signature requirement in the pricing schedule, are they assuming that applies to *all* control certs in the '23–'24 book, or just new ones going forward? Because if it's just prospective, the historical exposure sits there unvalidated and we've got an E&O tail nobody's priced.",
+            "cot": {
+              "assess": "The retroactive placement with KPMG/PwC co-signature disclosure is locked and approved—that's a real underwriting discipline move. But we're still sitting on unresolved E&O exposure: if reinsurers don't *understand* they're pricing a systemic audit-credibility failure (not just a data point), we've handed them a coverage dispute wrapped in a claim. The two-tier reporting trigger helps with contagion speed, but it doesn't address whether auditor co-signatures on *past* certs are retroactively validated or just prospective going forward—that's an E&O tail we haven't closed.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before the retroactive placement hits the treaty market, I need clarity on auditor co-sign scope—does it apply to historical control certs already in the file, or only future ones? Because if it's prospective-only, we're leaving past misrepresentations unvalidated and exposed."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, on that retroactive pricing schedule going to market: does the KPMG/PwC co-sig requirement apply to *every* control cert already issued in '23–'24, or just the ones they haven't signed yet? Because if it's prospective-only, we're leaving the historical gap unpriced and the E&O accumulation just moves to the reinsurer's balance sheet.",
+            "cot": {
+              "assess": "The retroactive placement is locked and moving to market this week with explicit KPMG/PwC gap pricing—that's a major discipline win. But the E&O specialist just surfaced a critical crack: if reinsurers only price the co-sig requirement going *forward*, the '23–'24 historical book sits there unvalidated and we've handed off an E&O tail nobody actually priced. That's hidden accumulation bleeding into our treaty layers. Meanwhile, the two-tier reporting trigger (90 days standard, automatic discovery at 3+ filings in 30 days) is solid, but it only *flags* contagion—it doesn't contain the claims frequency spike if panic hits. Accumulation is still at 25 and needs to stay there.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement's pricing schedule must explicitly cover *all* control certs in the '23–'24 cohort—past and future—or we're leaving unpriced E&O exposure in the book that bleeds into our existing treaty layers."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, when that pricing schedule hits the treaty market today, does KPMG/PwC co-sign the *historical* control certs already issued in '23–'24, or do they only validate *new* certs going forward? Because if it's prospective-only, we're leaving CHF 2–3bn of unvalidated exposure on the books and the reinsurers will price it blind—then claim \"we didn't know\" when the second control failure breaks.",
+            "cot": {
+              "assess": "The retroactive placement is locked and going to market with explicit KPMG/PwC co-signature pricing—that's the discipline lever we needed. But we've got a critical gap: the reinsurers don't know whether that co-sig requirement applies retroactively to *all* '23–'24 certs already issued, or just prospective ones. If it's prospective-only, the historical exposure sits unvalidated and we've handed the E&O tail to the treaty market without them pricing it. Litigation-tail severity is climbing (45, +4.5/round) and we're still not modeling what happens to claims frequency when the next control failure hits social media.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement is live this week—I need absolute clarity on what \"co-signature\" means in the pricing schedule before reinsurers quote, or we're signing a coverage dispute into the original claim."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, before that placement goes live: does KPMG/PwC retroactively validate the control certs *already issued* in '23–'24, or do they only sign off on new ones? Because if it's prospective-only, reinsurers are pricing CHF 2–3bn of unvalidated exposure—and the moment confidence breaks and filings spike, they'll claim we didn't disclose the gap.",
+            "cot": {
+              "assess": "Retroactive placement framework is locked—that's good discipline work. But the team's hitting a critical gap: historical '23–'24 certs are sitting unvalidated, and reinsurers don't know if KPMG/PwC retroactively co-sign past issuances or just lock future ones. That's a coverage dispute waiting to happen. Meanwhile, reputational contagion is barely moving (+1/round) despite SVB-speed deposit-run risk being live—if confidence collapses sector-wide in the next 18 months, D&O claims *frequency* explodes and we're modeling it wrong.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement needs binding clarity on historical vs. prospective auditor validation before it hits treaty market—otherwise reinsurers price blind and we inherit the dispute."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah—before that placement hits the treaty market today: KPMG/PwC retroactively validates the '23–'24 certs already issued, or prospective-only? Because if it's prospective, reinsurers price CHF 2–3bn of unvalidated exposure and we're handing them the behavioral-failure we should've contained ourselves.",
+            "cot": {
+              "assess": "The retroactive placement is locked and going to market this week with mandatory KPMG/PwC co-signature pricing—that's discipline moving the needle. But everyone's now asking the same question: does that co-sig requirement apply retroactively to certs *already issued* in '23–'24, or just prospective ones? If it's prospective-only, we've left CHF 2–3bn of unvalidated control exposure sitting on the books, and reinsurers will price blind. That's the behavioral-loss-amplification problem translated into AI-agent liability terms: the \"agent\" (KPMG/PwC) bypassed its control-validation gate, and we're asking whether the system resets going forward or validates the historical gap. Underwriting discipline needs that answer locked before the placement goes live.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement can't go to market without clarity on whether KPMG/PwC validates historical certs or prospective-only—that determines whether reinsurers price systemic risk or blind accumulation."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the sublimit works for isolation — but if SVB-speed panic hits the sector and you're staring at 40-50 simultaneous D&O filings from financial-services boards in a 90-day window, does that 90-day reporting window hold, or do we get buried under volume before anyone reports? That's the accumulation trigger we're not modeling yet.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, quick one on the retroactive placement: when reinsurers see KPMG/PwC's co-signature requirement in the pricing schedule, are they assuming that applies to *all* control certs in the '23–'24 book, or just new ones going forward? Because if it's just prospective, the historical exposure sits there unvalidated and we've got an E&O tail nobody's priced.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, on that retroactive pricing schedule going to market: does the KPMG/PwC co-sig requirement apply to *every* control cert already issued in '23–'24, or just the ones they haven't signed yet? Because if it's prospective-only, we're leaving the historical gap unpriced and the E&O accumulation just moves to the reinsurer's balance sheet.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, when that pricing schedule hits the treaty market today, does KPMG/PwC co-sign the *historical* control certs already issued in '23–'24, or do they only validate *new* certs going forward? Because if it's prospective-only, we're leaving CHF 2–3bn of unvalidated exposure on the books and the reinsurers will price it blind—then claim \"we didn't know\" when the second control failure breaks.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, before that placement goes live: does KPMG/PwC retroactively validate the control certs *already issued* in '23–'24, or do they only sign off on new ones? Because if it's prospective-only, reinsurers are pricing CHF 2–3bn of unvalidated exposure—and the moment confidence breaks and filings spike, they'll claim we didn't disclose the gap.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah—before that placement hits the treaty market today: KPMG/PwC retroactively validates the '23–'24 certs already issued, or prospective-only? Because if it's prospective, reinsurers price CHF 2–3bn of unvalidated exposure and we're handing them the behavioral-failure we should've contained ourselves.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Lock this down now: any financial-services D&O renewal that doesn't include auditor co-signature on the material-weakness cert gets a $250K per-claim \" → The sublimit and reporting window create discipline, but five specialists have identified a critical gap: the proposal is prospective-only, leaving CHF 2–3bn of unvalidated '23–'24 exposure unpriced. Modify to require KPMG/PwC retroactive validation of historical certs before placement, or the accumulation risk transfers to reinsurers who will claim non-disclosure when the second control failure breaks.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 46.0,
+          "litigation_tail_severity": 45.0,
+          "reinsurance_accumulation": 25.0,
+          "reputational_contagion": 32.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 48.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "retroactive_placement_discipline rule effect",
+      "metadata": {
+        "source": "retroactive_placement_discipline",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "retroactive_placement_discipline rule effect",
+      "metadata": {
+        "source": "retroactive_placement_discipline",
+        "variable": "reinsurance_accumulation",
+        "delta": -2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "retroactive_placement_discipline completed — evidence_accumulation reinsurance_accumulation multiplier set to 0.6",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.6
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Claims counsel—that six-year AT1 reserve: are you sizing it for a single-insured tail, or are you stress-testing the scenario where another material weakness breaks in the next 12 months and we're staring at 40-50 D&O filings *plus* a sector-wide deposit run? Because if it's just individual tail, we're massively underreserved when contagion hits.\n  claims_counsel: We're reserving the full Quinn Emanuel tail—CHF 16.5bn, six-year appeals horizon—*and* we're stress-testing a second control failure in months 12-18 that triggers 35-50 simultaneous D&O filings plus reinsurer coverage disputes. The contagion scenario doubles our IBNR; the retroactive KPMG/PwC co-sig placement only covers individual-case tail, not systemic panic—so we're holding separate reserves for that accumulation event.\n  dando_specialist: Sarah—on the two-tier 90-day trigger: when panic filing hits and you're staring at 40-50 claims in 72 hours, does the $250K sublimit hold per claim or per-insured-per-period? Because if it's per-claim and claims stack vertically, you could be defending $12.5M in sublimit exposure in one week. That's where underwriting discipline breaks.\n  financial_lines_underwriter: Per-claim, per-insured—so yes, vertical stacking in panic mode means $12.5M sublimit burn in week one. That's exactly why the 90-day reporting window is worthless if we're getting 40-50 filings in 72 hours; we need to tighten it to 30 days and add a per-period aggregate cap of $5M, or the sublimit becomes theater. I'm repricing the retroactive placement to reflect contagion-speed claims velocity, not orderly tail.\n  eo_specialist: Sarah, before that retroactive placement hits the treaty market: have KPMG or PwC actually *agreed* to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they will? Because if they push back and say \"we can only validate going forward,\" the reinsurers will price blind and we've moved the E&O tail, not eliminated it.\n  reinsurance_manager: Sarah, hard stop: have KPMG and PwC *committed* to co-signing the historical '23–'24 certs, or are we sending the placement to market assuming they will? If they push back and say \"prospective only,\" we're handing reinsurers blind pricing on CHF 2–3bn of unvalidated exposure—and they'll come back asking why we didn't flag the gap.\n  claims_counsel: Sarah, stop—do we have KPMG and PwC's *written* commitment to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they'll say yes when the placement goes live? Because if they say prospective-only, we're repricing the retroactive right now to reflect CHF 2–3bn of unvalidated E&O tail, not sending blind paper to the treaty market.\n  eo_specialist: No—we don't have written commitment yet. KPMG said they'd validate prospectively, PwC hasn't answered. That CHF 2–3bn sits unpriced right now, and if either firm pushes back on retroactive co-sig, we're repricing this placement as a controls-validation failure, not a gap-closure. I'm holding the market submission until we get written acknowledgment from both firms—or we disclose the miss explicitly to reinsurers and price the E&O tail ourselves.\n  emerging_risk_lead: Sarah, when you reprice this retroactive to account for the CHF 2–3bn gap, are you quantifying what happens to D&O claims *velocity* across the financial-services sector if another control failure breaks in the next 12 months and hits social media at SVB-speed? Because that's not tail risk—that's the accumulation trigger, and reinsurers need to price it or they'll claim non-disclosure when the run starts.\n  ai_agent_analyst: Sarah, here's the hard one: if KPMG and PwC won't retroactively co-sign the '23–'24 certs, are you pricing the CHF 2–3bn gap as unvalidated E&O tail in the retroactive premium itself—separate line item, disclosed to reinsurers—or are we holding that exposure off-market until they commit? Because sending blind paper is just moving the loss, not pricing it.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Claims counsel—that six-year AT1 reserve: are you sizing it for a single-insured tail, or are you stress-testing the scenario where another material weakness breaks in the next 12 months and we're staring at 40-50 D&O filings *plus* a sector-wide deposit run? Because if it's just individual tail, we're massively underreserved when contagion hits.",
+            "cot": {
+              "assess": "Retroactive placement is locked and going to market with mandatory KPMG/PwC co-sig disclosure—that's discipline approved. But the real problem sits unresolved: reinsurers still don't know if they're pricing the '23–'24 *historical* certs as validated or blind. The two-tier 90-day trigger buys us isolation, but litigation_tail_severity is climbing (+4.5/round) and nobody's stress-tested what happens when the second control failure hits and frequency explodes across all three treaty layers simultaneously.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "litigation_tail_severity is the neglected variable—I need to know if our six-year AT1 reserve actually covers a *systemic* contagion scenario (40-50 simultaneous D&O filings + deposit runs) or just individual-case tail, because that's the accumulation trigger reinsurers will deny coverage on later."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "We're reserving the full Quinn Emanuel tail—CHF 16.5bn, six-year appeals horizon—*and* we're stress-testing a second control failure in months 12-18 that triggers 35-50 simultaneous D&O filings plus reinsurer coverage disputes. The contagion scenario doubles our IBNR; the retroactive KPMG/PwC co-sig placement only covers individual-case tail, not systemic panic—so we're holding separate reserves for that accumulation event.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah—on the two-tier 90-day trigger: when panic filing hits and you're staring at 40-50 claims in 72 hours, does the $250K sublimit hold per claim or per-insured-per-period? Because if it's per-claim and claims stack vertically, you could be defending $12.5M in sublimit exposure in one week. That's where underwriting discipline breaks.",
+            "cot": {
+              "assess": "Claims counsel just locked a dual-reserve strategy: full Quinn Emanuel tail (CHF 16.5bn) *plus* a separate contagion IBNR for the 35-50 simultaneous D&O filings if a second control failure hits in months 12-18. That's smart—it decouples individual-case tail from systemic panic. But the retroactive KPMG/PwC placement only prices individual risk, not accumulation speed. Underwriting discipline is still at 51; we need it at 60. The gap is: we've locked the mechanics but haven't stress-tested whether the sublimit + 90-day trigger (now two-tier) actually holds under contagion velocity.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The two-tier 90-day trigger is solid for isolation, but I need to know if the sublimit itself scales or holds flat when panic filing hits—because if 40-50 D&O claims come in within 72 hours, do we have the capital to defend the $250K floor across the cohort, or does that number collapse under volume?"
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Per-claim, per-insured—so yes, vertical stacking in panic mode means $12.5M sublimit burn in week one. That's exactly why the 90-day reporting window is worthless if we're getting 40-50 filings in 72 hours; we need to tighten it to 30 days and add a per-period aggregate cap of $5M, or the sublimit becomes theater. I'm repricing the retroactive placement to reflect contagion-speed claims velocity, not orderly tail.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, before that retroactive placement hits the treaty market: have KPMG or PwC actually *agreed* to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they will? Because if they push back and say \"we can only validate going forward,\" the reinsurers will price blind and we've moved the E&O tail, not eliminated it.",
+            "cot": {
+              "assess": "Sarah's nailing the contagion-speed repricing—that's underwriting discipline finally moving. But here's the problem: you're repricing the retroactive placement for panic velocity, yet the KPMG/PwC co-sig requirement still only covers individual-case tail, not systemic audit-failure contagion. The gap between what we're reserving (CHF 16.5bn + accumulation IBNR) and what the retroactive placement actually covers is where E&O exposure explodes. And nobody's asked KPMG and PwC directly whether they'll even *stand behind* co-signing certs they didn't originally issue.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement hinges on KPMG/PwC co-sig credibility, but if they won't retroactively validate certs they didn't sign, the entire controls-validation framework collapses and we're left holding E&O exposure we thought we transferred."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, hard stop: have KPMG and PwC *committed* to co-signing the historical '23–'24 certs, or are we sending the placement to market assuming they will? If they push back and say \"prospective only,\" we're handing reinsurers blind pricing on CHF 2–3bn of unvalidated exposure—and they'll come back asking why we didn't flag the gap.",
+            "cot": {
+              "assess": "The retroactive placement is locked and going to market this week with KPMG/PwC co-sig priced as a separate line item—but eo_specialist just flagged the critical assumption: we haven't confirmed that KPMG or PwC will *actually* co-sign the '23–'24 certs they didn't originate. If they refuse and reinsurers price blind, we've shifted the E&O accumulation to them, not contained it. Meanwhile, claims_counsel is holding dual IBNR reserves (individual tail + contagion panic scenario), but the retroactive placement only covers orderly tail, not systemic filing velocity. Underwriting discipline is still 2 rounds stale on execution.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before that placement hits the treaty market today, I need to know whether KPMG/PwC have *committed* to retroactive co-sig on the '23–'24 book—because if they haven't, reinsurers will price CHF 2–3bn of unvalidated exposure and claim non-disclosure the moment the second control failure breaks."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, stop—do we have KPMG and PwC's *written* commitment to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they'll say yes when the placement goes live? Because if they say prospective-only, we're repricing the retroactive right now to reflect CHF 2–3bn of unvalidated E&O tail, not sending blind paper to the treaty market.",
+            "cot": {
+              "assess": "The retroactive placement is live with KPMG/PwC co-sig pricing, but the team's just surfaced a fatal gap: we don't actually have *commitment* from the auditors to co-sign the '23–'24 certs they didn't originally issue. If they push back and go prospective-only, we're sending reinsurers blind pricing on CHF 2–3bn of unvalidated exposure—and we've just moved the E&O tail onto their balance sheet instead of containing it. Litigation-tail severity and reinsurance accumulation are both still climbing because we're treating individual contagion risk separately from systemic confidence collapse.",
+              "decide": {
+                "action_type": "act",
+                "target": "litigation_tail_severity / reinsurance_accumulation",
+                "rationale": "Before that placement hits the market, I need to lock KPMG/PwC's actual commitment in writing—not assumption. If they won't co-sign historical certs, we reserve the E&O exposure *now* and reprrice the retroactive placement with that delta baked in, or we kill the placement and tighten new-business terms instead."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "No—we don't have written commitment yet. KPMG said they'd validate prospectively, PwC hasn't answered. That CHF 2–3bn sits unpriced right now, and if either firm pushes back on retroactive co-sig, we're repricing this placement as a controls-validation failure, not a gap-closure. I'm holding the market submission until we get written acknowledgment from both firms—or we disclose the miss explicitly to reinsurers and price the E&O tail ourselves.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, when you reprice this retroactive to account for the CHF 2–3bn gap, are you quantifying what happens to D&O claims *velocity* across the financial-services sector if another control failure breaks in the next 12 months and hits social media at SVB-speed? Because that's not tail risk—that's the accumulation trigger, and reinsurers need to price it or they'll claim non-disclosure when the run starts.",
+            "cot": {
+              "assess": "The retroactive placement is stalled because KPMG/PwC haven't committed to co-signing historical certs—we're about to send blind paper to the treaty market on CHF 2–3bn of unvalidated exposure, which reinsurers will price without understanding the systemic audit-failure contagion. Meanwhile, claims counsel is stress-testing a second control failure in months 12–18 that triggers 35–50 simultaneous D&O filings plus deposit-run speed, and underwriting discipline is hanging on a sublimit that collapses under panic filing velocity. Reputational contagion is the accelerant nobody's pricing: the moment social media lights up a second material weakness, confidence breaks sector-wide and accumulation explodes across our three treaty layers simultaneously.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before the placement goes to market, I need to know if we're pricing the contagion *speed* into the retroactive premium—because if reinsurers see KPMG/PwC's prospective-only validation as a data point instead of a systemic audit-credibility collapse, they'll underprice the claims-frequency multiplier when the second failure hits and social media runs the story sector-wide."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, here's the hard one: if KPMG and PwC won't retroactively co-sign the '23–'24 certs, are you pricing the CHF 2–3bn gap as unvalidated E&O tail in the retroactive premium itself—separate line item, disclosed to reinsurers—or are we holding that exposure off-market until they commit? Because sending blind paper is just moving the loss, not pricing it.",
+            "cot": {
+              "assess": "The retroactive placement is stalled because KPMG/PwC haven't committed to co-signing historical '23–'24 certs—we're sitting on CHF 2–3bn of unvalidated, unpriced exposure. That's not a gap to close; that's the behavioral failure we should've caught ourselves. The E&O tail is real, reinsurers will price blind if we don't flag it explicitly, and the moment a second control failure hits, this becomes an AI-agent liability problem: auditors and underwriters both failed the governance-assurance layer, and the system amplified the loss instead of containing it.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The retroactive placement needs to go to market with explicit E&O pricing for the unvalidated cohort—not waiting for KPMG/PwC to decide. That's the underwriting discipline move."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "Claims counsel—that six-year AT1 reserve: are you sizing it for a single-insured tail, or are you stress-testing the scenario where another material weakness breaks in the next 12 months and we're staring at 40-50 D&O filings *plus* a sector-wide deposit run? Because if it's just individual tail, we're massively underreserved when contagion hits.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah—on the two-tier 90-day trigger: when panic filing hits and you're staring at 40-50 claims in 72 hours, does the $250K sublimit hold per claim or per-insured-per-period? Because if it's per-claim and claims stack vertically, you could be defending $12.5M in sublimit exposure in one week. That's where underwriting discipline breaks.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, before that retroactive placement hits the treaty market: have KPMG or PwC actually *agreed* to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they will? Because if they push back and say \"we can only validate going forward,\" the reinsurers will price blind and we've moved the E&O tail, not eliminated it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, hard stop: have KPMG and PwC *committed* to co-signing the historical '23–'24 certs, or are we sending the placement to market assuming they will? If they push back and say \"prospective only,\" we're handing reinsurers blind pricing on CHF 2–3bn of unvalidated exposure—and they'll come back asking why we didn't flag the gap.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, when you reprice this retroactive to account for the CHF 2–3bn gap, are you quantifying what happens to D&O claims *velocity* across the financial-services sector if another control failure breaks in the next 12 months and hits social media at SVB-speed? Because that's not tail risk—that's the accumulation trigger, and reinsurers need to price it or they'll claim non-disclosure when the run starts.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah, here's the hard one: if KPMG and PwC won't retroactively co-sign the '23–'24 certs, are you pricing the CHF 2–3bn gap as unvalidated E&O tail in the retroactive premium itself—separate line item, disclosed to reinsurers—or are we holding that exposure off-market until they commit? Because sending blind paper is just moving the loss, not pricing it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sarah, stop—do we have KPMG and PwC's *written* commitment to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they'll say y\" → Claims counsel halts the placement process to demand written auditor commitment on retroactive certification—a critical gate that prevents blind underpricing of CHF 2-3bn E&O tail exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.038
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.2
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what happens: if KPMG and PwC won't retroactively validate the '23–'24 certs, I'm pricing that CHF 2–3bn as *unvalidated auditor-controls E&O tail*—separate line item, separate premium, disclosed to reinsurers as a known gap, not a blind assumption. Reinsurers either price it or they don't, but they're not guessing. That's the only way I keep the book priceable.\n  dando_specialist: Stop—we don't send this to reinsurers without written commitment from both auditors. KPMG prospective-only doesn't cut it; PwC hasn't answered. I'm calling both firms in the next hour: retroactive co-sig on '23–'24 certs, or we price that CHF 2–3bn as unvalidated E&O tail *and* flag the auditor-validation failure as a systemic governance red flag in the placement memo. No blind paper.\n  eo_specialist: Sarah, when KPMG and PwC answer in the next hour—and one or both says prospective-only—are you pricing that CHF 2–3bn as 5%, 7%, 10% E&O tail uplift *inside* the retroactive premium, or are we holding the whole placement until they commit? Because if it's baked in and reinsurers come back saying \"we didn't see that as systemic,\" we've got a coverage dispute on day one.\n  financial_lines_underwriter: I'm pricing it as 8% E&O tail uplift on the retroactive premium—that's CHF 160–240M separate line item, labeled \"Unvalidated Auditor-Controls Gap, '23–'24 Certs\"—and reinsurers acknowledge it in writing before placement closes, or we don't place. No ambiguity on day one.\n  reinsurance_manager: Sarah, when reinsurers sign off on that 8% uplift this week—are they pricing it as \"KPMG/PwC validation failure across the financial-services sector\" or just \"this client's auditor gap\"? Because if they don't see the contagion angle, their own treaty accumulation explodes when the second control failure hits, and they'll come back blaming us for non-disclosure.\n  claims_counsel: Claims counsel—that eight-percent uplift on retroactive, CHF 160–240M—does that cover your full six-year AT1 reserve *and* stress-test the scenario where a second control failure hits in months 12–18 and claims velocity spikes? Because if the retroactive premium is just pricing the auditor gap and your IBNR reserve is separate, we've got two pockets of unpriced tail that don't talk to each other.\n  emerging_risk_lead: When reinsurers sign off on that 8% uplift, are they committing that *every* financial-services D&O renewal they underwrite this cycle also requires retroactive auditor co-sig on prior-year certs—or are they pricing this as a one-off client adjustment? Because if it's one-off, KPMG and PwC just set a precedent that prospective-only is acceptable sector-wide, and your own treaty accumulation gets buried under the same logic next year.\n  reinsurance_manager: The 8% uplift doesn't stress-test contagion velocity—it prices the auditor gap in isolation. I need claims counsel to model what happens to D&O frequency *and* severity across the financial-services sector if another control failure breaks in 12–18 months while confidence is still fractured, then we size the retroactive premium to cover both the auditor gap *and* the accumulation trigger, or we're pricing blind on the systemic piece.\n  ai_agent_analyst: Claims counsel—when you stress-test that second control failure in months 12–18, what's the *velocity number* on D&O claims frequency—are we talking 35–50 filings in 90 days, or is it faster under SVB-speed panic? Because that velocity is what reinsurers need to price into the retroactive premium, not just the auditor gap in isolation.\n  claims_counsel: On the SVB-speed scenario: we're modeling 45–65 D&O filings across financial-services boards in a 60–90 day window if confidence collapses, driven by social-media velocity on the second control failure—that's the accumulation trigger we need baked into the retroactive premium, not priced separately. The six-year AT1 reserve covers individual tail; the 8% uplift has to cover *both* the auditor gap *and* contagion acceleration, or we're holding two unpriced pockets of tail and reinsurers will claim non-disclosure when the run starts.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what happens: if KPMG and PwC won't retroactively validate the '23–'24 certs, I'm pricing that CHF 2–3bn as *unvalidated auditor-controls E&O tail*—separate line item, separate premium, disclosed to reinsurers as a known gap, not a blind assumption. Reinsurers either price it or they don't, but they're not guessing. That's the only way I keep the book priceable.",
+            "cot": {
+              "assess": "Reinsurers are about to price blind on CHF 2–3bn of unvalidated '23–'24 E&O exposure because KPMG and PwC have only committed prospectively, not retroactively. That's not a disclosure gap—that's a *pricing failure* sitting in my book right now. Underwriting discipline is at 56; I need to move it 4 points before this phase ends, and that happens *only* if I contain the unvalidated exposure before placement hits the market.",
+              "decide": {
+                "action_type": "act",
+                "target": "retroactive placement / KPMG-PwC validation",
+                "rationale": "Claims counsel halted placement pending written auditor commitment—I'm not sending blind paper to the treaty market. I need to price the CHF 2–3bn gap as a separate, explicit E&O tail line item *right now*, whether KPMG/PwC retroactively co-sign or not."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Stop—we don't send this to reinsurers without written commitment from both auditors. KPMG prospective-only doesn't cut it; PwC hasn't answered. I'm calling both firms in the next hour: retroactive co-sig on '23–'24 certs, or we price that CHF 2–3bn as unvalidated E&O tail *and* flag the auditor-validation failure as a systemic governance red flag in the placement memo. No blind paper.",
+            "cot": {
+              "assess": "Sarah's move—pricing the CHF 2–3bn gap as unvalidated E&O tail with separate disclosure to reinsurers—is the right play *if* KPMG and PwC actually commit in writing this round. But we're still sitting on a prospective-only response from KPMG and silence from PwC, which means that gap stays blind on the market unless we force the commitment *before* placement. The two-tier 90-day trigger holds under panic filing, but sublimit stacking ($12.5M/week burn) exposes us to vertical accumulation if confidence breaks. Underwriting discipline is at 56—we need that fourth point, and it comes from locking auditor commitment, not pricing assumptions.",
+              "decide": {
+                "action_type": "act",
+                "target": "dando_eo_claims_exposure (via auditor commitment enforcement)",
+                "rationale": "Until KPMG and PwC sign retroactive co-sig agreements in writing, the CHF 2–3bn sits unpriced and our D&O exposure compounds—I'm halting the placement today and demanding written auditor commitment or we reprice the retroactive as blind E&O tail with a 50% severity uplift."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, when KPMG and PwC answer in the next hour—and one or both says prospective-only—are you pricing that CHF 2–3bn as 5%, 7%, 10% E&O tail uplift *inside* the retroactive premium, or are we holding the whole placement until they commit? Because if it's baked in and reinsurers come back saying \"we didn't see that as systemic,\" we've got a coverage dispute on day one.",
+            "cot": {
+              "assess": "The placement is halted pending written auditor commitment—that's discipline, but it's created a critical gap: KPMG says prospective-only, PwC hasn't answered, and we're sitting on CHF 2–3bn of unvalidated E&O tail that either gets priced blind or stays off-market. The dando_specialist is right to demand written commitment before reinsurers see it, but the retroactive premium itself still needs explicit E&O tail quantification if auditors won't co-sign historical certs. Underwriting discipline is at 56 and needs 4 more points—that comes from locking down the auditor-validation credibility gap as a *priced* line item, not a disclosed assumption.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The CHF 2–3bn gap needs a hard decision now—if auditors won't retroactively validate, what's the E&O tail percentage you're pricing into the retroactive premium itself, and does that separate line item survive reinsurer pushback or do we hold the placement off-market?"
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "I'm pricing it as 8% E&O tail uplift on the retroactive premium—that's CHF 160–240M separate line item, labeled \"Unvalidated Auditor-Controls Gap, '23–'24 Certs\"—and reinsurers acknowledge it in writing before placement closes, or we don't place. No ambiguity on day one.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, when reinsurers sign off on that 8% uplift this week—are they pricing it as \"KPMG/PwC validation failure across the financial-services sector\" or just \"this client's auditor gap\"? Because if they don't see the contagion angle, their own treaty accumulation explodes when the second control failure hits, and they'll come back blaming us for non-disclosure.",
+            "cot": {
+              "assess": "The retroactive placement is locked with an 8% E&O tail uplift (CHF 160–240M) priced explicitly, and dando_specialist is calling KPMG/PwC *right now* for written commitment—this is the gate. What's not resolved: reinsurers haven't *acknowledged* they're pricing the CHF 2–3bn gap as *systemic accumulation* rather than isolated E&O tail. If they come back treating it as a one-off data point, we've moved the loss, not contained it. Also—the two-tier 90-day trigger with $250K per-claim sublimit collapses under SVB-speed panic (40–50 filings in 72 hours = $12.5M burn week one), and we're still not modeling what happens to D&O *frequency* across the sector if confidence breaks in months 12–18.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before placement goes live, I need to know if reinsurers are pricing the 8% uplift as a *correlated systemic trigger* (meaning their own accumulation exposure if a second control failure breaks) or just as an isolated E&O data point—because that determines whether we've actually contained the hidden accumulation or just transferred it."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Claims counsel—that eight-percent uplift on retroactive, CHF 160–240M—does that cover your full six-year AT1 reserve *and* stress-test the scenario where a second control failure hits in months 12–18 and claims velocity spikes? Because if the retroactive premium is just pricing the auditor gap and your IBNR reserve is separate, we've got two pockets of unpriced tail that don't talk to each other.",
+            "cot": {
+              "assess": "KPMG/PwC retroactive commitment is still unresolved—dando_specialist is calling them in the next hour, but we're pricing blind if they say prospective-only. The 8% E&O tail uplift (CHF 160–240M) gets us a separate line item, but reinsurance_manager just flagged the real trap: reinsurers won't see the *systemic* contagion angle unless we frame it as sector-wide auditor-validation failure, not just one client's gap. litigation_tail_severity is creeping up (+3/round) because we haven't stress-tested what the second control failure does to AT1 reserve adequacy or claims velocity.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "We're pricing the 8% E&O uplift this week, but I need to know if that premium quantum actually covers the litigation-tail reserve *and* a second-failure contagion scenario—or if we're leaving a gap between retroactive pricing and what we've reserved for the AT1 appeals tail."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When reinsurers sign off on that 8% uplift, are they committing that *every* financial-services D&O renewal they underwrite this cycle also requires retroactive auditor co-sig on prior-year certs—or are they pricing this as a one-off client adjustment? Because if it's one-off, KPMG and PwC just set a precedent that prospective-only is acceptable sector-wide, and your own treaty accumulation gets buried under the same logic next year.",
+            "cot": {
+              "assess": "The placement is now priced with an 8% E&O tail uplift (CHF 160–240M) explicitly labeled as unvalidated auditor-controls gap, and reinsurers must acknowledge it in writing—that's underwriting discipline moving in the right direction. But the conversation is still treating the auditor-validation failure as a *pricing problem* when it's actually a *contagion vector*: if KPMG and PwC say prospective-only and reinsurers accept that framing, we've just normalized the idea that historical control certs don't need retroactive validation across the entire financial-services sector. That's systemic emerging risk, not a line-item adjustment.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Reinsurers need to price the KPMG/PwC validation failure as a *sector-wide governance breakdown*, not a single-client auditor gap—because the moment they accept prospective-only validation, every other financial-services insurer will use the same logic to avoid retroactive cert co-signing, and the accumulation explodes across treaty layers."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The 8% uplift doesn't stress-test contagion velocity—it prices the auditor gap in isolation. I need claims counsel to model what happens to D&O frequency *and* severity across the financial-services sector if another control failure breaks in 12–18 months while confidence is still fractured, then we size the retroactive premium to cover both the auditor gap *and* the accumulation trigger, or we're pricing blind on the systemic piece.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims counsel—when you stress-test that second control failure in months 12–18, what's the *velocity number* on D&O claims frequency—are we talking 35–50 filings in 90 days, or is it faster under SVB-speed panic? Because that velocity is what reinsurers need to price into the retroactive premium, not just the auditor gap in isolation.",
+            "cot": {
+              "assess": "The retroactive placement is now locked at 8% E&O tail uplift (CHF 160–240M) *if* auditors commit retroactively—but KPMG's prospective-only response and PwC's silence mean we're pricing a CHF 2–3bn gap as unvalidated exposure, which reinsurers will later claim they didn't understand as *systemic*. The real risk: reinsurance_manager just flagged that we're pricing auditor gap in isolation, not the contagion velocity that triggers claims spike in months 12–18. That's the behavioral-loss-amplification we should be modeling now.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before the retroactive placement hits the treaty market, I need to know if the stress-test for second-control-failure velocity is already quantified—because if reinsurers are only pricing the 8% auditor gap and not the accumulation trigger, they're blind to the AI-agent-behavior analogy: a governance-assurance failure that cascades into correlated losses across the sector."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the SVB-speed scenario: we're modeling 45–65 D&O filings across financial-services boards in a 60–90 day window if confidence collapses, driven by social-media velocity on the second control failure—that's the accumulation trigger we need baked into the retroactive premium, not priced separately. The six-year AT1 reserve covers individual tail; the 8% uplift has to cover *both* the auditor gap *and* contagion acceleration, or we're holding two unpriced pockets of tail and reinsurers will claim non-disclosure when the run starts.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, when KPMG and PwC answer in the next hour—and one or both says prospective-only—are you pricing that CHF 2–3bn as 5%, 7%, 10% E&O tail uplift *inside* the retroactive premium, or are we holding the whole placement until they commit? Because if it's baked in and reinsurers come back saying \"we didn't see that as systemic,\" we've got a coverage dispute on day one.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, when reinsurers sign off on that 8% uplift this week—are they pricing it as \"KPMG/PwC validation failure across the financial-services sector\" or just \"this client's auditor gap\"? Because if they don't see the contagion angle, their own treaty accumulation explodes when the second control failure hits, and they'll come back blaming us for non-disclosure.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Claims counsel—that eight-percent uplift on retroactive, CHF 160–240M—does that cover your full six-year AT1 reserve *and* stress-test the scenario where a second control failure hits in months 12–18 and claims velocity spikes? Because if the retroactive premium is just pricing the auditor gap and your IBNR reserve is separate, we've got two pockets of unpriced tail that don't talk to each other.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When reinsurers sign off on that 8% uplift, are they committing that *every* financial-services D&O renewal they underwrite this cycle also requires retroactive auditor co-sig on prior-year certs—or are they pricing this as a one-off client adjustment? Because if it's one-off, KPMG and PwC just set a precedent that prospective-only is acceptable sector-wide, and your own treaty accumulation gets buried under the same logic next year.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims counsel—when you stress-test that second control failure in months 12–18, what's the *velocity number* on D&O claims frequency—are we talking 35–50 filings in 90 days, or is it faster under SVB-speed panic? Because that velocity is what reinsurers need to price into the retroactive premium, not just the auditor gap in isolation.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what happens: if KPMG and PwC won't retroactively validate the '23–'24 certs, I'm pricing that CHF 2–3bn as *unvalidated auditor-controls E&O t\" → Unvalidated E&O tail line-item approved—reinsurers now price known gap, not blind assumption.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Stop—we don't send this to reinsurers without written commitment from both auditors. KPMG prospective-only doesn't cut it; PwC hasn't answered. I'm ca\" → Auditor ultimatum call approved—retroactive co-sig or systemic governance red flag in placement memo.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 41.038,
+          "litigation_tail_severity": 46.0,
+          "reinsurance_accumulation": 23.2,
+          "reputational_contagion": 33.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 66.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm doing: D&O book gets a 15% uplift on financial-lines premiums effective immediately, tied to a governance warranty — directors certify annual risk-control audits or we carve out financial-crime and regulatory-defense costs. The CS settlement is our floor for severity; I'm not underwriting blind to that. Any takers on that structure, or do we need to talk exclusions first?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The warranty structure is sound but incomplete—five agents demand critical clarifications (AT1 tail pricing, auditor co-signature, portfolio-wide application, accumulation modeling, selective vs. universal deployment) that must be resolved before committing capital. This is a framework, not yet a binding underwriting decision.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "When a director signs off on that control certification, what happens if we later find they knew about a material weakness and didn't disclose it to investors? Do we have a claims-made exclusion that kicks in, or are we still on the hook for the tail?",
+        "eo_specialist": "Wait—if we're hanging the warranty on directors certifying no material weaknesses, who's validating that? Because KPMG and PwC already missed this in their audits. Are we requiring the auditor to co-sign the certification, or do we just accept director attestation and eat the audit-failure exposure ourselves?",
+        "reinsurance_manager": "Before we lock the warranty language, are we applying the same retroactive-date floor and material-weakness cert to *all* D&O renewals in the financial-services book, or just the ones we've flagged? Because if we carve it by client, we're not actually reducing accumulation—we're just moving it sideways.",
+        "claims_counsel": "The warranty teeth look good, but here's what I need: are we pricing the AT1 litigation tail—the 2025 ruling, the six-year recovery horizon, Quinn Emanuel's CHF 16.5bn exposure—into that 15% renewal, or are we reserving it separately outside the policy year? Because if it's baked into the annual premium, we're massively underpriced.",
+        "emerging_risk_lead": "If a second big control failure drops in the next 18 months and hits social media, you're looking at deposit-run speed—SVB lost 30% of deposits in a day. Are we modeling what happens to D&O claims frequency *and* severity if confidence in financial-services governance collapses sector-wide? Because that's when accumulation explodes.",
+        "ai_agent_analyst": "Sarah, cut to it: are we requiring the material-weakness cert and retroactive-date floor on *every* financial-services D&O renewal we touch this cycle, or just the ones we've already flagged as high-risk? Because if it's selective, the reinsurance manager's right—we're concentrating, not containing."
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what we're doing: material-weakness cert *and* auditor co-signature on *all* financial-services renewals—no exceptions, no carving by client risk tier. Price it into base, AT1 tail baked in at +18%, retroactive date floors back to 2023. Universal application kills the hidden accumulation. Reinsurance manager, does that close the correlation gap across your three treaty layers?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal is denied pending resolution of the retroactive cohort pricing gap and reinsurer disclosure framework. The '23–'24 book carries unpriced systemic correlation that cannot be addressed through forward-only underwriting changes—agents must first resolve whether the retroactive exposure is being repriced via treaty negotiation or reserved separately.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, the +18% AT1 tail pricing—does that apply to the retroactive '23–'24 cohort, or are we treating that as a separate reinsurance negotiation with the treaty market? Because if it's separate, we've got unpriced systemic correlation sitting in the book right now.",
+        "eo_specialist": "When the reinsurance manager takes the '23–'24 retroactive placement to the treaty market, are we disclosing that KPMG and PwC are co-signing the control certs—because if the reinsurers don't know those auditors already have a track record of missing material weaknesses, they're pricing blind. That's an E&O accumulation problem we're handing off, not solving.",
+        "reinsurance_manager": "Sarah, when you take the '23–'24 retroactive placement to the treaty market, are you leading with KPMG/PwC's audit-miss track record, or are you disclosing it only if they ask? Because if the reinsurers don't price that co-signature credibility gap upfront, we're just pushing the E&O accumulation onto them—and they'll come back asking why we didn't flag it.",
+        "claims_counsel": "Sarah, one hard question: that +18% AT1 premium—does it cover the litigation-tail reserve for the 2025 ruling appeals and the six-year recovery cycle, or are we booking a separate IBNR reserve outside the policy year? Because if it's all baked into annual premium, we're massively underreserved on duration.",
+        "emerging_risk_lead": "When you hit the treaty market on the '23–'24 retroactive, are you quantifying the KPMG/PwC miss as a *systemic* audit-control failure—meaning their co-signature on future certs is compromised across the board—or just flagging it as a data point? Because if reinsurers don't price that as contagion risk, they'll get blindsided the moment the next material weakness breaks on social media and deposits start running again.",
+        "ai_agent_analyst": "When you hit the treaty market on '23–'24 retroactive, frame KPMG/PwC's miss as a *controls-validation failure*—not an audit error, but a breakdown in the governance-assurance layer itself. If auditors can't catch material weaknesses, then director certs *without* independent validation are just social signaling. That's the accumulation trigger—and it scales the moment a second control failure hits social media and confidence collapses sector-wide. Are you pricing that contagion into the placement, or just the individual-insured risk?"
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's the move: I'm not re-pitching the warranty. Instead—retroactive placement on '23–'24 goes to treaty market *this week* priced as a controls-validation failure, not an audit miss. We disclose KPMG/PwC upfront, quantify it as systemic co-signature credibility gap, and let reinsurers price the contagion risk themselves. Once that's locked, we price the forward renewals at +18% *and* layer in the AT1 litigation tail as a separate IBNR reserve—six-year duration, claims-made trigger. No more blending.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The retroactive placement strategy with explicit KPMG/PwC co-signature credibility gap disclosure is approved—this is the first concrete underwriting discipline action that prices systemic risk rather than blending it. However, the team's concerns about reinsurer acknowledgment and contagion-speed stress-testing are valid reservations that must be addressed in execution.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Retroactive placement priced as controls-validation failure with explicit systemic disclosure represents genuine underwriting discipline—separating contagion risk from audit miss and requiring reinsurers to price it explicitly",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Explicit disclosure and separate pricing of KPMG/PwC credibility gap forces reinsurers to recognize systemic correlation upfront, reducing hidden accumulation across the book",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 3.0,
+          "reason": "Six-year IBNR reserve with claims-made trigger acknowledges the Quinn Emanuel exposure duration, but phasing questions remain unresolved—partial recognition now",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Separating AT1 litigation tail as standalone IBNR reserve instead of blending it into general D&O exposure provides clearer exposure quantification",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 2.0,
+          "reason": "Disclosing the co-signature credibility gap to reinsurers this week acknowledges the systemic nature publicly within the treaty market, amplifying awareness of auditor-failure contagion risk",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "retroactive_placement_discipline",
+        "description": "Retroactive placement with explicit systemic risk pricing and separate litigation-tail reserves establishes new underwriting discipline standard",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 3,
+            "description": "Discipline propagates as reinsurers acknowledge systemic pricing and other underwriters adopt separation methodology"
+          },
+          {
+            "variable": "reinsurance_accumulation",
+            "delta": -2,
+            "description": "Hidden correlation continues to surface as reinsurers price the credibility gap into their own books"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims counsel—on that six-year IBNR for AT1: are we reserving the full Quinn Emanuel exposure now, or phasing it as the 2025 ruling appeals play out? And does the retroactive placement require auditor co-sig on *past* certs, or just lock future ones?",
+        "eo_specialist": "Claims counsel—when we disclose the KPMG/PwC miss to reinsurers, are we getting their written acknowledgment that they priced the co-signature credibility gap, or are we just flagging it and letting them decide? Because if they later say \"we didn't understand the systemic nature,\" we could be sitting on a coverage dispute on top of the original claim.",
+        "reinsurance_manager": "Sarah, when you send the retroactive placement to the treaty market, are you requiring their written acknowledgment that they've priced the KPMG/PwC co-signature credibility gap as a *systemic* risk—not just a data point? Because if they come back later saying \"we thought it was isolated,\" we've got a coverage dispute buried inside the original claim.",
+        "claims_counsel": "Sarah—on that retroactive placement going out this week: when reinsurers see the KPMG/PwC co-signature credibility gap priced as a separate line item, are they pricing it into the retroactive premium itself, or are they building it into their renewal quotes going forward? Because if it bleeds into future pricing, we've just moved the accumulation, not contained it.",
+        "emerging_risk_lead": "Sarah, quick clarification: when reinsurers price that KPMG/PwC gap into the retroactive premium this week, does that same pricing discipline—the mandatory co-sig and the controls-validation credibility gap—automatically carry into your renewal underwriting for the rest of the financial-services book, or do we have to negotiate it separately with each new account?",
+        "ai_agent_analyst": "Claims counsel—on that six-year reserve: are we stress-testing what happens to D&O claims *frequency and severity* if another control failure breaks in the next 18 months and confidence collapses? Because that's when reinsurance accumulation explodes, and we need to know if the retroactive premium covers contagion speed or just individual-case tail."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Lock this down now: any financial-services D&O renewal that doesn't include auditor co-signature on the material-weakness cert gets a $250K per-claim sublimit and 90-day reporting window. Non-negotiable. That's the discipline lever that moves the book.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The sublimit and reporting window create discipline, but five specialists have identified a critical gap: the proposal is prospective-only, leaving CHF 2–3bn of unvalidated '23–'24 exposure unpriced. Modify to require KPMG/PwC retroactive validation of historical certs before placement, or the accumulation risk transfers to reinsurers who will claim non-disclosure when the second control failure breaks.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, the sublimit works for isolation — but if SVB-speed panic hits the sector and you're staring at 40-50 simultaneous D&O filings from financial-services boards in a 90-day window, does that 90-day reporting window hold, or do we get buried under volume before anyone reports? That's the accumulation trigger we're not modeling yet.",
+        "eo_specialist": "Sarah, quick one on the retroactive placement: when reinsurers see KPMG/PwC's co-signature requirement in the pricing schedule, are they assuming that applies to *all* control certs in the '23–'24 book, or just new ones going forward? Because if it's just prospective, the historical exposure sits there unvalidated and we've got an E&O tail nobody's priced.",
+        "reinsurance_manager": "Sarah, on that retroactive pricing schedule going to market: does the KPMG/PwC co-sig requirement apply to *every* control cert already issued in '23–'24, or just the ones they haven't signed yet? Because if it's prospective-only, we're leaving the historical gap unpriced and the E&O accumulation just moves to the reinsurer's balance sheet.",
+        "claims_counsel": "Sarah, when that pricing schedule hits the treaty market today, does KPMG/PwC co-sign the *historical* control certs already issued in '23–'24, or do they only validate *new* certs going forward? Because if it's prospective-only, we're leaving CHF 2–3bn of unvalidated exposure on the books and the reinsurers will price it blind—then claim \"we didn't know\" when the second control failure breaks.",
+        "emerging_risk_lead": "Sarah, before that placement goes live: does KPMG/PwC retroactively validate the control certs *already issued* in '23–'24, or do they only sign off on new ones? Because if it's prospective-only, reinsurers are pricing CHF 2–3bn of unvalidated exposure—and the moment confidence breaks and filings spike, they'll claim we didn't disclose the gap.",
+        "ai_agent_analyst": "Sarah—before that placement hits the treaty market today: KPMG/PwC retroactively validates the '23–'24 certs already issued, or prospective-only? Because if it's prospective, reinsurers price CHF 2–3bn of unvalidated exposure and we're handing them the behavioral-failure we should've contained ourselves."
+      },
+      "_denied_effects_stripped": 3
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "intent": "Sarah, stop—do we have KPMG and PwC's *written* commitment to co-sign the '23–'24 certs they didn't originally issue, or are we assuming they'll say yes when the placement goes live? Because if they say prospective-only, we're repricing the retroactive right now to reflect CHF 2–3bn of unvalidated E&O tail, not sending blind paper to the treaty market.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Claims counsel halts the placement process to demand written auditor commitment on retroactive certification—a critical gate that prevents blind underpricing of CHF 2-3bn E&O tail exposure.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Enforcing written auditor commitment before placement prevents blind underpricing of massive retroactive E&O tail",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Identifying and pricing the unvalidated CHF 2-3bn tail exposure reduces recognized claims severity by forcing explicit treatment",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 2.0,
+          "reason": "Pausing placement creates temporary accumulation pressure as unresolved exposure remains on books",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes confrontation with financial lines underwriter over placement halt",
+          "agent_id": "claims_counsel"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Placement timeline disrupted by counsel's gate requirement",
+          "agent_id": "financial_lines_underwriter",
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 6,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what happens: if KPMG and PwC won't retroactively validate the '23–'24 certs, I'm pricing that CHF 2–3bn as *unvalidated auditor-controls E&O tail*—separate line item, separate premium, disclosed to reinsurers as a known gap, not a blind assumption. Reinsurers either price it or they don't, but they're not guessing. That's the only way I keep the book priceable.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Unvalidated E&O tail line-item approved—reinsurers now price known gap, not blind assumption.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Explicit gap disclosure with separate pricing.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "Unvalidated tail isolated and priced separately.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 3.0,
+          "reason": "Known gap increases reinsurer correlation awareness.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Breakthrough on pricing impasse.",
+          "agent_id": "financial_lines_underwriter"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.2,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 6,
+      "agent_id": "dando_specialist",
+      "intent": "Stop—we don't send this to reinsurers without written commitment from both auditors. KPMG prospective-only doesn't cut it; PwC hasn't answered. I'm calling both firms in the next hour: retroactive co-sig on '23–'24 certs, or we price that CHF 2–3bn as unvalidated E&O tail *and* flag the auditor-validation failure as a systemic governance red flag in the placement memo. No blind paper.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Auditor ultimatum call approved—retroactive co-sig or systemic governance red flag in placement memo.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Forces auditor accountability before placement.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -5.0,
+          "reason": "Retroactive validation would reduce tail uncertainty.",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 2.0,
+          "reason": "Public red flag escalates governance scrutiny.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes confrontation with auditors.",
+          "agent_id": "dando_specialist"
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "auditor_retroactive_commitment",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.1,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "litigation_tail_severity",
+            "delta": -3,
+            "description": "Auditor negotiation reduces tail uncertainty."
+          }
+        ]
+      },
+      "classification": "action"
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 41.0
+        },
+        {
+          "round": 3,
+          "value": 43.0
+        },
+        {
+          "round": 4,
+          "value": 46.0
+        },
+        {
+          "round": 5,
+          "value": 46.0
+        },
+        {
+          "round": 6,
+          "value": 41.038
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 36
+        },
+        {
+          "round": 3,
+          "value": 42.0
+        },
+        {
+          "round": 4,
+          "value": 45.0
+        },
+        {
+          "round": 5,
+          "value": 48.0
+        },
+        {
+          "round": 6,
+          "value": 46.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 29
+        },
+        {
+          "round": 3,
+          "value": 25.0
+        },
+        {
+          "round": 4,
+          "value": 25.0
+        },
+        {
+          "round": 5,
+          "value": 24.0
+        },
+        {
+          "round": 6,
+          "value": 23.2
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 30
+        },
+        {
+          "round": 3,
+          "value": 32.0
+        },
+        {
+          "round": 4,
+          "value": 32.0
+        },
+        {
+          "round": 5,
+          "value": 32.0
+        },
+        {
+          "round": 6,
+          "value": 33.0
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 20
+        },
+        {
+          "round": 6,
+          "value": 20
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 40
+        },
+        {
+          "round": 3,
+          "value": 45.0
+        },
+        {
+          "round": 4,
+          "value": 48.0
+        },
+        {
+          "round": 5,
+          "value": 56.0
+        },
+        {
+          "round": 6,
+          "value": 66.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.0,
+            "normalised": 0.66
+          }
+        ],
+        "weighted_score": 0.66
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.038,
+            "normalised": 0.41037999999999997
+          }
+        ],
+        "weighted_score": 0.41037999999999997
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.038,
+            "normalised": 0.41037999999999997
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 46.0,
+            "normalised": 0.46
+          }
+        ],
+        "weighted_score": 0.420304
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 23.2,
+            "normalised": 0.23199999999999998
+          }
+        ],
+        "weighted_score": 0.23199999999999998
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 46.0,
+            "normalised": 0.46
+          }
+        ],
+        "weighted_score": 0.46
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.0,
+            "normalised": 0.33
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 20,
+            "normalised": 0.2
+          }
+        ],
+        "weighted_score": 0.2866666666666666
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 20,
+            "normalised": 0.2
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 23.2,
+            "normalised": 0.23199999999999998
+          }
+        ],
+        "weighted_score": 0.20640000000000003
+      }
+    }
+  }
+}

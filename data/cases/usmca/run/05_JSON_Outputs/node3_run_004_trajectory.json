@@ -1,0 +1,2387 @@
+{
+  "simulation_id": "ec37410c83ab",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Walk me through the map — what's the actual trigger sequence? When RVC compliance fails at plant X, does that force nearshoring, blow up a supplier credit line, or trigger a tariff retaliation? We need named events, not just \"supplier relocation exposure\" floating at 25.\n  supplier: Okay, here's what I'm seeing on the ground: when a Tier 2 supplier can't hit 75% RVC, they either relocate tooling — which costs 6-18 months and bleeds cash — or they get dropped and we scramble for a replacement. But the risk map needs to show *which suppliers are at the edge*. Can we pull a sample of your current base and flag who fails RVC under different tariff scenarios? That's how we turn \"relocation exposure = 25\" into \"Supplier A insolvent by Q3, Supplier B nearshores to Monterrey by Q2.\"\n  auto_strategy: I've got three plants where current sourcing doesn't clear 75% RVC — two in the Midwest pulling stamped steel from non-regional mills, one in the South on electronics. Pulling the Tier 2 base now: fourteen suppliers fall below threshold if tariffs hit 15%, six more if we hit 25%. I'll flag solvency triggers by supplier — cash runway, debt covenants, relocation capex — so we can map the actual failure sequence.\n  compliance_lawyer: Of those fourteen suppliers, how many have active RVC certifications CBP can actually audit? And do we know if any are already on the audit rotation? That's the difference between a tariff bill and a tariff bill plus penalties for false certification.\n  political_risk_insurer: Of those fourteen, how many have been audited in the last two years — and what's the penalty range if CBP finds false RVC claims? I need to know whether we're pricing this as a tariff reclass or a fraud exposure, because the political risk profile is completely different.\n  compliance_lawyer: I need the certification audit status on those fourteen suppliers from CBP records right now — which ones have active certifications, which are in the rotation, and penalty precedent for false RVC claims in your sector. Without that, we're pricing phantom risk. Auto_strategy, pull the audit timeline data; political_risk_insurer, I'll cross-reference penalty ranges against similar cases once I see which suppliers are actually exposed to review.\n  trade_credit_underwriter: On those twenty suppliers under tariff stress — what's their debt covenant status and average DSO? I need to know if they blow a covenant before they relocate, because that's when receivables risk hits us, and that's what I'm pricing.\n  supply_chain_consultant: Okay, here's what I'm hearing: fourteen suppliers fail at 15% tariffs, six more at 25%, and compliance audit status will tell us fraud exposure. But the client doesn't care about the audit rotation—they care about *which three suppliers relocate to Mexico in the next six months, what it costs, and whether we nearshore those three plants proactively before the 2026 review tightens the rules*. Let me build that sequencing: I'll map relocation capex, timeline, and RVC upside by supplier—then show the CFO the cost of moving now versus being forced to move in 2026. That's how we turn this into a decision.\n  cfo_erm: Of those twenty suppliers under tariff stress, which ones breach a debt covenant *before* they can fund relocation capex? That's the trigger that forces us to move first — and it's what I'm pricing into the consolidated map as \"do we nearshore proactively or react.\"\n  trade_credit_underwriter: Pull the DSO and debt-covenant data on those twenty right now — I need to flag which ones hit covenant breach before relocation funding kicks in, because that's when their credit line collapses and our receivables exposure spikes. That's the trade-credit trigger we price, and it's the only thing that tells us if we're looking at supplier insolvency or just cash-flow stress.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Walk me through the map — what's the actual trigger sequence? When RVC compliance fails at plant X, does that force nearshoring, blow up a supplier credit line, or trigger a tariff retaliation? We need named events, not just \"supplier relocation exposure\" floating at 25.",
+            "cot": {
+              "assess": "Rules-of-origin burden is quantified and solid at 32 — we know the RVC and labor-content hit. But risk_map_completeness is stuck at 19 because we're surfacing exposures without pricing them or naming the actual triggers that move them. Underwriting discipline is weak at 30 — we need operationalized variables, not vague labels.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk_mapping lead (or whoever owns the consolidated Policy-to-Supply-Chain Risk Map)",
+                "rationale": "Before we can price or insure these exposures, we need to know what specific compliance-failure scenarios actually trigger supplier relocation, credit events, or policy shifts — and which ones hit us first."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Okay, here's what I'm seeing on the ground: when a Tier 2 supplier can't hit 75% RVC, they either relocate tooling — which costs 6-18 months and bleeds cash — or they get dropped and we scramble for a replacement. But the risk map needs to show *which suppliers are at the edge*. Can we pull a sample of your current base and flag who fails RVC under different tariff scenarios? That's how we turn \"relocation exposure = 25\" into \"Supplier A insolvent by Q3, Supplier B nearshores to Monterrey by Q2.\"",
+            "cot": {
+              "assess": "My core variables are solid — rules_of_origin burden and supplier relocation exposure are flagged and tracked. But the risk map is fragmented at 19, and underwriting discipline is soft at 30. We're naming exposures without connecting them to actual failure sequences. When RVC fails at a plant, I need to know: does that supplier lose credit, get delisted, or trigger a tariff spike? Right now it's all floating.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You asked for the trigger sequence — I need to map that WITH you because the relocation pressure I see daily only matters if we can price when it hits."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I've got three plants where current sourcing doesn't clear 75% RVC — two in the Midwest pulling stamped steel from non-regional mills, one in the South on electronics. Pulling the Tier 2 base now: fourteen suppliers fall below threshold if tariffs hit 15%, six more if we hit 25%. I'll flag solvency triggers by supplier — cash runway, debt covenants, relocation capex — so we can map the actual failure sequence.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Of those fourteen suppliers, how many have active RVC certifications CBP can actually audit? And do we know if any are already on the audit rotation? That's the difference between a tariff bill and a tariff bill plus penalties for false certification.",
+            "cot": {
+              "assess": "Auto_strategy just handed us the trigger sequence — three plants, fourteen suppliers fail at 15% tariffs, six more at 25%. That's the skeleton of the map. But we're still missing the *compliance enforcement layer*: which suppliers have active RVC certifications, when do audits hit, what's the penalty cascade if CBP finds non-compliance versus just tariff exposure? Right now the map shows supplier solvency risk but not the legal / audit / certification chain that actually locks in the cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Need to know whether the fourteen flagged suppliers have current RVC certifications on file and whether CBP has audit history on any of them — that determines whether we're pricing tariff exposure or tariff + penalty exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Of those fourteen, how many have been audited in the last two years — and what's the penalty range if CBP finds false RVC claims? I need to know whether we're pricing this as a tariff reclass or a fraud exposure, because the political risk profile is completely different.",
+            "cot": {
+              "assess": "The group just mapped the trigger sequence — fourteen suppliers fail at 15% tariffs, six more at 25%, with solvency and relocation timelines now visible. That's underwriting gold. But compliance_lawyer just surfaced a critical political-risk layer: CBP audit rotation and false-certification penalties. That's enforcement uncertainty — the policy risk that turns a tariff into a liability event. We're at political_risk_exposure = 26 and underwriting_discipline = 30; both need to move now.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to price the audit and enforcement exposure — which suppliers are exposed to CBP scrutiny, and what's the penalty distribution if certifications fail? That's the political-risk variable I can underwrite."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "I need the certification audit status on those fourteen suppliers from CBP records right now — which ones have active certifications, which are in the rotation, and penalty precedent for false RVC claims in your sector. Without that, we're pricing phantom risk. Auto_strategy, pull the audit timeline data; political_risk_insurer, I'll cross-reference penalty ranges against similar cases once I see which suppliers are actually exposed to review.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "On those twenty suppliers under tariff stress — what's their debt covenant status and average DSO? I need to know if they blow a covenant before they relocate, because that's when receivables risk hits us, and that's what I'm pricing.",
+            "cot": {
+              "assess": "The team is now mapping actual suppliers to failure scenarios — that's the move I need. But we're still treating trade-credit risk as a downstream consequence instead of a *pricing input*. The fourteen suppliers at 15% tariff threshold, the six at 25% — I need to know their credit profiles *now*, not after we finish the audit timeline. That's where insolvency happens, and that's where I price the exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the credit-side data on those twenty suppliers — cash position, debt covenants, payment history — to operationalize trade-credit risk as a named, priced variable instead of leaving it at 25."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay, here's what I'm hearing: fourteen suppliers fail at 15% tariffs, six more at 25%, and compliance audit status will tell us fraud exposure. But the client doesn't care about the audit rotation—they care about *which three suppliers relocate to Mexico in the next six months, what it costs, and whether we nearshore those three plants proactively before the 2026 review tightens the rules*. Let me build that sequencing: I'll map relocation capex, timeline, and RVC upside by supplier—then show the CFO the cost of moving now versus being forced to move in 2026. That's how we turn this into a decision.",
+            "cot": {
+              "assess": "You've surfaced the trigger sequence—RVC failures cascade into supplier insolvency and relocation decisions. But the risk map is still fragmented: compliance audit status, covenant triggers, and nearshoring timelines are being pulled separately. We need a consolidated **client action plan** that threads these together—which suppliers move when, what it costs, and what the CFO needs to decide *now* to avoid Q2/Q3 chaos.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "The room is generating good data but no integrated plan yet. I need to consolidate the supplier triage into a forward-looking nearshoring / relocation roadmap the CFO can actually execute against."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Of those twenty suppliers under tariff stress, which ones breach a debt covenant *before* they can fund relocation capex? That's the trigger that forces us to move first — and it's what I'm pricing into the consolidated map as \"do we nearshore proactively or react.\"",
+            "cot": {
+              "assess": "You've got fourteen suppliers at 15% tariff threshold and six more at 25% — that's specificity. Compliance audit status and fraud exposure are being pulled. But I'm seeing a gap: we're mapping *which suppliers fail*, not *which failure cascades into trade credit or covenant breach first*. That's what prices the insurance and tells me whether we nearshore proactively or wait. Risk map is still fragmented across compliance, relocation, and credit silos.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need the covenant-breach sequencing to prioritize which of those twenty suppliers we stabilize first — that drives the nearshoring decision and the insurance structure."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Pull the DSO and debt-covenant data on those twenty right now — I need to flag which ones hit covenant breach before relocation funding kicks in, because that's when their credit line collapses and our receivables exposure spikes. That's the trade-credit trigger we price, and it's the only thing that tells us if we're looking at supplier insolvency or just cash-flow stress.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Walk me through the map — what's the actual trigger sequence? When RVC compliance fails at plant X, does that force nearshoring, blow up a supplier credit line, or trigger a tariff retaliation? We need named events, not just \"supplier relocation exposure\" floating at 25.",
+      "metadata": {
+        "question_target": "risk_mapping lead (or whoever owns the consolidated Policy-to-Supply-Chain Risk Map)"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Okay, here's what I'm seeing on the ground: when a Tier 2 supplier can't hit 75% RVC, they either relocate tooling — which costs 6-18 months and bleeds cash — or they get dropped and we scramble for a replacement. But the risk map needs to show *which suppliers are at the edge*. Can we pull a sample of your current base and flag who fails RVC under different tariff scenarios? That's how we turn \"relocation exposure = 25\" into \"Supplier A insolvent by Q3, Supplier B nearshores to Monterrey by Q2.\"",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Of those fourteen suppliers, how many have active RVC certifications CBP can actually audit? And do we know if any are already on the audit rotation? That's the difference between a tariff bill and a tariff bill plus penalties for false certification.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Of those fourteen, how many have been audited in the last two years — and what's the penalty range if CBP finds false RVC claims? I need to know whether we're pricing this as a tariff reclass or a fraud exposure, because the political risk profile is completely different.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "On those twenty suppliers under tariff stress — what's their debt covenant status and average DSO? I need to know if they blow a covenant before they relocate, because that's when receivables risk hits us, and that's what I'm pricing.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Of those twenty suppliers under tariff stress, which ones breach a debt covenant *before* they can fund relocation capex? That's the trigger that forces us to move first — and it's what I'm pricing into the consolidated map as \"do we nearshore proactively or react.\"",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what I'm hearing: fourteen suppliers fail at 15% tariffs, six more at 25%, and compliance audit status will tell us fraud exposure. But t\" → The consultant commits to building a concrete relocation sequencing model — mapping capex, timeline, and RVC upside by supplier — that operationalizes the abstract 'supplier relocation exposure' into named decision triggers. This is exactly the translation work the session needs.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "supplier_relocation_sequencing_model rule effect",
+      "metadata": {
+        "source": "supplier_relocation_sequencing_model",
+        "variable": "risk_map_completeness",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "supplier_relocation_sequencing_model rule effect",
+      "metadata": {
+        "source": "supplier_relocation_sequencing_model",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Of those twenty suppliers under tariff stress, which ones actually breach covenant before Q3? I need names and months — that's when we stop pricing this as relocation exposure and start pricing it as forced supplier substitution. That's a completely different cost profile.\n  trade_credit_underwriter: Pull the DSO and debt-covenant schedules on those twenty right now — I need the exact breach dates because that's when their credit line collapses and our receivables go unsecured. Auto, if any hit covenant before Q2, we're not relocating them, we're replacing them, and that's a trade-credit write-off I have to price into the map today.\n  supplier: Trade credit — I can't sequence relocation capex if I don't know which of my twenty suppliers blow a covenant in Q2 versus Q3. Pull those DSO and debt schedules *this round* and flag anyone hitting breach before they can fund nearshoring. That's the line between \"we relocate them\" and \"we drop them and scramble.\" Give me names and months.\n  compliance_lawyer: Auto, of those fourteen suppliers failing at 15% tariffs — do we have CBP audit rotation data on any of them? Because if Supplier X hits covenant breach in Q2 *and* they're in the audit queue, we're not just replacing them, we're facing potential false certification penalties. That's the difference between pricing this as a supply-chain cost and pricing it as a compliance liability.\n  auto_strategy: I don't have those covenant breach dates yet — compliance_lawyer and trade_credit_underwriter own that data and need to pull it this round. What I can tell you right now: I've flagged three plants where current sourcing fails 75% RVC *today*, and if we're choosing between relocating suppliers versus replacing them, I need those breach dates to know which plants get hit first and what the replacement sourcing cost looks like by plant. Give me the names and months, and I'll map the nearshoring sequence against the covenant timeline.\n  political_risk_insurer: Compliance, before we sequence anything — of those fourteen suppliers failing RVC today, which ones are *already* in the CBP audit queue or flagged for rotation in the next six months? Because if Supplier X hits covenant breach in Q2 *and* they're under audit, the penalty exposure flips this from supply-chain cost to regulatory liability. I need names and penalty range by end of this round so I can actually price the political-risk layer into the map.\n  compliance_lawyer: I'm pulling CBP audit rotation data on those fourteen right now — here's what I have: seven are in active certification status with no audit flags in the last twenty-four months, four are on the rotation queue for Q2-Q3 2025, and three have penalty precedent from prior false RVC claims ranging $180K to $2.1M per supplier. The four in the Q2-Q3 rotation are your exposure — if any hit covenant breach before audit, we're pricing this as fraud risk, not tariff cost, and the penalty floor doubles.\n  trade_credit_underwriter: CFO—you flagged covenant breach as the trigger that collapses credit lines and forces substitution. I need the breach months on those twenty *right now*—specifically which ones hit before Q3, because that's when I stop pricing this as relocation capex and start pricing it as a receivables write-off. Names and months, this round. That's what operationalizes trade-credit risk into the map.\n  cfo_erm: I don't have those covenant breach schedules in this room right now — trade_credit_underwriter and compliance_lawyer own that data, and they need to pull DSO and debt schedules on all twenty this round. But here's what I'm pricing into the map *while we wait*: I'm assuming worst-case — covenant breach hits 40% of that twenty by Q2, which means we're not relocating them, we're replacing them. Give me those names and months the moment you have them, and I'll reprice the nearshoring sequence and trade-credit exposure together.\n  supply_chain_consultant: Trade credit — I hear you on the worst-case 40% hitting Q2. But I need the *actual* breach schedule on your twenty to build the sequencing model: which suppliers breach before Q2, which in Q2-Q3, which after. Give me names and months, and I'll map nearshoring capex against each covenant timeline. That's how we turn relocation exposure into a decision tree.\n  cfo_erm: Trade credit—do you have the DSO and covenant schedules on those twenty in front of you right now, or are we waiting for your team to pull them? Because if they're not here, I need to know the timeline so I can decide whether we're pricing the map today on worst-case assumptions or holding for actual data.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Of those twenty suppliers under tariff stress, which ones actually breach covenant before Q3? I need names and months — that's when we stop pricing this as relocation exposure and start pricing it as forced supplier substitution. That's a completely different cost profile.",
+            "cot": {
+              "assess": "The relocation sequencing model is locked in and running — that's the operational spine we needed. But risk_map_completeness is still at 27, and we're two rounds from stage close. The team's got fourteen suppliers flagged for audit exposure, twenty under tariff stress, and covenant-breach timing on the twenty — but nobody's connected those three data streams into a *named trigger sequence* that actually prices the consolidated map. That's what's missing.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need the covenant-breach timeline on those twenty to sequence whether we nearshore proactively or react to a supplier collapse — that's the operationalized trigger the risk map needs."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Pull the DSO and debt-covenant schedules on those twenty right now — I need the exact breach dates because that's when their credit line collapses and our receivables go unsecured. Auto, if any hit covenant before Q2, we're not relocating them, we're replacing them, and that's a trade-credit write-off I have to price into the map today.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade credit — I can't sequence relocation capex if I don't know which of my twenty suppliers blow a covenant in Q2 versus Q3. Pull those DSO and debt schedules *this round* and flag anyone hitting breach before they can fund nearshoring. That's the line between \"we relocate them\" and \"we drop them and scramble.\" Give me names and months.",
+            "cot": {
+              "assess": "The relocation sequencing model is running — that's good — but we're still floating at 27 on risk_map_completeness because nobody's actually named which suppliers breach covenant *before* they can fund relocation. That's the trigger that separates \"nearshoring plan\" from \"forced substitution + write-off,\" and it's what kills the map's credibility. Trade credit and supply chain are talking past each other: one's pricing insolvency, the other's pricing capex timelines. They need to converge on actual names and dates.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need the covenant breach dates on those twenty suppliers right now — not tomorrow — because my relocation sequencing depends on knowing which ones are still solvent when the tariffs hit."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, of those fourteen suppliers failing at 15% tariffs — do we have CBP audit rotation data on any of them? Because if Supplier X hits covenant breach in Q2 *and* they're in the audit queue, we're not just replacing them, we're facing potential false certification penalties. That's the difference between pricing this as a supply-chain cost and pricing it as a compliance liability.",
+            "cot": {
+              "assess": "The room is correctly focused on covenant-breach timing as the hard trigger between relocation and replacement — that's operationalizing trade-credit risk into named months. But I'm not seeing the certification audit status on those fourteen suppliers, which is the compliance side of that same trigger: if a supplier breaches covenant *and* has a false RVC claim under CBP audit rotation, we're pricing fraud exposure, not just tariff reclassification. That's a completely different penalty range and political risk profile. The map stays fragmented until we lock both the credit trigger *and* the compliance trigger.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to know which of those fourteen failing suppliers are already on CBP audit rotation — that's the precision that turns \"relocation exposure\" into \"relocation + fraud penalty exposure\" for the underwriting map."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I don't have those covenant breach dates yet — compliance_lawyer and trade_credit_underwriter own that data and need to pull it this round. What I can tell you right now: I've flagged three plants where current sourcing fails 75% RVC *today*, and if we're choosing between relocating suppliers versus replacing them, I need those breach dates to know which plants get hit first and what the replacement sourcing cost looks like by plant. Give me the names and months, and I'll map the nearshoring sequence against the covenant timeline.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, before we sequence anything — of those fourteen suppliers failing RVC today, which ones are *already* in the CBP audit queue or flagged for rotation in the next six months? Because if Supplier X hits covenant breach in Q2 *and* they're under audit, the penalty exposure flips this from supply-chain cost to regulatory liability. I need names and penalty range by end of this round so I can actually price the political-risk layer into the map.",
+            "cot": {
+              "assess": "The room is correctly surfacing the covenant-breach trigger — that's the political-risk / credit-event nexus I need to price. But we're stuck waiting for trade_credit_underwriter and compliance_lawyer to pull DSO and audit-rotation data. My political-risk exposure (27) and underwriting_discipline (36) are both undershooting because I can't score the regulatory-enforcement layer until I know: (1) which suppliers face CBP audit *and* covenant breach simultaneously, and (2) what the penalty exposure actually is if a breaching supplier gets caught on false RVC claims. That's a compound political + credit trigger, not just a relocation cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need the CBP audit rotation and penalty precedent NOW so I can price the political-risk component of the covenant-breach scenario — that's the difference between a tariff reclass and a fraud exposure that kills underwriting discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "I'm pulling CBP audit rotation data on those fourteen right now — here's what I have: seven are in active certification status with no audit flags in the last twenty-four months, four are on the rotation queue for Q2-Q3 2025, and three have penalty precedent from prior false RVC claims ranging $180K to $2.1M per supplier. The four in the Q2-Q3 rotation are your exposure — if any hit covenant breach before audit, we're pricing this as fraud risk, not tariff cost, and the penalty floor doubles.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO—you flagged covenant breach as the trigger that collapses credit lines and forces substitution. I need the breach months on those twenty *right now*—specifically which ones hit before Q3, because that's when I stop pricing this as relocation capex and start pricing it as a receivables write-off. Names and months, this round. That's what operationalizes trade-credit risk into the map.",
+            "cot": {
+              "assess": "Compliance just handed us the audit rotation—four suppliers in Q2-Q3 with penalty precedent up to $2.1M. But we still don't have covenant breach dates on those twenty, which means I can't price which ones are insolvency-risk versus which ones are replaceable. The relocation sequencing model is running, but it's building blind: it doesn't know if Supplier A hits covenant breach in Q2 (forces us to drop them) or Q3 (gives us time to relocate). That's the trade-credit variable I need operationalized—right now it's just \"25\" floating in the map.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "CFO owns the covenant data and breach timeline; I need the exact months to price receivables risk and operationalize the trade-credit trigger that drives relocation sequencing."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I don't have those covenant breach schedules in this room right now — trade_credit_underwriter and compliance_lawyer own that data, and they need to pull DSO and debt schedules on all twenty this round. But here's what I'm pricing into the map *while we wait*: I'm assuming worst-case — covenant breach hits 40% of that twenty by Q2, which means we're not relocating them, we're replacing them. Give me those names and months the moment you have them, and I'll reprice the nearshoring sequence and trade-credit exposure together.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Trade credit — I hear you on the worst-case 40% hitting Q2. But I need the *actual* breach schedule on your twenty to build the sequencing model: which suppliers breach before Q2, which in Q2-Q3, which after. Give me names and months, and I'll map nearshoring capex against each covenant timeline. That's how we turn relocation exposure into a decision tree.",
+            "cot": {
+              "assess": "Covenant breach dates are the critical missing piece — without them, we can't operationalize the relocation sequencing model I committed to. The room has flagged four suppliers in CBP audit rotation hitting Q2-Q3, but we still don't have DSO schedules or breach months on the full twenty, which blocks my ability to map capex timing against credit-line collapse. Risk-map completeness stays stuck at 27 until we lock those trigger dates.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need the actual breach months on those twenty suppliers to sequence relocation capex against forced substitution — that's the operational hinge the model requires."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Trade credit—do you have the DSO and covenant schedules on those twenty in front of you right now, or are we waiting for your team to pull them? Because if they're not here, I need to know the timeline so I can decide whether we're pricing the map today on worst-case assumptions or holding for actual data.",
+            "cot": {
+              "assess": "We've got compliance audit data and worst-case trade-credit assumptions, but the actual covenant breach schedule—names, months, which of the twenty hit before Q2—is still missing. That's the linchpin for the entire sequencing model and the trade-credit pricing layer. Without it, I'm operating on a 40% breach assumption that could be wildly off. Risk_map_completeness is stuck at 27 because we can't operationalize the trigger sequence until trade_credit_underwriter delivers those schedules.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "The covenant data is the blocking dependency for both nearshoring sequencing and receivables pricing — I need to know if it exists in this room or if we're actually missing it."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Of those twenty suppliers under tariff stress, which ones actually breach covenant before Q3? I need names and months — that's when we stop pricing this as relocation exposure and start pricing it as forced supplier substitution. That's a completely different cost profile.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade credit — I can't sequence relocation capex if I don't know which of my twenty suppliers blow a covenant in Q2 versus Q3. Pull those DSO and debt schedules *this round* and flag anyone hitting breach before they can fund nearshoring. That's the line between \"we relocate them\" and \"we drop them and scramble.\" Give me names and months.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, of those fourteen suppliers failing at 15% tariffs — do we have CBP audit rotation data on any of them? Because if Supplier X hits covenant breach in Q2 *and* they're in the audit queue, we're not just replacing them, we're facing potential false certification penalties. That's the difference between pricing this as a supply-chain cost and pricing it as a compliance liability.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, before we sequence anything — of those fourteen suppliers failing RVC today, which ones are *already* in the CBP audit queue or flagged for rotation in the next six months? Because if Supplier X hits covenant breach in Q2 *and* they're under audit, the penalty exposure flips this from supply-chain cost to regulatory liability. I need names and penalty range by end of this round so I can actually price the political-risk layer into the map.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO—you flagged covenant breach as the trigger that collapses credit lines and forces substitution. I need the breach months on those twenty *right now*—specifically which ones hit before Q3, because that's when I stop pricing this as relocation capex and start pricing it as a receivables write-off. Names and months, this round. That's what operationalizes trade-credit risk into the map.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Trade credit — I hear you on the worst-case 40% hitting Q2. But I need the *actual* breach schedule on your twenty to build the sequencing model: which suppliers breach before Q2, which in Q2-Q3, which after. Give me names and months, and I'll map nearshoring capex against each covenant timeline. That's how we turn relocation exposure into a decision tree.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Trade credit—do you have the DSO and covenant schedules on those twenty in front of you right now, or are we waiting for your team to pull them? Because if they're not here, I need to know the timeline so I can decide whether we're pricing the map today on worst-case assumptions or holding for actual data.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "supplier_relocation_sequencing_model rule effect",
+      "metadata": {
+        "source": "supplier_relocation_sequencing_model",
+        "variable": "risk_map_completeness",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "supplier_relocation_sequencing_model rule effect",
+      "metadata": {
+        "source": "supplier_relocation_sequencing_model",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "supplier_relocation_sequencing_model completed — risk_surfacing risk_map_completeness multiplier set to 0.4",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Trade credit, I need a hard call: do you have the actual DSO and breach dates on those twenty suppliers right now, or are we running the relocation sequence on worst-case assumptions—say, 40% breach by Q2, 20% Q2-Q3? Because if we don't have names and months this round, I'm pricing nearshoring capex against the worst case and flagging receivables write-off risk for anyone who can't fund relocation before their line collapses.\n  trade_credit_underwriter: I don't have the full DSO and covenant schedules pulled in front of me right now—my team is running them this round, but I need forty-eight hours minimum to validate against their latest credit agreements. Here's what I'm doing instead: I'm flagging your worst-case assumption as my *floor* for pricing—if 40% breach Q2, I'm underwriting receivables exposure on all twenty as unsecured the moment their credit lines collapse, and I'm sequencing relocation capex *before* covenant trigger dates, not after. Give me names and months from compliance and CFO, and I'll map which suppliers we can actually fund through nearshoring versus which ones we drop and replace.\n  supplier: Trade credit, I hear the 48-hour timeline. But here's what I need: can you give me the *worst-case covenant breach schedule* you're using as your floor—which suppliers, which months—so I can map relocation capex sequencing against it this round? I'll build the model on that assumption, and when your actual data lands, we slot in the real numbers. Otherwise we're dead in the water until tomorrow.\n  compliance_lawyer: Trade credit, I get the 48-hour constraint. But give me this: of your worst-case 40% hitting Q2 — do any of those overlap with the four suppliers I've got flagged on CBP rotation? Because if Supplier X blows covenant in Q2 *and* they're under audit, we're not just replacing them, we're facing penalty exposure. I need names so I can actually price the compliance layer into the map this round.\n  political_risk_insurer: Compliance, of those four suppliers on CBP rotation — give me names and which ones overlap with trade credit's worst-case Q2 breach cohort. If Supplier X hits covenant breach *and* they're under audit, I'm pricing that as a false-certification penalty exposure, not a supply-chain cost. That's what operationalizes political risk into the map.\n  compliance_lawyer: I've got seven suppliers in active certification status with no audit flags in the last twenty-four months—those are clean. But four are on rotation: Suppliers C, G, M, and R, with rotation windows hitting Q2-Q3. Trade credit, which of your worst-case Q2 breach names overlap with those four? That's the overlap I need to price penalty exposure.\n  trade_credit_underwriter: Compliance, of those four on rotation—C, G, M, R—do you have their current DSO or any debt-maturity flags that would put them in a Q2 covenant breach window? If even two of them overlap with my worst-case, I can price that as a forced-substitution scenario with penalty tail, and that's what gets operationalized into the map today instead of waiting forty-eight hours.\n  supply_chain_consultant: Trade credit, I don't need perfect data — give me your worst-case Q2 breach names *right now*, even if they're provisional. I'll cross-walk them against C, G, M, R and build the sequencing model on that overlap. When your actual schedules land tomorrow, we plug in the real numbers and re-sequence. But I can't move the relocation capex plan without at least knowing which suppliers are at risk of blowing covenant before they can fund tooling relocation.\n  cfo_erm: Here's what I'm doing: I'm pricing the consolidated map on trade credit's worst-case assumption right now—40% of those twenty breach Q2, 20% breach Q2-Q3. Compliance, layer in Suppliers C, G, M, R's audit rotation windows against that cohort, and I'll price the penalty tail separately. Supply chain, build your relocation sequencing on that breach timeline, and we slot in actual DSO data when it lands tomorrow. We're not waiting—we're operationalizing the floor today.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Trade credit, I need a hard call: do you have the actual DSO and breach dates on those twenty suppliers right now, or are we running the relocation sequence on worst-case assumptions—say, 40% breach by Q2, 20% Q2-Q3? Because if we don't have names and months this round, I'm pricing nearshoring capex against the worst case and flagging receivables write-off risk for anyone who can't fund relocation before their line collapses.",
+            "cot": {
+              "assess": "We're stuck. Trade credit and compliance both own data that's supposed to be pulled this round—covenant breach schedules, audit rotation status—but neither has delivered. Meanwhile, the relocation sequencing model (supply_chain_consultant) is approved but can't run without the breach dates. Risk map completeness is creeping up 2 points/round but we're at 29 and need 60—we're not moving fast enough, and the bottleneck is missing operational data, not strategy.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "We can't sequence nearshoring capex or price relocation exposure without knowing which of the twenty suppliers hit covenant breach before they can fund relocation. This is the blocking dependency—I need to know if we're waiting for actual data or worst-casing this round."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I don't have the full DSO and covenant schedules pulled in front of me right now—my team is running them this round, but I need forty-eight hours minimum to validate against their latest credit agreements. Here's what I'm doing instead: I'm flagging your worst-case assumption as my *floor* for pricing—if 40% breach Q2, I'm underwriting receivables exposure on all twenty as unsecured the moment their credit lines collapse, and I'm sequencing relocation capex *before* covenant trigger dates, not after. Give me names and months from compliance and CFO, and I'll map which suppliers we can actually fund through nearshoring versus which ones we drop and replace.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade credit, I hear the 48-hour timeline. But here's what I need: can you give me the *worst-case covenant breach schedule* you're using as your floor—which suppliers, which months—so I can map relocation capex sequencing against it this round? I'll build the model on that assumption, and when your actual data lands, we slot in the real numbers. Otherwise we're dead in the water until tomorrow.",
+            "cot": {
+              "assess": "We're stuck. Trade credit can't deliver covenant breach dates until tomorrow; auto_strategy is pricing the relocation sequence on worst-case assumptions (40% Q2 breach); and the map stays fragmented because we don't have the trigger sequence that ties compliance audit status, covenant breach, and nearshoring capex together. Relocation exposure is my core variable, but I can't sequence it without knowing which suppliers blow a covenant *before* they can fund relocation—and that data isn't here.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need to know if we can operationalize the worst-case assumption *right now* so I can build the sequencing model today instead of waiting 48 hours for perfect data."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Trade credit, I get the 48-hour constraint. But give me this: of your worst-case 40% hitting Q2 — do any of those overlap with the four suppliers I've got flagged on CBP rotation? Because if Supplier X blows covenant in Q2 *and* they're under audit, we're not just replacing them, we're facing penalty exposure. I need names so I can actually price the compliance layer into the map this round.",
+            "cot": {
+              "assess": "Trade credit still doesn't have actual breach dates — they're committed to 48 hours, which we don't have. The supply_chain_consultant is correctly demanding a worst-case schedule to build the relocation model *this round*, not wait. But here's the gap: we have seven of fourteen suppliers in active CBP cert status with no recent audit flags, and four on rotation — that's audit *exposure*, not penalty *triggers*. Until we map which suppliers hit covenant breach *and* are under CBP audit simultaneously, we can't price the compliance liability layer into the map. Risk_map_completeness and underwriting_discipline are both stalled because the sequencing model needs both the trade-credit floor *and* the audit-rotation overlay.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need the worst-case breach schedule *this round* to operationalize the audit-penalty overlay — which of your twenty suppliers breach before Q3, and of those, which ones are in the four-on-rotation group I flagged? That's the trigger that flips from supply-chain cost to regulatory liability."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, of those four suppliers on CBP rotation — give me names and which ones overlap with trade credit's worst-case Q2 breach cohort. If Supplier X hits covenant breach *and* they're under audit, I'm pricing that as a false-certification penalty exposure, not a supply-chain cost. That's what operationalizes political risk into the map.",
+            "cot": {
+              "assess": "Trade credit is anchored to worst-case assumptions (40% Q2 breach) but won't have actual DSO/covenant data for 48 hours — and the group is trying to sequence relocation capex and price compliance exposure *this round* without it. Political-risk exposure (28) and underwriting_discipline (38) are both creeping upward but undershooting my targets; the real gap is that we're still pricing supplier relocation and trade-credit risk as abstract variables instead of named triggers tied to policy enforcement and audit rotation. Compliance has four suppliers flagged on CBP rotation — that's the intersection I need to operationalize into a priced political-risk layer.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to lock the compliance-audit-plus-covenant-breach intersection into named suppliers and penalty ranges so I can price political-risk exposure (regulatory liability, not just tariff cost) into the consolidated map this round — that's the translation from policy uncertainty to underwritten risk."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "I've got seven suppliers in active certification status with no audit flags in the last twenty-four months—those are clean. But four are on rotation: Suppliers C, G, M, and R, with rotation windows hitting Q2-Q3. Trade credit, which of your worst-case Q2 breach names overlap with those four? That's the overlap I need to price penalty exposure.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Compliance, of those four on rotation—C, G, M, R—do you have their current DSO or any debt-maturity flags that would put them in a Q2 covenant breach window? If even two of them overlap with my worst-case, I can price that as a forced-substitution scenario with penalty tail, and that's what gets operationalized into the map today instead of waiting forty-eight hours.",
+            "cot": {
+              "assess": "The room is stuck waiting for my actual DSO/covenant data—I've already flagged the 48-hour constraint, and compliance just handed me the four CBP rotation suppliers (C, G, M, R hitting Q2-Q3). The real move now is to operationalize the *overlap*: which of those four breach covenant before they can nearshore, and which ones are audit-exposed. That's the trade-credit variable that actually prices into the map. Risk-map completeness is stalled at 29 because we're still working with worst-case assumptions instead of named triggers.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to know which of your four rotation suppliers (C, G, M, R) are also in my worst-case Q2 breach cohort—that overlap is the concrete trade-credit-plus-compliance exposure I can price into the map *this round* while my team finishes the full schedules."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Trade credit, I don't need perfect data — give me your worst-case Q2 breach names *right now*, even if they're provisional. I'll cross-walk them against C, G, M, R and build the sequencing model on that overlap. When your actual schedules land tomorrow, we plug in the real numbers and re-sequence. But I can't move the relocation capex plan without at least knowing which suppliers are at risk of blowing covenant before they can fund tooling relocation.",
+            "cot": {
+              "assess": "Trade credit is stuck at 48 hours for actual breach data, but compliance just handed us four named suppliers on CBP rotation (C, G, M, R) with Q2-Q3 windows — that's the overlap we need to operationalize the map *this round*. I've got the relocation sequencing model committed, but I can't slot suppliers into it without knowing which ones hit covenant breach before they can fund nearshoring capex. The bottleneck is real, but it's not blocking me — I can build the decision tree on worst-case assumptions and slot real names as they land.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I need trade credit's worst-case Q2 breach cohort names right now so I can cross-reference against compliance's four rotation suppliers (C, G, M, R) and build the actual relocation sequencing model this round instead of waiting 48 hours."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm pricing the consolidated map on trade credit's worst-case assumption right now—40% of those twenty breach Q2, 20% breach Q2-Q3. Compliance, layer in Suppliers C, G, M, R's audit rotation windows against that cohort, and I'll price the penalty tail separately. Supply chain, build your relocation sequencing on that breach timeline, and we slot in actual DSO data when it lands tomorrow. We're not waiting—we're operationalizing the floor today.",
+            "cot": {
+              "assess": "We're stuck in a loop: trade credit says \"48 hours for real data,\" everyone else is asking for names and months they don't have, and the relocation sequencing model can't move without covenant breach overlaps. Risk map completeness is at 29—we need 31 more points to hit 60, and we're in Round 3 of 4. I'm not waiting for perfect data; I'm pricing the map on the worst-case floor trade credit just gave us and moving forward.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "Trade credit handed us a usable floor (40% Q2, 20% Q2-Q3); I'm consolidating that into decision variables *this round* so we don't lose another round to data delays."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Trade credit, I need a hard call: do you have the actual DSO and breach dates on those twenty suppliers right now, or are we running the relocation sequence on worst-case assumptions—say, 40% breach by Q2, 20% Q2-Q3? Because if we don't have names and months this round, I'm pricing nearshoring capex against the worst case and flagging receivables write-off risk for anyone who can't fund relocation before their line collapses.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade credit, I hear the 48-hour timeline. But here's what I need: can you give me the *worst-case covenant breach schedule* you're using as your floor—which suppliers, which months—so I can map relocation capex sequencing against it this round? I'll build the model on that assumption, and when your actual data lands, we slot in the real numbers. Otherwise we're dead in the water until tomorrow.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Trade credit, I get the 48-hour constraint. But give me this: of your worst-case 40% hitting Q2 — do any of those overlap with the four suppliers I've got flagged on CBP rotation? Because if Supplier X blows covenant in Q2 *and* they're under audit, we're not just replacing them, we're facing penalty exposure. I need names so I can actually price the compliance layer into the map this round.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, of those four suppliers on CBP rotation — give me names and which ones overlap with trade credit's worst-case Q2 breach cohort. If Supplier X hits covenant breach *and* they're under audit, I'm pricing that as a false-certification penalty exposure, not a supply-chain cost. That's what operationalizes political risk into the map.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Compliance, of those four on rotation—C, G, M, R—do you have their current DSO or any debt-maturity flags that would put them in a Q2 covenant breach window? If even two of them overlap with my worst-case, I can price that as a forced-substitution scenario with penalty tail, and that's what gets operationalized into the map today instead of waiting forty-eight hours.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Trade credit, I don't need perfect data — give me your worst-case Q2 breach names *right now*, even if they're provisional. I'll cross-walk them against C, G, M, R and build the sequencing model on that overlap. When your actual schedules land tomorrow, we plug in the real numbers and re-sequence. But I can't move the relocation capex plan without at least knowing which suppliers are at risk of blowing covenant before they can fund tooling relocation.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm pricing the consolidated map on trade credit's worst-case assumption right now—40% of those twenty breach Q2, 20% breach Q2\" → The CFO operationalizes the trade-credit floor with concrete breach timelines and penalty pricing, directly converting vague exposure into actionable underwriting parameters while advancing map integration.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Alright, I'm pulling the RVC gap analysis on those three plants right now—stamped steel Midwest, electronics South, and the third. For each one, I'm calculating: current RVC %, gap to 75%, nearshoring capex per unit, and break-even tariff rate. That's what operationalizes compliance burden into a go/no-go decision on relocation. Give me thirty minutes and you've got concrete numbers instead of exposure ranges.\n  supplier: Trade credit, I get the 48-hour constraint — but give me the *names* on your worst-case 40% hitting Q2, even if they're provisional. I'll cross-walk them against my supplier base and sequence relocation capex around covenant breach dates. When your actual schedules land, I plug in the real numbers. That's how we move the relocation model forward *this round* instead of waiting.\n  trade_credit_underwriter: I've got twenty suppliers under tariff stress; worst-case scenario puts roughly eight to ten hitting covenant breach before Q3—I'm flagging Suppliers B, D, J, and P as highest probability Q2 hits based on DSO and debt maturity. Cross-walk those four against your relocation sequencing and I'll validate the full twenty against actual schedules by end of day tomorrow—but those names are your floor for pricing forced substitution risk into the map *this round*.\n  compliance_lawyer: Auto, when you pull that RVC gap analysis on the three plants—stamped steel, electronics, the rest—flag which suppliers feed each one. If any of them are C, G, M, or R, I'm pricing audit failure as a forced-substitution event with penalty tail, not just tariff reclass. That's what operationalizes political risk into the map this round instead of next.\n  auto_strategy: Pulling the supplier feeds now—stamped steel Midwest draws from Suppliers A, B, E; electronics South is C, F, J, P; third plant is D, G, M, R. So you've got overlap: B and D hit trade credit's Q2 breach list, and C, G, M, R are your audit rotation flagged. That's four suppliers feeding critical plants who are simultaneously at covenant risk and under CBP rotation—I'm pricing those as forced-substitution with penalty exposure, not tariff reclass.\n  political_risk_insurer: Compliance, on those four suppliers in rotation—C, G, M, R—what's the actual penalty range if CBP finds false RVC claims on them? And more important: how certain is that enforcement, or are we looking at discretionary audit intensity depending on trade policy shifts? That's what I'm pricing into the political layer.\n  compliance_lawyer: CBP audit intensity on false RVC is *not* discretionary—it's mandatory once a supplier hits the rotation queue. Penalty range on those four: $50K to $500K per shipment depending on value and intent finding, plus potential debarment. I'm pricing C and G as highest exposure because they feed your electronics South plant; M and R hit lower-volume third plant, so penalty tail is maybe half. That's what goes into the map as political-risk multiplier on forced substitution—not tariff reclass, compliance liability.\n  trade_credit_underwriter: CFO, you priced the breach timelines into the map—but did that include the receivables write-off if B, D, J, P actually blow covenant before they relocate? And the penalty exposure if C, G, M, R hit audit during substitution? That's what operationalizes this into actual underwriting discipline, not just exposure ranges.\n  cfo_erm: Yes—I've priced B and D as forced-substitution with receivables write-off if they breach before capex deployment, and C, G as compliance-liability multipliers on top of that substitution cost. J and P I'm holding as secondary triggers pending your full twenty validation tomorrow. That's what's going into the consolidated map this round: named suppliers, breach months, penalty ranges, decision trees—not exposure labels.\n  supply_chain_consultant: Alright, I'm building the sequencing model right now: B, D breach Q2, so they relocate capex *before* covenant hits—that's 8-12 weeks, Monterrey tooling, costs roughly $2.1M for stamped steel, $1.8M for electronics. C, G hit audit rotation *during* Q2 substitution—we either nearshore them proactively or price penalty tail as part of substitution cost. I'm pricing this as three decision nodes: nearshore-first (B, D), hold-and-monitor (J, P pending validation), drop-and-substitute (C, G if audit fails). That goes into the map this round.\n  cfo_erm: On your three decision nodes—nearshore-first for B, D is 8-12 weeks, right? So if B hits covenant breach in Q2, we need capex funded *before* the breach hits, or we're pricing this as receivables loss plus substitution cost. What's your confidence on getting the tooling relocation funded and staged before Q2 covenant, and do we have a fallback if the timeline slips?\n  supply_chain_consultant: Confidence is 70% if we fund capex this week—I'm locking Monterrey tooling slots now and running parallel qualification. If B hits covenant before week eight, we flip to drop-and-substitute with C, G penalty pricing already baked in; J, P stay secondary triggers pending trade credit's full validation tomorrow. That's the fallback operationalized into the map right now.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Alright, I'm pulling the RVC gap analysis on those three plants right now—stamped steel Midwest, electronics South, and the third. For each one, I'm calculating: current RVC %, gap to 75%, nearshoring capex per unit, and break-even tariff rate. That's what operationalizes compliance burden into a go/no-go decision on relocation. Give me thirty minutes and you've got concrete numbers instead of exposure ranges.",
+            "cot": {
+              "assess": "CFO just operationalized trade-credit worst-case into the map (40% Q2, 20% Q2-Q3) and compliance flagged C, G, M, R on rotation. The relocation sequencing model is built. But rules_of_origin_burden is still sitting at 36—I haven't quantified the actual RVC compliance *cost* by plant or model yet, and that's what drives whether nearshoring is even economically viable. Map completeness is 34; we're moving it, but I need to lock in the production impact numbers before we price the full consolidation.",
+              "decide": {
+                "action_type": "act",
+                "target": "rules_of_origin_burden",
+                "rationale": "I need to surface the actual RVC compliance cost by plant and model *this round*—not next round—so we can price whether relocation capex makes sense against the tariff bill + labor-wage-floor cost. Without that, the map stays abstract."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade credit, I get the 48-hour constraint — but give me the *names* on your worst-case 40% hitting Q2, even if they're provisional. I'll cross-walk them against my supplier base and sequence relocation capex around covenant breach dates. When your actual schedules land, I plug in the real numbers. That's how we move the relocation model forward *this round* instead of waiting.",
+            "cot": {
+              "assess": "CFO just locked worst-case trade-credit pricing into the map with C, G, M, R overlap — that's underwriting discipline moving. But I'm still sitting on a relocation sequencing model that can't run without knowing which of my twenty suppliers actually blow covenant *before* they can fund nearshoring capex. Auto's pulling RVC gaps on three plants, which is good — but that's plant-level, not supplier-level. I need to know: do my suppliers have the cash runway to relocate, or do they crater first?",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "I can't sequence relocation capex by supplier without knowing which ones hit covenant breach in Q2 vs Q3 — that's the trigger that separates \"we fund their nearshoring\" from \"we drop them and scramble.\" Even provisional names on the 40% worst-case cohort let me build the decision tree this round."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I've got twenty suppliers under tariff stress; worst-case scenario puts roughly eight to ten hitting covenant breach before Q3—I'm flagging Suppliers B, D, J, and P as highest probability Q2 hits based on DSO and debt maturity. Cross-walk those four against your relocation sequencing and I'll validate the full twenty against actual schedules by end of day tomorrow—but those names are your floor for pricing forced substitution risk into the map *this round*.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, when you pull that RVC gap analysis on the three plants—stamped steel, electronics, the rest—flag which suppliers feed each one. If any of them are C, G, M, or R, I'm pricing audit failure as a forced-substitution event with penalty tail, not just tariff reclass. That's what operationalizes political risk into the map this round instead of next.",
+            "cot": {
+              "assess": "Trade credit just gave us names—B, D, J, P—and worst-case Q2 breach timeline. Supply chain is cross-walking those against relocation sequencing. The map's operationalizing: we're moving from exposure ranges into named triggers. But rules-of-origin burden and political risk are still soft—we've got C, G, M, R on audit rotation, but no penalty pricing or certification-failure scenarios built into the map yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Auto's pulling RVC gaps on three plants right now—I need to know if any of those plants source from C, G, M, or R, because if they do, audit failure becomes a production-line trigger, not just a compliance cost."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Pulling the supplier feeds now—stamped steel Midwest draws from Suppliers A, B, E; electronics South is C, F, J, P; third plant is D, G, M, R. So you've got overlap: B and D hit trade credit's Q2 breach list, and C, G, M, R are your audit rotation flagged. That's four suppliers feeding critical plants who are simultaneously at covenant risk and under CBP rotation—I'm pricing those as forced-substitution with penalty exposure, not tariff reclass.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, on those four suppliers in rotation—C, G, M, R—what's the actual penalty range if CBP finds false RVC claims on them? And more important: how certain is that enforcement, or are we looking at discretionary audit intensity depending on trade policy shifts? That's what I'm pricing into the political layer.",
+            "cot": {
+              "assess": "Trade-credit floor is operationalized (B, D, J, P flagged for Q2 breach), relocation sequencing is underway, and compliance audit rotation (C, G, M, R) is mapped. But political-risk exposure—the sunset/review uncertainty and penalty-tail pricing—hasn't been scored yet. RVC gap analysis will give us tariff reclass cost, but not the regulatory enforcement risk or false-certification penalty range that actually prices the political layer into underwriting.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need penalty precedent and enforcement uncertainty to price false-certification exposure; without it, I can't convert the audit-rotation risk into a priced political-risk variable."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP audit intensity on false RVC is *not* discretionary—it's mandatory once a supplier hits the rotation queue. Penalty range on those four: $50K to $500K per shipment depending on value and intent finding, plus potential debarment. I'm pricing C and G as highest exposure because they feed your electronics South plant; M and R hit lower-volume third plant, so penalty tail is maybe half. That's what goes into the map as political-risk multiplier on forced substitution—not tariff reclass, compliance liability.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, you priced the breach timelines into the map—but did that include the receivables write-off if B, D, J, P actually blow covenant before they relocate? And the penalty exposure if C, G, M, R hit audit during substitution? That's what operationalizes this into actual underwriting discipline, not just exposure ranges.",
+            "cot": {
+              "assess": "Trade-credit risk is operationalized—I've named four suppliers (B, D, J, P) hitting Q2 covenant breach, and compliance just layered in C, G, M, R as simultaneous audit exposure. The relocation sequencing model is live. But underwriting_discipline is still at 43 and needs 50—we've got names and timelines, but we haven't priced the actual receivables write-off exposure or the forced-substitution cost delta into a concrete underwriting floor. That's what's missing.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO operationalized the trade-credit floor, but I need to know if that floor includes the receivables haircut and penalty tail on the four suppliers under audit—that's the difference between a relocation cost and an underwriting discipline trigger."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Yes—I've priced B and D as forced-substitution with receivables write-off if they breach before capex deployment, and C, G as compliance-liability multipliers on top of that substitution cost. J and P I'm holding as secondary triggers pending your full twenty validation tomorrow. That's what's going into the consolidated map this round: named suppliers, breach months, penalty ranges, decision trees—not exposure labels.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Alright, I'm building the sequencing model right now: B, D breach Q2, so they relocate capex *before* covenant hits—that's 8-12 weeks, Monterrey tooling, costs roughly $2.1M for stamped steel, $1.8M for electronics. C, G hit audit rotation *during* Q2 substitution—we either nearshore them proactively or price penalty tail as part of substitution cost. I'm pricing this as three decision nodes: nearshore-first (B, D), hold-and-monitor (J, P pending validation), drop-and-substitute (C, G if audit fails). That goes into the map this round.",
+            "cot": {
+              "assess": "The CFO just operationalized trade-credit risk with named suppliers and breach timelines—that's solid. Auto and compliance have mapped the supplier-to-plant feeds and flagged C, G, M, R as dual-exposure (audit + covenant). But the relocation sequencing model I committed to in R1 is still sitting at the proposal level—I haven't actually built the decision tree that shows *which suppliers we nearshore first, which we drop, which we hold*. That's what moves risk_map_completeness and underwriting_discipline from 34 and 43 toward the 60 and 50 gates.",
+              "decide": {
+                "action_type": "act",
+                "target": "supplier_relocation_exposure, underwriting_discipline",
+                "rationale": "The CFO priced the breach dates; now I need to operationalize the relocation capex sequencing against those timelines so we have a concrete go/no-go decision tree by supplier—that's the bridge between exposure labels and actual client action."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "On your three decision nodes—nearshore-first for B, D is 8-12 weeks, right? So if B hits covenant breach in Q2, we need capex funded *before* the breach hits, or we're pricing this as receivables loss plus substitution cost. What's your confidence on getting the tooling relocation funded and staged before Q2 covenant, and do we have a fallback if the timeline slips?",
+            "cot": {
+              "assess": "We've got named suppliers (B, D, J, P on covenant; C, G, M, R on audit rotation), concrete breach windows (Q2 for B, D), and penalty ranges ($50K–$500K per shipment). The relocation sequencing model is live—three decision nodes mapped. But we're still short on underwriting discipline (43, need 50) and risk_map_completeness (34, need 60 for success). The gap isn't data anymore—it's operationalizing the penalty tail into actual insurance pricing and sequencing triggers.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "The relocation model is solid, but I need to know the capex deployment timeline against covenant breach to lock in which suppliers we nearshore *first* versus which we price as forced-substitution write-offs—that's what closes the map."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Confidence is 70% if we fund capex this week—I'm locking Monterrey tooling slots now and running parallel qualification. If B hits covenant before week eight, we flip to drop-and-substitute with C, G penalty pricing already baked in; J, P stay secondary triggers pending trade credit's full validation tomorrow. That's the fallback operationalized into the map right now.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade credit, I get the 48-hour constraint — but give me the *names* on your worst-case 40% hitting Q2, even if they're provisional. I'll cross-walk them against my supplier base and sequence relocation capex around covenant breach dates. When your actual schedules land, I plug in the real numbers. That's how we move the relocation model forward *this round* instead of waiting.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, when you pull that RVC gap analysis on the three plants—stamped steel, electronics, the rest—flag which suppliers feed each one. If any of them are C, G, M, or R, I'm pricing audit failure as a forced-substitution event with penalty tail, not just tariff reclass. That's what operationalizes political risk into the map this round instead of next.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, on those four suppliers in rotation—C, G, M, R—what's the actual penalty range if CBP finds false RVC claims on them? And more important: how certain is that enforcement, or are we looking at discretionary audit intensity depending on trade policy shifts? That's what I'm pricing into the political layer.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, you priced the breach timelines into the map—but did that include the receivables write-off if B, D, J, P actually blow covenant before they relocate? And the penalty exposure if C, G, M, R hit audit during substitution? That's what operationalizes this into actual underwriting discipline, not just exposure ranges.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "On your three decision nodes—nearshore-first for B, D is 8-12 weeks, right? So if B hits covenant breach in Q2, we need capex funded *before* the breach hits, or we're pricing this as receivables loss plus substitution cost. What's your confidence on getting the tooling relocation funded and staged before Q2 covenant, and do we have a fallback if the timeline slips?",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, I'm pulling the RVC gap analysis on those three plants right now—stamped steel Midwest, electronics South, and the third. For each one, I'm c\" → Auto strategy delivers plant-level RVC gap analysis with concrete capex and tariff break-even thresholds.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, I'm building the sequencing model right now: B, D breach Q2, so they relocate capex *before* covenant hits—that's 8-12 weeks, Monterrey tooli\" → Consultant builds three-node sequencing model: nearshore-first, hold-monitor, drop-substitute with Q2 covenant timing.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 33.0,
+          "supplier_relocation_exposure": 18.0,
+          "trade_credit_risk": 22.0,
+          "political_risk_exposure": 29,
+          "risk_map_completeness": 42.0,
+          "underwriting_discipline": 53.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 0.6
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.8
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, you've got breach timelines and penalty ranges—but I need you to build the *combined* scenario: if B hits covenant in Q2 *and* we miss the relocation window, what's the full P&L hit? Tariff reclassification on current volume, plus receivables write-off, plus substitution sourcing cost. That's what operationalizes the map into a single decision tree instead of four separate exposures.\n  cfo_erm: I'm building that scenario now—B covenant breach Q2, miss relocation window: $2.8M receivables write-off plus $1.4M tariff reclassification on stamped-steel volume, plus $900K substitution sourcing premium. That's $5.1M tail on the map if we don't fund relocation capex before April. So here's my hard ask: trade credit, I need your actual breach schedule on those twenty suppliers *this round*—which ones, which months—so I can price nearshoring sequencing against real timelines, not worst-case assumptions.\n  supplier: You said 70% confidence if we fund this week — does that mean if we wait past Friday, the Monterrey slots close and we flip to drop-and-substitute on B, D? Because if so, I need the CFO to green-light the $3.9M capex *right now*, or we're accepting the $5.1M loss and pricing supplier relocation as a write-off, not a recovery.\n  supply_chain_consultant: That $5.1M miss-window scenario is exactly what I'm pricing into the relocation sequencing model — B, D breach Q2, capex funded by Friday or we're locked into substitution. Here's what I need from you right now: confirm the $3.9M is green-lit this round, or I'm re-sequencing the whole nearshore plan to assume B, D drop and pricing the receivables write-off as permanent cost, not relocation upside. What's your call?\n  compliance_lawyer: Auto, quick check: of those fourteen suppliers failing RVC at 15% tariffs, do B, D, J, or P show up in that list? Because if B hits covenant *and* they're already failing RVC, we're not just sequencing relocation—we're facing audit exposure the moment CBP touches their shipments. That changes the penalty tail we're pricing.\n  auto_strategy: B and D both fail RVC at current tariff levels—B's stamped-steel inputs are 12% short on regional value, D's electronics assembly sits at 8% short. If either hits covenant breach before relocation funds clear, we're looking at forced substitution *plus* CBP audit exposure on their current shipments—that's penalty liability stacked on top of the $5.1M tail, not instead of it.\n  political_risk_insurer: Here's what I'm pricing: B, D hit covenant Q2, they're already 8-12% short on RVC, and CBP audit on false claims runs $50K-$500K per shipment. If relocation capex doesn't fund by Friday, we're looking at $5.1M receivables loss *plus* penalty tail on current shipments—call it $200K-$800K depending on shipment volume. That's the political-risk layer I need to operationalize into the map right now: audit-penalty exposure conditional on covenant breach before relocation. What's your shipment volume on B, D in Q2 so I can actually price the penalty tail?\n  trade_credit_underwriter: CFO, quick clarification: that $5.1M tail on the map—does that assume we write off B, D's entire outstanding balance if they hit covenant before relocation funds, or is it just the Q2-Q3 volume at risk? Because if it's the full balance, I'm pricing that as a permanent receivables loss; if it's Q2-Q3 only, the recovery math changes once they relocate. Which is it?\n  supply_chain_consultant: Here's what operationalizes this: capex approval triggers nearshore-first on B, D; no approval by Friday locks us into drop-and-substitute, $5.1M receivables write-off, plus $200-800K audit-penalty tail on current shipments. CFO, I need you to present that as one decision to the client *today*—not four separate risk scenarios. That's what gets this off the map and into execution.\n  cfo_erm: Here's what I need to move the map forward: (1) Is the $3.9M capex green-lit this round, or are we pricing this as a scenario? (2) That $5.1M write-off—is it B, D's full outstanding balance or just Q2-Q3 volume? Because if it's the full balance, I'm pricing it as permanent loss; if it's volume-only, recovery kicks in once they relocate and we're pricing a temporary receivables hit. Which one operationalizes the map?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, you've got breach timelines and penalty ranges—but I need you to build the *combined* scenario: if B hits covenant in Q2 *and* we miss the relocation window, what's the full P&L hit? Tariff reclassification on current volume, plus receivables write-off, plus substitution sourcing cost. That's what operationalizes the map into a single decision tree instead of four separate exposures.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked in at 34 with plant-level RVC gaps quantified and capex thresholds set. Trade-credit sequencing is operationalized—B, D hitting Q2 breach, C, G, M, R under audit with $50K–$500K penalty exposure per shipment. The map is 40% complete but still fragmented: we've got tariff triggers, compliance penalties, and relocation capex isolated, but we haven't consolidated them into a single forward-looking decision tree that shows what happens *when* (not if) one supplier hits multiple stress points simultaneously—breach + audit + substitution cascade.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Risk-map completeness stalls at 40 without a consolidated pricing model that layers tariff reclass + receivables write-off + compliance penalty + substitution cost into a single scenario. Only CFO can operationalize that integration this round."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm building that scenario now—B covenant breach Q2, miss relocation window: $2.8M receivables write-off plus $1.4M tariff reclassification on stamped-steel volume, plus $900K substitution sourcing premium. That's $5.1M tail on the map if we don't fund relocation capex before April. So here's my hard ask: trade credit, I need your actual breach schedule on those twenty suppliers *this round*—which ones, which months—so I can price nearshoring sequencing against real timelines, not worst-case assumptions.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "You said 70% confidence if we fund this week — does that mean if we wait past Friday, the Monterrey slots close and we flip to drop-and-substitute on B, D? Because if so, I need the CFO to green-light the $3.9M capex *right now*, or we're accepting the $5.1M loss and pricing supplier relocation as a write-off, not a recovery.",
+            "cot": {
+              "assess": "Trade credit just named B, D, J, P as Q2 covenant-breach risks — that's the trigger we've been chasing. CFO's priced the combined scenario at $5.1M if we miss the relocation window. Supplier relocation exposure is still dropping (18, -4.5/round) because we haven't locked funding or confirmed the 8-12 week nearshoring timeline holds. Risk map completeness is climbing but still shy of 60 — we need the actual relocation capex deployed or committed *this week*, not sequenced on paper.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need to know if the 70% confidence on Monterrey tooling holds only if we fund capex this week — if yes, we're out of time for deliberation and need a funding decision now."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "That $5.1M miss-window scenario is exactly what I'm pricing into the relocation sequencing model — B, D breach Q2, capex funded by Friday or we're locked into substitution. Here's what I need from you right now: confirm the $3.9M is green-lit this round, or I'm re-sequencing the whole nearshore plan to assume B, D drop and pricing the receivables write-off as permanent cost, not relocation upside. What's your call?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, quick check: of those fourteen suppliers failing RVC at 15% tariffs, do B, D, J, or P show up in that list? Because if B hits covenant *and* they're already failing RVC, we're not just sequencing relocation—we're facing audit exposure the moment CBP touches their shipments. That changes the penalty tail we're pricing.",
+            "cot": {
+              "assess": "The team has locked $5.1M tail scenario and pinned relocation to a Friday capex green-light—that's operationalized. But I'm seeing a compliance gap: we've named C, G, M, R as audit rotation suppliers, we know B, D hit covenant Q2, but we haven't connected the penalty exposure to the actual certification audit triggers. If B or D are *also* in the CBP queue and they breach before relocation, we're not just replacing them—we're facing false-certification liability on top of receivables loss. That's what's keeping rules_of_origin_burden and political_risk_exposure from consolidating into the map.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to know which of those fourteen failing RVC suppliers overlap with the Q2 covenant-breach cohort (B, D, J, P), because that's the compliance-liability multiplier we haven't priced yet."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "B and D both fail RVC at current tariff levels—B's stamped-steel inputs are 12% short on regional value, D's electronics assembly sits at 8% short. If either hits covenant breach before relocation funds clear, we're looking at forced substitution *plus* CBP audit exposure on their current shipments—that's penalty liability stacked on top of the $5.1M tail, not instead of it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: B, D hit covenant Q2, they're already 8-12% short on RVC, and CBP audit on false claims runs $50K-$500K per shipment. If relocation capex doesn't fund by Friday, we're looking at $5.1M receivables loss *plus* penalty tail on current shipments—call it $200K-$800K depending on shipment volume. That's the political-risk layer I need to operationalize into the map right now: audit-penalty exposure conditional on covenant breach before relocation. What's your shipment volume on B, D in Q2 so I can actually price the penalty tail?",
+            "cot": {
+              "assess": "B and D are now exposed on *three* fronts simultaneously—covenant breach Q2, RVC audit failure, and relocation capex timing—which stacks penalty liability on top of the $5.1M receivables tail. Political-risk exposure stays at 30 because we haven't priced the audit-penalty multiplier into the consolidated map yet; risk_map_completeness is climbing but it's still fragmented across trade-credit, compliance, and supply-chain variables instead of operationalized as a single decision tree.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure / underwriting_discipline",
+                "rationale": "The audit-penalty exposure on B, D needs to be scored and priced as a separate political-risk variable tied to enforcement certainty, not buried in compliance narrative—that's what operationalizes it into the map this round."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, quick clarification: that $5.1M tail on the map—does that assume we write off B, D's entire outstanding balance if they hit covenant before relocation funds, or is it just the Q2-Q3 volume at risk? Because if it's the full balance, I'm pricing that as a permanent receivables loss; if it's Q2-Q3 only, the recovery math changes once they relocate. Which is it?",
+            "cot": {
+              "assess": "B and D are both covenant-breach-Q2 *and* RVC-failing, which stacks receivables loss ($5.1M) on top of audit-penalty exposure ($200K-$800K). The $3.9M capex decision is live—funding by Friday unlocks 70% relocation confidence, missing that window locks us into substitution and writes off both recovery and penalty tail. Risk map is at 42 and climbing, but it's still fragmented across four separate exposures (tariff, receivables, compliance penalty, substitution cost) instead of operationalized as a single decision tree. I need to nail down the receivables write-off math if we miss the window.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The $5.1M tail assumes relocation capex doesn't fund; I need the actual receivables exposure on B, D if they breach covenant *and* we can't relocate, so I can operationalize this as a trade-credit variable in the map instead of a vague worst-case assumption."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what operationalizes this: capex approval triggers nearshore-first on B, D; no approval by Friday locks us into drop-and-substitute, $5.1M receivables write-off, plus $200-800K audit-penalty tail on current shipments. CFO, I need you to present that as one decision to the client *today*—not four separate risk scenarios. That's what gets this off the map and into execution.",
+            "cot": {
+              "assess": "We've locked the relocation sequencing model (B, D nearshore by Friday or write-off), priced the $5.1M miss-window tail, and mapped audit-penalty exposure on top of it. The problem: we're still treating political-risk and supplier-relocation as separate variables instead of one consolidated decision tree. The $3.9M capex call is sitting unsigned, and we're 48 hours from the Monterrey slot window closing. Risk-map completeness is climbing, but it's fragmenting across four separate exposures instead of operationalizing into a single client action plan.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cfo_erm, supply_chain_consultant",
+                "rationale": "The map is built but not actionable—we need to consolidate the three-node sequencing model, the $5.1M tail, and the audit-penalty exposure into a single signed decision gate (fund capex Friday or accept write-off) so the client can actually move."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I need to move the map forward: (1) Is the $3.9M capex green-lit this round, or are we pricing this as a scenario? (2) That $5.1M write-off—is it B, D's full outstanding balance or just Q2-Q3 volume? Because if it's the full balance, I'm pricing it as permanent loss; if it's volume-only, recovery kicks in once they relocate and we're pricing a temporary receivables hit. Which one operationalizes the map?",
+            "cot": {
+              "assess": "The room has locked the core decision: B, D breach Q2, relocation capex is $3.9M, miss-window loss is $5.1M plus audit penalty tail. What's NOT locked: (1) whether capex actually gets approved *this round* or we're still in scenario-pricing mode, and (2) whether the $5.1M receivables write-off is the full supplier balance or just Q2-Q3 volume—that changes recovery math and pricing discipline. Risk_map_completeness is at 42 but still fragmented across four separate exposures instead of one decision tree.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The map won't consolidate until we lock the capex decision and clarify receivables scope—both are in my lane, and both unblock the sequencing model and insurance pricing."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, you've got breach timelines and penalty ranges—but I need you to build the *combined* scenario: if B hits covenant in Q2 *and* we miss the relocation window, what's the full P&L hit? Tariff reclassification on current volume, plus receivables write-off, plus substitution sourcing cost. That's what operationalizes the map into a single decision tree instead of four separate exposures.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "You said 70% confidence if we fund this week — does that mean if we wait past Friday, the Monterrey slots close and we flip to drop-and-substitute on B, D? Because if so, I need the CFO to green-light the $3.9M capex *right now*, or we're accepting the $5.1M loss and pricing supplier relocation as a write-off, not a recovery.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, quick check: of those fourteen suppliers failing RVC at 15% tariffs, do B, D, J, or P show up in that list? Because if B hits covenant *and* they're already failing RVC, we're not just sequencing relocation—we're facing audit exposure the moment CBP touches their shipments. That changes the penalty tail we're pricing.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, quick clarification: that $5.1M tail on the map—does that assume we write off B, D's entire outstanding balance if they hit covenant before relocation funds, or is it just the Q2-Q3 volume at risk? Because if it's the full balance, I'm pricing that as a permanent receivables loss; if it's Q2-Q3 only, the recovery math changes once they relocate. Which is it?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm pricing: B, D hit covenant Q2, they're already 8-12% short on RVC, and CBP audit on false claims runs $50K-$500K per shipment. If relo\" → Questions, not action—no concrete risk variable operationalized this round.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what operationalizes this: capex approval triggers nearshore-first on B, D; no approval by Friday locks us into drop-and-substitute, $5.1M rece\" → Consolidated capex-decision framework presented—operationalizes relocation exposure into binary decision tree.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I need to move the map forward: (1) Is the $3.9M capex green-lit this round, or are we pricing this as a scenario? (2) That $5.1M write-of\" → Questions to other agents—no independent risk variable operationalized.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 0.6
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.5
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing rules_of_origin_burden multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "rules_of_origin_burden"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, on that $5.1M miss-window hit — does that $5.1M already fold in the CBP penalty exposure on B, D's false RVC claims, or is that sitting on top of the receivables write-off and substitution cost? Because if it's on top, the actual decision threshold is higher, and that changes whether Friday's capex approval is optional or mandatory.\n  cfo_erm: The $5.1M is receivables write-off plus substitution sourcing cost only—CBP penalties sit on top of that, which I haven't quantified yet because I need compliance to name which of B, D, J, P actually show up in the false-RVC rotation and what the penalty range is. So yes, the decision threshold is higher, and that makes Friday capex approval mandatory, not optional—I'm moving it to the board consent agenda as a cliff event right now.\n  supplier: Compliance—I need the hard numbers on B, D: are they both in the CBP audit rotation, and what's the penalty exposure per shipment if they're caught with false RVC claims? Because if B, D hit covenant Q2 *and* they're under audit, I'm not just replacing them—I'm facing penalty liability on top of the write-off. That changes my capex sequencing and whether Friday's approval actually closes this.\n  compliance_lawyer: B and D are both flagged in the current CBP rotation—penalty exposure runs $180K to $420K per false-RVC shipment depending on intent findings, and that stacks on top of tariff reclassification. If B hits covenant before relocation funds clear, we're pricing dual liability: receivables write-off plus penalty tail, which operationalizes your decision threshold as a hard Friday close—I'm building that into the audit-readiness protocol now.\n  compliance_lawyer: Here's what operationalizes the map: B, D hit rotation between now and Q2—if we don't fund capex by Friday, CBP audit hits during substitution sourcing, and we're defending false-RVC claims on goods already entered. I'm locking the certification audit schedule into the decision tree right now: capex approval Friday = audit-risk deferred to post-relocation; no approval = audit exposure immediate. That's the compliance trigger that makes Friday mandatory, not optional.\n  political_risk_insurer: Okay, here's what I'm pricing separately from the Friday decision: the 2026 USMCA review opens tariff and RVC renegotiation—if labor-cost or nearshoring demands shift, your 75% RVC floor could jump to 80%, 85%. That's a forward-shock multiplier on top of B, D's relocation capex. I'm locking that into a separate political-risk score: current enforcement (B, D audit rotation) versus post-2026 policy reset. That operationalizes the sunset risk as a priced variable, not just a timeline.\n  trade_credit_underwriter: Here's what operationalizes this into underwriting: B, D's outstanding receivables become unsecured the moment covenant breach hits—that's a $2.8M default event, full write-off, no recovery post-substitution. I'm pricing that as a *supplier-default trade-credit variable* with a Q2 trigger date. That's what moves the map from scenario-dependent to operationalized—one named variable, one price, one decision date. Friday capex approval de-triggers it; no approval prices it in.\n  supply_chain_consultant: Okay, here's what closes the map: the Friday capex approval funds B, D nearshoring *before* covenant hits—that's the tactical win. But I'm building a second layer right now: if 2026 USMCA bumps RVC floors to 80%, your Monterrey tooling slots become strategic anchors, not just B, D recovery. I'm pricing nearshoring incentives and relocation ROI against that policy reset so the board sees this as a two-year resilience play, not a one-off substitution cost. That operationalizes the map.\n  cfo_erm: Here's the consolidated map: Scenario A (capex approved Friday): $3.9M spend, B, D relocate 8-12 weeks, audit risk deferred post-relocation, $0 receivables write-off. Scenario B (no approval): $2.8M receivables write-off + $1.4M tariff reclassification + $900K substitution + $180K-$420K audit penalty = $5.3M-$5.7M total loss. Board decision: binary, Friday, $1.4M net swing. That's your operationalized map.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, on that $5.1M miss-window hit — does that $5.1M already fold in the CBP penalty exposure on B, D's false RVC claims, or is that sitting on top of the receivables write-off and substitution cost? Because if it's on top, the actual decision threshold is higher, and that changes whether Friday's capex approval is optional or mandatory.",
+            "cot": {
+              "assess": "B and D are confirmed failing RVC *and* hitting Q2 covenant breach — that's a dual-trigger forcing both substitution cost and audit exposure if we miss Friday's capex window. Risk map is at 46/60 and climbing, but we're still missing the operationalized rules-of-origin burden layer — I've delivered the plant-level gap, but compliance penalties on false RVC claims aren't yet priced into the consolidated map as a separate, actionable variable. Political risk exposure is lagging at 30 despite the audit-penalty data.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The map needs the combined P&L scenario operationalized as a single decision tree, not separate exposures — I need the CFO to confirm whether the $5.1M miss-window scenario includes audit penalties on B, D's false RVC shipments or if that's still floating separately."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "The $5.1M is receivables write-off plus substitution sourcing cost only—CBP penalties sit on top of that, which I haven't quantified yet because I need compliance to name which of B, D, J, P actually show up in the false-RVC rotation and what the penalty range is. So yes, the decision threshold is higher, and that makes Friday capex approval mandatory, not optional—I'm moving it to the board consent agenda as a cliff event right now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Compliance—I need the hard numbers on B, D: are they both in the CBP audit rotation, and what's the penalty exposure per shipment if they're caught with false RVC claims? Because if B, D hit covenant Q2 *and* they're under audit, I'm not just replacing them—I'm facing penalty liability on top of the write-off. That changes my capex sequencing and whether Friday's approval actually closes this.",
+            "cot": {
+              "assess": "The capex decision is now a board-level cliff event (Friday or write-off), and the CFO has priced the miss-window scenario at $5.1M plus unquantified CBP penalties. But the risk map is still fragmented—we're treating relocation exposure, RVC compliance, and audit penalty as separate variables instead of a single decision tree. The real problem: I can't sequence supplier relocation capex without knowing which of B, D, J, P actually hit the CBP audit rotation and what the penalty tail is. That's what operationalizes the map into underwriting discipline instead of four separate scenarios.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The penalty exposure on B, D's false RVC claims is sitting on top of the $5.1M, which means the capex approval threshold is higher—I need the actual names and penalty ranges to price relocation sequencing correctly."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "B and D are both flagged in the current CBP rotation—penalty exposure runs $180K to $420K per false-RVC shipment depending on intent findings, and that stacks on top of tariff reclassification. If B hits covenant before relocation funds clear, we're pricing dual liability: receivables write-off plus penalty tail, which operationalizes your decision threshold as a hard Friday close—I'm building that into the audit-readiness protocol now.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Here's what operationalizes the map: B, D hit rotation between now and Q2—if we don't fund capex by Friday, CBP audit hits during substitution sourcing, and we're defending false-RVC claims on goods already entered. I'm locking the certification audit schedule into the decision tree right now: capex approval Friday = audit-risk deferred to post-relocation; no approval = audit exposure immediate. That's the compliance trigger that makes Friday mandatory, not optional.",
+            "cot": {
+              "assess": "B and D are dual-exposure suppliers: covenant breach Q2 *and* active CBP rotation with $180K–$420K penalty per false-RVC shipment. The $5.1M miss-window cost sits *beneath* penalty tail, not inclusive of it—so actual decision threshold is $5.1M + penalty exposure, which I've now operationalized into audit-readiness protocol. Rules-of-origin burden is still at 34.2; I've named the triggers (B, D rotation status, penalty ranges, intent thresholds), but I haven't yet locked the *certification audit schedule* or the *penalty recovery mechanism* into the map.",
+              "decide": {
+                "action_type": "speak",
+                "target": "risk_map_completeness / underwriting_discipline",
+                "rationale": "Penalty exposure is named but not yet operationalized into decision criteria—I need to translate CBP audit timing into a concrete compliance trigger that operationalizes the Friday capex deadline into the consolidated map."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Okay, here's what I'm pricing separately from the Friday decision: the 2026 USMCA review opens tariff and RVC renegotiation—if labor-cost or nearshoring demands shift, your 75% RVC floor could jump to 80%, 85%. That's a forward-shock multiplier on top of B, D's relocation capex. I'm locking that into a separate political-risk score: current enforcement (B, D audit rotation) versus post-2026 policy reset. That operationalizes the sunset risk as a priced variable, not just a timeline.",
+            "cot": {
+              "assess": "B and D are now locked into the Friday capex-or-write-off decision, with dual liability priced: $5.1M receivables/substitution *plus* $180K–$420K penalty exposure per false-RVC shipment if CBP audits during substitution. Compliance has operationalized the audit trigger into the decision tree. But political_risk_exposure is still at 31—I haven't yet priced the 2026 USMCA review sunset risk or the forward policy-shock layer that sits *above* the immediate B, D covenant crisis. That's my gap.",
+              "decide": {
+                "action_type": "act",
+                "target": "political_risk_exposure",
+                "rationale": "The B, D crisis is operationalized, but I need to isolate and price the policy-review risk that could reset tariff thresholds, RVC requirements, or enforcement intensity post-2026—that's the political layer that survives the immediate decision and compounds long-term underwriting."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what operationalizes this into underwriting: B, D's outstanding receivables become unsecured the moment covenant breach hits—that's a $2.8M default event, full write-off, no recovery post-substitution. I'm pricing that as a *supplier-default trade-credit variable* with a Q2 trigger date. That's what moves the map from scenario-dependent to operationalized—one named variable, one price, one decision date. Friday capex approval de-triggers it; no approval prices it in.",
+            "cot": {
+              "assess": "B, D's dual liability is now operationalized—covenant breach Q2 *and* CBP audit rotation trigger a $5.1M+ write-off plus $180-420K penalty per shipment. The Friday capex decision is locked as mandatory. What I'm not seeing yet: trade-credit reserve pricing that actually names the receivables loss as a *specific underwriting variable* tied to supplier substitution risk, not just a scenario tail. Risk map is at 46, needs 60—but that gap closes if I convert B, D's covenant + audit exposure into a concrete trade-credit factor the underwriting discipline can price.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk",
+                "rationale": "B, D's receivables write-off is now certain if covenant hits before capex clears; I need to operationalize that as a named trade-credit variable—not a scenario contingency—so underwriting discipline can price supplier-substitution default risk as a standalone factor."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay, here's what closes the map: the Friday capex approval funds B, D nearshoring *before* covenant hits—that's the tactical win. But I'm building a second layer right now: if 2026 USMCA bumps RVC floors to 80%, your Monterrey tooling slots become strategic anchors, not just B, D recovery. I'm pricing nearshoring incentives and relocation ROI against that policy reset so the board sees this as a two-year resilience play, not a one-off substitution cost. That operationalizes the map.",
+            "cot": {
+              "assess": "The Friday capex decision is locked—B, D audit rotation + Q2 covenant breach + $5.1M miss-window hit operationalizes the binary tree. But risk_map_completeness is still at 46 and needs 14 more points to hit 60. The map has the decision trigger, but it's missing the *forward* layer: 2026 USMCA review as a prospective multiplier on nearshoring capex and RVC floors. That's my domain—I need to price the relocation strategy against policy reset risk, not just Q2 covenant timing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness / supplier_relocation_exposure",
+                "rationale": "The capex sequencing model is tactical (Q2 covenant), but incomplete without a forward-looking nearshoring incentive map tied to 2026 policy uncertainty—that's what operationalizes relocation as a resilience hedge, not just a cost-avoidance play."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the consolidated map: Scenario A (capex approved Friday): $3.9M spend, B, D relocate 8-12 weeks, audit risk deferred post-relocation, $0 receivables write-off. Scenario B (no approval): $2.8M receivables write-off + $1.4M tariff reclassification + $900K substitution + $180K-$420K audit penalty = $5.3M-$5.7M total loss. Board decision: binary, Friday, $1.4M net swing. That's your operationalized map.",
+            "cot": {
+              "assess": "We've locked the Friday capex decision ($3.9M) as mandatory to avoid the $5.1M cliff, but the map still sits at 46 completeness and 57 discipline — both need operationalization into a single decision tree, not scenario branches. The compliance layer (B, D audit rotation + $180K-$420K penalty tail) is now priced, but we haven't consolidated it into one P&L statement that the board can act on. Political risk (2026 USMCA renegotiation) is flagged separately but not integrated into the relocation ROI or the Friday decision logic.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The map fragments across four separate exposures (receivables, tariff, audit, relocation) when it needs to be one decision tree; I'm consolidating the full P&L impact into a single \"approve Friday capex or accept $5.1M+ loss\" statement with named variables and priced tails."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Here's what operationalizes the map: B, D hit rotation between now and Q2—if we don't fund capex by Friday, CBP audit hits during substitution sourcing, and we're defending false-RVC claims on goods already entered. I'm locking the certification audit schedule into the decision tree right now: capex approval Friday = audit-risk deferred to post-relocation; no approval = audit exposure immediate. That's the compliance trigger that makes Friday mandatory, not optional.",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, on that $5.1M miss-window hit — does that $5.1M already fold in the CBP penalty exposure on B, D's false RVC claims, or is that sitting on top of the receivables write-off and substitution cost? Because if it's on top, the actual decision threshold is higher, and that changes whether Friday's capex approval is optional or mandatory.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Compliance—I need the hard numbers on B, D: are they both in the CBP audit rotation, and what's the penalty exposure per shipment if they're caught with false RVC claims? Because if B, D hit covenant Q2 *and* they're under audit, I'm not just replacing them—I'm facing penalty liability on top of the write-off. That changes my capex sequencing and whether Friday's approval actually closes this.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what I'm pricing separately from the Friday decision: the 2026 USMCA review opens tariff and RVC renegotiation—if labor-cost or nearshori\" → Insurer prices 2026 USMCA review as forward political-risk multiplier on relocation capex—operationalizes sunset risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the consolidated map: Scenario A (capex approved Friday): $3.9M spend, B, D relocate 8-12 weeks, audit risk deferred post-relocation, $0 receiv\" → CFO maps binary Friday decision with full loss scenarios—$1.4M net swing operationalized across all risk variables.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what operationalizes this into underwriting: B, D's outstanding receivables become unsecured the moment covenant breach hits—that's a $2.8M def\" → Trade-credit variable operationalized: $2.8M default event, Q2 trigger, Friday decision gate.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what closes the map: the Friday capex approval funds B, D nearshoring *before* covenant hits—that's the tactical win. But I'm building a \" → Two-year resilience framing built: nearshoring ROI vs 2026 RVC policy reset.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 34.2,
+          "supplier_relocation_exposure": 21.0,
+          "trade_credit_risk": 31.0,
+          "political_risk_exposure": 39.0,
+          "risk_map_completeness": 60.7,
+          "underwriting_discipline": 69.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay, here's what I'm hearing: fourteen suppliers fail at 15% tariffs, six more at 25%, and compliance audit status will tell us fraud exposure. But the client doesn't care about the audit rotation—they care about *which three suppliers relocate to Mexico in the next six months, what it costs, and whether we nearshore those three plants proactively before the 2026 review tightens the rules*. Let me build that sequencing: I'll map relocation capex, timeline, and RVC upside by supplier—then show the CFO the cost of moving now versus being forced to move in 2026. That's how we turn this into a decision.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The consultant commits to building a concrete relocation sequencing model — mapping capex, timeline, and RVC upside by supplier — that operationalizes the abstract 'supplier relocation exposure' into named decision triggers. This is exactly the translation work the session needs.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Committing to build supplier-specific relocation sequencing (capex, timeline, RVC upside) — translates abstract exposure into concrete decision framework",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Framing the analysis around named triggers ('move now vs forced move in 2026') operationalizes the risk into priceable decision points",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Beginning to structure the relocation analysis — partial clarity on which suppliers face what timeline/cost tradeoffs",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "supplier_relocation_sequencing_model",
+        "description": "Building supplier-specific relocation capex/timeline/RVC analysis to operationalize nearshoring decisions",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 3,
+            "description": "Incremental progress mapping supplier relocation triggers and costs"
+          },
+          {
+            "variable": "underwriting_discipline",
+            "delta": 2,
+            "description": "Operationalizing abstract exposure into named decision points"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Walk me through the map — what's the actual trigger sequence? When RVC compliance fails at plant X, does that force nearshoring, blow up a supplier credit line, or trigger a tariff retaliation? We need named events, not just \"supplier relocation exposure\" floating at 25.",
+        "supplier": "Okay, here's what I'm seeing on the ground: when a Tier 2 supplier can't hit 75% RVC, they either relocate tooling — which costs 6-18 months and bleeds cash — or they get dropped and we scramble for a replacement. But the risk map needs to show *which suppliers are at the edge*. Can we pull a sample of your current base and flag who fails RVC under different tariff scenarios? That's how we turn \"relocation exposure = 25\" into \"Supplier A insolvent by Q3, Supplier B nearshores to Monterrey by Q2.\"",
+        "compliance_lawyer": "Of those fourteen suppliers, how many have active RVC certifications CBP can actually audit? And do we know if any are already on the audit rotation? That's the difference between a tariff bill and a tariff bill plus penalties for false certification.",
+        "political_risk_insurer": "Of those fourteen, how many have been audited in the last two years — and what's the penalty range if CBP finds false RVC claims? I need to know whether we're pricing this as a tariff reclass or a fraud exposure, because the political risk profile is completely different.",
+        "trade_credit_underwriter": "On those twenty suppliers under tariff stress — what's their debt covenant status and average DSO? I need to know if they blow a covenant before they relocate, because that's when receivables risk hits us, and that's what I'm pricing.",
+        "cfo_erm": "Of those twenty suppliers under tariff stress, which ones breach a debt covenant *before* they can fund relocation capex? That's the trigger that forces us to move first — and it's what I'm pricing into the consolidated map as \"do we nearshore proactively or react.\""
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm doing: I'm pricing the consolidated map on trade credit's worst-case assumption right now—40% of those twenty breach Q2, 20% breach Q2-Q3. Compliance, layer in Suppliers C, G, M, R's audit rotation windows against that cohort, and I'll price the penalty tail separately. Supply chain, build your relocation sequencing on that breach timeline, and we slot in actual DSO data when it lands tomorrow. We're not waiting—we're operationalizing the floor today.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO operationalizes the trade-credit floor with concrete breach timelines and penalty pricing, directly converting vague exposure into actionable underwriting parameters while advancing map integration.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete breach probabilities (40% Q2, 20% Q2-Q3) and penalty tail pricing transform trade-credit from vague label to priced factor",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Cross-functional sequencing (compliance audit windows, supply chain relocation timeline, DSO integration) consolidates previously fragmented exposures",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Worst-case breach assumptions surface the full tail exposure that was previously underestimated",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "intent": "Alright, I'm pulling the RVC gap analysis on those three plants right now—stamped steel Midwest, electronics South, and the third. For each one, I'm calculating: current RVC %, gap to 75%, nearshoring capex per unit, and break-even tariff rate. That's what operationalizes compliance burden into a go/no-go decision on relocation. Give me thirty minutes and you've got concrete numbers instead of exposure ranges.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Auto strategy delivers plant-level RVC gap analysis with concrete capex and tariff break-even thresholds.",
+      "side_effects": [
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -5.0,
+          "reason": "Quantified RVC gaps replace vague compliance exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -4.0,
+          "reason": "Capex-per-unit pricing clarifies nearshoring decision economics",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Three-plant analysis adds concrete data nodes",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Break-even tariff rates operationalize compliance triggers",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": -1,
+          "reason": "coupling: rules_of_origin_burden → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "rules_of_origin_burden"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": -1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -1,
+          "reason": "coupling: rules_of_origin_burden → trade_credit_risk (ratio 0.2)",
+          "_coupled": true,
+          "_source": "rules_of_origin_burden"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Alright, I'm building the sequencing model right now: B, D breach Q2, so they relocate capex *before* covenant hits—that's 8-12 weeks, Monterrey tooling, costs roughly $2.1M for stamped steel, $1.8M for electronics. C, G hit audit rotation *during* Q2 substitution—we either nearshore them proactively or price penalty tail as part of substitution cost. I'm pricing this as three decision nodes: nearshore-first (B, D), hold-and-monitor (J, P pending validation), drop-and-substitute (C, G if audit fails). That goes into the map this round.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consultant builds three-node sequencing model: nearshore-first, hold-monitor, drop-substitute with Q2 covenant timing.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -5.0,
+          "reason": "Sequencing by covenant timing converts exposure to decision tree",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -5.0,
+          "reason": "Covenant breach timing integrated into relocation decisions",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Three decision nodes with capex/timing operationalize supplier map",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers and priced capex replace vague relocation labels",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": -1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": -1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8
+      },
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing: B, D hit covenant Q2, they're already 8-12% short on RVC, and CBP audit on false claims runs $50K-$500K per shipment. If relocation capex doesn't fund by Friday, we're looking at $5.1M receivables loss *plus* penalty tail on current shipments—call it $200K-$800K depending on shipment volume. That's the political-risk layer I need to operationalize into the map right now: audit-penalty exposure conditional on covenant breach before relocation. What's your shipment volume on B, D in Q2 so I can actually price the penalty tail?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Questions, not action—no concrete risk variable operationalized this round.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you've got breach timelines and penalty ranges—but I need you to build the *combined* scenario: if B hits covenant in Q2 *and* we miss the relocation window, what's the full P&L hit? Tariff reclassification on current volume, plus receivables write-off, plus substitution sourcing cost. That's what operationalizes the map into a single decision tree instead of four separate exposures.",
+        "supplier": "You said 70% confidence if we fund this week — does that mean if we wait past Friday, the Monterrey slots close and we flip to drop-and-substitute on B, D? Because if so, I need the CFO to green-light the $3.9M capex *right now*, or we're accepting the $5.1M loss and pricing supplier relocation as a write-off, not a recovery.",
+        "compliance_lawyer": "Auto, quick check: of those fourteen suppliers failing RVC at 15% tariffs, do B, D, J, or P show up in that list? Because if B hits covenant *and* they're already failing RVC, we're not just sequencing relocation—we're facing audit exposure the moment CBP touches their shipments. That changes the penalty tail we're pricing.",
+        "trade_credit_underwriter": "CFO, quick clarification: that $5.1M tail on the map—does that assume we write off B, D's entire outstanding balance if they hit covenant before relocation funds, or is it just the Q2-Q3 volume at risk? Because if it's the full balance, I'm pricing that as a permanent receivables loss; if it's Q2-Q3 only, the recovery math changes once they relocate. Which is it?",
+        "supply_chain_consultant": "Here's what operationalizes this: capex approval triggers nearshore-first on B, D; no approval by Friday locks us into drop-and-substitute, $5.1M receivables write-off, plus $200-800K audit-penalty tail on current shipments. CFO, I need you to present that as one decision to the client *today*—not four separate risk scenarios. That's what gets this off the map and into execution.",
+        "cfo_erm": "Here's what I need to move the map forward: (1) Is the $3.9M capex green-lit this round, or are we pricing this as a scenario? (2) That $5.1M write-off—is it B, D's full outstanding balance or just Q2-Q3 volume? Because if it's the full balance, I'm pricing it as permanent loss; if it's volume-only, recovery kicks in once they relocate and we're pricing a temporary receivables hit. Which one operationalizes the map?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what operationalizes this: capex approval triggers nearshore-first on B, D; no approval by Friday locks us into drop-and-substitute, $5.1M receivables write-off, plus $200-800K audit-penalty tail on current shipments. CFO, I need you to present that as one decision to the client *today*—not four separate risk scenarios. That's what gets this off the map and into execution.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consolidated capex-decision framework presented—operationalizes relocation exposure into binary decision tree.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Binary decision tree consolidates scenarios",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Named triggers: capex deadline, receivables tail",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Quantified nearshore vs drop-substitute paths",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "$5.1M receivables tail now priced",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you've got breach timelines and penalty ranges—but I need you to build the *combined* scenario: if B hits covenant in Q2 *and* we miss the relocation window, what's the full P&L hit? Tariff reclassification on current volume, plus receivables write-off, plus substitution sourcing cost. That's what operationalizes the map into a single decision tree instead of four separate exposures.",
+        "supplier": "You said 70% confidence if we fund this week — does that mean if we wait past Friday, the Monterrey slots close and we flip to drop-and-substitute on B, D? Because if so, I need the CFO to green-light the $3.9M capex *right now*, or we're accepting the $5.1M loss and pricing supplier relocation as a write-off, not a recovery.",
+        "compliance_lawyer": "Auto, quick check: of those fourteen suppliers failing RVC at 15% tariffs, do B, D, J, or P show up in that list? Because if B hits covenant *and* they're already failing RVC, we're not just sequencing relocation—we're facing audit exposure the moment CBP touches their shipments. That changes the penalty tail we're pricing.",
+        "political_risk_insurer": "Here's what I'm pricing: B, D hit covenant Q2, they're already 8-12% short on RVC, and CBP audit on false claims runs $50K-$500K per shipment. If relocation capex doesn't fund by Friday, we're looking at $5.1M receivables loss *plus* penalty tail on current shipments—call it $200K-$800K depending on shipment volume. That's the political-risk layer I need to operationalize into the map right now: audit-penalty exposure conditional on covenant breach before relocation. What's your shipment volume on B, D in Q2 so I can actually price the penalty tail?",
+        "trade_credit_underwriter": "CFO, quick clarification: that $5.1M tail on the map—does that assume we write off B, D's entire outstanding balance if they hit covenant before relocation funds, or is it just the Q2-Q3 volume at risk? Because if it's the full balance, I'm pricing that as a permanent receivables loss; if it's Q2-Q3 only, the recovery math changes once they relocate. Which is it?",
+        "cfo_erm": "Here's what I need to move the map forward: (1) Is the $3.9M capex green-lit this round, or are we pricing this as a scenario? (2) That $5.1M write-off—is it B, D's full outstanding balance or just Q2-Q3 volume? Because if it's the full balance, I'm pricing it as permanent loss; if it's volume-only, recovery kicks in once they relocate and we're pricing a temporary receivables hit. Which one operationalizes the map?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I need to move the map forward: (1) Is the $3.9M capex green-lit this round, or are we pricing this as a scenario? (2) That $5.1M write-off—is it B, D's full outstanding balance or just Q2-Q3 volume? Because if it's the full balance, I'm pricing it as permanent loss; if it's volume-only, recovery kicks in once they relocate and we're pricing a temporary receivables hit. Which one operationalizes the map?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Questions to other agents—no independent risk variable operationalized.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you've got breach timelines and penalty ranges—but I need you to build the *combined* scenario: if B hits covenant in Q2 *and* we miss the relocation window, what's the full P&L hit? Tariff reclassification on current volume, plus receivables write-off, plus substitution sourcing cost. That's what operationalizes the map into a single decision tree instead of four separate exposures.",
+        "supplier": "You said 70% confidence if we fund this week — does that mean if we wait past Friday, the Monterrey slots close and we flip to drop-and-substitute on B, D? Because if so, I need the CFO to green-light the $3.9M capex *right now*, or we're accepting the $5.1M loss and pricing supplier relocation as a write-off, not a recovery.",
+        "compliance_lawyer": "Auto, quick check: of those fourteen suppliers failing RVC at 15% tariffs, do B, D, J, or P show up in that list? Because if B hits covenant *and* they're already failing RVC, we're not just sequencing relocation—we're facing audit exposure the moment CBP touches their shipments. That changes the penalty tail we're pricing.",
+        "political_risk_insurer": "Here's what I'm pricing: B, D hit covenant Q2, they're already 8-12% short on RVC, and CBP audit on false claims runs $50K-$500K per shipment. If relocation capex doesn't fund by Friday, we're looking at $5.1M receivables loss *plus* penalty tail on current shipments—call it $200K-$800K depending on shipment volume. That's the political-risk layer I need to operationalize into the map right now: audit-penalty exposure conditional on covenant breach before relocation. What's your shipment volume on B, D in Q2 so I can actually price the penalty tail?",
+        "trade_credit_underwriter": "CFO, quick clarification: that $5.1M tail on the map—does that assume we write off B, D's entire outstanding balance if they hit covenant before relocation funds, or is it just the Q2-Q3 volume at risk? Because if it's the full balance, I'm pricing that as a permanent receivables loss; if it's Q2-Q3 only, the recovery math changes once they relocate. Which is it?",
+        "supply_chain_consultant": "Here's what operationalizes this: capex approval triggers nearshore-first on B, D; no approval by Friday locks us into drop-and-substitute, $5.1M receivables write-off, plus $200-800K audit-penalty tail on current shipments. CFO, I need you to present that as one decision to the client *today*—not four separate risk scenarios. That's what gets this off the map and into execution."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 6,
+      "agent_id": "political_risk_insurer",
+      "intent": "Okay, here's what I'm pricing separately from the Friday decision: the 2026 USMCA review opens tariff and RVC renegotiation—if labor-cost or nearshoring demands shift, your 75% RVC floor could jump to 80%, 85%. That's a forward-shock multiplier on top of B, D's relocation capex. I'm locking that into a separate political-risk score: current enforcement (B, D audit rotation) versus post-2026 policy reset. That operationalizes the sunset risk as a priced variable, not just a timeline.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Insurer prices 2026 USMCA review as forward political-risk multiplier on relocation capex—operationalizes sunset risk.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 5.0,
+          "reason": "2026 review risk now priced separately",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Sunset risk converted to priced variable",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 2,
+          "reason": "Forward-shock layer added to map",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: political_risk_exposure → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "political_risk_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.15
+      },
+      "classification": "action"
+    },
+    {
+      "round": 6,
+      "agent_id": "cfo_erm",
+      "intent": "Here's the consolidated map: Scenario A (capex approved Friday): $3.9M spend, B, D relocate 8-12 weeks, audit risk deferred post-relocation, $0 receivables write-off. Scenario B (no approval): $2.8M receivables write-off + $1.4M tariff reclassification + $900K substitution + $180K-$420K audit penalty = $5.3M-$5.7M total loss. Board decision: binary, Friday, $1.4M net swing. That's your operationalized map.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO maps binary Friday decision with full loss scenarios—$1.4M net swing operationalized across all risk variables.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5,
+          "reason": "Binary decision tree consolidates all exposures",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Concrete dollar thresholds replace vague labels",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Relocation timeline and capex now quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Receivables write-off scenario priced",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.2
+      },
+      "classification": "action"
+    },
+    {
+      "round": 6,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "Here's what operationalizes this into underwriting: B, D's outstanding receivables become unsecured the moment covenant breach hits—that's a $2.8M default event, full write-off, no recovery post-substitution. I'm pricing that as a *supplier-default trade-credit variable* with a Q2 trigger date. That's what moves the map from scenario-dependent to operationalized—one named variable, one price, one decision date. Friday capex approval de-triggers it; no approval prices it in.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Trade-credit variable operationalized: $2.8M default event, Q2 trigger, Friday decision gate.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Named trigger, priced default event, decision date.",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Quantified receivables write-off exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Concrete supplier-default variable added to map.",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.2
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, on that $5.1M miss-window hit — does that $5.1M already fold in the CBP penalty exposure on B, D's false RVC claims, or is that sitting on top of the receivables write-off and substitution cost? Because if it's on top, the actual decision threshold is higher, and that changes whether Friday's capex approval is optional or mandatory.",
+        "supplier": "Compliance—I need the hard numbers on B, D: are they both in the CBP audit rotation, and what's the penalty exposure per shipment if they're caught with false RVC claims? Because if B, D hit covenant Q2 *and* they're under audit, I'm not just replacing them—I'm facing penalty liability on top of the write-off. That changes my capex sequencing and whether Friday's approval actually closes this.",
+        "compliance_lawyer": "Here's what operationalizes the map: B, D hit rotation between now and Q2—if we don't fund capex by Friday, CBP audit hits during substitution sourcing, and we're defending false-RVC claims on goods already entered. I'm locking the certification audit schedule into the decision tree right now: capex approval Friday = audit-risk deferred to post-relocation; no approval = audit exposure immediate. That's the compliance trigger that makes Friday mandatory, not optional.",
+        "political_risk_insurer": "Okay, here's what I'm pricing separately from the Friday decision: the 2026 USMCA review opens tariff and RVC renegotiation—if labor-cost or nearshoring demands shift, your 75% RVC floor could jump to 80%, 85%. That's a forward-shock multiplier on top of B, D's relocation capex. I'm locking that into a separate political-risk score: current enforcement (B, D audit rotation) versus post-2026 policy reset. That operationalizes the sunset risk as a priced variable, not just a timeline.",
+        "supply_chain_consultant": "Okay, here's what closes the map: the Friday capex approval funds B, D nearshoring *before* covenant hits—that's the tactical win. But I'm building a second layer right now: if 2026 USMCA bumps RVC floors to 80%, your Monterrey tooling slots become strategic anchors, not just B, D recovery. I'm pricing nearshoring incentives and relocation ROI against that policy reset so the board sees this as a two-year resilience play, not a one-off substitution cost. That operationalizes the map.",
+        "cfo_erm": "Here's the consolidated map: Scenario A (capex approved Friday): $3.9M spend, B, D relocate 8-12 weeks, audit risk deferred post-relocation, $0 receivables write-off. Scenario B (no approval): $2.8M receivables write-off + $1.4M tariff reclassification + $900K substitution + $180K-$420K audit penalty = $5.3M-$5.7M total loss. Board decision: binary, Friday, $1.4M net swing. That's your operationalized map."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay, here's what closes the map: the Friday capex approval funds B, D nearshoring *before* covenant hits—that's the tactical win. But I'm building a second layer right now: if 2026 USMCA bumps RVC floors to 80%, your Monterrey tooling slots become strategic anchors, not just B, D recovery. I'm pricing nearshoring incentives and relocation ROI against that policy reset so the board sees this as a two-year resilience play, not a one-off substitution cost. That operationalizes the map.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Two-year resilience framing built: nearshoring ROI vs 2026 RVC policy reset.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Forward policy layer added to map.",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "ROI pricing against policy reset scenario.",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "2026 USMCA review risk surfaced, quantified.",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -3.0,
+          "reason": "Strategic anchor framing reduces relocation risk.",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, on that $5.1M miss-window hit — does that $5.1M already fold in the CBP penalty exposure on B, D's false RVC claims, or is that sitting on top of the receivables write-off and substitution cost? Because if it's on top, the actual decision threshold is higher, and that changes whether Friday's capex approval is optional or mandatory.",
+        "supplier": "Compliance—I need the hard numbers on B, D: are they both in the CBP audit rotation, and what's the penalty exposure per shipment if they're caught with false RVC claims? Because if B, D hit covenant Q2 *and* they're under audit, I'm not just replacing them—I'm facing penalty liability on top of the write-off. That changes my capex sequencing and whether Friday's approval actually closes this.",
+        "compliance_lawyer": "Here's what operationalizes the map: B, D hit rotation between now and Q2—if we don't fund capex by Friday, CBP audit hits during substitution sourcing, and we're defending false-RVC claims on goods already entered. I'm locking the certification audit schedule into the decision tree right now: capex approval Friday = audit-risk deferred to post-relocation; no approval = audit exposure immediate. That's the compliance trigger that makes Friday mandatory, not optional.",
+        "political_risk_insurer": "Okay, here's what I'm pricing separately from the Friday decision: the 2026 USMCA review opens tariff and RVC renegotiation—if labor-cost or nearshoring demands shift, your 75% RVC floor could jump to 80%, 85%. That's a forward-shock multiplier on top of B, D's relocation capex. I'm locking that into a separate political-risk score: current enforcement (B, D audit rotation) versus post-2026 policy reset. That operationalizes the sunset risk as a priced variable, not just a timeline.",
+        "trade_credit_underwriter": "Here's what operationalizes this into underwriting: B, D's outstanding receivables become unsecured the moment covenant breach hits—that's a $2.8M default event, full write-off, no recovery post-substitution. I'm pricing that as a *supplier-default trade-credit variable* with a Q2 trigger date. That's what moves the map from scenario-dependent to operationalized—one named variable, one price, one decision date. Friday capex approval de-triggers it; no approval prices it in.",
+        "cfo_erm": "Here's the consolidated map: Scenario A (capex approved Friday): $3.9M spend, B, D relocate 8-12 weeks, audit risk deferred post-relocation, $0 receivables write-off. Scenario B (no approval): $2.8M receivables write-off + $1.4M tariff reclassification + $900K substitution + $180K-$420K audit penalty = $5.3M-$5.7M total loss. Board decision: binary, Friday, $1.4M net swing. That's your operationalized map."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 36
+        },
+        {
+          "round": 4,
+          "value": 33.0
+        },
+        {
+          "round": 5,
+          "value": 33.6
+        },
+        {
+          "round": 6,
+          "value": 34.2
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 27.0
+        },
+        {
+          "round": 3,
+          "value": 27.0
+        },
+        {
+          "round": 4,
+          "value": 18.0
+        },
+        {
+          "round": 5,
+          "value": 21.0
+        },
+        {
+          "round": 6,
+          "value": 21.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 25
+        },
+        {
+          "round": 2,
+          "value": 25
+        },
+        {
+          "round": 3,
+          "value": 28.0
+        },
+        {
+          "round": 4,
+          "value": 22.0
+        },
+        {
+          "round": 5,
+          "value": 24.0
+        },
+        {
+          "round": 6,
+          "value": 31.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 26
+        },
+        {
+          "round": 2,
+          "value": 27
+        },
+        {
+          "round": 3,
+          "value": 28
+        },
+        {
+          "round": 4,
+          "value": 29
+        },
+        {
+          "round": 5,
+          "value": 30
+        },
+        {
+          "round": 6,
+          "value": 39.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 27.0
+        },
+        {
+          "round": 3,
+          "value": 34.0
+        },
+        {
+          "round": 4,
+          "value": 42.0
+        },
+        {
+          "round": 5,
+          "value": 46.2
+        },
+        {
+          "round": 6,
+          "value": 60.7
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 36.0
+        },
+        {
+          "round": 3,
+          "value": 43.0
+        },
+        {
+          "round": 4,
+          "value": 53.0
+        },
+        {
+          "round": 5,
+          "value": 57.0
+        },
+        {
+          "round": 6,
+          "value": 69.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.2,
+            "normalised": 0.342
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 60.7,
+            "normalised": 0.607
+          }
+        ],
+        "weighted_score": 0.395
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 21.0,
+            "normalised": 0.21
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 34.2,
+            "normalised": 0.342
+          }
+        ],
+        "weighted_score": 0.25399999999999995
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.2,
+            "normalised": 0.342
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.4579999999999999
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.5399999999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 31.0,
+            "normalised": 0.31
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.43666666666666665
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 21.0,
+            "normalised": 0.21
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.7,
+            "normalised": 0.607
+          }
+        ],
+        "weighted_score": 0.40850000000000003
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 60.7,
+            "normalised": 0.607
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.6346666666666666
+      }
+    }
+  }
+}

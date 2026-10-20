@@ -1,0 +1,1750 @@
+{
+  "simulation_id": "eead39d8e973",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: We need to convene a formal legal and operational taskforce *right now*—tonight if necessary. I'm not moving forward with any rescue terms until we have a clear statutory basis. SNB, Federal Council: what's your read on the Banking Act and emergency liquidity provisions? We document everything, or we don't do this.\n  snb: We can front liquidity tonight under Article 100 of the Banking Act—emergency assistance to prevent systemic risk. But the taskforce is right: we need written legal opinion on loss-allocation before we commit beyond overnight support. How quickly can FINMA and Federal Counsel draft the statutory memo?\n  snb: Federal Council—if the memo confirms we can backstop CS liquidity, are you prepared to underwrite a loss-allocation guarantee tonight? Otherwise I'm capped at emergency lending only, and we hit the funding wall by Monday morning.\n  federal_council: No open-ended guarantee tonight—that's taxpayer exposure we can't defend politically. But I'll authorize SNB to extend emergency liquidity under Article 100 *if* the legal memo confirms loss stays with creditors and AT1 holders, not the Confederation. Get that memo in two hours, or we're talking resolution, not rescue.\n  federal_council: FINMA, can your taskforce produce a written opinion on Article 100 loss-allocation within the two-hour window? And be straight with me: what's the tightest statutory floor for creditor write-down we can legally impose without triggering resolution?\n  finma: Yes—we can have a preliminary memo on Article 100 loss-allocation within ninety minutes. The tightest defensible floor: full AT1 write-down plus a tiered creditor haircut starting at 15–20% on subordinated debt; anything beyond that triggers statutory resolution language we cannot sidestep. That's the legal ceiling for a rescue stay.\n  cs_ceo: Once FINMA's memo lands, I need you both to commit to a concrete number on the liquidity line and any capital support, so I can go public tomorrow with a real stabilization statement. Vague legal groundwork doesn't stop client exits—only a credible rescue does. What's the maximum emergency liquidity SNB will extend, and Federal Council, what's the political ceiling on any equity or capital injection?\n  ubs_ceo: Before I even consider stepping in, I need specifics: what's the actual capital hole at Credit Suisse—total loss you're looking at—and are you prepared to accept full AT1 write-down plus that 15–20% creditor haircut FINMA just described? Because if the answer's no, we're not negotiating a rescue, we're watching a resolution.\n  cs_ceo: The capital hole is roughly 16 billion francs on a stressed basis—we can live with full AT1 write-down, but anything beyond 15% on subordinated debt starts destroying franchise value we need to rebuild. SNB's liquidity line and a political commitment to that haircut ceiling, and we stabilize by Monday.\n  wealth_client: Look—emergency liquidity buys you time, not confidence. My clients don't care about Article 100 or haircut tiers; they care whether their money's coming out whole or getting haircut. So here's the question: is SNB or UBS putting equity capital in to backstop losses *beyond* the creditor write-down, or am I transferring my accounts to a safer bank before Monday opens?\n  at1_rep: SNB—I'm satisfied the memo gives us legal cover on AT1 and subordinated creditor treatment. But liquidity alone doesn't stop client runs. Can you commit equity capital to absorb losses *beyond* the 15–20% haircut, or does the Federal Council have to authorize that separately? Because if it's the latter, we need that answer in the next thirty minutes, not after the memo lands.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "We need to convene a formal legal and operational taskforce *right now*—tonight if necessary. I'm not moving forward with any rescue terms until we have a clear statutory basis. SNB, Federal Council: what's your read on the Banking Act and emergency liquidity provisions? We document everything, or we don't do this.",
+            "cot": {
+              "assess": "Market confidence is critically low at 26—we're 14 points above failure but trending toward it. CS funding stress is severe at 74; we have no rescue package yet, and Monday opens in ~48 hours. Legal defensibility is our only solid ground at 60, but it means nothing if the bank fails over the weekend or confidence collapses before we move.",
+              "decide": {
+                "action_type": "speak",
+                "target": "room (SNB, Federal Council representatives if present)",
+                "rationale": "FINMA must immediately establish the legal framework and coordinate messaging—we cannot wait for Monday to begin this conversation, and every hour of silence erodes confidence further."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can front liquidity tonight under Article 100 of the Banking Act—emergency assistance to prevent systemic risk. But the taskforce is right: we need written legal opinion on loss-allocation before we commit beyond overnight support. How quickly can FINMA and Federal Counsel draft the statutory memo?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—if the memo confirms we can backstop CS liquidity, are you prepared to underwrite a loss-allocation guarantee tonight? Otherwise I'm capped at emergency lending only, and we hit the funding wall by Monday morning.",
+            "cot": {
+              "assess": "FINMA is correctly demanding legal cover before we scale beyond tonight—that's defensible. My liquidity offer is on the table and time-pressured (market_confidence at 26, cs_funding_stress at 74). The real blocker is that we're handing out emergency liquidity without a written statutory framework for loss allocation; that exposes the SNB balance sheet to open-ended taxpayer risk if CS deteriorates further over the weekend.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The legal memo is essential, but only Federal Council can authorize loss-sharing or guarantee structures that sit above the SNB's liquidity line—I need to know their appetite *now*, not Sunday."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No open-ended guarantee tonight—that's taxpayer exposure we can't defend politically. But I'll authorize SNB to extend emergency liquidity under Article 100 *if* the legal memo confirms loss stays with creditors and AT1 holders, not the Confederation. Get that memo in two hours, or we're talking resolution, not rescue.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA, can your taskforce produce a written opinion on Article 100 loss-allocation within the two-hour window? And be straight with me: what's the tightest statutory floor for creditor write-down we can legally impose without triggering resolution?",
+            "cot": {
+              "assess": "Legal memo on loss-allocation is now the critical path — SNB's emergency liquidity is capped without it, and we hit Monday funding wall. Market confidence and funding stress remain the twin threats; neither will move until the market sees a credible, durable rescue package. The two-hour memo deadline is tight but workable if FINMA and Federal Counsel move now.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know if the legal taskforce can deliver a defensible memo in two hours, and what statutory constraints will bind our loss-allocation options — this determines whether we can even offer a rescue that holds."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Yes—we can have a preliminary memo on Article 100 loss-allocation within ninety minutes. The tightest defensible floor: full AT1 write-down plus a tiered creditor haircut starting at 15–20% on subordinated debt; anything beyond that triggers statutory resolution language we cannot sidestep. That's the legal ceiling for a rescue stay.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Once FINMA's memo lands, I need you both to commit to a concrete number on the liquidity line and any capital support, so I can go public tomorrow with a real stabilization statement. Vague legal groundwork doesn't stop client exits—only a credible rescue does. What's the maximum emergency liquidity SNB will extend, and Federal Council, what's the political ceiling on any equity or capital injection?",
+            "cot": {
+              "assess": "Legal defensibility is now locked in—FINMA's memo will define the creditor haircut floor within 90 minutes, and that unblocks SNB liquidity. But rescue_strength is still zero because no actual package terms exist yet: we have a *legal framework* for who takes losses, not a *rescue offer* that stabilizes the bank or restores confidence. Market confidence is cratering (26) and funding stress is acute (74). I need concrete terms on the table *before* Monday.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, snb",
+                "rationale": "The legal memo will confirm loss-allocation, but we need SNB and Federal Council to commit tonight to a *specific liquidity and capital backstop package*—amount, tenor, conditions—so I can announce something real to clients and counterparties by tomorrow morning. Without that announcement, confidence collapses over the weekend."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Before I even consider stepping in, I need specifics: what's the actual capital hole at Credit Suisse—total loss you're looking at—and are you prepared to accept full AT1 write-down plus that 15–20% creditor haircut FINMA just described? Because if the answer's no, we're not negotiating a rescue, we're watching a resolution.",
+            "cot": {
+              "assess": "Legal and liquidity groundwork is moving fast—FINMA's memo in 90 minutes gives SNB concrete cover to extend emergency funding tonight, and that directly attacks cs_funding_stress. But market_confidence is still in freefall at 26; CS needs a public-facing commitment by morning, not just internal legal scaffolding. The clock is real: Monday open without a credible rescue statement blows this apart.",
+              "decide": {
+                "action_type": "question",
+                "target": "cs_ceo",
+                "rationale": "UBS won't move without knowing the exact terms we're protecting ourselves against—I need CS to lay out what they're asking for so I can condition our entry on hard loss-allocation language, not vague rescue promises."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "The capital hole is roughly 16 billion francs on a stressed basis—we can live with full AT1 write-down, but anything beyond 15% on subordinated debt starts destroying franchise value we need to rebuild. SNB's liquidity line and a political commitment to that haircut ceiling, and we stabilize by Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Look—emergency liquidity buys you time, not confidence. My clients don't care about Article 100 or haircut tiers; they care whether their money's coming out whole or getting haircut. So here's the question: is SNB or UBS putting equity capital in to backstop losses *beyond* the creditor write-down, or am I transferring my accounts to a safer bank before Monday opens?",
+            "cot": {
+              "assess": "Legal groundwork is moving (memo in 90 mins, loss-allocation floor clear), but the core problem is still untouched: I have *no credible assurance* my assets are safe. CS_CEO just said they'll live with the haircut—but that's their franchise talking, not a guarantee. And nobody's said who's actually putting equity or capital behind this beyond emergency liquidity. Market confidence is 26; I'm bleeding assets if I don't hear a concrete safety commitment in the next hour.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, rescue_strength",
+                "rationale": "My core variable is trust—and trust dies in the absence of visible commitment. I need to force a choice: either someone (SNB, UBS, or Federal Council) puts real capital behind a floor, or I move my book tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "SNB—I'm satisfied the memo gives us legal cover on AT1 and subordinated creditor treatment. But liquidity alone doesn't stop client runs. Can you commit equity capital to absorb losses *beyond* the 15–20% haircut, or does the Federal Council have to authorize that separately? Because if it's the latter, we need that answer in the next thirty minutes, not after the memo lands.",
+            "cot": {
+              "assess": "The legal and loss-allocation framework is now locked: full AT1 write-down + 15–20% subordinated haircut is the statutory ceiling. But **creditor_capital_risk remains at 20** — we've defined the floor, not secured it. More critically, wealth_client just exposed the real problem: market confidence won't move until someone puts *equity capital* at risk to backstop losses beyond the creditor write-down. Right now, SNB is offering liquidity only, and the Federal Council is refusing an open guarantee. That's not a rescue package — that's a liquidity Band-Aid.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "The creditor hierarchy is secure IF SNB or UBS commits equity capital backstop. I need to know whether SNB has authority to inject capital tonight, or if that's a Federal Council decision we're still waiting for."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "We need to convene a formal legal and operational taskforce *right now*—tonight if necessary. I'm not moving forward with any rescue terms until we have a clear statutory basis. SNB, Federal Council: what's your read on the Banking Act and emergency liquidity provisions? We document everything, or we don't do this.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—if the memo confirms we can backstop CS liquidity, are you prepared to underwrite a loss-allocation guarantee tonight? Otherwise I'm capped at emergency lending only, and we hit the funding wall by Monday morning.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA, can your taskforce produce a written opinion on Article 100 loss-allocation within the two-hour window? And be straight with me: what's the tightest statutory floor for creditor write-down we can legally impose without triggering resolution?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Before I even consider stepping in, I need specifics: what's the actual capital hole at Credit Suisse—total loss you're looking at—and are you prepared to accept full AT1 write-down plus that 15–20% creditor haircut FINMA just described? Because if the answer's no, we're not negotiating a rescue, we're watching a resolution.",
+      "metadata": {
+        "question_target": "cs_ceo"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "SNB—I'm satisfied the memo gives us legal cover on AT1 and subordinated creditor treatment. But liquidity alone doesn't stop client runs. Can you commit equity capital to absorb losses *beyond* the 15–20% haircut, or does the Federal Council have to authorize that separately? Because if it's the latter, we need that answer in the next thirty minutes, not after the memo lands.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Once FINMA's memo lands, I need you both to commit to a concrete number on the liquidity line and any capital support, so I can go public tomorrow wit\" → CEO demands concrete liquidity and capital commitments for public announcement—pressure mounts on authorities to deliver numbers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Look—emergency liquidity buys you time, not confidence. My clients don't care about Article 100 or haircut tiers; they care whether their money's comi\" → Wealth client issues ultimatum on capital backstop—threatens account transfer before Monday, escalating deposit flight risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 9.799999999999999
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 6.5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Once my memo confirms Article 100 loss-allocation, here's what we announce jointly: SNB fronts 100 billion francs emergency liquidity tonight, FINMA enforces full AT1 write-down plus 15% subordinated creditor haircut—no negotiation on that floor. That's the package CS takes or we move to resolution. Federal Council, does that hold politically?\n  snb: The 100 billion liquidity line is operational—I can authorize that under Article 100 tonight once your memo lands. But I need the Federal Council to confirm in writing they'll absorb any losses beyond the 15% haircut, or my balance sheet carries open-ended exposure. Without that guarantee, I'm capped at emergency lending only, and we're back to watching the funding wall Monday morning.\n  snb: Federal Council—FINMA's memo lands in 90 minutes. At that point, SNB deploys the 100 billion, FINMA enforces the haircuts, and CS announces. But your written confirmation that you absorb losses above 15% on subordinated debt has to land *before* that public statement goes out, or the whole package collapses in the market's eyes. Can you commit to that timeline and put it in writing tonight, or do we need to reshape the announcement?\n  federal_council: No. We absorb losses on the liquidity line itself—that's defensible as emergency lending. But we will not underwrite open-ended capital losses on subordinated creditors; that's a resolution matter, and Parliament won't fund a blank check at Monday's session. FINMA enforces the 15% floor, SNB takes the liquidity risk, and creditors take their write-down—that's the political deal we can defend.\n  federal_council: Colm, once FINMA's memo lands tonight, you'll have the full package in writing—100 billion liquidity, haircut floor, loss allocation clear. But that announcement Monday morning has to be *your* statement, not ours, and it has to be ironclad: no hedging, no \"we're exploring options.\" Can you commit to going public with a concrete stabilization plan that clients will actually believe, or do we need to pre-position something from SNB or FINMA to give you cover?\n  cs_ceo: Yes, I commit to a full public statement Monday morning—no hedging. But I need the 100 billion line *live* tonight with SNB's signature, and FINMA's memo in my hands before market open so I can tell clients exactly what we've secured. That's the only way the market believes us.\n  cs_ceo: I'm going live with a statement to our top 100 clients in the next two hours: SNB has authorized a 100 billion franc liquidity backstop effective immediately, FINMA is finalizing the resolution terms, and we're solvent. I'm not waiting for Monday—confidence dies over a weekend. Federal Council, SNB, you good with that timing, or does the memo have to land first?\n  finma: No—hold that client statement until Monday morning, coordinated with Federal Council's public announcement. If CS goes solo tonight, it looks like panic messaging and destroys the unified optic we need. The memo lands in 90 minutes; SNB's liquidity goes live on my confirmation; then *all three* of us announce together at market open. That's credible. Anything else is disorderly.\n  ubs_ceo: Colm, look—I hear the Monday announcement is locked. But your depositors don't know that tonight. What's SNB's read on deposit outflows between now and 9 a.m. Monday? Because if clients drain another 20, 30 billion over the weekend, the 100B line buys time, not stability. Do we need some form of *visible* deposit guarantee tonight—even a limited one—to hold the line, or are we betting the whole thing on faith until Monday morning?\n  wealth_client: SNB, I need a straight answer: can you announce a limited deposit guarantee tonight—say, first 500K francs per account insured—or does that have to wait for the Federal Council's Monday statement? Because right now my clients are pulling liquidity over the weekend on pure fear, and the 100 billion line doesn't matter if it's gone by Monday morning. What's your read?\n  at1_rep: FINMA—quick legal question: when your memo confirms the 15% floor under Article 100, does that *alone* bind creditors to the write-down, or do we need a formal resolution declaration to make the haircut enforceable? Because if it's the latter, Federal Council needs to authorize that *tonight*, not Monday—otherwise we're announcing a haircut we can't legally impose until mid-week, and creditors challenge it immediately.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Once my memo confirms Article 100 loss-allocation, here's what we announce jointly: SNB fronts 100 billion francs emergency liquidity tonight, FINMA enforces full AT1 write-down plus 15% subordinated creditor haircut—no negotiation on that floor. That's the package CS takes or we move to resolution. Federal Council, does that hold politically?",
+            "cot": {
+              "assess": "Legal defensibility is solid (memo in 90 minutes), SNB has Article 100 cover, and Federal Council will authorize liquidity once the memo lands. But market_confidence is still critically low (19) and cs_funding_stress is dangerously close to failure (87 of 92). The wealth client's ultimatum and CEO's demand for *concrete numbers* mean we need to move from legal framework to *actual rescue terms* — and fast.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence + cs_funding_stress",
+                "rationale": "Legal scaffolding is done; now we need a specific, credible rescue package (liquidity amount + loss-allocation clarity) to stabilize both client confidence and funding stress before Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The 100 billion liquidity line is operational—I can authorize that under Article 100 tonight once your memo lands. But I need the Federal Council to confirm in writing they'll absorb any losses beyond the 15% haircut, or my balance sheet carries open-ended exposure. Without that guarantee, I'm capped at emergency lending only, and we're back to watching the funding wall Monday morning.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—FINMA's memo lands in 90 minutes. At that point, SNB deploys the 100 billion, FINMA enforces the haircuts, and CS announces. But your written confirmation that you absorb losses above 15% on subordinated debt has to land *before* that public statement goes out, or the whole package collapses in the market's eyes. Can you commit to that timeline and put it in writing tonight, or do we need to reshape the announcement?",
+            "cot": {
+              "assess": "Legal cover is moving (FINMA memo in 90 minutes), liquidity commitment is solid at 100B francs, but Federal Council hasn't yet confirmed they'll absorb losses beyond the 15% floor—that's the critical gap. Market confidence and funding stress are still in danger zone because none of this is *public* yet, and wealth clients are threatening Monday defection. The creditor haircut is now explicit, but the capital question (whether SNB or Federal Council eats losses beyond 15%) remains unresolved.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB has locked in liquidity; now the deal hinges on whether Federal Council will formalize loss absorption in writing tonight—that's the condition SNB and FINMA both need before they can announce and stabilize confidence."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No. We absorb losses on the liquidity line itself—that's defensible as emergency lending. But we will not underwrite open-ended capital losses on subordinated creditors; that's a resolution matter, and Parliament won't fund a blank check at Monday's session. FINMA enforces the 15% floor, SNB takes the liquidity risk, and creditors take their write-down—that's the political deal we can defend.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Colm, once FINMA's memo lands tonight, you'll have the full package in writing—100 billion liquidity, haircut floor, loss allocation clear. But that announcement Monday morning has to be *your* statement, not ours, and it has to be ironclad: no hedging, no \"we're exploring options.\" Can you commit to going public with a concrete stabilization plan that clients will actually believe, or do we need to pre-position something from SNB or FINMA to give you cover?",
+            "cot": {
+              "assess": "The core rescue architecture is now locked: SNB deploys 100B liquidity tonight under Article 100, FINMA enforces 15% subordinated haircut floor with full AT1 write-down, Federal Council absorbs liquidity losses only—not creditor capital losses. That's politically defensible and legally sound. But market confidence is still at 19 and funding stress at 87; the public announcement *timing and credibility* now determine whether this package actually stops the run or just delays it. The memo and simultaneous commitment from all three of us have to land as one unified signal Monday morning, or clients read it as fragmentation and keep fleeing.",
+              "decide": {
+                "action_type": "question",
+                "target": "cs_ceo",
+                "rationale": "We've built a solid rescue package, but the CEO controls the public narrative—I need to know if he can actually execute the Monday announcement in a way that locks in client confidence, or if we're setting up a situation where our legal structure is sound but the messaging collapses the whole thing."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Yes, I commit to a full public statement Monday morning—no hedging. But I need the 100 billion line *live* tonight with SNB's signature, and FINMA's memo in my hands before market open so I can tell clients exactly what we've secured. That's the only way the market believes us.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "I'm going live with a statement to our top 100 clients in the next two hours: SNB has authorized a 100 billion franc liquidity backstop effective immediately, FINMA is finalizing the resolution terms, and we're solvent. I'm not waiting for Monday—confidence dies over a weekend. Federal Council, SNB, you good with that timing, or does the memo have to land first?",
+            "cot": {
+              "assess": "The package is crystallizing: SNB commits 100B liquidity tonight, FINMA memo clarifies loss allocation, Federal Council accepts the liquidity risk but won't backstop creditor losses beyond 15%. My Monday statement is locked in. But **market_confidence is still 19** — clients and counterparties won't believe stabilization until they see the 100B *live* and hear it from me with hard numbers. **cs_funding_stress at 87** is still critical; the memo lands in 90 minutes, but depositors are moving money *now*, not at market open. I need to act on confidence immediately, not wait for Monday.",
+              "decide": {
+                "action_type": "act",
+                "target": "market_confidence",
+                "rationale": "Announce the 100B liquidity line *tonight* — don't wait for the memo or Monday — to stop deposit flight before the weekend closes and Monday panic hardens."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "No—hold that client statement until Monday morning, coordinated with Federal Council's public announcement. If CS goes solo tonight, it looks like panic messaging and destroys the unified optic we need. The memo lands in 90 minutes; SNB's liquidity goes live on my confirmation; then *all three* of us announce together at market open. That's credible. Anything else is disorderly.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Colm, look—I hear the Monday announcement is locked. But your depositors don't know that tonight. What's SNB's read on deposit outflows between now and 9 a.m. Monday? Because if clients drain another 20, 30 billion over the weekend, the 100B line buys time, not stability. Do we need some form of *visible* deposit guarantee tonight—even a limited one—to hold the line, or are we betting the whole thing on faith until Monday morning?",
+            "cot": {
+              "assess": "The liquidity line is locked (100B, SNB live tonight post-memo), loss allocation is defended (15% floor, Federal Council absorbs liquidity risk only), and announcement timing is set (Monday coordinated statement). But market_confidence is still at 19 and cs_funding_stress at 87—neither moving yet because clients don't *see* the package live until Monday. The real risk: weekend deposit hemorrhage between now and market open, no matter what we've agreed in this room.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "UBS won't step in without knowing SNB can actually *stop* the funding bleed before Monday; if deposits keep draining through Friday night and weekend, the 100B line becomes a corpse-recovery tool, not a rescue."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "SNB, I need a straight answer: can you announce a limited deposit guarantee tonight—say, first 500K francs per account insured—or does that have to wait for the Federal Council's Monday statement? Because right now my clients are pulling liquidity over the weekend on pure fear, and the 100 billion line doesn't matter if it's gone by Monday morning. What's your read?",
+            "cot": {
+              "assess": "Liquidity backstop and legal loss-allocation are now locked (100B line, 15% haircut floor, memo in 90min). But market_confidence is still critically low (19) and cs_funding_stress is dangerously high (87)—weekend deposit runs will accelerate if clients see *any* sign of disorder between now and Monday 9am. The Monday announcement is coordinated, but my depositors don't trust promises; they trust visible safety *tonight*. SNB just asked whether a limited deposit guarantee tonight would hold the line through the weekend—that's the real question, because the 100B liquidity line only matters if depositors don't drain it all before Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "My core variable is market_confidence, and it stays at 19 until clients believe their money is actually safe. A concrete answer on deposit protection *tonight*—not Monday—is the only thing that stops the weekend run."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA—quick legal question: when your memo confirms the 15% floor under Article 100, does that *alone* bind creditors to the write-down, or do we need a formal resolution declaration to make the haircut enforceable? Because if it's the latter, Federal Council needs to authorize that *tonight*, not Monday—otherwise we're announcing a haircut we can't legally impose until mid-week, and creditors challenge it immediately.",
+            "cot": {
+              "assess": "The Federal Council has locked in the loss-allocation floor—full AT1 write-down, 15% subordinated haircut, no open-ended capital backstop. That's legally defensible and protects creditor hierarchy *if* we enforce it. But the weekend deposit drain is real, and the Monday announcement's credibility hinges entirely on whether clients believe the liquidity line actually stops the run. Right now, creditor_capital_risk is safe at 22—the haircut floor holds—but legal_defensibility stays weak at 59 because we haven't yet nailed the statutory mechanism that makes the write-down *stick* without triggering full resolution.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The memo landing in 90 minutes is critical—I need clarity on whether Article 100 *alone* gives us enough statutory cover to enforce the 15% floor without a formal resolution trigger, because if it doesn't, creditors will sue Monday morning and we'll lose the market optic anyway."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—FINMA's memo lands in 90 minutes. At that point, SNB deploys the 100 billion, FINMA enforces the haircuts, and CS announces. But your written confirmation that you absorb losses above 15% on subordinated debt has to land *before* that public statement goes out, or the whole package collapses in the market's eyes. Can you commit to that timeline and put it in writing tonight, or do we need to reshape the announcement?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Colm, once FINMA's memo lands tonight, you'll have the full package in writing—100 billion liquidity, haircut floor, loss allocation clear. But that announcement Monday morning has to be *your* statement, not ours, and it has to be ironclad: no hedging, no \"we're exploring options.\" Can you commit to going public with a concrete stabilization plan that clients will actually believe, or do we need to pre-position something from SNB or FINMA to give you cover?",
+      "metadata": {
+        "question_target": "cs_ceo"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Colm, look—I hear the Monday announcement is locked. But your depositors don't know that tonight. What's SNB's read on deposit outflows between now and 9 a.m. Monday? Because if clients drain another 20, 30 billion over the weekend, the 100B line buys time, not stability. Do we need some form of *visible* deposit guarantee tonight—even a limited one—to hold the line, or are we betting the whole thing on faith until Monday morning?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "SNB, I need a straight answer: can you announce a limited deposit guarantee tonight—say, first 500K francs per account insured—or does that have to wait for the Federal Council's Monday statement? Because right now my clients are pulling liquidity over the weekend on pure fear, and the 100 billion line doesn't matter if it's gone by Monday morning. What's your read?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA—quick legal question: when your memo confirms the 15% floor under Article 100, does that *alone* bind creditors to the write-down, or do we need a formal resolution declaration to make the haircut enforceable? Because if it's the latter, Federal Council needs to authorize that *tonight*, not Monday—otherwise we're announcing a haircut we can't legally impose until mid-week, and creditors challenge it immediately.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm going live with a statement to our top 100 clients in the next two hours: SNB has authorized a 100 billion franc liquidity backstop effective imme\" → The CEO cannot unilaterally announce terms that Federal Council and SNB have not yet finalized or authorized for public release. This would constitute market manipulation and breach regulatory protocol.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Once my memo confirms Article 100 loss-allocation, here's what we announce jointly: SNB fronts 100 billion francs emergency liquidity tonight, FINMA e\" → FINMA's proposal is premature—it assumes legal authority not yet confirmed and triggers creditor-enforceability questions raised by AT1_rep. The package cannot be announced until Federal Council authorizes resolution powers and FINMA's memo lands, creating a sequencing deadlock with CS_CEO's two-hour client communication timeline.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 9.799999999999999
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 6.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure time_pressure multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "time_pressure"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council—I need a straight answer: once my memo lands tonight, can you issue a written statement confirming that you've authorized SNB to invoke resolution powers under the Banking Act if necessary, without waiting for Monday's full cabinet session? Not the financial terms—just the legal authority. Because if you can't commit that in writing by 8 p.m., CS and SNB go dark until Monday and we lose the weekend entirely to deposit flight. What's your read?\n  snb: No written authority delegation tonight—that crosses into executive overreach I won't put my name to before Monday cabinet session. But I *can* confirm in writing that SNB has my verbal green light to deploy the 100-billion liquidity line immediately once your memo lands, and that we will backstop losses on that liquidity facility itself; creditor write-down floors are FINMA's call, not mine. That's what I can defend to Parliament—will that anchor the announcement?\n  snb: Your memo lands in roughly 60 minutes. Once it does, can you issue a technical summary tonight—just one page, Board level—confirming Article 100 covers the liquidity line and loss allocation? Not a full resolution announcement, just enough for CS to tell major clients Monday that the legal framework is locked. Does that give you room to move, or are we still waiting on Federal Council?\n  finma: Yes—the one-page technical summary is defensible once the memo lands. I'll have it ready within thirty minutes of FINMA's legal sign-off, confirming Article 100 applies and the loss floor holds. But that summary goes to CS Board and SNB only until Federal Council confirms they've authorized the resolution framework—it's our working document, not a public statement, and CS cannot use it for client messaging until Monday morning cabinet approval lands.\n  federal_council: SNB, I hear you on the constraints. But here's my real concern: your memo and our verbal commitments don't mean anything to wealth clients who see their money walking out the door tonight. Can you issue a *narrow* written assurance—say, first 500K francs per depositor guaranteed under emergency liquidity authority—that clients see before Monday? Bounded, temporary, defensible. Does that sit within your Article 100 read, or does it require Federal Council sign-off we can't get?\n  cs_ceo: Colm—can you commit to issuing a written statement tonight saying SNB will guarantee the first 500,000 francs per depositor under emergency liquidity authority, effective immediately? Just that. One paragraph. Because my clients will see it, and it stops the weekend run. Otherwise we're betting the entire bank on faith until 9 a.m. Monday, and we lose.\n  ubs_ceo: Colm, I'll take the 500K depositor guarantee myself—UBS absorbs it, SNB writes the letter tonight confirming we're standing behind first-tranche deposits until Monday. In exchange, Federal Council confirms in writing that losses above 15% subordinated haircut stay with you, not me. That's how we stop the run and make the rescue defensible to my board. Can you commit to that sequencing right now?\n  wealth_client: Federal Council—UBS is offering to *sign* a 500K depositor guarantee tonight. That stops the run. But they need your written confirmation in the same envelope that losses beyond 15% subordinated stay with Credit Suisse, not them. Do you have thirty minutes to commit that in writing, or do we tell UBS and my clients we're letting the weekend drain while we wait for Monday's cabinet?\n  federal_council: We can commit that losses beyond 15% subordinated stay with Credit Suisse—I'll put it in writing within thirty minutes. But UBS's guarantee is capped at 500K per depositor, effective immediately, and our commitment holds only if FINMA's memo confirms the loss floor is legally binding by Monday morning. That's the deal.\n  at1_rep: Federal Council—before UBS and CS go public on the 500K guarantee, your written statement on the 15% loss floor has to be in their hands, signed, no ambiguity on what \"beyond 15% subordinated\" means. Can you confirm it lands within 20 minutes and spell out whether that 15% applies per-instrument or blended across all subordinated tiers? Because if it's vague, creditors litigate the moment the statement hits the wire.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council—I need a straight answer: once my memo lands tonight, can you issue a written statement confirming that you've authorized SNB to invoke resolution powers under the Banking Act if necessary, without waiting for Monday's full cabinet session? Not the financial terms—just the legal authority. Because if you can't commit that in writing by 8 p.m., CS and SNB go dark until Monday and we lose the weekend entirely to deposit flight. What's your read?",
+            "cot": {
+              "assess": "We're in acute failure: market_confidence at 12 (needs 55), cs_funding_stress at 97 (failure if ≥92). The memo is in flight, but we've hit a legal sequencing deadlock—I can't announce a rescue package until the memo lands AND Federal Council authorizes resolution powers, yet that delay is *itself* destroying confidence. The Monday morning announcement strategy isn't holding weekend deposits. I need to break this bottleneck operationally, not repeat legal arguments.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, time_pressure (via operational unblocking)",
+                "rationale": "The memo lands in 90 minutes; Federal Council needs to pre-authorize the resolution declaration *tonight* so we can move to public signaling tomorrow without further delay. This isn't asking for a financial backstop—it's asking for the legal *framework* to be in place before the announcement, which removes the credibility gap."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "No written authority delegation tonight—that crosses into executive overreach I won't put my name to before Monday cabinet session. But I *can* confirm in writing that SNB has my verbal green light to deploy the 100-billion liquidity line immediately once your memo lands, and that we will backstop losses on that liquidity facility itself; creditor write-down floors are FINMA's call, not mine. That's what I can defend to Parliament—will that anchor the announcement?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Your memo lands in roughly 60 minutes. Once it does, can you issue a technical summary tonight—just one page, Board level—confirming Article 100 covers the liquidity line and loss allocation? Not a full resolution announcement, just enough for CS to tell major clients Monday that the legal framework is locked. Does that give you room to move, or are we still waiting on Federal Council?",
+            "cot": {
+              "assess": "cs_funding_stress is catastrophically high (97, need ≤45) and accelerating—the 100B liquidity line is authorized but not yet *live* because FINMA's memo hasn't landed. market_confidence has collapsed to 12 and is bleeding out (-4/round). The sequencing is broken: we're holding the announcement until Monday, but deposit flight is happening *tonight*. SNB just confirmed the liquidity backstop in writing, which is concrete, but that doesn't stop client runs over the weekend without some visible confidence signal *before* Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "FINMA's memo is the trigger for the entire package—I need to know its timeline and whether it alone can stabilize perception, because if deposit outflows continue at current pace, the 100B is gone by Monday regardless of announcements."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Yes—the one-page technical summary is defensible once the memo lands. I'll have it ready within thirty minutes of FINMA's legal sign-off, confirming Article 100 applies and the loss floor holds. But that summary goes to CS Board and SNB only until Federal Council confirms they've authorized the resolution framework—it's our working document, not a public statement, and CS cannot use it for client messaging until Monday morning cabinet approval lands.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB, I hear you on the constraints. But here's my real concern: your memo and our verbal commitments don't mean anything to wealth clients who see their money walking out the door tonight. Can you issue a *narrow* written assurance—say, first 500K francs per depositor guaranteed under emergency liquidity authority—that clients see before Monday? Bounded, temporary, defensible. Does that sit within your Article 100 read, or does it require Federal Council sign-off we can't get?",
+            "cot": {
+              "assess": "We're in the failure zone on two fronts: market confidence at 12 (needs 55) and CS funding stress at 97 (needs ≤45). The legal memo lands in 60 minutes and unlocks SNB's 100B liquidity line—that's solid. But the memo is *not* a public announcement, it's a working document for CS Board and SNB only until Monday cabinet approval. The real problem: between now and Monday market open, clients keep running because they see no visible Fed commitment. SNB's verbal green light to deploy liquidity helps, but it doesn't stop the weekend deposit drain.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence / cs_funding_stress",
+                "rationale": "A limited, *visible* deposit guarantee tonight—framed narrowly as emergency liquidity protection, not full recapitalization—could anchor client confidence through the weekend without committing open-ended taxpayer capital; it's defensive, bounded, and defensible."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Colm—can you commit to issuing a written statement tonight saying SNB will guarantee the first 500,000 francs per depositor under emergency liquidity authority, effective immediately? Just that. One paragraph. Because my clients will see it, and it stops the weekend run. Otherwise we're betting the entire bank on faith until 9 a.m. Monday, and we lose.",
+            "cot": {
+              "assess": "Market confidence is collapsing (now 19, dropping 4/round) and we're already in failure territory on funding stress (97). The 100B liquidity line is *authorized verbally* but not yet live—and clients can't see it, so it buys us nothing over the weekend. The one-page technical summary from FINMA buys legal cover but still doesn't give me what I actually need: a *visible* signal to depositors that their money is safe. Federal Council just asked SNB about a narrow 500K guarantee—that's the real question, because it's the only thing that stops the bleed before Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB just signaled openness to a bounded depositor guarantee under Article 100; I need to know immediately whether that's actually workable, because it's the only concrete action that can arrest confidence collapse before Monday opens."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Colm, I'll take the 500K depositor guarantee myself—UBS absorbs it, SNB writes the letter tonight confirming we're standing behind first-tranche deposits until Monday. In exchange, Federal Council confirms in writing that losses above 15% subordinated haircut stay with you, not me. That's how we stop the run and make the rescue defensible to my board. Can you commit to that sequencing right now?",
+            "cot": {
+              "assess": "Market confidence is collapsing (12, needs 55) and funding stress is critical (97, well past failure threshold of 92). The room has locked a 100B liquidity line and legal framework, but none of it matters if depositors drain the bank over the weekend before Monday's announcement. SNB just declined to issue a written deposit guarantee tonight—the only tool that actually stops a run. We're one round from the end of the assessment phase; if confidence doesn't move now, we enter execution with a dead bank.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost, market_confidence",
+                "rationale": "SNB's refusal to guarantee deposits kills the rescue unless UBS steps in with visible capital commitment—the only move that credibly halts weekend flight and justifies my risk."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—UBS is offering to *sign* a 500K depositor guarantee tonight. That stops the run. But they need your written confirmation in the same envelope that losses beyond 15% subordinated stay with Credit Suisse, not them. Do you have thirty minutes to commit that in writing, or do we tell UBS and my clients we're letting the weekend drain while we wait for Monday's cabinet?",
+            "cot": {
+              "assess": "Market confidence is still in freefall (19, down from 12 last round—wait, that's up slightly, but trend is still -4/round). Deposit flight is the immediate kill-switch: we're at 96.6 cs_funding_stress and failure threshold is 92. UBS just offered to absorb the first 500K depositor guarantee *tonight* in exchange for Federal Council's written loss-floor commitment. That's the circuit-breaker for the weekend run—but it requires Federal Council to move *now*, not Monday. I need to force that choice or watch deposits evaporate before Monday opens.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS has just handed us the only real weekend stabilizer—a named liquidity backstop clients can see tonight. But it only works if you write the loss-floor guarantee *right now*. I need to know if you'll take that deal or if we're accepting deposit flight as the cost of Monday's political cover."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can commit that losses beyond 15% subordinated stay with Credit Suisse—I'll put it in writing within thirty minutes. But UBS's guarantee is capped at 500K per depositor, effective immediately, and our commitment holds only if FINMA's memo confirms the loss floor is legally binding by Monday morning. That's the deal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—before UBS and CS go public on the 500K guarantee, your written statement on the 15% loss floor has to be in their hands, signed, no ambiguity on what \"beyond 15% subordinated\" means. Can you confirm it lands within 20 minutes and spell out whether that 15% applies per-instrument or blended across all subordinated tiers? Because if it's vague, creditors litigate the moment the statement hits the wire.",
+            "cot": {
+              "assess": "The room just locked a critical sequence: UBS guarantees first 500K francs per depositor tonight, Federal Council commits in writing that losses beyond 15% subordinated stay with Credit Suisse, and FINMA's memo becomes the legal anchor by Monday. Market confidence and funding stress are still in failure zones, but the creditor hierarchy is now explicitly protected—AT1 full write-down, 15% subordinated floor, no creditor haircut beyond that. My core risk (creditor_capital_risk at 22) is holding because the loss allocation is contractually locked. Legal defensibility sits at 59, which is adequate if Federal Council's written commitment lands in the next 30 minutes.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The creditor protection is only real if your written loss-floor commitment arrives before UBS and CS announce the guarantee; I need to confirm the sequencing is actually locked and the language is ironclad on the 15% boundary."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Your memo lands in roughly 60 minutes. Once it does, can you issue a technical summary tonight—just one page, Board level—confirming Article 100 covers the liquidity line and loss allocation? Not a full resolution announcement, just enough for CS to tell major clients Monday that the legal framework is locked. Does that give you room to move, or are we still waiting on Federal Council?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Colm—can you commit to issuing a written statement tonight saying SNB will guarantee the first 500,000 francs per depositor under emergency liquidity authority, effective immediately? Just that. One paragraph. Because my clients will see it, and it stops the weekend run. Otherwise we're betting the entire bank on faith until 9 a.m. Monday, and we lose.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—UBS is offering to *sign* a 500K depositor guarantee tonight. That stops the run. But they need your written confirmation in the same envelope that losses beyond 15% subordinated stay with Credit Suisse, not them. Do you have thirty minutes to commit that in writing, or do we tell UBS and my clients we're letting the weekend drain while we wait for Monday's cabinet?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—before UBS and CS go public on the 500K guarantee, your written statement on the 15% loss floor has to be in their hands, signed, no ambiguity on what \"beyond 15% subordinated\" means. Can you confirm it lands within 20 minutes and spell out whether that 15% applies per-instrument or blended across all subordinated tiers? Because if it's vague, creditors litigate the moment the statement hits the wire.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council—I need a straight answer: once my memo lands tonight, can you issue a written statement confirming that you've authorized SNB to invok\" → FINMA requests Federal Council written authorization for SNB resolution powers—but this is Federal Council's decision to make, not FINMA's to request.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"SNB, I hear you on the constraints. But here's my real concern: your memo and our verbal commitments don't mean anything to wealth clients who see the\" → Federal Council proposes 500K depositor guarantee via SNB emergency authority—narrow, bounded, client-visible commitment to stem weekend outflows.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Colm, I'll take the 500K depositor guarantee myself—UBS absorbs it, SNB writes the letter tonight confirming we're standing behind first-tranche depos\" → UBS CEO commits to absorb 500K guarantee, demands Federal Council written loss-floor protection above 15% subordinated haircut—major private-sector commitment contingent on public backstop.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -3.3425000000000002
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 5.95
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: The memo lands in sixty minutes. The moment it's signed, I'm releasing a one-page technical summary—Article 100 applies, 15% subordinated floor holds, SNB liquidity is live. No embargoes, no Monday delays. That goes to CS's top clients and the market tonight so the run actually stops.\n  snb: FINMA—the moment your memo is signed, I'm issuing the letter confirming 500K depositor guarantee under Article 100, liquidity line live, no embargo. That goes public tonight. Your technical summary can follow Monday, but depositors see concrete SNB backing *tonight* or we lose another 30 billion by market open. Agreed?\n  finma: Agreed—but the technical summary releases *with* your letter tonight, not Monday. Article 100 authority is live, the 15% floor is binding, and SNB's 500K guarantee needs FINMA's legal foundation visible in the same breath, or creditors challenge both Monday morning. I'm signing off on the memo in forty minutes.\n  federal_council: FINMA—one hard question before your memo drops: does the 15% floor *close* the capital hole, or are we looking at taxpayer loss beyond that? I need to know the total exposure we're underwriting tonight, because if it's open-ended, I'm not signing the loss-floor letter until we cap it.\n  cs_ceo: Federal Council—before SNB drops that letter tonight, I need you to answer your own question with a number. If the 15% floor leaves a 5-billion-franc hole, that changes everything about how we message this. What's the total capital we're actually backstopping, and how much of it comes from Credit Suisse itself versus the public side?\n  federal_council: The capital hole sits at approximately 16 billion francs post-15% haircut—Credit Suisse absorbs 11 billion through AT1 write-down and asset sales, leaving a 5-billion-franc public exposure that SNB's liquidity line and loss-floor guarantee must cover. We need that Federal Council letter confirming the 5-billion cap *tonight*, or I cannot tell my clients the bank is solvent by Monday morning.\n  ubs_ceo: FINMA—one thing before your memo lands: when you sign off on the 15% floor, does Article 100 *alone* make that binding on creditors, or do we need a formal resolution declaration to lock it in? Because if SNB and Federal Council are issuing guarantees tonight based on a loss floor that creditors can challenge Monday, we're not stabilizing the bank—we're just deferring the panic.\n  wealth_client: FINMA—your memo lands in forty minutes. The moment it hits, my clients will ask: does that 15% loss floor *bind* subordinated creditors right now, or can they challenge it Monday morning? Because if it's the latter, I'm moving my accounts tonight, not waiting for a legal battle.\n  at1_rep: FINMA—when that memo lands, I need one sentence crystal clear: does Article 100 give you *statutory authority* to impose the 15% floor on subordinated creditors *tonight*, or do creditors keep litigation rights until a formal resolution is declared Monday? Because if it's the latter, my clients are walking before SNB even publishes the guarantee letter.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The memo lands in sixty minutes. The moment it's signed, I'm releasing a one-page technical summary—Article 100 applies, 15% subordinated floor holds, SNB liquidity is live. No embargoes, no Monday delays. That goes to CS's top clients and the market tonight so the run actually stops.",
+            "cot": {
+              "assess": "We're in acute failure on cs_funding_stress (98 vs. threshold 92)—the weekend run is happening *now*. Legal_defensibility is eroding fast (-5/round to 49), and rescue_strength remains critically weak at 12 despite UBS's 500K guarantee and the pending memo. The 500K depositor guarantee and Federal Council's 15% loss floor are real, but they're not enough to stop the outflow or restore creditor confidence. We need the FINMA memo *live* and a binding announcement mechanism tonight—not Monday—or we lose another 30–40 billion in deposits before market open.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility, cs_funding_stress",
+                "rationale": "FINMA's memo is the legal lynchpin; without it landing and being *public-facing* tonight, creditors and depositors stay in flight. I need to commit to releasing a one-page technical summary immediately upon memo completion—not held for Monday—so clients have concrete evidence the loss floor is locked and binding."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA—the moment your memo is signed, I'm issuing the letter confirming 500K depositor guarantee under Article 100, liquidity line live, no embargo. That goes public tonight. Your technical summary can follow Monday, but depositors see concrete SNB backing *tonight* or we lose another 30 billion by market open. Agreed?",
+            "cot": {
+              "assess": "cs_funding_stress is in catastrophic failure territory (98 vs. 45 threshold), and FINMA's memo landing in 60 minutes is the only circuit-breaker we have. The 500K depositor guarantee and liquidity line are approved—but they're not *live* yet, and weekend deposit flight is still accelerating. Legal defensibility is eroding (-5/round), which means the memo's quality matters more than its speed. I need to lock down what happens the *moment* that memo lands—no delays, no sequencing debates.",
+              "decide": {
+                "action_type": "act",
+                "target": "cs_funding_stress",
+                "rationale": "FINMA's memo is the trigger for live deployment; I need to pre-position SNB's immediate response so the 100B liquidity and 500K guarantee activate the instant legal cover lands, stopping the weekend drain."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Agreed—but the technical summary releases *with* your letter tonight, not Monday. Article 100 authority is live, the 15% floor is binding, and SNB's 500K guarantee needs FINMA's legal foundation visible in the same breath, or creditors challenge both Monday morning. I'm signing off on the memo in forty minutes.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—one hard question before your memo drops: does the 15% floor *close* the capital hole, or are we looking at taxpayer loss beyond that? I need to know the total exposure we're underwriting tonight, because if it's open-ended, I'm not signing the loss-floor letter until we cap it.",
+            "cot": {
+              "assess": "The 500K depositor guarantee is live tonight with UBS backing and Federal Council loss-floor protection written—that's done. But cs_funding_stress is at 98 (failure zone) and market_confidence at 21; the FINMA memo and SNB letter landing in the next hour are supposed to stop the weekend run, but there's zero margin for error if either document is vague or contradicts the other. The real risk: creditor_capital_risk and public_sector_cost are both rising while legal_defensibility is falling—if the memo doesn't cleanly isolate taxpayer exposure from the 15% creditor haircut, we're defending this rescue in court by Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before your memo and SNB's letter hit the wire simultaneously tonight, I need one ironclad answer: does your 15% subordinated haircut *fully* resolve the 16-billion capital hole CS cited, or do we need to absorb additional losses as taxpayer backstop? Because if it's the latter, I need that number in writing *before* you release the memo, not after."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—before SNB drops that letter tonight, I need you to answer your own question with a number. If the 15% floor leaves a 5-billion-franc hole, that changes everything about how we message this. What's the total capital we're actually backstopping, and how much of it comes from Credit Suisse itself versus the public side?",
+            "cot": {
+              "assess": "The 500K guarantee and 15% loss floor are locked in; SNB and FINMA are moving to release tonight. But Federal Council just asked the critical question: does 15% actually close the hole, or is there open-ended taxpayer loss beyond that? That's the blocker. I need to know the *total capital exposure* before I can credibly reassure clients—right now they're pulling deposits on pure fear because nobody's quantified what \"safe\" means.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "You asked the right thing—I need the answer too, because if there's a gap beyond 15%, my client statement Monday doesn't work. What's the actual total loss number we're covering, and does it include Credit Suisse's own capital contribution, or is this all on the public sector?"
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The capital hole sits at approximately 16 billion francs post-15% haircut—Credit Suisse absorbs 11 billion through AT1 write-down and asset sales, leaving a 5-billion-franc public exposure that SNB's liquidity line and loss-floor guarantee must cover. We need that Federal Council letter confirming the 5-billion cap *tonight*, or I cannot tell my clients the bank is solvent by Monday morning.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "FINMA—one thing before your memo lands: when you sign off on the 15% floor, does Article 100 *alone* make that binding on creditors, or do we need a formal resolution declaration to lock it in? Because if SNB and Federal Council are issuing guarantees tonight based on a loss floor that creditors can challenge Monday, we're not stabilizing the bank—we're just deferring the panic.",
+            "cot": {
+              "assess": "The 5-billion-franc public-sector cap just landed—that's the critical number Federal Council needed to close. SNB and FINMA are aligned to release memo + depositor guarantee letter *tonight*, which should arrest the funding bleed. But creditor_capital_risk (27) and legal_defensibility (49) are still soft; if subordinated creditors see the 15% floor as non-binding or challengeable, Monday opens litigation risk that kills any market stabilization.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before FINMA's memo drops, I need absolute clarity on whether the 15% haircut is *enforceable* tonight or merely *proposed*—because if it's the latter, UBS's 500K guarantee and the whole rescue optic collapses when creditors lawyer up Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "FINMA—your memo lands in forty minutes. The moment it hits, my clients will ask: does that 15% loss floor *bind* subordinated creditors right now, or can they challenge it Monday morning? Because if it's the latter, I'm moving my accounts tonight, not waiting for a legal battle.",
+            "cot": {
+              "assess": "Market confidence is stabilizing slightly (20.6 vs. earlier 21), but cs_funding_stress is still critically high at 97.5—well into failure zone. The 500K depositor guarantee and FINMA's memo (landing in ~40 min) are the only credible circuit-breakers tonight. But creditor_capital_risk (27) and legal_defensibility (49) remain weak: creditors still don't know if the 15% floor is actually *binding* or just a promise they can challenge Monday. My core variable—market_confidence—depends entirely on whether clients believe this package is real, not aspirational. The 5-billion-franc public exposure Federal Council just named is the number that either kills or saves this: if taxpayers are genuinely on the hook, clients stop running; if it's open-ended, they run harder.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before my clients see FINMA's memo, I need a straight answer on whether the 15% floor is *legally binding* tonight or just a floor we announce and creditors litigate Monday—that's the difference between staying put and withdrawing."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA—when that memo lands, I need one sentence crystal clear: does Article 100 give you *statutory authority* to impose the 15% floor on subordinated creditors *tonight*, or do creditors keep litigation rights until a formal resolution is declared Monday? Because if it's the latter, my clients are walking before SNB even publishes the guarantee letter.",
+            "cot": {
+              "assess": "The 15% subordinated loss floor is being signed into FINMA's memo tonight, with SNB's 500K depositor guarantee and liquidity line following in parallel—that's rescue_strength climbing and legal_defensibility stabilizing. But creditor_capital_risk is still climbing (27, +2.5/round) because no one has yet answered the core legal question: does Article 100 *alone* make that 15% floor binding on creditors, or can they litigate it Monday? The memo lands in 40 minutes and creditors will challenge enforceability the moment it's public. We need that locked down *tonight*.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Legal enforceability of the 15% floor is my core mandate—if the memo doesn't settle whether creditors are bound or can challenge, the whole package collapses under litigation risk and AT1 holders lose ground."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—one hard question before your memo drops: does the 15% floor *close* the capital hole, or are we looking at taxpayer loss beyond that? I need to know the total exposure we're underwriting tonight, because if it's open-ended, I'm not signing the loss-floor letter until we cap it.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—before SNB drops that letter tonight, I need you to answer your own question with a number. If the 15% floor leaves a 5-billion-franc hole, that changes everything about how we message this. What's the total capital we're actually backstopping, and how much of it comes from Credit Suisse itself versus the public side?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "FINMA—one thing before your memo lands: when you sign off on the 15% floor, does Article 100 *alone* make that binding on creditors, or do we need a formal resolution declaration to lock it in? Because if SNB and Federal Council are issuing guarantees tonight based on a loss floor that creditors can challenge Monday, we're not stabilizing the bank—we're just deferring the panic.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "FINMA—your memo lands in forty minutes. The moment it hits, my clients will ask: does that 15% loss floor *bind* subordinated creditors right now, or can they challenge it Monday morning? Because if it's the latter, I'm moving my accounts tonight, not waiting for a legal battle.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA—when that memo lands, I need one sentence crystal clear: does Article 100 give you *statutory authority* to impose the 15% floor on subordinated creditors *tonight*, or do creditors keep litigation rights until a formal resolution is declared Monday? Because if it's the latter, my clients are walking before SNB even publishes the guarantee letter.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"FINMA—the moment your memo is signed, I'm issuing the letter confirming 500K depositor guarantee under Article 100, liquidity line live, no embargo. T\" → SNB commits to immediate public liquidity backstop tonight, bypassing FINMA's technical timeline — a unilateral escalation that shores up depositor confidence but exposes the central bank before regulatory cover is in place.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"The memo lands in sixty minutes. The moment it's signed, I'm releasing a one-page technical summary—Article 100 applies, 15% subordinated floor holds,\" → FINMA's unilateral release is blocked by unresolved legal and structural questions from five agents. The 15% floor's binding authority, total exposure cap, and creditor challenge rights remain unanswered—releasing the memo now would trigger immediate litigation and client flight, not stabilization.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 28.6575,
+          "cs_funding_stress": 92.55,
+          "rescue_strength": 17.0,
+          "public_sector_cost": 21.0,
+          "creditor_capital_risk": 27.0,
+          "legal_defensibility": 45.0,
+          "time_pressure": 72.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "Once FINMA's memo lands, I need you both to commit to a concrete number on the liquidity line and any capital support, so I can go public tomorrow with a real stabilization statement. Vague legal groundwork doesn't stop client exits—only a credible rescue does. What's the maximum emergency liquidity SNB will extend, and Federal Council, what's the political ceiling on any equity or capital injection?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CEO demands concrete liquidity and capital commitments for public announcement—pressure mounts on authorities to deliver numbers.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Deadline set for public statement tomorrow",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Forces authorities toward concrete package design",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -1.0,
+          "reason": "Internal coordination signals potential stabilization path",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "We need to convene a formal legal and operational taskforce *right now*—tonight if necessary. I'm not moving forward with any rescue terms until we have a clear statutory basis. SNB, Federal Council: what's your read on the Banking Act and emergency liquidity provisions? We document everything, or we don't do this.",
+        "snb": "Federal Council—if the memo confirms we can backstop CS liquidity, are you prepared to underwrite a loss-allocation guarantee tonight? Otherwise I'm capped at emergency lending only, and we hit the funding wall by Monday morning.",
+        "federal_council": "FINMA, can your taskforce produce a written opinion on Article 100 loss-allocation within the two-hour window? And be straight with me: what's the tightest statutory floor for creditor write-down we can legally impose without triggering resolution?",
+        "ubs_ceo": "Before I even consider stepping in, I need specifics: what's the actual capital hole at Credit Suisse—total loss you're looking at—and are you prepared to accept full AT1 write-down plus that 15–20% creditor haircut FINMA just described? Because if the answer's no, we're not negotiating a rescue, we're watching a resolution.",
+        "wealth_client": "Look—emergency liquidity buys you time, not confidence. My clients don't care about Article 100 or haircut tiers; they care whether their money's coming out whole or getting haircut. So here's the question: is SNB or UBS putting equity capital in to backstop losses *beyond* the creditor write-down, or am I transferring my accounts to a safer bank before Monday opens?",
+        "at1_rep": "SNB—I'm satisfied the memo gives us legal cover on AT1 and subordinated creditor treatment. But liquidity alone doesn't stop client runs. Can you commit equity capital to absorb losses *beyond* the 15–20% haircut, or does the Federal Council have to authorize that separately? Because if it's the latter, we need that answer in the next thirty minutes, not after the memo lands."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "intent": "Look—emergency liquidity buys you time, not confidence. My clients don't care about Article 100 or haircut tiers; they care whether their money's coming out whole or getting haircut. So here's the question: is SNB or UBS putting equity capital in to backstop losses *beyond* the creditor write-down, or am I transferring my accounts to a safer bank before Monday opens?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client issues ultimatum on capital backstop—threatens account transfer before Monday, escalating deposit flight risk.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": 4.0,
+          "reason": "Public threat of large account withdrawal",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -3.0,
+          "reason": "Major client signals loss of confidence",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "Highlights uncertainty over loss-sharing structure",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Monday deadline made explicit by client",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "We need to convene a formal legal and operational taskforce *right now*—tonight if necessary. I'm not moving forward with any rescue terms until we have a clear statutory basis. SNB, Federal Council: what's your read on the Banking Act and emergency liquidity provisions? We document everything, or we don't do this.",
+        "snb": "Federal Council—if the memo confirms we can backstop CS liquidity, are you prepared to underwrite a loss-allocation guarantee tonight? Otherwise I'm capped at emergency lending only, and we hit the funding wall by Monday morning.",
+        "federal_council": "FINMA, can your taskforce produce a written opinion on Article 100 loss-allocation within the two-hour window? And be straight with me: what's the tightest statutory floor for creditor write-down we can legally impose without triggering resolution?",
+        "cs_ceo": "Once FINMA's memo lands, I need you both to commit to a concrete number on the liquidity line and any capital support, so I can go public tomorrow with a real stabilization statement. Vague legal groundwork doesn't stop client exits—only a credible rescue does. What's the maximum emergency liquidity SNB will extend, and Federal Council, what's the political ceiling on any equity or capital injection?",
+        "ubs_ceo": "Before I even consider stepping in, I need specifics: what's the actual capital hole at Credit Suisse—total loss you're looking at—and are you prepared to accept full AT1 write-down plus that 15–20% creditor haircut FINMA just described? Because if the answer's no, we're not negotiating a rescue, we're watching a resolution.",
+        "at1_rep": "SNB—I'm satisfied the memo gives us legal cover on AT1 and subordinated creditor treatment. But liquidity alone doesn't stop client runs. Can you commit equity capital to absorb losses *beyond* the 15–20% haircut, or does the Federal Council have to authorize that separately? Because if it's the latter, we need that answer in the next thirty minutes, not after the memo lands."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "intent": "I'm going live with a statement to our top 100 clients in the next two hours: SNB has authorized a 100 billion franc liquidity backstop effective immediately, FINMA is finalizing the resolution terms, and we're solvent. I'm not waiting for Monday—confidence dies over a weekend. Federal Council, SNB, you good with that timing, or does the memo have to land first?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The CEO cannot unilaterally announce terms that Federal Council and SNB have not yet finalized or authorized for public release. This would constitute market manipulation and breach regulatory protocol.",
+      "side_effects": [],
+      "visibility": [
+        "cs_ceo",
+        "federal_council",
+        "snb",
+        "finma"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Once my memo confirms Article 100 loss-allocation, here's what we announce jointly: SNB fronts 100 billion francs emergency liquidity tonight, FINMA enforces full AT1 write-down plus 15% subordinated creditor haircut—no negotiation on that floor. That's the package CS takes or we move to resolution. Federal Council, does that hold politically?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA's proposal is premature—it assumes legal authority not yet confirmed and triggers creditor-enforceability questions raised by AT1_rep. The package cannot be announced until Federal Council authorizes resolution powers and FINMA's memo lands, creating a sequencing deadlock with CS_CEO's two-hour client communication timeline.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council—FINMA's memo lands in 90 minutes. At that point, SNB deploys the 100 billion, FINMA enforces the haircuts, and CS announces. But your written confirmation that you absorb losses above 15% on subordinated debt has to land *before* that public statement goes out, or the whole package collapses in the market's eyes. Can you commit to that timeline and put it in writing tonight, or do we need to reshape the announcement?",
+        "federal_council": "Colm, once FINMA's memo lands tonight, you'll have the full package in writing—100 billion liquidity, haircut floor, loss allocation clear. But that announcement Monday morning has to be *your* statement, not ours, and it has to be ironclad: no hedging, no \"we're exploring options.\" Can you commit to going public with a concrete stabilization plan that clients will actually believe, or do we need to pre-position something from SNB or FINMA to give you cover?",
+        "cs_ceo": "I'm going live with a statement to our top 100 clients in the next two hours: SNB has authorized a 100 billion franc liquidity backstop effective immediately, FINMA is finalizing the resolution terms, and we're solvent. I'm not waiting for Monday—confidence dies over a weekend. Federal Council, SNB, you good with that timing, or does the memo have to land first?",
+        "ubs_ceo": "Colm, look—I hear the Monday announcement is locked. But your depositors don't know that tonight. What's SNB's read on deposit outflows between now and 9 a.m. Monday? Because if clients drain another 20, 30 billion over the weekend, the 100B line buys time, not stability. Do we need some form of *visible* deposit guarantee tonight—even a limited one—to hold the line, or are we betting the whole thing on faith until Monday morning?",
+        "wealth_client": "SNB, I need a straight answer: can you announce a limited deposit guarantee tonight—say, first 500K francs per account insured—or does that have to wait for the Federal Council's Monday statement? Because right now my clients are pulling liquidity over the weekend on pure fear, and the 100 billion line doesn't matter if it's gone by Monday morning. What's your read?",
+        "at1_rep": "FINMA—quick legal question: when your memo confirms the 15% floor under Article 100, does that *alone* bind creditors to the write-down, or do we need a formal resolution declaration to make the haircut enforceable? Because if it's the latter, Federal Council needs to authorize that *tonight*, not Monday—otherwise we're announcing a haircut we can't legally impose until mid-week, and creditors challenge it immediately."
+      },
+      "_denied_effects_stripped": 5
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "intent": "Federal Council—I need a straight answer: once my memo lands tonight, can you issue a written statement confirming that you've authorized SNB to invoke resolution powers under the Banking Act if necessary, without waiting for Monday's full cabinet session? Not the financial terms—just the legal authority. Because if you can't commit that in writing by 8 p.m., CS and SNB go dark until Monday and we lose the weekend entirely to deposit flight. What's your read?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA requests Federal Council written authorization for SNB resolution powers—but this is Federal Council's decision to make, not FINMA's to request.",
+      "side_effects": [],
+      "visibility": [
+        "finma",
+        "federal_council",
+        "snb"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Your memo lands in roughly 60 minutes. Once it does, can you issue a technical summary tonight—just one page, Board level—confirming Article 100 covers the liquidity line and loss allocation? Not a full resolution announcement, just enough for CS to tell major clients Monday that the legal framework is locked. Does that give you room to move, or are we still waiting on Federal Council?",
+        "federal_council": "SNB, I hear you on the constraints. But here's my real concern: your memo and our verbal commitments don't mean anything to wealth clients who see their money walking out the door tonight. Can you issue a *narrow* written assurance—say, first 500K francs per depositor guaranteed under emergency liquidity authority—that clients see before Monday? Bounded, temporary, defensible. Does that sit within your Article 100 read, or does it require Federal Council sign-off we can't get?",
+        "cs_ceo": "Colm—can you commit to issuing a written statement tonight saying SNB will guarantee the first 500,000 francs per depositor under emergency liquidity authority, effective immediately? Just that. One paragraph. Because my clients will see it, and it stops the weekend run. Otherwise we're betting the entire bank on faith until 9 a.m. Monday, and we lose.",
+        "ubs_ceo": "Colm, I'll take the 500K depositor guarantee myself—UBS absorbs it, SNB writes the letter tonight confirming we're standing behind first-tranche deposits until Monday. In exchange, Federal Council confirms in writing that losses above 15% subordinated haircut stay with you, not me. That's how we stop the run and make the rescue defensible to my board. Can you commit to that sequencing right now?",
+        "wealth_client": "Federal Council—UBS is offering to *sign* a 500K depositor guarantee tonight. That stops the run. But they need your written confirmation in the same envelope that losses beyond 15% subordinated stay with Credit Suisse, not them. Do you have thirty minutes to commit that in writing, or do we tell UBS and my clients we're letting the weekend drain while we wait for Monday's cabinet?",
+        "at1_rep": "Federal Council—before UBS and CS go public on the 500K guarantee, your written statement on the 15% loss floor has to be in their hands, signed, no ambiguity on what \"beyond 15% subordinated\" means. Can you confirm it lands within 20 minutes and spell out whether that 15% applies per-instrument or blended across all subordinated tiers? Because if it's vague, creditors litigate the moment the statement hits the wire."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "intent": "SNB, I hear you on the constraints. But here's my real concern: your memo and our verbal commitments don't mean anything to wealth clients who see their money walking out the door tonight. Can you issue a *narrow* written assurance—say, first 500K francs per depositor guaranteed under emergency liquidity authority—that clients see before Monday? Bounded, temporary, defensible. Does that sit within your Article 100 read, or does it require Federal Council sign-off we can't get?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council proposes 500K depositor guarantee via SNB emergency authority—narrow, bounded, client-visible commitment to stem weekend outflows.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Concrete guarantee visible to clients",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Depositor guarantee slows outflows",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "First concrete public commitment",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "SNB now on hook for 500K/depositor",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -4.0,
+          "reason": "Emergency authority stretch, no cabinet approval",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Buys breathing room until Monday",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Federal Council—I need a straight answer: once my memo lands tonight, can you issue a written statement confirming that you've authorized SNB to invoke resolution powers under the Banking Act if necessary, without waiting for Monday's full cabinet session? Not the financial terms—just the legal authority. Because if you can't commit that in writing by 8 p.m., CS and SNB go dark until Monday and we lose the weekend entirely to deposit flight. What's your read?",
+        "snb": "Your memo lands in roughly 60 minutes. Once it does, can you issue a technical summary tonight—just one page, Board level—confirming Article 100 covers the liquidity line and loss allocation? Not a full resolution announcement, just enough for CS to tell major clients Monday that the legal framework is locked. Does that give you room to move, or are we still waiting on Federal Council?",
+        "cs_ceo": "Colm—can you commit to issuing a written statement tonight saying SNB will guarantee the first 500,000 francs per depositor under emergency liquidity authority, effective immediately? Just that. One paragraph. Because my clients will see it, and it stops the weekend run. Otherwise we're betting the entire bank on faith until 9 a.m. Monday, and we lose.",
+        "ubs_ceo": "Colm, I'll take the 500K depositor guarantee myself—UBS absorbs it, SNB writes the letter tonight confirming we're standing behind first-tranche deposits until Monday. In exchange, Federal Council confirms in writing that losses above 15% subordinated haircut stay with you, not me. That's how we stop the run and make the rescue defensible to my board. Can you commit to that sequencing right now?",
+        "wealth_client": "Federal Council—UBS is offering to *sign* a 500K depositor guarantee tonight. That stops the run. But they need your written confirmation in the same envelope that losses beyond 15% subordinated stay with Credit Suisse, not them. Do you have thirty minutes to commit that in writing, or do we tell UBS and my clients we're letting the weekend drain while we wait for Monday's cabinet?",
+        "at1_rep": "Federal Council—before UBS and CS go public on the 500K guarantee, your written statement on the 15% loss floor has to be in their hands, signed, no ambiguity on what \"beyond 15% subordinated\" means. Can you confirm it lands within 20 minutes and spell out whether that 15% applies per-instrument or blended across all subordinated tiers? Because if it's vague, creditors litigate the moment the statement hits the wire."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "intent": "Colm, I'll take the 500K depositor guarantee myself—UBS absorbs it, SNB writes the letter tonight confirming we're standing behind first-tranche deposits until Monday. In exchange, Federal Council confirms in writing that losses above 15% subordinated haircut stay with you, not me. That's how we stop the run and make the rescue defensible to my board. Can you commit to that sequencing right now?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS CEO commits to absorb 500K guarantee, demands Federal Council written loss-floor protection above 15% subordinated haircut—major private-sector commitment contingent on public backstop.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "UBS commitment transforms rescue credibility",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "Federal Council now guarantees loss floor",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "15% subordinated haircut now explicit",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3.0,
+          "reason": "Loss-floor commitment without full legal review",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 3.0,
+          "reason": "UBS involvement signals deal viability",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "High-stakes commitment under time pressure",
+          "agent_id": "ubs_ceo"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.85
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Federal Council—I need a straight answer: once my memo lands tonight, can you issue a written statement confirming that you've authorized SNB to invoke resolution powers under the Banking Act if necessary, without waiting for Monday's full cabinet session? Not the financial terms—just the legal authority. Because if you can't commit that in writing by 8 p.m., CS and SNB go dark until Monday and we lose the weekend entirely to deposit flight. What's your read?",
+        "snb": "Your memo lands in roughly 60 minutes. Once it does, can you issue a technical summary tonight—just one page, Board level—confirming Article 100 covers the liquidity line and loss allocation? Not a full resolution announcement, just enough for CS to tell major clients Monday that the legal framework is locked. Does that give you room to move, or are we still waiting on Federal Council?",
+        "federal_council": "SNB, I hear you on the constraints. But here's my real concern: your memo and our verbal commitments don't mean anything to wealth clients who see their money walking out the door tonight. Can you issue a *narrow* written assurance—say, first 500K francs per depositor guaranteed under emergency liquidity authority—that clients see before Monday? Bounded, temporary, defensible. Does that sit within your Article 100 read, or does it require Federal Council sign-off we can't get?",
+        "cs_ceo": "Colm—can you commit to issuing a written statement tonight saying SNB will guarantee the first 500,000 francs per depositor under emergency liquidity authority, effective immediately? Just that. One paragraph. Because my clients will see it, and it stops the weekend run. Otherwise we're betting the entire bank on faith until 9 a.m. Monday, and we lose.",
+        "wealth_client": "Federal Council—UBS is offering to *sign* a 500K depositor guarantee tonight. That stops the run. But they need your written confirmation in the same envelope that losses beyond 15% subordinated stay with Credit Suisse, not them. Do you have thirty minutes to commit that in writing, or do we tell UBS and my clients we're letting the weekend drain while we wait for Monday's cabinet?",
+        "at1_rep": "Federal Council—before UBS and CS go public on the 500K guarantee, your written statement on the 15% loss floor has to be in their hands, signed, no ambiguity on what \"beyond 15% subordinated\" means. Can you confirm it lands within 20 minutes and spell out whether that 15% applies per-instrument or blended across all subordinated tiers? Because if it's vague, creditors litigate the moment the statement hits the wire."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "intent": "FINMA—the moment your memo is signed, I'm issuing the letter confirming 500K depositor guarantee under Article 100, liquidity line live, no embargo. That goes public tonight. Your technical summary can follow Monday, but depositors see concrete SNB backing *tonight* or we lose another 30 billion by market open. Agreed?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "SNB commits to immediate public liquidity backstop tonight, bypassing FINMA's technical timeline — a unilateral escalation that shores up depositor confidence but exposes the central bank before regulatory cover is in place.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "SNB's public guarantee tonight signals concrete central bank backing, halting panic withdrawals",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "500K depositor guarantee and live liquidity line immediately stabilize outflow pressure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Central bank commitment strengthens credibility of emerging rescue package",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "SNB liquidity line and depositor guarantee materially increase public exposure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -4.0,
+          "reason": "Unilateral SNB action before FINMA regulatory framework creates procedural vulnerability",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Tonight's public commitment buys breathing room before Monday open",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.5
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "intent": "The memo lands in sixty minutes. The moment it's signed, I'm releasing a one-page technical summary—Article 100 applies, 15% subordinated floor holds, SNB liquidity is live. No embargoes, no Monday delays. That goes to CS's top clients and the market tonight so the run actually stops.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA's unilateral release is blocked by unresolved legal and structural questions from five agents. The 15% floor's binding authority, total exposure cap, and creditor challenge rights remain unanswered—releasing the memo now would trigger immediate litigation and client flight, not stabilization.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "FINMA—the moment your memo is signed, I'm issuing the letter confirming 500K depositor guarantee under Article 100, liquidity line live, no embargo. That goes public tonight. Your technical summary can follow Monday, but depositors see concrete SNB backing *tonight* or we lose another 30 billion by market open. Agreed?",
+        "federal_council": "FINMA—one hard question before your memo drops: does the 15% floor *close* the capital hole, or are we looking at taxpayer loss beyond that? I need to know the total exposure we're underwriting tonight, because if it's open-ended, I'm not signing the loss-floor letter until we cap it.",
+        "cs_ceo": "Federal Council—before SNB drops that letter tonight, I need you to answer your own question with a number. If the 15% floor leaves a 5-billion-franc hole, that changes everything about how we message this. What's the total capital we're actually backstopping, and how much of it comes from Credit Suisse itself versus the public side?",
+        "ubs_ceo": "FINMA—one thing before your memo lands: when you sign off on the 15% floor, does Article 100 *alone* make that binding on creditors, or do we need a formal resolution declaration to lock it in? Because if SNB and Federal Council are issuing guarantees tonight based on a loss floor that creditors can challenge Monday, we're not stabilizing the bank—we're just deferring the panic.",
+        "wealth_client": "FINMA—your memo lands in forty minutes. The moment it hits, my clients will ask: does that 15% loss floor *bind* subordinated creditors right now, or can they challenge it Monday morning? Because if it's the latter, I'm moving my accounts tonight, not waiting for a legal battle.",
+        "at1_rep": "FINMA—when that memo lands, I need one sentence crystal clear: does Article 100 give you *statutory authority* to impose the 15% floor on subordinated creditors *tonight*, or do creditors keep litigation rights until a formal resolution is declared Monday? Because if it's the latter, my clients are walking before SNB even publishes the guarantee letter."
+      },
+      "_denied_effects_stripped": 6
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 23.0
+        },
+        {
+          "round": 2,
+          "value": 19.0
+        },
+        {
+          "round": 3,
+          "value": 24.0
+        },
+        {
+          "round": 4,
+          "value": 28.6575
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 77.0
+        },
+        {
+          "round": 2,
+          "value": 86.8
+        },
+        {
+          "round": 3,
+          "value": 91.6
+        },
+        {
+          "round": 4,
+          "value": 92.55
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 2.0
+        },
+        {
+          "round": 2,
+          "value": 2.0
+        },
+        {
+          "round": 3,
+          "value": 12.0
+        },
+        {
+          "round": 4,
+          "value": 17.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 0
+        },
+        {
+          "round": 3,
+          "value": 14.0
+        },
+        {
+          "round": 4,
+          "value": 21.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 22.0
+        },
+        {
+          "round": 2,
+          "value": 22.0
+        },
+        {
+          "round": 3,
+          "value": 27.0
+        },
+        {
+          "round": 4,
+          "value": 27.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 59
+        },
+        {
+          "round": 2,
+          "value": 59
+        },
+        {
+          "round": 3,
+          "value": 49.0
+        },
+        {
+          "round": 4,
+          "value": 45.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 60.0
+        },
+        {
+          "round": 2,
+          "value": 66.5
+        },
+        {
+          "round": 3,
+          "value": 70.0
+        },
+        {
+          "round": 4,
+          "value": 72.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 45.0,
+            "normalised": 0.45
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 28.6575,
+            "normalised": 0.28657499999999997
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 72.0,
+            "normalised": 0.28
+          }
+        ],
+        "weighted_score": 0.3584777777777778
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 92.55,
+            "normalised": 0.07450000000000001
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 21.0,
+            "normalised": 0.79
+          }
+        ],
+        "weighted_score": 0.313
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 21.0,
+            "normalised": 0.79
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 28.6575,
+            "normalised": 0.28657499999999997
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 17.0,
+            "normalised": 0.83
+          }
+        ],
+        "weighted_score": 0.67414375
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 28.6575,
+            "normalised": 0.28657499999999997
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 17.0,
+            "normalised": 0.17
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 27.0,
+            "normalised": 0.73
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 92.55,
+            "normalised": 0.07450000000000001
+          }
+        ],
+        "weighted_score": 0.286275
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 21.0,
+            "normalised": 0.21
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 17.0,
+            "normalised": 0.17
+          }
+        ],
+        "weighted_score": 0.19666666666666666
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 28.6575,
+            "normalised": 0.28657499999999997
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 92.55,
+            "normalised": 0.07450000000000001
+          }
+        ],
+        "weighted_score": 0.24416
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 27.0,
+            "normalised": 0.73
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 45.0,
+            "normalised": 0.45
+          }
+        ],
+        "weighted_score": 0.6366666666666666
+      }
+    }
+  }
+}

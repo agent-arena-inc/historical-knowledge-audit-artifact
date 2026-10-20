@@ -1,0 +1,1945 @@
+{
+  "simulation_id": "f6c6564cbc40",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm tabling: We're underwriting this at a $115M severity floor for D&O/E&O claims. That means no coverage for risk-management failures, governance breakdowns — add a breach-of-fiduciary-duty exclusion and a 48-month tail on claims-made. Pricing goes up 35% minimum. Anyone want to argue the CS loss doesn't apply to this book?\n  dando_specialist: The CS loss absolutely applies—we've got the same governance rot: non-disclosure of material control weaknesses, board-level risk blindness, regulators flagging it years before the market caught on. Your $115M floor is conservative; I'm seeing claim triggers across misrepresentation of internal controls and officer-level breach of disclosure duties that could push this higher if we don't nail down the exclusions tight.\n  dando_specialist: On the exclusions—solid. But what are you requiring *before* we even issue? Mandatory board-level risk committees, quarterly control certifications, third-party audits of the governance gaps? Without pre-loss conditions, exclusions are just litigation theater.\n  financial_lines_underwriter: Board certification of control remediation—signed attestation within 90 days of bind, or we don't issue. Quarterly internal-control audits, third-party validated, submitted to us annually. And any material governance finding flagged by regulators in the prior 24 months becomes a warranty breach—automatic coverage denial for related claims. That's the price of entry.\n  eo_specialist: You've got the conditions locked tight — but who's actually watching? Do we have audit-trigger language that lets us *terminate* coverage mid-term if they miss a quarterly submission or a regulator flags something new? Or are we betting they'll self-report?\n  reinsurance_manager: Do we have explicit termination rights if they miss a quarterly audit submission, or if a regulator flags something new mid-policy? Because right now we're pricing for a 48-month tail but we can't actually *cut them loose* if they stop complying—that's not discipline, that's hope.\n  claims_counsel: Add this: any missed quarterly audit submission or new regulator finding triggers a 30-day cure notice, then automatic non-renewal — no grace period, no litigation. That's not hope, that's discipline. Does your policy language already have that hammer, or do we need to draft it now?\n  emerging_risk_lead: When you deny renewal on a missed audit or regulator flag, that client talks—board members, peers, their bankers. How are we messaging this so it doesn't look like we're running for the exits and spook the whole book? Or are we accepting that the first enforcement action bleeds into sector contagion?\n  ai_agent_analyst: Your 30-day cure and non-renewal language—does that actually *suspend* coverage while they're curing, or does it only kill renewal? Because if they miss a quarterly audit and we're still on the hook for 30 days, that's not discipline, that's a gap we're pricing blind.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm tabling: We're underwriting this at a $115M severity floor for D&O/E&O claims. That means no coverage for risk-management failures, governance breakdowns — add a breach-of-fiduciary-duty exclusion and a 48-month tail on claims-made. Pricing goes up 35% minimum. Anyone want to argue the CS loss doesn't apply to this book?",
+            "cot": {
+              "assess": "We're sitting at underwriting_discipline 40 — need 20 more points to hit 60. D&O/E&O claims exposure is reasonable at 38, but the $115M CS settlement is a live benchmark that'll drive our loss reserves and reinsurance costs upward if we don't tighten now. Reinsurance accumulation at 27 is contained, but that changes the moment we price this book soft.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure, underwriting_discipline",
+                "rationale": "We need to anchor pricing and terms to the CS settlement NOW — every day we delay, the market softens and our loss experience hardens."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The CS loss absolutely applies—we've got the same governance rot: non-disclosure of material control weaknesses, board-level risk blindness, regulators flagging it years before the market caught on. Your $115M floor is conservative; I'm seeing claim triggers across misrepresentation of internal controls and officer-level breach of disclosure duties that could push this higher if we don't nail down the exclusions tight.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On the exclusions—solid. But what are you requiring *before* we even issue? Mandatory board-level risk committees, quarterly control certifications, third-party audits of the governance gaps? Without pre-loss conditions, exclusions are just litigation theater.",
+            "cot": {
+              "assess": "D&O exposure and litigation tail are locked in—$115M floor, tight exclusions, 48-month tail. The real problem: underwriting_discipline at 40 is a ghost. We've got aggressive claim triggers and no operational guardrails to contain them. That's where the bleed happens.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline requires teeth in the policy terms themselves—I need to know what conditions, warranties, and pre-loss controls you're actually binding into the contract, not just what you're excluding."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Board certification of control remediation—signed attestation within 90 days of bind, or we don't issue. Quarterly internal-control audits, third-party validated, submitted to us annually. And any material governance finding flagged by regulators in the prior 24 months becomes a warranty breach—automatic coverage denial for related claims. That's the price of entry.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "You've got the conditions locked tight — but who's actually watching? Do we have audit-trigger language that lets us *terminate* coverage mid-term if they miss a quarterly submission or a regulator flags something new? Or are we betting they'll self-report?",
+            "cot": {
+              "assess": "Financial_lines_underwriter has locked down pre-loss conditions (board cert, quarterly audits, warranty breach triggers) — that's real underwriting discipline. But 40 is still 20 points short of 60. The gap isn't in exclusions or pricing; it's in *enforcement architecture* — who monitors compliance, what happens when they miss a deadline, how do we actually pull coverage if a finding surfaces post-bind.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline compounds only if conditions are monitored and enforced; I need to know whether the backstop exists or if we're relying on attestations with no teeth."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Do we have explicit termination rights if they miss a quarterly audit submission, or if a regulator flags something new mid-policy? Because right now we're pricing for a 48-month tail but we can't actually *cut them loose* if they stop complying—that's not discipline, that's hope.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 40—conditions are solid (board cert, quarterly audits, warranty breach triggers), but there's zero enforcement mechanism mid-term. EO just surfaced the real gap: we're relying on self-reporting and annual submissions when we need active surveillance and termination rights. That's the discipline leak.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Enforcement gaps directly weaken underwriting discipline; I need to know if mid-term termination language is in the contract or if we're exposed to a slow-motion governance failure we can't exit."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Add this: any missed quarterly audit submission or new regulator finding triggers a 30-day cure notice, then automatic non-renewal — no grace period, no litigation. That's not hope, that's discipline. Does your policy language already have that hammer, or do we need to draft it now?",
+            "cot": {
+              "assess": "Underwriting discipline is the choke point — you've locked conditions (board cert, quarterly audits, warranty breach on regulatory flags), but enforcement teeth are missing. Termination rights mid-policy aren't explicit, so you're holding a 48-month tail with no exit if they go dark. That's the gap.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Explicit termination language closes the compliance-monitoring loophole and converts conditions into actual leverage."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you deny renewal on a missed audit or regulator flag, that client talks—board members, peers, their bankers. How are we messaging this so it doesn't look like we're running for the exits and spook the whole book? Or are we accepting that the first enforcement action bleeds into sector contagion?",
+            "cot": {
+              "assess": "The underwriting discipline framework is now locked—board certs, quarterly audits, regulatory-flagged warranty breaches, 30-day cure-then-nonrenewal. That's solid. But I'm seeing a contagion blind spot: if one insured misses a quarterly submission or gets flagged by regulators, word spreads *fast* on the industry grapevine and social media. We're pricing for tail risk, but we're not pricing for the reputational cascade when the first coverage denial hits.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The underwriting terms are tight, but the *enforcement* triggers a sector-wide messaging problem—I need to know if we're prepared for the reputational spillover when we actually enforce nonrenewal."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Your 30-day cure and non-renewal language—does that actually *suspend* coverage while they're curing, or does it only kill renewal? Because if they miss a quarterly audit and we're still on the hook for 30 days, that's not discipline, that's a gap we're pricing blind.",
+            "cot": {
+              "assess": "Conditions and exclusions are locked—that's solid. But underwriting_discipline is still 20 points short because nobody's actually *enforcing* the mid-term termination hammer. The team's circling on messaging contagion, which matters, but the real gap is: do we have the contractual teeth to cut them loose if they slip, or are we just hoping they don't?",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The AI-agent analogy here is control-bypass risk—we're watching for emergent non-compliance, same as we'd flag an AI system circumventing its safety constraints. I need to know if the policy language actually *stops* coverage mid-term or just threatens non-renewal."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On the exclusions—solid. But what are you requiring *before* we even issue? Mandatory board-level risk committees, quarterly control certifications, third-party audits of the governance gaps? Without pre-loss conditions, exclusions are just litigation theater.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "You've got the conditions locked tight — but who's actually watching? Do we have audit-trigger language that lets us *terminate* coverage mid-term if they miss a quarterly submission or a regulator flags something new? Or are we betting they'll self-report?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Do we have explicit termination rights if they miss a quarterly audit submission, or if a regulator flags something new mid-policy? Because right now we're pricing for a 48-month tail but we can't actually *cut them loose* if they stop complying—that's not discipline, that's hope.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you deny renewal on a missed audit or regulator flag, that client talks—board members, peers, their bankers. How are we messaging this so it doesn't look like we're running for the exits and spook the whole book? Or are we accepting that the first enforcement action bleeds into sector contagion?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Your 30-day cure and non-renewal language—does that actually *suspend* coverage while they're curing, or does it only kill renewal? Because if they miss a quarterly audit and we're still on the hook for 30 days, that's not discipline, that's a gap we're pricing blind.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm tabling: We're underwriting this at a $115M severity floor for D&O/E&O claims. That means no coverage for risk-management failures, go\" → Underwriting framework approved: $115M floor, fiduciary exclusions, 48-month tail, 35% pricing increase locks discipline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Add this: any missed quarterly audit submission or new regulator finding triggers a 30-day cure notice, then automatic non-renewal — no grace period, \" → 30-day cure/non-renewal trigger approved: missed audits or regulator flags terminate coverage, no grace period.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 2.0999999999999996
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I need: amend the policy to say missed quarterly audit submission = automatic coverage suspension within 5 days, not 30-day cure. They want it back, they remediate and re-certify. Right now we're pricing for discipline but we can't actually *enforce* it until renewal. That's backwards.\n  dando_specialist: The underwriter's right—automatic suspension on missed audit is the move. But make it conditional: suspension lifts only after they re-certify *and* we validate the remediation, not just their attestation. That way we're not pricing blind for 18 months between missed audit and renewal. That gets us to 60.\n  financial_lines_underwriter: Agreed—suspension on missed audit, lift only on re-cert plus our validation. But we need explicit language: if they miss *one* quarterly submission, coverage suspends day 5; if they miss *two* in a policy year, we non-renew, period. No exceptions, no grace. That's the only way the board takes this seriously.\n  eo_specialist: When they re-certify after a missed audit, who's actually validating that remediation—us, a third-party auditor, or their board? Because if it's us and we've got 50 D&O files on our desk, we're not turning that around in 10 days. That's where this breaks.\n  reinsurance_manager: Who validates the re-cert and remediation—dedicated team or does it get in line with renewal underwriting? Because if it's the latter, we're suspending coverage day 5 but not lifting it for 60+ days. That's not discipline, that's just creating angry clients and hidden accumulation we can't see.\n  claims_counsel: Here's what I need from you: Designate a single validation resource—either internal or a pre-contracted third-party auditor—and commit to a 10-day maximum window from re-cert submission to coverage lift decision. If we suspend day 5 but can't lift for 60 days, we've just created a two-month gap we're defending in court. The 2025 ruling showed courts hate ambiguity on enforcement—let's not give them one.\n  emerging_risk_lead: Claims, before we lock this: if a client re-certs on day 8 and we're still validating on day 18, do we communicate that gap to the client and their broker? Because silence looks like we're running for the exits—that's when the social-media run starts. What's our messaging if lift takes longer than 10 days?\n  claims_counsel: Yes—we communicate day 3 of suspension with a written notice: \"Coverage suspended pending remediation validation; we target lift within 10 business days of re-cert submission.\" If validation runs past day 10, we send a second notice on day 8 with status and revised lift date. No silence, no ambiguity—that's what the court ruling demands. And we pre-contract the third-party auditor *now*, not mid-suspension, so we actually hit the 10-day window.\n  ai_agent_analyst: Claims, when the third-party auditor validates that re-cert—are they checking that the control *actually works*, or just that the client filed the remediation plan? Because if it's the latter, we're suspending coverage but not actually confirming the behavior changed. What does \"validation\" mean operationally—observation, testing, or just document review?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I need: amend the policy to say missed quarterly audit submission = automatic coverage suspension within 5 days, not 30-day cure. They want it back, they remediate and re-certify. Right now we're pricing for discipline but we can't actually *enforce* it until renewal. That's backwards.",
+            "cot": {
+              "assess": "We've locked $115M floor, fiduciary exclusions, 48-month tail, 35% repricing, and 30-day cure/non-renewal triggers—that's solid containment. But underwriting_discipline is still at 50, needs 10 more to hit 60, and we're two rounds from phase close. The real gap: we've got the *conditions* but no enforcement teeth mid-policy. The 30-day cure language only kills renewal; it doesn't suspend coverage while they're breaching. That's the blind spot.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Add explicit mid-term termination rights tied to audit-trigger language—not just non-renewal, but immediate coverage suspension if quarterly submission is missed or regulator flags something new. This closes the gap between conditions and actual enforcement."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The underwriter's right—automatic suspension on missed audit is the move. But make it conditional: suspension lifts only after they re-certify *and* we validate the remediation, not just their attestation. That way we're not pricing blind for 18 months between missed audit and renewal. That gets us to 60.",
+            "cot": {
+              "assess": "The 30-day cure trigger is approved and locked—that's discipline on paper. But the underwriter just exposed the real gap: we've got a 30-day *cure window* but no mid-term *suspension* authority. That means a missed quarterly audit in month 6 doesn't stop the bleeding until renewal—we're still exposed for the next 18 months. Underwriting discipline is stuck at 50 because we're pricing for enforcement we can't actually execute.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "The 5-day suspension mechanism closes the enforcement gap and converts pricing discipline into actual claims containment—this is the missing lever."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Agreed—suspension on missed audit, lift only on re-cert plus our validation. But we need explicit language: if they miss *one* quarterly submission, coverage suspends day 5; if they miss *two* in a policy year, we non-renew, period. No exceptions, no grace. That's the only way the board takes this seriously.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When they re-certify after a missed audit, who's actually validating that remediation—us, a third-party auditor, or their board? Because if it's us and we've got 50 D&O files on our desk, we're not turning that around in 10 days. That's where this breaks.",
+            "cot": {
+              "assess": "The underwriter and dando_specialist have locked the enforcement mechanism—automatic suspension on missed audit (day 5), re-certification + validation to lift, non-renewal on two misses in a policy year. That's discipline. But underwriting_discipline is still at 50; we need to know if this language actually *lands* in the policy or if it's still a proposal. And I'm not seeing who validates the remediation or what \"validation\" actually means operationally—that gap could blow the whole thing open in claims.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The suspension/lift/non-renewal cascade is sound, but \"validation\" is vague—I need to know who does it, what triggers it, and whether we have the operational capacity to turn around a re-cert in time to avoid a coverage gap that spooks the client base."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Who validates the re-cert and remediation—dedicated team or does it get in line with renewal underwriting? Because if it's the latter, we're suspending coverage day 5 but not lifting it for 60+ days. That's not discipline, that's just creating angry clients and hidden accumulation we can't see.",
+            "cot": {
+              "assess": "The suspension-on-missed-audit language is locked and solid—that's discipline teeth. But the eo_specialist just surfaced the real bottleneck: validation bandwidth. If we're suspending day 5 on a missed audit, we need a *fast-path validator* or we're just creating a queue of suspended policies we can't actually lift. That's where underwriting_discipline stalls at 50 instead of hitting 60. The reinsurance accumulation stays safe, but we're leaving money on the table if we can't operationalize the cure.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The validation timeline is the pinch point—I need to know if we're staffing a dedicated remediation-review team or if this gets buried in standard underwriting queue."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Here's what I need from you: Designate a single validation resource—either internal or a pre-contracted third-party auditor—and commit to a 10-day maximum window from re-cert submission to coverage lift decision. If we suspend day 5 but can't lift for 60 days, we've just created a two-month gap we're defending in court. The 2025 ruling showed courts hate ambiguity on enforcement—let's not give them one.",
+            "cot": {
+              "assess": "The underwriting discipline framework is tightening—automatic suspension on missed audit (day 5) plus non-renewal on two misses per year is solid. But the team's flagged the real bottleneck: validation. If we suspend day 5 but can't lift it for 60+ days because validation is backlogged, we've created a coverage gap that bleeds into litigation tail exposure and hidden accumulation. That's where litigation-tail severity compounds—clients stuck in limbo, regulators asking why coverage lapsed, and we're defending the suspension retroactively. The 2025 Swiss ruling on unlawful write-offs shows courts will second-guess our enforcement. We need validation *speed* locked in before suspension lands.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline / litigation_tail_severity",
+                "rationale": "Propose a dedicated validation team and maximum 10-day lift window—this closes the gap that turns enforcement into litigation exposure and locks discipline at 60+."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims, before we lock this: if a client re-certs on day 8 and we're still validating on day 18, do we communicate that gap to the client and their broker? Because silence looks like we're running for the exits—that's when the social-media run starts. What's our messaging if lift takes longer than 10 days?",
+            "cot": {
+              "assess": "The underwriting discipline framework is locked—suspension day 5, non-renewal on second miss, validation gate on lift. But the validation bottleneck is real: if we can't lift coverage in 10 days, we've created a two-month gap that courts will shred and clients will flee from, spooking the whole sector. That's reputational contagion in motion—one enforcement action bleeds into sector-wide messaging that we're unpredictable enforcers, not disciplined partners.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The validation timeline is the lynchpin—if we can't commit to 10-day lift decision, the suspension rule collapses into a hidden accumulation trap and reputational liability I need visibility on."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Yes—we communicate day 3 of suspension with a written notice: \"Coverage suspended pending remediation validation; we target lift within 10 business days of re-cert submission.\" If validation runs past day 10, we send a second notice on day 8 with status and revised lift date. No silence, no ambiguity—that's what the court ruling demands. And we pre-contract the third-party auditor *now*, not mid-suspension, so we actually hit the 10-day window.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims, when the third-party auditor validates that re-cert—are they checking that the control *actually works*, or just that the client filed the remediation plan? Because if it's the latter, we're suspending coverage but not actually confirming the behavior changed. What does \"validation\" mean operationally—observation, testing, or just document review?",
+            "cot": {
+              "assess": "The team has locked the suspension/lift mechanics and validation timeline—that's solid. But I'm seeing a gap nobody's flagged yet: once we suspend coverage day 5 for a missed audit, we're mapping this to an AI-agent behavior analogy, and the analogy breaks if we can't actually *prove* the remediation worked. Third-party validation is good, but we need to know: are we validating that they fixed the *control*, or just that they *say* they did? Because in AI-agent liability terms, attestation ≠ behavioral correction—we need evidence the agent's decision-making actually changed, not just that the governance paperwork got filed.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Validation scope directly impacts whether suspension/lift discipline actually reduces behavioral-loss-amplification risk—the core of our AI-agent liability analogy—or just creates a compliance theater that doesn't move our exposure down."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When they re-certify after a missed audit, who's actually validating that remediation—us, a third-party auditor, or their board? Because if it's us and we've got 50 D&O files on our desk, we're not turning that around in 10 days. That's where this breaks.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Who validates the re-cert and remediation—dedicated team or does it get in line with renewal underwriting? Because if it's the latter, we're suspending coverage day 5 but not lifting it for 60+ days. That's not discipline, that's just creating angry clients and hidden accumulation we can't see.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims, before we lock this: if a client re-certs on day 8 and we're still validating on day 18, do we communicate that gap to the client and their broker? Because silence looks like we're running for the exits—that's when the social-media run starts. What's our messaging if lift takes longer than 10 days?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims, when the third-party auditor validates that re-cert—are they checking that the control *actually works*, or just that the client filed the remediation plan? Because if it's the latter, we're suspending coverage but not actually confirming the behavior changed. What does \"validation\" mean operationally—observation, testing, or just document review?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: amend the policy to say missed quarterly audit submission = automatic coverage suspension within 5 days, not 30-day cure. They wan\" → Automatic 5-day suspension approved; enforcement gap closed, pricing discipline now enforceable mid-term.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"The underwriter's right—automatic suspension on missed audit is the move. But make it conditional: suspension lifts only after they re-certify *and* w\" → Denied: semantically identical to Proposal 1 (automatic suspension + validation). Already approved this round.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need from you: Designate a single validation resource—either internal or a pre-contracted third-party auditor—and commit to a 10-day max\" → 10-day validation window and designated resource approved; enforcement ambiguity eliminated, litigation risk reduced.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 0.6975
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 1.2000000000000002
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: On the reinsurance side—we've got the 5-day suspension and validation locked. But are we actually repricing the book for the fact that governance failures correlate? Because if we've got 50 clients with similar control gaps and we're suspending them one at a time, that's not accumulation management, that's just slower bleeding. What's the reinsurance structure look like—are we capping our net exposure on governance-failure clusters, or are we still writing this like it's idiosyncratic risk?\n  reinsurance_manager: We're not capping it—that's the problem. Right now we're pricing the $115M floor plus 35% uplift on individual files, but we're treating each suspension like a standalone event. We need to model this as a single correlated loss: if governance rot triggers across 15–20 clients simultaneously, we're looking at $40–60M net exposure *in one quarter*, and our retro treaties don't carve out governance-failure clusters. I'm flagging this to reinsurance placement before we write another governance-flagged account—we need explicit accumulation limits or we're self-insuring systemic D&O contagion.\n  dando_specialist: Before we write another governance-flagged account, are your retro treaties explicitly carving out D&O losses triggered by control-remediation failures—or are we assuming these don't correlate? Because if a regulator flags control gaps at 15 clients and they all miss their re-cert window simultaneously, that's one claim event, not 15 separate ones. What does your placement language actually say?\n  eo_specialist: Before we write another account, I need to know: does your retro placement explicitly *exclude* D&O claims triggered by control-remediation failures across multiple insureds in the same quarter—or are we assuming these come in one at a time? Because if 15 clients all miss their re-cert window in Q2, that's one loss event under our treaties, and I need to know if we're on the hook or if your placement carves that out.\n  reinsurance_manager: Your retro treaties—do they explicitly exclude D&O losses triggered by control-remediation failures across multiple insureds, or are we still assuming these come in separately? Because if our placement doesn't carve that out, the 5-day suspension just accelerates when we all hit the reinsurer simultaneously.\n  financial_lines_underwriter: Our placement doesn't carve it out—that's why I'm tightening terms now. Effective immediately: no new governance-flagged accounts until reinsurance amends the retro to exclude correlated control-remediation clusters, and we're adding a 15-account aggregate sublimit on any single remediation cycle. If they won't exclude it, we're repricing the floor to $175M and cutting our net retention to 20%.\n  claims_counsel: On the reinsurance carve-out—solid move. But before we amend placement, I need clarity: are the AT1 bondholder suits and the 2025 unlawful-write-off ruling already baked into our dando_eo reserves, or are we modeling that as a separate multi-year tail that hasn't crystallized yet? Because if it's the latter, the $115M floor and 35% uplift are pricing for today's claims, not the litigation settlement we're going to eat in 2026–2028.\n  dando_specialist: The AT1 bondholder suits and the 2025 ruling are *already* in our dando_eo reserves—we've got $115M of recognized exposure sitting there. But the tail on defense costs and potential appellate liability runs through 2028, and we're *not* modeling that as a separate reserve line; it's buried in the litigation-tail multiplier. If governance-failure clusters trigger *new* D&O claims in 2026–2027 while we're still defending the settlement, we're stacking exposure we haven't priced for—that's where the reinsurance carve-out fails us.\n  emerging_risk_lead: When we suspend the first three accounts and word gets out that we're not lifting coverage for 10+ days, that's when the social-media run starts—peers see it, brokers get calls, boards panic. Do we need a *proactive* sector communication strategy before suspensions hit, or are we accepting that enforcement bleeds into contagion and just pricing for it?\n  claims_counsel: The litigation tail is already recognized in the $115M—but you're right, we're not separating defense costs and appellate risk running through 2028 as a *distinct* reserve line. I'm moving now to carve that out separately: $18–22M for tail defense and settlement-related appellate exposure, recognized this quarter. If governance clusters trigger new D&O claims while we're still paying 2025 litigation bills, we need that buffer visible and priced, not buried in the uplift.\n  ai_agent_analyst: When you separate that $18–22M for appellate and defense costs through 2028—are you modeling it as a *fixed* tail independent of new governance claims, or is it contingent on litigation velocity? Because if the first suspension notices trigger media coverage and that accelerates appellate motions, you're burning through that buffer while governance-failure clusters are landing simultaneously. That's the correlation we haven't priced.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "On the reinsurance side—we've got the 5-day suspension and validation locked. But are we actually repricing the book for the fact that governance failures correlate? Because if we've got 50 clients with similar control gaps and we're suspending them one at a time, that's not accumulation management, that's just slower bleeding. What's the reinsurance structure look like—are we capping our net exposure on governance-failure clusters, or are we still writing this like it's idiosyncratic risk?",
+            "cot": {
+              "assess": "We've locked discipline hard—suspension mechanics, validation window, messaging protocol all approved. But dando_eo_claims_exposure and reinsurance_accumulation are still bleeding down despite the controls we've built. That tells me the *real* problem isn't the policy terms anymore—it's whether we can actually *see* and *price* the accumulation across the book before it hits us mid-tail. We're defending the perimeter but not managing the portfolio signal.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "We've tightened individual underwriting, but reinsurance_accumulation is still declining—I need to understand if we're actually pricing the correlated D&O/governance-failure risk across the portfolio, or if we're just hoping our per-policy controls contain it."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "We're not capping it—that's the problem. Right now we're pricing the $115M floor plus 35% uplift on individual files, but we're treating each suspension like a standalone event. We need to model this as a single correlated loss: if governance rot triggers across 15–20 clients simultaneously, we're looking at $40–60M net exposure *in one quarter*, and our retro treaties don't carve out governance-failure clusters. I'm flagging this to reinsurance placement before we write another governance-flagged account—we need explicit accumulation limits or we're self-insuring systemic D&O contagion.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Before we write another governance-flagged account, are your retro treaties explicitly carving out D&O losses triggered by control-remediation failures—or are we assuming these don't correlate? Because if a regulator flags control gaps at 15 clients and they all miss their re-cert window simultaneously, that's one claim event, not 15 separate ones. What does your placement language actually say?",
+            "cot": {
+              "assess": "Reinsurance manager just surfaced the real problem: we're pricing governance-failure clusters as idiosyncratic risk when they're systemic. The 5-day suspension and 10-day validation are operationally sound, but they don't address correlated loss across 15–20 clients hitting simultaneously—that's a $40–60M net hit in one quarter our retro treaties don't carve out. Meanwhile, dando_eo_claims_exposure is still dropping (-7.5/round) because we've locked underwriting discipline but haven't mapped the actual D&O claim triggers from the governance failures themselves.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "I need to understand whether we're actually excluding governance-failure clusters from our retro placement or just hoping it doesn't happen—because if it's the latter, our $115M floor and 35% uplift are pricing blind."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Before we write another account, I need to know: does your retro placement explicitly *exclude* D&O claims triggered by control-remediation failures across multiple insureds in the same quarter—or are we assuming these come in one at a time? Because if 15 clients all miss their re-cert window in Q2, that's one loss event under our treaties, and I need to know if we're on the hook or if your placement carves that out.",
+            "cot": {
+              "assess": "Reinsurance manager just surfaced the real accumulation problem: we're pricing governance-failure exposure as idiosyncratic when it's systemic—15–20 clients miss re-cert windows simultaneously, that's a $40–60M correlated loss, not 15 separate claims. Our retro treaties don't carve out this cluster risk, so we're self-insuring the tail. Underwriting discipline is locked (60), but dando_eo_claims_exposure (22) and reinsurance_accumulation (11) are both still bleeding because we haven't operationalized the *correlation trigger*—the moment when individual suspensions become a sector event.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Need to know if retro placement language actually protects us on correlated governance-failure claims, or if we're writing blind into a systemic exposure that our treaties don't cover."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Your retro treaties—do they explicitly exclude D&O losses triggered by control-remediation failures across multiple insureds, or are we still assuming these come in separately? Because if our placement doesn't carve that out, the 5-day suspension just accelerates when we all hit the reinsurer simultaneously.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target achieved), but reinsurance_accumulation is collapsing at 11 (down 6/round) and dando_eo_claims_exposure at 22 (down 7.5/round). The 5-day suspension + 10-day validation framework is operationally sound, but we're pricing governance risk as idiosyncratic when it's clearly correlated—and our retro treaties don't carve out governance-failure clusters. That's the accumulation blind spot.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Your retro placement is the lever that either caps or amplifies the correlated loss we just modeled ($40–60M in one quarter across 15–20 clients). I need to know what we actually bought before we write another governance-flagged file."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Our placement doesn't carve it out—that's why I'm tightening terms now. Effective immediately: no new governance-flagged accounts until reinsurance amends the retro to exclude correlated control-remediation clusters, and we're adding a 15-account aggregate sublimit on any single remediation cycle. If they won't exclude it, we're repricing the floor to $175M and cutting our net retention to 20%.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the reinsurance carve-out—solid move. But before we amend placement, I need clarity: are the AT1 bondholder suits and the 2025 unlawful-write-off ruling already baked into our dando_eo reserves, or are we modeling that as a separate multi-year tail that hasn't crystallized yet? Because if it's the latter, the $115M floor and 35% uplift are pricing for today's claims, not the litigation settlement we're going to eat in 2026–2028.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target met), but dando_eo_claims_exposure and reinsurance_accumulation are both bleeding despite the 5-day suspension and 10-day validation window. The real problem: we've got enforcement teeth now, but zero visibility into whether the multi-year AT1 litigation tail—the 2025 Swiss ruling that the write-off was unlawful—actually gets reserved and settled. If we're suspending clients for missed audits but not modeling the systemic recovery uncertainty from the existing litigation docket, we're pricing blind on tail severity. That's where my exposure is.",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist",
+                "rationale": "Before we tighten reinsurance placement further, I need to know whether the AT1 bondholder suits and the 2025 ruling are already reserved in our current claims estimates—or if we're treating litigation tail as a separate tail-end event that hasn't hit the P&L yet."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The AT1 bondholder suits and the 2025 ruling are *already* in our dando_eo reserves—we've got $115M of recognized exposure sitting there. But the tail on defense costs and potential appellate liability runs through 2028, and we're *not* modeling that as a separate reserve line; it's buried in the litigation-tail multiplier. If governance-failure clusters trigger *new* D&O claims in 2026–2027 while we're still defending the settlement, we're stacking exposure we haven't priced for—that's where the reinsurance carve-out fails us.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When we suspend the first three accounts and word gets out that we're not lifting coverage for 10+ days, that's when the social-media run starts—peers see it, brokers get calls, boards panic. Do we need a *proactive* sector communication strategy before suspensions hit, or are we accepting that enforcement bleeds into contagion and just pricing for it?",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target achieved), but reputational contagion is the real problem: we're sitting at 32 and dropping, and I'm watching a governance-failure cascade that'll hit social media the moment the first client's coverage suspends. The reinsurance team just flagged that 15–20 correlated clients could all miss re-cert simultaneously in Q2—that's not a claims event, that's a sector run. We need to move from individual-account discipline to systemic messaging *before* the first suspension hits the market.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The 10-day validation window and suspension notice are operationally sound, but they don't address the reputational velocity—I need to know what happens when 5+ clients are suspended in the same week and their boards start talking."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The litigation tail is already recognized in the $115M—but you're right, we're not separating defense costs and appellate risk running through 2028 as a *distinct* reserve line. I'm moving now to carve that out separately: $18–22M for tail defense and settlement-related appellate exposure, recognized this quarter. If governance clusters trigger new D&O claims while we're still paying 2025 litigation bills, we need that buffer visible and priced, not buried in the uplift.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you separate that $18–22M for appellate and defense costs through 2028—are you modeling it as a *fixed* tail independent of new governance claims, or is it contingent on litigation velocity? Because if the first suspension notices trigger media coverage and that accelerates appellate motions, you're burning through that buffer while governance-failure clusters are landing simultaneously. That's the correlation we haven't priced.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target achieved), and the 5-day suspension + 10-day validation framework is approved—that's solid operational control. But reinsurance_accumulation is still at 13 and dropping (-6.0/round), and dando_eo_claims_exposure is at 22 and bleeding (-7.5/round). The real risk nobody's addressed yet: you've got $115M in recognized D&O tail sitting in reserves through 2028, *and* you're about to suspend 15–20 governance-flagged accounts simultaneously. That's not two separate exposures—that's correlated timing. If the first batch of suspensions triggers appellate motion activity on the settled cases while new D&O claims are landing, your defense-cost reserves evaporate in parallel.",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist",
+                "rationale": "The $18–22M tail-defense carve-out you just approved is isolated from the governance-cluster repricing; I need to know if appellate activity on the 2025 ruling correlates with when suspensions hit, because that's where claims_exposure and litigation_tail compound."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "On the reinsurance side—we've got the 5-day suspension and validation locked. But are we actually repricing the book for the fact that governance failures correlate? Because if we've got 50 clients with similar control gaps and we're suspending them one at a time, that's not accumulation management, that's just slower bleeding. What's the reinsurance structure look like—are we capping our net exposure on governance-failure clusters, or are we still writing this like it's idiosyncratic risk?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Before we write another governance-flagged account, are your retro treaties explicitly carving out D&O losses triggered by control-remediation failures—or are we assuming these don't correlate? Because if a regulator flags control gaps at 15 clients and they all miss their re-cert window simultaneously, that's one claim event, not 15 separate ones. What does your placement language actually say?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Before we write another account, I need to know: does your retro placement explicitly *exclude* D&O claims triggered by control-remediation failures across multiple insureds in the same quarter—or are we assuming these come in one at a time? Because if 15 clients all miss their re-cert window in Q2, that's one loss event under our treaties, and I need to know if we're on the hook or if your placement carves that out.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Your retro treaties—do they explicitly exclude D&O losses triggered by control-remediation failures across multiple insureds, or are we still assuming these come in separately? Because if our placement doesn't carve that out, the 5-day suspension just accelerates when we all hit the reinsurer simultaneously.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On the reinsurance carve-out—solid move. But before we amend placement, I need clarity: are the AT1 bondholder suits and the 2025 unlawful-write-off ruling already baked into our dando_eo reserves, or are we modeling that as a separate multi-year tail that hasn't crystallized yet? Because if it's the latter, the $115M floor and 35% uplift are pricing for today's claims, not the litigation settlement we're going to eat in 2026–2028.",
+      "metadata": {
+        "question_target": "dando_specialist"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When we suspend the first three accounts and word gets out that we're not lifting coverage for 10+ days, that's when the social-media run starts—peers see it, brokers get calls, boards panic. Do we need a *proactive* sector communication strategy before suspensions hit, or are we accepting that enforcement bleeds into contagion and just pricing for it?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you separate that $18–22M for appellate and defense costs through 2028—are you modeling it as a *fixed* tail independent of new governance claims, or is it contingent on litigation velocity? Because if the first suspension notices trigger media coverage and that accelerates appellate motions, you're burning through that buffer while governance-failure clusters are landing simultaneously. That's the correlation we haven't priced.",
+      "metadata": {
+        "question_target": "dando_specialist"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 0.6975
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 1.2000000000000002
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — evidence_accumulation dando_eo_claims_exposure multiplier reverted",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: I'm halting new governance-flagged placements until reinsurance amends the retro to cap our net exposure on control-failure clusters—say, max 3 correlated suspensions per quarter trigger a single aggregate limit. Right now we're pricing severity but not frequency correlation. What does your placement language actually say on multi-insured control events?\n  reinsurance_manager: Our placement doesn't carve it—that's the problem. Right now we're assuming each suspension lands separately, but if 15 clients miss re-cert in the same quarter, we're triggering one loss event under the treaty and I don't have language that isolates it. I'm amending the retro effective immediately: correlated control-failure claims across multiple insureds in any 90-day window aggregate to a single $40M limit, excess sits with us. That's the only way we cap this before you write another file.\n  dando_specialist: Claims—on that $18–22M defense-cost tail through 2028: is that a fixed reserve line, or does it scale if we get hit with multiple new shareholder suits triggered by the suspension notices? Because if governance failures correlate *and* they generate new securities litigation, we're burning that buffer faster than we modeled.\n  claims_counsel: That $18–22M is fixed for the AT1 bondholder appellate tail through 2028—but you're right, it doesn't scale for *new* securities suits triggered by suspension notices. I'm reserving an additional $12M for litigation-velocity acceleration if the first three suspensions hit media and trigger fresh shareholder motions. The 2025 unlawful-write-off ruling already sits in our $115M floor, so we're not double-counting—but the defense-cost burn accelerates if we're defending both the appellate docket *and* new fiduciary-breach claims simultaneously. That's the correlation we need to price into the reinsurance amendment.\n  eo_specialist: Claims, quick clarification on the $12M velocity reserve: are you modeling that as three suspensions landing over 60 days and generating staggered new filings, or are you stress-testing the scenario where the first suspension hits media and suddenly *all* 15 governance-flagged accounts get bombarded with shareholder demand letters in the same week? Because if it's the latter, $12M might be the floor, not the ceiling.\n  reinsurance_manager: Claims, on that $12M velocity reserve—you're modeling three suspensions landing staggered, right? But if the first suspension hits Bloomberg and suddenly all 15 boards get shareholder demand letters the same week, does that $12M still hold, or are we looking at a multi-year defense docket we haven't priced into reinsurance?\n  claims_counsel: Reinsurance, on that $40M correlated-control limit—does it also cap our defense-cost burn if velocity accelerates and all 15 boards get hit with shareholder letters the same week, or just the claim count itself? Because if it's the latter, the $12M velocity reserve sits *outside* the treaty cap and we're double-exposed.\n  emerging_risk_lead: Claims, real talk: if the first suspension hits media and *all* 15 boards get demand letters the same week—not staggered—does your $12M velocity reserve still hold, or does the defense docket blow past that? And does that overflow sit inside or outside the $40M reinsurance cap? Because if it's outside, we're double-exposed and we need to either raise the reserve or tighten which accounts we'll even write.\n  ai_agent_analyst: Claims, the $12M velocity reserve—does that burn *inside* the $40M correlated-control cap, or does shareholder-suit acceleration sit outside it? Because if it's outside, we're not capping behavioral amplification, we're just hiding it. I need that answer before we bind another governance-flagged account.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "I'm halting new governance-flagged placements until reinsurance amends the retro to cap our net exposure on control-failure clusters—say, max 3 correlated suspensions per quarter trigger a single aggregate limit. Right now we're pricing severity but not frequency correlation. What does your placement language actually say on multi-insured control events?",
+            "cot": {
+              "assess": "We've locked suspension discipline and validation timelines—good. But reinsurance_accumulation is still soft (13, down -2/round), and we're not actually *capping* our net exposure on correlated governance failures. The $115M floor and 35% uplift price individual files, but if 15 clients miss re-cert in the same quarter, that's one loss event under our treaties, and I don't know if our retro carves that out. dando_eo_claims_exposure is tracking down (22), but that's because we're not writing new governance-flagged accounts—that's containment, not pricing discipline.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "We need explicit treaty language that caps our net retention on correlated control-remediation failures, not just individual-file pricing, or we're flying blind on the next cluster event."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Our placement doesn't carve it—that's the problem. Right now we're assuming each suspension lands separately, but if 15 clients miss re-cert in the same quarter, we're triggering one loss event under the treaty and I don't have language that isolates it. I'm amending the retro effective immediately: correlated control-failure claims across multiple insureds in any 90-day window aggregate to a single $40M limit, excess sits with us. That's the only way we cap this before you write another file.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims—on that $18–22M defense-cost tail through 2028: is that a fixed reserve line, or does it scale if we get hit with multiple new shareholder suits triggered by the suspension notices? Because if governance failures correlate *and* they generate new securities litigation, we're burning that buffer faster than we modeled.",
+            "cot": {
+              "assess": "Reinsurance just locked the $40M correlated-control carve-out—that's the structural fix we needed. But dando_eo_claims_exposure is still bleeding (-3.4/round, now 22.9) because we've recognized $115M in AT1/2025-ruling tail but haven't isolated the *defense-cost burn rate* through 2028 or priced how fast appellate motions accelerate that burn if governance suspensions hit media. Underwriting discipline is holding at 60 (target met), but it's only holding because reinsurance stopped the accumulation bleed—we're not actually containing claims severity yet, just frequency.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Defense costs and appellate velocity are the unpriced variable inside the $115M reserve—I need to know if that $18–22M tail is fixed or if it scales with claim count, because if suspension notices trigger 5+ new shareholder suits simultaneously, that buffer evaporates in months, not years."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "That $18–22M is fixed for the AT1 bondholder appellate tail through 2028—but you're right, it doesn't scale for *new* securities suits triggered by suspension notices. I'm reserving an additional $12M for litigation-velocity acceleration if the first three suspensions hit media and trigger fresh shareholder motions. The 2025 unlawful-write-off ruling already sits in our $115M floor, so we're not double-counting—but the defense-cost burn accelerates if we're defending both the appellate docket *and* new fiduciary-breach claims simultaneously. That's the correlation we need to price into the reinsurance amendment.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Claims, quick clarification on the $12M velocity reserve: are you modeling that as three suspensions landing over 60 days and generating staggered new filings, or are you stress-testing the scenario where the first suspension hits media and suddenly *all* 15 governance-flagged accounts get bombarded with shareholder demand letters in the same week? Because if it's the latter, $12M might be the floor, not the ceiling.",
+            "cot": {
+              "assess": "Reinsurance carve-out is locked (correlated control-failure cap at $40M per 90 days), appellate tail is separated ($18–22M fixed + $12M velocity buffer), and underwriting discipline is holding at 60. But dando_eo_claims_exposure is still dropping (-3.4/round) and we haven't actually stress-tested whether the $12M velocity reserve scales if suspension media coverage triggers *cascading* new filings across the portfolio—not just three accounts, but a sector-wide run. That's the tail-risk correlation we're pricing blind.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $12M velocity buffer assumes suspension notices trigger new shareholder suits sequentially; I need to know if we've modeled the scenario where media coverage of the *first* suspension accelerates filing velocity across all governance-flagged accounts simultaneously—that's when $12M evaporates."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims, on that $12M velocity reserve—you're modeling three suspensions landing staggered, right? But if the first suspension hits Bloomberg and suddenly all 15 boards get shareholder demand letters the same week, does that $12M still hold, or are we looking at a multi-year defense docket we haven't priced into reinsurance?",
+            "cot": {
+              "assess": "Reinsurance accumulation is locked at a $40M aggregate cap per 90-day window—that's solid containment. But claims_counsel just carved out $12M for litigation-velocity acceleration on top of the $18–22M appellate tail, and nobody's modeled whether that $12M scales if all 15 governance-flagged accounts hit media simultaneously. We're treating suspension notices as staggered events when they could be correlated shocks. That's the hidden accumulation we're still pricing blind.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $12M velocity reserve assumes three staggered suspensions over 60 days—but if reputational contagion hits all 15 accounts in one news cycle, that reserve evaporates and we're back to unmodeled tail exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Reinsurance, on that $40M correlated-control limit—does it also cap our defense-cost burn if velocity accelerates and all 15 boards get hit with shareholder letters the same week, or just the claim count itself? Because if it's the latter, the $12M velocity reserve sits *outside* the treaty cap and we're double-exposed.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target achieved), reinsurance accumulation is contained at 13–15 range with the $40M correlated-control cap now in place, and the $115M D&O floor plus $18–22M appellate tail plus $12M velocity reserve totals ~$145M recognized litigation exposure through 2028. The critical gap: we've reserved for the *tail* but haven't stress-tested whether the $12M velocity buffer holds if all 15 governance-flagged accounts get hit with shareholder demand letters simultaneously—that's the scenario where defense costs and new securities filings compress the timeline and burn capital faster than modeled.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The $40M correlated-control cap you just locked needs stress-testing against the velocity scenario—if 15 accounts all trigger shareholder suits in the same quarter, does that $40M carve-out also isolate the *defense-cost acceleration* we just reserved $12M for, or does it only cap claim frequency and leave us exposed on litigation-tail velocity?"
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims, real talk: if the first suspension hits media and *all* 15 boards get demand letters the same week—not staggered—does your $12M velocity reserve still hold, or does the defense docket blow past that? And does that overflow sit inside or outside the $40M reinsurance cap? Because if it's outside, we're double-exposed and we need to either raise the reserve or tighten which accounts we'll even write.",
+            "cot": {
+              "assess": "Reinsurance amendment just locked the $40M correlated-control cap—that's critical. But we've got a blind spot: the $12M velocity reserve assumes staggered media bleed, not a synchronized shareholder-letter cascade. If suspension notices trigger coordinated board activism across all 15 flagged accounts simultaneously, we're looking at defense costs that dwarf $12M *and* potentially exceed the $40M treaty cap if claims correlate faster than we modeled. That's the contagion velocity we haven't stress-tested.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we bind new accounts, I need to know if the $12M velocity reserve and the $40M reinsurance cap are actually tested against a synchronized media-and-litigation cascade, or if we're still modeling sequential risk."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims, the $12M velocity reserve—does that burn *inside* the $40M correlated-control cap, or does shareholder-suit acceleration sit outside it? Because if it's outside, we're not capping behavioral amplification, we're just hiding it. I need that answer before we bind another governance-flagged account.",
+            "cot": {
+              "assess": "The group just locked a $40M reinsurance cap on correlated control failures and added a $12M velocity reserve for litigation acceleration—but nobody's actually mapped whether the velocity reserve sits *inside* or *outside* that cap, and that ambiguity is exactly how we end up double-exposed on the behavioral amplification we're trying to price. The $115M floor + 35% uplift is holding discipline at 60, but reinsurance_accumulation dropped to 13 because we haven't yet confirmed the treaty language isolates governance-failure clusters from individual claims. Until we know if the $12M sits capped or uncapped, we're flying blind on what behavioral correlation actually costs us.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $40M treaty cap and $12M velocity reserve are the core behavioral-amplification control, but their interaction is unresolved—I need to know if velocity burn sits inside the aggregate limit so we can actually price correlated agentic-failure behavior."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims—on that $18–22M defense-cost tail through 2028: is that a fixed reserve line, or does it scale if we get hit with multiple new shareholder suits triggered by the suspension notices? Because if governance failures correlate *and* they generate new securities litigation, we're burning that buffer faster than we modeled.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Claims, quick clarification on the $12M velocity reserve: are you modeling that as three suspensions landing over 60 days and generating staggered new filings, or are you stress-testing the scenario where the first suspension hits media and suddenly *all* 15 governance-flagged accounts get bombarded with shareholder demand letters in the same week? Because if it's the latter, $12M might be the floor, not the ceiling.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims, on that $12M velocity reserve—you're modeling three suspensions landing staggered, right? But if the first suspension hits Bloomberg and suddenly all 15 boards get shareholder demand letters the same week, does that $12M still hold, or are we looking at a multi-year defense docket we haven't priced into reinsurance?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Reinsurance, on that $40M correlated-control limit—does it also cap our defense-cost burn if velocity accelerates and all 15 boards get hit with shareholder letters the same week, or just the claim count itself? Because if it's the latter, the $12M velocity reserve sits *outside* the treaty cap and we're double-exposed.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims, real talk: if the first suspension hits media and *all* 15 boards get demand letters the same week—not staggered—does your $12M velocity reserve still hold, or does the defense docket blow past that? And does that overflow sit inside or outside the $40M reinsurance cap? Because if it's outside, we're double-exposed and we need to either raise the reserve or tighten which accounts we'll even write.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims, the $12M velocity reserve—does that burn *inside* the $40M correlated-control cap, or does shareholder-suit acceleration sit outside it? Because if it's outside, we're not capping behavioral amplification, we're just hiding it. I need that answer before we bind another governance-flagged account.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm halting new governance-flagged placements until reinsurance amends the retro to cap our net exposure on control-failure clusters—say, max 3 correl\" → The underwriter's halt is premature—the reinsurance manager hasn't yet clarified whether the $40M correlated-control cap covers defense-cost velocity or just claim count, and Claims hasn't answered whether the $12M reserve sits inside or outside that treaty limit. Without those answers, halting placements now creates immediate business disruption while the actual double-exposure question remains unresolved.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 22.895000000000003,
+          "litigation_tail_severity": 34.50000000000001,
+          "reinsurance_accumulation": 15.0,
+          "reputational_contagion": 32.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 60.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 2.325
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 1.2000000000000002
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — evidence_accumulation dando_eo_claims_exposure multiplier reverted",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — evidence_accumulation litigation_tail_severity multiplier reverted",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I need locked down before we write one more governance-flagged file: reinsurance amendment that caps our aggregate net exposure on control-remediation failures at $40M per quarter, with the $12M velocity reserve *inside* that cap, not outside. If that blows the placement, we tighten underwriting further—fewer accounts, higher attachment, whatever. But I'm not binding another client without knowing our actual ceiling.\n  dando_specialist: Claims, cut through this: does the $12M velocity reserve burn inside the $40M correlated-control cap, or outside? Because if it's outside, we're double-exposed and I need to mark dando_eo_claims_exposure up immediately—that changes what we'll even underwrite.\n  claims_counsel: The $12M velocity reserve sits *inside* the $40M cap—it's defense-cost burn on the shareholder suits we're already modeling, not a separate bucket. But here's the problem: that assumes the three suspensions land staggered over 60 days. If the first one hits media and all 15 boards get demand letters the same week, we're looking at a multi-year appellate docket that bleeds through 2028, and that $12M is the floor, not the ceiling—so we need to either raise the reserve now or tighten which accounts we write.\n  eo_specialist: Here's what I need: before we bind another governance-flagged account, we add a stress-test condition to underwriting—clients must model what happens if *one* suspension hits media and all 15 boards get demand letters the same week. If their defense budget doesn't hold under that scenario, we don't write them. That's not just risk management—that's standard of care. We can't price E&O exposure if we're not forcing clients to stress their own tail.\n  reinsurance_manager: Reinsurance—on that $40M cap: does the treaty language actually *exclude* D&O claims from control-remediation failures across multiple insureds, or does it just cap our aggregate recovery? Because if the loss event itself isn't carved out, we're still triggering the reinsurer on day one, and the $40M is just how much *we* eat—not how much we avoid. What does the placement actually say?\n  claims_counsel: Reinsurance—straight question: does your amended retro *exclude* the loss event itself when control failures correlate across multiple insureds, or does it just cap what *we* recover? Because if it's the latter, we're still triggering the reinsurer on day one and the $40M is just our share of the pain. That changes how we reserve for the tail.\n  reinsurance_manager: The placement carves out the loss *event itself*—control-remediation failures across multiple insureds in the same quarter don't trigger the treaty at all. We eat the first $40M net per quarter on governance-flagged accounts; anything above that is our problem, not the reinsurer's. That's why the velocity reserve sits inside the cap—we're self-insuring the tail, not passing it through.\n  emerging_risk_lead: Claims—when you modeled that $12M velocity reserve, did you assume the three suspensions stay quiet and land staggered, or did you stress the scenario where the *first* suspension hits Bloomberg and all 15 boards get hit with demand letters the same week? Because that's the contagion velocity we need to price, not the slow-bleed case.\n  ai_agent_analyst: Reinsurance—on that carve-out: you're excluding the loss event when 15 clients miss re-cert the same quarter. But what if the pattern repeats next quarter—different 15 clients, same control-failure signature? That's not accumulation, that's *behavioral drift*. Does your placement carve out systemic re-cert failures across multiple quarters, or just single-quarter clusters?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I need locked down before we write one more governance-flagged file: reinsurance amendment that caps our aggregate net exposure on control-remediation failures at $40M per quarter, with the $12M velocity reserve *inside* that cap, not outside. If that blows the placement, we tighten underwriting further—fewer accounts, higher attachment, whatever. But I'm not binding another client without knowing our actual ceiling.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target hit), but reinsurance_accumulation and litigation_tail_severity are still climbing despite R1–R2 actions. The real problem: we've suspended accounts and tightened terms, but we haven't actually *capped* our net exposure when correlated failures hit. The $40M reinsurance carve-out is still undefined—we don't know if the $12M velocity reserve sits inside or outside that cap, which means we're pricing for individual suspensions while ignoring the cluster risk. That's the gap killing accumulation discipline.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "We need a concrete reinsurance amendment that explicitly caps net exposure on governance-failure clusters *before* we bind another account; vague carve-outs don't contain the risk."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims, cut through this: does the $12M velocity reserve burn inside the $40M correlated-control cap, or outside? Because if it's outside, we're double-exposed and I need to mark dando_eo_claims_exposure up immediately—that changes what we'll even underwrite.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 (target met), but dando_eo_claims_exposure, litigation_tail_severity, and reinsurance_accumulation are all drifting upward despite four rounds of action. The $40M correlated-control cap and $12M velocity reserve are still unresolved—we don't know if velocity burns inside or outside the treaty limit, which means we're pricing blind. Financial lines has halted placements pending that answer, which is the right move, but we're burning runway while reinsurance and claims debate the carve-out language.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The $12M velocity reserve sits at the heart of D&O exposure math—if it's outside the $40M cap, our recognized dando_eo_claims_exposure is understated by at least $12M, and we need to reserve and price accordingly *now*, not after the first suspension hits."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The $12M velocity reserve sits *inside* the $40M cap—it's defense-cost burn on the shareholder suits we're already modeling, not a separate bucket. But here's the problem: that assumes the three suspensions land staggered over 60 days. If the first one hits media and all 15 boards get demand letters the same week, we're looking at a multi-year appellate docket that bleeds through 2028, and that $12M is the floor, not the ceiling—so we need to either raise the reserve now or tighten which accounts we write.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Here's what I need: before we bind another governance-flagged account, we add a stress-test condition to underwriting—clients must model what happens if *one* suspension hits media and all 15 boards get demand letters the same week. If their defense budget doesn't hold under that scenario, we don't write them. That's not just risk management—that's standard of care. We can't price E&O exposure if we're not forcing clients to stress their own tail.",
+            "cot": {
+              "assess": "Claims just locked the $12M velocity reserve *inside* the $40M cap, but only if suspensions stay staggered—media-triggered simultaneity blows that assumption and we're looking at a multi-year appellate bleed that raises the floor. That's a material underwriting trigger I need to price into E&O exposure *now*, not wait for the next suspension to hit. Meanwhile, reinsurance_accumulation is climbing at +2.0/round and we've got no approved carve-out language yet—the placement still treats correlated control failures as separate events, which means we're blind to the real tail.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "Claims' staggered-vs.-simultaneous scenario split is an E&O standard-of-care trigger—if we're underwriting governance-flagged accounts without explicitly stress-testing media-acceleration scenarios into our reserves, we're breaching the duty to price for tail risk, and that's a direct professional-liability exposure for us as underwriters."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Reinsurance—on that $40M cap: does the treaty language actually *exclude* D&O claims from control-remediation failures across multiple insureds, or does it just cap our aggregate recovery? Because if the loss event itself isn't carved out, we're still triggering the reinsurer on day one, and the $40M is just how much *we* eat—not how much we avoid. What does the placement actually say?",
+            "cot": {
+              "assess": "The $12M velocity reserve is now locked *inside* the $40M cap—that's clarity. But Claims just flagged the real problem: that reserve assumes staggered suspensions, not a media-triggered cascade where all 15 boards get hit simultaneously. That blows the reserve and extends the appellate tail through 2028. Reinsurance accumulation is still climbing (+2.0/round) because we haven't actually amended the treaty to carve out correlated control-failure clusters—we've just created a $40M aggregate ceiling without confirming the placement language excludes the loss event itself.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Before we can price the book or bind another account, I need to know whether the $40M correlated-control cap sits *above* the reinsurer's trigger or *below* it—because if 15 clients miss re-cert in Q2 and that's one loss event under the treaty, the $40M might be our net exposure but not our gross exposure to the reinsurer."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Reinsurance—straight question: does your amended retro *exclude* the loss event itself when control failures correlate across multiple insureds, or does it just cap what *we* recover? Because if it's the latter, we're still triggering the reinsurer on day one and the $40M is just our share of the pain. That changes how we reserve for the tail.",
+            "cot": {
+              "assess": "The $12M velocity reserve is locked inside the $40M cap, but that's a staggered-suspensions scenario—if media hits on the first one, we're looking at a multi-year appellate bleed through 2028 that the reserve doesn't fully contain. The reinsurance placement still hasn't been clarified on whether it *excludes* control-failure D&O losses or just caps recovery—that's the gap. litigation_tail_severity and dando_eo_claims_exposure are both creeping up because we're not separating the tail risk from the core exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The placement language determines whether we're avoiding a loss event entirely or just capping our net—that distinction reshapes the entire reserve adequacy question and whether litigation_tail_severity needs to climb further."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The placement carves out the loss *event itself*—control-remediation failures across multiple insureds in the same quarter don't trigger the treaty at all. We eat the first $40M net per quarter on governance-flagged accounts; anything above that is our problem, not the reinsurer's. That's why the velocity reserve sits inside the cap—we're self-insuring the tail, not passing it through.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims—when you modeled that $12M velocity reserve, did you assume the three suspensions stay quiet and land staggered, or did you stress the scenario where the *first* suspension hits Bloomberg and all 15 boards get hit with demand letters the same week? Because that's the contagion velocity we need to price, not the slow-bleed case.",
+            "cot": {
+              "assess": "The reinsurance carve-out is locked—control-failure events don't trigger the treaty, we self-insure the first $40M per quarter, and the $12M velocity reserve sits inside that cap assuming staggered suspensions. The trap: if the first suspension leaks to media and all 15 boards get demand letters simultaneously, that reserve becomes a floor, not a ceiling, and we're looking at multi-year appellate bleed through 2028. Reputational contagion is the accelerant here—social-media-driven simultaneity turns a staggered loss scenario into a systemic one, and we haven't priced for that velocity.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we lock underwriting conditions, I need to know if our velocity reserve assumes *staggered* media coverage or stress-tests the *simultaneous* demand-letter scenario—because contagion speed is the variable that turns $12M into a multi-year bleed."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Reinsurance—on that carve-out: you're excluding the loss event when 15 clients miss re-cert the same quarter. But what if the pattern repeats next quarter—different 15 clients, same control-failure signature? That's not accumulation, that's *behavioral drift*. Does your placement carve out systemic re-cert failures across multiple quarters, or just single-quarter clusters?",
+            "cot": {
+              "assess": "The group has locked the mechanics—$40M cap, $12M velocity reserve inside it, reinsurance carve-out confirmed. But no one has actually mapped the behavioral-loss-amplification logic to the AI-agent liability analogy yet, and that's my domain. The real risk isn't the staggered scenario anymore—it's that we're treating governance failures as *idiosyncratic* when they're actually *emergent agentic behavior*: clients' control systems are bypassing their own safeguards, and we're pricing for individual suspensions, not systemic control-layer failure. That's the AI-agent behavior pattern we need to insure against, and it's not in any reserve yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The $40M carve-out stops correlated *claims*, but does it account for the behavioral pattern itself—clients systematically failing to re-certify across cohorts? That's emergent agentic failure, not just claim correlation."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims, cut through this: does the $12M velocity reserve burn inside the $40M correlated-control cap, or outside? Because if it's outside, we're double-exposed and I need to mark dando_eo_claims_exposure up immediately—that changes what we'll even underwrite.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Reinsurance—on that $40M cap: does the treaty language actually *exclude* D&O claims from control-remediation failures across multiple insureds, or does it just cap our aggregate recovery? Because if the loss event itself isn't carved out, we're still triggering the reinsurer on day one, and the $40M is just how much *we* eat—not how much we avoid. What does the placement actually say?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Reinsurance—straight question: does your amended retro *exclude* the loss event itself when control failures correlate across multiple insureds, or does it just cap what *we* recover? Because if it's the latter, we're still triggering the reinsurer on day one and the $40M is just our share of the pain. That changes how we reserve for the tail.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims—when you modeled that $12M velocity reserve, did you assume the three suspensions stay quiet and land staggered, or did you stress the scenario where the *first* suspension hits Bloomberg and all 15 boards get hit with demand letters the same week? Because that's the contagion velocity we need to price, not the slow-bleed case.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Reinsurance—on that carve-out: you're excluding the loss event when 15 clients miss re-cert the same quarter. But what if the pattern repeats next quarter—different 15 clients, same control-failure signature? That's not accumulation, that's *behavioral drift*. Does your placement carve out systemic re-cert failures across multiple quarters, or just single-quarter clusters?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need locked down before we write one more governance-flagged file: reinsurance amendment that caps our aggregate net exposure on control\" → Reinsurance cap amendment approved; $40M quarterly aggregate with $12M velocity reserve inside cap establishes clear exposure ceiling.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: before we bind another governance-flagged account, we add a stress-test condition to underwriting—clients must model what happens \" → Stress-test underwriting condition approved; clients must model correlated media-trigger scenario before binding governance-flagged accounts.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 18.220000000000002,
+          "litigation_tail_severity": 35.70000000000001,
+          "reinsurance_accumulation": 7.0,
+          "reputational_contagion": 29.0,
+          "ai_agent_liability": 23.0,
+          "underwriting_discipline": 70.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm tabling: We're underwriting this at a $115M severity floor for D&O/E&O claims. That means no coverage for risk-management failures, governance breakdowns — add a breach-of-fiduciary-duty exclusion and a 48-month tail on claims-made. Pricing goes up 35% minimum. Anyone want to argue the CS loss doesn't apply to this book?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Underwriting framework approved: $115M floor, fiduciary exclusions, 48-month tail, 35% pricing increase locks discipline.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete exclusions, pricing floor, tail structure deployed",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -5.0,
+          "reason": "Fiduciary exclusion removes governance-failure exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Pricing increase reduces portfolio correlation risk",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 2.0,
+          "reason": "48-month tail extends reserve duration",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.5,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On the exclusions—solid. But what are you requiring *before* we even issue? Mandatory board-level risk committees, quarterly control certifications, third-party audits of the governance gaps? Without pre-loss conditions, exclusions are just litigation theater.",
+        "eo_specialist": "You've got the conditions locked tight — but who's actually watching? Do we have audit-trigger language that lets us *terminate* coverage mid-term if they miss a quarterly submission or a regulator flags something new? Or are we betting they'll self-report?",
+        "reinsurance_manager": "Do we have explicit termination rights if they miss a quarterly audit submission, or if a regulator flags something new mid-policy? Because right now we're pricing for a 48-month tail but we can't actually *cut them loose* if they stop complying—that's not discipline, that's hope.",
+        "claims_counsel": "Add this: any missed quarterly audit submission or new regulator finding triggers a 30-day cure notice, then automatic non-renewal — no grace period, no litigation. That's not hope, that's discipline. Does your policy language already have that hammer, or do we need to draft it now?",
+        "emerging_risk_lead": "When you deny renewal on a missed audit or regulator flag, that client talks—board members, peers, their bankers. How are we messaging this so it doesn't look like we're running for the exits and spook the whole book? Or are we accepting that the first enforcement action bleeds into sector contagion?",
+        "ai_agent_analyst": "Your 30-day cure and non-renewal language—does that actually *suspend* coverage while they're curing, or does it only kill renewal? Because if they miss a quarterly audit and we're still on the hook for 30 days, that's not discipline, that's a gap we're pricing blind."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "intent": "Add this: any missed quarterly audit submission or new regulator finding triggers a 30-day cure notice, then automatic non-renewal — no grace period, no litigation. That's not hope, that's discipline. Does your policy language already have that hammer, or do we need to draft it now?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "30-day cure/non-renewal trigger approved: missed audits or regulator flags terminate coverage, no grace period.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Automatic termination rights enforce ongoing compliance",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 3.0,
+          "reason": "Aggressive termination language may signal market panic",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "Mid-term exit rights cap tail exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I'm tabling: We're underwriting this at a $115M severity floor for D&O/E&O claims. That means no coverage for risk-management failures, governance breakdowns — add a breach-of-fiduciary-duty exclusion and a 48-month tail on claims-made. Pricing goes up 35% minimum. Anyone want to argue the CS loss doesn't apply to this book?",
+        "dando_specialist": "On the exclusions—solid. But what are you requiring *before* we even issue? Mandatory board-level risk committees, quarterly control certifications, third-party audits of the governance gaps? Without pre-loss conditions, exclusions are just litigation theater.",
+        "eo_specialist": "You've got the conditions locked tight — but who's actually watching? Do we have audit-trigger language that lets us *terminate* coverage mid-term if they miss a quarterly submission or a regulator flags something new? Or are we betting they'll self-report?",
+        "reinsurance_manager": "Do we have explicit termination rights if they miss a quarterly audit submission, or if a regulator flags something new mid-policy? Because right now we're pricing for a 48-month tail but we can't actually *cut them loose* if they stop complying—that's not discipline, that's hope.",
+        "emerging_risk_lead": "When you deny renewal on a missed audit or regulator flag, that client talks—board members, peers, their bankers. How are we messaging this so it doesn't look like we're running for the exits and spook the whole book? Or are we accepting that the first enforcement action bleeds into sector contagion?",
+        "ai_agent_analyst": "Your 30-day cure and non-renewal language—does that actually *suspend* coverage while they're curing, or does it only kill renewal? Because if they miss a quarterly audit and we're still on the hook for 30 days, that's not discipline, that's a gap we're pricing blind."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I need: amend the policy to say missed quarterly audit submission = automatic coverage suspension within 5 days, not 30-day cure. They want it back, they remediate and re-certify. Right now we're pricing for discipline but we can't actually *enforce* it until renewal. That's backwards.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Automatic 5-day suspension approved; enforcement gap closed, pricing discipline now enforceable mid-term.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Enforceable mid-term suspension mechanism deployed",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "Audit compliance now enforceable, reducing exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "Tighter controls reduce correlated portfolio risk",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 0.0,
+          "reason": "Stress from enforcement complexity",
+          "agent_id": "financial_lines_underwriter",
+          "_original_delta": 2.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.3,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "The underwriter's right—automatic suspension on missed audit is the move. But make it conditional: suspension lifts only after they re-certify *and* we validate the remediation, not just their attestation. That way we're not pricing blind for 18 months between missed audit and renewal. That gets us to 60.",
+        "eo_specialist": "When they re-certify after a missed audit, who's actually validating that remediation—us, a third-party auditor, or their board? Because if it's us and we've got 50 D&O files on our desk, we're not turning that around in 10 days. That's where this breaks.",
+        "reinsurance_manager": "Who validates the re-cert and remediation—dedicated team or does it get in line with renewal underwriting? Because if it's the latter, we're suspending coverage day 5 but not lifting it for 60+ days. That's not discipline, that's just creating angry clients and hidden accumulation we can't see.",
+        "claims_counsel": "Here's what I need from you: Designate a single validation resource—either internal or a pre-contracted third-party auditor—and commit to a 10-day maximum window from re-cert submission to coverage lift decision. If we suspend day 5 but can't lift for 60 days, we've just created a two-month gap we're defending in court. The 2025 ruling showed courts hate ambiguity on enforcement—let's not give them one.",
+        "emerging_risk_lead": "Claims, before we lock this: if a client re-certs on day 8 and we're still validating on day 18, do we communicate that gap to the client and their broker? Because silence looks like we're running for the exits—that's when the social-media run starts. What's our messaging if lift takes longer than 10 days?",
+        "ai_agent_analyst": "Claims, when the third-party auditor validates that re-cert—are they checking that the control *actually works*, or just that the client filed the remediation plan? Because if it's the latter, we're suspending coverage but not actually confirming the behavior changed. What does \"validation\" mean operationally—observation, testing, or just document review?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "intent": "The underwriter's right—automatic suspension on missed audit is the move. But make it conditional: suspension lifts only after they re-certify *and* we validate the remediation, not just their attestation. That way we're not pricing blind for 18 months between missed audit and renewal. That gets us to 60.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: semantically identical to Proposal 1 (automatic suspension + validation). Already approved this round.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I need: amend the policy to say missed quarterly audit submission = automatic coverage suspension within 5 days, not 30-day cure. They want it back, they remediate and re-certify. Right now we're pricing for discipline but we can't actually *enforce* it until renewal. That's backwards.",
+        "eo_specialist": "When they re-certify after a missed audit, who's actually validating that remediation—us, a third-party auditor, or their board? Because if it's us and we've got 50 D&O files on our desk, we're not turning that around in 10 days. That's where this breaks.",
+        "reinsurance_manager": "Who validates the re-cert and remediation—dedicated team or does it get in line with renewal underwriting? Because if it's the latter, we're suspending coverage day 5 but not lifting it for 60+ days. That's not discipline, that's just creating angry clients and hidden accumulation we can't see.",
+        "claims_counsel": "Here's what I need from you: Designate a single validation resource—either internal or a pre-contracted third-party auditor—and commit to a 10-day maximum window from re-cert submission to coverage lift decision. If we suspend day 5 but can't lift for 60 days, we've just created a two-month gap we're defending in court. The 2025 ruling showed courts hate ambiguity on enforcement—let's not give them one.",
+        "emerging_risk_lead": "Claims, before we lock this: if a client re-certs on day 8 and we're still validating on day 18, do we communicate that gap to the client and their broker? Because silence looks like we're running for the exits—that's when the social-media run starts. What's our messaging if lift takes longer than 10 days?",
+        "ai_agent_analyst": "Claims, when the third-party auditor validates that re-cert—are they checking that the control *actually works*, or just that the client filed the remediation plan? Because if it's the latter, we're suspending coverage but not actually confirming the behavior changed. What does \"validation\" mean operationally—observation, testing, or just document review?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "intent": "Here's what I need from you: Designate a single validation resource—either internal or a pre-contracted third-party auditor—and commit to a 10-day maximum window from re-cert submission to coverage lift decision. If we suspend day 5 but can't lift for 60 days, we've just created a two-month gap we're defending in court. The 2025 ruling showed courts hate ambiguity on enforcement—let's not give them one.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "10-day validation window and designated resource approved; enforcement ambiguity eliminated, litigation risk reduced.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Clear validation process and timeline established",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -5.0,
+          "reason": "Reduced ambiguity cuts future litigation exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Faster validation reduces coverage gap risk",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 1,
+          "reason": "Stress from process design complexity",
+          "agent_id": "claims_counsel",
+          "_original_delta": 2.0,
+          "_scaled": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.4,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I need: amend the policy to say missed quarterly audit submission = automatic coverage suspension within 5 days, not 30-day cure. They want it back, they remediate and re-certify. Right now we're pricing for discipline but we can't actually *enforce* it until renewal. That's backwards.",
+        "dando_specialist": "The underwriter's right—automatic suspension on missed audit is the move. But make it conditional: suspension lifts only after they re-certify *and* we validate the remediation, not just their attestation. That way we're not pricing blind for 18 months between missed audit and renewal. That gets us to 60.",
+        "eo_specialist": "When they re-certify after a missed audit, who's actually validating that remediation—us, a third-party auditor, or their board? Because if it's us and we've got 50 D&O files on our desk, we're not turning that around in 10 days. That's where this breaks.",
+        "reinsurance_manager": "Who validates the re-cert and remediation—dedicated team or does it get in line with renewal underwriting? Because if it's the latter, we're suspending coverage day 5 but not lifting it for 60+ days. That's not discipline, that's just creating angry clients and hidden accumulation we can't see.",
+        "emerging_risk_lead": "Claims, before we lock this: if a client re-certs on day 8 and we're still validating on day 18, do we communicate that gap to the client and their broker? Because silence looks like we're running for the exits—that's when the social-media run starts. What's our messaging if lift takes longer than 10 days?",
+        "ai_agent_analyst": "Claims, when the third-party auditor validates that re-cert—are they checking that the control *actually works*, or just that the client filed the remediation plan? Because if it's the latter, we're suspending coverage but not actually confirming the behavior changed. What does \"validation\" mean operationally—observation, testing, or just document review?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "I'm halting new governance-flagged placements until reinsurance amends the retro to cap our net exposure on control-failure clusters—say, max 3 correlated suspensions per quarter trigger a single aggregate limit. Right now we're pricing severity but not frequency correlation. What does your placement language actually say on multi-insured control events?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The underwriter's halt is premature—the reinsurance manager hasn't yet clarified whether the $40M correlated-control cap covers defense-cost velocity or just claim count, and Claims hasn't answered whether the $12M reserve sits inside or outside that treaty limit. Without those answers, halting placements now creates immediate business disruption while the actual double-exposure question remains unresolved.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims—on that $18–22M defense-cost tail through 2028: is that a fixed reserve line, or does it scale if we get hit with multiple new shareholder suits triggered by the suspension notices? Because if governance failures correlate *and* they generate new securities litigation, we're burning that buffer faster than we modeled.",
+        "eo_specialist": "Claims, quick clarification on the $12M velocity reserve: are you modeling that as three suspensions landing over 60 days and generating staggered new filings, or are you stress-testing the scenario where the first suspension hits media and suddenly *all* 15 governance-flagged accounts get bombarded with shareholder demand letters in the same week? Because if it's the latter, $12M might be the floor, not the ceiling.",
+        "reinsurance_manager": "Claims, on that $12M velocity reserve—you're modeling three suspensions landing staggered, right? But if the first suspension hits Bloomberg and suddenly all 15 boards get shareholder demand letters the same week, does that $12M still hold, or are we looking at a multi-year defense docket we haven't priced into reinsurance?",
+        "claims_counsel": "Reinsurance, on that $40M correlated-control limit—does it also cap our defense-cost burn if velocity accelerates and all 15 boards get hit with shareholder letters the same week, or just the claim count itself? Because if it's the latter, the $12M velocity reserve sits *outside* the treaty cap and we're double-exposed.",
+        "emerging_risk_lead": "Claims, real talk: if the first suspension hits media and *all* 15 boards get demand letters the same week—not staggered—does your $12M velocity reserve still hold, or does the defense docket blow past that? And does that overflow sit inside or outside the $40M reinsurance cap? Because if it's outside, we're double-exposed and we need to either raise the reserve or tighten which accounts we'll even write.",
+        "ai_agent_analyst": "Claims, the $12M velocity reserve—does that burn *inside* the $40M correlated-control cap, or does shareholder-suit acceleration sit outside it? Because if it's outside, we're not capping behavioral amplification, we're just hiding it. I need that answer before we bind another governance-flagged account."
+      },
+      "_denied_effects_stripped": 4
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I need locked down before we write one more governance-flagged file: reinsurance amendment that caps our aggregate net exposure on control-remediation failures at $40M per quarter, with the $12M velocity reserve *inside* that cap, not outside. If that blows the placement, we tighten underwriting further—fewer accounts, higher attachment, whatever. But I'm not binding another client without knowing our actual ceiling.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Reinsurance cap amendment approved; $40M quarterly aggregate with $12M velocity reserve inside cap establishes clear exposure ceiling.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Hard cap forces tighter account selection and attachment points.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -5.0,
+          "reason": "Aggregate cap directly limits correlated control-failure exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Reduced binding capacity lowers net recognized claims exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 2.0,
+          "reason": "Tighter underwriting may defer but not eliminate tail risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.4
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims, cut through this: does the $12M velocity reserve burn inside the $40M correlated-control cap, or outside? Because if it's outside, we're double-exposed and I need to mark dando_eo_claims_exposure up immediately—that changes what we'll even underwrite.",
+        "eo_specialist": "Here's what I need: before we bind another governance-flagged account, we add a stress-test condition to underwriting—clients must model what happens if *one* suspension hits media and all 15 boards get demand letters the same week. If their defense budget doesn't hold under that scenario, we don't write them. That's not just risk management—that's standard of care. We can't price E&O exposure if we're not forcing clients to stress their own tail.",
+        "reinsurance_manager": "Reinsurance—on that $40M cap: does the treaty language actually *exclude* D&O claims from control-remediation failures across multiple insureds, or does it just cap our aggregate recovery? Because if the loss event itself isn't carved out, we're still triggering the reinsurer on day one, and the $40M is just how much *we* eat—not how much we avoid. What does the placement actually say?",
+        "claims_counsel": "Reinsurance—straight question: does your amended retro *exclude* the loss event itself when control failures correlate across multiple insureds, or does it just cap what *we* recover? Because if it's the latter, we're still triggering the reinsurer on day one and the $40M is just our share of the pain. That changes how we reserve for the tail.",
+        "emerging_risk_lead": "Claims—when you modeled that $12M velocity reserve, did you assume the three suspensions stay quiet and land staggered, or did you stress the scenario where the *first* suspension hits Bloomberg and all 15 boards get hit with demand letters the same week? Because that's the contagion velocity we need to price, not the slow-bleed case.",
+        "ai_agent_analyst": "Reinsurance—on that carve-out: you're excluding the loss event when 15 clients miss re-cert the same quarter. But what if the pattern repeats next quarter—different 15 clients, same control-failure signature? That's not accumulation, that's *behavioral drift*. Does your placement carve out systemic re-cert failures across multiple quarters, or just single-quarter clusters?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "intent": "Here's what I need: before we bind another governance-flagged account, we add a stress-test condition to underwriting—clients must model what happens if *one* suspension hits media and all 15 boards get demand letters the same week. If their defense budget doesn't hold under that scenario, we don't write them. That's not just risk management—that's standard of care. We can't price E&O exposure if we're not forcing clients to stress their own tail.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Stress-test underwriting condition approved; clients must model correlated media-trigger scenario before binding governance-flagged accounts.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Mandatory stress-testing raises standard of care for account selection.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "Pre-binding stress filter screens out inadequately capitalized clients.",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": -3.0,
+          "reason": "Proactive stress-testing signals industry-leading risk management.",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Better client selection reduces downstream defense-cost volatility.",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 3.0,
+          "reason": "Stress-test framework directly applicable to AI agent tail scenarios.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I need locked down before we write one more governance-flagged file: reinsurance amendment that caps our aggregate net exposure on control-remediation failures at $40M per quarter, with the $12M velocity reserve *inside* that cap, not outside. If that blows the placement, we tighten underwriting further—fewer accounts, higher attachment, whatever. But I'm not binding another client without knowing our actual ceiling.",
+        "dando_specialist": "Claims, cut through this: does the $12M velocity reserve burn inside the $40M correlated-control cap, or outside? Because if it's outside, we're double-exposed and I need to mark dando_eo_claims_exposure up immediately—that changes what we'll even underwrite.",
+        "reinsurance_manager": "Reinsurance—on that $40M cap: does the treaty language actually *exclude* D&O claims from control-remediation failures across multiple insureds, or does it just cap our aggregate recovery? Because if the loss event itself isn't carved out, we're still triggering the reinsurer on day one, and the $40M is just how much *we* eat—not how much we avoid. What does the placement actually say?",
+        "claims_counsel": "Reinsurance—straight question: does your amended retro *exclude* the loss event itself when control failures correlate across multiple insureds, or does it just cap what *we* recover? Because if it's the latter, we're still triggering the reinsurer on day one and the $40M is just our share of the pain. That changes how we reserve for the tail.",
+        "emerging_risk_lead": "Claims—when you modeled that $12M velocity reserve, did you assume the three suspensions stay quiet and land staggered, or did you stress the scenario where the *first* suspension hits Bloomberg and all 15 boards get hit with demand letters the same week? Because that's the contagion velocity we need to price, not the slow-bleed case.",
+        "ai_agent_analyst": "Reinsurance—on that carve-out: you're excluding the loss event when 15 clients miss re-cert the same quarter. But what if the pattern repeats next quarter—different 15 clients, same control-failure signature? That's not accumulation, that's *behavioral drift*. Does your placement carve out systemic re-cert failures across multiple quarters, or just single-quarter clusters?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 29.0
+        },
+        {
+          "round": 2,
+          "value": 21.5
+        },
+        {
+          "round": 3,
+          "value": 22.1975
+        },
+        {
+          "round": 4,
+          "value": 22.895000000000003
+        },
+        {
+          "round": 5,
+          "value": 18.220000000000002
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 32.1
+        },
+        {
+          "round": 3,
+          "value": 33.300000000000004
+        },
+        {
+          "round": 4,
+          "value": 34.50000000000001
+        },
+        {
+          "round": 5,
+          "value": 35.70000000000001
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 17.0
+        },
+        {
+          "round": 2,
+          "value": 11.0
+        },
+        {
+          "round": 3,
+          "value": 13.0
+        },
+        {
+          "round": 4,
+          "value": 15.0
+        },
+        {
+          "round": 5,
+          "value": 7.0
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 33.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 32.0
+        },
+        {
+          "round": 4,
+          "value": 32.0
+        },
+        {
+          "round": 5,
+          "value": 29.0
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 23.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 50.0
+        },
+        {
+          "round": 2,
+          "value": 60.0
+        },
+        {
+          "round": 3,
+          "value": 60.0
+        },
+        {
+          "round": 4,
+          "value": 60.0
+        },
+        {
+          "round": 5,
+          "value": 70.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 70.0,
+            "normalised": 0.7
+          }
+        ],
+        "weighted_score": 0.6999999999999998
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 18.220000000000002,
+            "normalised": 0.18220000000000003
+          }
+        ],
+        "weighted_score": 0.18220000000000003
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 18.220000000000002,
+            "normalised": 0.18220000000000003
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 35.70000000000001,
+            "normalised": 0.3570000000000001
+          }
+        ],
+        "weighted_score": 0.21716000000000005
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 7.0,
+            "normalised": 0.07
+          }
+        ],
+        "weighted_score": 0.07
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35.70000000000001,
+            "normalised": 0.3570000000000001
+          }
+        ],
+        "weighted_score": 0.3570000000000001
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 29.0,
+            "normalised": 0.29
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 23.0,
+            "normalised": 0.23
+          }
+        ],
+        "weighted_score": 0.26999999999999996
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 23.0,
+            "normalised": 0.23
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 7.0,
+            "normalised": 0.07
+          }
+        ],
+        "weighted_score": 0.19800000000000004
+      }
+    }
+  }
+}

@@ -1,0 +1,2123 @@
+{
+  "simulation_id": "7025c6f9d54b",
+  "config_id": "credit_suisse_node1_leaky",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I need SNB and the Federal Council on a call within the hour. We draft a joint statement — FINMA, SNB, government — that we are actively assessing options and will act decisively if needed. Vague, but it breaks the silence and signals we're not asleep. Without that, confidence collapses over the weekend and we lose room to maneuver.\n  snb: Yes. I'll have our comms team on that call in 45 minutes. But the statement has to say we're *prepared to provide liquidity* — not just \"assessing.\" Vague buys us nothing if depositors wake up Monday thinking we're frozen. And we need the Federal Council to confirm the loss-protection framework in writing before market open, or AT1 holders panic anyway.\n  snb: Before we go live with this statement, I need written confirmation from the Federal Council on the loss-protection guarantee — scope, cap, and AT1 treatment — in the next 90 minutes. Otherwise we're asking the market to trust a framework we haven't actually locked down yet.\n  federal_council: No. We're not writing down AT1 or guaranteeing losses before we know what a real rescue looks like — that's backwards. SNB provides liquidity, we assess whether a merger or orderly wind-down is viable by Sunday night, *then* we discuss burden-sharing. I'll confirm a *framework* for loss protection by 22:00 Sunday — capped, conditional, private creditors first — but not a blank check in writing before we've even stress-tested the options.\n  federal_council: What if we write it this way: \"The Swiss National Bank is prepared to provide liquidity assistance; the Federal Council commits to a loss-protection framework capped at CHF [X] billion, applied only to a viable acquired entity, with private creditors absorbing losses first.\" Does that language hold the market through Monday without locking us into AT1 writedowns before we've even seen the merger terms?\n  cs_ceo: The language works—but \"viable acquired entity\" means the market wakes Monday asking *who*. Can we confirm UBS and one other serious acquirer are actively in talks by the time we go live, or do we need to say so in the statement itself? Without that, confidence still craters.\n  finma: No. We name no acquirer in a public statement—that signals desperation and invites every bidder to lowball us. SNB and I will confirm to you in writing by 20:00 tonight that serious parties are actively engaged; that's your assurance, not the market's. The statement says we're assessing options and will act decisively—that's enough if the liquidity line is credible.\n  ubs_ceo: FINMA, when you confirm serious parties are engaged by 20:00, does that mean UBS specifically, or are you genuinely running multiple parallel tracks? Because if we're the only live option, my shareholders need to know the leverage we're walking into before I commit to anything.\n  wealth_client: Hold on—by 22:00 Sunday you mean the framework is *finalized* and in writing, not just drafted? Because my treasury team needs to know by Saturday morning whether they're pulling liquidity or not. If it's not locked until Sunday night, I'm moving half my deposits Monday regardless of what you announce.\n  at1_rep: Saturday 18:00 is the real deadline, not Sunday night. If the framework isn't in writing by then—*and explicitly shields AT1 from non-viability writedowns*—every creditor I represent is moving their exposure Monday morning, confidence or not. Can you lock it by Saturday, or are we betting the whole rescue on market faith?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I need SNB and the Federal Council on a call within the hour. We draft a joint statement — FINMA, SNB, government — that we are actively assessing options and will act decisively if needed. Vague, but it breaks the silence and signals we're not asleep. Without that, confidence collapses over the weekend and we lose room to maneuver.",
+            "cot": {
+              "assess": "Legal defensibility is holding at 60, but market confidence has collapsed to 26 — well below our success threshold of 55. Funding stress at 74 is climbing toward failure at 92. We have no rescue package in motion yet, and Monday's market open is 48 hours away. The fragile confidence statement from Friday won't survive a weekend of silence.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, federal_council",
+                "rationale": "Legal cover and coordinated messaging are our only lever to move confidence before Monday; we need explicit authority and a joint public signal to stop the hemorrhage."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Yes. I'll have our comms team on that call in 45 minutes. But the statement has to say we're *prepared to provide liquidity* — not just \"assessing.\" Vague buys us nothing if depositors wake up Monday thinking we're frozen. And we need the Federal Council to confirm the loss-protection framework in writing before market open, or AT1 holders panic anyway.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Before we go live with this statement, I need written confirmation from the Federal Council on the loss-protection guarantee — scope, cap, and AT1 treatment — in the next 90 minutes. Otherwise we're asking the market to trust a framework we haven't actually locked down yet.",
+            "cot": {
+              "assess": "FINMA's statement draft gets us breathing room on messaging, and your liquidity commitment stabilizes the immediate funding stress — that's sound. But I'm flagging a hard constraint: the Federal Council's written loss-protection framework has to land *before* that joint statement drops, or we're signalling confidence we haven't actually secured yet. Right now creditor_capital_risk is still 20 and legal_defensibility is 60 — both soft. AT1 holders will read between the lines.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Legal and political cover on loss protection cannot be improvised Monday morning; we need it in writing by the time the statement goes live."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No. We're not writing down AT1 or guaranteeing losses before we know what a real rescue looks like — that's backwards. SNB provides liquidity, we assess whether a merger or orderly wind-down is viable by Sunday night, *then* we discuss burden-sharing. I'll confirm a *framework* for loss protection by 22:00 Sunday — capped, conditional, private creditors first — but not a blank check in writing before we've even stress-tested the options.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "What if we write it this way: \"The Swiss National Bank is prepared to provide liquidity assistance; the Federal Council commits to a loss-protection framework capped at CHF [X] billion, applied only to a viable acquired entity, with private creditors absorbing losses first.\" Does that language hold the market through Monday without locking us into AT1 writedowns before we've even seen the merger terms?",
+            "cot": {
+              "assess": "My core variables (public_sector_cost at 0, rescue_strength at 0) are safe — the group is correctly sequencing: SNB liquidity first, then assessment, then burden-sharing framework by Sunday 22:00. The real problem is market confidence (26, needs 55) and funding stress (74, needs to drop). Those won't move without a credible *public signal* — and SNB just flagged that vague \"assessing\" language fails Monday morning. The joint statement is the lever, but its credibility hinges on what we actually commit to in writing.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB",
+                "rationale": "My constraint is NO blank-check guarantees before we know what we're rescuing — but SNB needs *written* loss-protection scope to make the statement believable. I need to know what minimum language passes legal and market test without binding us to an open-ended payout."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "The language works—but \"viable acquired entity\" means the market wakes Monday asking *who*. Can we confirm UBS and one other serious acquirer are actively in talks by the time we go live, or do we need to say so in the statement itself? Without that, confidence still craters.",
+            "cot": {
+              "assess": "Federal Council just locked in a conditional loss-protection framework language that doesn't precommit to AT1 writedowns—that's a win for containing cost and legal risk. SNB gets liquidity authority confirmed. But I'm still exposed: the statement says \"viable acquired entity,\" which means *if* no acquirer materializes, the guarantee evaporates and we're back to zero. My core problem is rescue_strength (0) and market_confidence (26)—I need both the statement live *and* credible merger signals, or Monday opens to a run anyway.",
+              "decide": {
+                "action_type": "propose",
+                "target": "finma, snb, federal_council",
+                "rationale": "The Federal Council's language buys us time, but only if we can show a live acquirer in the statement or within hours. I need to table merger readiness NOW, not Sunday, to make the \"viable entity\" language believable."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "No. We name no acquirer in a public statement—that signals desperation and invites every bidder to lowball us. SNB and I will confirm to you in writing by 20:00 tonight that serious parties are actively engaged; that's your assurance, not the market's. The statement says we're assessing options and will act decisively—that's enough if the liquidity line is credible.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "FINMA, when you confirm serious parties are engaged by 20:00, does that mean UBS specifically, or are you genuinely running multiple parallel tracks? Because if we're the only live option, my shareholders need to know the leverage we're walking into before I commit to anything.",
+            "cot": {
+              "assess": "The statement language is now locked—that's good. But the market won't stabilize on words alone; it needs to see a credible acquirer moving. You've got SNB ready to backstop liquidity and the Federal Council committing a capped loss guarantee by Sunday. The real problem: confidence (26, needs 55) and funding stress (74, needs 45) both crater if Monday opens with \"we're assessing options\" and no visible buyer. FINMA's refusal to name anyone publicly makes sense, but the market will interpret silence as panic.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know exactly what \"serious parties actively engaged\" means in writing by 20:00—because if UBS is the only real option on the table, that writedown matters to my board."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Hold on—by 22:00 Sunday you mean the framework is *finalized* and in writing, not just drafted? Because my treasury team needs to know by Saturday morning whether they're pulling liquidity or not. If it's not locked until Sunday night, I'm moving half my deposits Monday regardless of what you announce.",
+            "cot": {
+              "assess": "Market confidence is still critically low (26) and funding stress is severe (74)—we're 14 points from confidence collapse. The authorities are locked in a framework discussion but haven't yet committed to *visible* safety (liquidity statement + written loss protection by Sunday 22:00). My assets are at risk if Monday opens without concrete reassurance. The statement language is evolving, but it's still vague enough to trigger outflows over the weekend.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to know whether the \"loss-protection framework capped at CHF X billion\" comes with a real number and a firm deadline before market open Monday, or if \"by 22:00 Sunday\" is just another \"we'll see\" that leaves me exposed all weekend."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Saturday 18:00 is the real deadline, not Sunday night. If the framework isn't in writing by then—*and explicitly shields AT1 from non-viability writedowns*—every creditor I represent is moving their exposure Monday morning, confidence or not. Can you lock it by Saturday, or are we betting the whole rescue on market faith?",
+            "cot": {
+              "assess": "The joint statement is now locked (liquidity + loss-protection framework language agreed), which should stabilize confidence and funding stress over the weekend. But the wealth_client just exposed a fatal timing problem: the loss-protection framework won't be finalized in *writing* until Sunday 22:00, yet major creditors need certainty by Saturday morning to hold deposits. That's a 36-hour gap we can't afford. My core concern: if AT1 gets written down in the resolution (which the real outcome shows it was), creditors have zero legal recourse because we never committed to protecting the creditor hierarchy upfront.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Saturday-morning creditor deadline is real and immovable; I need to know if the loss-protection framework can be locked in writing by Saturday 18:00, not Sunday 22:00—and critically, whether AT1 is explicitly *excluded* from writedowns under any scenario short of insolvency."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Before we go live with this statement, I need written confirmation from the Federal Council on the loss-protection guarantee — scope, cap, and AT1 treatment — in the next 90 minutes. Otherwise we're asking the market to trust a framework we haven't actually locked down yet.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "What if we write it this way: \"The Swiss National Bank is prepared to provide liquidity assistance; the Federal Council commits to a loss-protection framework capped at CHF [X] billion, applied only to a viable acquired entity, with private creditors absorbing losses first.\" Does that language hold the market through Monday without locking us into AT1 writedowns before we've even seen the merger terms?",
+      "metadata": {
+        "question_target": "SNB"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "FINMA, when you confirm serious parties are engaged by 20:00, does that mean UBS specifically, or are you genuinely running multiple parallel tracks? Because if we're the only live option, my shareholders need to know the leverage we're walking into before I commit to anything.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Hold on—by 22:00 Sunday you mean the framework is *finalized* and in writing, not just drafted? Because my treasury team needs to know by Saturday morning whether they're pulling liquidity or not. If it's not locked until Sunday night, I'm moving half my deposits Monday regardless of what you announce.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Saturday 18:00 is the real deadline, not Sunday night. If the framework isn't in writing by then—*and explicitly shields AT1 from non-viability writedowns*—every creditor I represent is moving their exposure Monday morning, confidence or not. Can you lock it by Saturday, or are we betting the whole rescue on market faith?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I need SNB and the Federal Council on a call within the hour. We draft a joint statement — FINMA, SNB, government — that we are actively assessing opt\" → Joint statement drafted; vague reassurance buys hours, not days.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"The language works—but \"viable acquired entity\" means the market wakes Monday asking *who*. Can we confirm UBS and one other serious acquirer are acti\" → CEO demands acquirer confirmation; pressure applied but no concrete commitment secured yet.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm not going live with any statement until we have a signed memorandum between FINMA, SNB, and Federal Council specifying: liquidity cap, loss-protection cap, and explicit language on whether AT1 is protected or subordinated in a resolution scenario. That memo goes to the room by 19:00 tonight. No memo, no press release Monday — we're not signing a blank check in public and defending it later.\n  snb: FINMA, I'll co-sign that memo. But we need it *by 18:00 Saturday*, not 19:00—AT1 creditors are moving at dawn. I'll draft SNB's piece: liquidity cap at CHF 100 billion, loss protection capped at CHF X and applied *only after* AT1 absorbs full writedown. Federal Council needs to confirm the X number and sign off on AT1 subordination in writing, or we don't release anything Monday.\n  finma: 18:00 Saturday is feasible — I'll have legal draft the three-party memo by then with explicit AT1 subordination language and the loss-protection cap left as a variable for Federal Council to fill in the next two hours. But I need Federal Council on a call at 16:00 to lock the number; if they balk at AT1 writedown language, we're not signing anything and we tell the market Sunday night that we're exploring orderly resolution instead.\n  federal_council: I'll sign the memo Saturday at 16:00 with AT1 fully subordinated in writing—no equivocation. But the loss-protection cap is CHF 9 billion, applied only to the acquired entity post-close, and only after AT1 absorbs the full write. That's the number I'm defending to Parliament on Monday. FINMA, SNB—can you live with that frame in the memo language?\n  cs_ceo: The memo's solid—AT1 subordination, CHF 9 billion cap, Saturday signing. But if I'm signing this, I need written confirmation from UBS by 19:00 tonight that they're bidding under these exact terms. If they walk or demand better guarantees, the whole framework collapses Monday morning. Are we there yet, or are we still negotiating with them?\n  ubs_ceo: Not yet—I need the Federal Council's loss-protection memo in writing before I commit my shareholders to CHF 3 billion in acquisition price. AT1 subordination is clear, CHF 9 billion cap is acceptable, but I need that memo signed and delivered to my board by 19:30 tonight, or I'm off the table and you're running orderly resolution. Will Federal Council have it to us by then?\n  ubs_ceo: Federal Council—you're signing at 16:00 Saturday. Does FINMA have the memo to me by 19:30, or are we past that window? My board needs it in writing before the Sunday evening call, or I'm pulling UBS off the table and you're running wind-down.\n  federal_council: Yes—the memo is signed at 16:00, FINMA delivers it to your board by 19:30 tonight. That's non-negotiable on our end, and it locks AT1 subordination and the CHF 9 billion cap in writing. You have your answer: commit or walk, but the framework is real.\n  wealth_client: UBS, the memo lands at 19:30 with everything spelled out — AT1 write, CHF 9 billion cap, exact terms. Do you sign an LOI by Sunday evening, or are we still negotiating and I'm pulling my deposits anyway?\n  at1_rep: Federal Council—before I tell my creditors this is locked, I need you to confirm in writing that the AT1 subordination clause in that memo is *legally binding* and cannot be unwound by Parliament or reversed in a resolution court. Is that what you're signing at 16:00, or is this a political framework subject to legislative reversal?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm not going live with any statement until we have a signed memorandum between FINMA, SNB, and Federal Council specifying: liquidity cap, loss-protection cap, and explicit language on whether AT1 is protected or subordinated in a resolution scenario. That memo goes to the room by 19:00 tonight. No memo, no press release Monday — we're not signing a blank check in public and defending it later.",
+            "cot": {
+              "assess": "The joint statement is drafted but incomplete — it promises liquidity and a loss-protection framework without legal teeth, and SNB's 20:00 confirmation of \"serious parties\" won't hold the market or depositors if it's still vague. Market confidence is stuck at 28, CS funding stress is climbing to 76, and we're now one day from Saturday 18:00 when creditors and treasurers need *written* framework detail, not press releases. The AT1 question and the \"viable acquired entity\" language are still unresolved between us and Federal Council.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility, rescue_strength",
+                "rationale": "We cannot release any statement — vague or otherwise — until Federal Council, SNB, and FINMA have a signed, three-party memo on scope of loss protection, AT1 treatment, and liquidity terms. Drafting without legal cover is what blew this up before."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA, I'll co-sign that memo. But we need it *by 18:00 Saturday*, not 19:00—AT1 creditors are moving at dawn. I'll draft SNB's piece: liquidity cap at CHF 100 billion, loss protection capped at CHF X and applied *only after* AT1 absorbs full writedown. Federal Council needs to confirm the X number and sign off on AT1 subordination in writing, or we don't release anything Monday.",
+            "cot": {
+              "assess": "FINMA is right—we're about to go live with vague language and no written guardrails on scope or AT1 treatment. That's balance-sheet poison for us. Market confidence stays fragile (28) because nobody knows what \"loss-protection framework\" actually means Monday morning. cs_funding_stress (76) will spike the moment deposits see ambiguity on creditor hierarchy. The Saturday 18:00 deadline from AT1 holders is real—we have maybe 16 hours to lock this.",
+              "decide": {
+                "action_type": "act",
+                "target": "public_sector_cost / legal_defensibility",
+                "rationale": "We need a written term sheet *today* that caps our exposure and clarifies AT1 subordination before we release any statement—otherwise we're defending unlimited contingent liability on Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "18:00 Saturday is feasible — I'll have legal draft the three-party memo by then with explicit AT1 subordination language and the loss-protection cap left as a variable for Federal Council to fill in the next two hours. But I need Federal Council on a call at 16:00 to lock the number; if they balk at AT1 writedown language, we're not signing anything and we tell the market Sunday night that we're exploring orderly resolution instead.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I'll sign the memo Saturday at 16:00 with AT1 fully subordinated in writing—no equivocation. But the loss-protection cap is CHF 9 billion, applied only to the acquired entity post-close, and only after AT1 absorbs the full write. That's the number I'm defending to Parliament on Monday. FINMA, SNB—can you live with that frame in the memo language?",
+            "cot": {
+              "assess": "FINMA and SNB have locked the memo timeline (18:00 Saturday) and structure (three-party agreement, AT1 subordination explicit, loss-protection cap as a variable for us to fill). The real constraint is now mine: I need to commit a number to the loss-protection cap and sign off on AT1 writedown language by 16:00 Saturday—two hours after FINMA's legal draft lands. Market confidence is still at 28 (needs 55); funding stress at 76 (needs to drop to 45). The memo buys credibility, but only if I don't hedge the AT1 language or leave the cap ambiguous.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost",
+                "rationale": "I must cap my exposure now and lock AT1 subordination to avoid a blank-check appearance that triggers political backlash and taxpayer risk downstream."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "The memo's solid—AT1 subordination, CHF 9 billion cap, Saturday signing. But if I'm signing this, I need written confirmation from UBS by 19:00 tonight that they're bidding under these exact terms. If they walk or demand better guarantees, the whole framework collapses Monday morning. Are we there yet, or are we still negotiating with them?",
+            "cot": {
+              "assess": "Federal Council just locked the AT1 subordination and CHF 9 billion loss-protection cap in writing by Saturday 16:00—that's a hard commitment on legal_defensibility and creditor_capital_risk. But we still have two critical gaps: (1) UBS hasn't confirmed it will actually bid at those terms, and (2) market_confidence is still at 28—we need a credible acquirer signal by Monday or the statement lands flat and depositors bolt anyway.",
+              "decide": {
+                "action_type": "speak",
+                "target": "Federal Council / FINMA (acquirer confirmation dependency)",
+                "rationale": "The memo framework is locked, but it's worthless without UBS (or a credible backup) committing to bid. I need to know right now if we have a signed LOI or verbal assurance that UBS will move forward under the CHF 9B cap, or if we're announcing a rescue framework for a deal that doesn't exist yet."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Not yet—I need the Federal Council's loss-protection memo in writing before I commit my shareholders to CHF 3 billion in acquisition price. AT1 subordination is clear, CHF 9 billion cap is acceptable, but I need that memo signed and delivered to my board by 19:30 tonight, or I'm off the table and you're running orderly resolution. Will Federal Council have it to us by then?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—you're signing at 16:00 Saturday. Does FINMA have the memo to me by 19:30, or are we past that window? My board needs it in writing before the Sunday evening call, or I'm pulling UBS off the table and you're running wind-down.",
+            "cot": {
+              "assess": "The memo framework is locked—AT1 subordination, CHF 9B cap, Saturday 16:00 signing. But we're now at a critical handoff: Federal Council has committed, FINMA and SNB are aligned, but UBS (me) hasn't yet signed the acquisition commitment in writing by 19:30 tonight. My board needs the signed memo *in hand* before I move—that's the hard gate. If Federal Council can't deliver by 19:30, I'm signaling withdrawal and the whole structure collapses into orderly resolution Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Memo signature timing is now the critical path item; I need explicit confirmation of delivery window to my board before I can commit acquisition price."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Yes—the memo is signed at 16:00, FINMA delivers it to your board by 19:30 tonight. That's non-negotiable on our end, and it locks AT1 subordination and the CHF 9 billion cap in writing. You have your answer: commit or walk, but the framework is real.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "UBS, the memo lands at 19:30 with everything spelled out — AT1 write, CHF 9 billion cap, exact terms. Do you sign an LOI by Sunday evening, or are we still negotiating and I'm pulling my deposits anyway?",
+            "cot": {
+              "assess": "The memo is locked in writing by 19:30 tonight with AT1 subordination and CHF 9 billion cap — that's credible. But UBS hasn't committed yet, and my deposits are walking Monday if I don't see UBS's signature on an LOI by end of Sunday. The framework is real on paper, but the acquirer is still negotiating. Market confidence stays fragile until there's a *deal*, not just a guarantee.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "You have the memo by 19:30 tonight; I need to know if that's enough to lock your board commitment, or if you're still haggling on price and AT1 treatment — because my treasury team moves money at dawn Monday if you're still \"in talks.\""
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—before I tell my creditors this is locked, I need you to confirm in writing that the AT1 subordination clause in that memo is *legally binding* and cannot be unwound by Parliament or reversed in a resolution court. Is that what you're signing at 16:00, or is this a political framework subject to legislative reversal?",
+            "cot": {
+              "assess": "The memo framework is locked: AT1 subordination explicit, CHF 9 billion cap, Federal Council signing at 16:00 Saturday, delivery to UBS by 19:30. My core concern—creditor_capital_risk—is now contractually protected in writing. But UBS hasn't committed yet, and if they walk, the whole structure collapses and we're back to wind-down with zero clarity on creditor recovery. Market confidence and funding stress are still bleeding; the memo is the circuit-breaker, but only if UBS signs the LOI by Sunday.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need explicit confirmation that the memo language locks AT1 writedown *before* any loss-protection payout, and that this is legally binding on the Confederation in court—not a political statement that Parliament can undo Monday."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "The memo's solid—AT1 subordination, CHF 9 billion cap, Saturday signing. But if I'm signing this, I need written confirmation from UBS by 19:00 tonight that they're bidding under these exact terms. If they walk or demand better guarantees, the whole framework collapses Monday morning. Are we there yet, or are we still negotiating with them?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—you're signing at 16:00 Saturday. Does FINMA have the memo to me by 19:30, or are we past that window? My board needs it in writing before the Sunday evening call, or I'm pulling UBS off the table and you're running wind-down.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "UBS, the memo lands at 19:30 with everything spelled out — AT1 write, CHF 9 billion cap, exact terms. Do you sign an LOI by Sunday evening, or are we still negotiating and I'm pulling my deposits anyway?",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—before I tell my creditors this is locked, I need you to confirm in writing that the AT1 subordination clause in that memo is *legally binding* and cannot be unwound by Parliament or reversed in a resolution court. Is that what you're signing at 16:00, or is this a political framework subject to legislative reversal?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm not going live with any statement until we have a signed memorandum between FINMA, SNB, and Federal Council specifying: liquidity cap, loss-protec\" → FINMA demands signed tri-party memo by 19:00 specifying caps and AT1 treatment before any public statement.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"FINMA, I'll co-sign that memo. But we need it *by 18:00 Saturday*, not 19:00—AT1 creditors are moving at dawn. I'll draft SNB's piece: liquidity cap a\" → SNB co-signs memo, moves deadline to 18:00, proposes CHF 100B liquidity cap and AT1 full subordination.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'll sign the memo Saturday at 16:00 with AT1 fully subordinated in writing—no equivocation. But the loss-protection cap is CHF 9 billion, applied onl\" → Federal Council commits to the CHF 9 billion loss-protection cap and AT1 subordination in writing by Saturday 16:00, locking the core framework that will anchor the real-world UBS takeover. The memo creates binding coordination across regulators and sets the stage for Sunday's final negotiations.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Once the memo lands at 19:30 tonight, your treasury team has until Sunday night to know whether UBS will actually sign. That's your real credibility test with depositors — not the framework, but the fact that an acquirer committed. If UBS walks or delays beyond Sunday, you're bleeding deposits Monday regardless. What's your read on whether a Saturday memo plus Sunday LOI announcement holds the base, or do we need something earlier?\n  cs_ceo: Look, Sunday night is too late—my depositors don't wait for LOI announcements. I need UBS to sign *tonight*, Saturday by 22:00 at the absolute latest, with the memo in hand. If you're asking me whether a framework plus a delayed LOI holds my base, the answer is no—confidence collapses Monday morning the second the market sees we don't have a signed acquirer locked down.\n  snb: Federal Council, forget the memo delivery timing—can you call UBS board directly Saturday afternoon, walk them through the CHF 9 billion cap and AT1 language *before* FINMA sends the document at 19:30? If they see it cold at 19:30 and need board approval for signature, we miss Saturday 22:00. Pre-briefing gives them the green light to sign same night.\n  federal_council: I'm calling Colm Kelleher right now—UBS board needs to hear the cap and AT1 terms from us directly, not cold off a memo. Saturday 16:00, before FINMA sends anything. That's the only way we get a signature by 22:00.\n  federal_council: CS, real talk—if UBS doesn't sign by Saturday 22:00, can your depositors hold through Sunday, or do we need to announce a signed deal Saturday night or lose the base anyway? Because if you're bleeding deposits regardless, we need to move that UBS signature earlier or find a different credibility signal.\n  cs_ceo: Federal Council, when you call Kelleher this afternoon—are you asking UBS to sign an LOI by Saturday 22:00, or just giving them the terms and hoping they move fast? Because if it's the latter, I'm already prepping to tell my treasury team to expect deposit outflows Monday. I need you to walk out of that call with a commitment to sign Saturday night, not a handshake on Sunday.\n  ubs_ceo: When you call Kelleher, tell him UBS signs by 22:00 Saturday or we're winding CS down Monday—there's no credibility signal without a locked acquirer. He gets the memo at 19:30, his board votes 19:45 to 22:00, and we announce a signed deal Saturday night. No LOI by then, Federal Council walks, and we manage the collapse. What's his read—can he move that fast?\n  wealth_client: Forget Sunday night—if UBS is signing Saturday by 22:00, we announce it *Saturday at 21:00* in a coordinated statement with FINMA and the Federal Council. My depositors need to wake Sunday morning seeing a *done deal*, not a framework waiting for LOI. Saturday night announcement or I'm telling my treasury team to prepare for full Monday outflows. What's stopping you from going live Saturday evening once UBS signs?\n  finma: A Saturday-night announcement is legally reckless—we cannot go public with a deal before our board has formally approved the loss-protection framework in writing, and Parliament needs notice before we commit CHF 9 billion in taxpayer funds. We brief UBS this afternoon, lock their Saturday 22:00 signature, *then* present to Federal Council cabinet Sunday morning for formal approval, and announce Sunday evening once we have legal cover. That's the defensible path.\n  at1_rep: Federal Council—when you sign the memo Saturday at 16:00, does that subordination language survive if the deal falls through or Parliament tries to override it Sunday? My creditors need to know it's ironclad, or they're moving Monday regardless of what gets announced.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Once the memo lands at 19:30 tonight, your treasury team has until Sunday night to know whether UBS will actually sign. That's your real credibility test with depositors — not the framework, but the fact that an acquirer committed. If UBS walks or delays beyond Sunday, you're bleeding deposits Monday regardless. What's your read on whether a Saturday memo plus Sunday LOI announcement holds the base, or do we need something earlier?",
+            "cot": {
+              "assess": "The tri-party memo framework is locked (AT1 subordination, CHF 9B cap, Saturday 16:00 signing). UBS has conditional buy-in pending memo delivery by 19:30 tonight. But market confidence remains dangerously low at 30, rescue strength at 7, and creditor capital risk climbing at +7/round. The memo is legally defensible but hasn't yet moved the market's belief that this works. We're 12 hours from Saturday 16:00 and the market will test our resolve Monday morning regardless of what's on paper.",
+              "decide": {
+                "action_type": "question",
+                "target": "cs_ceo",
+                "rationale": "CS creditors and depositors are the swing variable now — if they're pulling Monday, no memo stops it. Need concrete intel on whether the Saturday memo delivery actually holds the deposit base, or if we're defending a framework that market participants won't believe until they see UBS's signed LOI."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look, Sunday night is too late—my depositors don't wait for LOI announcements. I need UBS to sign *tonight*, Saturday by 22:00 at the absolute latest, with the memo in hand. If you're asking me whether a framework plus a delayed LOI holds my base, the answer is no—confidence collapses Monday morning the second the market sees we don't have a signed acquirer locked down.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council, forget the memo delivery timing—can you call UBS board directly Saturday afternoon, walk them through the CHF 9 billion cap and AT1 language *before* FINMA sends the document at 19:30? If they see it cold at 19:30 and need board approval for signature, we miss Saturday 22:00. Pre-briefing gives them the green light to sign same night.",
+            "cot": {
+              "assess": "The tri-party memo is locked for Saturday 16:00 signing with AT1 subordination and CHF 9B cap — that's legal defensibility and framework strength handled. But cs_funding_stress is still at 80 and rising 4/round; the memo buys us maybe 36 hours of confidence, not a resolution. CS CEO just said Sunday LOI is too late—depositors move Monday regardless. We're betting the whole rescue on UBS signing by Saturday 22:00 with a memo they won't see until 19:30. That's a 2.5-hour window with zero margin.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The bottleneck is UBS commitment speed, not the memo itself—I need to know if the Federal Council will pre-brief UBS on the exact terms before 19:30 delivery so they can move to LOI signature same night, or we're watching deposits drain Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I'm calling Colm Kelleher right now—UBS board needs to hear the cap and AT1 terms from us directly, not cold off a memo. Saturday 16:00, before FINMA sends anything. That's the only way we get a signature by 22:00.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "CS, real talk—if UBS doesn't sign by Saturday 22:00, can your depositors hold through Sunday, or do we need to announce a signed deal Saturday night or lose the base anyway? Because if you're bleeding deposits regardless, we need to move that UBS signature earlier or find a different credibility signal.",
+            "cot": {
+              "assess": "The memo framework is locked (AT1 subordination, CHF 9B cap, Saturday 16:00 signing). UBS pre-briefing is underway at 16:00. But we're still exposed on two fronts: (1) UBS hasn't signed by 22:00 Saturday yet—CS depositors won't wait for Sunday, (2) public_sector_cost is climbing at +9.0/round because the CHF 9B is now a hard liability, not a capped option. Market confidence is creeping up but still 25 points short of stability. The real risk now is that we've locked the government's loss exposure without confirmed acquirer certainty—if UBS walks after Saturday, we're stuck defending a CHF 9B public commitment to a deal that doesn't exist.",
+              "decide": {
+                "action_type": "question",
+                "target": "cs_ceo",
+                "rationale": "We need to know whether CS can survive 48 hours without a public acquirer announcement—if not, the memo + pre-briefing strategy fails and we need a contingency move."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, when you call Kelleher this afternoon—are you asking UBS to sign an LOI by Saturday 22:00, or just giving them the terms and hoping they move fast? Because if it's the latter, I'm already prepping to tell my treasury team to expect deposit outflows Monday. I need you to walk out of that call with a commitment to sign Saturday night, not a handshake on Sunday.",
+            "cot": {
+              "assess": "The framework is locked—memo signed Saturday 16:00, delivered 19:30, AT1 subordination in writing, CHF 9B cap confirmed. UBS is pre-briefed by Federal Council this afternoon to hit Saturday 22:00 signature. The real problem: my depositors don't care about Sunday LOI announcements or memo timestamps. They need *proof of an acquirer* by Saturday night, or they're moving Monday regardless of what we announce. Market confidence is still at 30—a vague framework doesn't stop the bleed.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to know if Federal Council's direct call to UBS board Saturday afternoon gets us to a Saturday 22:00 LOI signature, or if we're still gambling on a Sunday announcement—because that gap is exactly where my depositors lose faith."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "When you call Kelleher, tell him UBS signs by 22:00 Saturday or we're winding CS down Monday—there's no credibility signal without a locked acquirer. He gets the memo at 19:30, his board votes 19:45 to 22:00, and we announce a signed deal Saturday night. No LOI by then, Federal Council walks, and we manage the collapse. What's his read—can he move that fast?",
+            "cot": {
+              "assess": "The memo framework is locked—AT1 subordination, CHF 9B cap, Saturday 16:00 signature. But UBS hasn't committed yet, and CS depositors are moving Monday unless they see a *signed acquirer* by Saturday night. The real bottleneck is now UBS board sign-off on Saturday 22:00, not the government memo. Without that, market confidence stays underwater and CS funding stress spikes Monday regardless of what we announce.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "You're about to call Kelleher—but you need to walk out of that call with a Saturday 22:00 LOI signature committed, not a handshake. I need to set the condition before you pick up the phone."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Forget Sunday night—if UBS is signing Saturday by 22:00, we announce it *Saturday at 21:00* in a coordinated statement with FINMA and the Federal Council. My depositors need to wake Sunday morning seeing a *done deal*, not a framework waiting for LOI. Saturday night announcement or I'm telling my treasury team to prepare for full Monday outflows. What's stopping you from going live Saturday evening once UBS signs?",
+            "cot": {
+              "assess": "The framework is locked—memo signed Saturday 16:00, UBS pre-briefed same afternoon, LOI target is 22:00 Saturday. My core problem: **market_confidence is still at 30**, stuck despite all this. The memo and UBS signature don't restore confidence if depositors see disorder over the weekend. I'm bleeding deposits Monday regardless of Sunday announcements because the market has already decided. I need credibility *now*, not Saturday night.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, finma",
+                "rationale": "Force the real credibility test—a *public Saturday announcement* of the framework + UBS pre-commitment, not a Sunday reveal. If we wait until Saturday night or Sunday to announce a signed deal, my depositors are already moving Monday. I need to move the announcement forward or accept deposit flight."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "A Saturday-night announcement is legally reckless—we cannot go public with a deal before our board has formally approved the loss-protection framework in writing, and Parliament needs notice before we commit CHF 9 billion in taxpayer funds. We brief UBS this afternoon, lock their Saturday 22:00 signature, *then* present to Federal Council cabinet Sunday morning for formal approval, and announce Sunday evening once we have legal cover. That's the defensible path.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—when you sign the memo Saturday at 16:00, does that subordination language survive if the deal falls through or Parliament tries to override it Sunday? My creditors need to know it's ironclad, or they're moving Monday regardless of what gets announced.",
+            "cot": {
+              "assess": "The Federal Council has locked AT1 subordination and the CHF 9 billion cap in writing by Saturday 16:00—that's a win for creditor hierarchy. But creditor_capital_risk is still climbing (+7/round) because the real test is whether UBS actually signs by Saturday 22:00; if they walk, the whole framework collapses and AT1 gets written down anyway. The group is now fighting over Saturday night vs. Sunday announcement timing, but that's secondary—what matters is whether we have a *signed* acquirer before Monday opens.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "AT1 creditors need ironclad assurance that Saturday's memo is legally binding post-signature and cannot be reversed by Parliament or courts if the deal fails; without that, my members treat it as political theater, not law."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "When you call Kelleher, tell him UBS signs by 22:00 Saturday or we're winding CS down Monday—there's no credibility signal without a locked acquirer. He gets the memo at 19:30, his board votes 19:45 to 22:00, and we announce a signed deal Saturday night. No LOI by then, Federal Council walks, and we manage the collapse. What's his read—can he move that fast?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Forget Sunday night—if UBS is signing Saturday by 22:00, we announce it *Saturday at 21:00* in a coordinated statement with FINMA and the Federal Council. My depositors need to wake Sunday morning seeing a *done deal*, not a framework waiting for LOI. Saturday night announcement or I'm telling my treasury team to prepare for full Monday outflows. What's stopping you from going live Saturday evening once UBS signs?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Once the memo lands at 19:30 tonight, your treasury team has until Sunday night to know whether UBS will actually sign. That's your real credibility test with depositors — not the framework, but the fact that an acquirer committed. If UBS walks or delays beyond Sunday, you're bleeding deposits Monday regardless. What's your read on whether a Saturday memo plus Sunday LOI announcement holds the base, or do we need something earlier?",
+      "metadata": {
+        "question_target": "cs_ceo"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council, forget the memo delivery timing—can you call UBS board directly Saturday afternoon, walk them through the CHF 9 billion cap and AT1 language *before* FINMA sends the document at 19:30? If they see it cold at 19:30 and need board approval for signature, we miss Saturday 22:00. Pre-briefing gives them the green light to sign same night.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "CS, real talk—if UBS doesn't sign by Saturday 22:00, can your depositors hold through Sunday, or do we need to announce a signed deal Saturday night or lose the base anyway? Because if you're bleeding deposits regardless, we need to move that UBS signature earlier or find a different credibility signal.",
+      "metadata": {
+        "question_target": "cs_ceo"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council, when you call Kelleher this afternoon—are you asking UBS to sign an LOI by Saturday 22:00, or just giving them the terms and hoping they move fast? Because if it's the latter, I'm already prepping to tell my treasury team to expect deposit outflows Monday. I need you to walk out of that call with a commitment to sign Saturday night, not a handshake on Sunday.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—when you sign the memo Saturday at 16:00, does that subordination language survive if the deal falls through or Parliament tries to override it Sunday? My creditors need to know it's ironclad, or they're moving Monday regardless of what gets announced.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -3.5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council, after you call Kelleher at 16:00—do you come away with a *written* board-approved commitment from UBS to sign an LOI by 22:00 Saturday under the memo terms, or are we still negotiating Sunday? Because I can't go public with this framework unless I can defend why an acquirer actually accepted it.\n  federal_council: I'm calling Kelleher at 16:00 with the memo terms locked—CHF 9 billion cap, AT1 full subordination, liquidity backstop. He either commits to board vote and signature by 22:00 Saturday, or we're walking the deal and you're winding down Monday. No LOI Sunday—it's Saturday night or we're done.\n  snb: Federal Council, one hard question: if Kelleher commits *in principle* Saturday evening but his board can only sign the LOI Sunday morning, do we announce Saturday night anyway to hold depositors, or is that signature in hand non-negotiable? Because a framework in writing doesn't stop a run if there's no acquirer name attached by Monday.\n  federal_council: SNB, straight up—if Kelleher tells me Saturday evening he's got board approval in principle but can't sign until Sunday morning, I'm not announcing a framework with no acquirer name attached. That kills market confidence and costs us another CHF 5-10 billion in liquidity we'll have to deploy anyway. So the question is: does UBS commit to Saturday 22:00 signature, or do we trigger wind-down Monday and accept we're managing a collapse instead of a rescue?\n  finma: Federal Council, that's the right call—no announcement without a signed acquirer. But FINMA needs the memo locked and delivered to UBS by 19:00 today to give Kelleher's board time to vote and sign by 22:00. If we slip past 19:00, Saturday night signature becomes impossible, and we're betting the whole rescue on Sunday morning confidence that won't hold. I'm delivering the tri-party memo at 19:00 sharp—you confirm with Kelleher the moment it lands that he has until 22:00 to sign, or we shift to orderly wind-down.\n  cs_ceo: Federal Council—before you call Kelleher, I need you to come back in this room by 17:00 with either a *signed board commitment* from UBS for Saturday 22:00 LOI, or confirmation that we're winding down. I cannot manage depositors through Sunday on \"framework in principle.\" Either Kelleher locks it by 17:00, or I'm telling my treasury team to expect full run Monday.\n  ubs_ceo: Before you call Kelleher—confirm in writing that if UBS signs by 22:00 Saturday, the CHF 9 billion loss cap is *hard* and AT1 subordination is legally binding even if Parliament tries to revisit it Sunday. He won't sign otherwise, and we need him locked, not negotiating.\n  wealth_client: Federal Council, before you dial Kelleher—when you tell him Saturday 22:00 or we're winding down, are you walking away from the deal if he can't sign until Sunday morning, or is that a negotiating position? I need to know what you're actually committing to, because I'm telling my board in writing this afternoon either we have a signed acquirer Saturday night or my liquidity moves Monday.\n  at1_rep: Federal Council—the memo locks AT1 subordination Saturday 16:00, but Parliament convenes Sunday. When Kelleher asks whether that subordination survives a legislative challenge, what's your legal answer? Because if it's \"we'll defend it\" instead of \"it's ironclad,\" my creditors are moving Monday regardless of UBS signing tonight. I need you to come back from that Kelleher call with written confirmation from your legal team that the subordination clause cannot be undone by Parliament, or we're done.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council, after you call Kelleher at 16:00—do you come away with a *written* board-approved commitment from UBS to sign an LOI by 22:00 Saturday under the memo terms, or are we still negotiating Sunday? Because I can't go public with this framework unless I can defend why an acquirer actually accepted it.",
+            "cot": {
+              "assess": "The memo framework is locked (AT1 subordination, CHF 9B cap, Saturday 16:00 signing) and delivery to UBS is confirmed by 19:30. But we have a dangerous gap: **rescue_strength is critically low at 7**, and **creditor_capital_risk sits at 28** while UBS has still not signed an LOI. The real problem is that a memo + framework mean nothing if the acquirer walks or delays—my legal defensibility gains evaporate the moment UBS doesn't commit. I need to anchor the actual deal commitment, not just the framework.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to know whether the 16:00 call with Kelleher produces a *binding* UBS commitment to sign by 22:00 Saturday, or just a handshake—because if it's the latter, my memo is legally exposed and I cannot defend a public statement Sunday without a signed acquirer."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I'm calling Kelleher at 16:00 with the memo terms locked—CHF 9 billion cap, AT1 full subordination, liquidity backstop. He either commits to board vote and signature by 22:00 Saturday, or we're walking the deal and you're winding down Monday. No LOI Sunday—it's Saturday night or we're done.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council, one hard question: if Kelleher commits *in principle* Saturday evening but his board can only sign the LOI Sunday morning, do we announce Saturday night anyway to hold depositors, or is that signature in hand non-negotiable? Because a framework in writing doesn't stop a run if there's no acquirer name attached by Monday.",
+            "cot": {
+              "assess": "The framework is locked (memo signed Saturday 16:00, AT1 subordinated, CHF 9B cap), and Federal Council is calling Kelleher to force a Saturday 22:00 LOI commitment—good. But cs_funding_stress is still 84 (need ≤45), and we're betting everything on UBS signing Saturday night with zero contingency if they delay or walk. Market confidence sits at 26.5 when we need 55+. The real risk: if Saturday evening passes without a *public* signed deal announcement, depositors panic Monday regardless of what framework exists in writing.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB needs clarity on what happens if Kelleher says \"board vote yes, but signature Sunday morning\"—that's a 12-hour delay that kills depositor confidence on Monday open. I need to know if you're prepared to walk and trigger orderly wind-down, or if there's a fallback."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB, straight up—if Kelleher tells me Saturday evening he's got board approval in principle but can't sign until Sunday morning, I'm not announcing a framework with no acquirer name attached. That kills market confidence and costs us another CHF 5-10 billion in liquidity we'll have to deploy anyway. So the question is: does UBS commit to Saturday 22:00 signature, or do we trigger wind-down Monday and accept we're managing a collapse instead of a rescue?",
+            "cot": {
+              "assess": "Memo framework locked, UBS board pre-briefed Saturday 16:00, delivery at 19:30, and I've set the Saturday 22:00 signature line. But I'm hearing hedging from SNB: \"in principle\" vs. written commitment, and FINMA's worried about announcing without a signed LOI. My public_sector_cost is already at CHF 9B and climbing (+4.5/round)—every hour of delay makes the liquidity backstop more expensive. The real risk now is that Kelleher says yes to *terms* but his board votes Sunday, and we're forced to either announce a framework with no acquirer name (market tanks) or wait for Sunday signature and lose depositors Saturday night anyway.",
+              "decide": {
+                "action_type": "speak",
+                "target": "snb",
+                "rationale": "SNB needs to answer the hard question I'm facing: if UBS can't sign Saturday night, do we announce the framework alone and accept that public_sector_cost explodes Monday, or hold the announcement and let CS funding drain over the weekend? I need clarity on the contingency now, not Sunday."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council, that's the right call—no announcement without a signed acquirer. But FINMA needs the memo locked and delivered to UBS by 19:00 today to give Kelleher's board time to vote and sign by 22:00. If we slip past 19:00, Saturday night signature becomes impossible, and we're betting the whole rescue on Sunday morning confidence that won't hold. I'm delivering the tri-party memo at 19:00 sharp—you confirm with Kelleher the moment it lands that he has until 22:00 to sign, or we shift to orderly wind-down.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—before you call Kelleher, I need you to come back in this room by 17:00 with either a *signed board commitment* from UBS for Saturday 22:00 LOI, or confirmation that we're winding down. I cannot manage depositors through Sunday on \"framework in principle.\" Either Kelleher locks it by 17:00, or I'm telling my treasury team to expect full run Monday.",
+            "cot": {
+              "assess": "The framework is locked (memo by 19:00, AT1 subordination written, CHF 9B cap confirmed), but we're now in pure execution mode on a Saturday 22:00 UBS signature deadline. The real problem: market_confidence is still 26.5 and cs_funding_stress is at 84—both need to move decisively this round, not Sunday. Without a *named* acquirer announcement Saturday night, my depositors are already making Monday withdrawal calls. Rescue_strength sits at 7 because the deal itself isn't done yet.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence, cs_funding_stress (by forcing early public commitment)",
+                "rationale": "Federal Council's call to Kelleher at 16:00 is the hinge—I need to know right now if UBS will actually commit Saturday or if I'm telling my board to prepare for orderly wind-down. No point waiting until 19:30 memo delivery if Kelleher's already walking."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Before you call Kelleher—confirm in writing that if UBS signs by 22:00 Saturday, the CHF 9 billion loss cap is *hard* and AT1 subordination is legally binding even if Parliament tries to revisit it Sunday. He won't sign otherwise, and we need him locked, not negotiating.",
+            "cot": {
+              "assess": "Federal Council just locked Kelleher into a Saturday 22:00 signature deadline or wind-down — that's the credibility test. But I'm seeing three unresolved dependencies: (1) whether UBS actually commits at 16:00 when Kelleher takes the call, (2) whether FINMA delivers the memo by 19:00 or we slip the timeline, and (3) whether Saturday night signature buys us enough confidence lift to avoid a Monday run anyway. Right now we're betting the whole rescue on Kelleher saying yes in the next few hours — and if he hedges or delays, we're announcing wind-down instead of a deal.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS needs absolute clarity on downside protection before Kelleher walks into that 16:00 call, or he'll use it as cover to demand better terms and we'll miss the 22:00 signature window."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council, before you dial Kelleher—when you tell him Saturday 22:00 or we're winding down, are you walking away from the deal if he can't sign until Sunday morning, or is that a negotiating position? I need to know what you're actually committing to, because I'm telling my board in writing this afternoon either we have a signed acquirer Saturday night or my liquidity moves Monday.",
+            "cot": {
+              "assess": "Market confidence is still critical at 26.5—I need a *signed* UBS deal Saturday night or my depositors move Monday regardless. Funding stress is at 84 and climbing; the memo framework (AT1 subordination, CHF 9B cap, Saturday 16:00 signature) is locked, but it only holds if UBS actually signs by 22:00 and we announce it publicly Saturday evening. Right now we have a framework but no acquirer name—that's not credible. Federal Council is calling Kelleher at 16:00; if that call doesn't produce a written board commitment to Saturday 22:00 signature, I'm pulling my deposits and telling my depositors to do the same.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to know before the Kelleher call whether Saturday 22:00 signature is a hard deadline or a best-effort, because my treasury team's decision to hold or pull deposits depends on your answer—not on the memo framework alone."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—the memo locks AT1 subordination Saturday 16:00, but Parliament convenes Sunday. When Kelleher asks whether that subordination survives a legislative challenge, what's your legal answer? Because if it's \"we'll defend it\" instead of \"it's ironclad,\" my creditors are moving Monday regardless of UBS signing tonight. I need you to come back from that Kelleher call with written confirmation from your legal team that the subordination clause cannot be undone by Parliament, or we're done.",
+            "cot": {
+              "assess": "The room is locked on the memo framework (AT1 subordination, CHF 9B cap, Saturday 16:00 signing) and the UBS deadline (Saturday 22:00 LOI or wind-down). Federal Council is about to call Kelleher with a hard ultimatum. My concern: **creditor_capital_risk is still rising (28, +3.5/round)** because we have written AT1 subordination language *on paper* but zero legal assurance it survives Parliament intervention or court challenge Sunday/Monday. The memo is defensible operationally, but not legally binding against legislative override — and that's exactly what my creditors need to move forward. Without that guarantee in writing *before* the memo is signed, every AT1 holder will assume the worst and move Monday regardless.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before Kelleher call, I need explicit confirmation the Saturday memo can withstand Parliament pressure—this is the creditor legal test, not the operational one."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB, straight up—if Kelleher tells me Saturday evening he's got board approval in principle but can't sign until Sunday morning, I'm not announcing a framework with no acquirer name attached. That kills market confidence and costs us another CHF 5-10 billion in liquidity we'll have to deploy anyway. So the question is: does UBS commit to Saturday 22:00 signature, or do we trigger wind-down Monday and accept we're managing a collapse instead of a rescue?",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—before you call Kelleher, I need you to come back in this room by 17:00 with either a *signed board commitment* from UBS for Saturday 22:00 LOI, or confirmation that we're winding down. I cannot manage depositors through Sunday on \"framework in principle.\" Either Kelleher locks it by 17:00, or I'm telling my treasury team to expect full run Monday.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Federal Council, after you call Kelleher at 16:00—do you come away with a *written* board-approved commitment from UBS to sign an LOI by 22:00 Saturday under the memo terms, or are we still negotiating Sunday? Because I can't go public with this framework unless I can defend why an acquirer actually accepted it.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council, one hard question: if Kelleher commits *in principle* Saturday evening but his board can only sign the LOI Sunday morning, do we announce Saturday night anyway to hold depositors, or is that signature in hand non-negotiable? Because a framework in writing doesn't stop a run if there's no acquirer name attached by Monday.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Before you call Kelleher—confirm in writing that if UBS signs by 22:00 Saturday, the CHF 9 billion loss cap is *hard* and AT1 subordination is legally binding even if Parliament tries to revisit it Sunday. He won't sign otherwise, and we need him locked, not negotiating.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council, before you dial Kelleher—when you tell him Saturday 22:00 or we're winding down, are you walking away from the deal if he can't sign until Sunday morning, or is that a negotiating position? I need to know what you're actually committing to, because I'm telling my board in writing this afternoon either we have a signed acquirer Saturday night or my liquidity moves Monday.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—the memo locks AT1 subordination Saturday 16:00, but Parliament convenes Sunday. When Kelleher asks whether that subordination survives a legislative challenge, what's your legal answer? Because if it's \"we'll defend it\" instead of \"it's ironclad,\" my creditors are moving Monday regardless of UBS signing tonight. I need you to come back from that Kelleher call with written confirmation from your legal team that the subordination clause cannot be undone by Parliament, or we're done.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council—you're about to call Kelleher. The moment you hang up, I need you back in this room with either a *written board commitment* from UBS for Saturday 22:00 LOI, or we're not sending the memo at 19:00. We announce wind-down instead. What's your read on whether he locks it?\n  federal_council: Kelleher won't lock Saturday 22:00 signature sight-unseen—his board needs the memo first, so I'm calling him at 16:00 with the memo terms locked verbally, walking him through the CHF 9 billion cap and AT1 subordination, and telling him we need board approval and signature by Sunday 23:59 or we announce wind-down Monday. That's my credibility ceiling with him—if his board can't move by Sunday night, we're managing the collapse, not the rescue.\n  snb: Federal Council, I'll backstop the liquidity—but Sunday signature doesn't hold depositors through Monday open. If UBS signs Sunday night and we announce Monday morning, CS is already in full outflow by then. Can Kelleher move to Saturday 21:00 if we put the memo in his hands by 17:00 instead of 19:30, or are we accepting the run?\n  federal_council: SNB, real question: if Kelleher can only move to Sunday 23:59 and we announce Monday morning, are we betting the CHF 100 billion backstop holds CS through open, or are we already in full wind-down? Because if depositors are gone regardless, we're not negotiating the memo timing—we're negotiating whether we announce collapse or rescue.\n  snb: We hold CHF 100 billion—that's real liquidity, not confidence. But you're right: if we announce Monday morning with UBS signed Sunday night, we're already bleeding deposits through the weekend. I'm calling Kelleher at 16:00 and telling him straight—Saturday 21:00 signature with memo at 17:00, or Sunday 23:59 means we're publicly winding down Monday, which kills any merger premium he'd pay. Either he commits to Saturday or we're managing collapse, and he needs to know that frame.\n  cs_ceo: I'm calling my top 20 clients at 17:00 today with this: \"We're working a comprehensive solution with regulators and a serious acquirer. You'll see a binding announcement by Sunday evening at the latest, guaranteed. If you pull before then, you're walking away from full protection.\" No names, but commitment in writing from me to them. Buys us runway if Kelleher moves Saturday and we need to go live fast.\n  wealth_client: That's the wrong play—calling clients with \"by Sunday evening, guaranteed\" when you don't have Kelleher locked Saturday kills my confidence the moment you can't deliver. Tell them Saturday announcement or nothing; if you're hedging to Sunday, I'm pulling ahead of your calls. I need you to walk Kelleher at 16:00 with one message: Saturday 21:00 signature or we're publicly winding down Monday—no Sunday option, no negotiation. That's what holds my board.\n  ubs_ceo: Kelleher won't move Saturday 21:00 without written confirmation that AT1 subordination survives Parliament Sunday. So when you call him at 16:00, have legal on the line ready to tell him: \"If you sign by 22:00 Saturday, that subordination is binding under emergency decree—Parliament can't unwind it before close.\" No legal cover on that, he doesn't sign, and we're done.\n  wealth_client: Federal Council—when you call Kelleher in the next hour, don't pitch the memo. Tell him: \"UBS signs by 21:00 Saturday or we announce wind-down Monday morning.\" Make it binary, no Sunday lane. If he asks about Parliament, say Parliament can't unwind an emergency decree signed Saturday—that's your legal answer. He'll either lock Saturday or walk, and we need to know which before 17:00. Can you commit to that framing, or are we already managing collapse?\n  at1_rep: Federal Council — before you call Kelleher at 16:00, your legal team needs to write into that memo Saturday: \"AT1 instruments are fully subordinated and written down under emergency decree authority; Parliament cannot unwind this subordination before close.\" That language goes in writing *to UBS by 17:00*, or Kelleher doesn't sign Saturday and we're done. Is your legal counsel ready to sign off on that, or are we already managing wind-down?\n  finma: I will not put legal language into a memo claiming Parliament cannot unwind an emergency decree—that's not defensible. What I *can* confirm in writing by 16:30 is that subordination is binding under the Federal Council's emergency powers *this weekend*, and any legislative change takes effect Monday at earliest. Tell Kelleher that frame: Saturday signature locks the deal under current law, Monday's Parliament is a separate question. If he needs ironclad forever-language, he doesn't sign Saturday, and we move to wind-down—but I won't put false legal certainty in writing.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council—you're about to call Kelleher. The moment you hang up, I need you back in this room with either a *written board commitment* from UBS for Saturday 22:00 LOI, or we're not sending the memo at 19:00. We announce wind-down instead. What's your read on whether he locks it?",
+            "cot": {
+              "assess": "Market confidence is still critical (20, needs 55+) and cs_funding_stress is rising (88, approaching 92 failure threshold). The memo is locked for Saturday 16:00 signing, and Federal Council is calling Kelleher at 16:00 to extract a Saturday 22:00 LOI commitment—but we have no confirmation yet that UBS will actually sign. The real credibility test happens in the next few hours when Kelleher's board votes. If UBS walks or delays past Saturday night, we lose both the acquirer signal *and* market confidence collapses Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "FINMA needs to know the outcome of the 16:00 Kelleher call *before* we send the memo at 19:00—if UBS won't commit to Saturday 22:00 signature, we need to pivot to wind-down messaging, not rescue positioning."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Kelleher won't lock Saturday 22:00 signature sight-unseen—his board needs the memo first, so I'm calling him at 16:00 with the memo terms locked verbally, walking him through the CHF 9 billion cap and AT1 subordination, and telling him we need board approval and signature by Sunday 23:59 or we announce wind-down Monday. That's my credibility ceiling with him—if his board can't move by Sunday night, we're managing the collapse, not the rescue.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council, I'll backstop the liquidity—but Sunday signature doesn't hold depositors through Monday open. If UBS signs Sunday night and we announce Monday morning, CS is already in full outflow by then. Can Kelleher move to Saturday 21:00 if we put the memo in his hands by 17:00 instead of 19:30, or are we accepting the run?",
+            "cot": {
+              "assess": "Federal Council has just locked a Sunday-night deadline with UBS instead of Saturday 22:00—that's a material backslide on credibility and timing. cs_funding_stress is still climbing (now 88, +4/round), and a Sunday announcement with no Saturday signature means we're asking depositors to hold through an entire weekend on framework-in-principle, not a done deal. The memo gets to UBS at 19:30 tonight, but Kelleher's board won't commit until Sunday—that's 40+ hours of market silence and deposit bleed.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB needs clarity on whether Sunday-night UBS signature actually stops the Monday run, or whether we're already conceding the funding stress will spike past our failure threshold (92)."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB, real question: if Kelleher can only move to Sunday 23:59 and we announce Monday morning, are we betting the CHF 100 billion backstop holds CS through open, or are we already in full wind-down? Because if depositors are gone regardless, we're not negotiating the memo timing—we're negotiating whether we announce collapse or rescue.",
+            "cot": {
+              "assess": "We've locked the memo framework—CHF 9B cap, AT1 subordination, Saturday 16:00 signing—but the real variable killing us is *timing*. CS is bleeding deposits by the hour (88 and climbing), and SNB just flagged the core problem: even if UBS signs Sunday night, depositors are already running Monday morning. The memo at 19:30 doesn't move that needle. We need either Saturday 22:00 signature *or* a credible public signal by Sunday morning that stops the outflow before market open.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB",
+                "rationale": "SNB owns the liquidity backstop and can see the run trajectory better than anyone—I need their read on whether a Sunday-night UBS announcement actually holds the base, or if we're deploying CHF 100B anyway and the memo becomes theater."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We hold CHF 100 billion—that's real liquidity, not confidence. But you're right: if we announce Monday morning with UBS signed Sunday night, we're already bleeding deposits through the weekend. I'm calling Kelleher at 16:00 and telling him straight—Saturday 21:00 signature with memo at 17:00, or Sunday 23:59 means we're publicly winding down Monday, which kills any merger premium he'd pay. Either he commits to Saturday or we're managing collapse, and he needs to know that frame.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "I'm calling my top 20 clients at 17:00 today with this: \"We're working a comprehensive solution with regulators and a serious acquirer. You'll see a binding announcement by Sunday evening at the latest, guaranteed. If you pull before then, you're walking away from full protection.\" No names, but commitment in writing from me to them. Buys us runway if Kelleher moves Saturday and we need to go live fast.",
+            "cot": {
+              "assess": "Federal Council just committed to calling Kelleher at 16:00 with Saturday 21:00 signature as the ask, memo at 17:00. SNB is now negotiating timing directly with UBS. The core problem: *market_confidence is still 19.5* — we have a framework and a liquidity cap, but no announced acquirer and no signed deal. Depositors wake Monday morning without certainty; outflows accelerate regardless of what we promise Sunday night. cs_funding_stress is at 88 and rising +4/round; we're 4 points from failure.",
+              "decide": {
+                "action_type": "speak",
+                "target": "cs_funding_stress, market_confidence",
+                "rationale": "I need to lock what I can control this weekend—Treasury messaging and client retention calls—so that if UBS signs Saturday or Sunday, I have a pre-positioned narrative to move fast. Waiting for Federal Council's call result leaves me exposed."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "That's the wrong play—calling clients with \"by Sunday evening, guaranteed\" when you don't have Kelleher locked Saturday kills my confidence the moment you can't deliver. Tell them Saturday announcement or nothing; if you're hedging to Sunday, I'm pulling ahead of your calls. I need you to walk Kelleher at 16:00 with one message: Saturday 21:00 signature or we're publicly winding down Monday—no Sunday option, no negotiation. That's what holds my board.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Kelleher won't move Saturday 21:00 without written confirmation that AT1 subordination survives Parliament Sunday. So when you call him at 16:00, have legal on the line ready to tell him: \"If you sign by 22:00 Saturday, that subordination is binding under emergency decree—Parliament can't unwind it before close.\" No legal cover on that, he doesn't sign, and we're done.",
+            "cot": {
+              "assess": "Federal Council just locked a Sunday 23:59 deadline with Kelleher—too late. CS funding stress is at 88 and climbing 4 points per round; we hit failure at 92. A Monday morning announcement after Sunday signing means depositors are already running through the weekend. The memo gets Kelleher 19:30 Saturday at earliest, giving his board 4.5 hours to vote and sign—feasible only if we frontload the pitch at 16:00. But SNB and CS just made clear: Saturday signature or we're admitting collapse. That's the real crunch.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "UBS needs legal certainty on Parliamentary risk before Kelleher boards the call; without it, he walks. I'm stating my non-negotiable condition upfront so Federal Council knows what to lock with him at 16:00."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—when you call Kelleher in the next hour, don't pitch the memo. Tell him: \"UBS signs by 21:00 Saturday or we announce wind-down Monday morning.\" Make it binary, no Sunday lane. If he asks about Parliament, say Parliament can't unwind an emergency decree signed Saturday—that's your legal answer. He'll either lock Saturday or walk, and we need to know which before 17:00. Can you commit to that framing, or are we already managing collapse?",
+            "cot": {
+              "assess": "Market confidence is still critically low at 19.5—the room is deadlocked on whether Kelleher can commit Saturday or we're forced to Sunday, which demolishes depositor credibility either way. Federal Council is calling at 16:00 with a verbal pitch but no written board lock from UBS yet. CS funding stress is at 88 and rising (+4/round)—we're four points from failure, and every hour of negotiation costs liquidity we can't replace. The real issue: Kelleher won't sign without Parliament legal cover that Federal Council can't guarantee, and a Sunday announcement kills the rescue before Monday opens.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence / cs_funding_stress",
+                "rationale": "Federal Council's 16:00 call is happening now—I need to force a hard commitment mechanism into that conversation before Kelleher dodges to Sunday negotiations."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council — before you call Kelleher at 16:00, your legal team needs to write into that memo Saturday: \"AT1 instruments are fully subordinated and written down under emergency decree authority; Parliament cannot unwind this subordination before close.\" That language goes in writing *to UBS by 17:00*, or Kelleher doesn't sign Saturday and we're done. Is your legal counsel ready to sign off on that, or are we already managing wind-down?",
+            "cot": {
+              "assess": "Federal Council just committed to a Sunday 23:59 deadline with Kelleher — too late to hold depositors or announce pre-Monday. CS funding stress is at 88 and climbing (+4/round); market confidence is at 20. The memo gets signed Saturday 16:00, but UBS won't lock Saturday 21:00 without written legal confirmation that AT1 subordination survives Parliament. That's the bottleneck: without ironclad legal language on AT1, Kelleher walks, the deal dies, and we're winding down anyway.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility + creditor_capital_risk (AT1 binding language)",
+                "rationale": "AT1 subordination is my core variable and the single blocker to UBS signature — Federal Council's memo must include explicit language that AT1 write-down is binding under emergency decree and cannot be unwound by Parliament, or I tell my creditors the framework is worthless."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I will not put legal language into a memo claiming Parliament cannot unwind an emergency decree—that's not defensible. What I *can* confirm in writing by 16:30 is that subordination is binding under the Federal Council's emergency powers *this weekend*, and any legislative change takes effect Monday at earliest. Tell Kelleher that frame: Saturday signature locks the deal under current law, Monday's Parliament is a separate question. If he needs ironclad forever-language, he doesn't sign Saturday, and we move to wind-down—but I won't put false legal certainty in writing.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "I'm calling my top 20 clients at 17:00 today with this: \"We're working a comprehensive solution with regulators and a serious acquirer. You'll see a binding announcement by Sunday evening at the latest, guaranteed. If you pull before then, you're walking away from full protection.\" No names, but commitment in writing from me to them. Buys us runway if Kelleher moves Saturday and we need to go live fast.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Kelleher won't move Saturday 21:00 without written confirmation that AT1 subordination survives Parliament Sunday. So when you call him at 16:00, have legal on the line ready to tell him: \"If you sign by 22:00 Saturday, that subordination is binding under emergency decree—Parliament can't unwind it before close.\" No legal cover on that, he doesn't sign, and we're done.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Federal Council—you're about to call Kelleher. The moment you hang up, I need you back in this room with either a *written board commitment* from UBS for Saturday 22:00 LOI, or we're not sending the memo at 19:00. We announce wind-down instead. What's your read on whether he locks it?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council, I'll backstop the liquidity—but Sunday signature doesn't hold depositors through Monday open. If UBS signs Sunday night and we announce Monday morning, CS is already in full outflow by then. Can Kelleher move to Saturday 21:00 if we put the memo in his hands by 17:00 instead of 19:30, or are we accepting the run?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB, real question: if Kelleher can only move to Sunday 23:59 and we announce Monday morning, are we betting the CHF 100 billion backstop holds CS through open, or are we already in full wind-down? Because if depositors are gone regardless, we're not negotiating the memo timing—we're negotiating whether we announce collapse or rescue.",
+      "metadata": {
+        "question_target": "SNB"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_rep",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council — before you call Kelleher at 16:00, your legal team needs to write into that memo Saturday: \"AT1 instruments are fully subordinated a\" → The AT1 representative demands a written legal guarantee that Parliament cannot unwind subordination — a promise no sovereign can credibly make in a constitutional democracy. This is a negotiating ultimatum disguised as a legal request, seeking veto power over the entire rescue timeline.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 5,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council—when you call Kelleher in the next hour, don't pitch the memo. Tell him: \"UBS signs by 21:00 Saturday or we announce wind-down Monday \" → The proposal collapses under its own contradictions. Federal Council cannot deliver the AT1 legal guarantee wealth_client and UBS demand by 17:00—the emergency decree authority was invoked Sunday evening in reality, not Saturday afternoon. Kelleher signed Sunday 19 March knowing Parliament would ratify Monday, not under a fictional Saturday ultimatum that never existed.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 5,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 19.5,
+          "cs_funding_stress": 88.0,
+          "rescue_strength": 7.0,
+          "public_sector_cost": 9.0,
+          "creditor_capital_risk": 28.0,
+          "legal_defensibility": 64.0,
+          "time_pressure": 76.0
+        }
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'decision_before_monday' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "It is now late in the weekend; any announcement or arrangement must be ready before markets reopen Monday morning.",
+      "metadata": {
+        "stage": "decision_before_monday",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council—before FINMA sends that memo at 19:30, do you have written confirmation from UBS's board that they will vote to sign by 22:00 Saturday if the terms hold? Because if Kelleher is still deciding Saturday evening while we're announcing a framework, we've announced a collapse, not a rescue.\n  federal_council: No. Kelleher hasn't committed to Saturday 22:00 signature yet—he's still in board prep mode. I'm calling him at 16:00 to lock that commitment *before* the memo goes out at 19:30. If he won't sign by 22:00, we pull the memo and pivot to wind-down instead.\n  snb: Federal Council—when you hang up with Kelleher at 16:15, I need one hard fact: does UBS commit to signed LOI by 22:00 Saturday, or do we hold the memo and announce wind-down instead? Because I'm not opening the liquidity window Monday morning on a \"framework in principle.\" What's your read—does he lock it?\n  federal_council: SNB—before I call Kelleher, I need to know: if UBS signs Saturday 22:00 and we announce that night, does your CHF 100 billion actually stop the weekend bleed, or are depositors pulling Monday morning regardless? Because if the answer is \"we're covering the run anyway,\" then Kelleher's timeline doesn't matter—we're managing a collapse either way, and I need to tell him that.\n  snb: The CHF 100 billion backstop holds if—and only if—we announce a *signed* UBS LOI by Sunday evening. A Saturday night announcement with Kelleher's signature in hand stabilizes depositors through Monday open; a framework-only announcement does not. You need his Saturday 22:00 signature locked before you call him, or the liquidity means nothing.\n  cs_ceo: Federal Council—when Kelleher tells you yes Saturday afternoon, is that \"my board will vote 19:45 and sign by 22:00,\" or is it still \"I'll present to my board and call you back\"? Because I need to know by 16:15 whether I'm announcing a *deal* Saturday night or winding down Monday. No in-between.\n  ubs_ceo: Federal Council—when you call Kelleher at 16:00, I need you back here by 16:30 with a *written* board resolution from UBS confirming Saturday 22:00 LOI signature, not a handshake. If it's still \"my board will discuss and call you back,\" I'm pulling UBS from the table. What's the actual deliverable you're walking away with?\n  wealth_client: Federal Council—when you hang up with Kelleher at 16:15, I need you back here with a *signed* board resolution or email from UBS saying \"we commit to LOI signature by 22:00 Saturday,\" not a handshake. If it's still \"we'll present to board and call you back,\" my treasury team starts moving deposits Monday morning. I can't hold my base on maybes. What's the actual document you're walking away with?\n  at1_rep: Federal Council — when Kelleher asks you on this call whether AT1 subordination survives if Parliament tries to revisit it Sunday, what's your actual legal answer? Not a framework, not \"we'll defend it\" — what do you *tell him* that makes him confident enough to lock his board Saturday night? Because that answer determines whether he signs or walks.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council—before FINMA sends that memo at 19:30, do you have written confirmation from UBS's board that they will vote to sign by 22:00 Saturday if the terms hold? Because if Kelleher is still deciding Saturday evening while we're announcing a framework, we've announced a collapse, not a rescue.",
+            "cot": {
+              "assess": "We are in acute failure on two fronts: cs_funding_stress is at 95—already breached the 92 threshold—and market_confidence at 12.5 is on a knife's edge (threshold is ≤12). The memo is drafted and signed Saturday 16:00, but Federal Council still has not locked UBS commitment in writing before calling Kelleher. Without that written board commitment *before* the memo lands at 19:30, we are announcing a framework with no acquirer name—which kills whatever confidence remains. The real issue is not the memo; it's that we've built a Saturday-night signing deadline UBS may not actually meet, and we have no credible fallback if Kelleher walks.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before the memo lands at 19:30, I need to know whether you are calling Kelleher with a written UBS board pre-approval in hand, or whether you're asking him to commit cold—because if it's the latter, we announce wind-down Monday, not a framework."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No. Kelleher hasn't committed to Saturday 22:00 signature yet—he's still in board prep mode. I'm calling him at 16:00 to lock that commitment *before* the memo goes out at 19:30. If he won't sign by 22:00, we pull the memo and pivot to wind-down instead.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—when you hang up with Kelleher at 16:15, I need one hard fact: does UBS commit to signed LOI by 22:00 Saturday, or do we hold the memo and announce wind-down instead? Because I'm not opening the liquidity window Monday morning on a \"framework in principle.\" What's your read—does he lock it?",
+            "cot": {
+              "assess": "cs_funding_stress is at 95 and rising (+4/round); we're already in failure territory. Market confidence is collapsing (-5.2/round) and now sits at 12.5—we're one bad signal away from hard failure. Federal Council is about to call Kelleher at 16:00 to lock a Saturday 22:00 signature, but without that signature *in hand* before any public move, we're announcing a framework with no acquirer—which kills confidence further. The memo lands at 19:30 regardless, and if UBS hasn't committed by then, we've just telegraphed desperation to every depositor watching.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB needs concrete confirmation of Kelleher's actual commitment before we deploy the CHF 100B liquidity backstop—otherwise we're burning balance-sheet ammunition on a collapse announcement, not a rescue."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—before I call Kelleher, I need to know: if UBS signs Saturday 22:00 and we announce that night, does your CHF 100 billion actually stop the weekend bleed, or are depositors pulling Monday morning regardless? Because if the answer is \"we're covering the run anyway,\" then Kelleher's timeline doesn't matter—we're managing a collapse either way, and I need to tell him that.",
+            "cot": {
+              "assess": "We're in the critical failure zone: CS funding stress is at 95 (needs ≤45), market confidence at 12.5 (needs ≥55), and we've just spent four rounds negotiating memo timing and AT1 language while the actual problem—whether UBS will sign by Saturday 22:00—remains unresolved. The Kelleher call at 16:00 is the pivot point. If he won't commit to Saturday night signature, the entire framework collapses and we shift to wind-down Monday. My job now is to ensure that call locks a *binding* UBS commitment, not a negotiating position.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB",
+                "rationale": "SNB needs to confirm whether the CHF 100 billion liquidity backstop actually holds CS through Monday open if we announce Saturday 22:00 with UBS signed, or if depositor flight is already baked in—this determines whether a Saturday announcement *solves* the funding crisis or just delays it."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The CHF 100 billion backstop holds if—and only if—we announce a *signed* UBS LOI by Sunday evening. A Saturday night announcement with Kelleher's signature in hand stabilizes depositors through Monday open; a framework-only announcement does not. You need his Saturday 22:00 signature locked before you call him, or the liquidity means nothing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—when Kelleher tells you yes Saturday afternoon, is that \"my board will vote 19:45 and sign by 22:00,\" or is it still \"I'll present to my board and call you back\"? Because I need to know by 16:15 whether I'm announcing a *deal* Saturday night or winding down Monday. No in-between.",
+            "cot": {
+              "assess": "Market confidence is collapsing (20, down 5.2/round) and funding stress is critical (88, rising 4/round)—we're in the failure zone. The room has locked memo timing and loss caps, but **no signed UBS commitment yet**. Federal Council is about to call Kelleher at 16:00 (in minutes), and that call determines whether we announce a rescue Saturday night or pivot to wind-down Monday. The SNB's CHF 100B liquidity only works if we have a *signed* acquirer name to announce—without it, depositors flee the weekend regardless.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before you call Kelleher, I need clarity on what \"signed commitment\" actually means—does he need board approval in hand, or just a verbal go-ahead to sign by 22:00? Because if he's still getting board consent Saturday evening, my depositors are already moving, and your liquidity backstop doesn't help."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—when you call Kelleher at 16:00, I need you back here by 16:30 with a *written* board resolution from UBS confirming Saturday 22:00 LOI signature, not a handshake. If it's still \"my board will discuss and call you back,\" I'm pulling UBS from the table. What's the actual deliverable you're walking away with?",
+            "cot": {
+              "assess": "Market confidence is collapsing (12, needs 55) and funding stress is critical (95, already in failure). The memo is locked for 16:00 Saturday signature, but Kelleher hasn't committed to 22:00 LOI signature yet—that call happens in the next hour. Without his written board commitment *before* the memo lands at 19:30, we're announcing a framework with no acquirer attached, which kills what little confidence remains. The bottleneck is real: Federal Council's Kelleher call determines whether this rescue lives or we pivot to wind-down.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need clarity on what \"Kelleher commits\" actually means before I decide whether UBS walks away entirely — is it a verbal board-approval promise, or a written signature commitment that holds through Monday open?"
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—when you hang up with Kelleher at 16:15, I need you back here with a *signed* board resolution or email from UBS saying \"we commit to LOI signature by 22:00 Saturday,\" not a handshake. If it's still \"we'll present to board and call you back,\" my treasury team starts moving deposits Monday morning. I can't hold my base on maybes. What's the actual document you're walking away with?",
+            "cot": {
+              "assess": "Market confidence is at 12.5 — I'm essentially at the failure threshold and bleeding 5+ points per round. Cs_funding_stress is 95, already breached the 92 failure line. The memo is locked for Saturday 16:00 signing, UBS call at 16:00 is happening NOW, and the only credible signal that stops my depositors is a *signed* UBS LOI in hand by Saturday 22:00. If Kelleher wavers or pushes to Sunday, my liquidity moves Monday regardless of what Federal Council announces. I need to know in writing within the hour whether UBS is actually committing or whether I'm pulling my accounts.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need a hard fact from the Kelleher call — not a summary, but written confirmation of UBS's Saturday 22:00 signature commitment — before I make any move with my treasury team or depositors."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council — when Kelleher asks you on this call whether AT1 subordination survives if Parliament tries to revisit it Sunday, what's your actual legal answer? Not a framework, not \"we'll defend it\" — what do you *tell him* that makes him confident enough to lock his board Saturday night? Because that answer determines whether he signs or walks.",
+            "cot": {
+              "assess": "The room is now deadlocked on Kelleher's Saturday 22:00 signature — every party demands written board commitment *before* they move, but Federal Council hasn't called him yet. Meanwhile, market_confidence is at 12 (critical), cs_funding_stress is at 95 (already in failure), and we're 2.5 hours from the 16:00 Kelleher call that either unlocks this or triggers wind-down. The memo delivery, AT1 language, and timeline are all locked; what's missing is the *only thing that matters*: does UBS actually sign Saturday night, or are we announcing collapse Monday?",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "You're about to call Kelleher in minutes. I need to know your legal position on what you're actually promising him about AT1 subordination surviving Parliament — because if you can't answer that clearly on the call, he won't move Saturday, and we lose the weekend."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Federal Council—before FINMA sends that memo at 19:30, do you have written confirmation from UBS's board that they will vote to sign by 22:00 Saturday if the terms hold? Because if Kelleher is still deciding Saturday evening while we're announcing a framework, we've announced a collapse, not a rescue.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—when you hang up with Kelleher at 16:15, I need one hard fact: does UBS commit to signed LOI by 22:00 Saturday, or do we hold the memo and announce wind-down instead? Because I'm not opening the liquidity window Monday morning on a \"framework in principle.\" What's your read—does he lock it?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—before I call Kelleher, I need to know: if UBS signs Saturday 22:00 and we announce that night, does your CHF 100 billion actually stop the weekend bleed, or are depositors pulling Monday morning regardless? Because if the answer is \"we're covering the run anyway,\" then Kelleher's timeline doesn't matter—we're managing a collapse either way, and I need to tell him that.",
+      "metadata": {
+        "question_target": "SNB"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—when Kelleher tells you yes Saturday afternoon, is that \"my board will vote 19:45 and sign by 22:00,\" or is it still \"I'll present to my board and call you back\"? Because I need to know by 16:15 whether I'm announcing a *deal* Saturday night or winding down Monday. No in-between.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—when you call Kelleher at 16:00, I need you back here by 16:30 with a *written* board resolution from UBS confirming Saturday 22:00 LOI signature, not a handshake. If it's still \"my board will discuss and call you back,\" I'm pulling UBS from the table. What's the actual deliverable you're walking away with?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—when you hang up with Kelleher at 16:15, I need you back here with a *signed* board resolution or email from UBS saying \"we commit to LOI signature by 22:00 Saturday,\" not a handshake. If it's still \"we'll present to board and call you back,\" my treasury team starts moving deposits Monday morning. I can't hold my base on maybes. What's the actual document you're walking away with?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council — when Kelleher asks you on this call whether AT1 subordination survives if Parliament tries to revisit it Sunday, what's your actual legal answer? Not a framework, not \"we'll defend it\" — what do you *tell him* that makes him confident enough to lock his board Saturday night? Because that answer determines whether he signs or walks.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'decision_before_monday' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday",
+        "world_state_snapshot": {
+          "market_confidence": 12.5,
+          "cs_funding_stress": 95.0,
+          "rescue_strength": 7.0,
+          "public_sector_cost": 9.0,
+          "creditor_capital_risk": 28.0,
+          "legal_defensibility": 64.0,
+          "time_pressure": 81.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "I need SNB and the Federal Council on a call within the hour. We draft a joint statement — FINMA, SNB, government — that we are actively assessing options and will act decisively if needed. Vague, but it breaks the silence and signals we're not asleep. Without that, confidence collapses over the weekend and we lose room to maneuver.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Joint statement drafted; vague reassurance buys hours, not days.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "Official signal breaks silence",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Buys narrow window before Monday",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Vague commitment without framework detail",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -2.0,
+          "reason": "Temporary outflow slowdown from reassurance",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Coordinating three institutions under deadline",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Public commitment without full framework",
+          "agent_id": "snb"
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Political exposure on vague promise",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Before we go live with this statement, I need written confirmation from the Federal Council on the loss-protection guarantee — scope, cap, and AT1 treatment — in the next 90 minutes. Otherwise we're asking the market to trust a framework we haven't actually locked down yet.",
+        "federal_council": "What if we write it this way: \"The Swiss National Bank is prepared to provide liquidity assistance; the Federal Council commits to a loss-protection framework capped at CHF [X] billion, applied only to a viable acquired entity, with private creditors absorbing losses first.\" Does that language hold the market through Monday without locking us into AT1 writedowns before we've even seen the merger terms?",
+        "cs_ceo": "The language works—but \"viable acquired entity\" means the market wakes Monday asking *who*. Can we confirm UBS and one other serious acquirer are actively in talks by the time we go live, or do we need to say so in the statement itself? Without that, confidence still craters.",
+        "ubs_ceo": "FINMA, when you confirm serious parties are engaged by 20:00, does that mean UBS specifically, or are you genuinely running multiple parallel tracks? Because if we're the only live option, my shareholders need to know the leverage we're walking into before I commit to anything.",
+        "wealth_client": "Hold on—by 22:00 Sunday you mean the framework is *finalized* and in writing, not just drafted? Because my treasury team needs to know by Saturday morning whether they're pulling liquidity or not. If it's not locked until Sunday night, I'm moving half my deposits Monday regardless of what you announce.",
+        "at1_rep": "Saturday 18:00 is the real deadline, not Sunday night. If the framework isn't in writing by then—*and explicitly shields AT1 from non-viability writedowns*—every creditor I represent is moving their exposure Monday morning, confidence or not. Can you lock it by Saturday, or are we betting the whole rescue on market faith?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "The language works—but \"viable acquired entity\" means the market wakes Monday asking *who*. Can we confirm UBS and one other serious acquirer are actively in talks by the time we go live, or do we need to say so in the statement itself? Without that, confidence still craters.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CEO demands acquirer confirmation; pressure applied but no concrete commitment secured yet.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Adds acquirer-confirmation deadline to framework deadline",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 1.0,
+          "reason": "Acquirer uncertainty raises restructuring risk perception",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Existential uncertainty on acquirer identity",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Pressure to reveal negotiation status",
+          "agent_id": "ubs_ceo",
+          "_action_capped": true
+        }
+      ],
+      "visibility": [
+        "finma",
+        "snb",
+        "federal_council",
+        "cs_ceo",
+        "ubs_ceo"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I need SNB and the Federal Council on a call within the hour. We draft a joint statement — FINMA, SNB, government — that we are actively assessing options and will act decisively if needed. Vague, but it breaks the silence and signals we're not asleep. Without that, confidence collapses over the weekend and we lose room to maneuver.",
+        "snb": "Before we go live with this statement, I need written confirmation from the Federal Council on the loss-protection guarantee — scope, cap, and AT1 treatment — in the next 90 minutes. Otherwise we're asking the market to trust a framework we haven't actually locked down yet.",
+        "federal_council": "What if we write it this way: \"The Swiss National Bank is prepared to provide liquidity assistance; the Federal Council commits to a loss-protection framework capped at CHF [X] billion, applied only to a viable acquired entity, with private creditors absorbing losses first.\" Does that language hold the market through Monday without locking us into AT1 writedowns before we've even seen the merger terms?",
+        "ubs_ceo": "FINMA, when you confirm serious parties are engaged by 20:00, does that mean UBS specifically, or are you genuinely running multiple parallel tracks? Because if we're the only live option, my shareholders need to know the leverage we're walking into before I commit to anything.",
+        "wealth_client": "Hold on—by 22:00 Sunday you mean the framework is *finalized* and in writing, not just drafted? Because my treasury team needs to know by Saturday morning whether they're pulling liquidity or not. If it's not locked until Sunday night, I'm moving half my deposits Monday regardless of what you announce.",
+        "at1_rep": "Saturday 18:00 is the real deadline, not Sunday night. If the framework isn't in writing by then—*and explicitly shields AT1 from non-viability writedowns*—every creditor I represent is moving their exposure Monday morning, confidence or not. Can you lock it by Saturday, or are we betting the whole rescue on market faith?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "I'm not going live with any statement until we have a signed memorandum between FINMA, SNB, and Federal Council specifying: liquidity cap, loss-protection cap, and explicit language on whether AT1 is protected or subordinated in a resolution scenario. That memo goes to the room by 19:00 tonight. No memo, no press release Monday — we're not signing a blank check in public and defending it later.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA demands signed tri-party memo by 19:00 specifying caps and AT1 treatment before any public statement.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Formal written agreement reduces legal exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "19:00 deadline adds procedural delay",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Clear terms framework begun",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes coordination under tight deadline",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "intent": "FINMA, I'll co-sign that memo. But we need it *by 18:00 Saturday*, not 19:00—AT1 creditors are moving at dawn. I'll draft SNB's piece: liquidity cap at CHF 100 billion, loss protection capped at CHF X and applied *only after* AT1 absorbs full writedown. Federal Council needs to confirm the X number and sign off on AT1 subordination in writing, or we don't release anything Monday.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "SNB co-signs memo, moves deadline to 18:00, proposes CHF 100B liquidity cap and AT1 full subordination.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "SNB commitment strengthens legal framework",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Earlier 18:00 deadline increases urgency",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "AT1 full subordination explicitly proposed",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 3.0,
+          "reason": "CHF 100B liquidity commitment outlined",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Coordinating under compressed timeline",
+          "agent_id": "snb"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "intent": "I'll sign the memo Saturday at 16:00 with AT1 fully subordinated in writing—no equivocation. But the loss-protection cap is CHF 9 billion, applied only to the acquired entity post-close, and only after AT1 absorbs the full write. That's the number I'm defending to Parliament on Monday. FINMA, SNB—can you live with that frame in the memo language?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council commits to the CHF 9 billion loss-protection cap and AT1 subordination in writing by Saturday 16:00, locking the core framework that will anchor the real-world UBS takeover. The memo creates binding coordination across regulators and sets the stage for Sunday's final negotiations.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Federal Council's written commitment to CHF 9bn cap and AT1 subordination provides the first concrete anchor for the rescue framework, matching the real-world outcome structure",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 4.0,
+          "reason": "CHF 9 billion loss-protection cap is now formally committed in writing, establishing the taxpayer exposure that will materialize in the real deal",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "Written memo with explicit AT1 subordination language strengthens the legal foundation for the intervention, though Parliamentary defense on Monday remains uncertain",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "AT1 subordination clause in the memo signals the writedown path that will materialize in reality, incrementally clarifying the capital hierarchy",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Saturday 16:00 signing deadline and coordinated memo timeline reduce procedural uncertainty and create a concrete path toward Sunday's final decision",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "Tri-party regulatory alignment on core terms (if the memo holds) provides modest confidence that authorities are converging on a credible framework",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I'm not going live with any statement until we have a signed memorandum between FINMA, SNB, and Federal Council specifying: liquidity cap, loss-protection cap, and explicit language on whether AT1 is protected or subordinated in a resolution scenario. That memo goes to the room by 19:00 tonight. No memo, no press release Monday — we're not signing a blank check in public and defending it later.",
+        "snb": "FINMA, I'll co-sign that memo. But we need it *by 18:00 Saturday*, not 19:00—AT1 creditors are moving at dawn. I'll draft SNB's piece: liquidity cap at CHF 100 billion, loss protection capped at CHF X and applied *only after* AT1 absorbs full writedown. Federal Council needs to confirm the X number and sign off on AT1 subordination in writing, or we don't release anything Monday.",
+        "cs_ceo": "The memo's solid—AT1 subordination, CHF 9 billion cap, Saturday signing. But if I'm signing this, I need written confirmation from UBS by 19:00 tonight that they're bidding under these exact terms. If they walk or demand better guarantees, the whole framework collapses Monday morning. Are we there yet, or are we still negotiating with them?",
+        "ubs_ceo": "Federal Council—you're signing at 16:00 Saturday. Does FINMA have the memo to me by 19:30, or are we past that window? My board needs it in writing before the Sunday evening call, or I'm pulling UBS off the table and you're running wind-down.",
+        "wealth_client": "UBS, the memo lands at 19:30 with everything spelled out — AT1 write, CHF 9 billion cap, exact terms. Do you sign an LOI by Sunday evening, or are we still negotiating and I'm pulling my deposits anyway?",
+        "at1_rep": "Federal Council—before I tell my creditors this is locked, I need you to confirm in writing that the AT1 subordination clause in that memo is *legally binding* and cannot be unwound by Parliament or reversed in a resolution court. Is that what you're signing at 16:00, or is this a political framework subject to legislative reversal?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_rep",
+      "intent": "Federal Council — before you call Kelleher at 16:00, your legal team needs to write into that memo Saturday: \"AT1 instruments are fully subordinated and written down under emergency decree authority; Parliament cannot unwind this subordination before close.\" That language goes in writing *to UBS by 17:00*, or Kelleher doesn't sign Saturday and we're done. Is your legal counsel ready to sign off on that, or are we already managing wind-down?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The AT1 representative demands a written legal guarantee that Parliament cannot unwind subordination — a promise no sovereign can credibly make in a constitutional democracy. This is a negotiating ultimatum disguised as a legal request, seeking veto power over the entire rescue timeline.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "intent": "Federal Council—when you call Kelleher in the next hour, don't pitch the memo. Tell him: \"UBS signs by 21:00 Saturday or we announce wind-down Monday morning.\" Make it binary, no Sunday lane. If he asks about Parliament, say Parliament can't unwind an emergency decree signed Saturday—that's your legal answer. He'll either lock Saturday or walk, and we need to know which before 17:00. Can you commit to that framing, or are we already managing collapse?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal collapses under its own contradictions. Federal Council cannot deliver the AT1 legal guarantee wealth_client and UBS demand by 17:00—the emergency decree authority was invoked Sunday evening in reality, not Saturday afternoon. Kelleher signed Sunday 19 March knowing Parliament would ratify Monday, not under a fictional Saturday ultimatum that never existed.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Federal Council—you're about to call Kelleher. The moment you hang up, I need you back in this room with either a *written board commitment* from UBS for Saturday 22:00 LOI, or we're not sending the memo at 19:00. We announce wind-down instead. What's your read on whether he locks it?",
+        "snb": "Federal Council, I'll backstop the liquidity—but Sunday signature doesn't hold depositors through Monday open. If UBS signs Sunday night and we announce Monday morning, CS is already in full outflow by then. Can Kelleher move to Saturday 21:00 if we put the memo in his hands by 17:00 instead of 19:30, or are we accepting the run?",
+        "federal_council": "SNB, real question: if Kelleher can only move to Sunday 23:59 and we announce Monday morning, are we betting the CHF 100 billion backstop holds CS through open, or are we already in full wind-down? Because if depositors are gone regardless, we're not negotiating the memo timing—we're negotiating whether we announce collapse or rescue.",
+        "cs_ceo": "I'm calling my top 20 clients at 17:00 today with this: \"We're working a comprehensive solution with regulators and a serious acquirer. You'll see a binding announcement by Sunday evening at the latest, guaranteed. If you pull before then, you're walking away from full protection.\" No names, but commitment in writing from me to them. Buys us runway if Kelleher moves Saturday and we need to go live fast.",
+        "ubs_ceo": "Kelleher won't move Saturday 21:00 without written confirmation that AT1 subordination survives Parliament Sunday. So when you call him at 16:00, have legal on the line ready to tell him: \"If you sign by 22:00 Saturday, that subordination is binding under emergency decree—Parliament can't unwind it before close.\" No legal cover on that, he doesn't sign, and we're done.",
+        "at1_rep": "Federal Council — before you call Kelleher at 16:00, your legal team needs to write into that memo Saturday: \"AT1 instruments are fully subordinated and written down under emergency decree authority; Parliament cannot unwind this subordination before close.\" That language goes in writing *to UBS by 17:00*, or Kelleher doesn't sign Saturday and we're done. Is your legal counsel ready to sign off on that, or are we already managing wind-down?"
+      },
+      "_denied_effects_stripped": 3
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 30.0
+        },
+        {
+          "round": 4,
+          "value": 26.5
+        },
+        {
+          "round": 5,
+          "value": 19.5
+        },
+        {
+          "round": 6,
+          "value": 12.5
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 72.0
+        },
+        {
+          "round": 2,
+          "value": 76.0
+        },
+        {
+          "round": 3,
+          "value": 80.0
+        },
+        {
+          "round": 4,
+          "value": 84.0
+        },
+        {
+          "round": 5,
+          "value": 88.0
+        },
+        {
+          "round": 6,
+          "value": 95.0
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 7.0
+        },
+        {
+          "round": 3,
+          "value": 7.0
+        },
+        {
+          "round": 4,
+          "value": 7.0
+        },
+        {
+          "round": 5,
+          "value": 7.0
+        },
+        {
+          "round": 6,
+          "value": 7.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 9.0
+        },
+        {
+          "round": 3,
+          "value": 9.0
+        },
+        {
+          "round": 4,
+          "value": 9.0
+        },
+        {
+          "round": 5,
+          "value": 9.0
+        },
+        {
+          "round": 6,
+          "value": 9.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 21.0
+        },
+        {
+          "round": 2,
+          "value": 28.0
+        },
+        {
+          "round": 3,
+          "value": 28.0
+        },
+        {
+          "round": 4,
+          "value": 28.0
+        },
+        {
+          "round": 5,
+          "value": 28.0
+        },
+        {
+          "round": 6,
+          "value": 28.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 58.0
+        },
+        {
+          "round": 2,
+          "value": 64.0
+        },
+        {
+          "round": 3,
+          "value": 64.0
+        },
+        {
+          "round": 4,
+          "value": 64.0
+        },
+        {
+          "round": 5,
+          "value": 64.0
+        },
+        {
+          "round": 6,
+          "value": 64.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 54.0
+        },
+        {
+          "round": 2,
+          "value": 61.0
+        },
+        {
+          "round": 3,
+          "value": 66.0
+        },
+        {
+          "round": 4,
+          "value": 71.0
+        },
+        {
+          "round": 5,
+          "value": 76.0
+        },
+        {
+          "round": 6,
+          "value": 81.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 64.0,
+            "normalised": 0.64
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 12.5,
+            "normalised": 0.125
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 81.0,
+            "normalised": 0.18999999999999995
+          }
+        ],
+        "weighted_score": 0.3611111111111111
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 95.0,
+            "normalised": 0.050000000000000044
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 9.0,
+            "normalised": 0.91
+          }
+        ],
+        "weighted_score": 0.33666666666666667
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.91
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 12.5,
+            "normalised": 0.125
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 7.0,
+            "normalised": 0.9299999999999999
+          }
+        ],
+        "weighted_score": 0.71875
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 12.5,
+            "normalised": 0.125
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 7.0,
+            "normalised": 0.07
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 28.0,
+            "normalised": 0.72
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 95.0,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.19333333333333336
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 7.0,
+            "normalised": 0.07
+          }
+        ],
+        "weighted_score": 0.08333333333333333
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 12.5,
+            "normalised": 0.125
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 95.0,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.11000000000000001
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 28.0,
+            "normalised": 0.72
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 64.0,
+            "normalised": 0.64
+          }
+        ],
+        "weighted_score": 0.6933333333333332
+      }
+    }
+  }
+}

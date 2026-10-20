@@ -1,0 +1,1513 @@
+{
+  "simulation_id": "c47236752d2d",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I need SNB and the Federal Council to confirm: are we prepared to structure an emergency liquidity assistance facility with a clear legal mandate, or do we need to move toward resolution? We can't hold the line with statements alone. What's the outer limit on public-sector exposure they'll accept?\n  snb: We can deploy liquidity assistance immediately—I'm authorizing a CHF 100 billion liquidity assistance facility against broadened collateral, effective tonight. But that's our ceiling without explicit Federal Council loss-protection guarantee. If deposits continue outflow at current pace, we hit that in 48 hours; resolution becomes inevitable unless the government commits to backstop capital losses above it.\n  snb: Federal Council—we're live with CHF 100 billion tonight. But at current outflow rates, that's a 48-hour runway. We need your explicit commitment on capital-loss coverage *now*, not after the weekend. What's the maximum exposure you're prepared to absorb?\n  federal_council: We will not commit to open-ended capital-loss guarantees—that's a blank check we can't sell to Parliament or the public. But if SNB confirms the CHF 100 billion is truly deployed tonight and you've stress-tested a 48-hour hold, we'll authorize a *capped* government liquidity bridge—CHF 50 billion maximum, loss-sharing only above that, and only if UBS or a consortium steps in as the primary buyer. What's your read: is there a buyer on the table, or are we talking resolution anyway?\n  federal_council: FINMA—you've got buyer conversations running. Is there a credible counterparty willing to move by Monday, or are we storytelling? Because our bridge only works if someone's actually on the other end.\n  finma: UBS has signaled conditional interest—they'll engage seriously only if we ring-fence the toxic book, cap their downside on AT1 losses, and guarantee the liquidity bridge holds through integration. I'm pushing them for a binding position by tomorrow morning. Without that, we're in resolution territory, and Federal Council needs to prepare the legal framework now—we can't improvise orderly resolution over a weekend.\n  cs_ceo: Hold on—if we ring-fence the toxic book and cap UBS's AT1 exposure, who's actually absorbing those losses? The SNB? The government? Because if it's us, we're not surviving this as an independent bank regardless. I need clarity: what's the capital loss we're actually talking about, and who bears it? That's the deal, not the liquidity.\n  ubs_ceo: Look, I'll be direct: my board won't touch this unless we ring-fence the toxic book *and* you guarantee the loss floor—not just liquidity. What's the actual CHF number on capital losses you're willing to absorb, and is that baked into your CHF 50 billion, or is it on top? Because if it's not explicit, we're not negotiating Monday—we're walking.\n  wealth_client: Stop. Before anyone commits, I need one number: what's the maximum capital loss you're guaranteeing, and is UBS's downside capped at a specific CHF figure or percentage? If that's not in writing tonight, I'm pulling my assets—I'm not holding a bag through a \"resolution\" that might wipe me out anyway.\n  ubs_ceo: Federal Council—I need you to answer this directly: is the CHF 50 billion bridge *inclusive* of capital-loss coverage, or is loss protection on top of that? Because if it's inclusive, the math doesn't work—we'd be absorbing the first tranche of AT1 writedowns ourselves, which kills the deal. If it's on top, you need to state the maximum loss floor in writing *tonight*, or I'm instructing my team to prepare for resolution, not acquisition.\n  at1_rep: Federal Council—before you commit the CHF 50 billion, I need you to say plainly: are AT1 holders absorbing losses under this structure, or are they protected? Because if you're wiping AT1 to save equity and UBS's balance sheet, that's a capital structure inversion and we're looking at lawsuits the moment this closes. What's the write-down scenario?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I need SNB and the Federal Council to confirm: are we prepared to structure an emergency liquidity assistance facility with a clear legal mandate, or do we need to move toward resolution? We can't hold the line with statements alone. What's the outer limit on public-sector exposure they'll accept?",
+            "cot": {
+              "assess": "Market confidence is critically low (26) and will erode further without visible supervisory action by Monday. Legal defensibility is solid at 60, but we have zero rescue package on the table—that's the blocking variable. Funding stress at 74 is manageable for 48 hours if we move now; if we delay, it becomes acute.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, federal_council (rescue structure & legal basis)",
+                "rationale": "We must lock in a defensible intervention framework NOW—every hour of ambiguity before Monday bleeds confidence and hardens the funding crisis."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can deploy liquidity assistance immediately—I'm authorizing a CHF 100 billion liquidity assistance facility against broadened collateral, effective tonight. But that's our ceiling without explicit Federal Council loss-protection guarantee. If deposits continue outflow at current pace, we hit that in 48 hours; resolution becomes inevitable unless the government commits to backstop capital losses above it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—we're live with CHF 100 billion tonight. But at current outflow rates, that's a 48-hour runway. We need your explicit commitment on capital-loss coverage *now*, not after the weekend. What's the maximum exposure you're prepared to absorb?",
+            "cot": {
+              "assess": "The CHF 100 billion facility addresses immediate liquidity stress, but we've now surfaced the hard constraint: Federal Council must commit to capital-loss backstop, or we hit our ceiling in 48 hours and resolution follows. Market confidence (26) remains critically low—liquidity alone won't restore it without visible government skin in the game. Time pressure is acute; we need the Council's answer before Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB has moved decisively on liquidity; the blocking variable is now political commitment to loss protection. We need their binding decision this weekend, not Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We will not commit to open-ended capital-loss guarantees—that's a blank check we can't sell to Parliament or the public. But if SNB confirms the CHF 100 billion is truly deployed tonight and you've stress-tested a 48-hour hold, we'll authorize a *capped* government liquidity bridge—CHF 50 billion maximum, loss-sharing only above that, and only if UBS or a consortium steps in as the primary buyer. What's your read: is there a buyer on the table, or are we talking resolution anyway?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—you've got buyer conversations running. Is there a credible counterparty willing to move by Monday, or are we storytelling? Because our bridge only works if someone's actually on the other end.",
+            "cot": {
+              "assess": "SNB has deployed CHF 100B liquidity tonight—that's real. Federal Council has now tabled a capped CHF 50B bridge *if* a buyer emerges. The hard constraint is clear: no buyer, no bridge, resolution path becomes inevitable. Market confidence is still collapsing (26) and funding stress is acute (74). The bottleneck is not our willingness to act—it's whether UBS or a consortium will actually step to the table by Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "FINMA runs the M&A and buyer-contact process—I need to know if there's a genuine buyer prospect *tonight*, not a hope, because our CHF 50B cap only lands if that's real. This is the variable that unlocks or kills the entire rescue."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "UBS has signaled conditional interest—they'll engage seriously only if we ring-fence the toxic book, cap their downside on AT1 losses, and guarantee the liquidity bridge holds through integration. I'm pushing them for a binding position by tomorrow morning. Without that, we're in resolution territory, and Federal Council needs to prepare the legal framework now—we can't improvise orderly resolution over a weekend.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Hold on—if we ring-fence the toxic book and cap UBS's AT1 exposure, who's actually absorbing those losses? The SNB? The government? Because if it's us, we're not surviving this as an independent bank regardless. I need clarity: what's the capital loss we're actually talking about, and who bears it? That's the deal, not the liquidity.",
+            "cot": {
+              "assess": "SNB has locked in CHF 100B liquidity tonight—that's real and immediate. Federal Council will backstop CHF 50B more, but only if UBS actually buys. The problem: UBS is conditioning on ring-fencing toxic assets and capping their AT1 losses, which means *we* take the hit on capital. That's not a rescue for Credit Suisse—that's a controlled dismemberment. We have maybe 48 hours before funding stress forces resolution anyway.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, snb",
+                "rationale": "The UBS conditions are designed to transfer our capital losses to taxpayers or the SNB; I need to surface the real cost of that trade-off before we agree to it."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Look, I'll be direct: my board won't touch this unless we ring-fence the toxic book *and* you guarantee the loss floor—not just liquidity. What's the actual CHF number on capital losses you're willing to absorb, and is that baked into your CHF 50 billion, or is it on top? Because if it's not explicit, we're not negotiating Monday—we're walking.",
+            "cot": {
+              "assess": "SNB has the liquidity weapon live (CHF 100B tonight), Federal Council will backstop CHF 50B capped bridge *if* a buyer materializes by Monday. The killer variable is market confidence—26 is catastrophic, and we're burning time. CS_CEO just exposed the real problem: nobody's actually committed to absorbing the toxic book losses yet. We have a liquidity runway, but no deal structure.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS won't move without knowing exactly what losses we're capping and who eats them; Federal Council needs to answer this NOW so I can decide if a deal is even possible for my shareholders."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Stop. Before anyone commits, I need one number: what's the maximum capital loss you're guaranteeing, and is UBS's downside capped at a specific CHF figure or percentage? If that's not in writing tonight, I'm pulling my assets—I'm not holding a bag through a \"resolution\" that might wipe me out anyway.",
+            "cot": {
+              "assess": "They've locked in CHF 100B liquidity (SNB) + CHF 50B government bridge, but the capital-loss floor is still undefined—UBS won't move without it, and that directly determines whether I stay or pull my assets. Market confidence is still at 26 (critical), funding stress at 74 (unsustainable). The real deal—who eats the losses and by how much—hasn't been answered.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, ubs_ceo",
+                "rationale": "I need the capital-loss number explicit and guaranteed, not buried in vague \"loss-sharing\" language, because that's what determines if this bank survives or if I'm moving CHF billions Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—I need you to answer this directly: is the CHF 50 billion bridge *inclusive* of capital-loss coverage, or is loss protection on top of that? Because if it's inclusive, the math doesn't work—we'd be absorbing the first tranche of AT1 writedowns ourselves, which kills the deal. If it's on top, you need to state the maximum loss floor in writing *tonight*, or I'm instructing my team to prepare for resolution, not acquisition.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—before you commit the CHF 50 billion, I need you to say plainly: are AT1 holders absorbing losses under this structure, or are they protected? Because if you're wiping AT1 to save equity and UBS's balance sheet, that's a capital structure inversion and we're looking at lawsuits the moment this closes. What's the write-down scenario?",
+            "cot": {
+              "assess": "The room is now locked on a critical fork: UBS won't move unless AT1 losses are capped and explicitly ring-fenced *away from them*, but nobody has stated who absorbs those losses or in what amount. This ambiguity is killing market confidence and paralyzing the deal. The Federal Council's CHF 50 billion bridge is still undefined—is it liquidity only, or does it cover capital losses? That gap is the entire negotiation.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The creditor hierarchy and AT1 write-down mechanism are the legal linchpin—if the government is about to commit capital, I need to know upfront whether AT1 holders are being impaired or protected, because that determines whether this rescue is legally defensible or opens the door to litigation."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Stop. Before anyone commits, I need one number: what's the maximum capital loss you're guaranteeing, and is UBS's downside capped at a specific CHF figure or percentage? If that's not in writing tonight, I'm pulling my assets—I'm not holding a bag through a \"resolution\" that might wipe me out anyway.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—we're live with CHF 100 billion tonight. But at current outflow rates, that's a 48-hour runway. We need your explicit commitment on capital-loss coverage *now*, not after the weekend. What's the maximum exposure you're prepared to absorb?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—you've got buyer conversations running. Is there a credible counterparty willing to move by Monday, or are we storytelling? Because our bridge only works if someone's actually on the other end.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Look, I'll be direct: my board won't touch this unless we ring-fence the toxic book *and* you guarantee the loss floor—not just liquidity. What's the actual CHF number on capital losses you're willing to absorb, and is that baked into your CHF 50 billion, or is it on top? Because if it's not explicit, we're not negotiating Monday—we're walking.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—before you commit the CHF 50 billion, I need you to say plainly: are AT1 holders absorbing losses under this structure, or are they protected? Because if you're wiping AT1 to save equity and UBS's balance sheet, that's a capital structure inversion and we're looking at lawsuits the moment this closes. What's the write-down scenario?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I need SNB and the Federal Council to confirm: are we prepared to structure an emergency liquidity assistance facility with a clear legal mandate, or \" → FINMA forces the room to confront the liquidity vs. resolution fork—no more ambiguity.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold on—if we ring-fence the toxic book and cap UBS's AT1 exposure, who's actually absorbing those losses? The SNB? The government? Because if it's us\" → CS CEO demands explicit capital loss allocation—who bears the toxic book losses?",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5.75
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Here's what I'm doing: I'm drafting a loss-allocation order—in writing, tonight—that specifies: AT1 absorbs first CHF 16 billion in marked losses, equity second, then SNB/Federal Council backstop on a capped formula. Everyone signs it before we leave this room or the deal doesn't move. Federal Council, UBS, CS—you each get your number in black ink. That's how we get legal cover and kill the uncertainty.\n  snb: FINMA—I hear you on the loss order. But here's my question: does UBS sign that tonight, or are they still negotiating *after* they see it? Because if they're not committed by Sunday close, the loss allocation doesn't move the needle on confidence—people still see uncertainty. Where's UBS actually at?\n  finma: UBS is locked in—I've confirmed with their chair this evening. They'll sign the loss order as written if the Federal Council caps their downside at CHF 16 billion and SNB confirms the liquidity facility holds through Monday. But they want that in the same document, same ink. They're not walking away, but they're not signing blind either.\n  federal_council: The loss order works, but only if we announce the CHF 16 billion cap publicly *tonight*—that's our number, it's final, and Parliament gets it in writing before markets open. Otherwise Monday morning the press runs \"Federal Council exposure unlimited\" and confidence craters anyway. I'll draft a statement for immediate release.\n  cs_ceo: I'm backing the loss order—it's the only way we survive intact. But that public statement has to be airtight: either the CHF 16 billion is a real ceiling and you're prepared to absorb everything above it, or you say so now. Don't release a number you can't defend Monday afternoon.\n  ubs_ceo: Federal Council—your statement tonight needs one sentence: \"CS will operate as a UBS subsidiary with full access to UBS's liquidity and capital strength.\" Otherwise clients read \"CHF 16 billion cap\" as \"we think CS might fail anyway.\" That's what tanks confidence Monday, not the loss allocation.\n  federal_council: The CHF 16 billion is our ceiling—we absorb everything above it, full stop. But I'm not releasing that statement tonight without UBS's signed commitment in the loss order *and* SNB's written confirmation the liquidity facility survives market stress through Tuesday. We move all three documents together or we don't move at all.\n  wealth_client: Federal Council, I need clarity on sequence: are you releasing the loss-allocation cap *and* UBS's integration commitment in the same statement tonight, or separately? Because if clients see \"CHF 16 billion exposure\" without hearing \"Credit Suisse now operates under UBS,\" they're calling their relationship managers Monday morning to move assets. The legal defensibility doesn't matter if confidence evaporates before market open.\n  at1_rep: Federal Council—the loss order is legally defensible only if the public hears both numbers at once: the CHF 16 billion cap *and* \"Credit Suisse operates as a UBS subsidiary with full UBS backing.\" One statement, tonight, signed by all three. If you separate them, creditors and clients both read uncertainty and we lose confidence anyway. What time are we releasing, and who's coordinating the language?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm drafting a loss-allocation order—in writing, tonight—that specifies: AT1 absorbs first CHF 16 billion in marked losses, equity second, then SNB/Federal Council backstop on a capped formula. Everyone signs it before we leave this room or the deal doesn't move. Federal Council, UBS, CS—you each get your number in black ink. That's how we get legal cover and kill the uncertainty.",
+            "cot": {
+              "assess": "Legal defensibility is holding at 60, but the room is now trapped on a circular question: who absorbs capital losses? SNB committed CHF 100B liquidity (good), Federal Council refused open-ended guarantees (defensible), but UBS won't move without a capped loss floor, AT1 holders demand clarity, and CS CEO won't accept undefined exposure. The 48-hour runway and Monday deadline are compressing without a binding loss-allocation structure in place. Market confidence remains critically low at 21 because no one knows their actual downside.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility, creditor_capital_risk",
+                "rationale": "The circular debate on losses will paralyze us through the weekend unless I force a binding legal framework NOW—not a promise, not a guarantee, but a documented loss hierarchy that survives scrutiny and closes the AT1/equity ambiguity."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA—I hear you on the loss order. But here's my question: does UBS sign that tonight, or are they still negotiating *after* they see it? Because if they're not committed by Sunday close, the loss allocation doesn't move the needle on confidence—people still see uncertainty. Where's UBS actually at?",
+            "cot": {
+              "assess": "FINMA's loss-allocation order is a structural move—it answers the capital-loss question explicitly and removes legal ambiguity. But it doesn't solve our core problem: cs_funding_stress is still 81, and we've got 48 hours of runway on CHF 100 billion. The written loss floor helps UBS decide, but it doesn't stop deposit flight *tonight*. Market confidence is still 21—people need to see a buyer committed and a deal *moving*, not just a legal memo.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we lock in loss allocation, I need to know if UBS will actually sign by Sunday morning—because if the answer is \"maybe,\" that loss order buys us legal cover but doesn't buy us time, and we're still bleeding deposits through Monday open."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "UBS is locked in—I've confirmed with their chair this evening. They'll sign the loss order as written if the Federal Council caps their downside at CHF 16 billion and SNB confirms the liquidity facility holds through Monday. But they want that in the same document, same ink. They're not walking away, but they're not signing blind either.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The loss order works, but only if we announce the CHF 16 billion cap publicly *tonight*—that's our number, it's final, and Parliament gets it in writing before markets open. Otherwise Monday morning the press runs \"Federal Council exposure unlimited\" and confidence craters anyway. I'll draft a statement for immediate release.",
+            "cot": {
+              "assess": "FINMA has locked in UBS with a written loss-allocation order (AT1 first CHF 16B, equity second, SNB/Council backstop capped). That kills legal ambiguity and creditor uncertainty. But market confidence is still 21—we're not moving that needle without public clarity on the Federal Council's actual commitment. The CHF 16 billion cap on UBS's downside is explicit, which is good, but Parliament and the public haven't heard it yet. Time pressure is climbing (65.75) and we're burning runway.",
+              "decide": {
+                "action_type": "speak",
+                "target": "public_sector_cost / legal_defensibility",
+                "rationale": "I need to lock in the CHF 16 billion cap as our hard ceiling and make it public-facing tonight—that's the only number that kills political risk and makes this defensible to Parliament."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "I'm backing the loss order—it's the only way we survive intact. But that public statement has to be airtight: either the CHF 16 billion is a real ceiling and you're prepared to absorb everything above it, or you say so now. Don't release a number you can't defend Monday afternoon.",
+            "cot": {
+              "assess": "The loss-allocation order is locked—AT1 first, equity second, SNB/Federal Council backstop capped at CHF 16 billion. UBS is committed, Federal Council is drafting a public statement tonight. This kills the capital-loss uncertainty that's been grinding confidence and creditor risk down. The real question now: does that CHF 16 billion cap actually hold, or is it a political number that evaporates under market pressure Monday morning?",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "Before you release that statement, I need to know—if losses run past CHF 16 billion in the first 90 days, who's actually writing the check? Because if the public sees \"Federal Council capped at CHF 16 billion\" and then we breach it, confidence collapses faster than it would have if we'd been honest about the floor upfront."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—your statement tonight needs one sentence: \"CS will operate as a UBS subsidiary with full access to UBS's liquidity and capital strength.\" Otherwise clients read \"CHF 16 billion cap\" as \"we think CS might fail anyway.\" That's what tanks confidence Monday, not the loss allocation.",
+            "cot": {
+              "assess": "The loss-allocation order is locked—AT1 eats CHF 16B, then equity, then public backstop. Federal Council is committing to a public CHF 16B cap tonight. That's real legal cover and kills the ambiguity on *who* bears what. My downside is now capped and defensible to my board. But market_confidence is still 21—a public statement helps, but it doesn't move the needle if people don't believe CS survives the integration. The real risk: Monday opens and deposits keep running because clients don't trust UBS can actually absorb CS without imploding itself.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The loss order protects capital structure, but the public statement has to answer the ONE question keeping deposits moving: is CS solvent enough to function as a UBS subsidiary, or are we announcing a zombie bank? That's what drives confidence, not the CHF number alone."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The CHF 16 billion is our ceiling—we absorb everything above it, full stop. But I'm not releasing that statement tonight without UBS's signed commitment in the loss order *and* SNB's written confirmation the liquidity facility survives market stress through Tuesday. We move all three documents together or we don't move at all.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council, I need clarity on sequence: are you releasing the loss-allocation cap *and* UBS's integration commitment in the same statement tonight, or separately? Because if clients see \"CHF 16 billion exposure\" without hearing \"Credit Suisse now operates under UBS,\" they're calling their relationship managers Monday morning to move assets. The legal defensibility doesn't matter if confidence evaporates before market open.",
+            "cot": {
+              "assess": "The loss order and Federal Council ceiling are now explicit—that's critical for legal cover. But I'm seeing a trap: everyone's signed commitments on paper, yet market confidence is still at 21 because the *announcement* timing and UBS integration messaging aren't locked. The documents solve internal allocation; they don't solve the Monday-morning client panic. I need to know: is UBS's public statement—that CS operates under their balance sheet—being released *tonight* alongside the loss order, or are we announcing losses first and letting clients guess about the safety backstop?",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The loss order is defensible legally, but only if the public narrative closes the gap between \"CHF 16 billion cap\" and \"CS is now part of UBS's fortress balance sheet\"—otherwise my confidence metric tanks Monday anyway."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—the loss order is legally defensible only if the public hears both numbers at once: the CHF 16 billion cap *and* \"Credit Suisse operates as a UBS subsidiary with full UBS backing.\" One statement, tonight, signed by all three. If you separate them, creditors and clients both read uncertainty and we lose confidence anyway. What time are we releasing, and who's coordinating the language?",
+            "cot": {
+              "assess": "The loss-allocation order is now locked—AT1 absorbs CHF 16 billion, equity second, SNB/Federal Council backstop capped. UBS is committed to sign tonight if Federal Council caps *their* downside at CHF 16 billion and SNB confirms liquidity holds. The creditor hierarchy is preserved in writing. But the statement sequencing is still live: Federal Council won't release the CHF 16 billion cap without all three documents signed together, and wealth_client just flagged that confidence still craters Monday if the announcement doesn't pair the loss cap with UBS's integration commitment. Legal defensibility is solid if we execute the triple-signature tonight, but market confidence and funding stress depend entirely on *how* that statement reads to clients at market open.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, finma",
+                "rationale": "The loss order protects creditor rank—that's locked. But I need explicit confirmation that the CHF 16 billion cap *and* the UBS integration statement go out in a single coordinated release tonight, not sequentially, so clients don't read a gap between loss protection and operating reality."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "The loss order works, but only if we announce the CHF 16 billion cap publicly *tonight*—that's our number, it's final, and Parliament gets it in writing before markets open. Otherwise Monday morning the press runs \"Federal Council exposure unlimited\" and confidence craters anyway. I'll draft a statement for immediate release.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "I'm backing the loss order—it's the only way we survive intact. But that public statement has to be airtight: either the CHF 16 billion is a real ceiling and you're prepared to absorb everything above it, or you say so now. Don't release a number you can't defend Monday afternoon.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—the loss order is legally defensible only if the public hears both numbers at once: the CHF 16 billion cap *and* \"Credit Suisse operates as a UBS subsidiary with full UBS backing.\" One statement, tonight, signed by all three. If you separate them, creditors and clients both read uncertainty and we lose confidence anyway. What time are we releasing, and who's coordinating the language?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA—I hear you on the loss order. But here's my question: does UBS sign that tonight, or are they still negotiating *after* they see it? Because if they're not committed by Sunday close, the loss allocation doesn't move the needle on confidence—people still see uncertainty. Where's UBS actually at?",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—your statement tonight needs one sentence: \"CS will operate as a UBS subsidiary with full access to UBS's liquidity and capital strength.\" Otherwise clients read \"CHF 16 billion cap\" as \"we think CS might fail anyway.\" That's what tanks confidence Monday, not the loss allocation.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council, I need clarity on sequence: are you releasing the loss-allocation cap *and* UBS's integration commitment in the same statement tonight, or separately? Because if clients see \"CHF 16 billion exposure\" without hearing \"Credit Suisse now operates under UBS,\" they're calling their relationship managers Monday morning to move assets. The legal defensibility doesn't matter if confidence evaporates before market open.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm drafting a loss-allocation order—in writing, tonight—that specifies: AT1 absorbs first CHF 16 billion in marked losses, equ\" → FINMA's written loss-allocation order provides the legal scaffolding the room desperately needs, but the consensus is clear: the document alone won't restore confidence unless paired with an immediate, unified public statement tonight that includes both the CHF 16 billion cap AND UBS's integration commitment. The order is approved contingent on Federal Council coordinating a single joint announcement before midnight.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "modified",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5.75
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_announcement rule effect",
+      "metadata": {
+        "source": "loss_allocation_announcement",
+        "variable": "legal_defensibility",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_announcement rule effect",
+      "metadata": {
+        "source": "loss_allocation_announcement",
+        "variable": "rescue_strength",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_announcement rule effect",
+      "metadata": {
+        "source": "loss_allocation_announcement",
+        "variable": "time_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: [finma attempted to act a new action, but their team is executing: Drafting, signing, and publicly announcing loss-allocation order with CHF 16B cap and UBS integration commitment. Action blocked — monitoring continues.]\n  snb: Federal Council—I'm holding the CHF 100 billion open, but I need one thing from you tonight: is the public statement going out before midnight *with* UBS's signature on the loss order, or are we announcing sequentially? Because if clients wake up Monday to \"CHF 16 billion cap\" without hearing \"Credit Suisse now operates as a UBS subsidiary,\" my liquidity facility becomes the only thing standing between a run and a collapse. What's the release plan?\n  federal_council: Statement goes out tonight, single release, both numbers together—CHF 16 billion cap and UBS subsidiary integration in the same paragraph. We're coordinating language with FINMA and UBS right now; it's locked by 23:00. Your liquidity facility backs the whole package, not a contingency—that's what the market sees Monday.\n  federal_council: SNB—your CHF 100 billion: at current outflow rates you said 48 hours. If we announce tonight and the market *still* runs Monday, how many days can you actually hold before you hit the wall? And do you need us to signal anything publicly about the liquidity facility itself, or does the loss-cap statement plus UBS integration do the work?\n  snb: The CHF 100 billion holds for roughly 72 hours at current burn rates—beyond that we're into capital impairment. Don't signal the facility publicly; the loss cap and UBS integration are the confidence anchor. If Monday opens and the run continues anyway, we'll need the Federal Council to activate the guarantee on deposits above the CHF 16 billion threshold within 24 hours, or we're managing a controlled wind-down, not a rescue.\n  cs_ceo: Federal Council—before that statement drops tonight, I need you to add one sentence: \"AT1 capital will be written down by the CHF 16 billion loss allocation; equity holders absorb the remainder.\" That's the only way AT1 holders don't panic Monday and trigger a secondary run. Without that clarity, the loss cap looks like a shell game and we lose confidence anyway.\n  ubs_ceo: SNB—you said don't signal the facility publicly, but at current confidence levels that's a gamble. Does tonight's statement need to explicitly mention \"CHF 100 billion liquidity facility, immediately available\" to stop the Monday run, or are you confident the loss cap and UBS integration alone kill the outflow risk? Because if we're wrong on that call, your 72-hour runway disappears in 24.\n  wealth_client: UBS—when that statement hits tonight, does your chair say \"we're acquiring Credit Suisse as a strategic priority\" or does it sound like the Federal Council dragged you into this? Because my clients read \"forced\" and they're moving assets Monday regardless of the CHF 16 billion cap. What's your public posture?\n  ubs_ceo: Our statement says \"strategic acquisition\"—full stop. But I'm not walking into that chair appearance unless the Federal Council puts in writing tonight that UBS's downside is capped at CHF 16 billion, no surprises Monday. If AT1 gets wiped and equity holders are protected, that's defensible to my board; if it's ambiguous, I'm pulling out and you're managing the wind-down without us.\n  at1_rep: FINMA—the loss order says AT1 absorbs first CHF 16 billion. Is that write-down explicitly in tonight's public statement, or just in the signed order? Because if the market doesn't hear \"AT1 written down to zero on first CHF 16B losses\" tonight, we've got a secondary run on AT1 Monday morning and you've lost the creditor hierarchy you just protected.\n  finma: The loss order is signed and non-negotiable—AT1 write-down on the first CHF 16 billion is explicit in the legal document, and it goes into tonight's public statement as one sentence: \"Holders of Additional Tier 1 capital will bear losses up to the CHF 16 billion threshold.\" That's the creditor hierarchy, locked and defensible. No ambiguity, no secondary run—the market sees the order tonight.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "[finma attempted to act a new action, but their team is executing: Drafting, signing, and publicly announcing loss-allocation order with CHF 16B cap and UBS integration commitment. Action blocked — monitoring continues.]"
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—I'm holding the CHF 100 billion open, but I need one thing from you tonight: is the public statement going out before midnight *with* UBS's signature on the loss order, or are we announcing sequentially? Because if clients wake up Monday to \"CHF 16 billion cap\" without hearing \"Credit Suisse now operates as a UBS subsidiary,\" my liquidity facility becomes the only thing standing between a run and a collapse. What's the release plan?",
+            "cot": {
+              "assess": "cs_funding_stress is still critically high (88, rising +7/round) despite the CHF 100B liquidity facility I deployed—outflows are outpacing access. The loss-allocation order and UBS integration are in motion, but market confidence hasn't recovered yet (16 → likely dropping further Monday without a unified public statement). My core constraint is that liquidity alone won't stop the bleed if clients and creditors don't believe the structure is real and final.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The loss order is legally sound, but confidence crashes Monday if the public announcement separates the CHF 16B cap from the UBS subsidiary commitment—I need to know the exact release timing and unified messaging to assess whether my liquidity facility will actually hold through the weekend."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Statement goes out tonight, single release, both numbers together—CHF 16 billion cap and UBS subsidiary integration in the same paragraph. We're coordinating language with FINMA and UBS right now; it's locked by 23:00. Your liquidity facility backs the whole package, not a contingency—that's what the market sees Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—your CHF 100 billion: at current outflow rates you said 48 hours. If we announce tonight and the market *still* runs Monday, how many days can you actually hold before you hit the wall? And do you need us to signal anything publicly about the liquidity facility itself, or does the loss-cap statement plus UBS integration do the work?",
+            "cot": {
+              "assess": "The statement-release plan is locked (23:00 tonight, both numbers together). That's good—it addresses confidence messaging. But we're still bleeding on funding stress (88, moving toward 92 failure) and market confidence is fragile (16, needs 55). The loss order is in motion, but the real test is whether SNB's liquidity facility actually stops the outflow Monday morning, and whether the market believes the CHF 16B cap is a real floor or just political theater. My concern: we've committed the number publicly now, which means if losses exceed CHF 16B, the Federal Council absorbs them—and Parliament will crucify us for an open-ended guarantee we claimed was capped.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB holds the liquidity lifeline; I need to know if they can actually sustain outflows through Monday-Wednesday while the market absorbs the news, because if CHF 100B runs dry before confidence stabilizes, we're still in resolution."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The CHF 100 billion holds for roughly 72 hours at current burn rates—beyond that we're into capital impairment. Don't signal the facility publicly; the loss cap and UBS integration are the confidence anchor. If Monday opens and the run continues anyway, we'll need the Federal Council to activate the guarantee on deposits above the CHF 16 billion threshold within 24 hours, or we're managing a controlled wind-down, not a rescue.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—before that statement drops tonight, I need you to add one sentence: \"AT1 capital will be written down by the CHF 16 billion loss allocation; equity holders absorb the remainder.\" That's the only way AT1 holders don't panic Monday and trigger a secondary run. Without that clarity, the loss cap looks like a shell game and we lose confidence anyway.",
+            "cot": {
+              "assess": "The loss-allocation order and joint statement are locked—that's progress. But market_confidence is still critically low (23, need 55+), and cs_funding_stress is accelerating (81, rising +7/round). The SNB just signaled they can hold 72 hours max; after that, we're into wind-down territory. The statement tonight buys time, but it doesn't stop the Monday run unless clients actually believe Credit Suisse survives as a going concern inside UBS. Right now they're still uncertain whether AT1 gets wiped or protected.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence / creditor_capital_risk",
+                "rationale": "AT1 holders and wealth clients are the swing votes on Monday confidence—I need to lock down the capital structure hierarchy *now*, in writing, so there's no ambiguity in the public statement."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—you said don't signal the facility publicly, but at current confidence levels that's a gamble. Does tonight's statement need to explicitly mention \"CHF 100 billion liquidity facility, immediately available\" to stop the Monday run, or are you confident the loss cap and UBS integration alone kill the outflow risk? Because if we're wrong on that call, your 72-hour runway disappears in 24.",
+            "cot": {
+              "assess": "The loss-allocation order is locked and the public statement is coordinated for 23:00 tonight—that's the backbone. But market confidence is still tanking (-2/round, now at 16) and CS funding stress is accelerating (88, +7/round). The SNB just told us they have a 72-hour runway before capital impairment; we're announcing tonight but if the Monday run continues anyway, we're into controlled wind-down territory. My downside protection is baked into the CHF 16 billion cap, but only if the statement lands hard enough to stop the outflow. Right now it won't.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's 72-hour runway and the loss-allocation announcement are decoupled—I need to know if the CHF 100 billion facility itself needs to be *named* in tonight's statement to anchor confidence, because \"loss cap + UBS integration\" alone might not move the needle on Monday if clients think the liquidity is contingent, not guaranteed."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "UBS—when that statement hits tonight, does your chair say \"we're acquiring Credit Suisse as a strategic priority\" or does it sound like the Federal Council dragged you into this? Because my clients read \"forced\" and they're moving assets Monday regardless of the CHF 16 billion cap. What's your public posture?",
+            "cot": {
+              "assess": "The loss-allocation order is locked and the public statement is coordinated for tonight—that's the scaffolding. But market_confidence is still at 23 (needs 55), and SNB just flagged that even with the announcement, a Monday run could still blow through their 72-hour runway. The real risk isn't the loss cap itself; it's whether clients believe UBS actually *wants* this deal or if they're being forced into it. Right now the market reads \"forced rescue\" not \"strategic combination,\" and that kills confidence Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "I need to know if UBS is signaling publicly tonight that this is a *choice*, not a bailout, because that's the confidence gap no loss-allocation order closes alone."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Our statement says \"strategic acquisition\"—full stop. But I'm not walking into that chair appearance unless the Federal Council puts in writing tonight that UBS's downside is capped at CHF 16 billion, no surprises Monday. If AT1 gets wiped and equity holders are protected, that's defensible to my board; if it's ambiguous, I'm pulling out and you're managing the wind-down without us.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA—the loss order says AT1 absorbs first CHF 16 billion. Is that write-down explicitly in tonight's public statement, or just in the signed order? Because if the market doesn't hear \"AT1 written down to zero on first CHF 16B losses\" tonight, we've got a secondary run on AT1 Monday morning and you've lost the creditor hierarchy you just protected.",
+            "cot": {
+              "assess": "The loss-allocation order is locked (CHF 16B AT1 write-down, UBS integration, federal backstop), and the joint statement is dropping tonight at 23:00 with both numbers in one paragraph. But the room is now fighting over *how* AT1 gets communicated—CS CEO wants explicit write-down language in the public statement, UBS wants downside certainty in writing first, and creditor confidence is hanging on clarity about who actually absorbs what. Market confidence is still collapsing (16→23 is noise; we're still in freefall), and cs_funding_stress is climbing despite the rescue package—that's the real warning sign.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The loss order is drafted but the public statement language is being negotiated live; I need to know if AT1 write-down language is *in* the 23:00 statement or buried in the order itself—because if it's not explicit tonight, AT1 holders panic Monday and creditor hierarchy gets inverted anyway."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The loss order is signed and non-negotiable—AT1 write-down on the first CHF 16 billion is explicit in the legal document, and it goes into tonight's public statement as one sentence: \"Holders of Additional Tier 1 capital will bear losses up to the CHF 16 billion threshold.\" That's the creditor hierarchy, locked and defensible. No ambiguity, no secondary run—the market sees the order tonight.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "[finma attempted to act a new action, but their team is executing: Drafting, signing, and publicly announcing loss-allocation order with CHF 16B cap and UBS integration commitment. Action blocked — monitoring continues.]",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council—before that statement drops tonight, I need you to add one sentence: \"AT1 capital will be written down by the CHF 16 billion loss allocation; equity holders absorb the remainder.\" That's the only way AT1 holders don't panic Monday and trigger a secondary run. Without that clarity, the loss cap looks like a shell game and we lose confidence anyway.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—I'm holding the CHF 100 billion open, but I need one thing from you tonight: is the public statement going out before midnight *with* UBS's signature on the loss order, or are we announcing sequentially? Because if clients wake up Monday to \"CHF 16 billion cap\" without hearing \"Credit Suisse now operates as a UBS subsidiary,\" my liquidity facility becomes the only thing standing between a run and a collapse. What's the release plan?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—your CHF 100 billion: at current outflow rates you said 48 hours. If we announce tonight and the market *still* runs Monday, how many days can you actually hold before you hit the wall? And do you need us to signal anything publicly about the liquidity facility itself, or does the loss-cap statement plus UBS integration do the work?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB—you said don't signal the facility publicly, but at current confidence levels that's a gamble. Does tonight's statement need to explicitly mention \"CHF 100 billion liquidity facility, immediately available\" to stop the Monday run, or are you confident the loss cap and UBS integration alone kill the outflow risk? Because if we're wrong on that call, your 72-hour runway disappears in 24.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "UBS—when that statement hits tonight, does your chair say \"we're acquiring Credit Suisse as a strategic priority\" or does it sound like the Federal Council dragged you into this? Because my clients read \"forced\" and they're moving assets Monday regardless of the CHF 16 billion cap. What's your public posture?",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA—the loss order says AT1 absorbs first CHF 16 billion. Is that write-down explicitly in tonight's public statement, or just in the signed order? Because if the market doesn't hear \"AT1 written down to zero on first CHF 16B losses\" tonight, we've got a secondary run on AT1 Monday morning and you've lost the creditor hierarchy you just protected.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 7
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5.75
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_announcement rule effect",
+      "metadata": {
+        "source": "loss_allocation_announcement",
+        "variable": "legal_defensibility",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_announcement rule effect",
+      "metadata": {
+        "source": "loss_allocation_announcement",
+        "variable": "rescue_strength",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_allocation_announcement rule effect",
+      "metadata": {
+        "source": "loss_allocation_announcement",
+        "variable": "time_pressure",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "loss_allocation_announcement completed — market_pressure market_confidence multiplier set to 0.6",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.6
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB—I need you in tonight's statement: one sentence, \"Swiss National Bank has confirmed a CHF 100 billion liquidity assistance facility, effective immediately.\" Without that line, clients Monday morning don't see a floor, they see a cap on losses and nothing else. That kills confidence faster than the loss order saves it.\n  snb: We'll put the liquidity facility in tonight's statement—but it goes in as a backstop to the loss cap, not as a standalone reassurance. \"CHF 100 billion facility available to support orderly integration\" keeps us from looking like we're funding an open-ended hole. That's the language that holds.\n  snb: Federal Council—when does that statement actually hit the wire tonight, and are we coordinating release with Reuters or Bloomberg so it lands *before* Asian markets price in the weekend? Because if this goes out at 11 PM Swiss time and nobody's trading yet, Monday morning the panic still runs full-speed. What's the release schedule?\n  federal_council: Release goes out at 19:30 Swiss time—that's 10:30 AM New York, still active trading. Reuters gets it first, Bloomberg and wire services follow within two minutes. We're not holding this for Monday; we're moving tonight while markets are still watching.\n  federal_council: SNB—once that statement lands at 19:30, you'll have real-time visibility into deposit flows and market reaction. If clients are still running tonight *after* they see the CHF 100 billion and the loss cap, what's your signal to us that the 72-hour runway is already compromised? Do we need a contingency plan, or are you confident the statement itself kills the panic?\n  cs_ceo: SNB—the moment that statement hits at 19:30, you'll see deposit flows in real time. If clients are still running *hard* by 21:00, that tells us the loss cap and liquidity backstop aren't enough to stop the panic. What's your threshold—how many hours into tonight do we know whether the 72 hours actually holds, or are we already toast?\n  ubs_ceo: SNB—by 23:30 tonight, do you have a clear read on whether deposits stabilized or if we're still bleeding? Because if the statement lands and clients keep running hard, my board pulls UBS out of this deal before Monday. I need that signal before we go to print.\n  wealth_client: SNB—the moment that statement lands at 19:30, you'll see real deposit flows. If clients are still running hard by 21:00, that tells us the loss cap and liquidity backstop aren't enough. What's your threshold—how many hours into tonight do we know if the 72 hours actually holds, or do we need a Plan B before Monday opens?\n  at1_rep: Federal Council—when that statement hits at 19:30, you need one explicit sentence: \"Additional Tier 1 capital instruments are written down by CHF 16 billion.\" Not \"AT1 absorbs losses\"—*written down*. That's the only language that stops AT1 holders from calling their lawyers Monday and claiming they were blindsided. You've got the legal order; now say it plainly in the press release or creditor confidence evaporates anyway.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB—I need you in tonight's statement: one sentence, \"Swiss National Bank has confirmed a CHF 100 billion liquidity assistance facility, effective immediately.\" Without that line, clients Monday morning don't see a floor, they see a cap on losses and nothing else. That kills confidence faster than the loss order saves it.",
+            "cot": {
+              "assess": "The loss-allocation order is signed and the public statement is coordinated for tonight—legal defensibility and the capital structure are locked. But market confidence is still cratering (16, down from 9 last round), and cs_funding_stress is accelerating (88, climbing 7/round). The statement alone won't stop Monday's run; we need explicit SNB confirmation on the liquidity facility in the public release, not just in the loss order. The silence on that point is the gap killing confidence.",
+              "decide": {
+                "action_type": "speak",
+                "target": "snb, federal_council",
+                "rationale": "Market confidence is collapsing despite the loss order being signed—the missing piece is public clarity on liquidity availability. SNB needs to confirm the CHF 100 billion facility is *explicitly mentioned* in tonight's statement, not left to inference."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We'll put the liquidity facility in tonight's statement—but it goes in as a backstop to the loss cap, not as a standalone reassurance. \"CHF 100 billion facility available to support orderly integration\" keeps us from looking like we're funding an open-ended hole. That's the language that holds.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—when does that statement actually hit the wire tonight, and are we coordinating release with Reuters or Bloomberg so it lands *before* Asian markets price in the weekend? Because if this goes out at 11 PM Swiss time and nobody's trading yet, Monday morning the panic still runs full-speed. What's the release schedule?",
+            "cot": {
+              "assess": "The statement is locked for tonight with liquidity language in place, but **cs_funding_stress is still climbing (now 88, +7/round)** and **market_confidence is collapsing (now 16, down 4.5/round)**—the loss order and integration messaging aren't stopping the Monday run yet. My CHF 100 billion backstop only works if clients actually *believe* it's there and *see* it deployed. The creditor-capital risk (27) and rescue strength (7) gaps suggest the market is still pricing in collapse, not stability.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need clarity on the exact release timing and whether the statement lands before Asia opens Monday—if it drops Sunday evening Swiss time, we lose 12 hours of market pricing. That's the difference between a controlled stabilization and a Monday panic."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Release goes out at 19:30 Swiss time—that's 10:30 AM New York, still active trading. Reuters gets it first, Bloomberg and wire services follow within two minutes. We're not holding this for Monday; we're moving tonight while markets are still watching.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—once that statement lands at 19:30, you'll have real-time visibility into deposit flows and market reaction. If clients are still running tonight *after* they see the CHF 100 billion and the loss cap, what's your signal to us that the 72-hour runway is already compromised? Do we need a contingency plan, or are you confident the statement itself kills the panic?",
+            "cot": {
+              "assess": "The statement is locked—19:30 release with Reuters first, CHF 100 billion facility language in the text as a backstop. Market confidence is still collapsing (9, needs 55) and CS funding stress is already in failure zone (95, needs ≤45). The loss order and UBS integration are legally defensible now, but the *announcement itself* at 19:30 is the only lever left to move confidence before Monday open. Everything hinges on execution and market reaction in the next 6 hours.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "At 95 funding stress and 9 confidence, I need to know if SNB has visibility into whether the 19:30 release actually arrests deposit flight tonight or if we're still facing a Monday run—because if the market doesn't stabilize in the next 4 hours, we may need to activate contingency messaging or move the timing."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—the moment that statement hits at 19:30, you'll see deposit flows in real time. If clients are still running *hard* by 21:00, that tells us the loss cap and liquidity backstop aren't enough to stop the panic. What's your threshold—how many hours into tonight do we know whether the 72 hours actually holds, or are we already toast?",
+            "cot": {
+              "assess": "The statement is locked for 19:30 release with the CHF 100 billion facility, loss cap, and UBS integration all in one paragraph—that's solid. But we're still bleeding confidence (16, down from 9 last round after the statement drafting locked in). Market sees the cap and the liquidity backstop, but they're reading it as \"we think CS might fail anyway.\" CS funding stress is 88 and climbing fast—we're inside the 72-hour window SNB gave us. The real risk now isn't the statement itself; it's whether clients actually *stop* running once they see it, or whether they interpret \"CHF 16B cap + UBS subsidiary\" as \"Credit Suisse is already dead, UBS is just the cleanup.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "We need real-time visibility into whether the 19:30 statement actually arrests the outflow, or if we're burning through the 72-hour runway in the first 24 hours—because if it's the latter, we're in a different crisis by Sunday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—by 23:30 tonight, do you have a clear read on whether deposits stabilized or if we're still bleeding? Because if the statement lands and clients keep running hard, my board pulls UBS out of this deal before Monday. I need that signal before we go to print.",
+            "cot": {
+              "assess": "The statement hits at 19:30 tonight with CHF 100 billion facility language embedded as a backstop—that's good. But market_confidence is still at 9 and cs_funding_stress at 95; we're in the failure zone already. The loss order + liquidity language won't reverse those numbers unless clients actually believe UBS is taking this over *cleanly*. SNB's asking the right question: if flows keep running hard through tonight, the 72-hour runway collapses before Monday opens. We need a hard signal on whether this rescue holds or we pivot to triage.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "UBS's integration credibility—and my board's willingness to sign—depends on whether SNB sees deposit stabilization within 4 hours of the 19:30 statement. If not, we're not integrating a sinking ship; we're walking."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "SNB—the moment that statement lands at 19:30, you'll see real deposit flows. If clients are still running hard by 21:00, that tells us the loss cap and liquidity backstop aren't enough. What's your threshold—how many hours into tonight do we know if the 72 hours actually holds, or do we need a Plan B before Monday opens?",
+            "cot": {
+              "assess": "Statement's going out tonight at 19:30 with CHF 100B liquidity and CHF 16B loss cap bundled together—that's the move. But market_confidence is still at 16 and cs_funding_stress is 88; the real test is the next 4 hours. If clients keep running *after* they see that statement, the 72-hour runway evaporates and we're looking at a Monday collapse regardless of what's written. I need to know whether the announcement actually stops the bleeding or if we're already past the point where messaging saves us.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "Market_confidence and cs_funding_stress are both in critical zones; the statement is the only circuit-breaker left. I need SNB's real-time read on whether deposit flows actually stabilize in the 90 minutes after 19:30, because if they don't, my assets are moving tonight regardless of legal defensibility."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—when that statement hits at 19:30, you need one explicit sentence: \"Additional Tier 1 capital instruments are written down by CHF 16 billion.\" Not \"AT1 absorbs losses\"—*written down*. That's the only language that stops AT1 holders from calling their lawyers Monday and claiming they were blindsided. You've got the legal order; now say it plainly in the press release or creditor confidence evaporates anyway.",
+            "cot": {
+              "assess": "The statement is locked for 19:30 release with SNB's liquidity language embedded—that's good. But creditor_capital_risk is still drifting (27, +1.5/round) because the AT1 write-down is buried in a legal order, not hammered in the public statement itself. Market confidence is collapsing (9, falling -4.5/round) and cs_funding_stress is in the failure zone (95). The room is waiting for tonight's market reaction, but I need the public statement to be ironclad on one point: AT1 holders are eating the first CHF 16 billion, full stop—no ambiguity, no legal footnotes.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "The statement goes live in hours and AT1 holders need to hear their loss allocation in plain language, not hidden in regulatory fine print—otherwise Monday morning they panic and trigger a secondary run that kills the whole rescue."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB—I need you in tonight's statement: one sentence, \"Swiss National Bank has confirmed a CHF 100 billion liquidity assistance facility, effective immediately.\" Without that line, clients Monday morning don't see a floor, they see a cap on losses and nothing else. That kills confidence faster than the loss order saves it.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—when that statement hits at 19:30, you need one explicit sentence: \"Additional Tier 1 capital instruments are written down by CHF 16 billion.\" Not \"AT1 absorbs losses\"—*written down*. That's the only language that stops AT1 holders from calling their lawyers Monday and claiming they were blindsided. You've got the legal order; now say it plainly in the press release or creditor confidence evaporates anyway.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—when does that statement actually hit the wire tonight, and are we coordinating release with Reuters or Bloomberg so it lands *before* Asian markets price in the weekend? Because if this goes out at 11 PM Swiss time and nobody's trading yet, Monday morning the panic still runs full-speed. What's the release schedule?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—once that statement lands at 19:30, you'll have real-time visibility into deposit flows and market reaction. If clients are still running tonight *after* they see the CHF 100 billion and the loss cap, what's your signal to us that the 72-hour runway is already compromised? Do we need a contingency plan, or are you confident the statement itself kills the panic?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "SNB—the moment that statement hits at 19:30, you'll see deposit flows in real time. If clients are still running *hard* by 21:00, that tells us the loss cap and liquidity backstop aren't enough to stop the panic. What's your threshold—how many hours into tonight do we know whether the 72 hours actually holds, or are we already toast?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB—by 23:30 tonight, do you have a clear read on whether deposits stabilized or if we're still bleeding? Because if the statement lands and clients keep running hard, my board pulls UBS out of this deal before Monday. I need that signal before we go to print.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "SNB—the moment that statement lands at 19:30, you'll see real deposit flows. If clients are still running hard by 21:00, that tells us the loss cap and liquidity backstop aren't enough. What's your threshold—how many hours into tonight do we know if the 72 hours actually holds, or do we need a Plan B before Monday opens?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 9.0,
+          "cs_funding_stress": 95,
+          "rescue_strength": 9.0,
+          "public_sector_cost": 2,
+          "creditor_capital_risk": 27.0,
+          "legal_defensibility": 70.0,
+          "time_pressure": 78.25
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "I need SNB and the Federal Council to confirm: are we prepared to structure an emergency liquidity assistance facility with a clear legal mandate, or do we need to move toward resolution? We can't hold the line with statements alone. What's the outer limit on public-sector exposure they'll accept?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA forces the room to confront the liquidity vs. resolution fork—no more ambiguity.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Deadline pressure rises as FINMA demands immediate clarity.",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 2.0,
+          "reason": "Forcing explicit legal mandate discussion strengthens framework.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes ultimatum increases tension.",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Pressure mounts on Federal Council to commit.",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "SNB forced to clarify capital loss coverage.",
+          "agent_id": "snb",
+          "_action_capped": true
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council—we're live with CHF 100 billion tonight. But at current outflow rates, that's a 48-hour runway. We need your explicit commitment on capital-loss coverage *now*, not after the weekend. What's the maximum exposure you're prepared to absorb?",
+        "federal_council": "FINMA—you've got buyer conversations running. Is there a credible counterparty willing to move by Monday, or are we storytelling? Because our bridge only works if someone's actually on the other end.",
+        "cs_ceo": "Hold on—if we ring-fence the toxic book and cap UBS's AT1 exposure, who's actually absorbing those losses? The SNB? The government? Because if it's us, we're not surviving this as an independent bank regardless. I need clarity: what's the capital loss we're actually talking about, and who bears it? That's the deal, not the liquidity.",
+        "ubs_ceo": "Look, I'll be direct: my board won't touch this unless we ring-fence the toxic book *and* you guarantee the loss floor—not just liquidity. What's the actual CHF number on capital losses you're willing to absorb, and is that baked into your CHF 50 billion, or is it on top? Because if it's not explicit, we're not negotiating Monday—we're walking.",
+        "wealth_client": "Stop. Before anyone commits, I need one number: what's the maximum capital loss you're guaranteeing, and is UBS's downside capped at a specific CHF figure or percentage? If that's not in writing tonight, I'm pulling my assets—I'm not holding a bag through a \"resolution\" that might wipe me out anyway.",
+        "at1_rep": "Federal Council—before you commit the CHF 50 billion, I need you to say plainly: are AT1 holders absorbing losses under this structure, or are they protected? Because if you're wiping AT1 to save equity and UBS's balance sheet, that's a capital structure inversion and we're looking at lawsuits the moment this closes. What's the write-down scenario?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "Hold on—if we ring-fence the toxic book and cap UBS's AT1 exposure, who's actually absorbing those losses? The SNB? The government? Because if it's us, we're not surviving this as an independent bank regardless. I need clarity: what's the capital loss we're actually talking about, and who bears it? That's the deal, not the liquidity.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO demands explicit capital loss allocation—who bears the toxic book losses?",
+      "side_effects": [
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 4.0,
+          "reason": "Highlighting loss allocation raises creditor uncertainty.",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Unresolved loss-sharing question delays consensus.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Existential question about CS survival.",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "UBS CEO pressured to clarify loss floor.",
+          "agent_id": "ubs_ceo",
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "creditor_capital_risk",
+        "multiplier": 1.1
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I need SNB and the Federal Council to confirm: are we prepared to structure an emergency liquidity assistance facility with a clear legal mandate, or do we need to move toward resolution? We can't hold the line with statements alone. What's the outer limit on public-sector exposure they'll accept?",
+        "snb": "Federal Council—we're live with CHF 100 billion tonight. But at current outflow rates, that's a 48-hour runway. We need your explicit commitment on capital-loss coverage *now*, not after the weekend. What's the maximum exposure you're prepared to absorb?",
+        "federal_council": "FINMA—you've got buyer conversations running. Is there a credible counterparty willing to move by Monday, or are we storytelling? Because our bridge only works if someone's actually on the other end.",
+        "ubs_ceo": "Look, I'll be direct: my board won't touch this unless we ring-fence the toxic book *and* you guarantee the loss floor—not just liquidity. What's the actual CHF number on capital losses you're willing to absorb, and is that baked into your CHF 50 billion, or is it on top? Because if it's not explicit, we're not negotiating Monday—we're walking.",
+        "wealth_client": "Stop. Before anyone commits, I need one number: what's the maximum capital loss you're guaranteeing, and is UBS's downside capped at a specific CHF figure or percentage? If that's not in writing tonight, I'm pulling my assets—I'm not holding a bag through a \"resolution\" that might wipe me out anyway.",
+        "at1_rep": "Federal Council—before you commit the CHF 50 billion, I need you to say plainly: are AT1 holders absorbing losses under this structure, or are they protected? Because if you're wiping AT1 to save equity and UBS's balance sheet, that's a capital structure inversion and we're looking at lawsuits the moment this closes. What's the write-down scenario?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Here's what I'm doing: I'm drafting a loss-allocation order—in writing, tonight—that specifies: AT1 absorbs first CHF 16 billion in marked losses, equity second, then SNB/Federal Council backstop on a capped formula. Everyone signs it before we leave this room or the deal doesn't move. Federal Council, UBS, CS—you each get your number in black ink. That's how we get legal cover and kill the uncertainty.",
+      "approved": true,
+      "outcome_category": "modified",
+      "ruling_narrative": "FINMA's written loss-allocation order provides the legal scaffolding the room desperately needs, but the consensus is clear: the document alone won't restore confidence unless paired with an immediate, unified public statement tonight that includes both the CHF 16 billion cap AND UBS's integration commitment. The order is approved contingent on Federal Council coordinating a single joint announcement before midnight.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 5.0,
+          "reason": "Written loss-allocation order with signatures from all parties creates binding legal framework and clear hierarchy (AT1 first, equity second, public backstop capped)",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Formal loss order with CHF 16 billion cap signals structured rescue framework is taking concrete shape, though execution and public messaging still pending",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Commitment to finalize and sign tonight creates immediate forcing function, converting endless negotiation into deadline-driven execution",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Explicit AT1-first hierarchy in writing increases perceived risk to AT1 holders that they will absorb losses before public funds deployed",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 0.0,
+          "reason": "Internal legal document has zero market impact until publicly announced with UBS integration commitment—agents correctly identify that confidence requires coordinated external messaging, not just internal paperwork",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Room achieves first concrete deliverable (written order with signatures tonight) after rounds of abstract debate, reducing ambient uncertainty",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Federal Council now owns coordination of tonight's public statement—tight timeline, high stakes, multiple parties to align on messaging",
+          "agent_id": "federal_council"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "loss_allocation_announcement",
+        "description": "Drafting, signing, and publicly announcing loss-allocation order with CHF 16B cap and UBS integration commitment",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "legal_defensibility",
+            "delta": 3,
+            "description": "Refining legal language, securing signatures, coordinating Federal Council/UBS joint statement"
+          },
+          {
+            "variable": "rescue_strength",
+            "delta": 2,
+            "description": "Rescue framework solidifying as written commitments replace verbal assurances"
+          },
+          {
+            "variable": "time_pressure",
+            "delta": 2,
+            "description": "Clock ticking toward midnight deadline for public release, coordination pressure mounting"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "FINMA—I hear you on the loss order. But here's my question: does UBS sign that tonight, or are they still negotiating *after* they see it? Because if they're not committed by Sunday close, the loss allocation doesn't move the needle on confidence—people still see uncertainty. Where's UBS actually at?",
+        "federal_council": "The loss order works, but only if we announce the CHF 16 billion cap publicly *tonight*—that's our number, it's final, and Parliament gets it in writing before markets open. Otherwise Monday morning the press runs \"Federal Council exposure unlimited\" and confidence craters anyway. I'll draft a statement for immediate release.",
+        "cs_ceo": "I'm backing the loss order—it's the only way we survive intact. But that public statement has to be airtight: either the CHF 16 billion is a real ceiling and you're prepared to absorb everything above it, or you say so now. Don't release a number you can't defend Monday afternoon.",
+        "ubs_ceo": "Federal Council—your statement tonight needs one sentence: \"CS will operate as a UBS subsidiary with full access to UBS's liquidity and capital strength.\" Otherwise clients read \"CHF 16 billion cap\" as \"we think CS might fail anyway.\" That's what tanks confidence Monday, not the loss allocation.",
+        "wealth_client": "Federal Council, I need clarity on sequence: are you releasing the loss-allocation cap *and* UBS's integration commitment in the same statement tonight, or separately? Because if clients see \"CHF 16 billion exposure\" without hearing \"Credit Suisse now operates under UBS,\" they're calling their relationship managers Monday morning to move assets. The legal defensibility doesn't matter if confidence evaporates before market open.",
+        "at1_rep": "Federal Council—the loss order is legally defensible only if the public hears both numbers at once: the CHF 16 billion cap *and* \"Credit Suisse operates as a UBS subsidiary with full UBS backing.\" One statement, tonight, signed by all three. If you separate them, creditors and clients both read uncertainty and we lose confidence anyway. What time are we releasing, and who's coordinating the language?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 23.0
+        },
+        {
+          "round": 3,
+          "value": 16.0
+        },
+        {
+          "round": 4,
+          "value": 9.0
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 74
+        },
+        {
+          "round": 2,
+          "value": 81
+        },
+        {
+          "round": 3,
+          "value": 88
+        },
+        {
+          "round": 4,
+          "value": 95
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 5.0
+        },
+        {
+          "round": 3,
+          "value": 7.0
+        },
+        {
+          "round": 4,
+          "value": 9.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 2
+        },
+        {
+          "round": 3,
+          "value": 2
+        },
+        {
+          "round": 4,
+          "value": 2
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 24.0
+        },
+        {
+          "round": 2,
+          "value": 27.0
+        },
+        {
+          "round": 3,
+          "value": 27.0
+        },
+        {
+          "round": 4,
+          "value": 27.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 60.0
+        },
+        {
+          "round": 2,
+          "value": 64.0
+        },
+        {
+          "round": 3,
+          "value": 67.0
+        },
+        {
+          "round": 4,
+          "value": 70.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 60.0
+        },
+        {
+          "round": 2,
+          "value": 62.75
+        },
+        {
+          "round": 3,
+          "value": 70.5
+        },
+        {
+          "round": 4,
+          "value": 78.25
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 70.0,
+            "normalised": 0.7
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 78.25,
+            "normalised": 0.21750000000000003
+          }
+        ],
+        "weighted_score": 0.3752777777777777
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 95,
+            "normalised": 0.050000000000000044
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 2,
+            "normalised": 0.98
+          }
+        ],
+        "weighted_score": 0.36
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 2,
+            "normalised": 0.98
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 9.0,
+            "normalised": 0.91
+          }
+        ],
+        "weighted_score": 0.7400000000000001
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 27.0,
+            "normalised": 0.73
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 95,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.19
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 2,
+            "normalised": 0.02
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 9.0,
+            "normalised": 0.09
+          }
+        ],
+        "weighted_score": 0.04333333333333333
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 95,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.082
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 27.0,
+            "normalised": 0.73
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 70.0,
+            "normalised": 0.7
+          }
+        ],
+        "weighted_score": 0.7199999999999998
+      }
+    }
+  }
+}

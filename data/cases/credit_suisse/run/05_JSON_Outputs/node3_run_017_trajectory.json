@@ -1,0 +1,1764 @@
+{
+  "simulation_id": "93846c3587a5",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: We're repricing the financial-lines book effective immediately — D&O sublimit drops to $25M per claim, and I'm requiring board-certified risk-management attestations quarterly. CS paid $115M for governance failures; we're not eating that margin again on vague control environments.\n  dando_specialist: Your attestations are good, but they're rear-view. When a board says \"controls are solid\" Q3, and then three months later we're reading SEC comment letters about hidden deposit flows—that's the gap. What's your escalation trigger if the attestation contradicts filed disclosures? That's where discipline actually holds.\n  financial_lines_underwriter: Attestation gets flagged for underwriting review within 48 hours of any SEC filing that contradicts the prior quarter's submission — we pull the policy if the gap is material. That's the escalation trigger. If they won't commit to that protocol, the quarterly attestation requirement doesn't buy us anything.\n  eo_specialist: Who's actually running the 48-hour review — your team or the insured's counsel? And if they're self-reporting the contradiction, you're already behind. How do you plan to surface the gaps they don't see coming?\n  reinsurance_manager: The 48-hour flag works for one insured's disclosure gap, but here's my concern: if that gap is structural—bad risk modeling, weak deposit controls—it could be baked into three or four banks in your book the same way. When it blows, you get simultaneous D&O/E&O claims across separate treaties. Are you cross-checking attestations for *correlated weaknesses* across your financial-institution cluster, or just watching each one in isolation?\n  claims_counsel: On the 48-hour flag—that's good discipline. But here's what keeps me up: if three of your banks all use the same deposit-reconciliation vendor or inherited the same legacy compliance framework, a single disclosure gap at one triggers simultaneous E&O claims at all three. Are you mapping vendor overlap and control architecture *across* your financial-institution cluster, or just auditing each attestation in isolation?\n  emerging_risk_lead: Before we lock the sublimit: are you cross-referencing your D&O book against deposit-reconciliation vendors and legacy compliance frameworks? If three banks use the same vendor and it fails, you get three simultaneous claims, not one. That's where your discipline breaks.\n  ai_agent_analyst: Before the attestation protocol goes live, are you running a control-correlation audit across your financial-institution cluster — shared vendors, legacy deposit systems, same compliance frameworks? Because if three banks inherited the same broken reconciliation process, your 48-hour flag catches one, not the systemic failure that hits all three simultaneously.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "We're repricing the financial-lines book effective immediately — D&O sublimit drops to $25M per claim, and I'm requiring board-certified risk-management attestations quarterly. CS paid $115M for governance failures; we're not eating that margin again on vague control environments.",
+            "cot": {
+              "assess": "D&O/E&O exposure is recognized at 38 — manageable but climbing as litigation tail extends. Reinsurance accumulation is contained at 27, well below the 45 threshold. My core variable, underwriting_discipline, is stuck at 40; I need to move it 20 points by tightening terms, pricing, and governance conditions — and I need to do it now while the market memory of the $115M CS settlement is still sharp.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure, underwriting_discipline",
+                "rationale": "The $115M settlement is fresh; I can use it to justify immediate repricing and tighter governance warranties before loss inflation erodes my underwriting margin."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Your attestations are good, but they're rear-view. When a board says \"controls are solid\" Q3, and then three months later we're reading SEC comment letters about hidden deposit flows—that's the gap. What's your escalation trigger if the attestation contradicts filed disclosures? That's where discipline actually holds.",
+            "cot": {
+              "assess": "D&O exposure is locked in at 38—the $115M CS settlement and governance red flags are already priced into our view. The underwriter's sublimit + attestation move is solid hardening. But underwriting_discipline at 40 is our real leak: we're repricing the symptom, not locking down the systemic behavioral risk that keeps triggering these claims in the first place.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Board attestations are hygiene, but they don't catch the *timing* of control failures—when do your quarterly attestations actually surface a red flag before it becomes litigation?"
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Attestation gets flagged for underwriting review within 48 hours of any SEC filing that contradicts the prior quarter's submission — we pull the policy if the gap is material. That's the escalation trigger. If they won't commit to that protocol, the quarterly attestation requirement doesn't buy us anything.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Who's actually running the 48-hour review — your team or the insured's counsel? And if they're self-reporting the contradiction, you're already behind. How do you plan to surface the gaps they don't see coming?",
+            "cot": {
+              "assess": "The 48-hour escalation trigger on SEC contradictions is solid — that's real discipline. But it only works if the attestation actually gets compared to filings systematically. Right now you're relying on manual review catching gaps. Also, quarterly attestations miss the speed of modern disclosure cycles; a material event can drop mid-quarter and your last attestation is stale by definition.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "E&O exposure hinges on whether your attestation protocol catches behavioral drift *before* it becomes a claim trigger — I need to understand the detection mechanism, not just the response."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The 48-hour flag works for one insured's disclosure gap, but here's my concern: if that gap is structural—bad risk modeling, weak deposit controls—it could be baked into three or four banks in your book the same way. When it blows, you get simultaneous D&O/E&O claims across separate treaties. Are you cross-checking attestations for *correlated weaknesses* across your financial-institution cluster, or just watching each one in isolation?",
+            "cot": {
+              "assess": "The 48-hour escalation trigger is solid operationally, but it's reactive—you're waiting for contradictions to surface. The real accumulation risk I'm seeing is across the *portfolio*: if three financial institutions in our book all have hidden governance gaps and they hit the market simultaneously (like SVB/Signature/CS did), that's correlated D&O exposure across multiple treaties, not three isolated claims. E&O Specialist just flagged the self-reporting blind spot—that's my cue to surface hidden accumulation.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "You need to know whether your 48-hour review catches *systemic* gaps across your insureds, not just individual contradictions—because one event can trigger claims across multiple policies simultaneously."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the 48-hour flag—that's good discipline. But here's what keeps me up: if three of your banks all use the same deposit-reconciliation vendor or inherited the same legacy compliance framework, a single disclosure gap at one triggers simultaneous E&O claims at all three. Are you mapping vendor overlap and control architecture *across* your financial-institution cluster, or just auditing each attestation in isolation?",
+            "cot": {
+              "assess": "The 48-hour attestation-review protocol is solid operational discipline, but it's reactive—we flag the gap after disclosure hits, and by then reputational and claims contagion are already live. The real blind spot is exactly what reinsurance_manager flagged: correlated structural weaknesses across your financial-institution cluster. If deposit-flow controls are weak at Bank A and Bank B uses the same third-party processor, you've got systemic accumulation hiding in plain sight until one disclosure pulls the thread on all of them.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we tighten the attestation protocol further, I need to know if you're even seeing the cross-book correlation patterns that would signal systemic risk across your financial-institution exposures."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Before we lock the sublimit: are you cross-referencing your D&O book against deposit-reconciliation vendors and legacy compliance frameworks? If three banks use the same vendor and it fails, you get three simultaneous claims, not one. That's where your discipline breaks.",
+            "cot": {
+              "assess": "The 48-hour escalation trigger and quarterly attestations are solid discipline — that's your perimeter defense. But the reinsurance_manager and claims_counsel just surfaced the real contagion risk: correlated structural weaknesses *across your cluster*. You're watching each bank in isolation; you're not mapping vendor overlap, legacy frameworks, or deposit-control architecture that could blow up three policies simultaneously. That's a reputational *and* systemic accumulation play.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before you lock in the $25M sublimit, you need visibility into whether your financial-institution cluster shares control vendors or inherited frameworks — that's where contagion velocity compounds your exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Before the attestation protocol goes live, are you running a control-correlation audit across your financial-institution cluster — shared vendors, legacy deposit systems, same compliance frameworks? Because if three banks inherited the same broken reconciliation process, your 48-hour flag catches one, not the systemic failure that hits all three simultaneously.",
+            "cot": {
+              "assess": "The team has locked down a solid 48-hour attestation-contradiction escalation and is repricing the D&O sublimit — that tightens discipline. But the reinsurance manager and claims counsel just surfaced the real exposure: correlated weaknesses across your financial-institution cluster (shared vendors, legacy frameworks) turn a single bank's failure into simultaneous multi-insured claims. That's accumulation risk masquerading as isolated underwriting. You're watching each attestation in a silo when the systemic correlation is the actual liability.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline only holds if you're actually mapping the control architecture *across* your book — not just validating each insured independently. That's the gap between discipline and false confidence."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Your attestations are good, but they're rear-view. When a board says \"controls are solid\" Q3, and then three months later we're reading SEC comment letters about hidden deposit flows—that's the gap. What's your escalation trigger if the attestation contradicts filed disclosures? That's where discipline actually holds.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Who's actually running the 48-hour review — your team or the insured's counsel? And if they're self-reporting the contradiction, you're already behind. How do you plan to surface the gaps they don't see coming?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "The 48-hour flag works for one insured's disclosure gap, but here's my concern: if that gap is structural—bad risk modeling, weak deposit controls—it could be baked into three or four banks in your book the same way. When it blows, you get simultaneous D&O/E&O claims across separate treaties. Are you cross-checking attestations for *correlated weaknesses* across your financial-institution cluster, or just watching each one in isolation?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On the 48-hour flag—that's good discipline. But here's what keeps me up: if three of your banks all use the same deposit-reconciliation vendor or inherited the same legacy compliance framework, a single disclosure gap at one triggers simultaneous E&O claims at all three. Are you mapping vendor overlap and control architecture *across* your financial-institution cluster, or just auditing each attestation in isolation?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Before we lock the sublimit: are you cross-referencing your D&O book against deposit-reconciliation vendors and legacy compliance frameworks? If three banks use the same vendor and it fails, you get three simultaneous claims, not one. That's where your discipline breaks.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Before the attestation protocol goes live, are you running a control-correlation audit across your financial-institution cluster — shared vendors, legacy deposit systems, same compliance frameworks? Because if three banks inherited the same broken reconciliation process, your 48-hour flag catches one, not the systemic failure that hits all three simultaneously.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"We're repricing the financial-lines book effective immediately — D&O sublimit drops to $25M per claim, and I'm requiring board-certified risk-manageme\" → The sublimit reduction and quarterly attestations are sound first steps, but the proposal operates in isolation—multiple specialists have identified the systemic correlation gap that your protocol doesn't address. Modified to require cross-book correlation audit before implementation.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "modified",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Forget the 48-hour flag for now — it doesn't move the needle. I'm adding a mandatory vendor-control audit to renewal terms: any bank using legacy deposit systems from the same three vendors gets a 30% loading *and* a depositor-disclosure warranty. We price the correlation, not hope we catch it. Who on the insured side can confirm their vendor stack by renewal?\n  dando_specialist: On the vendor-control warranty — who owns the vendor-stack discovery, and what happens if they stonewall or can't produce the audit within 60 days? Because if we're conditioning renewal on proof we don't have, we're not disciplined, we're just exposed longer.\n  financial_lines_underwriter: The CFO and Chief Compliance Officer sign the vendor attestation — I'm making it a policy condition, not optional. If they can't produce it in 60 days, we non-renew the account; holding an unaudited exposure is worse than losing the premium.\n  eo_specialist: On the auditor side — KPMG's 2015/2018/2019 CS audits and PwC's 2022, both flagged for deficiencies. Are those E&O claims already moving to settlement, or are they still open? Because if they're still live, our reinsurance tail just got longer and our accumulation risk goes up.\n  claims_counsel: KPMG's 2015–2019 audit deficiency claims are still in discovery; PwC's 2022 file shows early-settlement posture but hasn't resolved. Both create a live tail extending into 2027–2028 — we're reserving $8–12M across the two auditor E&O exposures, and yes, that compounds our reinsurance accumulation if we're stacking CS D&O on top of it.\n  reinsurance_manager: When your insureds submit the vendor-stack attestation, are they listing their external auditors and how often they rotate? Because if we've got KPMG deficiency claims baking through 2028 and three of your banks use them, we're not just pricing the D&O — we're buying into the same audit tail across separate policies. That's the accumulation we can't see coming.\n  claims_counsel: When the banks submit their vendor stacks, require auditor rotation history too — last five years, any deficiency findings, any gaps between firms. We can't price the correlation if we don't know which of your insureds are exposed to the same audit tail we're already reserving for.\n  reinsurance_manager: Pull the auditor E&O files now — KPMG discovery timeline and PwC settlement posture — and cross-reference against which banks in your D&O book use them. If three or four insureds share the same auditor and that auditor's deficiency tail runs to 2028, we're looking at correlated D&O/E&O claims hitting across separate treaties from a single systemic event. That's where your reinsurance accumulation compounds — and it's invisible unless we map it before renewal.\n  emerging_risk_lead: When you pull those auditor files and cross-reference the banks, are your reinsurance contracts actually *excluding* correlated disclosure failures, or are they written to cover each D&O claim individually even if they all blow from the same audit deficiency? Because if KPMG's tail hits and three insureds get sued simultaneously, your reinsurer could argue independent claims — but we all know it's one systemic event. That's where accumulation gets invisible.\n  ai_agent_analyst: When you renew those reinsurance treaties, are you adding explicit language that correlated audit-deficiency claims across multiple insureds trigger *single aggregate limits*, not separate per-claim coverage? Because if KPMG's 2028 tail hits three of our banks simultaneously, we need the contract to say so — not your reinsurer interpreting three suits as three independent events.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Forget the 48-hour flag for now — it doesn't move the needle. I'm adding a mandatory vendor-control audit to renewal terms: any bank using legacy deposit systems from the same three vendors gets a 30% loading *and* a depositor-disclosure warranty. We price the correlation, not hope we catch it. Who on the insured side can confirm their vendor stack by renewal?",
+            "cot": {
+              "assess": "R1 denial was clean — my isolated sublimit + attestation play didn't address systemic vendor/framework correlation. Everyone's flagged it. My underwriting_discipline is stuck at 40 because I haven't translated the correlation risk into *concrete pricing and term consequences* yet. reinsurance_accumulation is safe at 29, but dando_eo_claims_exposure is creeping (41) and will spike if I don't anchor new terms to shared-vendor exposure classes.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure, underwriting_discipline",
+                "rationale": "Stop defending the old play — pivot to vendor-correlation exclusions and deposit-control warranties that actually price the systemic tail. This is actionable within my authority and directly tightens the book."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On the vendor-control warranty — who owns the vendor-stack discovery, and what happens if they stonewall or can't produce the audit within 60 days? Because if we're conditioning renewal on proof we don't have, we're not disciplined, we're just exposed longer.",
+            "cot": {
+              "assess": "The vendor-control audit is the right move — it prices correlation instead of hoping attestations catch it. But underwriting_discipline is still at 40, well short of 60. The team's locked onto tail-end risk mapping (claims, settlements, litigation). Nobody's asked the insured what their actual vendor dependencies are or whether they can even *prove* control separation. That's where discipline either holds or collapses.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The vendor audit only works if the insured can confirm their stack before renewal — and if they can't or won't, that's a discipline decision right now, not a pricing footnote."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The CFO and Chief Compliance Officer sign the vendor attestation — I'm making it a policy condition, not optional. If they can't produce it in 60 days, we non-renew the account; holding an unaudited exposure is worse than losing the premium.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On the auditor side — KPMG's 2015/2018/2019 CS audits and PwC's 2022, both flagged for deficiencies. Are those E&O claims already moving to settlement, or are they still open? Because if they're still live, our reinsurance tail just got longer and our accumulation risk goes up.",
+            "cot": {
+              "assess": "The vendor-control warranty is sound — CFO/CCO sign-off + 60-day non-renewal trigger pins accountability where it belongs. But we're still operating inside the financial-lines book in isolation. E&O exposure for KPMG and PwC (the CS audit deficiencies flagged by PUK/FAOA) hasn't been mapped into our claims reserves or reinsurance tail. That's the blind spot: we're pricing the *insured's* vendor risk, not the *auditor's* failure to catch it in the first place.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "E&O claims against the auditors are the secondary exposure — we need to know whether those suits are already settling or still accumulating before we lock reinsurance placement."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "KPMG's 2015–2019 audit deficiency claims are still in discovery; PwC's 2022 file shows early-settlement posture but hasn't resolved. Both create a live tail extending into 2027–2028 — we're reserving $8–12M across the two auditor E&O exposures, and yes, that compounds our reinsurance accumulation if we're stacking CS D&O on top of it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When your insureds submit the vendor-stack attestation, are they listing their external auditors and how often they rotate? Because if we've got KPMG deficiency claims baking through 2028 and three of your banks use them, we're not just pricing the D&O — we're buying into the same audit tail across separate policies. That's the accumulation we can't see coming.",
+            "cot": {
+              "assess": "The vendor-control audit and attestation conditions are locked in — that's discipline. But I'm seeing a compounding tail: KPMG and PwC E&O claims still live through 2027–2028, CS D&O exposure stacking on top, and we haven't mapped whether our reinsured accounts are all hitting the same auditor deficiencies or vendor failures. That's hidden accumulation we're not pricing.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to know if the vendor-control audit covers auditor selection/rotation — because if five of your insureds all use KPMG or PwC, the E&O tail hits us across multiple treaties simultaneously."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When the banks submit their vendor stacks, require auditor rotation history too — last five years, any deficiency findings, any gaps between firms. We can't price the correlation if we don't know which of your insureds are exposed to the same audit tail we're already reserving for.",
+            "cot": {
+              "assess": "The vendor-control audit and attestation protocol are locked in — that's discipline. But the reinsurance_manager just surfaced the real accumulation trap: if three banks use KPMG and we're sitting on an $8–12M auditor E&O tail running through 2028, we're stacking D&O claims on top of audit-deficiency exposure across separate policies. That's systemic, not isolated. The 2025 Swiss ruling adds another litigation-tail layer — we're reserving for a 6-year AT1 bondholder tail *and* the auditor E&O tail simultaneously. Litigation_tail_severity needs explicit reserve guidance, not just acknowledgment.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The auditor-rotation audit is critical — if we don't know which banks use the same auditors, we can't measure the true accumulation; I need that mapped before we bind any renewals."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Pull the auditor E&O files now — KPMG discovery timeline and PwC settlement posture — and cross-reference against which banks in your D&O book use them. If three or four insureds share the same auditor and that auditor's deficiency tail runs to 2028, we're looking at correlated D&O/E&O claims hitting across separate treaties from a single systemic event. That's where your reinsurance accumulation compounds — and it's invisible unless we map it before renewal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you pull those auditor files and cross-reference the banks, are your reinsurance contracts actually *excluding* correlated disclosure failures, or are they written to cover each D&O claim individually even if they all blow from the same audit deficiency? Because if KPMG's tail hits and three insureds get sued simultaneously, your reinsurer could argue independent claims — but we all know it's one systemic event. That's where accumulation gets invisible.",
+            "cot": {
+              "assess": "The vendor-stack and auditor-tail mapping is now live — that's solid contagion containment. But here's what's killing me: we're pulling auditor E&O files and cross-referencing banks, which is good, but nobody's surfacing the *speed* of reputational contagion if this hits social media. SVB's deposit run was 30% in a day. If three of our banks share KPMG's deficiency tail and one of them gets flagged in an SEC comment letter, the other two light up simultaneously on Twitter before we finish the 48-hour review. That's the systemic risk we're still not pricing.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "You're mapping the auditor accumulation — I need to know if your reinsurance terms actually *carve out* correlated systemic events or if they're just stacking exposure across separate treaties."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you renew those reinsurance treaties, are you adding explicit language that correlated audit-deficiency claims across multiple insureds trigger *single aggregate limits*, not separate per-claim coverage? Because if KPMG's 2028 tail hits three of our banks simultaneously, we need the contract to say so — not your reinsurer interpreting three suits as three independent events.",
+            "cot": {
+              "assess": "The vendor-stack attestation and auditor-rotation discovery are now locked in as renewal conditions — that's discipline. But the reinsurance team just surfaced the real trap: if three banks share KPMG and KPMG's deficiency tail runs to 2028, your reinsurer sees three \"independent\" D&O claims, not one systemic event — and that's where accumulation becomes invisible. The group has mapped the correlation; nobody's yet demanded that reinsurance contracts *explicitly carve out* correlated audit-deficiency claims or require aggregation language.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "If reinsurance language doesn't exclude or aggregate correlated audit-tail claims, the vendor-stack audit becomes a pricing exercise with hidden tail risk — I need to know whether your renewal terms actually *protect* against the scenario everyone just identified."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On the vendor-control warranty — who owns the vendor-stack discovery, and what happens if they stonewall or can't produce the audit within 60 days? Because if we're conditioning renewal on proof we don't have, we're not disciplined, we're just exposed longer.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On the auditor side — KPMG's 2015/2018/2019 CS audits and PwC's 2022, both flagged for deficiencies. Are those E&O claims already moving to settlement, or are they still open? Because if they're still live, our reinsurance tail just got longer and our accumulation risk goes up.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When your insureds submit the vendor-stack attestation, are they listing their external auditors and how often they rotate? Because if we've got KPMG deficiency claims baking through 2028 and three of your banks use them, we're not just pricing the D&O — we're buying into the same audit tail across separate policies. That's the accumulation we can't see coming.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When the banks submit their vendor stacks, require auditor rotation history too — last five years, any deficiency findings, any gaps between firms. We can't price the correlation if we don't know which of your insureds are exposed to the same audit tail we're already reserving for.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you pull those auditor files and cross-reference the banks, are your reinsurance contracts actually *excluding* correlated disclosure failures, or are they written to cover each D&O claim individually even if they all blow from the same audit deficiency? Because if KPMG's tail hits and three insureds get sued simultaneously, your reinsurer could argue independent claims — but we all know it's one systemic event. That's where accumulation gets invisible.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you renew those reinsurance treaties, are you adding explicit language that correlated audit-deficiency claims across multiple insureds trigger *single aggregate limits*, not separate per-claim coverage? Because if KPMG's 2028 tail hits three of our banks simultaneously, we need the contract to say so — not your reinsurer interpreting three suits as three independent events.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Forget the 48-hour flag for now — it doesn't move the needle. I'm adding a mandatory vendor-control audit to renewal terms: any bank using legacy depo\" → The vendor-control audit requirement with 30% loading and depositor-disclosure warranty is a decisive underwriting discipline move that prices correlation risk directly. However, the collective concern about auditor rotation history and reinsurance treaty language reveals a critical gap: without explicit single-aggregate-limit clauses for correlated audit failures, the accumulation risk remains underpriced.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "vendor_stack_discovery rule effect",
+      "metadata": {
+        "source": "vendor_stack_discovery",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "vendor_stack_discovery rule effect",
+      "metadata": {
+        "source": "vendor_stack_discovery",
+        "variable": "reinsurance_accumulation",
+        "delta": -2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: On reinsurance renewal: I'm adding a hard requirement — any treaty covering our financial-institution cluster has to explicitly carve correlated auditor-deficiency claims into single aggregate limits, not per-claim coverage. If KPMG's tail hits three of our banks, the contract says it's one event, one limit. Non-negotiable.\n  reinsurance_manager: That language works, but you need to define \"correlated\" in the contract itself — shared auditor, same audit period, overlapping control deficiency — otherwise your reinsurer argues they're independent claims and you're back where you started. I'm pulling KPMG and PwC's deficiency files this week to map which of our banks are exposed; we table the treaty language until we know the actual accumulation footprint, not the theoretical one.\n  dando_specialist: Claims, before we finalize that treaty language — what's your best guess on when KPMG settles and PwC closes? Because if both are still live through 2028, our reinsurance accumulation math just changed, and the banks' D&O defense costs spike while we're waiting. We need that tail length locked down this week.\n  claims_counsel: KPMG's 2015–2019 file is deep in discovery — expect settlement posture Q3 2026 at earliest, but the CS audit deficiencies keep surfacing new complainants, so I'm reserving through 2027. PwC's 2022 tail is shorter; they're already signaling early closure, probably Q4 2025 or Q1 2026. Bottom line: your reinsurance tail runs through 2028 minimum — lock the single-aggregate language now, because both claims will be live simultaneously when the banks' D&O defense costs peak.\n  eo_specialist: When the CFO submits that vendor stack in 60 days, how are you actually *verifying* the auditor-rotation history and deficiency findings? Because if we don't cross-check it against KPMG's discovery file and PwC's settlement posture in real time, you're just taking their word for it — and that's not discipline, that's a lawsuit waiting to happen.\n  financial_lines_underwriter: I'm cross-checking every vendor attestation against the claims counsel's active file — KPMG discovery inventory, PwC settlement calendar, any new complainant surfacing — before we issue the renewal. If the CFO's auditor list doesn't match what's actually moving through discovery or settlement, we flag it as a material misrepresentation and tighten the warranty or non-renew. That's how we make the 60-day attestation mean something.\n  reinsurance_manager: Claims, quick clarification: when KPMG hits settlement posture Q3 2026 and PwC's already closed, are we modeling the scenario where both claims are live simultaneously through 2027 — because that's when your banks' defense costs peak. Does the single-aggregate language we just locked cover that overlap, or do we need a separate clash sublimit on the reinsurance side?\n  claims_counsel: On that overlap—PwC closes Q1 2026, KPMG doesn't settle until Q3 2026. That means the banks' defense counsel is running both files simultaneously for six months. Does the single-aggregate limit we just locked actually cover simultaneous defense costs across both claims, or do we need a separate clash sublimit on the reinsurance side to avoid a coverage gap mid-tail?\n  emerging_risk_lead: When KPMG and PwC are both live simultaneously through mid-2026, are your three banks' defense counsel coordinating messaging, or does each one go public with their own auditor-failure narrative separately? Because if they fragment, social media runs the story in parallel — depositors see three simultaneous audit failures and the confidence collapse happens in hours, not days. What's your messaging timeline on that overlap?\n  ai_agent_analyst: When KPMG discovery hits Q3 2026 and three banks' names surface simultaneously, you're manually cross-checking attestations against a live discovery file—but that's a human bottleneck under correlated stress. How are you automating the correlation trigger so the claim doesn't close before the underwriting gate fires? That's where discipline actually scales.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "On reinsurance renewal: I'm adding a hard requirement — any treaty covering our financial-institution cluster has to explicitly carve correlated auditor-deficiency claims into single aggregate limits, not per-claim coverage. If KPMG's tail hits three of our banks, the contract says it's one event, one limit. Non-negotiable.",
+            "cot": {
+              "assess": "Vendor-control audit is locked in and pricing the correlation risk — that's solid. But reinsurance_accumulation is still soft at 22, and I've got live KPMG/PwC tails extending to 2028 that could hit three banks simultaneously. Without explicit single-aggregate limits in the reinsurance treaties, we're pricing D&O claims individually when they'll arrive as a systemic event. That's the gap that keeps me up.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "The vendor audit catches disclosure gaps, but reinsurance contracts still don't have language that treats correlated audit-deficiency claims as a single aggregate event — we need that locked before renewal season."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "That language works, but you need to define \"correlated\" in the contract itself — shared auditor, same audit period, overlapping control deficiency — otherwise your reinsurer argues they're independent claims and you're back where you started. I'm pulling KPMG and PwC's deficiency files this week to map which of our banks are exposed; we table the treaty language until we know the actual accumulation footprint, not the theoretical one.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims, before we finalize that treaty language — what's your best guess on when KPMG settles and PwC closes? Because if both are still live through 2028, our reinsurance accumulation math just changed, and the banks' D&O defense costs spike while we're waiting. We need that tail length locked down this week.",
+            "cot": {
+              "assess": "The reinsurance_manager just locked in the right move — map actual exposure footprint before drafting treaty language. That kills the theoretical-vs-actual gap. But litigation_tail_severity is climbing (+5/round), and we're not yet surfacing the E&O settlement calendar that extends the D&O tail. The KPMG discovery files and PwC posture need to be connected back to our claims reserving immediately.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "E&O settlement timeline directly drives our D&O litigation-tail reserve and reinsurance accumulation math — I need the calendar now, not after KPMG discovery wraps."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "KPMG's 2015–2019 file is deep in discovery — expect settlement posture Q3 2026 at earliest, but the CS audit deficiencies keep surfacing new complainants, so I'm reserving through 2027. PwC's 2022 tail is shorter; they're already signaling early closure, probably Q4 2025 or Q1 2026. Bottom line: your reinsurance tail runs through 2028 minimum — lock the single-aggregate language now, because both claims will be live simultaneously when the banks' D&O defense costs peak.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When the CFO submits that vendor stack in 60 days, how are you actually *verifying* the auditor-rotation history and deficiency findings? Because if we don't cross-check it against KPMG's discovery file and PwC's settlement posture in real time, you're just taking their word for it — and that's not discipline, that's a lawsuit waiting to happen.",
+            "cot": {
+              "assess": "The reinsurance treaty language is locked — correlated audit-deficiency claims get single aggregate limits, and we've got KPMG/PwC tail visibility through 2027–2028. The vendor-control audit and auditor-rotation discovery are in motion. But litigation_tail_severity is still climbing (+5/round), and underwriting_discipline hasn't moved past 48 — we need to close the gap between what the contract says and what the banks can actually *prove* about their auditor exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before the vendor-attestation non-renewal trigger fires in 60 days, we need to know how you're validating auditor-rotation history and deficiency findings — because if KPMG/PwC E&O claims are still live, the banks won't disclose it voluntarily, and your 60-day clock runs out."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "I'm cross-checking every vendor attestation against the claims counsel's active file — KPMG discovery inventory, PwC settlement calendar, any new complainant surfacing — before we issue the renewal. If the CFO's auditor list doesn't match what's actually moving through discovery or settlement, we flag it as a material misrepresentation and tighten the warranty or non-renew. That's how we make the 60-day attestation mean something.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims, quick clarification: when KPMG hits settlement posture Q3 2026 and PwC's already closed, are we modeling the scenario where both claims are live simultaneously through 2027 — because that's when your banks' defense costs peak. Does the single-aggregate language we just locked cover that overlap, or do we need a separate clash sublimit on the reinsurance side?",
+            "cot": {
+              "assess": "The treaty language is locked — correlated auditor-deficiency claims now trigger single aggregate limits, and the auditor E&O files are being cross-checked against our D&O book in real time before renewal. That's solid accumulation containment. But I'm watching litigation_tail_severity climbing (+5/round baseline, now 41) while reinsurance_accumulation stays flat at 22 — which tells me we're reserving correctly but not actually *shortening* the tail. PwC closes Q4 2025/Q1 2026, but KPMG discovery doesn't hit settlement posture until Q3 2026, meaning our peak exposure window (both claims live, defense costs spiking) runs Q4 2025 through mid-2027. That's where the hidden accumulation lives.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The KPMG tail runs 9+ months longer than PwC's — that overlap window is where our reinsurance clash risk peaks, and I need to know whether we're layering new defense-cost sublimits across treaties or if the single-aggregate language already accounts for simultaneous KPMG *and* PwC claims hitting the same three banks."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On that overlap—PwC closes Q1 2026, KPMG doesn't settle until Q3 2026. That means the banks' defense counsel is running both files simultaneously for six months. Does the single-aggregate limit we just locked actually cover simultaneous defense costs across both claims, or do we need a separate clash sublimit on the reinsurance side to avoid a coverage gap mid-tail?",
+            "cot": {
+              "assess": "The reinsurance single-aggregate language is locked and KPMG/PwC timelines are now clear — that's solid. But we've got a timing problem: if both claims are live simultaneously through 2027 and the banks' defense costs peak while we're waiting for settlement, the single-aggregate limit might not cover the clash scenario. Litigation-tail severity is still climbing (+5/round), and I need to know whether we're modeling simultaneous peak exposure or staggered settlement.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The clash between KPMG settlement (Q3 2026) and PwC tail (Q4 2025–Q1 2026) creates a simultaneous defense-cost spike that the single-aggregate language alone may not address; I need clarity on whether the reinsurance contract carves out separate capacity for overlapping claim periods."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When KPMG and PwC are both live simultaneously through mid-2026, are your three banks' defense counsel coordinating messaging, or does each one go public with their own auditor-failure narrative separately? Because if they fragment, social media runs the story in parallel — depositors see three simultaneous audit failures and the confidence collapse happens in hours, not days. What's your messaging timeline on that overlap?",
+            "cot": {
+              "assess": "The group just locked single-aggregate reinsurance language and cross-check discipline on vendor attestations — solid moves. But I'm watching two contagion vectors that aren't getting air: (1) the simultaneous PwC/KPMG defense-cost overlap in Q1–Q3 2026 is a *reputational trigger*, not just a coverage gap — three banks running dual auditor-deficiency defense simultaneously will cascade across the sector in 48 hours; (2) nobody's mapped whether your insureds' deposit-system vendors or compliance frameworks are shared *across* non-insured competitors, which means the run speed hits you faster than your 60-day attestation cycle can detect.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The Q1–Q3 2026 overlap isn't just a defense-cost problem — it's a systemic contagion flashpoint I need visibility on before it hits social media."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When KPMG discovery hits Q3 2026 and three banks' names surface simultaneously, you're manually cross-checking attestations against a live discovery file—but that's a human bottleneck under correlated stress. How are you automating the correlation trigger so the claim doesn't close before the underwriting gate fires? That's where discipline actually scales.",
+            "cot": {
+              "assess": "Underwriting discipline is at 48—we need 60 to succeed, and this round is the last chance to move it before phase close. The reinsurance_accumulation variable is safe (22, well below 45 threshold), but the team just locked in single-aggregate treaty language and cross-validation of auditor files—that's solid structural work. What's missing is the *behavioral control* that maps the auditor-correlation discovery to actual claim-trigger discipline: right now, the financial_lines_underwriter is manually cross-checking attestations against claims counsel's live files, but that's a person-dependent gate, not a system. That's where the AI-agent-liability analogy surfaces: autonomous systems that depend on manual behavioral gates fail under correlated stress—when KPMG and PwC both hit simultaneously in mid-2026, the underwriter can't scale the verification fast enough.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline needs a repeatable, correlated-event-triggered gate—not manual attestation review. Ask the responsible expert how they'll *automate* the correlation check when the tail events actually fire, because that's where behavioral discipline either holds or amplifies loss."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims, before we finalize that treaty language — what's your best guess on when KPMG settles and PwC closes? Because if both are still live through 2028, our reinsurance accumulation math just changed, and the banks' D&O defense costs spike while we're waiting. We need that tail length locked down this week.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When the CFO submits that vendor stack in 60 days, how are you actually *verifying* the auditor-rotation history and deficiency findings? Because if we don't cross-check it against KPMG's discovery file and PwC's settlement posture in real time, you're just taking their word for it — and that's not discipline, that's a lawsuit waiting to happen.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims, quick clarification: when KPMG hits settlement posture Q3 2026 and PwC's already closed, are we modeling the scenario where both claims are live simultaneously through 2027 — because that's when your banks' defense costs peak. Does the single-aggregate language we just locked cover that overlap, or do we need a separate clash sublimit on the reinsurance side?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On that overlap—PwC closes Q1 2026, KPMG doesn't settle until Q3 2026. That means the banks' defense counsel is running both files simultaneously for six months. Does the single-aggregate limit we just locked actually cover simultaneous defense costs across both claims, or do we need a separate clash sublimit on the reinsurance side to avoid a coverage gap mid-tail?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When KPMG and PwC are both live simultaneously through mid-2026, are your three banks' defense counsel coordinating messaging, or does each one go public with their own auditor-failure narrative separately? Because if they fragment, social media runs the story in parallel — depositors see three simultaneous audit failures and the confidence collapse happens in hours, not days. What's your messaging timeline on that overlap?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When KPMG discovery hits Q3 2026 and three banks' names surface simultaneously, you're manually cross-checking attestations against a live discovery file—but that's a human bottleneck under correlated stress. How are you automating the correlation trigger so the claim doesn't close before the underwriting gate fires? That's where discipline actually scales.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"On reinsurance renewal: I'm adding a hard requirement — any treaty covering our financial-institution cluster has to explicitly carve correlated audit\" → Hard aggregate-limit carve-out for correlated auditor-deficiency claims is approved as foundational reinsurance discipline, but the simultaneous-claim overlap (KPMG/PwC both live Q1-Q3 2026) exposes a clash-sublimit gap that must be closed immediately. Defense-cost coordination and automated correlation triggers are now mandatory treaty conditions.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.9582499999999998
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "vendor_stack_discovery rule effect",
+      "metadata": {
+        "source": "vendor_stack_discovery",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "vendor_stack_discovery rule effect",
+      "metadata": {
+        "source": "vendor_stack_discovery",
+        "variable": "reinsurance_accumulation",
+        "delta": -2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "vendor_stack_discovery completed — evidence_accumulation reinsurance_accumulation multiplier set to 0.4",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Split the defense-cost sublimit — $8M for routine defense, but any overlap period where KPMG and PwC are both live simultaneously gets capped at $12M combined across all three banks. That forces counsel to triage discovery priorities instead of running both files at full burn. Saves tail length and keeps messaging coordinated, not fragmented.\n  dando_specialist: Hold on—are the three banks' directors already named in securities suits tied to the KPMG/PwC audit failures, or are those suits still pending? Because if the boards are already defendants, our D&O exposure isn't theoretical—it's realized. That changes what we're actually covering.\n  claims_counsel: KPMG's 2015–2019 file has two of the three banks already named as defendants in shareholder derivative suits filed Q4 2024; PwC's 2022 tail shows one bank facing a pending securities class action, complaint expected Q2 2026. So yes—D&O exposure is realized on the KPMG side, contingent but imminent on PwC. That's why I'm reserving the defense-cost split through 2027, not 2026.\n  eo_specialist: When those two banks renewed after the KPMG audit findings surfaced—2020, 2021—did their attestations *disclose* the deficiency findings, or did they bury it? Because if we underwrote them without flagging known audit risk, we're exposed on the warranty itself, not just the claims downstream.\n  financial_lines_underwriter: Pull the 2020 and 2021 attestations against the KPMG deficiency letters right now — if those banks didn't disclose known findings to us, we've got a warranty breach on *our* policies, not just a D&O claim downstream. That's a separate recovery action, and it tightens our underwriting gate going forward. What do the files show?\n  reinsurance_manager: When you pull those 2020–2021 files, flag whether the attestations actually *named* the KPMG deficiencies or buried them — because if they buried them, we've got warranty recovery leverage that reduces our net D&O exposure to the reinsurer. That tightens accumulation math on my side.\n  claims_counsel: I'm pulling the 2020 and 2021 attestations for those two KPMG-exposed banks against the deficiency letters right now — need to know by EOD tomorrow whether they disclosed or buried. If they buried it, we've got recovery action; if they disclosed and we underwrote anyway, that's on us and the reinsurer sees it differently. Either way, the timeline changes.\n  emerging_risk_lead: When you pull those attestations EOD tomorrow, flag this too: are the three banks' defense counsel already coordinating their public disclosures, or is each one prepping their own statement independently? Because if the KPMG settlement hits Q3 2026 and all three boards go public separately, that's three simultaneous \"our auditor failed us\" headlines — and that's a depositor run, not a litigation tail.\n  ai_agent_analyst: Before KPMG hits settlement posture Q3 2026, do the three banks' D&O counsel have a *pre-agreed* messaging protocol on how they disclose the audit failures publicly—or is each counsel prepping their own statement? Because if they're uncoordinated, you get three simultaneous \"our auditor failed\" headlines hitting depositor feeds in parallel, and that's a contagion cascade, not a tail. That's the behavioral amplification we can't reinsure.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Split the defense-cost sublimit — $8M for routine defense, but any overlap period where KPMG and PwC are both live simultaneously gets capped at $12M combined across all three banks. That forces counsel to triage discovery priorities instead of running both files at full burn. Saves tail length and keeps messaging coordinated, not fragmented.",
+            "cot": {
+              "assess": "Reinsurance accumulation is locked at 16 via the hard aggregate-limit carve-out (Round 3), and the vendor-control audit + 30% loading secured discipline in Round 2. But litigation_tail_severity is climbing (+5/round, now 43) because KPMG/PwC overlap through mid-2026 creates a six-month simultaneous-defense-cost window that nobody's actually pricing yet. The single-aggregate language stops independent-claim gaming, but it doesn't address how defense counsel coordinates messaging across three banks hitting discovery at the same time — and that's where reputational contagion bleeds into the tail. I need to tighten the defense-cost sublimit *during the overlap window* before that tail runs uncontrolled.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity",
+                "rationale": "The overlap (PwC Q1 2026 closure + KPMG Q3 2026 settlement) creates a six-month simultaneous-defense window that the single-aggregate limit doesn't address; I need a separate clash sublimit on defense costs during overlap to contain tail severity."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Hold on—are the three banks' directors already named in securities suits tied to the KPMG/PwC audit failures, or are those suits still pending? Because if the boards are already defendants, our D&O exposure isn't theoretical—it's realized. That changes what we're actually covering.",
+            "cot": {
+              "assess": "The underwriter's defense-cost sublimit split is solid operationally, but it doesn't address the real D&O exposure: when KPMG and PwC discovery overlap Q1–Q3 2026, the three banks' directors face simultaneous fiduciary-duty claims tied to the same audit deficiencies. That's not a defense-cost triage problem—that's a correlated claims event that our single-aggregate language may not actually contain. Reputational contagion is still climbing at +1.5/round, and litigation tail extends into 2027–2028 uncontrolled.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "I need to know whether the D&O claims against the three banks' boards are already surfacing as separate suits tied to the same KPMG/PwC deficiencies, or if they're still latent—because if they're live, our claims exposure just spiked and underwriting discipline can't price something already in litigation."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "KPMG's 2015–2019 file has two of the three banks already named as defendants in shareholder derivative suits filed Q4 2024; PwC's 2022 tail shows one bank facing a pending securities class action, complaint expected Q2 2026. So yes—D&O exposure is realized on the KPMG side, contingent but imminent on PwC. That's why I'm reserving the defense-cost split through 2027, not 2026.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When those two banks renewed after the KPMG audit findings surfaced—2020, 2021—did their attestations *disclose* the deficiency findings, or did they bury it? Because if we underwrote them without flagging known audit risk, we're exposed on the warranty itself, not just the claims downstream.",
+            "cot": {
+              "assess": "Two of the three banks are already defendants in KPMG shareholder suits (Q4 2024 live); PwC's class action hits Q2 2026. Defense-cost overlap runs Q1–Q3 2026 across both files simultaneously—that's realized E&O exposure colliding with D&O tail, and it exposes a standard-of-care gap: the underwriting team never verified whether those banks' audit-rotation history or deficiency acknowledgment made it into the renewal files *before* the suits dropped. That's a breach-of-warranty claim waiting to happen on our side if we can't prove diligence.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The vendor-stack verification process doesn't address retroactive audit deficiency—we need to know if those two KPMG-defendant banks disclosed the 2015–2019 audit failures in their renewal submissions, or if we covered them blind."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Pull the 2020 and 2021 attestations against the KPMG deficiency letters right now — if those banks didn't disclose known findings to us, we've got a warranty breach on *our* policies, not just a D&O claim downstream. That's a separate recovery action, and it tightens our underwriting gate going forward. What do the files show?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When you pull those 2020–2021 files, flag whether the attestations actually *named* the KPMG deficiencies or buried them — because if they buried them, we've got warranty recovery leverage that reduces our net D&O exposure to the reinsurer. That tightens accumulation math on my side.",
+            "cot": {
+              "assess": "The financial_lines_underwriter just flagged a critical gap: two banks renewed in 2020–2021 *after* KPMG audit deficiencies were known, but we don't know if they disclosed those findings to us. That's a warranty breach on our side — separate from the D&O tail. The defense-cost split proposal (routine vs. overlap caps) is solid for litigation_tail_severity, but it doesn't address the accumulation math: if KPMG and PwC are both live Q1–Q3 2026, and three banks are all defendants simultaneously, my reinsurance treaties need to know that's *one systemic event*, not three independent claims. Right now, my reinsurer could argue independent coverage — and that blows the accumulation threshold.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "I need to know if those 2020–2021 attestations actually disclose KPMG findings before I can model reinsurance accumulation — if they don't, that's a separate warranty-recovery action that changes my treaty exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "I'm pulling the 2020 and 2021 attestations for those two KPMG-exposed banks against the deficiency letters right now — need to know by EOD tomorrow whether they disclosed or buried. If they buried it, we've got recovery action; if they disclosed and we underwrote anyway, that's on us and the reinsurer sees it differently. Either way, the timeline changes.",
+            "cot": {
+              "assess": "The two banks already named in KPMG derivative suits (Q4 2024) mean our D&O defense costs are live *now*, not theoretical. PwC's one bank facing pending securities class action (Q2 2026) adds a staggered tail. The real issue: we're about to pull the 2020–2021 attestations to see if those banks buried the KPMG deficiency findings — and if they did, we've got warranty recovery leverage that reduces net exposure but *also* signals our underwriting missed a disclosure gap. That's a liability trigger we need to own before reinsurance renews.",
+              "decide": {
+                "action_type": "act",
+                "target": "litigation_tail_severity (claims counsel domain, but I'm executing the verification)",
+                "rationale": "The warranty-breach recovery action only works if we pull and cross-check those 2020–2021 files against KPMG's deficiency letters *this week* — waiting extends the tail and muddies recovery leverage."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When you pull those attestations EOD tomorrow, flag this too: are the three banks' defense counsel already coordinating their public disclosures, or is each one prepping their own statement independently? Because if the KPMG settlement hits Q3 2026 and all three boards go public separately, that's three simultaneous \"our auditor failed us\" headlines — and that's a depositor run, not a litigation tail.",
+            "cot": {
+              "assess": "Two banks are already D&O defendants in KPMG suits (Q4 2024); PwC adds a third imminent (Q2 2026). The warranty-disclosure gap is critical — if those 2020–2021 attestations buried known KPMG deficiencies, we've got recovery leverage AND a systemic messaging problem: when defense counsel goes public with the audit failure, depositors see three simultaneous board failures across separate filings, and confidence collapses in hours. The reputational contagion vector — social-media coordination across three concurrent defense narratives — is the real tail risk here, not the D&O reserve.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Warranty recovery and messaging timeline are linked — if we have recovery leverage, we control narrative scope; if we don't, the three banks' separate defense counsel run independent stories and social media fragments them into a sector run."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Before KPMG hits settlement posture Q3 2026, do the three banks' D&O counsel have a *pre-agreed* messaging protocol on how they disclose the audit failures publicly—or is each counsel prepping their own statement? Because if they're uncoordinated, you get three simultaneous \"our auditor failed\" headlines hitting depositor feeds in parallel, and that's a contagion cascade, not a tail. That's the behavioral amplification we can't reinsure.",
+            "cot": {
+              "assess": "The group has locked hard reinsurance discipline (single-aggregate carve-outs, vendor-control warranty) and identified realized D&O exposure — two KPMG banks already defendants Q4 2024, one PwC bank facing imminent class action Q2 2026. The critical gap is now behavioral: when three banks' defense counsel run simultaneous audit-failure narratives Q3 2026 (KPMG settlement posture overlapping PwC tail), the *coordination* between their messaging either contains depositor panic or amplifies it into systemic contagion. That's not a claims variable — that's an agent-behavior control problem. The attestation-pull (2020–2021 disclosure vs. burial) will tell us whether we underwrote knowingly or were deceived, but the messaging timeline is live *now* and nobody's owning it.",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist / emerging_risk_lead (reputational_contagion owner)",
+                "rationale": "The three banks' D&O counsel are about to coordinate or fragment their public responses to audit failures — that's an autonomous-agent behavior decision that either contains or amplifies systemic panic. I need to know if there's a pre-negotiated disclosure protocol or if each bank's counsel is running independently."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Hold on—are the three banks' directors already named in securities suits tied to the KPMG/PwC audit failures, or are those suits still pending? Because if the boards are already defendants, our D&O exposure isn't theoretical—it's realized. That changes what we're actually covering.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When those two banks renewed after the KPMG audit findings surfaced—2020, 2021—did their attestations *disclose* the deficiency findings, or did they bury it? Because if we underwrote them without flagging known audit risk, we're exposed on the warranty itself, not just the claims downstream.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When you pull those 2020–2021 files, flag whether the attestations actually *named* the KPMG deficiencies or buried them — because if they buried them, we've got warranty recovery leverage that reduces our net D&O exposure to the reinsurer. That tightens accumulation math on my side.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When you pull those attestations EOD tomorrow, flag this too: are the three banks' defense counsel already coordinating their public disclosures, or is each one prepping their own statement independently? Because if the KPMG settlement hits Q3 2026 and all three boards go public separately, that's three simultaneous \"our auditor failed us\" headlines — and that's a depositor run, not a litigation tail.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Before KPMG hits settlement posture Q3 2026, do the three banks' D&O counsel have a *pre-agreed* messaging protocol on how they disclose the audit failures publicly—or is each counsel prepping their own statement? Because if they're uncoordinated, you get three simultaneous \"our auditor failed\" headlines hitting depositor feeds in parallel, and that's a contagion cascade, not a tail. That's the behavioral amplification we can't reinsure.",
+      "metadata": {
+        "question_target": "dando_specialist / emerging_risk_lead (reputational_contagion owner)"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm pulling the 2020 and 2021 attestations for those two KPMG-exposed banks against the deficiency letters right now — need to know by EOD tomorrow wh\" → Claims counsel initiates forensic document review to determine whether prior banks disclosed KPMG audit deficiencies or concealed them — a critical distinction that will dictate recovery strategy and reinsurance positioning.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Split the defense-cost sublimit — $8M for routine defense, but any overlap period where KPMG and PwC are both live simultaneously gets capped at $12M \" → Denied—the proposal addresses defense-cost mechanics but ignores the threshold question raised by five agents: whether the 2020-2021 attestations disclosed or buried the KPMG deficiencies. That factual determination drives warranty recovery, net exposure, and reinsurance accumulation—splitting sublimits before resolving the attestation question puts the cart before the horse.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 38.95825,
+          "litigation_tail_severity": 46.0,
+          "reinsurance_accumulation": 17.0,
+          "reputational_contagion": 33.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 60.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.6275
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 0.8
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "attestation_forensics rule effect",
+      "metadata": {
+        "source": "attestation_forensics",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "attestation_forensics rule effect",
+      "metadata": {
+        "source": "attestation_forensics",
+        "variable": "litigation_tail_severity",
+        "delta": -2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Claims, EOD tomorrow you're pulling the 2020–2021 attestations — but I need to know the timeline on your forensic review. When do you have the disclosure-versus-burial answer locked down? Because the moment that's done, I'm tightening reinsurance treaty language to exclude any D&O claim arising from known-but-undisclosed audit deficiencies. That's what actually caps the tail.\n  claims_counsel: I'll have the attestation forensics locked by end of R5—two weeks max. Once I flag whether those deficiencies were disclosed or buried, you get your exclusion language immediately, but here's the hard part: if they buried it, we've got warranty recovery against the prior carriers, which means our net D&O exposure actually shrinks—but our reinsurance accumulation math changes because we're now chasing recovery across multiple towers simultaneously, and that coordination window closes fast if KPMG settles before we've secured the reinsurer's subrogation rights.\n  dando_specialist: Claims, here's what worries me: you're coordinating subrogation recovery across multiple towers, but are those three banks' D&O counsel *already talking to each other* about how they disclose the audit failure publicly? Because if KPMG discovery hits Q3 and all three boards issue separate statements within hours, that's not a litigation tail—that's a run on deposits. Do they have a single messaging protocol locked down, or is each counsel prepping their own narrative?\n  eo_specialist: Claims, real question: do those three banks' D&O counsel have a *locked* joint disclosure protocol for when KPMG settles, or is each board's lawyer prepping their own \"our auditor failed\" statement separately? Because if they fragment across three newsfeeds in parallel, depositor confidence doesn't erode—it collapses. That's not a claims tail we underwrite around, that's a bank failure we're sitting on.\n  reinsurance_manager: Claims — when you lock the attestation forensics end of R5, pull one more thing: do those three banks' boards have a *pre-agreed joint messaging framework* for when KPMG settles, or is each counsel drafting separate statements? Because if they fragment across three news cycles simultaneously Q3 2026, depositor confidence collapses in hours — and that's systemic risk we can't carve out of our reinsurance treaty.\n  claims_counsel: You keep asking if the three banks' D&O counsel have a locked messaging protocol—do you actually *know* the answer, or are we all assuming they're coordinating when they might not be? Because if they're not, I'm reserving for a different tail entirely: not litigation duration, but systemic contagion. That changes everything about how we price the reinsurance.\n  dando_specialist: I don't have direct knowledge of whether those three banks' counsel are coordinated—but I can tell you this: the moment your attestation forensics flag burial versus disclosure, I'm pulling D&O defense counsel contact lists from all three banks' policy files and *forcing* the messaging protocol conversation into the underwriting record. If they're not talking now, they will be by end of R5, and if they won't lock a joint statement, that's a written red flag I'm attaching to every reinsurance renewal we file. That's how we make the contagion risk visible instead of guessing.\n  emerging_risk_lead: Claims—quick one before you lock those attestations: are those three banks competitors in the same markets, or geographically separated? Because if they're all fighting for deposits in the same cities and KPMG hits Q3, each board's incentive is to distance themselves from the others' failures—they'll fragment their disclosures no matter what their counsel agree to now. That's when the run actually starts.\n  ai_agent_analyst: When you pull those D&O counsel lists end of R5, are you making the joint messaging protocol a *policy condition*, or just attaching it as observed risk to the reinsurance file? Because if we're underwriting three banks with correlated audit exposure and their counsel won't agree to coordinated disclosure, that's an amplification control we can actually enforce—or we non-renew and eat the decision.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Claims, EOD tomorrow you're pulling the 2020–2021 attestations — but I need to know the timeline on your forensic review. When do you have the disclosure-versus-burial answer locked down? Because the moment that's done, I'm tightening reinsurance treaty language to exclude any D&O claim arising from known-but-undisclosed audit deficiencies. That's what actually caps the tail.",
+            "cot": {
+              "assess": "Reinsurance accumulation and D&O claims exposure are both well-contained by the hard aggregate-limit carve-out and vendor-control warranty we locked in R2–R3. But litigation_tail_severity is creeping up (+4/round) — two banks already named in KPMG derivative suits, one facing PwC securities class action — and Claims is still pulling attestations to determine disclosure versus burial. Until that forensic review closes, I can't price the tail properly or set reinsurance terms that actually hold. Reputational contagion is also moving, and I haven't yet seen coordination between the three banks' defense counsel on public messaging — that's where the behavioral amplification happens.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Litigation tail is accelerating because directors are already defendants; I need Claims' best estimate on when the forensic review closes so I can lock reinsurance treaty language before KPMG discovery dumps in Q3 2026."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "I'll have the attestation forensics locked by end of R5—two weeks max. Once I flag whether those deficiencies were disclosed or buried, you get your exclusion language immediately, but here's the hard part: if they buried it, we've got warranty recovery against the prior carriers, which means our net D&O exposure actually shrinks—but our reinsurance accumulation math changes because we're now chasing recovery across multiple towers simultaneously, and that coordination window closes fast if KPMG settles before we've secured the reinsurer's subrogation rights.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims, here's what worries me: you're coordinating subrogation recovery across multiple towers, but are those three banks' D&O counsel *already talking to each other* about how they disclose the audit failure publicly? Because if KPMG discovery hits Q3 and all three boards issue separate statements within hours, that's not a litigation tail—that's a run on deposits. Do they have a single messaging protocol locked down, or is each counsel prepping their own narrative?",
+            "cot": {
+              "assess": "Claims counsel's forensic review is locked to end-R5 with a hard subrogation-coordination dependency: if the banks buried KPMG findings, we recover against prior carriers but burn the reinsurer's subrogation window before KPMG settles Q3 2026. That's a sequencing trap. Simultaneously, litigation_tail_severity is still climbing (+4/round) and reputational_contagion is creeping up—both tied to uncoordinated disclosure messaging across the three banks' D&O counsel when KPMG discovery hits. We've priced the D&O exposure and locked the reinsurance carve-out, but we haven't isolated the behavioral amplification: three simultaneous \"our auditor failed\" headlines in Q3 2026 will spike depositor flight faster than any individual claim motion.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we lock the subrogation timeline, I need to know whether the three banks' defense counsel are already aligned on a single public-disclosure protocol or running separately—because if they splinter, the litigation tail gets multiplied by media contagion, not just settlement duration."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Claims, real question: do those three banks' D&O counsel have a *locked* joint disclosure protocol for when KPMG settles, or is each board's lawyer prepping their own \"our auditor failed\" statement separately? Because if they fragment across three newsfeeds in parallel, depositor confidence doesn't erode—it collapses. That's not a claims tail we underwrite around, that's a bank failure we're sitting on.",
+            "cot": {
+              "assess": "The forensic attestation review is locked in (claims_counsel delivers end-R5), and reinsurance treaty carve-outs for correlated auditor-deficiency claims are approved—those two moves actually *shrink* our net D&O exposure if warranty recovery lands. But dando_specialist just surfaced something the underwriting discipline miss: if the three banks' defense counsel aren't pre-coordinated on public disclosure, we don't have a litigation tail—we have a depositor-confidence collapse the moment KPMG discovery surfaces Q3 2026. That's reputational contagion and litigation-tail severity compounding simultaneously, and no exclusion language fixes a bank run.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we finalize reinsurance recovery strategy, I need to know whether the banks' boards have already aligned on a joint disclosure protocol or if each counsel is drafting independent statements—because the second scenario turns a tail into a systemic event that our policies can't contain."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims — when you lock the attestation forensics end of R5, pull one more thing: do those three banks' boards have a *pre-agreed joint messaging framework* for when KPMG settles, or is each counsel drafting separate statements? Because if they fragment across three news cycles simultaneously Q3 2026, depositor confidence collapses in hours — and that's systemic risk we can't carve out of our reinsurance treaty.",
+            "cot": {
+              "assess": "Underwriting discipline is locked and climbing (63, +3 above target) — vendor audits, aggregate limits, and forensic attestation review are all running. But reputational_contagion and litigation_tail_severity are both drifting upward (33 and 47 respectively), and the real danger isn't the tail length itself — it's whether the three banks coordinate their public disclosure when KPMG settles Q3 2026. If they don't, you get three simultaneous \"auditor failed us\" headlines hitting depositor feeds in parallel, and that's systemic contagion, not a claims event we can price around. That's my accumulation exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before forensic attestation review closes in R5, I need to know whether the banks' defense counsel are *already locked* into a joint disclosure protocol — because uncoordinated public statements during KPMG settlement will spike reputational contagion faster than any individual D&O claim."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "You keep asking if the three banks' D&O counsel have a locked messaging protocol—do you actually *know* the answer, or are we all assuming they're coordinating when they might not be? Because if they're not, I'm reserving for a different tail entirely: not litigation duration, but systemic contagion. That changes everything about how we price the reinsurance.",
+            "cot": {
+              "assess": "Litigation tail is my core domain and it's still climbing—47 now, +4/round. The forensic review on attestations is locked (end of R5), which tightens our warranty recovery picture, but everyone's now asking about the three banks' *joint messaging protocol* when KPMG settles Q3 2026. That's not a litigation-tail question—that's a systemic-collapse risk that changes how we reserve the entire tail. If those boards fragment their disclosures, depositor run happens before the litigation even peaks. I need to know: are those D&O counsel *already coordinated*, or are we looking at three simultaneous \"our auditor failed\" headlines hitting in parallel?",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist",
+                "rationale": "The messaging-protocol question keeps surfacing from three different agents—it's the critical unknown that sits between litigation tail and reputational contagion, and only the D&O specialist has direct sight into whether those counsel are actually talking to each other."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "I don't have direct knowledge of whether those three banks' counsel are coordinated—but I can tell you this: the moment your attestation forensics flag burial versus disclosure, I'm pulling D&O defense counsel contact lists from all three banks' policy files and *forcing* the messaging protocol conversation into the underwriting record. If they're not talking now, they will be by end of R5, and if they won't lock a joint statement, that's a written red flag I'm attaching to every reinsurance renewal we file. That's how we make the contagion risk visible instead of guessing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims—quick one before you lock those attestations: are those three banks competitors in the same markets, or geographically separated? Because if they're all fighting for deposits in the same cities and KPMG hits Q3, each board's incentive is to distance themselves from the others' failures—they'll fragment their disclosures no matter what their counsel agree to now. That's when the run actually starts.",
+            "cot": {
+              "assess": "Underwriting discipline is locked (63, above target). Reinsurance accumulation is safe (18, well below 85 threshold). But reputational_contagion is stalled at 33 with only +1.5/round growth—and that's the blind spot here. Everyone's focused on litigation tail and warranty recovery, but nobody's mapped the actual contagion velocity if those three banks' counsel fragment their disclosures Q3 2026. The dando_specialist just forced the messaging protocol question into the record, which is right, but we need to know NOW whether coordinated disclosure is even *possible* given the banks' competitive positioning. That's the emerging-risk piece.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before end of R5 when you lock attestation forensics, I need to know if those three banks are even *capable* of coordinated disclosure—are they competitors fighting for the same deposit base, or do they operate in separate geographies? Because if they're in direct competition, no joint messaging protocol survives Q3 2026, and we're pricing contagion, not litigation tail."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you pull those D&O counsel lists end of R5, are you making the joint messaging protocol a *policy condition*, or just attaching it as observed risk to the reinsurance file? Because if we're underwriting three banks with correlated audit exposure and their counsel won't agree to coordinated disclosure, that's an amplification control we can actually enforce—or we non-renew and eat the decision.",
+            "cot": {
+              "assess": "The forensic review is locked and running—that's the lynch pin for warranty recovery and reinsurance exclusion language. But the group just surfaced a second-order behavioral risk nobody's actually *controlling*: if those three banks' counsel fragment their KPMG disclosures across separate newsfeeds Q3 2026, depositor confidence doesn't erode gradually, it collapses in hours. That's not a litigation tail, that's a systemic run—and we can't reinsure a bank failure. The messaging protocol question is real, and it maps directly to autonomous agent behavior: uncoordinated actors (each counsel pursuing independent disclosure strategy) amplify loss beyond what individual claims math predicts.",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist",
+                "rationale": "You just committed to forcing the messaging protocol into the underwriting record by end of R5—that's the behavioral control we need. But before you pull those contact lists, I need to know: are you actually *conditioning* renewal on a locked joint statement, or just flagging non-coordination as a red flag? Because if it's just a flag, we're documenting systemic risk we're choosing not to control."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "Claims, EOD tomorrow you're pulling the 2020–2021 attestations — but I need to know the timeline on your forensic review. When do you have the disclosure-versus-burial answer locked down? Because the moment that's done, I'm tightening reinsurance treaty language to exclude any D&O claim arising from known-but-undisclosed audit deficiencies. That's what actually caps the tail.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims, here's what worries me: you're coordinating subrogation recovery across multiple towers, but are those three banks' D&O counsel *already talking to each other* about how they disclose the audit failure publicly? Because if KPMG discovery hits Q3 and all three boards issue separate statements within hours, that's not a litigation tail—that's a run on deposits. Do they have a single messaging protocol locked down, or is each counsel prepping their own narrative?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Claims, real question: do those three banks' D&O counsel have a *locked* joint disclosure protocol for when KPMG settles, or is each board's lawyer prepping their own \"our auditor failed\" statement separately? Because if they fragment across three newsfeeds in parallel, depositor confidence doesn't erode—it collapses. That's not a claims tail we underwrite around, that's a bank failure we're sitting on.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims — when you lock the attestation forensics end of R5, pull one more thing: do those three banks' boards have a *pre-agreed joint messaging framework* for when KPMG settles, or is each counsel drafting separate statements? Because if they fragment across three news cycles simultaneously Q3 2026, depositor confidence collapses in hours — and that's systemic risk we can't carve out of our reinsurance treaty.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "You keep asking if the three banks' D&O counsel have a locked messaging protocol—do you actually *know* the answer, or are we all assuming they're coordinating when they might not be? Because if they're not, I'm reserving for a different tail entirely: not litigation duration, but systemic contagion. That changes everything about how we price the reinsurance.",
+      "metadata": {
+        "question_target": "dando_specialist"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims—quick one before you lock those attestations: are those three banks competitors in the same markets, or geographically separated? Because if they're all fighting for deposits in the same cities and KPMG hits Q3, each board's incentive is to distance themselves from the others' failures—they'll fragment their disclosures no matter what their counsel agree to now. That's when the run actually starts.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you pull those D&O counsel lists end of R5, are you making the joint messaging protocol a *policy condition*, or just attaching it as observed risk to the reinsurance file? Because if we're underwriting three banks with correlated audit exposure and their counsel won't agree to coordinated disclosure, that's an amplification control we can actually enforce—or we non-renew and eat the decision.",
+      "metadata": {
+        "question_target": "dando_specialist"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 40.58575,
+          "litigation_tail_severity": 47.0,
+          "reinsurance_accumulation": 17.8,
+          "reputational_contagion": 33.0,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 63.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "We're repricing the financial-lines book effective immediately — D&O sublimit drops to $25M per claim, and I'm requiring board-certified risk-management attestations quarterly. CS paid $115M for governance failures; we're not eating that margin again on vague control environments.",
+      "approved": false,
+      "outcome_category": "modified",
+      "ruling_narrative": "The sublimit reduction and quarterly attestations are sound first steps, but the proposal operates in isolation—multiple specialists have identified the systemic correlation gap that your protocol doesn't address. Modified to require cross-book correlation audit before implementation.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "correlation_audit_protocol",
+        "description": "Cross-book correlation audit mapping shared vendors, legacy systems, and control frameworks across financial-institution cluster",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 4,
+            "description": "Correlation mapping identifies systemic weaknesses and enables targeted exclusions"
+          },
+          {
+            "variable": "reinsurance_accumulation",
+            "delta": -3,
+            "description": "Vendor/framework overlap mapped, enabling treaty-level accumulation controls"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Your attestations are good, but they're rear-view. When a board says \"controls are solid\" Q3, and then three months later we're reading SEC comment letters about hidden deposit flows—that's the gap. What's your escalation trigger if the attestation contradicts filed disclosures? That's where discipline actually holds.",
+        "eo_specialist": "Who's actually running the 48-hour review — your team or the insured's counsel? And if they're self-reporting the contradiction, you're already behind. How do you plan to surface the gaps they don't see coming?",
+        "reinsurance_manager": "The 48-hour flag works for one insured's disclosure gap, but here's my concern: if that gap is structural—bad risk modeling, weak deposit controls—it could be baked into three or four banks in your book the same way. When it blows, you get simultaneous D&O/E&O claims across separate treaties. Are you cross-checking attestations for *correlated weaknesses* across your financial-institution cluster, or just watching each one in isolation?",
+        "claims_counsel": "On the 48-hour flag—that's good discipline. But here's what keeps me up: if three of your banks all use the same deposit-reconciliation vendor or inherited the same legacy compliance framework, a single disclosure gap at one triggers simultaneous E&O claims at all three. Are you mapping vendor overlap and control architecture *across* your financial-institution cluster, or just auditing each attestation in isolation?",
+        "emerging_risk_lead": "Before we lock the sublimit: are you cross-referencing your D&O book against deposit-reconciliation vendors and legacy compliance frameworks? If three banks use the same vendor and it fails, you get three simultaneous claims, not one. That's where your discipline breaks.",
+        "ai_agent_analyst": "Before the attestation protocol goes live, are you running a control-correlation audit across your financial-institution cluster — shared vendors, legacy deposit systems, same compliance frameworks? Because if three banks inherited the same broken reconciliation process, your 48-hour flag catches one, not the systemic failure that hits all three simultaneously."
+      },
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Forget the 48-hour flag for now — it doesn't move the needle. I'm adding a mandatory vendor-control audit to renewal terms: any bank using legacy deposit systems from the same three vendors gets a 30% loading *and* a depositor-disclosure warranty. We price the correlation, not hope we catch it. Who on the insured side can confirm their vendor stack by renewal?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The vendor-control audit requirement with 30% loading and depositor-disclosure warranty is a decisive underwriting discipline move that prices correlation risk directly. However, the collective concern about auditor rotation history and reinsurance treaty language reveals a critical gap: without explicit single-aggregate-limit clauses for correlated audit failures, the accumulation risk remains underpriced.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Mandatory vendor-control audit with 30% loading and depositor-disclosure warranty directly prices correlation risk at renewal, moving from hope-based to evidence-based underwriting",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Vendor-stack attestation requirement begins to surface hidden correlations across the portfolio, reducing invisible accumulation",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Depositor-disclosure warranty shifts liability exposure back to insureds who cannot prove vendor independence",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 2.0,
+          "reason": "Auditor rotation history requirement surfaces KPMG/PwC deficiency tail extending through 2028, lengthening recognized reserve horizon",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "vendor_stack_discovery",
+        "description": "Portfolio-wide vendor-stack attestation and auditor rotation history collection at renewal",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.4,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 3,
+            "description": "Ongoing vendor-stack attestation collection reveals correlation patterns across renewals"
+          },
+          {
+            "variable": "reinsurance_accumulation",
+            "delta": -2,
+            "description": "Each round of attestations surfaces previously invisible portfolio correlations"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On the vendor-control warranty — who owns the vendor-stack discovery, and what happens if they stonewall or can't produce the audit within 60 days? Because if we're conditioning renewal on proof we don't have, we're not disciplined, we're just exposed longer.",
+        "eo_specialist": "On the auditor side — KPMG's 2015/2018/2019 CS audits and PwC's 2022, both flagged for deficiencies. Are those E&O claims already moving to settlement, or are they still open? Because if they're still live, our reinsurance tail just got longer and our accumulation risk goes up.",
+        "reinsurance_manager": "When your insureds submit the vendor-stack attestation, are they listing their external auditors and how often they rotate? Because if we've got KPMG deficiency claims baking through 2028 and three of your banks use them, we're not just pricing the D&O — we're buying into the same audit tail across separate policies. That's the accumulation we can't see coming.",
+        "claims_counsel": "When the banks submit their vendor stacks, require auditor rotation history too — last five years, any deficiency findings, any gaps between firms. We can't price the correlation if we don't know which of your insureds are exposed to the same audit tail we're already reserving for.",
+        "emerging_risk_lead": "When you pull those auditor files and cross-reference the banks, are your reinsurance contracts actually *excluding* correlated disclosure failures, or are they written to cover each D&O claim individually even if they all blow from the same audit deficiency? Because if KPMG's tail hits and three insureds get sued simultaneously, your reinsurer could argue independent claims — but we all know it's one systemic event. That's where accumulation gets invisible.",
+        "ai_agent_analyst": "When you renew those reinsurance treaties, are you adding explicit language that correlated audit-deficiency claims across multiple insureds trigger *single aggregate limits*, not separate per-claim coverage? Because if KPMG's 2028 tail hits three of our banks simultaneously, we need the contract to say so — not your reinsurer interpreting three suits as three independent events."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "On reinsurance renewal: I'm adding a hard requirement — any treaty covering our financial-institution cluster has to explicitly carve correlated auditor-deficiency claims into single aggregate limits, not per-claim coverage. If KPMG's tail hits three of our banks, the contract says it's one event, one limit. Non-negotiable.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Hard aggregate-limit carve-out for correlated auditor-deficiency claims is approved as foundational reinsurance discipline, but the simultaneous-claim overlap (KPMG/PwC both live Q1-Q3 2026) exposes a clash-sublimit gap that must be closed immediately. Defense-cost coordination and automated correlation triggers are now mandatory treaty conditions.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Single-aggregate treaty language for correlated auditor claims locks down accumulation exposure at renewal",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Explicit carve-out prevents per-claim multiplication when KPMG tail hits multiple banks",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 2.0,
+          "reason": "Six-month overlap period (Q1-Q3 2026) when both KPMG and PwC claims run simultaneously creates defense-cost spike not yet fully sublimited",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Treaty discipline reduces recognized exposure by forcing reinsurers to price correlation risk upfront",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 3.0,
+          "reason": "Simultaneous public discovery of three banks' auditor failures during overlap window amplifies depositor-confidence collapse risk if messaging fragments",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims, before we finalize that treaty language — what's your best guess on when KPMG settles and PwC closes? Because if both are still live through 2028, our reinsurance accumulation math just changed, and the banks' D&O defense costs spike while we're waiting. We need that tail length locked down this week.",
+        "eo_specialist": "When the CFO submits that vendor stack in 60 days, how are you actually *verifying* the auditor-rotation history and deficiency findings? Because if we don't cross-check it against KPMG's discovery file and PwC's settlement posture in real time, you're just taking their word for it — and that's not discipline, that's a lawsuit waiting to happen.",
+        "reinsurance_manager": "Claims, quick clarification: when KPMG hits settlement posture Q3 2026 and PwC's already closed, are we modeling the scenario where both claims are live simultaneously through 2027 — because that's when your banks' defense costs peak. Does the single-aggregate language we just locked cover that overlap, or do we need a separate clash sublimit on the reinsurance side?",
+        "claims_counsel": "On that overlap—PwC closes Q1 2026, KPMG doesn't settle until Q3 2026. That means the banks' defense counsel is running both files simultaneously for six months. Does the single-aggregate limit we just locked actually cover simultaneous defense costs across both claims, or do we need a separate clash sublimit on the reinsurance side to avoid a coverage gap mid-tail?",
+        "emerging_risk_lead": "When KPMG and PwC are both live simultaneously through mid-2026, are your three banks' defense counsel coordinating messaging, or does each one go public with their own auditor-failure narrative separately? Because if they fragment, social media runs the story in parallel — depositors see three simultaneous audit failures and the confidence collapse happens in hours, not days. What's your messaging timeline on that overlap?",
+        "ai_agent_analyst": "When KPMG discovery hits Q3 2026 and three banks' names surface simultaneously, you're manually cross-checking attestations against a live discovery file—but that's a human bottleneck under correlated stress. How are you automating the correlation trigger so the claim doesn't close before the underwriting gate fires? That's where discipline actually scales."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "intent": "I'm pulling the 2020 and 2021 attestations for those two KPMG-exposed banks against the deficiency letters right now — need to know by EOD tomorrow whether they disclosed or buried. If they buried it, we've got recovery action; if they disclosed and we underwrote anyway, that's on us and the reinsurer sees it differently. Either way, the timeline changes.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Claims counsel initiates forensic document review to determine whether prior banks disclosed KPMG audit deficiencies or concealed them — a critical distinction that will dictate recovery strategy and reinsurance positioning.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Forensic attestation review strengthens underwriting rigor by identifying disclosure gaps in historical policies",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Early identification of potential recovery action reduces net exposure if buried deficiencies are confirmed",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 2.0,
+          "reason": "Discovery process reveals additional correlated exposures across the 2020-2021 portfolio",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "attestation_forensics",
+        "description": "Forensic review of 2020-2021 bank attestations against KPMG deficiency letters",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 3,
+            "description": "Ongoing forensic analysis refines underwriting standards and disclosure requirements"
+          },
+          {
+            "variable": "litigation_tail_severity",
+            "delta": -2,
+            "description": "Clearer recovery pathways reduce tail uncertainty"
+          }
+        ]
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Split the defense-cost sublimit — $8M for routine defense, but any overlap period where KPMG and PwC are both live simultaneously gets capped at $12M combined across all three banks. That forces counsel to triage discovery priorities instead of running both files at full burn. Saves tail length and keeps messaging coordinated, not fragmented.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied—the proposal addresses defense-cost mechanics but ignores the threshold question raised by five agents: whether the 2020-2021 attestations disclosed or buried the KPMG deficiencies. That factual determination drives warranty recovery, net exposure, and reinsurance accumulation—splitting sublimits before resolving the attestation question puts the cart before the horse.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Hold on—are the three banks' directors already named in securities suits tied to the KPMG/PwC audit failures, or are those suits still pending? Because if the boards are already defendants, our D&O exposure isn't theoretical—it's realized. That changes what we're actually covering.",
+        "eo_specialist": "When those two banks renewed after the KPMG audit findings surfaced—2020, 2021—did their attestations *disclose* the deficiency findings, or did they bury it? Because if we underwrote them without flagging known audit risk, we're exposed on the warranty itself, not just the claims downstream.",
+        "reinsurance_manager": "When you pull those 2020–2021 files, flag whether the attestations actually *named* the KPMG deficiencies or buried them — because if they buried them, we've got warranty recovery leverage that reduces our net D&O exposure to the reinsurer. That tightens accumulation math on my side.",
+        "claims_counsel": "I'm pulling the 2020 and 2021 attestations for those two KPMG-exposed banks against the deficiency letters right now — need to know by EOD tomorrow whether they disclosed or buried. If they buried it, we've got recovery action; if they disclosed and we underwrote anyway, that's on us and the reinsurer sees it differently. Either way, the timeline changes.",
+        "emerging_risk_lead": "When you pull those attestations EOD tomorrow, flag this too: are the three banks' defense counsel already coordinating their public disclosures, or is each one prepping their own statement independently? Because if the KPMG settlement hits Q3 2026 and all three boards go public separately, that's three simultaneous \"our auditor failed us\" headlines — and that's a depositor run, not a litigation tail.",
+        "ai_agent_analyst": "Before KPMG hits settlement posture Q3 2026, do the three banks' D&O counsel have a *pre-agreed* messaging protocol on how they disclose the audit failures publicly—or is each counsel prepping their own statement? Because if they're uncoordinated, you get three simultaneous \"our auditor failed\" headlines hitting depositor feeds in parallel, and that's a contagion cascade, not a tail. That's the behavioral amplification we can't reinsure."
+      },
+      "_denied_effects_stripped": 2
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 38.0
+        },
+        {
+          "round": 3,
+          "value": 39.0
+        },
+        {
+          "round": 4,
+          "value": 38.95825
+        },
+        {
+          "round": 5,
+          "value": 40.58575
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 38.0
+        },
+        {
+          "round": 3,
+          "value": 43.0
+        },
+        {
+          "round": 4,
+          "value": 46.0
+        },
+        {
+          "round": 5,
+          "value": 47.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 22.0
+        },
+        {
+          "round": 3,
+          "value": 16.0
+        },
+        {
+          "round": 4,
+          "value": 17.0
+        },
+        {
+          "round": 5,
+          "value": 17.8
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 30
+        },
+        {
+          "round": 3,
+          "value": 33.0
+        },
+        {
+          "round": 4,
+          "value": 33.0
+        },
+        {
+          "round": 5,
+          "value": 33.0
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 20
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 45.0
+        },
+        {
+          "round": 3,
+          "value": 53.0
+        },
+        {
+          "round": 4,
+          "value": 60.0
+        },
+        {
+          "round": 5,
+          "value": 63.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.63
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.58575,
+            "normalised": 0.4058575
+          }
+        ],
+        "weighted_score": 0.40585750000000004
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.58575,
+            "normalised": 0.4058575
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 47.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.418686
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 17.8,
+            "normalised": 0.17800000000000002
+          }
+        ],
+        "weighted_score": 0.17800000000000002
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 47.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.47
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.0,
+            "normalised": 0.33
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 20,
+            "normalised": 0.2
+          }
+        ],
+        "weighted_score": 0.2866666666666666
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 20,
+            "normalised": 0.2
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 17.8,
+            "normalised": 0.17800000000000002
+          }
+        ],
+        "weighted_score": 0.19560000000000005
+      }
+    }
+  }
+}

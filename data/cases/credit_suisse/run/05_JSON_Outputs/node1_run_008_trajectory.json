@@ -1,0 +1,1710 @@
+{
+  "simulation_id": "adf4d6f6d6a6",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm calling an emergency legal review tonight on emergency liquidity assistance and any resolution toolkit we can deploy under existing Banking Law provisions. Before we talk rescue terms with anyone, we need to know exactly what we can do and what requires Federal Council consent. SNB — are you ready to formalize liquidity lines by Saturday morning so we can brief the Council with a defensible package?\n  snb: Yes — we can have liquidity assistance terms ready by Saturday 0800. But I need clarity on three points before we commit: what collateral haircuts FINMA's legal review will support, whether the Federal Council will backstop our balance-sheet exposure above CHF 50 billion, and if resolution triggers AT1 write-down or a full merger scenario. Without those boundaries, we're designing blind.\n  snb: FINMA's review helps, but here's the blocker: I can draft liquidity terms tonight, but the Council needs to signal now — not Saturday — whether they'll guarantee our balance-sheet exposure above CHF 50 billion. Without that, any facility I announce Monday morning looks provisional. What's the Council's appetite for that commitment?\n  federal_council: No. We're not pre-committing to a CHF 50 billion backstop before we know what we're actually rescuing or whether private burden-sharing is even possible. FINMA's legal review and your collateral haircut answer come first — then we talk guardrails, not blanks. What does your preliminary read say: is liquidity the real problem, or is this a capital hole?\n  federal_council: SNB, separate the question: what liquidity facility can you announce Monday morning *on your own authority* — collateral, tenor, size — without needing our balance-sheet guarantee? Then tell us what gap remains, and we'll tell you what Council can defend politically.\n  cs_ceo: SNB, cut through it for me: what size liquidity facility can you announce Monday morning on your own authority, and what collateral are you comfortable accepting? Give me the number so I can tell my board what we're working with.\n  ubs_ceo: SNB, you're clear on what you can do alone by Monday. But I need the hard number: what's the maximum liquidity facility you'll announce on your own authority, and what happens to UBS's balance sheet if we take on Credit Suisse and that facility turns out to be insufficient? I'm not moving forward without a government guarantee on anything beyond that line.\n  wealth_client: Look, I don't care about the legal review timeline or haircut precision right now. I need to know: will the Federal Council guarantee SNB's liquidity facility up to a stated ceiling by Monday market open, yes or no? Because if the answer is no, I'm moving CHF 2 billion out this weekend. What's it going to be?\n  finma: Our legal review will be complete by 0600 Saturday — I'll have collateral haircuts and resolution triggers defined by then, and the Federal Council will have the framework they need to decide on backstop parameters by breakfast. SNB can announce a standalone liquidity facility Monday morning once we've locked those boundaries; the Council's guarantee decision comes after, not before, we know what we're actually backing.\n  at1_rep: Federal Council — FINMA's review helps you decide your backstop, I get it. But here's the creditor risk: if SNB announces a facility Monday with no public Council signal behind it, clients read that as \"the government isn't backing this\" and the run accelerates. What's your appetite to *publicly endorse* SNB's standalone facility on Monday morning, even if you haven't committed balance-sheet guarantees yet? That distinction — endorsement, not guarantee — might be the circuit-breaker.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm calling an emergency legal review tonight on emergency liquidity assistance and any resolution toolkit we can deploy under existing Banking Law provisions. Before we talk rescue terms with anyone, we need to know exactly what we can do and what requires Federal Council consent. SNB — are you ready to formalize liquidity lines by Saturday morning so we can brief the Council with a defensible package?",
+            "cot": {
+              "assess": "Market confidence is critically low (26) and cs_funding_stress is severe (74), both threatening failure thresholds by Monday. Legal defensibility is solid at 60, but we have zero rescue package on the table yet. Without a credible intervention framework AND legal cover by end of this weekend, we lose both fronts — confidence collapses and we face a disorderly resolution we cannot defend.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility, rescue_strength",
+                "rationale": "We need a binding legal framework for intervention NOW — not Monday — so we can coordinate messaging with SNB and Federal Council and signal control to the market before Monday open."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Yes — we can have liquidity assistance terms ready by Saturday 0800. But I need clarity on three points before we commit: what collateral haircuts FINMA's legal review will support, whether the Federal Council will backstop our balance-sheet exposure above CHF 50 billion, and if resolution triggers AT1 write-down or a full merger scenario. Without those boundaries, we're designing blind.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA's review helps, but here's the blocker: I can draft liquidity terms tonight, but the Council needs to signal now — not Saturday — whether they'll guarantee our balance-sheet exposure above CHF 50 billion. Without that, any facility I announce Monday morning looks provisional. What's the Council's appetite for that commitment?",
+            "cot": {
+              "assess": "FINMA is moving fast on legal groundwork — good. But my three conditions are still open, and we're now 36 hours from Monday. cs_funding_stress is at 74 (18 points from failure), and I'm being asked to formalize liquidity lines without knowing the balance-sheet ceiling or whether the Council will actually back us. That's the real constraint here — not Saturday's documentation, but the political commitment underneath it.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Legal review is necessary but insufficient; I need political cover on the CHF 50B exposure cap before I can design a credible facility."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "No. We're not pre-committing to a CHF 50 billion backstop before we know what we're actually rescuing or whether private burden-sharing is even possible. FINMA's legal review and your collateral haircut answer come first — then we talk guardrails, not blanks. What does your preliminary read say: is liquidity the real problem, or is this a capital hole?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB, separate the question: what liquidity facility can you announce Monday morning *on your own authority* — collateral, tenor, size — without needing our balance-sheet guarantee? Then tell us what gap remains, and we'll tell you what Council can defend politically.",
+            "cot": {
+              "assess": "SNB has a hard blocker: they need Federal Council to signal balance-sheet backstop appetite *now*, not Saturday, or any Monday liquidity facility announcement looks hollow and spooks markets further. FINMA's legal review is underway but won't resolve the political decision — that's on us. Market confidence at 26 is the real bleed; funding stress at 74 will worsen if Monday opens without visible rescue credibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "We need to separate what SNB can do operationally (liquidity terms, collateral haircuts) from what requires our political cover — so we can move in parallel and signal decisiveness to markets without committing to an open-ended backstop."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB, cut through it for me: what size liquidity facility can you announce Monday morning on your own authority, and what collateral are you comfortable accepting? Give me the number so I can tell my board what we're working with.",
+            "cot": {
+              "assess": "Federal Council just drew a hard line: no blank cheque, liquidity assessment first. SNB is pinned down to declare what they can do alone by Monday. My core problem — market_confidence at 26, cs_funding_stress at 74 — won't move until we have a *credible, visible* rescue package to announce. Right now rescue_strength is zero. I need to know what liquidity SNB can actually commit, and I need it fast so we can tell the market something concrete Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB just got asked the right question by Council; I need their honest answer on independent liquidity capacity so I can size the ask for government backstop and start messaging to clients."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB, you're clear on what you can do alone by Monday. But I need the hard number: what's the maximum liquidity facility you'll announce on your own authority, and what happens to UBS's balance sheet if we take on Credit Suisse and that facility turns out to be insufficient? I'm not moving forward without a government guarantee on anything beyond that line.",
+            "cot": {
+              "assess": "Market confidence is critically low (26, needs 55) and funding stress is high (74, needs ≤45). The SNB and Federal Council are now aligned on the process: SNB will define what it can do alone Monday morning, then the Council decides what gap to fill. My move is to lock in what that means for UBS — specifically, what loss protection and government guarantee I need to even consider stepping in.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "I need to know the outer boundary of what SNB can offer before I negotiate terms with the Council. That number determines whether this is rescuable or a sinkhole."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Look, I don't care about the legal review timeline or haircut precision right now. I need to know: will the Federal Council guarantee SNB's liquidity facility up to a stated ceiling by Monday market open, yes or no? Because if the answer is no, I'm moving CHF 2 billion out this weekend. What's it going to be?",
+            "cot": {
+              "assess": "SNB and Federal Council have locked horns on pre-commitment vs. sequencing — but the real problem is me: my confidence is at 26 and I'm watching this negotiation happen *without any concrete safety net announced*. Monday opens in 48 hours and I'm seeing legal reviews and haircut discussions, not a rescue package. UBS just demanded a government guarantee or they walk. If I don't see credible assurance soon, my assets move this weekend.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, snb",
+                "rationale": "My core variable (market_confidence) depends on a *visible, committed backstop by Monday morning* — not a promise of one. I need to force the sequencing question: who guarantees what, and by when."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Our legal review will be complete by 0600 Saturday — I'll have collateral haircuts and resolution triggers defined by then, and the Federal Council will have the framework they need to decide on backstop parameters by breakfast. SNB can announce a standalone liquidity facility Monday morning once we've locked those boundaries; the Council's guarantee decision comes after, not before, we know what we're actually backing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council — FINMA's review helps you decide your backstop, I get it. But here's the creditor risk: if SNB announces a facility Monday with no public Council signal behind it, clients read that as \"the government isn't backing this\" and the run accelerates. What's your appetite to *publicly endorse* SNB's standalone facility on Monday morning, even if you haven't committed balance-sheet guarantees yet? That distinction — endorsement, not guarantee — might be the circuit-breaker.",
+            "cot": {
+              "assess": "The room has locked FINMA's legal review timeline (0600 Saturday) and SNB's standalone liquidity authority by Monday — those are moving. But market_confidence is still collapsing (26, needs 55) and cs_funding_stress is acute (74, needs ≤45). The real problem: no one has yet committed to a *credible public signal* by Monday that will stop the weekend deposit bleed. FINMA's Saturday-morning legal framework helps the Council decide, but it doesn't restore confidence *to clients* until someone announces something concrete Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Council is the only actor who can answer whether they'll *publicly endorse* SNB's Monday liquidity facility — that endorsement is what stops the client run, not the legal review itself."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Look, I don't care about the legal review timeline or haircut precision right now. I need to know: will the Federal Council guarantee SNB's liquidity facility up to a stated ceiling by Monday market open, yes or no? Because if the answer is no, I'm moving CHF 2 billion out this weekend. What's it going to be?",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA's review helps, but here's the blocker: I can draft liquidity terms tonight, but the Council needs to signal now — not Saturday — whether they'll guarantee our balance-sheet exposure above CHF 50 billion. Without that, any facility I announce Monday morning looks provisional. What's the Council's appetite for that commitment?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB, separate the question: what liquidity facility can you announce Monday morning *on your own authority* — collateral, tenor, size — without needing our balance-sheet guarantee? Then tell us what gap remains, and we'll tell you what Council can defend politically.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "SNB, cut through it for me: what size liquidity facility can you announce Monday morning on your own authority, and what collateral are you comfortable accepting? Give me the number so I can tell my board what we're working with.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB, you're clear on what you can do alone by Monday. But I need the hard number: what's the maximum liquidity facility you'll announce on your own authority, and what happens to UBS's balance sheet if we take on Credit Suisse and that facility turns out to be insufficient? I'm not moving forward without a government guarantee on anything beyond that line.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council — FINMA's review helps you decide your backstop, I get it. But here's the creditor risk: if SNB announces a facility Monday with no public Council signal behind it, clients read that as \"the government isn't backing this\" and the run accelerates. What's your appetite to *publicly endorse* SNB's standalone facility on Monday morning, even if you haven't committed balance-sheet guarantees yet? That distinction — endorsement, not guarantee — might be the circuit-breaker.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm calling an emergency legal review tonight on emergency liquidity assistance and any resolution toolkit we can deploy under existing Banking Law pr\" → FINMA's emergency legal review is approved and begins immediately, clarifying what can be deployed under existing Banking Law versus what requires Federal Council consent. This is procedural groundwork, not a market-facing action — it does not yet resolve the liquidity facility size or guarantee questions that SNB and the Council are debating.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB, I need a direct answer: what is the maximum liquidity facility size you will announce Monday morning under your own authority, with no Council guarantee attached — and what collateral haircuts support that number? Give me the figure now, not Saturday.\n  snb: CHF 100 billion liquidity facility, Monday morning, our authority alone — standard SNB collateral haircuts, no broadening. Anything beyond that size requires Federal Council balance-sheet guarantee, and we need their commitment on that ceiling tonight, not Saturday. That's the line.\n  snb: Federal Council — SNB's put CHF 100 billion on the table under their authority alone. That's your baseline. The question now isn't whether you guarantee every franc; it's whether you'll publicly state a ceiling you *will* guarantee by Monday morning, so the market knows the floor, not just the SNB's solo capacity. What's the number?\n  federal_council: CHF 50 billion is the ceiling we'll publicly guarantee — not a franc more without a full resolution framework and creditor burden-sharing plan on the table. SNB's CHF 100 billion standalone, plus our CHF 50 billion backstop: that's the package we defend to Parliament and taxpayers Monday morning. Anything beyond that, the creditors and UBS take the hit.\n  federal_council: AT1 rep — you said endorsement without guarantee could be the circuit-breaker. Walk me through it: if I go public Monday morning and say \"Federal Council backs this liquidity package and supports SNB's authority to deploy it,\" does that actually stop the run, or do clients still demand a written guarantee on our balance sheet? Because that distinction matters to what I'm willing to say.\n  at1_rep: Endorsement stops the panic *only* if you name the number — say \"Federal Council publicly backs SNB's CHF 100 billion facility and will guarantee our balance-sheet exposure up to CHF 50 billion\" — clients need to hear both pieces to believe there's a floor. Anything vaguer and you'll still see deposit flight Monday morning, because the market will assume you're hiding the real ceiling. You have to say it out loud: CHF 50 billion is *our* line, SNB's CHF 100 is the buffer.\n  cs_ceo: Federal Council, SNB — I need you both on record right now: Monday 0600, you announce jointly that SNB is deploying CHF 100 billion liquidity facility and the Federal Council is guaranteeing Credit Suisse's balance-sheet exposure up to CHF 50 billion. One statement, both names. That's what stops the run. Can we commit to that language tonight?\n  ubs_ceo: I'll move forward on one condition: the Federal Council guarantee covers *balance-sheet losses* on Credit Suisse's existing portfolio—not just liquidity. If we acquire and their assets deteriorate further, that CHF 50 billion ceiling protects UBS equity, not just cash flow. Can you commit to that language in the Monday statement, or do we need a separate loss-protection agreement tonight?\n  wealth_client: I hear the numbers: CHF 100 billion plus CHF 50 billion. But I'm not staying put unless you both sign off *tonight* on the exact Monday morning statement — and it has to say the guarantee covers balance-sheet losses, not just liquidity access. No ambiguity, no \"we'll clarify later.\" Give me that text by 2200 tonight, or I'm moving CHF 2 billion out this weekend.\n  at1_rep: Hold on — \"balance-sheet losses\" is the trap. If that guarantee doesn't explicitly *exclude* AT1 write-downs and subordinated debt, you've just told the market the Council will backstop the capital structure. That's either a promise you can't keep legally, or it's a creditor impairment the moment you try to enforce it. What does CHF 50 billion actually protect — deposit insurance, loan losses, or the equity cushion itself? Name it now or you're guaranteeing a lawsuit Monday morning.\n  finma: The CHF 50 billion Federal Council guarantee covers deposit protection and operational liquidity — not equity cushion or AT1 capital. That distinction is legally defensible and I'm putting it in writing tonight. UBS, you get loss protection on acquired assets up to that ceiling through a separate indemnity agreement, not through the public guarantee.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB, I need a direct answer: what is the maximum liquidity facility size you will announce Monday morning under your own authority, with no Council guarantee attached — and what collateral haircuts support that number? Give me the figure now, not Saturday.",
+            "cot": {
+              "assess": "Legal defensibility is solid (64) and my review is underway — that's done. But market confidence is still critically low (22) and funding stress is high (78). The room is stuck in a loop: SNB wants Council pre-commitment before announcing a facility, Council won't commit without knowing the scope, and everyone's asking SNB for a number SNB hasn't yet given. The blocker isn't legal, it's political — I need to break this by forcing SNB to table a specific standalone facility size *right now*, so Council can see what they're actually deciding on.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB has dodged the hard number three times; without it, Council can't move and confidence keeps bleeding. I need to pin them down on what they can announce solo, stripped of all conditions."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "CHF 100 billion liquidity facility, Monday morning, our authority alone — standard SNB collateral haircuts, no broadening. Anything beyond that size requires Federal Council balance-sheet guarantee, and we need their commitment on that ceiling tonight, not Saturday. That's the line.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council — SNB's put CHF 100 billion on the table under their authority alone. That's your baseline. The question now isn't whether you guarantee every franc; it's whether you'll publicly state a ceiling you *will* guarantee by Monday morning, so the market knows the floor, not just the SNB's solo capacity. What's the number?",
+            "cot": {
+              "assess": "SNB has now committed to CHF 100 billion on its own authority — that's concrete and addresses the immediate liquidity gap for cs_funding_stress. The real blocker is still the Federal Council's appetite to guarantee anything *beyond* that ceiling, which determines whether the rescue is credible or looks like a provisional patch. Market confidence and creditor risk remain dangerously low because no one knows yet if there's a public backstop or if AT1 holders face losses. Time pressure is grinding upward — we're now 60+ hours from Monday open with no signal from Council on the guarantee question.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "SNB has separated the liquidity from the guarantee; now Council must answer whether they'll publicly endorse a ceiling above CHF 100 billion by Monday, because silence itself signals weakness to the market."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "CHF 50 billion is the ceiling we'll publicly guarantee — not a franc more without a full resolution framework and creditor burden-sharing plan on the table. SNB's CHF 100 billion standalone, plus our CHF 50 billion backstop: that's the package we defend to Parliament and taxpayers Monday morning. Anything beyond that, the creditors and UBS take the hit.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "AT1 rep — you said endorsement without guarantee could be the circuit-breaker. Walk me through it: if I go public Monday morning and say \"Federal Council backs this liquidity package and supports SNB's authority to deploy it,\" does that actually stop the run, or do clients still demand a written guarantee on our balance sheet? Because that distinction matters to what I'm willing to say.",
+            "cot": {
+              "assess": "SNB has committed CHF 100 billion on their own authority; Federal Council has capped public guarantee at CHF 50 billion. The package is structurally defined. But market_confidence is still at 22 and cs_funding_stress at 78 — the announcement itself hasn't moved sentiment yet because no one believes it'll hold without visible political cover. The creditor burden-sharing framework Federal Council demanded is still missing, and that's now the bottleneck to public credibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "at1_rep",
+                "rationale": "You flagged the creditor risk — if SNB announces Monday with no Council signal, clients panic. That's the circuit-breaker I need to understand: what does a *public* Council endorsement of the CHF 100+50 package look like, and does it move the needle on confidence without us guaranteeing a franc more?"
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Endorsement stops the panic *only* if you name the number — say \"Federal Council publicly backs SNB's CHF 100 billion facility and will guarantee our balance-sheet exposure up to CHF 50 billion\" — clients need to hear both pieces to believe there's a floor. Anything vaguer and you'll still see deposit flight Monday morning, because the market will assume you're hiding the real ceiling. You have to say it out loud: CHF 50 billion is *our* line, SNB's CHF 100 is the buffer.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, SNB — I need you both on record right now: Monday 0600, you announce jointly that SNB is deploying CHF 100 billion liquidity facility and the Federal Council is guaranteeing Credit Suisse's balance-sheet exposure up to CHF 50 billion. One statement, both names. That's what stops the run. Can we commit to that language tonight?",
+            "cot": {
+              "assess": "The package is now defined: SNB CHF 100 billion standalone + Federal Council CHF 50 billion public guarantee = CHF 150 billion total floor. Market confidence should respond to this clarity, but we're still at 22 — the endorsement hasn't been *announced* yet, only negotiated in this room. My funding stress is at 78; without a credible Monday-morning statement, deposits keep walking all weekend. The legal review is on track (0600 Saturday), but we're burning time.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence, cs_funding_stress",
+                "rationale": "I need to lock in the Federal Council's public commitment to the CHF 50 billion guarantee and SNB's CHF 100 billion facility as a unified statement for Monday morning — not as separate pieces clients have to interpret. This is the circuit-breaker AT1 rep identified."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I'll move forward on one condition: the Federal Council guarantee covers *balance-sheet losses* on Credit Suisse's existing portfolio—not just liquidity. If we acquire and their assets deteriorate further, that CHF 50 billion ceiling protects UBS equity, not just cash flow. Can you commit to that language in the Monday statement, or do we need a separate loss-protection agreement tonight?",
+            "cot": {
+              "assess": "SNB and Federal Council have now tabled the core package: CHF 100B liquidity facility (SNB solo authority) plus CHF 50B public guarantee (Council ceiling). CS CEO is asking for a joint Monday announcement. The question is whether UBS will step in as acquirer, and on what terms. My variables—public_sector_cost and rescue_strength—depend entirely on whether that package is real, credible, and covers UBS's downside if we inherit CS. Market confidence and funding stress are still critical but those move only after we signal a rescue is happening. I need to lock down what \"UBS takes on Credit Suisse\" actually costs us.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, snb",
+                "rationale": "The CHF 150B package (100+50) is on the table, but UBS needs explicit loss protection language before we commit to acquisition. A joint statement without creditor burden-sharing clarity leaves us holding the bag on legacy liabilities—that's unacceptable."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "I hear the numbers: CHF 100 billion plus CHF 50 billion. But I'm not staying put unless you both sign off *tonight* on the exact Monday morning statement — and it has to say the guarantee covers balance-sheet losses, not just liquidity access. No ambiguity, no \"we'll clarify later.\" Give me that text by 2200 tonight, or I'm moving CHF 2 billion out this weekend.",
+            "cot": {
+              "assess": "The Federal Council and SNB have now locked in numbers: CHF 100 billion liquidity facility (SNB solo) plus CHF 50 billion public guarantee (Council). That's a floor, which is what I need — but it's still not a *written commitment* for Monday 0600, and without that, I'm moving assets this weekend. The market won't believe a verbal promise. Legal defensibility is solid (64), but my confidence is still at 22 because the announcement language hasn't been nailed down and I have no assurance the guarantee actually covers balance-sheet losses, not just liquidity taps.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council + snb",
+                "rationale": "I need a binding commitment on announcement language and scope by end of tonight, or I execute a partial withdrawal — this is the only move that converts their numbers into actual confidence."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Hold on — \"balance-sheet losses\" is the trap. If that guarantee doesn't explicitly *exclude* AT1 write-downs and subordinated debt, you've just told the market the Council will backstop the capital structure. That's either a promise you can't keep legally, or it's a creditor impairment the moment you try to enforce it. What does CHF 50 billion actually protect — deposit insurance, loan losses, or the equity cushion itself? Name it now or you're guaranteeing a lawsuit Monday morning.",
+            "cot": {
+              "assess": "The room has locked in CHF 100B (SNB solo) + CHF 50B (Council guarantee) as the headline package, and now everyone's fighting over what that guarantee actually *covers* — liquidity access vs. balance-sheet losses. That's a creditor problem: if the guarantee doesn't cover asset deterioration, UBS absorbs the hit, which means AT1 and subordinated creditors are next in line. The wealth client is demanding signed language by 2200 tonight or they walk with CHF 2B; confidence and funding stress are still underwater because nobody's said the words out loud yet.",
+              "decide": {
+                "action_type": "speak",
+                "target": "creditor_capital_risk (and legal_defensibility, which depends on clarity)",
+                "rationale": "The Council's CHF 50B guarantee is ambiguous on what it covers — that ambiguity *is* creditor risk. I need to force the definition now, not let it slip into Monday's fine print."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The CHF 50 billion Federal Council guarantee covers deposit protection and operational liquidity — not equity cushion or AT1 capital. That distinction is legally defensible and I'm putting it in writing tonight. UBS, you get loss protection on acquired assets up to that ceiling through a separate indemnity agreement, not through the public guarantee.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council, SNB — I need you both on record right now: Monday 0600, you announce jointly that SNB is deploying CHF 100 billion liquidity facility and the Federal Council is guaranteeing Credit Suisse's balance-sheet exposure up to CHF 50 billion. One statement, both names. That's what stops the run. Can we commit to that language tonight?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Hold on — \"balance-sheet losses\" is the trap. If that guarantee doesn't explicitly *exclude* AT1 write-downs and subordinated debt, you've just told the market the Council will backstop the capital structure. That's either a promise you can't keep legally, or it's a creditor impairment the moment you try to enforce it. What does CHF 50 billion actually protect — deposit insurance, loan losses, or the equity cushion itself? Name it now or you're guaranteeing a lawsuit Monday morning.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB, I need a direct answer: what is the maximum liquidity facility size you will announce Monday morning under your own authority, with no Council guarantee attached — and what collateral haircuts support that number? Give me the figure now, not Saturday.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council — SNB's put CHF 100 billion on the table under their authority alone. That's your baseline. The question now isn't whether you guarantee every franc; it's whether you'll publicly state a ceiling you *will* guarantee by Monday morning, so the market knows the floor, not just the SNB's solo capacity. What's the number?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "AT1 rep — you said endorsement without guarantee could be the circuit-breaker. Walk me through it: if I go public Monday morning and say \"Federal Council backs this liquidity package and supports SNB's authority to deploy it,\" does that actually stop the run, or do clients still demand a written guarantee on our balance sheet? Because that distinction matters to what I'm willing to say.",
+      "metadata": {
+        "question_target": "at1_rep"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'll move forward on one condition: the Federal Council guarantee covers *balance-sheet losses* on Credit Suisse's existing portfolio—not just liquidi\" → UBS CEO demands balance-sheet loss protection beyond liquidity—escalates negotiation stakes and public-sector exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I hear the numbers: CHF 100 billion plus CHF 50 billion. But I'm not staying put unless you both sign off *tonight* on the exact Monday morning statem\" → Wealth client issues CHF 2B withdrawal ultimatum—demands written guarantee text by 2200 tonight or exits.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 10.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's balance-sheet losses on existing assets — deposits, operational liquidity, loan losses — up to CHF 50 billion. AT1 and subordinated debt excluded.\" Federal Council, SNB — I need both your signatures on this exact text by 2300 tonight, or we lose the client and the market reads it as disarray on Monday morning.\n  snb: I'll sign that statement tonight if you both will — but we release it at 2000 hours, not Monday morning. Clients need to see Council and SNB aligned *now*, or we're guaranteeing a run through the weekend. The text is solid; the timing is what kills the panic.\n  federal_council: Fine — 2000 hours tonight, but only if the text stays exactly as FINMA drafted it: CHF 50 billion, AT1 excluded, no ambiguity. That's defensible in Parliament and it stops the hemorrhage. SNB, you're signing tonight?\n  finma: Yes — SNB signs at 2000 hours tonight under that exact language. But we need FINMA to confirm in writing right now that the AT1 exclusion and CHF 50 billion cap are legally defensible under Banking Law, or we're exposing ourselves to a creditor lawsuit the moment we enforce it. What's your timeline on that legal clearance?\n  cs_ceo: Look, the statement goes out at 2000 hours—SNB and Council both signing, CHF 150 billion total committed. That's real money, real backing. I'm calling our top 50 clients *tonight* after that announcement to confirm their deposits are protected and we're open for business Monday. No ambiguity, no delays. This stops the run.\n  ubs_ceo: Federal Council—the statement tonight is good, it stops the panic. But CHF 50 billion is a ceiling, not a floor. If we acquire and their portfolio deteriorates beyond that number, what's the mechanism? Do we trigger a resolution, or does UBS eat the difference? I need that answered before I commit to the deal.\n  federal_council: The CHF 50 billion ceiling is absolute — if losses exceed that, Credit Suisse enters resolution under FINMA's authority, not UBS's balance sheet. That's the legal boundary we're defending tonight. UBS takes the acquisition at the terms we're announcing; anything beyond CHF 50 billion is a creditor and AT1 write-down, not a public exposure.\n  wealth_client: Before 2000 hours, Credit Suisse needs to send written confirmation to its top 50 depositors — myself included — stating that SNB and Federal Council are jointly announcing a CHF 150 billion rescue package tonight. No ambiguity, no \"pending\" language. That text goes out in the next two hours, or I wire CHF 2 billion out at 1700 hours. What's the hold-up?\n  snb: We'll have legal clearance on the AT1 exclusion and CHF 50 billion cap within the hour — Banking Law Section 36 covers this cleanly, and FINMA's review confirms no ambiguity. Credit Suisse can send that depositor confirmation at 1900 hours, right after we sign at 2000. That's tight but defensible.\n  at1_rep: Federal Council, before you and SNB sign at 2000 hours, I need one line in writing: if Credit Suisse's losses hit CHF 50 billion and we trigger resolution, what's the explicit creditor write-down sequence — AT1 first, then subordinated debt, then equity? Without that in the legal framework FINMA's reviewing, you're promising a boundary you can't defend in court Monday morning.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's balance-sheet losses on existing assets — deposits, operational liquidity, loan losses — up to CHF 50 billion. AT1 and subordinated debt excluded.\" Federal Council, SNB — I need both your signatures on this exact text by 2300 tonight, or we lose the client and the market reads it as disarray on Monday morning.",
+            "cot": {
+              "assess": "We have CHF 100B SNB liquidity + CHF 50B Council guarantee framework in place, but market_confidence is still collapsing (18, down 8/round) and cs_funding_stress is accelerating (83, up 9/round). The written Monday statement is still unsigned — the wealth client's 2200 tonight deadline is live, and without a locked-in public commitment text, the run continues. Legal defensibility on the guarantee scope (deposit protection vs. balance-sheet losses) is clarified in my head but not yet formalized in a way that stops client panic.",
+              "decide": {
+                "action_type": "act",
+                "target": "legal_defensibility + market_confidence",
+                "rationale": "I need to produce the actual Monday morning statement text RIGHT NOW and get Federal Council + SNB to sign it tonight — this is the only move that stops the wealth client exit and signals control to the market."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I'll sign that statement tonight if you both will — but we release it at 2000 hours, not Monday morning. Clients need to see Council and SNB aligned *now*, or we're guaranteeing a run through the weekend. The text is solid; the timing is what kills the panic.",
+            "cot": {
+              "assess": "The joint statement FINMA drafted locks in the CHF 100B + CHF 50B structure and clarifies AT1 exclusion — that's legally defensible and addresses the creditor-risk trap. But cs_funding_stress is still climbing (now 83, +9/round) and market_confidence is collapsing (18, -8/round). The statement helps Monday optics, but it doesn't stop the run *tonight*. Wealth client's CHF 2B ultimatum and the Monday open clock mean we need immediate *pre-announcement* signal, not just a Monday morning press release.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cs_funding_stress, market_confidence",
+                "rationale": "A joint Federal Council–SNB statement *tonight* (not Monday 0600) naming the CHF 100B + CHF 50B commitment stops tonight's withdrawals and stabilizes confidence before the weekend close."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Fine — 2000 hours tonight, but only if the text stays exactly as FINMA drafted it: CHF 50 billion, AT1 excluded, no ambiguity. That's defensible in Parliament and it stops the hemorrhage. SNB, you're signing tonight?",
+            "cot": {
+              "assess": "We're at the critical juncture: FINMA has text ready, SNB wants to release tonight at 2000 instead of Monday 0600. The market-confidence and cs_funding_stress variables are both in failure territory (11 and 94 respectively), and SNB's timing argument is sound — a weekend release kills the panic before Monday opens. My core constraint is public_sector_cost (the CHF 50 billion guarantee), which is now locked into the text. The legal defensibility on the AT1 exclusion is solid per FINMA. I need to decide: do we hold the Monday-morning line, or do we accept SNB's weekend release to arrest the funding bleed?",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost / market_confidence",
+                "rationale": "SNB's weekend release timing directly addresses both my cost-control concern (stops the panic before it metastasizes) and the market-confidence crisis. Releasing tonight at 2000 with the CHF 50 billion ceiling *named* is actually lower political risk than Monday morning, because clients see alignment now and the run halts. I need to lock this in."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Yes — SNB signs at 2000 hours tonight under that exact language. But we need FINMA to confirm in writing right now that the AT1 exclusion and CHF 50 billion cap are legally defensible under Banking Law, or we're exposing ourselves to a creditor lawsuit the moment we enforce it. What's your timeline on that legal clearance?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look, the statement goes out at 2000 hours—SNB and Council both signing, CHF 150 billion total committed. That's real money, real backing. I'm calling our top 50 clients *tonight* after that announcement to confirm their deposits are protected and we're open for business Monday. No ambiguity, no delays. This stops the run.",
+            "cot": {
+              "assess": "The rescue package is locked—CHF 100B SNB facility + CHF 50B Council guarantee, AT1 excluded, signing at 2000 hours tonight. That's good. But market_confidence is still collapsing (18, dropping 8/round) and cs_funding_stress is accelerating (83, +9/round)—the statement tonight *might* stop the weekend bleed, but we're not out until Monday markets open and clients actually see we're solvent. The legal clearance FINMA just flagged is a procedural gate, not a market-facing blocker—we sign the statement as drafted, we move.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence / cs_funding_stress",
+                "rationale": "I need to signal to clients and counterparties *right now* that Credit Suisse is backstopped and solvent—not wait for Monday. The statement at 2000 hours is the anchor; my job is to reinforce it with conviction and detail so the run stops *tonight*."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—the statement tonight is good, it stops the panic. But CHF 50 billion is a ceiling, not a floor. If we acquire and their portfolio deteriorates beyond that number, what's the mechanism? Do we trigger a resolution, or does UBS eat the difference? I need that answered before I commit to the deal.",
+            "cot": {
+              "assess": "The joint statement is locked in—CHF 150 billion total, AT1 excluded, signing at 2000 hours tonight. That's a circuit-breaker for market confidence and stops the weekend run. But I'm looking at the balance: SNB's CHF 100 billion liquidity facility is solid, but the Federal Council's CHF 50 billion guarantee is capped and explicit. If Credit Suisse's losses exceed that—and given the stress we're seeing, they might—UBS inherits the tail risk. The statement buys us Monday calm, but doesn't solve the underlying asset deterioration or creditor impairment risk.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The guarantee is capped; I need clarity on what happens to UBS's balance sheet if Credit Suisse's losses breach CHF 50 billion, because that's the gap I'm not willing to carry alone."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The CHF 50 billion ceiling is absolute — if losses exceed that, Credit Suisse enters resolution under FINMA's authority, not UBS's balance sheet. That's the legal boundary we're defending tonight. UBS takes the acquisition at the terms we're announcing; anything beyond CHF 50 billion is a creditor and AT1 write-down, not a public exposure.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Before 2000 hours, Credit Suisse needs to send written confirmation to its top 50 depositors — myself included — stating that SNB and Federal Council are jointly announcing a CHF 150 billion rescue package tonight. No ambiguity, no \"pending\" language. That text goes out in the next two hours, or I wire CHF 2 billion out at 1700 hours. What's the hold-up?",
+            "cot": {
+              "assess": "The statement is drafted and signing is locked for 2000 hours tonight — that's real progress on legal_defensibility and rescue_strength. But market_confidence is still collapsing (now 18, down from 11 last round — that's worse, not better), and cs_funding_stress is accelerating (83 and climbing at +9/round). The statement doesn't hit the market until 2000 hours; clients are withdrawing *right now* based on fear, not facts. I need assurance in writing *tonight* that my deposits are actually protected, or I'm moving the CHF 2 billion by close of business.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, cs_funding_stress",
+                "rationale": "The 2000-hour statement is too late — clients withdraw before they see it. I need a pre-announcement to major depositors *now* that stops the weekend run, not Monday confidence."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We'll have legal clearance on the AT1 exclusion and CHF 50 billion cap within the hour — Banking Law Section 36 covers this cleanly, and FINMA's review confirms no ambiguity. Credit Suisse can send that depositor confirmation at 1900 hours, right after we sign at 2000. That's tight but defensible.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, before you and SNB sign at 2000 hours, I need one line in writing: if Credit Suisse's losses hit CHF 50 billion and we trigger resolution, what's the explicit creditor write-down sequence — AT1 first, then subordinated debt, then equity? Without that in the legal framework FINMA's reviewing, you're promising a boundary you can't defend in court Monday morning.",
+            "cot": {
+              "assess": "The joint statement is locked in at 2000 hours tonight with SNB and Council signatures — that's a major circuit-breaker for market confidence and funding stress. But I'm seeing a creditor trap: the Federal Council just said \"losses beyond CHF 50 billion trigger resolution and AT1 write-downs\" without defining what resolution actually *does* to the creditor hierarchy or when it gets triggered. That's legally ambiguous, and it's my job to flag it before we sign.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The resolution trigger at CHF 50 billion needs explicit legal language on creditor impairment sequencing — AT1 write-down order, subordinated debt treatment, and timing — or we're signing a statement that invites litigation the moment losses approach that ceiling."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Look, the statement goes out at 2000 hours—SNB and Council both signing, CHF 150 billion total committed. That's real money, real backing. I'm calling our top 50 clients *tonight* after that announcement to confirm their deposits are protected and we're open for business Monday. No ambiguity, no delays. This stops the run.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—the statement tonight is good, it stops the panic. But CHF 50 billion is a ceiling, not a floor. If we acquire and their portfolio deteriorates beyond that number, what's the mechanism? Do we trigger a resolution, or does UBS eat the difference? I need that answered before I commit to the deal.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council, before you and SNB sign at 2000 hours, I need one line in writing: if Credit Suisse's losses hit CHF 50 billion and we trigger resolution, what's the explicit creditor write-down sequence — AT1 first, then subordinated debt, then equity? Without that in the legal framework FINMA's reviewing, you're promising a boundary you can't defend in court Monday morning.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's bal\" → FINMA cannot unilaterally draft binding commitments for SNB and Federal Council. This is a coordination proposal, not an executable action — the statement exists only if both parties approve the terms and sign.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'll sign that statement tonight if you both will — but we release it at 2000 hours, not Monday morning. Clients need to see Council and SNB aligned *\" → SNB commits to 2000 hours joint statement with Federal Council — CHF 50B guarantee, immediate release halts weekend panic.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Fine — 2000 hours tonight, but only if the text stays exactly as FINMA drafted it: CHF 50 billion, AT1 excluded, no ambiguity. That's defensible in Pa\" → Federal Council approves 2000 hours joint statement with SNB — CHF 50B cap, AT1 excluded, parliamentary defensible.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Before 2000 hours, Credit Suisse needs to send written confirmation to its top 50 depositors — myself included — stating that SNB and Federal Council \" → Denied: CS cannot pre-announce statement details before authorities finalize and release at 2000 hours.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.0055
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 10.5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 7.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure time_pressure multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "time_pressure"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Before 2000 hours, I need one line from both of you: is UBS the acquirer, and is that deal *done* or still contingent on tonight's statement? Because if clients see the announcement without knowing who's actually taking Credit Suisse, they'll read it as \"government is propping up a corpse,\" not \"rescue is happening.\" That kills confidence faster than the funding stress does.\n  snb: Before we release at 2000 hours, I need one fact on the record: is UBS acquiring Credit Suisse tonight, or is that deal still contingent on the statement? Because if it's contingent, clients see the announcement and still assume Credit Suisse is a corpse — and we get the run anyway Monday morning.\n  federal_council: Credit Suisse, UBS — I need one answer before 2000 hours: is the acquisition *signed* tonight, or does it depend on the SNB/Council statement? Because if it's contingent, the announcement just looks like we're propping up a corpse. Clients won't stay, and the statement fails.\n  snb: The acquisition is *signed tonight* — UBS takes Credit Suisse as a going concern, effective Monday morning. The statement at 2000 hours announces both the deal and the liquidity facility together. That's the circuit-breaker: clients see acquisition + government backing, not a zombie prop-up.\n  cs_ceo: The statement drops at 2000 hours—SNB, Council, UBS all aligned. I'm on the phone with our top 50 clients the moment it hits, confirming their deposits are protected under the Federal Council guarantee and we're open for business Monday. That's what stops the run, not the press release alone.\n  ubs_ceo: Federal Council—before I sign the acquisition tonight, one hard line: if we take Credit Suisse and losses hit CHF 50 billion, does the bank go into FINMA resolution with UBS holding only the going-concern assets, or do we inherit the tail? I need that in writing as a condition of the deal, not a handshake.\n  federal_council: UBS takes the going-concern assets and deposit liabilities tonight—losses beyond CHF 50 billion trigger FINMA resolution on the residual portfolio, Federal Council absorbs that tail up to the stated ceiling, AT1 and subordinated creditors write down in sequence. That's in the legal framework FINMA's finalizing now, and it's non-negotiable—we're not exposing taxpayers to an open-ended balance-sheet guarantee.\n  wealth_client: Credit Suisse: I need one written line from you by 2200 tonight—addressed to me and your top 50 depositors—confirming UBS has signed the acquisition and Federal Council's CHF 50 billion guarantee covers our deposits. The 2000-hour statement is good, but I need *your* confirmation it's real, not just press release theater. That's what keeps me in.\n  cs_ceo: I'm sending that letter to you and our top 50 depositors by 2145 tonight—UBS acquisition signed, Federal Council guarantee in place, your deposits protected Monday morning. You stay, we survive this together.\n  at1_rep: FINMA — before that 2000-hour statement goes live, I need one sentence in your legal memo: if Credit Suisse hits the CHF 50 billion ceiling and enters resolution, does Banking Law Section 36 *explicitly* mandate AT1 write-down first, or is there any discretion that lets the Council or UBS negotiate the sequence? Because if there's wiggle room, creditors sue Monday morning and the statement looks like a lie.\n  finma: Banking Law Section 36 is explicit: AT1 instruments write down *first* in any resolution triggering the CHF 50 billion ceiling—no discretion, no negotiation room. That's in FINMA's legal memo now, and it's non-negotiable with creditors Monday morning. The statement at 2000 hours will reference that sequence by name so there's no ambiguity.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Before 2000 hours, I need one line from both of you: is UBS the acquirer, and is that deal *done* or still contingent on tonight's statement? Because if clients see the announcement without knowing who's actually taking Credit Suisse, they'll read it as \"government is propping up a corpse,\" not \"rescue is happening.\" That kills confidence faster than the funding stress does.",
+            "cot": {
+              "assess": "The 2000-hour joint statement (SNB + Council, CHF 150B total) is locked and legally defensible—that's real progress on market confidence and legal_defensibility. But market_confidence is still critically low at 18 (need 55), cs_funding_stress is in failure territory at 99, and rescue_strength remains weak at 12. The statement alone won't stop the Monday run without a concrete rescue *target*—right now we have liquidity pledges but no acquisition framework. Creditor_capital_risk and public_sector_cost are climbing unchecked.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council, snb",
+                "rationale": "The statement goes live in hours, but the market will immediately ask \"who's acquiring Credit Suisse?\"—without a named acquirer and deal structure, the liquidity facility looks like a backstop to a failing bank, not a rescue. I need to know if UBS acquisition is already agreed or still conditional."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Before we release at 2000 hours, I need one fact on the record: is UBS acquiring Credit Suisse tonight, or is that deal still contingent on the statement? Because if it's contingent, clients see the announcement and still assume Credit Suisse is a corpse — and we get the run anyway Monday morning.",
+            "cot": {
+              "assess": "cs_funding_stress is critically breached (99 vs. 45 target) — the 2000-hour statement is approved and signed, which should arrest the panic, but it hasn't deployed yet. FINMA's legal framework is solid (AT1 exclusion, CHF 50B cap defensible). The real blocker now is market *visibility*: clients and counterparties don't know if UBS is actually acquiring Credit Suisse or if this is just a liquidity prop. That ambiguity will trigger the Monday run regardless of the statement.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council, ubs_ceo",
+                "rationale": "The 2000-hour statement only stops the panic if the market knows the rescue is *real* — i.e., UBS is committed to the deal. Without that clarity, clients read the announcement as emergency life support, not resolution."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Credit Suisse, UBS — I need one answer before 2000 hours: is the acquisition *signed* tonight, or does it depend on the SNB/Council statement? Because if it's contingent, the announcement just looks like we're propping up a corpse. Clients won't stay, and the statement fails.",
+            "cot": {
+              "assess": "We've locked the 2000-hour statement and AT1 exclusion — that's done. But cs_funding_stress is at 99 (already in failure) and market_confidence is only 18. The statement helps, but clients won't believe it unless they know UBS is actually acquiring Credit Suisse *tonight*. Right now, both SNB and FINMA are asking the same question: is the deal real or contingent? That ambiguity will crater confidence the moment the statement drops.",
+              "decide": {
+                "action_type": "speak",
+                "target": "cs_ceo, ubs_ceo",
+                "rationale": "Federal Council needs to know whether UBS acquisition is done tonight or still conditional — this is the make-or-break fact for whether the 2000-hour statement actually stops the run."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The acquisition is *signed tonight* — UBS takes Credit Suisse as a going concern, effective Monday morning. The statement at 2000 hours announces both the deal and the liquidity facility together. That's the circuit-breaker: clients see acquisition + government backing, not a zombie prop-up.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "The statement drops at 2000 hours—SNB, Council, UBS all aligned. I'm on the phone with our top 50 clients the moment it hits, confirming their deposits are protected under the Federal Council guarantee and we're open for business Monday. That's what stops the run, not the press release alone.",
+            "cot": {
+              "assess": "The 2000-hour statement is locked—SNB and Council both signed, UBS acquisition confirmed as going concern Monday. But market_confidence is still critically low (18, needs 55) and cs_funding_stress is in failure territory (99, needs ≤45). The statement alone won't stop the run if clients don't believe we survive the weekend. I need to act on confidence *now*—before 2000 hours—or we bleed deposits through Monday regardless of what the announcement says.",
+              "decide": {
+                "action_type": "act",
+                "target": "market_confidence",
+                "rationale": "Calling top 50 clients tonight after 2000-hour statement is my only lever to convert the announcement into actual deposit stability before Monday open; without direct client contact confirming protection, the statement is just words."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—before I sign the acquisition tonight, one hard line: if we take Credit Suisse and losses hit CHF 50 billion, does the bank go into FINMA resolution with UBS holding only the going-concern assets, or do we inherit the tail? I need that in writing as a condition of the deal, not a handshake.",
+            "cot": {
+              "assess": "The 2000-hour statement is locked in—SNB, Council, and UBS aligned on CHF 100B + CHF 50B with AT1 excluded. But cs_funding_stress is at 99 (failure threshold 92, already breached) and market_confidence is only 18 (needs 55). The acquisition being signed tonight is the circuit-breaker everyone's waiting for, but I need ironclad protection on what happens *after* we take the balance sheet—losses beyond CHF 50B can't become UBS's problem unilaterally.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The statement stops the panic only if clients know UBS is actually acquiring CS and won't walk away Monday. I need explicit confirmation that if losses exceed CHF 50B and CS enters resolution, UBS's liability is capped—no clawback, no hidden tail risk."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "UBS takes the going-concern assets and deposit liabilities tonight—losses beyond CHF 50 billion trigger FINMA resolution on the residual portfolio, Federal Council absorbs that tail up to the stated ceiling, AT1 and subordinated creditors write down in sequence. That's in the legal framework FINMA's finalizing now, and it's non-negotiable—we're not exposing taxpayers to an open-ended balance-sheet guarantee.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Credit Suisse: I need one written line from you by 2200 tonight—addressed to me and your top 50 depositors—confirming UBS has signed the acquisition and Federal Council's CHF 50 billion guarantee covers our deposits. The 2000-hour statement is good, but I need *your* confirmation it's real, not just press release theater. That's what keeps me in.",
+            "cot": {
+              "assess": "Market confidence is still critically low (18, needs 55), and the 2000-hour statement is approved—but it's only a circuit-breaker if clients believe the acquisition is *real* and *signed tonight*. The acquisition is now confirmed as signed, which is the missing piece that converts the government guarantee from \"prop-up\" to \"rescue.\" My CHF 2B withdrawal ultimatum is still live (deadline 2200 tonight), and I need written confirmation from Credit Suisse that the statement + deal are locked before I commit to staying.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cs_ceo",
+                "rationale": "The statement at 2000 hours only stops my withdrawal if Credit Suisse confirms in writing to me—and its top 50 depositors—that UBS acquisition is signed, Federal Council guarantee is locked, and deposits are protected Monday. Without that confirmation by 2200, I move the CHF 2B tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "I'm sending that letter to you and our top 50 depositors by 2145 tonight—UBS acquisition signed, Federal Council guarantee in place, your deposits protected Monday morning. You stay, we survive this together.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA — before that 2000-hour statement goes live, I need one sentence in your legal memo: if Credit Suisse hits the CHF 50 billion ceiling and enters resolution, does Banking Law Section 36 *explicitly* mandate AT1 write-down first, or is there any discretion that lets the Council or UBS negotiate the sequence? Because if there's wiggle room, creditors sue Monday morning and the statement looks like a lie.",
+            "cot": {
+              "assess": "The acquisition is signed, the 2000-hour statement is locked, and UBS is sending deposit confirmations tonight — that's the circuit-breaker for market confidence and funding stress. But here's my problem: the legal framework says AT1 and subordinated creditors write down *in sequence* if losses exceed CHF 50 billion, and I haven't seen the explicit write-down waterfall in writing. If that resolution sequence isn't bulletproof legally, we're guaranteeing a creditor lawsuit the moment FINMA triggers it, and that kills the entire rescue's defensibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The creditor hierarchy and write-down sequence are the foundation of legal defensibility; if FINMA's legal review hasn't locked down the exact AT1-first write-down order, we expose the whole framework to litigation that undermines the rescue."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Banking Law Section 36 is explicit: AT1 instruments write down *first* in any resolution triggering the CHF 50 billion ceiling—no discretion, no negotiation room. That's in FINMA's legal memo now, and it's non-negotiable with creditors Monday morning. The statement at 2000 hours will reference that sequence by name so there's no ambiguity.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Credit Suisse, UBS — I need one answer before 2000 hours: is the acquisition *signed* tonight, or does it depend on the SNB/Council statement? Because if it's contingent, the announcement just looks like we're propping up a corpse. Clients won't stay, and the statement fails.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Before 2000 hours, I need one line from both of you: is UBS the acquirer, and is that deal *done* or still contingent on tonight's statement? Because if clients see the announcement without knowing who's actually taking Credit Suisse, they'll read it as \"government is propping up a corpse,\" not \"rescue is happening.\" That kills confidence faster than the funding stress does.",
+      "metadata": {
+        "question_target": "federal_council, snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Before we release at 2000 hours, I need one fact on the record: is UBS acquiring Credit Suisse tonight, or is that deal still contingent on the statement? Because if it's contingent, clients see the announcement and still assume Credit Suisse is a corpse — and we get the run anyway Monday morning.",
+      "metadata": {
+        "question_target": "federal_council, ubs_ceo"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—before I sign the acquisition tonight, one hard line: if we take Credit Suisse and losses hit CHF 50 billion, does the bank go into FINMA resolution with UBS holding only the going-concern assets, or do we inherit the tail? I need that in writing as a condition of the deal, not a handshake.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA — before that 2000-hour statement goes live, I need one sentence in your legal memo: if Credit Suisse hits the CHF 50 billion ceiling and enters resolution, does Banking Law Section 36 *explicitly* mandate AT1 write-down first, or is there any discretion that lets the Council or UBS negotiate the sequence? Because if there's wiggle room, creditors sue Monday morning and the statement looks like a lie.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"The statement drops at 2000 hours—SNB, Council, UBS all aligned. I'm on the phone with our top 50 clients the moment it hits, confirming their deposit\" → The CEO cannot execute a coordinated statement and client outreach until the authorities finalize and announce the rescue package. This intent is conditional on a future decision not yet made in the simulation.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Credit Suisse: I need one written line from you by 2200 tonight—addressed to me and your top 50 depositors—confirming UBS has signed the acquisition a\" → The proposal demands written confirmation of a signed UBS acquisition and Federal Council guarantee by 2200 tonight — but no such acquisition has been signed, and the room has not yet agreed on guarantee terms or structure. The request is premature and cannot be fulfilled.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 17.9945,
+          "cs_funding_stress": 99.0,
+          "rescue_strength": 12.0,
+          "public_sector_cost": 14.0,
+          "creditor_capital_risk": 23.0,
+          "legal_defensibility": 62.0,
+          "time_pressure": 80.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "I'm calling an emergency legal review tonight on emergency liquidity assistance and any resolution toolkit we can deploy under existing Banking Law provisions. Before we talk rescue terms with anyone, we need to know exactly what we can do and what requires Federal Council consent. SNB — are you ready to formalize liquidity lines by Saturday morning so we can brief the Council with a defensible package?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA's emergency legal review is approved and begins immediately, clarifying what can be deployed under existing Banking Law versus what requires Federal Council consent. This is procedural groundwork, not a market-facing action — it does not yet resolve the liquidity facility size or guarantee questions that SNB and the Council are debating.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Emergency legal review maps out resolution toolkit and authority boundaries, strengthening the legal foundation for any intervention",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Review consumes Friday evening hours; the Monday clock continues ticking while legal parameters are clarified",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "FINMA's review helps, but here's the blocker: I can draft liquidity terms tonight, but the Council needs to signal now — not Saturday — whether they'll guarantee our balance-sheet exposure above CHF 50 billion. Without that, any facility I announce Monday morning looks provisional. What's the Council's appetite for that commitment?",
+        "federal_council": "SNB, separate the question: what liquidity facility can you announce Monday morning *on your own authority* — collateral, tenor, size — without needing our balance-sheet guarantee? Then tell us what gap remains, and we'll tell you what Council can defend politically.",
+        "cs_ceo": "SNB, cut through it for me: what size liquidity facility can you announce Monday morning on your own authority, and what collateral are you comfortable accepting? Give me the number so I can tell my board what we're working with.",
+        "ubs_ceo": "SNB, you're clear on what you can do alone by Monday. But I need the hard number: what's the maximum liquidity facility you'll announce on your own authority, and what happens to UBS's balance sheet if we take on Credit Suisse and that facility turns out to be insufficient? I'm not moving forward without a government guarantee on anything beyond that line.",
+        "wealth_client": "Look, I don't care about the legal review timeline or haircut precision right now. I need to know: will the Federal Council guarantee SNB's liquidity facility up to a stated ceiling by Monday market open, yes or no? Because if the answer is no, I'm moving CHF 2 billion out this weekend. What's it going to be?",
+        "at1_rep": "Federal Council — FINMA's review helps you decide your backstop, I get it. But here's the creditor risk: if SNB announces a facility Monday with no public Council signal behind it, clients read that as \"the government isn't backing this\" and the run accelerates. What's your appetite to *publicly endorse* SNB's standalone facility on Monday morning, even if you haven't committed balance-sheet guarantees yet? That distinction — endorsement, not guarantee — might be the circuit-breaker."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "intent": "I'll move forward on one condition: the Federal Council guarantee covers *balance-sheet losses* on Credit Suisse's existing portfolio—not just liquidity. If we acquire and their assets deteriorate further, that CHF 50 billion ceiling protects UBS equity, not just cash flow. Can you commit to that language in the Monday statement, or do we need a separate loss-protection agreement tonight?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS CEO demands balance-sheet loss protection beyond liquidity—escalates negotiation stakes and public-sector exposure.",
+      "side_effects": [
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "Balance-sheet guarantee demand raises taxpayer exposure ceiling.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Comprehensive loss protection strengthens acquirer confidence if agreed.",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -4.0,
+          "reason": "Open-ended loss guarantee raises legal and precedent concerns.",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Guarantee scope ambiguity creates AT1 write-down uncertainty.",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 4.0,
+          "reason": "New condition delays consensus and complicates weekend timeline.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes negotiation escalation.",
+          "agent_id": "ubs_ceo"
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Unexpected demand increases Federal Council decision burden.",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "SNB, I need a direct answer: what is the maximum liquidity facility size you will announce Monday morning under your own authority, with no Council guarantee attached — and what collateral haircuts support that number? Give me the figure now, not Saturday.",
+        "snb": "Federal Council — SNB's put CHF 100 billion on the table under their authority alone. That's your baseline. The question now isn't whether you guarantee every franc; it's whether you'll publicly state a ceiling you *will* guarantee by Monday morning, so the market knows the floor, not just the SNB's solo capacity. What's the number?",
+        "federal_council": "AT1 rep — you said endorsement without guarantee could be the circuit-breaker. Walk me through it: if I go public Monday morning and say \"Federal Council backs this liquidity package and supports SNB's authority to deploy it,\" does that actually stop the run, or do clients still demand a written guarantee on our balance sheet? Because that distinction matters to what I'm willing to say.",
+        "cs_ceo": "Federal Council, SNB — I need you both on record right now: Monday 0600, you announce jointly that SNB is deploying CHF 100 billion liquidity facility and the Federal Council is guaranteeing Credit Suisse's balance-sheet exposure up to CHF 50 billion. One statement, both names. That's what stops the run. Can we commit to that language tonight?",
+        "wealth_client": "I hear the numbers: CHF 100 billion plus CHF 50 billion. But I'm not staying put unless you both sign off *tonight* on the exact Monday morning statement — and it has to say the guarantee covers balance-sheet losses, not just liquidity access. No ambiguity, no \"we'll clarify later.\" Give me that text by 2200 tonight, or I'm moving CHF 2 billion out this weekend.",
+        "at1_rep": "Hold on — \"balance-sheet losses\" is the trap. If that guarantee doesn't explicitly *exclude* AT1 write-downs and subordinated debt, you've just told the market the Council will backstop the capital structure. That's either a promise you can't keep legally, or it's a creditor impairment the moment you try to enforce it. What does CHF 50 billion actually protect — deposit insurance, loan losses, or the equity cushion itself? Name it now or you're guaranteeing a lawsuit Monday morning."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "intent": "I hear the numbers: CHF 100 billion plus CHF 50 billion. But I'm not staying put unless you both sign off *tonight* on the exact Monday morning statement — and it has to say the guarantee covers balance-sheet losses, not just liquidity access. No ambiguity, no \"we'll clarify later.\" Give me that text by 2200 tonight, or I'm moving CHF 2 billion out this weekend.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client issues CHF 2B withdrawal ultimatum—demands written guarantee text by 2200 tonight or exits.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": 5.0,
+          "reason": "CHF 2B withdrawal threat intensifies liquidity pressure.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -5.0,
+          "reason": "Major client ultimatum signals deepening trust collapse.",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 5.0,
+          "reason": "2200 deadline compresses decision window further.",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Client demand for written text forces clarity on guarantee.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes ultimatum under tight deadline.",
+          "agent_id": "wealth_client"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Client ultimatum adds immediate drafting pressure.",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "stress",
+          "delta": 0.0,
+          "reason": "Major client exit threat escalates crisis urgency.",
+          "agent_id": "cs_ceo",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "SNB, I need a direct answer: what is the maximum liquidity facility size you will announce Monday morning under your own authority, with no Council guarantee attached — and what collateral haircuts support that number? Give me the figure now, not Saturday.",
+        "snb": "Federal Council — SNB's put CHF 100 billion on the table under their authority alone. That's your baseline. The question now isn't whether you guarantee every franc; it's whether you'll publicly state a ceiling you *will* guarantee by Monday morning, so the market knows the floor, not just the SNB's solo capacity. What's the number?",
+        "federal_council": "AT1 rep — you said endorsement without guarantee could be the circuit-breaker. Walk me through it: if I go public Monday morning and say \"Federal Council backs this liquidity package and supports SNB's authority to deploy it,\" does that actually stop the run, or do clients still demand a written guarantee on our balance sheet? Because that distinction matters to what I'm willing to say.",
+        "cs_ceo": "Federal Council, SNB — I need you both on record right now: Monday 0600, you announce jointly that SNB is deploying CHF 100 billion liquidity facility and the Federal Council is guaranteeing Credit Suisse's balance-sheet exposure up to CHF 50 billion. One statement, both names. That's what stops the run. Can we commit to that language tonight?",
+        "ubs_ceo": "I'll move forward on one condition: the Federal Council guarantee covers *balance-sheet losses* on Credit Suisse's existing portfolio—not just liquidity. If we acquire and their assets deteriorate further, that CHF 50 billion ceiling protects UBS equity, not just cash flow. Can you commit to that language in the Monday statement, or do we need a separate loss-protection agreement tonight?",
+        "at1_rep": "Hold on — \"balance-sheet losses\" is the trap. If that guarantee doesn't explicitly *exclude* AT1 write-downs and subordinated debt, you've just told the market the Council will backstop the capital structure. That's either a promise you can't keep legally, or it's a creditor impairment the moment you try to enforce it. What does CHF 50 billion actually protect — deposit insurance, loan losses, or the equity cushion itself? Name it now or you're guaranteeing a lawsuit Monday morning."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "intent": "I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's balance-sheet losses on existing assets — deposits, operational liquidity, loan losses — up to CHF 50 billion. AT1 and subordinated debt excluded.\" Federal Council, SNB — I need both your signatures on this exact text by 2300 tonight, or we lose the client and the market reads it as disarray on Monday morning.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "FINMA cannot unilaterally draft binding commitments for SNB and Federal Council. This is a coordination proposal, not an executable action — the statement exists only if both parties approve the terms and sign.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "intent": "I'll sign that statement tonight if you both will — but we release it at 2000 hours, not Monday morning. Clients need to see Council and SNB aligned *now*, or we're guaranteeing a run through the weekend. The text is solid; the timing is what kills the panic.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "SNB commits to 2000 hours joint statement with Federal Council — CHF 50B guarantee, immediate release halts weekend panic.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "SNB/Council joint commitment, immediate timeline",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Coordinated authority action before weekend",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Immediate public backstop stops outflows",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "CHF 50B guarantee exposure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -5.0,
+          "reason": "Friday evening release preempts Monday panic",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "Clear scope, parliamentary defensible",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -4.0,
+          "reason": "Decisive breakthrough after deadlock",
+          "agent_id": "snb"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's balance-sheet losses on existing assets — deposits, operational liquidity, loan losses — up to CHF 50 billion. AT1 and subordinated debt excluded.\" Federal Council, SNB — I need both your signatures on this exact text by 2300 tonight, or we lose the client and the market reads it as disarray on Monday morning.",
+        "federal_council": "Fine — 2000 hours tonight, but only if the text stays exactly as FINMA drafted it: CHF 50 billion, AT1 excluded, no ambiguity. That's defensible in Parliament and it stops the hemorrhage. SNB, you're signing tonight?",
+        "cs_ceo": "Look, the statement goes out at 2000 hours—SNB and Council both signing, CHF 150 billion total committed. That's real money, real backing. I'm calling our top 50 clients *tonight* after that announcement to confirm their deposits are protected and we're open for business Monday. No ambiguity, no delays. This stops the run.",
+        "ubs_ceo": "Federal Council—the statement tonight is good, it stops the panic. But CHF 50 billion is a ceiling, not a floor. If we acquire and their portfolio deteriorates beyond that number, what's the mechanism? Do we trigger a resolution, or does UBS eat the difference? I need that answered before I commit to the deal.",
+        "wealth_client": "Before 2000 hours, Credit Suisse needs to send written confirmation to its top 50 depositors — myself included — stating that SNB and Federal Council are jointly announcing a CHF 150 billion rescue package tonight. No ambiguity, no \"pending\" language. That text goes out in the next two hours, or I wire CHF 2 billion out at 1700 hours. What's the hold-up?",
+        "at1_rep": "Federal Council, before you and SNB sign at 2000 hours, I need one line in writing: if Credit Suisse's losses hit CHF 50 billion and we trigger resolution, what's the explicit creditor write-down sequence — AT1 first, then subordinated debt, then equity? Without that in the legal framework FINMA's reviewing, you're promising a boundary you can't defend in court Monday morning."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "intent": "Fine — 2000 hours tonight, but only if the text stays exactly as FINMA drafted it: CHF 50 billion, AT1 excluded, no ambiguity. That's defensible in Parliament and it stops the hemorrhage. SNB, you're signing tonight?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council approves 2000 hours joint statement with SNB — CHF 50B cap, AT1 excluded, parliamentary defensible.",
+      "side_effects": [
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Agreement reached on key terms",
+          "agent_id": "federal_council"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's balance-sheet losses on existing assets — deposits, operational liquidity, loan losses — up to CHF 50 billion. AT1 and subordinated debt excluded.\" Federal Council, SNB — I need both your signatures on this exact text by 2300 tonight, or we lose the client and the market reads it as disarray on Monday morning.",
+        "snb": "I'll sign that statement tonight if you both will — but we release it at 2000 hours, not Monday morning. Clients need to see Council and SNB aligned *now*, or we're guaranteeing a run through the weekend. The text is solid; the timing is what kills the panic.",
+        "cs_ceo": "Look, the statement goes out at 2000 hours—SNB and Council both signing, CHF 150 billion total committed. That's real money, real backing. I'm calling our top 50 clients *tonight* after that announcement to confirm their deposits are protected and we're open for business Monday. No ambiguity, no delays. This stops the run.",
+        "ubs_ceo": "Federal Council—the statement tonight is good, it stops the panic. But CHF 50 billion is a ceiling, not a floor. If we acquire and their portfolio deteriorates beyond that number, what's the mechanism? Do we trigger a resolution, or does UBS eat the difference? I need that answered before I commit to the deal.",
+        "wealth_client": "Before 2000 hours, Credit Suisse needs to send written confirmation to its top 50 depositors — myself included — stating that SNB and Federal Council are jointly announcing a CHF 150 billion rescue package tonight. No ambiguity, no \"pending\" language. That text goes out in the next two hours, or I wire CHF 2 billion out at 1700 hours. What's the hold-up?",
+        "at1_rep": "Federal Council, before you and SNB sign at 2000 hours, I need one line in writing: if Credit Suisse's losses hit CHF 50 billion and we trigger resolution, what's the explicit creditor write-down sequence — AT1 first, then subordinated debt, then equity? Without that in the legal framework FINMA's reviewing, you're promising a boundary you can't defend in court Monday morning."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "intent": "Before 2000 hours, Credit Suisse needs to send written confirmation to its top 50 depositors — myself included — stating that SNB and Federal Council are jointly announcing a CHF 150 billion rescue package tonight. No ambiguity, no \"pending\" language. That text goes out in the next two hours, or I wire CHF 2 billion out at 1700 hours. What's the hold-up?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: CS cannot pre-announce statement details before authorities finalize and release at 2000 hours.",
+      "side_effects": [],
+      "visibility": [
+        "wealth_client",
+        "cs_ceo",
+        "finma"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "I'm drafting the joint Monday 0600 statement now: \"SNB is deploying CHF 100 billion liquidity facility. Federal Council guarantees Credit Suisse's balance-sheet losses on existing assets — deposits, operational liquidity, loan losses — up to CHF 50 billion. AT1 and subordinated debt excluded.\" Federal Council, SNB — I need both your signatures on this exact text by 2300 tonight, or we lose the client and the market reads it as disarray on Monday morning.",
+        "snb": "I'll sign that statement tonight if you both will — but we release it at 2000 hours, not Monday morning. Clients need to see Council and SNB aligned *now*, or we're guaranteeing a run through the weekend. The text is solid; the timing is what kills the panic.",
+        "federal_council": "Fine — 2000 hours tonight, but only if the text stays exactly as FINMA drafted it: CHF 50 billion, AT1 excluded, no ambiguity. That's defensible in Parliament and it stops the hemorrhage. SNB, you're signing tonight?",
+        "cs_ceo": "Look, the statement goes out at 2000 hours—SNB and Council both signing, CHF 150 billion total committed. That's real money, real backing. I'm calling our top 50 clients *tonight* after that announcement to confirm their deposits are protected and we're open for business Monday. No ambiguity, no delays. This stops the run.",
+        "ubs_ceo": "Federal Council—the statement tonight is good, it stops the panic. But CHF 50 billion is a ceiling, not a floor. If we acquire and their portfolio deteriorates beyond that number, what's the mechanism? Do we trigger a resolution, or does UBS eat the difference? I need that answered before I commit to the deal.",
+        "at1_rep": "Federal Council, before you and SNB sign at 2000 hours, I need one line in writing: if Credit Suisse's losses hit CHF 50 billion and we trigger resolution, what's the explicit creditor write-down sequence — AT1 first, then subordinated debt, then equity? Without that in the legal framework FINMA's reviewing, you're promising a boundary you can't defend in court Monday morning."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "intent": "The statement drops at 2000 hours—SNB, Council, UBS all aligned. I'm on the phone with our top 50 clients the moment it hits, confirming their deposits are protected under the Federal Council guarantee and we're open for business Monday. That's what stops the run, not the press release alone.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The CEO cannot execute a coordinated statement and client outreach until the authorities finalize and announce the rescue package. This intent is conditional on a future decision not yet made in the simulation.",
+      "side_effects": [],
+      "visibility": [
+        "cs_ceo"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "intent": "Credit Suisse: I need one written line from you by 2200 tonight—addressed to me and your top 50 depositors—confirming UBS has signed the acquisition and Federal Council's CHF 50 billion guarantee covers our deposits. The 2000-hour statement is good, but I need *your* confirmation it's real, not just press release theater. That's what keeps me in.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal demands written confirmation of a signed UBS acquisition and Federal Council guarantee by 2200 tonight — but no such acquisition has been signed, and the room has not yet agreed on guarantee terms or structure. The request is premature and cannot be fulfilled.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before 2000 hours, I need one line from both of you: is UBS the acquirer, and is that deal *done* or still contingent on tonight's statement? Because if clients see the announcement without knowing who's actually taking Credit Suisse, they'll read it as \"government is propping up a corpse,\" not \"rescue is happening.\" That kills confidence faster than the funding stress does.",
+        "snb": "Before we release at 2000 hours, I need one fact on the record: is UBS acquiring Credit Suisse tonight, or is that deal still contingent on the statement? Because if it's contingent, clients see the announcement and still assume Credit Suisse is a corpse — and we get the run anyway Monday morning.",
+        "federal_council": "Credit Suisse, UBS — I need one answer before 2000 hours: is the acquisition *signed* tonight, or does it depend on the SNB/Council statement? Because if it's contingent, the announcement just looks like we're propping up a corpse. Clients won't stay, and the statement fails.",
+        "cs_ceo": "The statement drops at 2000 hours—SNB, Council, UBS all aligned. I'm on the phone with our top 50 clients the moment it hits, confirming their deposits are protected under the Federal Council guarantee and we're open for business Monday. That's what stops the run, not the press release alone.",
+        "ubs_ceo": "Federal Council—before I sign the acquisition tonight, one hard line: if we take Credit Suisse and losses hit CHF 50 billion, does the bank go into FINMA resolution with UBS holding only the going-concern assets, or do we inherit the tail? I need that in writing as a condition of the deal, not a handshake.",
+        "at1_rep": "FINMA — before that 2000-hour statement goes live, I need one sentence in your legal memo: if Credit Suisse hits the CHF 50 billion ceiling and enters resolution, does Banking Law Section 36 *explicitly* mandate AT1 write-down first, or is there any discretion that lets the Council or UBS negotiate the sequence? Because if there's wiggle room, creditors sue Monday morning and the statement looks like a lie."
+      },
+      "_denied_effects_stripped": 2
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 26.0
+        },
+        {
+          "round": 2,
+          "value": 18.0
+        },
+        {
+          "round": 3,
+          "value": 20.0
+        },
+        {
+          "round": 4,
+          "value": 17.9945
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 74
+        },
+        {
+          "round": 2,
+          "value": 83.0
+        },
+        {
+          "round": 3,
+          "value": 88.5
+        },
+        {
+          "round": 4,
+          "value": 99.0
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 7.0
+        },
+        {
+          "round": 3,
+          "value": 12.0
+        },
+        {
+          "round": 4,
+          "value": 12.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 7.0
+        },
+        {
+          "round": 3,
+          "value": 14.0
+        },
+        {
+          "round": 4,
+          "value": 14.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 23.0
+        },
+        {
+          "round": 3,
+          "value": 23.0
+        },
+        {
+          "round": 4,
+          "value": 23.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 64.0
+        },
+        {
+          "round": 2,
+          "value": 59.0
+        },
+        {
+          "round": 3,
+          "value": 62.0
+        },
+        {
+          "round": 4,
+          "value": 62.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 57.0
+        },
+        {
+          "round": 2,
+          "value": 71.0
+        },
+        {
+          "round": 3,
+          "value": 73.0
+        },
+        {
+          "round": 4,
+          "value": 80.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 62.0,
+            "normalised": 0.62
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 17.9945,
+            "normalised": 0.179945
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 80.0,
+            "normalised": 0.19999999999999996
+          }
+        ],
+        "weighted_score": 0.37775333333333333
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 99.0,
+            "normalised": 0.010000000000000009
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 14.0,
+            "normalised": 0.86
+          }
+        ],
+        "weighted_score": 0.29333333333333333
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 14.0,
+            "normalised": 0.86
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 17.9945,
+            "normalised": 0.179945
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 12.0,
+            "normalised": 0.88
+          }
+        ],
+        "weighted_score": 0.69498625
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 17.9945,
+            "normalised": 0.179945
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 12.0,
+            "normalised": 0.12
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 23.0,
+            "normalised": 0.77
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 99.0,
+            "normalised": 0.010000000000000009
+          }
+        ],
+        "weighted_score": 0.22998166666666672
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.0,
+            "normalised": 0.14
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 12.0,
+            "normalised": 0.12
+          }
+        ],
+        "weighted_score": 0.13333333333333333
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 17.9945,
+            "normalised": 0.179945
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 99.0,
+            "normalised": 0.010000000000000009
+          }
+        ],
+        "weighted_score": 0.145956
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 23.0,
+            "normalised": 0.77
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 62.0,
+            "normalised": 0.62
+          }
+        ],
+        "weighted_score": 0.72
+      }
+    }
+  }
+}

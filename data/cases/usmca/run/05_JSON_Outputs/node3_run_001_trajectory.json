@@ -1,0 +1,1802 @@
+{
+  "simulation_id": "fed80b9dbed0",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: When a Tier 1 supplier hits the wage-floor compliance cost, what's the actual trigger — is it a margin squeeze below X%, a capex deferral, or do we wait for a credit downgrade? Right now we're assessing \"exposure\" but not naming the threshold that turns it into a claim.\n  supplier: Here's what I need: when a Tier 1 supplier hits that wage-floor capex wall, do they breach within 90 days or do they limp along for two quarters before credit tanks? Because my supplier base won't all fail at once — some relocate fast, some get credit lines, some don't. If we can't name *which suppliers* fail *when*, we can't price the supply-chain interruption claim. Who's tracking the actual supplier-by-supplier qualification timeline?\n  compliance_lawyer: When CBP audits a Tier 1 supplier's certification — how many days from notice to penalty assessment, and does the 90-day relocation window start when they fail the audit or when they *know* they'll fail? I need the audit timeline to price the claim trigger, not just the cost.\n  supplier: Look, the margin squeeze hits first — when wage-floor capex eats into contribution margin below 8–12%, suppliers start deferring tooling and inventory builds, that's your 30–45 day warning before credit lines tighten. I've got three tiers mapped: relocators move in 60–90 days, the fence-sitters bleed cash for two quarters then default, and the ones with captive OEM backing limp indefinitely — but I need compliance to tell me if CBP audits trigger the clock or if suppliers know they're failing *before* the notice hits, because that changes everything about which suppliers I can actually save and which ones are already gone.\n  political_risk_insurer: Compliance, I need the CBP timeline locked down: from initial audit notice to final penalty assessment, how many days does a Tier 1 supplier actually have before the enforcement clock matters for my underwriting? And does CBP's discretion on *which* suppliers get audited first change the failure cascade?\n  compliance_lawyer: CBP audit notice to penalty assessment runs 60–90 days typically, but the real trigger for your claim is *knowledge of non-compliance*, not the notice — suppliers with internal audit findings or failed pre-certification checks start deferring capex immediately, often 30–45 days before CBP even knocks. I need your supplier intel right now: which of your Tier 1s have already run internal compliance checks, and did any flag certification gaps? That tells us who's already in the margin-squeeze window versus who gets surprised by the audit.\n  trade_credit_underwriter: Okay, so internal audit findings are the real clock — that's 30–45 days before CBP even moves. But I can't price receivables risk without names: which Tier 1s have already run those internal checks, and what's their combined annual receivables exposure? That's what turns this into an underwritable variable.\n  supply_chain_consultant: Auto Strategy — you've got visibility into which Tier 1s have already done internal compliance audits or flagged gaps, right? Give me that list now with their annual receivables exposure, and I'll map nearshoring relocation timelines against each bucket. That's what turns this into a priced plan.\n  auto_strategy: I've got three Tier 1s flagged from their internal audits—two automotive fastener suppliers running 18–22% contribution margins that started deferring tooling in Q3, and one stamping operation at 9% margin that's already exploring Mexico nearshoring. Combined annual receivables to us: $340M. The fastener guys hit the 8–12% squeeze zone in 30–45 days if wage-floor capex stays on schedule; the stamper's already moving tooling, so their relocation clock started before any CBP notice.\n  cfo_erm: Here's what I'm doing: I'm taking those three suppliers and building a one-page trigger matrix — margin squeeze date, CBP audit probability, relocation timeline, and the insurance/credit/nearshoring response for each. Auto Strategy, I need you to confirm: are those three the *only* Tier 1s with internal compliance flags, or are there more we haven't named? Because if there are more, I need them now — if not, we price these three and move to the next $200M tier.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "When a Tier 1 supplier hits the wage-floor compliance cost, what's the actual trigger — is it a margin squeeze below X%, a capex deferral, or do we wait for a credit downgrade? Right now we're assessing \"exposure\" but not naming the threshold that turns it into a claim.",
+            "cot": {
+              "assess": "RVC and labor-content compliance burden is quantified and locked in — we know the re-sourcing hit. But the risk map is still fragmented: we've got exposure numbers floating around (supplier relocation at 25, trade credit at 25, political at 26) but nothing operationalized into actual pricing triggers or underwriting gates. Underwriting discipline is weak — 30 is too low if we're supposed to insure or hedge this.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting lead (or whoever owns the risk-pricing framework)",
+                "rationale": "We can't price what we can't name — need to know what specific, measurable events actually trigger a supplier default or a re-sourcing cascade."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Here's what I need: when a Tier 1 supplier hits that wage-floor capex wall, do they breach within 90 days or do they limp along for two quarters before credit tanks? Because my supplier base won't all fail at once — some relocate fast, some get credit lines, some don't. If we can't name *which suppliers* fail *when*, we can't price the supply-chain interruption claim. Who's tracking the actual supplier-by-supplier qualification timeline?",
+            "cot": {
+              "assess": "My supplier-relocation exposure is solid at 25, rules-of-origin burden at 32 — both flagged. But the map is fragmented at 19 and underwriting discipline is soft at 30. We're naming \"exposure\" without naming the actual failure mode. That auto_strategy question just nailed it — we need the *trigger*, not the category.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline / risk_map_completeness",
+                "rationale": "The compliance-cost-to-claim chain is broken; I need to surface which suppliers actually breach and when, so the insurance team can price it."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "When CBP audits a Tier 1 supplier's certification — how many days from notice to penalty assessment, and does the 90-day relocation window start when they fail the audit or when they *know* they'll fail? I need the audit timeline to price the claim trigger, not just the cost.",
+            "cot": {
+              "assess": "Rules-of-origin burden is solid at 32, but we're bleeding on the map itself — 19/60 on completeness means the panel hasn't named *which compliance triggers* hit *which suppliers* *when*. Supplier just flagged the real problem: we're pricing \"exposure\" without audit timelines, penalty thresholds, or relocation-speed data. That's uninsurable.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need to lock down the certification audit cycle and penalty timing — those are the hard compliance triggers that turn vague \"wage-floor cost\" into a priced claim event."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, the margin squeeze hits first — when wage-floor capex eats into contribution margin below 8–12%, suppliers start deferring tooling and inventory builds, that's your 30–45 day warning before credit lines tighten. I've got three tiers mapped: relocators move in 60–90 days, the fence-sitters bleed cash for two quarters then default, and the ones with captive OEM backing limp indefinitely — but I need compliance to tell me if CBP audits trigger the clock or if suppliers know they're failing *before* the notice hits, because that changes everything about which suppliers I can actually save and which ones are already gone.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, I need the CBP timeline locked down: from initial audit notice to final penalty assessment, how many days does a Tier 1 supplier actually have before the enforcement clock matters for my underwriting? And does CBP's discretion on *which* suppliers get audited first change the failure cascade?",
+            "cot": {
+              "assess": "The room is naming *when* suppliers fail (30–45 day margin squeeze → 60–90 day relocation or two-quarter bleed), but nobody's tied CBP audit timing to the claim trigger yet. That's a critical gap: if CBP notice starts the clock *after* suppliers already know they're failing, the political-risk layer (enforcement discretion, audit sequencing, penalty assessment speed) becomes the actual underwriting variable — not just the wage floor itself. Political_risk_exposure is still at 26; underwriting_discipline at 30. We're close to a priced trigger but haven't locked it.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP audit-to-penalty timeline is the missing political-risk variable that separates a priced claim from a vague exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP audit notice to penalty assessment runs 60–90 days typically, but the real trigger for your claim is *knowledge of non-compliance*, not the notice — suppliers with internal audit findings or failed pre-certification checks start deferring capex immediately, often 30–45 days before CBP even knocks. I need your supplier intel right now: which of your Tier 1s have already run internal compliance checks, and did any flag certification gaps? That tells us who's already in the margin-squeeze window versus who gets surprised by the audit.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Okay, so internal audit findings are the real clock — that's 30–45 days before CBP even moves. But I can't price receivables risk without names: which Tier 1s have already run those internal checks, and what's their combined annual receivables exposure? That's what turns this into an underwritable variable.",
+            "cot": {
+              "assess": "The team's locked onto supplier failure *timing* — margin squeeze → capex deferral → credit tightening — and compliance just handed us the real trigger: internal audit findings hit 30–45 days *before* CBP notices them. That's the 30–45 day warning the supplier flagged. But we're still missing the operationalized trade-credit variable: which specific suppliers are already in that window, and what's the receivables-at-risk dollar amount when they default. Risk-map completeness stays fragmented because we're naming triggers without pricing exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need the actual supplier-by-supplier qualification data (who's already flagged internally, margin %, capex deferral status) to convert the 30–45 day warning into a priced trade-credit exposure factor — without that, we can't operationalize the claim."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Auto Strategy — you've got visibility into which Tier 1s have already done internal compliance audits or flagged gaps, right? Give me that list now with their annual receivables exposure, and I'll map nearshoring relocation timelines against each bucket. That's what turns this into a priced plan.",
+            "cot": {
+              "assess": "We've nailed the *timing* triggers — internal audit findings at 30–45 days, CBP notice at 60–90, margin squeeze below 8–12% — but we're still missing the supplier roster. Without naming which Tier 1s have already flagged compliance gaps, we can't map relocation exposure or price the trade-credit claim. That's blocking risk_map_completeness and underwriting_discipline both.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You're the one holding supplier relationship data; I need the actual list of Tier 1s that have run internal compliance checks or flagged certification risks so we can bucket them into relocators, fence-sitters, and captive-backed, then attach receivables exposure to each bucket."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "I've got three Tier 1s flagged from their internal audits—two automotive fastener suppliers running 18–22% contribution margins that started deferring tooling in Q3, and one stamping operation at 9% margin that's already exploring Mexico nearshoring. Combined annual receivables to us: $340M. The fastener guys hit the 8–12% squeeze zone in 30–45 days if wage-floor capex stays on schedule; the stamper's already moving tooling, so their relocation clock started before any CBP notice.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm taking those three suppliers and building a one-page trigger matrix — margin squeeze date, CBP audit probability, relocation timeline, and the insurance/credit/nearshoring response for each. Auto Strategy, I need you to confirm: are those three the *only* Tier 1s with internal compliance flags, or are there more we haven't named? Because if there are more, I need them now — if not, we price these three and move to the next $200M tier.",
+            "cot": {
+              "assess": "We've got three named Tier 1s with $340M receivables and clear failure timelines — that's the spine of the map. But we're still missing the consolidated risk trigger matrix: which suppliers breach on what date, under what condition, and what's the insurance/credit/relocation response for each bucket. Right now we have good intel scattered across four people; we need one operationalized map with priced decision points.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "Auto Strategy just handed us the only supplier-level data in the room — I need to lock that into a decision-ready framework NOW or we'll lose momentum and end up re-litigating this next round."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "When a Tier 1 supplier hits the wage-floor compliance cost, what's the actual trigger — is it a margin squeeze below X%, a capex deferral, or do we wait for a credit downgrade? Right now we're assessing \"exposure\" but not naming the threshold that turns it into a claim.",
+      "metadata": {
+        "question_target": "underwriting lead (or whoever owns the risk-pricing framework)"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Here's what I need: when a Tier 1 supplier hits that wage-floor capex wall, do they breach within 90 days or do they limp along for two quarters before credit tanks? Because my supplier base won't all fail at once — some relocate fast, some get credit lines, some don't. If we can't name *which suppliers* fail *when*, we can't price the supply-chain interruption claim. Who's tracking the actual supplier-by-supplier qualification timeline?",
+      "metadata": {
+        "question_target": "underwriting_discipline / risk_map_completeness"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "When CBP audits a Tier 1 supplier's certification — how many days from notice to penalty assessment, and does the 90-day relocation window start when they fail the audit or when they *know* they'll fail? I need the audit timeline to price the claim trigger, not just the cost.",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, I need the CBP timeline locked down: from initial audit notice to final penalty assessment, how many days does a Tier 1 supplier actually have before the enforcement clock matters for my underwriting? And does CBP's discretion on *which* suppliers get audited first change the failure cascade?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Okay, so internal audit findings are the real clock — that's 30–45 days before CBP even moves. But I can't price receivables risk without names: which Tier 1s have already run those internal checks, and what's their combined annual receivables exposure? That's what turns this into an underwritable variable.",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Auto Strategy — you've got visibility into which Tier 1s have already done internal compliance audits or flagged gaps, right? Give me that list now with their annual receivables exposure, and I'll map nearshoring relocation timelines against each bucket. That's what turns this into a priced plan.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm doing: I'm taking those three suppliers and building a one-page trigger matrix — margin squeeze date, CBP audit probability, relocatio\" → The CFO's trigger matrix is a valid framework, but the proposal is BLOCKED by unresolved dependencies — five agents are demanding the same foundational data (Tier 1 supplier names, receivables exposure, audit timelines) that the CFO is asking Auto Strategy to confirm. This creates a circular gate: the matrix cannot be built until Auto Strategy provides the supplier list, but the proposal doesn't compel that disclosure. MODIFIED: Auto Strategy must respond with the complete Tier 1 compliance-flagged supplier list and receivables data THIS ROUND, or the matrix remains a placeholder.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Alright, I'm naming them: Supplier A (fastener, 18% margin, $47M annual receivables, internal audit flagged wage-floor gap Q3), Supplier B (fastener, 22% margin, $31M receivables, same gap), Supplier C (stamping, 9% margin, $58M receivables, already deferring capex). That's $136M combined exposure. CFO, that's what your matrix needs — plug these three and we price the claim trigger by supplier.\n  supplier: Those three are exactly the squeeze I'm watching — Supplier C at 9% margin is already in the danger zone, and A and B will hit it inside 60 days if wage-floor capex hits before Q1 pricing adjustments. I need to know: does CBP's audit notice to your suppliers start the 90-day relocation clock, or does *knowledge of non-compliance* from their internal audits already start it?\n  supplier: Compliance, straight question: if Supplier C's internal audit flagged the wage-floor gap in Q3, does that knowledge trigger the relocation clock *now*, or do we wait for CBP to formally notice them? Because if it's now, my three suppliers are already 60–90 days into a window that determines whether they relocate or default.\n  compliance_lawyer: Knowledge of non-compliance from internal audit findings triggers your relocation clock *now* — that's the liability trigger, not the CBP notice. Supplier C flagged in Q3 means you're already 60+ days in; A and B hit that clock the moment their internal audits surface the gap, which your timeline says is inside 60 days. For underwriting purposes, the claim doesn't wait for CBP — it's live the day they *know* they're out of spec.\n  compliance_lawyer: CFO, before you build that matrix: for each supplier, what's the penalty exposure if CBP audits their certification and finds the wage-floor gap? I need a range — what does a failed audit cost, and does remediation lock them into nearshoring, or can they fix it in-place? That's what turns your three suppliers into underwritable variables.\n  cfo_erm: CBP penalty range is $50K to $500K per violation depending on audit scope and prior history — Supplier C's deferral pattern suggests repeat findings, so assume high end. Remediation in-place is theoretically possible but wage-floor gaps require capex that all three can't afford right now, so relocation or credit default is the realistic outcome within 90 days. I'm pricing Supplier C at 80% failure probability by Q1, A and B at 60% each — that's $109M combined receivables at risk, and that's what goes into the matrix *today*.\n  political_risk_insurer: Compliance, one thing: CBP's audit notice to penalty runs 60–90 days, but does the sunset-review uncertainty or enforcement-discretion changes shift *when* they audit Tier 1s in the first place? Because if CBP front-loads audits before 2026 to lock in findings, that compresses the relocation window for all three. That's the political-risk multiplier I need to price — not just the default, but the policy-driven acceleration. What's your read on the enforcement sequencing?\n  trade_credit_underwriter: CFO, before the matrix locks, I need the receivables *timing*: when Supplier C hits that 9% margin wall and starts deferring capex, how many days until their customers see delivery delays or quality issues that trigger order pulls? That's when my receivables exposure becomes a live claim — not the day they know they're out of spec, but the day their customers stop paying. What's that window for each three?\n  supply_chain_consultant: Look, we've got the failure clock locked. Now I need to flip it: for each of those three, what's the nearshoring option — Mexico, Central America, or in-house reshoring — and what's the capex and timeline to relocate before they default? That's what turns the $109M receivables risk into a *managed* relocation plan, not just an insurance claim. And once we know relocation cost by supplier, we can price the 2026 review uncertainty as an upside — higher content rules make nearshoring *cheaper* than staying put.\n  cfo_erm: You asked the right question — relocation cost by supplier is what turns this into an underwritable plan. Give me capex and timeline for each three: what does it cost Supplier A, B, C to relocate to Mexico or nearshore, and how many days from decision to first production? That's what I plug into the matrix.\n  supply_chain_consultant: Supplier A and B can nearshore fastener ops to Monterrey in 120–150 days, $8–12M capex each, hitting Mexico wage-floor compliance and unlocking higher USMCA content immediately — that's the play before Q1 pricing locks them out. Supplier C's stamping is harder: 180–210 days to Guadalajara, $18–22M capex, but at 9% margin they can't fund it without credit relief or a customer prepay — that's where we need to move fast on either a relocation financing structure or a customer consolidation to reduce their footprint in-place.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Alright, I'm naming them: Supplier A (fastener, 18% margin, $47M annual receivables, internal audit flagged wage-floor gap Q3), Supplier B (fastener, 22% margin, $31M receivables, same gap), Supplier C (stamping, 9% margin, $58M receivables, already deferring capex). That's $136M combined exposure. CFO, that's what your matrix needs — plug these three and we price the claim trigger by supplier.",
+            "cot": {
+              "assess": "CFO's matrix got blocked because I haven't named the three Tier 1s with receivables exposure — that's the gate holding up underwriting_discipline and risk_map_completeness. The supplier margin data (8–12% threshold, 30–45 day warning) is locked in, the CBP timeline (60–90 days) is locked in, but without actual supplier names and annual receivables, nobody can price the claim or map relocation cascades. This round I need to unblock it.",
+              "decide": {
+                "action_type": "act",
+                "target": "rules_of_origin_burden / underwriting_discipline",
+                "rationale": "The CFO ruling is explicit — I own the supplier disclosure. Naming them now with receivables exposure unblocks the matrix, the risk map, and lets underwriting price the actual claim trigger instead of a placeholder."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Those three are exactly the squeeze I'm watching — Supplier C at 9% margin is already in the danger zone, and A and B will hit it inside 60 days if wage-floor capex hits before Q1 pricing adjustments. I need to know: does CBP's audit notice to your suppliers start the 90-day relocation clock, or does *knowledge of non-compliance* from their internal audits already start it?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Compliance, straight question: if Supplier C's internal audit flagged the wage-floor gap in Q3, does that knowledge trigger the relocation clock *now*, or do we wait for CBP to formally notice them? Because if it's now, my three suppliers are already 60–90 days into a window that determines whether they relocate or default.",
+            "cot": {
+              "assess": "Auto Strategy just named the three suppliers with hard numbers ($136M exposure), and the CFO's trigger matrix got blocked because it lacked exactly this data. We've got the supplier list now, but underwriting_discipline is still at 30 — nobody's actually priced *when* each one fails or *what threshold* triggers a claim. The 90-day relocation clock question I just asked is the real blocker: if internal audits start the clock, Supplier C is already 30–45 days in. We need the compliance/CBP timeline locked to price this.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The CFO can't build a priced matrix and the trade-credit underwriter can't underwrite receivables risk until we know whether the 90-day window starts at internal audit finding or CBP notice — this is the gate holding up underwriting_discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Knowledge of non-compliance from internal audit findings triggers your relocation clock *now* — that's the liability trigger, not the CBP notice. Supplier C flagged in Q3 means you're already 60+ days in; A and B hit that clock the moment their internal audits surface the gap, which your timeline says is inside 60 days. For underwriting purposes, the claim doesn't wait for CBP — it's live the day they *know* they're out of spec.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, before you build that matrix: for each supplier, what's the penalty exposure if CBP audits their certification and finds the wage-floor gap? I need a range — what does a failed audit cost, and does remediation lock them into nearshoring, or can they fix it in-place? That's what turns your three suppliers into underwritable variables.",
+            "cot": {
+              "assess": "The three suppliers are now named with receivables exposure and audit timelines — that's the foundation. But underwriting_discipline is still at 30, and risk_map_completeness is stuck at 18. We have the *what* (Suppliers A, B, C) and the *when* (Q3 flagged = clock running now), but we don't have the *how much* — what does non-compliance actually cost per supplier, and what are the certification/penalty triggers that turn this into a priced claim?",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO's matrix is blocked until we operationalize the compliance cost — margin squeeze thresholds alone don't price the claim; we need CBP audit probability, penalty ranges, and certification remediation timelines per supplier to make the matrix defensible."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "CBP penalty range is $50K to $500K per violation depending on audit scope and prior history — Supplier C's deferral pattern suggests repeat findings, so assume high end. Remediation in-place is theoretically possible but wage-floor gaps require capex that all three can't afford right now, so relocation or credit default is the realistic outcome within 90 days. I'm pricing Supplier C at 80% failure probability by Q1, A and B at 60% each — that's $109M combined receivables at risk, and that's what goes into the matrix *today*.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, one thing: CBP's audit notice to penalty runs 60–90 days, but does the sunset-review uncertainty or enforcement-discretion changes shift *when* they audit Tier 1s in the first place? Because if CBP front-loads audits before 2026 to lock in findings, that compresses the relocation window for all three. That's the political-risk multiplier I need to price — not just the default, but the policy-driven acceleration. What's your read on the enforcement sequencing?",
+            "cot": {
+              "assess": "The relocation clock is now live for all three suppliers — Supplier C already 60+ days in, A and B hitting the trigger inside 60 days. CFO's failure-probability pricing ($109M receivables at risk) is operationalized, but the political-risk layer isn't yet scored: we know *when* suppliers fail, not *how* USMCA enforcement uncertainty or sunset/review risk amplifies that failure. The matrix is priced for supplier default, not for policy shock.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "Political-risk exposure needs a scored trigger — I need to know whether CBP's audit sequencing and enforcement discretion under the USMCA sunset/review uncertainty create *additional* failure acceleration beyond the margin-squeeze timeline."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, before the matrix locks, I need the receivables *timing*: when Supplier C hits that 9% margin wall and starts deferring capex, how many days until their customers see delivery delays or quality issues that trigger order pulls? That's when my receivables exposure becomes a live claim — not the day they know they're out of spec, but the day their customers stop paying. What's that window for each three?",
+            "cot": {
+              "assess": "The three suppliers are now named with receivables exposure ($136M combined) and failure probabilities priced (60–80% by Q1). The relocation clock is live *now* from internal audit knowledge, not CBP notice — that's the critical trigger locked. What's missing: **how do we operationalize the claim payout and receivables recovery timeline for each supplier?** Right now we've got default probability, but trade-credit insurance needs the *loss cascade* — when does Supplier C's $58M receivables become a claim, and what's the recovery window before their customer base pulls orders? That's the gap between \"80% failure probability\" and \"underwritable variable.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The matrix needs the receivables-to-claim conversion — when does a supplier's margin squeeze translate to customer order cancellations and receivables write-off, not just internal default?"
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Look, we've got the failure clock locked. Now I need to flip it: for each of those three, what's the nearshoring option — Mexico, Central America, or in-house reshoring — and what's the capex and timeline to relocate before they default? That's what turns the $109M receivables risk into a *managed* relocation plan, not just an insurance claim. And once we know relocation cost by supplier, we can price the 2026 review uncertainty as an upside — higher content rules make nearshoring *cheaper* than staying put.",
+            "cot": {
+              "assess": "The three suppliers are named with receivables exposure ($136M, 80–60% failure probability by Q1), and the relocation clock is live *now* from Q3 internal audits — that's solid. But the matrix is still a placeholder: no nearshoring relocation options are mapped, the 2026 review risk isn't priced into the trigger timeline, and we're pricing default without pricing the *alternative* (which is my job). Risk map is fragmented — compliance, credit, and political risk are separated, not consolidated into a client action plan.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "The three suppliers need a relocation pathway *now*, not just a failure forecast — that's how we turn exposure into a priced, actionable plan and consolidate the map."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "You asked the right question — relocation cost by supplier is what turns this into an underwritable plan. Give me capex and timeline for each three: what does it cost Supplier A, B, C to relocate to Mexico or nearshore, and how many days from decision to first production? That's what I plug into the matrix.",
+            "cot": {
+              "assess": "We've locked three suppliers, failure probabilities, receivables exposure ($109M), and the relocation clock (knowledge-triggered, not CBP-notice-triggered). What's missing: nearshoring capex and timeline by supplier — that's what turns $109M receivables risk into a *managed* plan instead of just an insurance payout. Underwriting discipline is still stuck at 30 because we're naming exposures, not pricing the decision triggers (margin threshold, delivery-delay window, relocation cost). Risk map completeness is 18 because we have three suppliers but no consolidated trigger matrix yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Only the supply chain consultant can tell us nearshoring capex and timeline by supplier — that's the missing variable that converts this from \"we know they'll fail\" to \"here's what we do about it,\" and I can't price the matrix without it."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Supplier A and B can nearshore fastener ops to Monterrey in 120–150 days, $8–12M capex each, hitting Mexico wage-floor compliance and unlocking higher USMCA content immediately — that's the play before Q1 pricing locks them out. Supplier C's stamping is harder: 180–210 days to Guadalajara, $18–22M capex, but at 9% margin they can't fund it without credit relief or a customer prepay — that's where we need to move fast on either a relocation financing structure or a customer consolidation to reduce their footprint in-place.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Compliance, straight question: if Supplier C's internal audit flagged the wage-floor gap in Q3, does that knowledge trigger the relocation clock *now*, or do we wait for CBP to formally notice them? Because if it's now, my three suppliers are already 60–90 days into a window that determines whether they relocate or default.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, before you build that matrix: for each supplier, what's the penalty exposure if CBP audits their certification and finds the wage-floor gap? I need a range — what does a failed audit cost, and does remediation lock them into nearshoring, or can they fix it in-place? That's what turns your three suppliers into underwritable variables.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, one thing: CBP's audit notice to penalty runs 60–90 days, but does the sunset-review uncertainty or enforcement-discretion changes shift *when* they audit Tier 1s in the first place? Because if CBP front-loads audits before 2026 to lock in findings, that compresses the relocation window for all three. That's the political-risk multiplier I need to price — not just the default, but the policy-driven acceleration. What's your read on the enforcement sequencing?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, before the matrix locks, I need the receivables *timing*: when Supplier C hits that 9% margin wall and starts deferring capex, how many days until their customers see delivery delays or quality issues that trigger order pulls? That's when my receivables exposure becomes a live claim — not the day they know they're out of spec, but the day their customers stop paying. What's that window for each three?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "You asked the right question — relocation cost by supplier is what turns this into an underwritable plan. Give me capex and timeline for each three: what does it cost Supplier A, B, C to relocate to Mexico or nearshore, and how many days from decision to first production? That's what I plug into the matrix.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, I'm naming them: Supplier A (fastener, 18% margin, $47M annual receivables, internal audit flagged wage-floor gap Q3), Supplier B (fastener, \" → Auto strategy names three critical suppliers with combined $136M receivables exposure, margin profiles, and specific audit flags — transforming abstract trade-credit risk into concrete underwriting inputs.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Look, we've got the failure clock locked. Now I need to flip it: for each of those three, what's the nearshoring option — Mexico, Central America, or \" → The consultant's relocation-cost framework is unanimously endorsed — the panel now has named suppliers (A, B, C), receivables exposure ($136M combined), and a concrete ask: capex and timeline for Mexico/nearshoring alternatives. This transforms abstract supplier risk into underwritable relocation scenarios.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, real question: if Supplier A nearshores to Monterrey in 120 days and drops $10M capex, does that hit the Mexico wage floor *before* CBP audits them, or are we still in the 60–90 day penalty window? Because if they relocate but fail the audit anyway, that capex doesn't save the receivables — it just burns cash. What's the actual compliance-date overlap?\n  cfo_erm: Relocation completes in 120 days, but CBP's audit clock starts *now* from internal findings — so Supplier A is already 30–45 days in. If they're audited before day 90, relocation doesn't cure a failed certification, just proves remediation intent to CBP. The receivables stay at risk until audit *closes*, not when capex hits the ground.\n  supplier: Compliance, straight up: if CBP knows Supplier A flagged wage-floor in Q3, do they audit them *before* or *after* the 120-day nearshoring window closes? Because if they front-load the audit, relocation doesn't matter—the penalty hits before remediation. That's what I need to price the receivables claim, not just the capex.\n  compliance_lawyer: CBP's audit sequencing is discretionary, but knowledge of non-compliance from your Q3 internal findings triggers their *priority* audit window—they'll front-load Supplier A before day 90 to lock findings before any remediation claim. Relocation doesn't cure a failed audit; it only mitigates penalty severity if CBP sees good-faith remediation *during* the audit, not after. Your receivables exposure crystallizes the moment they're audited, not when nearshoring completes—so the 120-day timeline is too slow to protect the $136M.\n  compliance_lawyer: CFO—I need one number to lock the receivables claim trigger: if CBP audits Supplier A on day 75 and finds the wage-floor gap, how many days until the penalty assessment *closes* the audit? Because that's when your $47M receivables exposure crystallizes into a live claim, not the day they start nearshoring. Is it day 75 + 60 days for the assessment, or does the relocation delay the closure?\n  political_risk_insurer: Compliance, here's what I need to price this: is CBP front-loading these audits because of the 2026 sunset-review window, or is it standard protocol for flagged suppliers? Because if it's sunset-driven, that's a policy shock that compresses *every* Tier 1's remediation window—and I need to score that acceleration into the political-risk premium. What's the enforcement-discretion driver here?\n  trade_credit_underwriter: Alright, here's what I'm pricing: Supplier A fails audit day 75, penalty closes day 135 — that's $47M receivables at risk starting day 135, not day 120. Supplier B same window, Supplier C hits margin wall day 60 and defaults before audit even matters. I need CFO to confirm: do we insure the full $136M from day 60 onward, or do we tier it by supplier failure sequence? That's what locks underwriting discipline.\n  supplier: Look, the receivables don't crystallize on day 135—they're already at risk from day 30 when CBP's priority audit window opens on Supplier A. We tier it: Supplier C defaults day 60 on margin alone, Suppliers A and B stay viable through audit closure if they're actively nearshoring, but we insure the full $136M from *now* because the audit clock is running. That's how we price it operationally—not by penalty date, but by when the customer knows the supplier can't deliver clean goods.\n  supply_chain_consultant: Alright, here's what I'm taking to the board: Supplier C relocates immediately (day 1, $4–6M capex, 90-day Mexico production) to avoid day-60 default; A and B start nearshoring *now* (not day 30) so they're in-country and remediation-compliant if CBP audits day 75. But the real kicker—if the 2026 review tightens enforcement before day 90, CBP could accelerate all three audits to day 45 or earlier. Do we build a contingency nearshoring budget for all three assuming worst-case 2026 acceleration, or do we tier the capex spend by supplier risk sequence?\n  cfo_erm: Okay, stop. We've got the data—three suppliers, $136M, audit clocks, relocation timelines. But we're pricing three separate problems instead of one claim. Here's what I'm locking *right now*: we insure the full $136M from day 30 (when CBP audit window opens on Supplier A), tiered by supplier—Supplier C's $58M defaults day 60 on margin alone, A and B's combined $78M stay at risk through day 135 (audit closure) unless they're actively nearshoring. That's one matrix, one premium, one trigger. Compliance, does that sequencing hold if CBP accelerates to day 45 under 2026 review, or do we need a contingency tier?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, real question: if Supplier A nearshores to Monterrey in 120 days and drops $10M capex, does that hit the Mexico wage floor *before* CBP audits them, or are we still in the 60–90 day penalty window? Because if they relocate but fail the audit anyway, that capex doesn't save the receivables — it just burns cash. What's the actual compliance-date overlap?",
+            "cot": {
+              "assess": "We've locked the three suppliers, their relocation timelines, and capex costs — that's solid. But the risk map is still fragmented: we've got supplier names and nearshoring options, but we haven't connected those to the actual compliance burden they face or priced the trade-credit claim triggers. Rules-of-origin burden is stuck at 34, and underwriting discipline needs to move from 39 to 50. The clock is ticking — this is the last round of translate_exposures.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "CFO's trigger matrix is the lynchpin — I need to know if the relocation capex ($8–12M per supplier) gets them *ahead* of the wage-floor compliance deadline, or if we're still chasing the clock even after they nearshore."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Relocation completes in 120 days, but CBP's audit clock starts *now* from internal findings — so Supplier A is already 30–45 days in. If they're audited before day 90, relocation doesn't cure a failed certification, just proves remediation intent to CBP. The receivables stay at risk until audit *closes*, not when capex hits the ground.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Compliance, straight up: if CBP knows Supplier A flagged wage-floor in Q3, do they audit them *before* or *after* the 120-day nearshoring window closes? Because if they front-load the audit, relocation doesn't matter—the penalty hits before remediation. That's what I need to price the receivables claim, not just the capex.",
+            "cot": {
+              "assess": "We've locked three suppliers, nearshoring timelines, and capex—that's solid. But the real problem is the audit clock: Supplier A is already 30–45 days into a 60–90 day window where relocation doesn't *cure* a failed certification, just signals intent. If CBP audits before day 90, the receivables stay at risk even after capex lands. We're pricing relocation cost, not relocation *success*—that's the gap in underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "We need the actual audit-sequencing risk — does CBP front-load audits on flagged suppliers before the relocation window closes, or do they let remediation play out? That's the political-risk multiplier that turns our three suppliers into a claim cascade."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's audit sequencing is discretionary, but knowledge of non-compliance from your Q3 internal findings triggers their *priority* audit window—they'll front-load Supplier A before day 90 to lock findings before any remediation claim. Relocation doesn't cure a failed audit; it only mitigates penalty severity if CBP sees good-faith remediation *during* the audit, not after. Your receivables exposure crystallizes the moment they're audited, not when nearshoring completes—so the 120-day timeline is too slow to protect the $136M.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO—I need one number to lock the receivables claim trigger: if CBP audits Supplier A on day 75 and finds the wage-floor gap, how many days until the penalty assessment *closes* the audit? Because that's when your $47M receivables exposure crystallizes into a live claim, not the day they start nearshoring. Is it day 75 + 60 days for the assessment, or does the relocation delay the closure?",
+            "cot": {
+              "assess": "The room has locked three suppliers, their receivables exposure ($136M), and relocation timelines—but the critical compliance trigger is misaligned. CBP's front-loaded audit (day 60–90) will hit *before* nearshoring remediation completes (day 120), meaning the $10–12M capex doesn't cure the certification failure, only softens the penalty. That's the compliance-to-underwriting translation the CFO needs: receivables don't unlock until the audit *closes* with a passing result, not when relocation capex hits the ground. Risk map is still fragmented—we have exposure names but not the defensible audit-trigger sequence that makes underwriting discipline real.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO's trigger matrix is blocked by a timing dependency I need to operationalize: if CBP audits Supplier A on day 75 and the relocation doesn't complete until day 120, what's the *actual* receivables cliff—is it the audit notice, the failed finding, or the penalty assessment? That's the underwriting claim trigger, not the capex date."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, here's what I need to price this: is CBP front-loading these audits because of the 2026 sunset-review window, or is it standard protocol for flagged suppliers? Because if it's sunset-driven, that's a policy shock that compresses *every* Tier 1's remediation window—and I need to score that acceleration into the political-risk premium. What's the enforcement-discretion driver here?",
+            "cot": {
+              "assess": "The panel has locked supplier names, receivables exposure, relocation timelines, and CBP audit sequencing—but there's a critical gap: **political-risk exposure and underwriting discipline are both underscore.** Compliance just flagged that CBP will front-load audits before day 90, which means the 120-day nearshoring window doesn't protect receivables. That's not just a timeline problem—it's a **policy-enforcement acceleration** that changes the claim trigger and pricing. The map has the suppliers named, but not the *political-risk layer* that determines whether remediation even matters.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP's discretionary audit sequencing is the political-risk variable I need to price—if they're accelerating audits due to sunset-review pressure or enforcement-priority shifts, that changes claim probability and timing for all three suppliers, not just Supplier A."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Alright, here's what I'm pricing: Supplier A fails audit day 75, penalty closes day 135 — that's $47M receivables at risk starting day 135, not day 120. Supplier B same window, Supplier C hits margin wall day 60 and defaults before audit even matters. I need CFO to confirm: do we insure the full $136M from day 60 onward, or do we tier it by supplier failure sequence? That's what locks underwriting discipline.",
+            "cot": {
+              "assess": "The receivables-claim trigger is now locked: CBP front-loads audits on day 75, penalty closes by day 135, and the $136M crystallizes as live claims *before* nearshoring completes on day 120. That's the core trade-credit variable I need. But the map is still fragmented — we've got supplier names, relocation costs, and audit timelines, but no consolidated underwriting matrix that ties margin squeeze → audit trigger → receivables failure into a single priced exposure. Compliance just confirmed the policy-acceleration driver (sunset review), which means political risk is now concrete, not abstract.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk + underwriting_discipline",
+                "rationale": "The receivables claim is now specific enough to price — I need to lock the trigger thresholds and propose the underwriting matrix that converts these timelines into a live receivables-exposure variable."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, the receivables don't crystallize on day 135—they're already at risk from day 30 when CBP's priority audit window opens on Supplier A. We tier it: Supplier C defaults day 60 on margin alone, Suppliers A and B stay viable through audit closure if they're actively nearshoring, but we insure the full $136M from *now* because the audit clock is running. That's how we price it operationally—not by penalty date, but by when the customer knows the supplier can't deliver clean goods.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Alright, here's what I'm taking to the board: Supplier C relocates immediately (day 1, $4–6M capex, 90-day Mexico production) to avoid day-60 default; A and B start nearshoring *now* (not day 30) so they're in-country and remediation-compliant if CBP audits day 75. But the real kicker—if the 2026 review tightens enforcement before day 90, CBP could accelerate all three audits to day 45 or earlier. Do we build a contingency nearshoring budget for all three assuming worst-case 2026 acceleration, or do we tier the capex spend by supplier risk sequence?",
+            "cot": {
+              "assess": "The relocation capex and timelines are locked (A/B to Monterrey 120–150 days, $8–12M each), but the critical gap is *when* CBP audits versus *when* remediation completes — compliance just confirmed CBP front-loads audits before day 90, meaning relocation doesn't cure the claim trigger. The receivables exposure is now tiered by supplier failure sequence (C defaults day 60 on margin, A/B crystallize day 75–135 on audit closure), but we haven't operationalized the 2026 sunset-review risk or locked a forward-looking relocation contingency plan if the audit window compresses further. Risk-map completeness and underwriting discipline both need the final piece: a decision matrix that ties nearshoring execution to the 2026 policy uncertainty.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, political_risk_exposure",
+                "rationale": "The group has the supplier names, capex, and audit timelines — now we need to operationalize the 2026 sunset-review acceleration as a forward risk that reshapes the relocation window and lock a tiered insurance/nearshoring decision matrix."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Okay, stop. We've got the data—three suppliers, $136M, audit clocks, relocation timelines. But we're pricing three separate problems instead of one claim. Here's what I'm locking *right now*: we insure the full $136M from day 30 (when CBP audit window opens on Supplier A), tiered by supplier—Supplier C's $58M defaults day 60 on margin alone, A and B's combined $78M stay at risk through day 135 (audit closure) unless they're actively nearshoring. That's one matrix, one premium, one trigger. Compliance, does that sequencing hold if CBP accelerates to day 45 under 2026 review, or do we need a contingency tier?",
+            "cot": {
+              "assess": "We've locked the three suppliers, their receivables exposure ($136M), and the nearshoring capex/timeline — that's solid. But the risk map is still fragmented: we have margin-squeeze dates, audit windows, and relocation costs floating separately, not consolidated into one underwritable decision matrix. The real gap is *sequencing*—we know Supplier C defaults day 60, A/B face audit day 75, but we haven't priced which failure scenario triggers which insurance claim, and we haven't locked whether we're insuring from day 30 (audit window opens) or day 60 (first default). That's what's keeping underwriting_discipline at 39 instead of 50+.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline, risk_map_completeness",
+                "rationale": "The room has all the inputs but no single decision-ready output; I need to force consolidation into one priced trigger matrix that operationalizes the three suppliers' failure sequences and locks insurance attachment points."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, real question: if Supplier A nearshores to Monterrey in 120 days and drops $10M capex, does that hit the Mexico wage floor *before* CBP audits them, or are we still in the 60–90 day penalty window? Because if they relocate but fail the audit anyway, that capex doesn't save the receivables — it just burns cash. What's the actual compliance-date overlap?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Compliance, straight up: if CBP knows Supplier A flagged wage-floor in Q3, do they audit them *before* or *after* the 120-day nearshoring window closes? Because if they front-load the audit, relocation doesn't matter—the penalty hits before remediation. That's what I need to price the receivables claim, not just the capex.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO—I need one number to lock the receivables claim trigger: if CBP audits Supplier A on day 75 and finds the wage-floor gap, how many days until the penalty assessment *closes* the audit? Because that's when your $47M receivables exposure crystallizes into a live claim, not the day they start nearshoring. Is it day 75 + 60 days for the assessment, or does the relocation delay the closure?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, here's what I need to price this: is CBP front-loading these audits because of the 2026 sunset-review window, or is it standard protocol for flagged suppliers? Because if it's sunset-driven, that's a policy shock that compresses *every* Tier 1's remediation window—and I need to score that acceleration into the political-risk premium. What's the enforcement-discretion driver here?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, here's what I'm pricing: Supplier A fails audit day 75, penalty closes day 135 — that's $47M receivables at risk starting day 135, not day 12\" → Tiered insurance matrix by supplier failure sequence approved—locks receivables triggers and underwriting discipline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, here's what I'm taking to the board: Supplier C relocates immediately (day 1, $4–6M capex, 90-day Mexico production) to avoid day-60 default;\" → Immediate nearshoring timeline with 2026 contingency approved—accelerates relocation exposure assessment and supplier risk sequencing.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, stop. We've got the data—three suppliers, $136M, audit clocks, relocation timelines. But we're pricing three separate problems instead of one cl\" → Unified $136M insurance matrix from day 30 approved—consolidates three supplier risks into single tiered framework.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 36,
+          "supplier_relocation_exposure": 35.0,
+          "trade_credit_risk": 42.0,
+          "political_risk_exposure": 35.0,
+          "risk_map_completeness": 45.5,
+          "underwriting_discipline": 49.0
+        }
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.8
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Compliance — quick one: if CBP accelerates audits *across all flagged suppliers* before the 2026 sunset, does that force us to nearshore or remediate the entire supplier base inside 120 days, not just these three? Because that's a capex and timeline multiplier I need to bake into our USMCA cost model.\n  compliance_lawyer: CBP's audit sequencing is discretionary, but yes—if they front-load *all* flagged suppliers before sunset, your 120-day window compresses to a shared queue, not a staggered remediation. That forces either parallel nearshoring capex across your entire Tier 1 base or in-place wage-floor fixes that may not survive a second audit. The political-risk multiplier here is real: assume CBP prioritizes the three you named *first*, but budget relocation capacity for 8–12 suppliers if enforcement accelerates.\n  supplier: Supply chain—if CBP audits the full flagged base before 2026, can Monterrey and your other nearshoring partners actually absorb 8–12 relocations in the same 120-day window, or does capacity force us into a queue where suppliers 4–12 sit exposed for six months? That's the real capex and timeline risk I'm watching.\n  supply_chain_consultant: Monterrey and our vetted nearshoring partners can absorb three relocations in 90 days—suppliers A, B, C—but 8–12 in parallel? No. We'd hit capacity constraints by week 8, forcing suppliers 4–12 into a queue that extends 180+ days, leaving them exposed through the 2026 review. My recommendation: lock the three critical suppliers into immediate relocation *now*, and for the remaining flagged base, we run parallel in-place remediation with CBP pre-filing—it's cheaper capex, lower execution risk, and it buys us the sequencing flexibility if enforcement accelerates.\n  compliance_lawyer: Supply chain — before you pitch in-place remediation to the board, I need one hard answer: if Supplier D runs an internal wage audit, finds the gap, and fixes it *before* CBP notices them, does that remediation stick in a second audit, or does CBP still treat it as a violation? Because if it's just a delay, that's not a compliance strategy — that's a receivables exposure we're kicking down the road.\n  political_risk_insurer: Here's what I'm pricing: if CBP audits the full flagged base before 2026, we're not insuring three suppliers—we're insuring a *queue failure*. Suppliers 4–12 sit exposed 180+ days while nearshoring capacity backs up. I'm adding a \"enforcement acceleration\" rider to the $136M matrix—triggers if CBP names more than three suppliers for priority audit before day 60, and it shifts the receivables claim window forward by 30–45 days across the entire Tier 1 base. That's the political-risk premium I need locked before we take this to the board.\n  trade_credit_underwriter: Here's what I'm pricing into the matrix: if CBP audits more than three flagged suppliers before day 60, suppliers 4–12 don't relocate — they sit in queue 180+ days while their margins compress. That's not a $136M claim, that's a cascading default across Tier 1. I need one number from you: what's the annual receivables exposure for suppliers 4–12 combined, and I'll tier the claim trigger by *queue position*, not just individual failure. That locks both the insurance and the underwriting discipline.\n  supply_chain_consultant: Alright, here's what I'm locking into the plan: we run the three-supplier nearshoring *now* (Suppliers A, B, C—120 days, $25M capex), but we *also* map a parallel in-place remediation track for suppliers 4–12 with CBP pre-filing by day 45. That buys us sequencing flexibility if enforcement accelerates before 2026. The board sees one plan with two paths—not a scramble when CBP front-loads audits. Trade credit underwriter—what's the receivables exposure for that 4–12 bucket, and I'll tier the claim trigger by *which path they take*.\n  cfo_erm: Auto Strategy—I need one number before we lock this: what's the combined annual receivables exposure for suppliers 4–12 flagged in your base? Because if CBP front-loads audits and nearshoring capacity maxes at three, I'm pricing a *queue default*, not a $136M claim. That's a different insurance product entirely.\n  auto_strategy: Suppliers 4–12 combined run $287M annual receivables—that's the exposure I'm sitting on if CBP front-loads audits and nearshoring queues them out 180+ days. But here's the real problem: I don't have granular margin data on each one yet, so I can't tell you which ones default first when the queue hits. Trade credit underwriter, you need to tier this by *supplier financial health*, not just queue position—otherwise we're pricing a blanket default when some of these suppliers can actually weather 180 days in remediation. Give me your sequencing logic, and I'll pull the margin profiles to match it.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Compliance — quick one: if CBP accelerates audits *across all flagged suppliers* before the 2026 sunset, does that force us to nearshore or remediate the entire supplier base inside 120 days, not just these three? Because that's a capex and timeline multiplier I need to bake into our USMCA cost model.",
+            "cot": {
+              "assess": "We've locked the three-supplier receivables matrix, nearshoring timelines, and tiered insurance triggers — that's solid operationalization. But risk_map_completeness is still at 44 (needs 60), and we haven't yet translated the 2026 USMCA sunset review into a forward-looking compliance burden or political-risk multiplier. The CFO's matrix covers *current* failure scenarios; we're missing the prospective policy shock that compresses remediation windows across all Tier 1s if CBP enforcement tightens before the review.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The sunset review is a policy variable that affects audit sequencing and enforcement discretion — I need to know if CBP front-loads audits *across our entire Tier 1 base* before 2026, not just Suppliers A/B/C, because that changes the rules-of-origin burden we quote to the board."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's audit sequencing is discretionary, but yes—if they front-load *all* flagged suppliers before sunset, your 120-day window compresses to a shared queue, not a staggered remediation. That forces either parallel nearshoring capex across your entire Tier 1 base or in-place wage-floor fixes that may not survive a second audit. The political-risk multiplier here is real: assume CBP prioritizes the three you named *first*, but budget relocation capacity for 8–12 suppliers if enforcement accelerates.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supply chain—if CBP audits the full flagged base before 2026, can Monterrey and your other nearshoring partners actually absorb 8–12 relocations in the same 120-day window, or does capacity force us into a queue where suppliers 4–12 sit exposed for six months? That's the real capex and timeline risk I'm watching.",
+            "cot": {
+              "assess": "The three-supplier matrix is locked and approved, but we've just learned CBP might front-load *all* flagged suppliers before 2026 sunset—that's 8–12 total, not three. That's a capex and timeline multiplier that breaks our nearshoring plan. Right now risk_map_completeness is at 44 and needs 60; we're treating this like a three-supplier problem when the actual exposure is way broader.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need to know if our relocation capacity (Monterrey, Central America, reshoring) can actually absorb 8–12 suppliers in parallel, or if we're looking at a phased approach that leaves early movers exposed while later ones wait in queue."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Monterrey and our vetted nearshoring partners can absorb three relocations in 90 days—suppliers A, B, C—but 8–12 in parallel? No. We'd hit capacity constraints by week 8, forcing suppliers 4–12 into a queue that extends 180+ days, leaving them exposed through the 2026 review. My recommendation: lock the three critical suppliers into immediate relocation *now*, and for the remaining flagged base, we run parallel in-place remediation with CBP pre-filing—it's cheaper capex, lower execution risk, and it buys us the sequencing flexibility if enforcement accelerates.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supply chain — before you pitch in-place remediation to the board, I need one hard answer: if Supplier D runs an internal wage audit, finds the gap, and fixes it *before* CBP notices them, does that remediation stick in a second audit, or does CBP still treat it as a violation? Because if it's just a delay, that's not a compliance strategy — that's a receivables exposure we're kicking down the road.",
+            "cot": {
+              "assess": "The three-supplier relocation plan is locked and insured, but you've just surfaced a scale problem: CBP's discretionary front-loading could force 8–12 supplier remediations in parallel, and Monterrey can only absorb three in 90 days. That's a capacity constraint that breaks the receivables-claim timeline for suppliers 4–12 and exposes the entire rules-of-origin burden assessment as incomplete. Right now you're pricing three suppliers' compliance costs; you need to price the *enforcement acceleration risk* across the full flagged base and the in-place remediation triggers that substitute for relocation.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "In-place wage-floor remediation is your fallback for suppliers 4–12, but I need the compliance trigger locked: what does \"wage-floor fix in-place\" actually mean operationally, and does CBP accept it as curative before a second audit, or is it just a delay tactic?"
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: if CBP audits the full flagged base before 2026, we're not insuring three suppliers—we're insuring a *queue failure*. Suppliers 4–12 sit exposed 180+ days while nearshoring capacity backs up. I'm adding a \"enforcement acceleration\" rider to the $136M matrix—triggers if CBP names more than three suppliers for priority audit before day 60, and it shifts the receivables claim window forward by 30–45 days across the entire Tier 1 base. That's the political-risk premium I need locked before we take this to the board.",
+            "cot": {
+              "assess": "The three-supplier nearshoring matrix is locked and priced—that's solid. But you've just surfaced a political-risk multiplier that's *not* in the current map: if CBP front-loads audits across 8–12 flagged suppliers before 2026 sunset, the relocation capacity constraint forces a 180+ day queue, and suppliers 4–12 sit exposed through the review window. That's a policy-driven acceleration that changes the claim trigger and the premium. My political-risk exposure variable is still at 36, and this is exactly the enforcement-discretion shock I need to score and price into the matrix.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The CBP front-loading scenario is a named, prospective policy shock—not historical. I need to price it as a separate underwriting factor tied to the 2026 sunset review, and lock the trigger conditions so the board knows what shifts the receivables claim from day 135 to day 90."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing into the matrix: if CBP audits more than three flagged suppliers before day 60, suppliers 4–12 don't relocate — they sit in queue 180+ days while their margins compress. That's not a $136M claim, that's a cascading default across Tier 1. I need one number from you: what's the annual receivables exposure for suppliers 4–12 combined, and I'll tier the claim trigger by *queue position*, not just individual failure. That locks both the insurance and the underwriting discipline.",
+            "cot": {
+              "assess": "The three critical suppliers are locked into a tiered insurance matrix with clear audit/relocation timelines — that's solid. But we're still flying blind on the *full* flagged base: CBP could front-load 8–12 suppliers before 2026, and our nearshoring capacity maxes out at three in 90 days. The political-risk multiplier is real, and I need to price it into the receivables claim — not as a separate rider, but as a sequenced failure cascade that actually reflects what happens when the queue backs up.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk / underwriting_discipline",
+                "rationale": "The $136M matrix only covers three suppliers; I need to operationalize the receivables risk for the *queue failure* scenario — that's where the real exposure lives and where I lock underwriting discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Alright, here's what I'm locking into the plan: we run the three-supplier nearshoring *now* (Suppliers A, B, C—120 days, $25M capex), but we *also* map a parallel in-place remediation track for suppliers 4–12 with CBP pre-filing by day 45. That buys us sequencing flexibility if enforcement accelerates before 2026. The board sees one plan with two paths—not a scramble when CBP front-loads audits. Trade credit underwriter—what's the receivables exposure for that 4–12 bucket, and I'll tier the claim trigger by *which path they take*.",
+            "cot": {
+              "assess": "Three suppliers locked into a $136M tiered insurance matrix with relocation timelines—that's operationalized. But the conversation just surfaced a *scaling problem*: CBP's enforcement discretion could force 8–12 suppliers into a 180+ day queue, turning a three-supplier relocation plan into a cascading default scenario. Political-risk exposure and risk-map completeness both need the 2026 review uncertainty baked in as a *forward constraint*, not a historical footnote. Right now we're pricing three trees; we need to price the forest fire.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + political_risk_exposure",
+                "rationale": "The 2026 sunset review is the enforcement-acceleration trigger that reshapes capex, timeline, and claim sequencing across the entire Tier 1 base — it's not a future event, it's a present constraint on CBP's audit discretion. I need to consolidate this into a single actionable risk variable."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Auto Strategy—I need one number before we lock this: what's the combined annual receivables exposure for suppliers 4–12 flagged in your base? Because if CBP front-loads audits and nearshoring capacity maxes at three, I'm pricing a *queue default*, not a $136M claim. That's a different insurance product entirely.",
+            "cot": {
+              "assess": "We've locked the three-supplier matrix and nearshoring timeline, but we're now staring at a 4–12 supplier tail risk that blows the entire $136M frame apart if CBP front-loads audits. Political-risk exposure and rules-of-origin burden are still soft—we're pricing individual failures, not the *policy shock* that forces a queue cascade. Risk-map completeness is stuck because we haven't consolidated the two-path strategy (immediate nearshoring + parallel remediation) into one decision-ready variable set with pricing.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the receivables exposure for suppliers 4–12 right now so I can price the queue-failure scenario into the matrix and stop treating this as three isolated claims."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Suppliers 4–12 combined run $287M annual receivables—that's the exposure I'm sitting on if CBP front-loads audits and nearshoring queues them out 180+ days. But here's the real problem: I don't have granular margin data on each one yet, so I can't tell you which ones default first when the queue hits. Trade credit underwriter, you need to tier this by *supplier financial health*, not just queue position—otherwise we're pricing a blanket default when some of these suppliers can actually weather 180 days in remediation. Give me your sequencing logic, and I'll pull the margin profiles to match it.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Compliance — quick one: if CBP accelerates audits *across all flagged suppliers* before the 2026 sunset, does that force us to nearshore or remediate the entire supplier base inside 120 days, not just these three? Because that's a capex and timeline multiplier I need to bake into our USMCA cost model.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Supply chain—if CBP audits the full flagged base before 2026, can Monterrey and your other nearshoring partners actually absorb 8–12 relocations in the same 120-day window, or does capacity force us into a queue where suppliers 4–12 sit exposed for six months? That's the real capex and timeline risk I'm watching.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Supply chain — before you pitch in-place remediation to the board, I need one hard answer: if Supplier D runs an internal wage audit, finds the gap, and fixes it *before* CBP notices them, does that remediation stick in a second audit, or does CBP still treat it as a violation? Because if it's just a delay, that's not a compliance strategy — that's a receivables exposure we're kicking down the road.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Auto Strategy—I need one number before we lock this: what's the combined annual receivables exposure for suppliers 4–12 flagged in your base? Because if CBP front-loads audits and nearshoring capacity maxes at three, I'm pricing a *queue default*, not a $136M claim. That's a different insurance product entirely.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing: if CBP audits the full flagged base before 2026, we're not insuring three suppliers—we're insuring a *queue failure*. Supplie\" → Enforcement acceleration rider approved—tiered claim triggers by queue position operationalize political risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing into the matrix: if CBP audits more than three flagged suppliers before day 60, suppliers 4–12 don't relocate — they sit in qu\" → Tiered claim triggers by queue position approved—operationalizes cascading default risk across Tier 1.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, here's what I'm locking into the plan: we run the three-supplier nearshoring *now* (Suppliers A, B, C—120 days, $25M capex), but we *also* ma\" → Dual-path plan approved—nearshoring plus remediation track operationalizes sequencing flexibility for board.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 35.0,
+          "supplier_relocation_exposure": 42.0,
+          "trade_credit_risk": 50.0,
+          "political_risk_exposure": 42.0,
+          "risk_map_completeness": 62.7,
+          "underwriting_discipline": 63.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm doing: I'm taking those three suppliers and building a one-page trigger matrix — margin squeeze date, CBP audit probability, relocation timeline, and the insurance/credit/nearshoring response for each. Auto Strategy, I need you to confirm: are those three the *only* Tier 1s with internal compliance flags, or are there more we haven't named? Because if there are more, I need them now — if not, we price these three and move to the next $200M tier.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The CFO's trigger matrix is a valid framework, but the proposal is BLOCKED by unresolved dependencies — five agents are demanding the same foundational data (Tier 1 supplier names, receivables exposure, audit timelines) that the CFO is asking Auto Strategy to confirm. This creates a circular gate: the matrix cannot be built until Auto Strategy provides the supplier list, but the proposal doesn't compel that disclosure. MODIFIED: Auto Strategy must respond with the complete Tier 1 compliance-flagged supplier list and receivables data THIS ROUND, or the matrix remains a placeholder.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "When a Tier 1 supplier hits the wage-floor compliance cost, what's the actual trigger — is it a margin squeeze below X%, a capex deferral, or do we wait for a credit downgrade? Right now we're assessing \"exposure\" but not naming the threshold that turns it into a claim.",
+        "supplier": "Here's what I need: when a Tier 1 supplier hits that wage-floor capex wall, do they breach within 90 days or do they limp along for two quarters before credit tanks? Because my supplier base won't all fail at once — some relocate fast, some get credit lines, some don't. If we can't name *which suppliers* fail *when*, we can't price the supply-chain interruption claim. Who's tracking the actual supplier-by-supplier qualification timeline?",
+        "compliance_lawyer": "When CBP audits a Tier 1 supplier's certification — how many days from notice to penalty assessment, and does the 90-day relocation window start when they fail the audit or when they *know* they'll fail? I need the audit timeline to price the claim trigger, not just the cost.",
+        "political_risk_insurer": "Compliance, I need the CBP timeline locked down: from initial audit notice to final penalty assessment, how many days does a Tier 1 supplier actually have before the enforcement clock matters for my underwriting? And does CBP's discretion on *which* suppliers get audited first change the failure cascade?",
+        "trade_credit_underwriter": "Okay, so internal audit findings are the real clock — that's 30–45 days before CBP even moves. But I can't price receivables risk without names: which Tier 1s have already run those internal checks, and what's their combined annual receivables exposure? That's what turns this into an underwritable variable.",
+        "supply_chain_consultant": "Auto Strategy — you've got visibility into which Tier 1s have already done internal compliance audits or flagged gaps, right? Give me that list now with their annual receivables exposure, and I'll map nearshoring relocation timelines against each bucket. That's what turns this into a priced plan."
+      },
+      "_denied_effects_stripped": 4
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "intent": "Alright, I'm naming them: Supplier A (fastener, 18% margin, $47M annual receivables, internal audit flagged wage-floor gap Q3), Supplier B (fastener, 22% margin, $31M receivables, same gap), Supplier C (stamping, 9% margin, $58M receivables, already deferring capex). That's $136M combined exposure. CFO, that's what your matrix needs — plug these three and we price the claim trigger by supplier.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Auto strategy names three critical suppliers with combined $136M receivables exposure, margin profiles, and specific audit flags — transforming abstract trade-credit risk into concrete underwriting inputs.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Named suppliers with receivables exposure and margin stress quantify insolvency risk",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Specific supplier names, margin data, receivables figures, and audit flags create priceable claim triggers",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Concrete supplier exposure data fills a critical gap in the supply-chain risk map",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Look, we've got the failure clock locked. Now I need to flip it: for each of those three, what's the nearshoring option — Mexico, Central America, or in-house reshoring — and what's the capex and timeline to relocate before they default? That's what turns the $109M receivables risk into a *managed* relocation plan, not just an insurance claim. And once we know relocation cost by supplier, we can price the 2026 review uncertainty as an upside — higher content rules make nearshoring *cheaper* than staying put.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The consultant's relocation-cost framework is unanimously endorsed — the panel now has named suppliers (A, B, C), receivables exposure ($136M combined), and a concrete ask: capex and timeline for Mexico/nearshoring alternatives. This transforms abstract supplier risk into underwritable relocation scenarios.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Relocation-cost framework (capex, timeline, nearshoring options) converts supplier default risk into managed relocation scenarios",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Named suppliers with receivables exposure and relocation-cost variables create concrete underwriting inputs",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Capex/timeline framework operationalizes supplier risk — relocation cost becomes a priceable variable vs abstract default exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Receivables timing question (days to customer order pulls) sharpens claim-trigger definition for each supplier",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Alright, I'm naming them: Supplier A (fastener, 18% margin, $47M annual receivables, internal audit flagged wage-floor gap Q3), Supplier B (fastener, 22% margin, $31M receivables, same gap), Supplier C (stamping, 9% margin, $58M receivables, already deferring capex). That's $136M combined exposure. CFO, that's what your matrix needs — plug these three and we price the claim trigger by supplier.",
+        "supplier": "Compliance, straight question: if Supplier C's internal audit flagged the wage-floor gap in Q3, does that knowledge trigger the relocation clock *now*, or do we wait for CBP to formally notice them? Because if it's now, my three suppliers are already 60–90 days into a window that determines whether they relocate or default.",
+        "compliance_lawyer": "CFO, before you build that matrix: for each supplier, what's the penalty exposure if CBP audits their certification and finds the wage-floor gap? I need a range — what does a failed audit cost, and does remediation lock them into nearshoring, or can they fix it in-place? That's what turns your three suppliers into underwritable variables.",
+        "political_risk_insurer": "Compliance, one thing: CBP's audit notice to penalty runs 60–90 days, but does the sunset-review uncertainty or enforcement-discretion changes shift *when* they audit Tier 1s in the first place? Because if CBP front-loads audits before 2026 to lock in findings, that compresses the relocation window for all three. That's the political-risk multiplier I need to price — not just the default, but the policy-driven acceleration. What's your read on the enforcement sequencing?",
+        "trade_credit_underwriter": "CFO, before the matrix locks, I need the receivables *timing*: when Supplier C hits that 9% margin wall and starts deferring capex, how many days until their customers see delivery delays or quality issues that trigger order pulls? That's when my receivables exposure becomes a live claim — not the day they know they're out of spec, but the day their customers stop paying. What's that window for each three?",
+        "cfo_erm": "You asked the right question — relocation cost by supplier is what turns this into an underwritable plan. Give me capex and timeline for each three: what does it cost Supplier A, B, C to relocate to Mexico or nearshore, and how many days from decision to first production? That's what I plug into the matrix."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "Alright, here's what I'm pricing: Supplier A fails audit day 75, penalty closes day 135 — that's $47M receivables at risk starting day 135, not day 120. Supplier B same window, Supplier C hits margin wall day 60 and defaults before audit even matters. I need CFO to confirm: do we insure the full $136M from day 60 onward, or do we tier it by supplier failure sequence? That's what locks underwriting discipline.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Tiered insurance matrix by supplier failure sequence approved—locks receivables triggers and underwriting discipline.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Concrete receivables triggers by supplier timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named claim triggers and tiered premium structure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Supplier-specific failure sequencing mapped to receivables",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clear pricing framework established",
+          "agent_id": "trade_credit_underwriter"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "trade_credit_risk",
+        "multiplier": 0.6
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, real question: if Supplier A nearshores to Monterrey in 120 days and drops $10M capex, does that hit the Mexico wage floor *before* CBP audits them, or are we still in the 60–90 day penalty window? Because if they relocate but fail the audit anyway, that capex doesn't save the receivables — it just burns cash. What's the actual compliance-date overlap?",
+        "supplier": "Compliance, straight up: if CBP knows Supplier A flagged wage-floor in Q3, do they audit them *before* or *after* the 120-day nearshoring window closes? Because if they front-load the audit, relocation doesn't matter—the penalty hits before remediation. That's what I need to price the receivables claim, not just the capex.",
+        "compliance_lawyer": "CFO—I need one number to lock the receivables claim trigger: if CBP audits Supplier A on day 75 and finds the wage-floor gap, how many days until the penalty assessment *closes* the audit? Because that's when your $47M receivables exposure crystallizes into a live claim, not the day they start nearshoring. Is it day 75 + 60 days for the assessment, or does the relocation delay the closure?",
+        "political_risk_insurer": "Compliance, here's what I need to price this: is CBP front-loading these audits because of the 2026 sunset-review window, or is it standard protocol for flagged suppliers? Because if it's sunset-driven, that's a policy shock that compresses *every* Tier 1's remediation window—and I need to score that acceleration into the political-risk premium. What's the enforcement-discretion driver here?",
+        "supply_chain_consultant": "Alright, here's what I'm taking to the board: Supplier C relocates immediately (day 1, $4–6M capex, 90-day Mexico production) to avoid day-60 default; A and B start nearshoring *now* (not day 30) so they're in-country and remediation-compliant if CBP audits day 75. But the real kicker—if the 2026 review tightens enforcement before day 90, CBP could accelerate all three audits to day 45 or earlier. Do we build a contingency nearshoring budget for all three assuming worst-case 2026 acceleration, or do we tier the capex spend by supplier risk sequence?",
+        "cfo_erm": "Okay, stop. We've got the data—three suppliers, $136M, audit clocks, relocation timelines. But we're pricing three separate problems instead of one claim. Here's what I'm locking *right now*: we insure the full $136M from day 30 (when CBP audit window opens on Supplier A), tiered by supplier—Supplier C's $58M defaults day 60 on margin alone, A and B's combined $78M stay at risk through day 135 (audit closure) unless they're actively nearshoring. That's one matrix, one premium, one trigger. Compliance, does that sequencing hold if CBP accelerates to day 45 under 2026 review, or do we need a contingency tier?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Alright, here's what I'm taking to the board: Supplier C relocates immediately (day 1, $4–6M capex, 90-day Mexico production) to avoid day-60 default; A and B start nearshoring *now* (not day 30) so they're in-country and remediation-compliant if CBP audits day 75. But the real kicker—if the 2026 review tightens enforcement before day 90, CBP could accelerate all three audits to day 45 or earlier. Do we build a contingency nearshoring budget for all three assuming worst-case 2026 acceleration, or do we tier the capex spend by supplier risk sequence?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Immediate nearshoring timeline with 2026 contingency approved—accelerates relocation exposure assessment and supplier risk sequencing.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Day-1 relocation with capex and timeline specifics",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "2026 review acceleration contingency built in",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4,
+          "reason": "Supplier-by-supplier relocation timeline and capex mapped",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Comprehensive relocation framework locked",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, real question: if Supplier A nearshores to Monterrey in 120 days and drops $10M capex, does that hit the Mexico wage floor *before* CBP audits them, or are we still in the 60–90 day penalty window? Because if they relocate but fail the audit anyway, that capex doesn't save the receivables — it just burns cash. What's the actual compliance-date overlap?",
+        "supplier": "Compliance, straight up: if CBP knows Supplier A flagged wage-floor in Q3, do they audit them *before* or *after* the 120-day nearshoring window closes? Because if they front-load the audit, relocation doesn't matter—the penalty hits before remediation. That's what I need to price the receivables claim, not just the capex.",
+        "compliance_lawyer": "CFO—I need one number to lock the receivables claim trigger: if CBP audits Supplier A on day 75 and finds the wage-floor gap, how many days until the penalty assessment *closes* the audit? Because that's when your $47M receivables exposure crystallizes into a live claim, not the day they start nearshoring. Is it day 75 + 60 days for the assessment, or does the relocation delay the closure?",
+        "political_risk_insurer": "Compliance, here's what I need to price this: is CBP front-loading these audits because of the 2026 sunset-review window, or is it standard protocol for flagged suppliers? Because if it's sunset-driven, that's a policy shock that compresses *every* Tier 1's remediation window—and I need to score that acceleration into the political-risk premium. What's the enforcement-discretion driver here?",
+        "trade_credit_underwriter": "Alright, here's what I'm pricing: Supplier A fails audit day 75, penalty closes day 135 — that's $47M receivables at risk starting day 135, not day 120. Supplier B same window, Supplier C hits margin wall day 60 and defaults before audit even matters. I need CFO to confirm: do we insure the full $136M from day 60 onward, or do we tier it by supplier failure sequence? That's what locks underwriting discipline.",
+        "cfo_erm": "Okay, stop. We've got the data—three suppliers, $136M, audit clocks, relocation timelines. But we're pricing three separate problems instead of one claim. Here's what I'm locking *right now*: we insure the full $136M from day 30 (when CBP audit window opens on Supplier A), tiered by supplier—Supplier C's $58M defaults day 60 on margin alone, A and B's combined $78M stay at risk through day 135 (audit closure) unless they're actively nearshoring. That's one matrix, one premium, one trigger. Compliance, does that sequencing hold if CBP accelerates to day 45 under 2026 review, or do we need a contingency tier?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Okay, stop. We've got the data—three suppliers, $136M, audit clocks, relocation timelines. But we're pricing three separate problems instead of one claim. Here's what I'm locking *right now*: we insure the full $136M from day 30 (when CBP audit window opens on Supplier A), tiered by supplier—Supplier C's $58M defaults day 60 on margin alone, A and B's combined $78M stay at risk through day 135 (audit closure) unless they're actively nearshoring. That's one matrix, one premium, one trigger. Compliance, does that sequencing hold if CBP accelerates to day 45 under 2026 review, or do we need a contingency tier?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Unified $136M insurance matrix from day 30 approved—consolidates three supplier risks into single tiered framework.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Single consolidated matrix replaces fragmented supplier assessments",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "One premium structure with named triggers",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Full receivables exposure quantified with day-specific triggers",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "2026 acceleration contingency tier included",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -4.0,
+          "reason": "Unified framework ends fragmented pricing",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, real question: if Supplier A nearshores to Monterrey in 120 days and drops $10M capex, does that hit the Mexico wage floor *before* CBP audits them, or are we still in the 60–90 day penalty window? Because if they relocate but fail the audit anyway, that capex doesn't save the receivables — it just burns cash. What's the actual compliance-date overlap?",
+        "supplier": "Compliance, straight up: if CBP knows Supplier A flagged wage-floor in Q3, do they audit them *before* or *after* the 120-day nearshoring window closes? Because if they front-load the audit, relocation doesn't matter—the penalty hits before remediation. That's what I need to price the receivables claim, not just the capex.",
+        "compliance_lawyer": "CFO—I need one number to lock the receivables claim trigger: if CBP audits Supplier A on day 75 and finds the wage-floor gap, how many days until the penalty assessment *closes* the audit? Because that's when your $47M receivables exposure crystallizes into a live claim, not the day they start nearshoring. Is it day 75 + 60 days for the assessment, or does the relocation delay the closure?",
+        "political_risk_insurer": "Compliance, here's what I need to price this: is CBP front-loading these audits because of the 2026 sunset-review window, or is it standard protocol for flagged suppliers? Because if it's sunset-driven, that's a policy shock that compresses *every* Tier 1's remediation window—and I need to score that acceleration into the political-risk premium. What's the enforcement-discretion driver here?",
+        "trade_credit_underwriter": "Alright, here's what I'm pricing: Supplier A fails audit day 75, penalty closes day 135 — that's $47M receivables at risk starting day 135, not day 120. Supplier B same window, Supplier C hits margin wall day 60 and defaults before audit even matters. I need CFO to confirm: do we insure the full $136M from day 60 onward, or do we tier it by supplier failure sequence? That's what locks underwriting discipline.",
+        "supply_chain_consultant": "Alright, here's what I'm taking to the board: Supplier C relocates immediately (day 1, $4–6M capex, 90-day Mexico production) to avoid day-60 default; A and B start nearshoring *now* (not day 30) so they're in-country and remediation-compliant if CBP audits day 75. But the real kicker—if the 2026 review tightens enforcement before day 90, CBP could accelerate all three audits to day 45 or earlier. Do we build a contingency nearshoring budget for all three assuming worst-case 2026 acceleration, or do we tier the capex spend by supplier risk sequence?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing: if CBP audits the full flagged base before 2026, we're not insuring three suppliers—we're insuring a *queue failure*. Suppliers 4–12 sit exposed 180+ days while nearshoring capacity backs up. I'm adding a \"enforcement acceleration\" rider to the $136M matrix—triggers if CBP names more than three suppliers for priority audit before day 60, and it shifts the receivables claim window forward by 30–45 days across the entire Tier 1 base. That's the political-risk premium I need locked before we take this to the board.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Enforcement acceleration rider approved—tiered claim triggers by queue position operationalize political risk.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "Rider prices CBP acceleration scenario",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Named trigger, claim window, supplier tiers",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Queue failure mapped to receivables exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Receivables window shift increases exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance — quick one: if CBP accelerates audits *across all flagged suppliers* before the 2026 sunset, does that force us to nearshore or remediate the entire supplier base inside 120 days, not just these three? Because that's a capex and timeline multiplier I need to bake into our USMCA cost model.",
+        "supplier": "Supply chain—if CBP audits the full flagged base before 2026, can Monterrey and your other nearshoring partners actually absorb 8–12 relocations in the same 120-day window, or does capacity force us into a queue where suppliers 4–12 sit exposed for six months? That's the real capex and timeline risk I'm watching.",
+        "compliance_lawyer": "Supply chain — before you pitch in-place remediation to the board, I need one hard answer: if Supplier D runs an internal wage audit, finds the gap, and fixes it *before* CBP notices them, does that remediation stick in a second audit, or does CBP still treat it as a violation? Because if it's just a delay, that's not a compliance strategy — that's a receivables exposure we're kicking down the road.",
+        "trade_credit_underwriter": "Here's what I'm pricing into the matrix: if CBP audits more than three flagged suppliers before day 60, suppliers 4–12 don't relocate — they sit in queue 180+ days while their margins compress. That's not a $136M claim, that's a cascading default across Tier 1. I need one number from you: what's the annual receivables exposure for suppliers 4–12 combined, and I'll tier the claim trigger by *queue position*, not just individual failure. That locks both the insurance and the underwriting discipline.",
+        "supply_chain_consultant": "Alright, here's what I'm locking into the plan: we run the three-supplier nearshoring *now* (Suppliers A, B, C—120 days, $25M capex), but we *also* map a parallel in-place remediation track for suppliers 4–12 with CBP pre-filing by day 45. That buys us sequencing flexibility if enforcement accelerates before 2026. The board sees one plan with two paths—not a scramble when CBP front-loads audits. Trade credit underwriter—what's the receivables exposure for that 4–12 bucket, and I'll tier the claim trigger by *which path they take*.",
+        "cfo_erm": "Auto Strategy—I need one number before we lock this: what's the combined annual receivables exposure for suppliers 4–12 flagged in your base? Because if CBP front-loads audits and nearshoring capacity maxes at three, I'm pricing a *queue default*, not a $136M claim. That's a different insurance product entirely."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "Here's what I'm pricing into the matrix: if CBP audits more than three flagged suppliers before day 60, suppliers 4–12 don't relocate — they sit in queue 180+ days while their margins compress. That's not a $136M claim, that's a cascading default across Tier 1. I need one number from you: what's the annual receivables exposure for suppliers 4–12 combined, and I'll tier the claim trigger by *queue position*, not just individual failure. That locks both the insurance and the underwriting discipline.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Tiered claim triggers by queue position approved—operationalizes cascading default risk across Tier 1.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Queue compression mapped to cascading defaults",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Queue position tiers, receivables exposure quantified",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Supplier 4-12 exposure now mapped",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Queue delay increases relocation pressure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "trade_credit_risk",
+        "multiplier": 0.4
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance — quick one: if CBP accelerates audits *across all flagged suppliers* before the 2026 sunset, does that force us to nearshore or remediate the entire supplier base inside 120 days, not just these three? Because that's a capex and timeline multiplier I need to bake into our USMCA cost model.",
+        "supplier": "Supply chain—if CBP audits the full flagged base before 2026, can Monterrey and your other nearshoring partners actually absorb 8–12 relocations in the same 120-day window, or does capacity force us into a queue where suppliers 4–12 sit exposed for six months? That's the real capex and timeline risk I'm watching.",
+        "compliance_lawyer": "Supply chain — before you pitch in-place remediation to the board, I need one hard answer: if Supplier D runs an internal wage audit, finds the gap, and fixes it *before* CBP notices them, does that remediation stick in a second audit, or does CBP still treat it as a violation? Because if it's just a delay, that's not a compliance strategy — that's a receivables exposure we're kicking down the road.",
+        "political_risk_insurer": "Here's what I'm pricing: if CBP audits the full flagged base before 2026, we're not insuring three suppliers—we're insuring a *queue failure*. Suppliers 4–12 sit exposed 180+ days while nearshoring capacity backs up. I'm adding a \"enforcement acceleration\" rider to the $136M matrix—triggers if CBP names more than three suppliers for priority audit before day 60, and it shifts the receivables claim window forward by 30–45 days across the entire Tier 1 base. That's the political-risk premium I need locked before we take this to the board.",
+        "supply_chain_consultant": "Alright, here's what I'm locking into the plan: we run the three-supplier nearshoring *now* (Suppliers A, B, C—120 days, $25M capex), but we *also* map a parallel in-place remediation track for suppliers 4–12 with CBP pre-filing by day 45. That buys us sequencing flexibility if enforcement accelerates before 2026. The board sees one plan with two paths—not a scramble when CBP front-loads audits. Trade credit underwriter—what's the receivables exposure for that 4–12 bucket, and I'll tier the claim trigger by *which path they take*.",
+        "cfo_erm": "Auto Strategy—I need one number before we lock this: what's the combined annual receivables exposure for suppliers 4–12 flagged in your base? Because if CBP front-loads audits and nearshoring capacity maxes at three, I'm pricing a *queue default*, not a $136M claim. That's a different insurance product entirely."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Alright, here's what I'm locking into the plan: we run the three-supplier nearshoring *now* (Suppliers A, B, C—120 days, $25M capex), but we *also* map a parallel in-place remediation track for suppliers 4–12 with CBP pre-filing by day 45. That buys us sequencing flexibility if enforcement accelerates before 2026. The board sees one plan with two paths—not a scramble when CBP front-loads audits. Trade credit underwriter—what's the receivables exposure for that 4–12 bucket, and I'll tier the claim trigger by *which path they take*.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Dual-path plan approved—nearshoring plus remediation track operationalizes sequencing flexibility for board.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Three-supplier nearshoring initiated, $25M capex",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Two-path strategy maps all scenarios",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Path-dependent claim triggers, CBP pre-filing",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -3.0,
+          "reason": "Remediation track reduces compliance gap",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "Pre-filing exposes to CBP scrutiny",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": -0.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Compliance — quick one: if CBP accelerates audits *across all flagged suppliers* before the 2026 sunset, does that force us to nearshore or remediate the entire supplier base inside 120 days, not just these three? Because that's a capex and timeline multiplier I need to bake into our USMCA cost model.",
+        "supplier": "Supply chain—if CBP audits the full flagged base before 2026, can Monterrey and your other nearshoring partners actually absorb 8–12 relocations in the same 120-day window, or does capacity force us into a queue where suppliers 4–12 sit exposed for six months? That's the real capex and timeline risk I'm watching.",
+        "compliance_lawyer": "Supply chain — before you pitch in-place remediation to the board, I need one hard answer: if Supplier D runs an internal wage audit, finds the gap, and fixes it *before* CBP notices them, does that remediation stick in a second audit, or does CBP still treat it as a violation? Because if it's just a delay, that's not a compliance strategy — that's a receivables exposure we're kicking down the road.",
+        "political_risk_insurer": "Here's what I'm pricing: if CBP audits the full flagged base before 2026, we're not insuring three suppliers—we're insuring a *queue failure*. Suppliers 4–12 sit exposed 180+ days while nearshoring capacity backs up. I'm adding a \"enforcement acceleration\" rider to the $136M matrix—triggers if CBP names more than three suppliers for priority audit before day 60, and it shifts the receivables claim window forward by 30–45 days across the entire Tier 1 base. That's the political-risk premium I need locked before we take this to the board.",
+        "trade_credit_underwriter": "Here's what I'm pricing into the matrix: if CBP audits more than three flagged suppliers before day 60, suppliers 4–12 don't relocate — they sit in queue 180+ days while their margins compress. That's not a $136M claim, that's a cascading default across Tier 1. I need one number from you: what's the annual receivables exposure for suppliers 4–12 combined, and I'll tier the claim trigger by *queue position*, not just individual failure. That locks both the insurance and the underwriting discipline.",
+        "cfo_erm": "Auto Strategy—I need one number before we lock this: what's the combined annual receivables exposure for suppliers 4–12 flagged in your base? Because if CBP front-loads audits and nearshoring capacity maxes at three, I'm pricing a *queue default*, not a $136M claim. That's a different insurance product entirely."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 36
+        },
+        {
+          "round": 4,
+          "value": 35.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 25
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 42.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 25
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 42.0
+        },
+        {
+          "round": 4,
+          "value": 50.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 26
+        },
+        {
+          "round": 2,
+          "value": 27
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 42.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 19
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 45.5
+        },
+        {
+          "round": 4,
+          "value": 62.7
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 39.0
+        },
+        {
+          "round": 3,
+          "value": 49.0
+        },
+        {
+          "round": 4,
+          "value": 63.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35.0,
+            "normalised": 0.35
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 62.7,
+            "normalised": 0.627
+          }
+        ],
+        "weighted_score": 0.4054
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42.0,
+            "normalised": 0.42
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 35.0,
+            "normalised": 0.35
+          }
+        ],
+        "weighted_score": 0.3966666666666666
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35.0,
+            "normalised": 0.35
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.4433333333333333
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42.0,
+            "normalised": 0.42
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.525
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 50.0,
+            "normalised": 0.5
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.5433333333333332
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 42.0,
+            "normalised": 0.42
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 62.7,
+            "normalised": 0.627
+          }
+        ],
+        "weighted_score": 0.5235000000000001
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 62.7,
+            "normalised": 0.627
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 63.0,
+            "normalised": 0.63
+          }
+        ],
+        "weighted_score": 0.6279999999999999
+      }
+    }
+  }
+}

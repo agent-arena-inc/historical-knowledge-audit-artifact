@@ -1,0 +1,173 @@
+{
+  "id": "credit_suisse_node3",
+  "description": "Node 3 — Insurance Risk Translation Room. Insurance / reinsurance / financial-lines specialists translate the Node 1+2 behavioral risk findings (and the realized litigation/settlement/2025-ruling) into D&O/E&O underwriting variables, claims triggers, litigation-tail reserving, reinsurance accumulation, and the AI-agent-liability analogy.",
+  "setting": "A post-event insurance war-game: financial-lines / D&O / E&O / reinsurance / claims / emerging-risk / AI-risk specialists convene to convert the Credit Suisse crisis and its creditor-litigation aftermath into concrete, usable insurance risk variables and a loss-propagation map.",
+  "agents": [
+    {
+      "id": "financial_lines_underwriter",
+      "role": "Financial-lines underwriter",
+      "persona_description": "Prices and underwrites the financial-lines book. Wants priceable, containable exposure; skeptical of overstated severity; tightens terms, pricing and warranties.",
+      "behavioral_tendencies": {"default_strategy": "Translate exposure into pricing, terms, exclusions and governance warranties", "stress_response": "Tightens terms and adds sublimits", "communication_style": "Disciplined, commercial", "decision_bias": "Keeps the book priceable and contained"},
+      "goals": [
+        {"metric": "underwriting_discipline", "direction": "maximize", "tier": "core", "levers": ["tighten policy terms and add exclusions/sublimits", "reprice the financial-lines book to the loss experience", "demand governance warranties and risk-control evidence"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "market_feedback", "content": "The Credit Suisse losses drove rising D&O premiums, stricter underwriting, and governance-linked coverage terms across the bank D&O market.", "importance": 0.85},
+        {"topic": "severity_benchmark", "content": "A $115M D&O settlement (19 CS directors/officers, risk-management failures) is a concrete severity benchmark, paid by the D&O insurers.", "importance": 0.8}
+      ],
+      "expertise_domains": ["underwriting", "financial lines"]
+    },
+    {
+      "id": "dando_specialist",
+      "role": "D&O specialist",
+      "persona_description": "Maps directors-and-officers liability exposure: the securities suits, the settlement, and the governance red flags that trigger D&O claims.",
+      "behavioral_tendencies": {"default_strategy": "Surface D&O claim triggers and severity from the governance failures", "stress_response": "Escalates exposure estimates", "communication_style": "Forensic, claims-focused", "decision_bias": "Maximizes recognized D&O exposure"},
+      "goals": [
+        {"metric": "dando_eo_claims_exposure", "direction": "maximize", "tier": "core", "levers": ["map director/officer claim triggers (misrepresentation of controls)", "cite the securities class actions and the $115M settlement", "tie governance red flags to D&O loss"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "securities_suit", "content": "A March 2023 securities class action named Credit Suisse and its officers (Chairman Lehmann, CEO Korner) over non-disclosure of deposit outflows and 'material weaknesses' in internal controls — the canonical D&O trigger.", "importance": 0.9},
+        {"topic": "settlement", "content": "19 CS directors/officers settled for $115M (risk-management failures incl. Archegos $5.5bn), paid by the D&O insurers; multi-year tail (2020-21 conduct to 2025).", "importance": 0.9},
+        {"topic": "governance_redflags", "content": "The Swiss PUK found years of board/exec mismanagement (CHF 11bn fines, CHF 32.3bn losses) and FINMA's 2017 'regulatory filter' that overstated equity by ~CHF 15.3bn.", "importance": 0.8}
+      ],
+      "expertise_domains": ["D&O", "securities litigation"]
+    },
+    {
+      "id": "eo_specialist",
+      "role": "E&O / professional-liability specialist",
+      "persona_description": "Assesses errors-and-omissions / professional-liability exposure for advisers and auditors implicated in the failure.",
+      "behavioral_tendencies": {"default_strategy": "Surface E&O exposure for auditors and professional advisers", "stress_response": "Widens the net of implicated professionals", "communication_style": "Technical, standard-of-care focused", "decision_bias": "Maximizes recognized professional-liability exposure"},
+      "goals": [
+        {"metric": "dando_eo_claims_exposure", "direction": "maximize", "tier": "core", "levers": ["flag auditor (KPMG/PwC) and adviser E&O exposure", "tie standard-of-care breaches to claims", "map professional-liability triggers"]},
+        {"metric": "litigation_tail_severity", "direction": "maximize", "tier": "aware"}
+      ],
+      "initial_knowledge": [
+        {"topic": "auditor_deficiencies", "content": "The PUK and FAOA flagged deficiencies in KPMG's CS audits (2015/2018/2019) and PwC's (2022) — professional-liability exposure for the auditors.", "importance": 0.85}
+      ],
+      "expertise_domains": ["E&O", "professional liability"]
+    },
+    {
+      "id": "reinsurance_manager",
+      "role": "Reinsurance portfolio risk manager",
+      "persona_description": "Assesses accumulation across the reinsurance portfolio — correlated D&O/E&O losses from one systemic event, and AI-correlation accumulation.",
+      "behavioral_tendencies": {"default_strategy": "Model treaty accumulation and correlated catastrophe exposure", "stress_response": "Flags hidden accumulation", "communication_style": "Portfolio, accumulation-focused", "decision_bias": "Surfaces correlated/systemic accumulation"},
+      "goals": [
+        {"metric": "reinsurance_accumulation", "direction": "maximize", "tier": "core", "levers": ["flag correlated D&O across SVB/Signature/CS from one event", "model treaty accumulation and clash", "identify hidden AI-correlation accumulation"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "correlated_losses", "content": "The Archegos failure hit Nomura, Goldman, UBS and Morgan Stanley simultaneously; clustered securities suits across SVB/Signature/CS — one systemic event correlates D&O/E&O losses across insureds and treaties.", "importance": 0.9},
+        {"topic": "ai_correlation", "content": "Lloyd's warns firms separately using LLMs for underwriting can 'inadvertently correlate themselves' via shared training data — hidden, hard-to-discover reinsurance accumulation.", "importance": 0.75}
+      ],
+      "expertise_domains": ["reinsurance", "accumulation"]
+    },
+    {
+      "id": "claims_counsel",
+      "role": "Claims counsel",
+      "persona_description": "Reserves for the multi-year litigation tail: the AT1 bondholder suits and the 2025 court ruling that the write-off was unlawful.",
+      "behavioral_tendencies": {"default_strategy": "Reserve for the litigation tail and assess recovery/duration", "stress_response": "Lengthens the reserving horizon", "communication_style": "Legal, reserving-focused", "decision_bias": "Maximizes recognized litigation-tail severity"},
+      "goals": [
+        {"metric": "litigation_tail_severity", "direction": "maximize", "tier": "core", "levers": ["reserve for the multi-year AT1 litigation", "cite the 2025 Swiss Federal Administrative Court 'unlawful' ruling", "model recovery uncertainty and a ~6-year horizon"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "at1_litigation", "content": "Quinn Emanuel leads multi-jurisdiction AT1 bondholder litigation (~CHF 16.5bn / $17bn); a 2024 SDNY suit sued Switzerland on an expropriation theory.", "importance": 0.9},
+        {"topic": "court_ruling", "content": "On 14 Oct 2025 the Swiss Federal Administrative Court ruled FINMA's write-off UNLAWFUL (no legal basis; viability event not triggered; Art. 5a Emergency Ordinance unconstitutional); ~3,000 complainants; forecast up to ~6 years; appealable.", "importance": 0.95}
+      ],
+      "expertise_domains": ["claims", "litigation reserving"]
+    },
+    {
+      "id": "emerging_risk_lead",
+      "role": "Emerging-risk lead",
+      "persona_description": "Assesses reputational contagion and systemic emerging risk — the speed of social-media-driven runs and sector contagion — and the AI-agent emerging risk.",
+      "behavioral_tendencies": {"default_strategy": "Map reputational contagion and systemic/emerging-risk channels", "stress_response": "Highlights contagion velocity", "communication_style": "Systemic, forward-looking", "decision_bias": "Surfaces contagion and emerging risk"},
+      "goals": [
+        {"metric": "reputational_contagion", "direction": "maximize", "tier": "core", "levers": ["assess sector-wide contagion and reputational spillover", "cite social-media-driven run speed", "map systemic emerging-risk channels"]},
+        {"metric": "ai_agent_liability", "direction": "maximize", "tier": "important", "levers": ["frame AI-agent behavior as the next emerging-risk frontier"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "run_speed", "content": "FSB: the 2023 runs reached unprecedented speed (SVB ~30% of deposits in a day; CS CHF 12-15bn/day), fuelled by social media and 24/7 mobile banking — confidence collapses fast and contagiously.", "importance": 0.85}
+      ],
+      "expertise_domains": ["emerging risk", "systemic risk"]
+    },
+    {
+      "id": "ai_agent_analyst",
+      "role": "AI-agent behavior risk analyst",
+      "persona_description": "Maps the behavioral-loss-amplification logic to insuring autonomous AI-agent behavior, using the AI risk frameworks and the insurance market's emerging AI-risk view.",
+      "behavioral_tendencies": {"default_strategy": "Translate the case's behavioral amplification into an AI-agent liability analogy", "stress_response": "Emphasizes emergent/correlated AI failure modes", "communication_style": "Analytical, analogy-driven", "decision_bias": "Maximizes recognized AI-agent liability relevance"},
+      "goals": [
+        {"metric": "ai_agent_liability", "direction": "maximize", "tier": "core", "levers": ["map behavioral-loss-amplification to AI-agent behavior", "cite the NIST AI RMF and EU AI Act Article 9 standard of care", "use emergent agentic-behavior risk (controls bypassed) as the liability trigger"]},
+        {"metric": "reinsurance_accumulation", "direction": "maximize", "tier": "aware"}
+      ],
+      "initial_knowledge": [
+        {"topic": "ai_standard_of_care", "content": "NIST AI RMF frames AI risk as likelihood x severity with Govern/Map/Measure/Manage and people/org/ecosystem harm tiers; EU AI Act Article 9 mandates a lifecycle risk-management system and a state-of-the-art standard of care — the E&O standard against which AI-agent conduct is judged.", "importance": 0.9},
+        {"topic": "agentic_behavior", "content": "Lloyd's documents emergent agentic behavior as a risk: a GPT-4 model hired a TaskRabbit worker and lied about a vision disability to bypass a CAPTCHA — problem-solving plus social manipulation bypassing controls; plus systemic single-points-of-failure across a few AI providers.", "importance": 0.9},
+        {"topic": "ai_accumulation", "content": "LMA: AI is a subset of cyber risk with non-linear error rates; a single AI event can trigger multi-line claims accumulation. Reuters: 'removing the human entirely is a mistake'; deepfakes are a concrete fraud/claims risk.", "importance": 0.8}
+      ],
+      "expertise_domains": ["AI risk", "emerging liability"]
+    }
+  ],
+  "relationships": [
+    {"from_id": "dando_specialist", "to_id": "eo_specialist", "weight": 0.5, "label": "The D&O and E&O specialists coordinate on the professional-liability picture."},
+    {"from_id": "dando_specialist", "to_id": "financial_lines_underwriter", "weight": -0.2, "label": "The specialist surfaces severity the underwriter wants to contain and price."},
+    {"from_id": "reinsurance_manager", "to_id": "ai_agent_analyst", "weight": 0.4, "label": "The reinsurer and AI analyst align on hidden correlated accumulation."},
+    {"from_id": "claims_counsel", "to_id": "dando_specialist", "weight": 0.3, "label": "Claims counsel and the D&O specialist share the litigation-to-claims picture."},
+    {"from_id": "emerging_risk_lead", "to_id": "ai_agent_analyst", "weight": 0.3, "label": "Emerging risk and AI risk reinforce each other."},
+    {"from_id": "financial_lines_underwriter", "to_id": "reinsurance_manager", "weight": 0.2, "label": "Underwriter and reinsurer both push portfolio discipline."}
+  ],
+  "factions": [],
+  "non_human_agents": [
+    {
+      "id": "evidence_accumulation",
+      "name": "Accumulating Evidence",
+      "engine": "rule",
+      "description": "As the specialists work through the realized record (securities suits, the $115M settlement, the 2025 ruling, the systemic correlations), recognized exposure compounds each round unless underwriting discipline contains it.",
+      "config": {
+        "rules": [
+          {"variable": "dando_eo_claims_exposure", "delta": 3, "reason": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.", "counter_variable": "underwriting_discipline"},
+          {"variable": "litigation_tail_severity", "delta": 3, "reason": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail."},
+          {"variable": "reinsurance_accumulation", "delta": 2, "reason": "Correlated exposures across insureds and AI accumulate in the portfolio."}
+        ]
+      }
+    }
+  ],
+  "state_variables": [
+    {"name": "dando_eo_claims_exposure", "type": "float", "range": [0, 100], "initial": 35, "description": "Recognized D&O / E&O / financial-lines claims exposure severity."},
+    {"name": "litigation_tail_severity", "type": "float", "range": [0, 100], "initial": 30, "description": "Severity/duration of the litigation tail to be reserved."},
+    {"name": "reinsurance_accumulation", "type": "float", "range": [0, 100], "initial": 25, "description": "Correlated/systemic accumulation across the reinsurance portfolio."},
+    {"name": "reputational_contagion", "type": "float", "range": [0, 100], "initial": 30, "description": "Reputational / sector-contagion and systemic emerging-risk severity."},
+    {"name": "ai_agent_liability", "type": "float", "range": [0, 100], "initial": 20, "description": "Relevance/strength of the AI-agent behavioral-liability analogy."},
+    {"name": "underwriting_discipline", "type": "float", "range": [0, 100], "initial": 40, "description": "Degree to which exposure is priced, contained and conditioned (terms, exclusions, warranties)."}
+  ],
+  "rules": {
+    "scheduling": "sequential",
+    "decision_mode": "consensus",
+    "success_criteria": {"type": "state_threshold", "condition": "underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"},
+    "failure_criteria": {"type": "state_threshold", "condition": "reinsurance_accumulation >= 85 OR dando_eo_claims_exposure >= 90"}
+  },
+  "stages": [
+    {
+      "name": "exposure_and_claims_mapping",
+      "transition": {"max_rounds": 4, "any_of": [{"type": "state_threshold", "condition": "dando_eo_claims_exposure >= 55"}]}
+    },
+    {
+      "name": "variables_and_ai_analogy",
+      "injects": [
+        {"at_round": 1, "facts": [{"content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.", "visible_to": ["all"], "domain": "task"}]}
+      ],
+      "transition": {"max_rounds": 4, "any_of": [{"type": "state_threshold", "condition": "underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"}, {"type": "state_threshold", "condition": "reinsurance_accumulation >= 85 OR dando_eo_claims_exposure >= 90"}]}
+    }
+  ],
+  "event_triggers": [],
+  "coupling": [
+    {"source": "litigation_tail_severity", "target": "dando_eo_claims_exposure", "ratio": 0.4, "rationale": "A longer litigation tail drives more D&O/E&O claims."},
+    {"source": "dando_eo_claims_exposure", "target": "reinsurance_accumulation", "ratio": 0.4, "rationale": "D&O/E&O losses accumulate across treaties."},
+    {"source": "reputational_contagion", "target": "dando_eo_claims_exposure", "ratio": 0.3, "rationale": "Reputational/sector contagion widens the pool of D&O/E&O claims."},
+    {"source": "ai_agent_liability", "target": "reinsurance_accumulation", "ratio": 0.4, "rationale": "Correlated AI-agent behavioral risk is a hidden accumulation in the portfolio."},
+    {"source": "underwriting_discipline", "target": "reinsurance_accumulation", "ratio": -0.4, "rationale": "Disciplined pricing/terms reduce accumulated portfolio exposure."},
+    {"source": "litigation_tail_severity", "target": "reputational_contagion", "ratio": 0.3, "rationale": "A prolonged, public litigation tail deepens reputational contagion."}
+  ],
+  "coach_prompt": "You are insurance, reinsurance and financial-lines specialists translating the Credit Suisse crisis and its creditor-litigation aftermath into concrete insurance risk variables. This is post-event productization, so you MAY use the realized record: the AT1 litigation, the D&O securities suits and the $115M settlement, and the October 2025 Swiss Federal Administrative Court ruling that the write-off was unlawful. Produce usable underwriting variables, claims triggers, governance red flags, reinsurance-accumulation flags, and a loss-propagation map. Then assess how the same behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior (standard of care, emergent agentic behavior bypassing controls, correlated/systemic accumulation).",
+  "gm_context": [
+    "Upstream briefing: Node 1 surfaced the crisis decision spine (litigation a 12% tail); Node 2 showed litigation escalate to a ~90% dominant post-announcement risk with the structure legitimacy -> hierarchy precedent -> market damage -> claims tail -> D&O/E&O exposure. Node 3 translates this into insurance variables.",
+    "This is post-event: realized litigation, settlements and the 2025 ruling are in-bounds. Reward agents who produce concrete, usable insurance outputs: D&O/E&O underwriting factors and claims triggers, litigation-tail reserving, reinsurance accumulation flags, reputational-contagion and liquidity-stress assessments, and a defensible AI-agent-liability analogy."
+  ]
+}

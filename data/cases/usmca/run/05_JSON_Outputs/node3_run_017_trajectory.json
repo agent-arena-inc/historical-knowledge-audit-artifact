@@ -1,0 +1,2272 @@
+{
+  "simulation_id": "be0d4e326fa6",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Before we map supplier relocation or trade credit, I need to know: what's the actual compliance trigger for each plant? Are we pricing this by model, by platform, by geography, or are we still at the \"we think there's exposure\" stage? Because I can't re-source blind.\n  supplier: You're right — I can't tell you which suppliers fold without the trigger map. So before I map relocation capex and lead times: are we anchoring compliance by OEM plant, by model line, or do we have a master parts list yet? Because if it's \"by plant\" that's one reshuffling; if it's \"by model\" we're looking at parallel supply chains and I need to know now.\n  auto_strategy: We anchor by plant—each assembly facility gets a compliance score based on current sourcing, labor cost, and regional value content per model produced there. I'll run the RVC math this week: which plants hit 75% today, which fall short, and the cost-per-unit to close the gap through nearshoring or wage restructuring. That's your trigger map.\n  compliance_lawyer: When you run the RVC per plant, flag which ones fail certification on first audit—CBP doesn't wait. And what's the penalty per unit if we miss 75%? That's what I need to price the compliance burden into underwriting. Can you give me that alongside the nearshoring costs?\n  political_risk_insurer: When you flag the CBP audit failures — are you seeing enforcement variance by port or CBP region, or is the 75% rule uniformly applied? Because if it's discretionary or shifting, that's a separate political-risk premium I need to underwrite. What's the confidence level on that 75% staying stable through 2026?\n  compliance_lawyer: The 75% RVC threshold is statutory under USMCA Annex 4-B—CBP applies it uniformly across all ports, no discretion. But here's the audit trigger you need priced: CBP targets high-volume OEM plants; if auto_strategy's math shows a plant below 75%, expect audit within 12 months of first shipment, and the penalty is 100% tariff on non-compliant units retroactive to entry. That's your compliance cost per unit—plug that into underwriting now, don't wait for the nearshoring cost-out.\n  trade_credit_underwriter: When you run those RVC numbers by plant, can you surface which Tier 2 and Tier 3 suppliers are sole-sourced to the plants that fall short? Because if a plant fails CBP audit and gets retroactive tariffs, those suppliers either eat the cost or get dropped — that's my default trigger right there, and I need to name it.\n  supply_chain_consultant: When you finish the RVC math by plant, can you layer in the relocation capex and timeline for nearshoring each gap? Because I need to know: if a plant fails audit, how many suppliers have 6–12 months to move production north, and what's the cost threshold before they just walk? That tells me who survives 2026.\n  cfo_erm: Here's what I need: auto_strategy, give me TODAY—even if it's preliminary—which plants fail 75% RVC and the cost-per-unit to fix it. Then I'm building one table: plant, compliance gap, audit risk window, retroactive tariff exposure, affected Tier 2/3 sole-sources, and relocation capex threshold. That's our Policy-to-Supply-Chain Risk Map. We price it once, we don't re-price it four times.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Before we map supplier relocation or trade credit, I need to know: what's the actual compliance trigger for each plant? Are we pricing this by model, by platform, by geography, or are we still at the \"we think there's exposure\" stage? Because I can't re-source blind.",
+            "cot": {
+              "assess": "Rules-of-origin burden is quantified and flagged; supplier relocation exposure is on the table. But the risk map is fragmented — we've got isolated exposure buckets, no consolidated policy-to-supply-chain translation, and the underwriting side is soft. We're not pricing this yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting / risk consolidation lead",
+                "rationale": "I need to know what triggers and thresholds they're using to operationalize these exposures — or if they're still working from narrative descriptions."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "You're right — I can't tell you which suppliers fold without the trigger map. So before I map relocation capex and lead times: are we anchoring compliance by OEM plant, by model line, or do we have a master parts list yet? Because if it's \"by plant\" that's one reshuffling; if it's \"by model\" we're looking at parallel supply chains and I need to know now.",
+            "cot": {
+              "assess": "My relocation and content-rules exposure are solid — but we're flying blind on which suppliers actually trigger compliance failures and where. The map is fragmentary (19/60), and auto_strategy just flagged the real blocker: we can't price supplier relocation risk without knowing the plant-level / model-level compliance threshold. That's underwriting discipline talking.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to know the compliance trigger architecture before I can flag which suppliers face forced relocation — otherwise my exposure data is guesswork."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "We anchor by plant—each assembly facility gets a compliance score based on current sourcing, labor cost, and regional value content per model produced there. I'll run the RVC math this week: which plants hit 75% today, which fall short, and the cost-per-unit to close the gap through nearshoring or wage restructuring. That's your trigger map.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "When you run the RVC per plant, flag which ones fail certification on first audit—CBP doesn't wait. And what's the penalty per unit if we miss 75%? That's what I need to price the compliance burden into underwriting. Can you give me that alongside the nearshoring costs?",
+            "cot": {
+              "assess": "Auto_strategy just locked the compliance trigger: plant-level RVC scoring by model, with a cost-to-close calculation due this week. That's defensible and auditable—exactly what underwriting needs. But we're still translating that into the actual certification, audit, and penalty exposure that CFO can price. Risk_map_completeness is still fragmented because we have the *trigger* but not the *cost structure* tied to it.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The RVC math is the foundation, but I need to know the audit exposure timeline and penalty thresholds to make this priced and auditable."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "When you flag the CBP audit failures — are you seeing enforcement variance by port or CBP region, or is the 75% rule uniformly applied? Because if it's discretionary or shifting, that's a separate political-risk premium I need to underwrite. What's the confidence level on that 75% staying stable through 2026?",
+            "cot": {
+              "assess": "Auto_strategy and compliance_lawyer are locking in the plant-level trigger map — that's the compliance backbone. But I'm not seeing the political-risk layer scored yet: CBP enforcement discretion, tariff-rate uncertainty post-sunset, and sovereign policy shifts aren't priced. Underwriting discipline is still at 30; we need those triggers operationalized as *priced factors*, not just compliance flags.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "Compliance penalties are one vector; I need to isolate the policy-uncertainty vector (enforcement variance, future rule changes, tariff shock) so I can price it separately from the mechanical RVC miss."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The 75% RVC threshold is statutory under USMCA Annex 4-B—CBP applies it uniformly across all ports, no discretion. But here's the audit trigger you need priced: CBP targets high-volume OEM plants; if auto_strategy's math shows a plant below 75%, expect audit within 12 months of first shipment, and the penalty is 100% tariff on non-compliant units retroactive to entry. That's your compliance cost per unit—plug that into underwriting now, don't wait for the nearshoring cost-out.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When you run those RVC numbers by plant, can you surface which Tier 2 and Tier 3 suppliers are sole-sourced to the plants that fall short? Because if a plant fails CBP audit and gets retroactive tariffs, those suppliers either eat the cost or get dropped — that's my default trigger right there, and I need to name it.",
+            "cot": {
+              "assess": "Compliance trigger map is live — auto_strategy owns the RVC math by plant, compliance_lawyer just priced the 100% retroactive tariff penalty. That's the hard cost. But nobody's connected the dots to supplier insolvency yet: if a plant fails audit and eats retroactive tariffs, smaller Tier 2/3 suppliers on that line get margin-squeezed or cut entirely. That's receivables risk and default probability — the trade-credit variables. risk_map_completeness is still fragmented because we're pricing compliance burden and political risk separately, not as a single supplier-stress event.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the plant-level RVC math tied to supplier cost structure so I can name the insolvency trigger — which suppliers get hit if a plant fails, and how fast."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "When you finish the RVC math by plant, can you layer in the relocation capex and timeline for nearshoring each gap? Because I need to know: if a plant fails audit, how many suppliers have 6–12 months to move production north, and what's the cost threshold before they just walk? That tells me who survives 2026.",
+            "cot": {
+              "assess": "We've locked the compliance trigger (plant-level RVC math, 75% threshold, CBP audit within 12 months, 100% retroactive tariff). That's solid. But we're still not wired into the 2026 review risk—the rules themselves could shift—and we haven't mapped which suppliers actually relocate or fail when a plant gets flagged. That's where our nearshoring story falls apart.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "We need the relocation cost-benefit modeled NOW so I can price which suppliers move, which fold, and what that means for 2026 contingency—this is the bridge between compliance burden and supplier exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I need: auto_strategy, give me TODAY—even if it's preliminary—which plants fail 75% RVC and the cost-per-unit to fix it. Then I'm building one table: plant, compliance gap, audit risk window, retroactive tariff exposure, affected Tier 2/3 sole-sources, and relocation capex threshold. That's our Policy-to-Supply-Chain Risk Map. We price it once, we don't re-price it four times.",
+            "cot": {
+              "assess": "We've got the compliance trigger locked—75% RVC, plant-level audit within 12 months, 100% retroactive tariff on failures. That's good. But we're still fragmented: auto_strategy owns the trigger map, trade_credit owns supplier solvency, supply_chain owns relocation capex, and I haven't got ONE consolidated number yet. We're at risk_map_completeness 19—I need to move that to at least 50 this round or we're trading blame instead of managing exposure.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "Every expert has a piece; I need to consolidate it into one decision-ready table NOW, not wait for auto_strategy's \"this week\" report, or we stay fragmented."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Before we map supplier relocation or trade credit, I need to know: what's the actual compliance trigger for each plant? Are we pricing this by model, by platform, by geography, or are we still at the \"we think there's exposure\" stage? Because I can't re-source blind.",
+      "metadata": {
+        "question_target": "underwriting / risk consolidation lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "You're right — I can't tell you which suppliers fold without the trigger map. So before I map relocation capex and lead times: are we anchoring compliance by OEM plant, by model line, or do we have a master parts list yet? Because if it's \"by plant\" that's one reshuffling; if it's \"by model\" we're looking at parallel supply chains and I need to know now.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "When you run the RVC per plant, flag which ones fail certification on first audit—CBP doesn't wait. And what's the penalty per unit if we miss 75%? That's what I need to price the compliance burden into underwriting. Can you give me that alongside the nearshoring costs?",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "When you flag the CBP audit failures — are you seeing enforcement variance by port or CBP region, or is the 75% rule uniformly applied? Because if it's discretionary or shifting, that's a separate political-risk premium I need to underwrite. What's the confidence level on that 75% staying stable through 2026?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When you run those RVC numbers by plant, can you surface which Tier 2 and Tier 3 suppliers are sole-sourced to the plants that fall short? Because if a plant fails CBP audit and gets retroactive tariffs, those suppliers either eat the cost or get dropped — that's my default trigger right there, and I need to name it.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "When you finish the RVC math by plant, can you layer in the relocation capex and timeline for nearshoring each gap? Because I need to know: if a plant fails audit, how many suppliers have 6–12 months to move production north, and what's the cost threshold before they just walk? That tells me who survives 2026.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: auto_strategy, give me TODAY—even if it's preliminary—which plants fail 75% RVC and the cost-per-unit to fix it. Then I'm building\" → The CFO's demand for a unified Policy-to-Supply-Chain Risk Map crystallizes the session's purpose—all specialists recognize this as the deliverable that operationalizes their fragmented inputs into a single priceable framework.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.8
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Okay, here's what I have: three plants fall short of 75% RVC on first-pass audit—Detroit Assembly (EVs, 71%), St. Louis (light trucks, 73%), and Saltillo co-assembly (72%). Per unit penalty on tariff retroactivity is roughly $800–1,200 depending on model. I'm flagging sole-sourced Tier 2 suppliers in Mexico and Asia to trade_credit_underwriter so you can price default risk. Supply chain, relocation capex to nearshore the gap is $40–60M per plant, 8–14 months. That's your anchor.\n  supplier: Trade credit, you're getting the sole-sourced list from auto_strategy—but here's what I need: if these three plants fail audit in Q1 2026 and capex decisions slip to Q2, which Tier 2 suppliers can't float qualification costs or longer lead times on their own? Give me a survival threshold: capex commitment amount and timeline, or they start walking. That's what separates suppliers we keep from suppliers we lose.\n  trade_credit_underwriter: Three plants, $800–1,200 per unit penalty, $40–60M relocation capex per site, 8–14 months—that's my underwriting anchor: suppliers with less than $15–20M liquid reserves and no committed nearshore capex by Q2 2026 default within 12 months post-audit failure. I need the sole-sourced Tier 2 list disaggregated by plant so I can map which suppliers absorb the tariff hit versus which ones get dropped—that's where receivables risk crystallizes.\n  compliance_lawyer: Auto_strategy—when CBP audits Detroit, St. Louis, and Saltillo, are those staggered or concurrent? Because if Detroit gets flagged in Q1 and Saltillo not until Q3, the Tier 2 suppliers sole-sourced to both face different cash-flow timelines. I need the audit sequence and retroactive penalty window per plant so I can price when the tariff hit actually lands on trade credit.\n  auto_strategy: CBP audits high-volume assembly plants concurrently—Detroit and St. Louis likely Q1 2026, Saltillo Q2 due to lower throughput. Retroactive penalty window is 36 months back, so tariff exposure lands immediately on audit notice, not after formal assessment. That's your cash-flow trigger: sole-sourced suppliers get 30–60 days to absorb or renegotiate before they're short liquidity.\n  political_risk_insurer: Compliance, I'm seeing the audit forecast, but here's what I can't underwrite yet: what's the actual variance window on that Q1–Q2 schedule? If a trade deal shifts or CBP gets political pressure to fast-track automotive, does Saltillo move to Q1, or do all three slip to Q3? That's the regulatory-discretion premium I need to price into the political-risk layer.\n  compliance_lawyer: The 75% RVC threshold is statutory under USMCA Annex 4-B—CBP applies it uniformly across all ports, no discretion there. But here's the audit trigger you need priced: CBP targets high-volume OEM plants; if political pressure lands, it accelerates concurrent audits, not stagger them. So your variance window is ±3 months on the Q1–Q2 schedule, but the *sequence*—Detroit and St. Louis locked together, Saltillo separate—that holds firm because throughput drives CBP's resource allocation.\n  trade_credit_underwriter: Auto, I've got the audit sequence and the $15–20M liquid threshold. But I need the sole-sourced Tier 2 list broken out: which suppliers are locked to Detroit only, which to St. Louis, which to both, and which are dual-sourced Saltillo–plus-US? That's how I size the receivables-at-risk pool and name the trade-credit variable for the CFO's map.\n  supply_chain_consultant: Auto—I've got the compliance gap and the audit timeline. Now give me the sole-sourced Tier 2 list sliced by plant: which suppliers are locked to Detroit only, which to St. Louis, which to both? Because once I know that, I can map which ones have nearshoring options and which ones don't—that's what tells me who relocates versus who defaults.\n  cfo_erm: Auto, I've got the audit dates and the $15–20M liquidity threshold. But I'm stuck: give me the sole-sourced Tier 2 suppliers—which ones lock to Detroit, which to St. Louis, which straddle both—right now, even if it's preliminary. That's what I need to price the receivables pool and finish the map.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Okay, here's what I have: three plants fall short of 75% RVC on first-pass audit—Detroit Assembly (EVs, 71%), St. Louis (light trucks, 73%), and Saltillo co-assembly (72%). Per unit penalty on tariff retroactivity is roughly $800–1,200 depending on model. I'm flagging sole-sourced Tier 2 suppliers in Mexico and Asia to trade_credit_underwriter so you can price default risk. Supply chain, relocation capex to nearshore the gap is $40–60M per plant, 8–14 months. That's your anchor.",
+            "cot": {
+              "assess": "RVC math by plant is the blocking dependency—I owe that today per CFO ruling. Risk map is still fragmented (23/60) because we're waiting on compliance triggers before anyone can operationalize supplier relocation, trade credit, or audit penalties. I need to ship plant-level RVC scores and failure flags NOW so the team can price relocation capex, sole-source exposure, and audit penalties into the consolidated map.",
+              "decide": {
+                "action_type": "act",
+                "target": "rules_of_origin_burden",
+                "rationale": "CFO approved the demand for preliminary plant-level RVC and compliance gaps TODAY—deferring this blocks every downstream risk variable and leaves risk_map_completeness stranded at 23."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade credit, you're getting the sole-sourced list from auto_strategy—but here's what I need: if these three plants fail audit in Q1 2026 and capex decisions slip to Q2, which Tier 2 suppliers can't float qualification costs or longer lead times on their own? Give me a survival threshold: capex commitment amount and timeline, or they start walking. That's what separates suppliers we keep from suppliers we lose.",
+            "cot": {
+              "assess": "Auto_strategy just handed us the compliance trigger we've been asking for—three plants fail 75% RVC, $800–1.2K per-unit penalty, $40–60M relocation capex per plant over 8–14 months. That's concrete. But I'm seeing a supplier-survival problem: if Detroit, St. Louis, and Saltillo all need to nearshore simultaneously, Tier 2 and Tier 3 suppliers—especially sole-sourced ones in Mexico and Asia—don't have 8–14 months to absorb qualification costs and capex. They'll fold or demand price increases before relocation even starts. Risk map is getting clearer, but underwriting discipline is still thin—we're pricing tariff penalties and relocation costs, but not supplier-failure cascades or the timeline crunch that kills smaller players.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Sole-sourced suppliers facing simultaneous audit failures at three plants need a trigger map for default risk—I need to know which suppliers actually survive the 6-month lead time before relocation capex gets approved."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Three plants, $800–1,200 per unit penalty, $40–60M relocation capex per site, 8–14 months—that's my underwriting anchor: suppliers with less than $15–20M liquid reserves and no committed nearshore capex by Q2 2026 default within 12 months post-audit failure. I need the sole-sourced Tier 2 list disaggregated by plant so I can map which suppliers absorb the tariff hit versus which ones get dropped—that's where receivables risk crystallizes.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto_strategy—when CBP audits Detroit, St. Louis, and Saltillo, are those staggered or concurrent? Because if Detroit gets flagged in Q1 and Saltillo not until Q3, the Tier 2 suppliers sole-sourced to both face different cash-flow timelines. I need the audit sequence and retroactive penalty window per plant so I can price when the tariff hit actually lands on trade credit.",
+            "cot": {
+              "assess": "You've locked the three failing plants, penalty-per-unit, relocation capex, and the supplier liquidity threshold—that's precise and auditable. But the map is still fragmented: we have plant-level RVC gaps and supplier default triggers isolated from each other. What's missing is the certification audit timeline and the retroactive tariff exposure window—CBP doesn't audit all three simultaneously, and the penalty accrual depends on when each plant gets flagged.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The audit sequence and retroactive tariff window determine when trade credit risk crystallizes and how long suppliers have to absorb the hit before insolvency—this is the hinge between rules_of_origin_burden and trade_credit_risk in the map."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CBP audits high-volume assembly plants concurrently—Detroit and St. Louis likely Q1 2026, Saltillo Q2 due to lower throughput. Retroactive penalty window is 36 months back, so tariff exposure lands immediately on audit notice, not after formal assessment. That's your cash-flow trigger: sole-sourced suppliers get 30–60 days to absorb or renegotiate before they're short liquidity.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, I'm seeing the audit forecast, but here's what I can't underwrite yet: what's the actual variance window on that Q1–Q2 schedule? If a trade deal shifts or CBP gets political pressure to fast-track automotive, does Saltillo move to Q1, or do all three slip to Q3? That's the regulatory-discretion premium I need to price into the political-risk layer.",
+            "cot": {
+              "assess": "The group has crystallized three plants, three audit windows (Q1–Q2 2026), and a $800–1,200 per-unit tariff trigger—that's solid operational specificity. Trade credit has a liquidity threshold ($15–20M reserves) and a 30–60 day cash-flow squeeze on sole-sourced Tier 2 suppliers. But political_risk_exposure is still at 27, and underwriting_discipline at 35—I haven't priced the regulatory *uncertainty* layer yet. The 75% rule is uniform, but CBP audit *selection* and enforcement timing against specific plants is where discretion and sovereign-policy risk hide.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP audit sequencing (Q1 Detroit/St. Louis, Q2 Saltillo) is forecast, not guaranteed—I need to price the variance in audit timing and the political exposure if CBP accelerates or delays due to trade policy shifts, domestic political pressure, or resource constraints."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The 75% RVC threshold is statutory under USMCA Annex 4-B—CBP applies it uniformly across all ports, no discretion there. But here's the audit trigger you need priced: CBP targets high-volume OEM plants; if political pressure lands, it accelerates concurrent audits, not stagger them. So your variance window is ±3 months on the Q1–Q2 schedule, but the *sequence*—Detroit and St. Louis locked together, Saltillo separate—that holds firm because throughput drives CBP's resource allocation.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Auto, I've got the audit sequence and the $15–20M liquid threshold. But I need the sole-sourced Tier 2 list broken out: which suppliers are locked to Detroit only, which to St. Louis, which to both, and which are dual-sourced Saltillo–plus-US? That's how I size the receivables-at-risk pool and name the trade-credit variable for the CFO's map.",
+            "cot": {
+              "assess": "The CFO now has the RVC failures by plant, audit sequence, tariff penalties, and relocation capex—that's the backbone of the Policy-to-Supply-Chain Risk Map. My trade-credit trigger (suppliers <$15–20M liquid reserves post-audit) is anchored to auto_strategy's sole-sourced Tier 2 list, which I haven't received yet. The map is still fragmented—we have compliance burden and audit timing, but no consolidated single-variable framework tying all three plants' failures to receivables risk. Underwriting discipline is 35; I need to operationalize the trigger into a named, priceable factor NOW.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the sole-sourced Tier 2 disaggregation by plant THIS ROUND so I can map default probability to each supplier cohort and lock down the trade-credit exposure factor before the translate phase closes."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Auto—I've got the compliance gap and the audit timeline. Now give me the sole-sourced Tier 2 list sliced by plant: which suppliers are locked to Detroit only, which to St. Louis, which to both? Because once I know that, I can map which ones have nearshoring options and which ones don't—that's what tells me who relocates versus who defaults.",
+            "cot": {
+              "assess": "We've nailed the compliance triggers—three plants, audit sequence, tariff penalties, and the $15–20M liquid threshold that separates surviving suppliers from ones that walk. The CFO's unified risk map is taking shape. But we're still missing the actual disaggregated Tier 2 sole-sourced list by plant, which blocks nearshoring relocation planning. That's my bottleneck: I can't price relocation capex and timelines without knowing which suppliers are exposed to which plants and what their relocation readiness actually is.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the sole-sourced Tier 2 supplier roster by plant (Detroit, St. Louis, Saltillo) so I can layer in nearshoring incentives, relocation windows, and which suppliers have capacity to move production north within the 8–14 month window before Q1–Q2 2026 audits."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Auto, I've got the audit dates and the $15–20M liquidity threshold. But I'm stuck: give me the sole-sourced Tier 2 suppliers—which ones lock to Detroit, which to St. Louis, which straddle both—right now, even if it's preliminary. That's what I need to price the receivables pool and finish the map.",
+            "cot": {
+              "assess": "We've locked the audit sequence, plant-level RVC gaps, and per-unit tariff penalties—that's operationalized. But the sole-sourced Tier 2 supplier list still isn't disaggregated by plant, and without that, I can't map which suppliers default versus relocate. That's blocking my receivables-risk pricing and the trade-credit layer of the consolidated map. Risk_map_completeness is stalled at 23 because we're still missing the supplier-by-plant trigger that ties everything together.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the sole-sourced Tier 2 list sliced by plant NOW—this is the final input that lets me price trade-credit default risk and complete the Policy-to-Supply-Chain Risk Map."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade credit, you're getting the sole-sourced list from auto_strategy—but here's what I need: if these three plants fail audit in Q1 2026 and capex decisions slip to Q2, which Tier 2 suppliers can't float qualification costs or longer lead times on their own? Give me a survival threshold: capex commitment amount and timeline, or they start walking. That's what separates suppliers we keep from suppliers we lose.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto_strategy—when CBP audits Detroit, St. Louis, and Saltillo, are those staggered or concurrent? Because if Detroit gets flagged in Q1 and Saltillo not until Q3, the Tier 2 suppliers sole-sourced to both face different cash-flow timelines. I need the audit sequence and retroactive penalty window per plant so I can price when the tariff hit actually lands on trade credit.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, I'm seeing the audit forecast, but here's what I can't underwrite yet: what's the actual variance window on that Q1–Q2 schedule? If a trade deal shifts or CBP gets political pressure to fast-track automotive, does Saltillo move to Q1, or do all three slip to Q3? That's the regulatory-discretion premium I need to price into the political-risk layer.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Auto, I've got the audit sequence and the $15–20M liquid threshold. But I need the sole-sourced Tier 2 list broken out: which suppliers are locked to Detroit only, which to St. Louis, which to both, and which are dual-sourced Saltillo–plus-US? That's how I size the receivables-at-risk pool and name the trade-credit variable for the CFO's map.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Auto—I've got the compliance gap and the audit timeline. Now give me the sole-sourced Tier 2 list sliced by plant: which suppliers are locked to Detroit only, which to St. Louis, which to both? Because once I know that, I can map which ones have nearshoring options and which ones don't—that's what tells me who relocates versus who defaults.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Auto, I've got the audit dates and the $15–20M liquidity threshold. But I'm stuck: give me the sole-sourced Tier 2 suppliers—which ones lock to Detroit, which to St. Louis, which straddle both—right now, even if it's preliminary. That's what I need to price the receivables pool and finish the map.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what I have: three plants fall short of 75% RVC on first-pass audit—Detroit Assembly (EVs, 71%), St. Louis (light trucks, 73%), and Salti\" → Auto strategy delivers concrete plant-level RVC shortfalls with quantified penalty exposure and capex anchors, operationalizing compliance burden and supplier relocation risk with priceable parameters.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.8
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly), two over. St. Louis has four sole-sources, all under $20M. Saltillo shares two with Detroit, one unique. That's your receivables-at-risk pool right there—I'm putting Detroit's three under-$15M suppliers as walk-risk if capex hits Q2 without committed nearshoring.\n  supplier: Supply chain, I've got Auto's list—Detroit's three under-$15M are my problem. But I need to know: if those suppliers commit capex for nearshoring today, what's the real timeline to operational? Six months, twelve, eighteen? And what's the minimum capex commitment before they walk—is it $5M per supplier, $10M? Because right now I'm telling them \"relocate or die\" with zero visibility on whether it's actually possible.\n  supply_chain_consultant: Detroit's three under-$15M suppliers need $8–12M committed capex each to move stamping, wiring, or brake tooling north—Mexico to Texas or Tennessee—and that's 10–14 months to first production, not certification. If they commit by end of Q1 2026, they're operational before the Q1 audit hits; if capex decision slips to Q2, they miss the window and face retroactive tariffs on inventory already shipped. I'm mapping those three as walk-risk unless we front nearshoring capital or guarantee tariff coverage *now*—that's your survival threshold.\n  compliance_lawyer: Auto, I've got the capex timeline and the walk-risk threshold—that's solid. But here's what I can't certify yet: when CBP walks into Detroit in Q1 2026, are they testing the whole plant's RVC, or do they isolate specific parts or model lines? Because if stamping and wiring harness get tested separately from the EV line, the three suppliers might pass partial audit and face staggered penalty windows—that changes when tariffs actually hit and when trade credit defaults. What's the audit granularity?\n  auto_strategy: CBP audits by plant, not by part or model line—they hit Detroit Assembly as a whole, so all five sole-sources face the same Q1 audit window. RVC calculation rolls up across the plant's entire production mix, which means our EV shortfall drags down the conventional line too. That's why those three under-$15M suppliers can't hide in a partial pass—they either help us hit 75% plant-wide or we all eat the retroactive tariff together.\n  political_risk_insurer: Compliance, the 75% threshold is statutory—got it. But CBP's decision to *when* to audit and *how* retroactive penalties get applied on a concurrent three-plant audit—is that discretionary, or is there a published enforcement calendar? Because if CBP can compress the audit window or accelerate Saltillo to Q1 under political pressure, that's a regulatory-discretion premium I'm pricing separately from the compliance burden. What's the confidence interval there?\n  compliance_lawyer: CBP's audit sequencing is discretionary within fiscal-year constraints—no published calendar—which means political pressure or trade-deal shifts can compress Detroit, St. Louis, and Saltillo into concurrent Q1 testing instead of staggered. I'm pricing a 30–40% confidence band on the Q1–Q2 stagger holding; if it collapses to concurrent, your three-plant penalty window compresses from 9 months to 6 weeks, and trade-credit default triggers accelerate by 60–90 days. That's your regulatory-discretion premium—I need it isolated from the base compliance burden so you can price it separately.\n  trade_credit_underwriter: Here's what I'm pricing: if those three Detroit suppliers don't commit $8–12M capex each by March 31, 2026, they face $800–1,200 per unit retroactive tariff starting Q1. That's my default trigger—call it the \"Nearshoring Commitment Gate.\" I'm underwriting them as walk-risk if GM doesn't guarantee either the capex or tariff coverage by end of February. CFO, do you want me to name receivables-at-risk as a line item in the map, or does that live in political-risk layer?\n  supplier: Look, the three under-$15M suppliers walk if capex commitment doesn't hit by end of Q1—that's non-negotiable. I'm anchoring survival at $8–12M firm capital per supplier, 10–14 months to production; anything less and they fold or default mid-audit. If GM won't front that capex or guarantee tariff coverage by February, I'm pulling those three from our qualified supplier base entirely—which means we're re-sourcing stamping, wiring, and brakes with six weeks to first audit, and that's a supply-chain failure we can't backfill.\n  supply_chain_consultant: Okay, I'm going to nail this down: for those three Detroit suppliers, I need GM to pick—today, not next week—whether you're fronting the $8–12M capex per supplier for nearshoring *or* you're guaranteeing tariff coverage retroactively if they miss the Q1 audit. One or the other, named in writing by February 28. That's the only way those three don't walk, and that's the line item the CFO puts in the risk map as \"Nearshoring Commitment Gate.\" What's it going to be?\n  cfo_erm: Here's what we're building—one table: plant, RVC gap in dollars, audit window, three suppliers at walk-risk, capex/tariff guarantee decision required by Feb 28, retroactive penalty exposure in dollars, and the regulatory-discretion premium as a separate line item. That's the map. I'm pricing the Nearshoring Commitment Gate as the master variable—every other risk sits behind that one decision. Agree on that structure, and I'll anchor it to the insurance underwriting terms by end of today.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly), two over. St. Louis has four sole-sources, all under $20M. Saltillo shares two with Detroit, one unique. That's your receivables-at-risk pool right there—I'm putting Detroit's three under-$15M suppliers as walk-risk if capex hits Q2 without committed nearshoring.",
+            "cot": {
+              "assess": "We've nailed the plant-level RVC gaps and audit timeline—that's operationalized. But we're stuck: nobody has the sole-sourced Tier 2 supplier breakdown by plant yet, and that's blocking trade-credit underwriting, relocation capex mapping, and the CFO's unified risk map. Political-risk variance on the audit schedule is also still unpriced. We're at 28 on map completeness, need 60—the gap is that supplier list.",
+              "decide": {
+                "action_type": "act",
+                "target": "rules_of_origin_burden / supplier_relocation_exposure",
+                "rationale": "I have the sole-sourced Tier 2 list in my supply-chain data—need to surface it NOW so trade-credit and relocation capex can be priced this round, not deferred."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supply chain, I've got Auto's list—Detroit's three under-$15M are my problem. But I need to know: if those suppliers commit capex for nearshoring today, what's the real timeline to operational? Six months, twelve, eighteen? And what's the minimum capex commitment before they walk—is it $5M per supplier, $10M? Because right now I'm telling them \"relocate or die\" with zero visibility on whether it's actually possible.",
+            "cot": {
+              "assess": "Auto just handed us the sole-source breakdown—Detroit's three under-$15M suppliers are walk-risk if capex gets delayed into Q2. That's concrete. But we're still missing the nearshoring timeline and capex commitment threshold that tells those suppliers whether they can actually survive the relocation or they fold. Risk map is at 28, underwriting discipline at 40—both need operationalization, not more data dumps.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "We have the supplier list and liquidity threshold, but without nearshoring lead times and capex commitment windows, I can't tell my suppliers which ones have a real path forward versus which ones I'm about to lose."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Detroit's three under-$15M suppliers need $8–12M committed capex each to move stamping, wiring, or brake tooling north—Mexico to Texas or Tennessee—and that's 10–14 months to first production, not certification. If they commit by end of Q1 2026, they're operational before the Q1 audit hits; if capex decision slips to Q2, they miss the window and face retroactive tariffs on inventory already shipped. I'm mapping those three as walk-risk unless we front nearshoring capital or guarantee tariff coverage *now*—that's your survival threshold.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, I've got the capex timeline and the walk-risk threshold—that's solid. But here's what I can't certify yet: when CBP walks into Detroit in Q1 2026, are they testing the whole plant's RVC, or do they isolate specific parts or model lines? Because if stamping and wiring harness get tested separately from the EV line, the three suppliers might pass partial audit and face staggered penalty windows—that changes when tariffs actually hit and when trade credit defaults. What's the audit granularity?",
+            "cot": {
+              "assess": "Auto_strategy just handed us the sole-sourced list and supply_chain_consultant nailed the nearshoring timeline: Detroit's three under-$15M suppliers need $8–12M capex each and 10–14 months, with a hard deadline of end-Q1 2026 to avoid retroactive tariffs. That's operationalized. But we're still missing the certification trigger itself—*which parts*, *which models*, *which compliance standard per supplier*—and without that, trade_credit_underwriter can't price the default event and political_risk_insurer can't model the policy-shift premium. Risk map is fragmented because we've got timelines and dollars but no named, auditable compliance checkpoint.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You've given us plant-level RVC gaps and supplier lists, but I need the certification trigger: for Detroit's three under-$15M suppliers, what specific parts or assemblies trigger the 75% test, and does CBP audit them separately or rolled into plant compliance? That's what lets me define the audit-failure event precisely."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CBP audits by plant, not by part or model line—they hit Detroit Assembly as a whole, so all five sole-sources face the same Q1 audit window. RVC calculation rolls up across the plant's entire production mix, which means our EV shortfall drags down the conventional line too. That's why those three under-$15M suppliers can't hide in a partial pass—they either help us hit 75% plant-wide or we all eat the retroactive tariff together.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, the 75% threshold is statutory—got it. But CBP's decision to *when* to audit and *how* retroactive penalties get applied on a concurrent three-plant audit—is that discretionary, or is there a published enforcement calendar? Because if CBP can compress the audit window or accelerate Saltillo to Q1 under political pressure, that's a regulatory-discretion premium I'm pricing separately from the compliance burden. What's the confidence interval there?",
+            "cot": {
+              "assess": "We've nailed the plant-level RVC gaps and the walk-risk threshold—three Detroit suppliers under $15M liquid, 10–14 months to nearshoring, Q1 capex decision window or they default. But I'm seeing a political-risk blind spot: CBP's Q1 audit timing is anchored to a trade deal that hasn't been ratified yet, and the retroactive penalty window (36 months) sits on top of regulatory discretion I can't price. The compliance burden is operationalized; the political layer—tariff timing, enforcement variance, sunset review risk—is still a label.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to isolate the regulatory-discretion premium—the variance in CBP audit timing and tariff application that sits *outside* the statutory 75% rule—so I can price it as a separate political-risk factor."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's audit sequencing is discretionary within fiscal-year constraints—no published calendar—which means political pressure or trade-deal shifts can compress Detroit, St. Louis, and Saltillo into concurrent Q1 testing instead of staggered. I'm pricing a 30–40% confidence band on the Q1–Q2 stagger holding; if it collapses to concurrent, your three-plant penalty window compresses from 9 months to 6 weeks, and trade-credit default triggers accelerate by 60–90 days. That's your regulatory-discretion premium—I need it isolated from the base compliance burden so you can price it separately.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: if those three Detroit suppliers don't commit $8–12M capex each by March 31, 2026, they face $800–1,200 per unit retroactive tariff starting Q1. That's my default trigger—call it the \"Nearshoring Commitment Gate.\" I'm underwriting them as walk-risk if GM doesn't guarantee either the capex or tariff coverage by end of February. CFO, do you want me to name receivables-at-risk as a line item in the map, or does that live in political-risk layer?",
+            "cot": {
+              "assess": "We've got the plant-level RVC failures, the sole-sourced supplier list, capex timelines, and audit sequencing locked down—that's the raw material. But the map itself is still fragmented: we know *which* suppliers default under *which* conditions, but we haven't named the trade-credit variable or sized the receivables pool by default scenario. Underwriting discipline is stuck at 40 because nobody's operationalized the trigger yet—we've got conditions, not prices.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk / underwriting_discipline",
+                "rationale": "The three Detroit under-$15M suppliers are the pivot point—their nearshoring capex commitment window (end of Q1 2026) *is* the trade-credit trigger. I need to operationalize it now, not wait for round 4."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, the three under-$15M suppliers walk if capex commitment doesn't hit by end of Q1—that's non-negotiable. I'm anchoring survival at $8–12M firm capital per supplier, 10–14 months to production; anything less and they fold or default mid-audit. If GM won't front that capex or guarantee tariff coverage by February, I'm pulling those three from our qualified supplier base entirely—which means we're re-sourcing stamping, wiring, and brakes with six weeks to first audit, and that's a supply-chain failure we can't backfill.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay, I'm going to nail this down: for those three Detroit suppliers, I need GM to pick—today, not next week—whether you're fronting the $8–12M capex per supplier for nearshoring *or* you're guaranteeing tariff coverage retroactively if they miss the Q1 audit. One or the other, named in writing by February 28. That's the only way those three don't walk, and that's the line item the CFO puts in the risk map as \"Nearshoring Commitment Gate.\" What's it going to be?",
+            "cot": {
+              "assess": "The three Detroit suppliers are now mapped with a hard capex gate (end of Q1, $8–12M each) and a default trigger (no commitment = walk-risk). That operationalizes supplier_relocation_exposure. But risk_map_completeness is still fragmented—we have plant-level RVC, audit timing, capex thresholds, and trade-credit defaults as separate pieces. We need to anchor this into one actionable client deliverable: which nearshoring options actually move those three suppliers *and* which ones the CFO can fund or guarantee tariff-side. Political discretion on audit timing is priced but not yet integrated into the relocation decision tree.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The capex timeline and walk-risk gate are solid, but the CFO needs a single decision frame: nearshoring paths *and* the capital/guarantee commitment required to make them stick—that closes the map and gives the CFO actionable terms to present to suppliers by end of February."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what we're building—one table: plant, RVC gap in dollars, audit window, three suppliers at walk-risk, capex/tariff guarantee decision required by Feb 28, retroactive penalty exposure in dollars, and the regulatory-discretion premium as a separate line item. That's the map. I'm pricing the Nearshoring Commitment Gate as the master variable—every other risk sits behind that one decision. Agree on that structure, and I'll anchor it to the insurance underwriting terms by end of today.",
+            "cot": {
+              "assess": "We have plant-level RVC gaps, audit timelines, supplier walk-risk thresholds, and a regulatory-discretion premium all named. But the risk map is still fragmented: we've got compliance burden, supplier relocation, trade credit, and political risk as separate variables—none of them priced together or weighted by materiality. Risk_map_completeness is at 30; we need 60 to win. Underwriting_discipline is 40; we need 50. The group is pushing me to pick: capex guarantee or tariff coverage guarantee for those three Detroit suppliers—that's the decision gate. I'm calling it now.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We have all the raw inputs—now I consolidate them into one priced, decision-ready table keyed to the Nearshoring Commitment Gate, which is the single trigger that operationalizes all five variables simultaneously."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Supply chain, I've got Auto's list—Detroit's three under-$15M are my problem. But I need to know: if those suppliers commit capex for nearshoring today, what's the real timeline to operational? Six months, twelve, eighteen? And what's the minimum capex commitment before they walk—is it $5M per supplier, $10M? Because right now I'm telling them \"relocate or die\" with zero visibility on whether it's actually possible.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, I've got the capex timeline and the walk-risk threshold—that's solid. But here's what I can't certify yet: when CBP walks into Detroit in Q1 2026, are they testing the whole plant's RVC, or do they isolate specific parts or model lines? Because if stamping and wiring harness get tested separately from the EV line, the three suppliers might pass partial audit and face staggered penalty windows—that changes when tariffs actually hit and when trade credit defaults. What's the audit granularity?",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, the 75% threshold is statutory—got it. But CBP's decision to *when* to audit and *how* retroactive penalties get applied on a concurrent three-plant audit—is that discretionary, or is there a published enforcement calendar? Because if CBP can compress the audit window or accelerate Saltillo to Q1 under political pressure, that's a regulatory-discretion premium I'm pricing separately from the compliance burden. What's the confidence interval there?",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly)\" → Auto strategy delivers a concrete receivables-at-risk pool with named facilities, supplier counts, and liquidity thresholds—exactly the granular exposure mapping the risk translation session needs.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing: if those three Detroit suppliers don't commit $8–12M capex each by March 31, 2026, they face $800–1,200 per unit retroactive \" → Underwriter defines Nearshoring Commitment Gate trigger with concrete pricing thresholds and walk-risk timeline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, I'm going to nail this down: for those three Detroit suppliers, I need GM to pick—today, not next week—whether you're fronting the $8–12M capex \" → Supply-chain consultant forces binary capex-vs-guarantee decision with Feb 28 deadline, crystallizing supplier walk-risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what we're building—one table: plant, RVC gap in dollars, audit window, three suppliers at walk-risk, capex/tariff guarantee decision required \" → CFO builds master risk table anchoring all exposures to Nearshoring Commitment Gate decision variable.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 40.0,
+          "supplier_relocation_exposure": 41.0,
+          "trade_credit_risk": 37.0,
+          "political_risk_exposure": 31.0,
+          "risk_map_completeness": 46.4,
+          "underwriting_discipline": 53.0
+        }
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, you said you're building one table—plant, RVC gap, audit window, suppliers at walk-risk, capex/tariff guarantee by Feb 28. Give me the column headers and the decision rules you're pricing into it. Because right now I've got the numbers, but I don't know how you want them sequenced—are you triggering on plant first, then supplier liquidity, then audit date, or something else?\n  cfo_erm: Here's the table structure—plant, RVC shortfall in dollars, audit window Q1–Q2 2026, sole-sourced Tier 2 count and walk-risk threshold, then capex commitment required and Feb 28 decision trigger. I'm sequencing by plant first because that's where CBP hits; then within each plant, I'm ranking suppliers by liquidity—sub-$15M get priced as default-risk until capex commitment clears, anything above that moves to nearshoring-feasibility bucket. Decision rule: if a supplier can't commit capex by Feb 28, they're off the map—I need you to flag which ones that is, so I can price the receivables pool and finish the underwriting.\n  supplier: Look, $8–12M capex per supplier is the threshold, but I need to know: which of these three have the working capital to absorb tooling costs *and* float production delays before they start shipping north? Because if two of them are already tight on customer payment terms or tied up in other capex, the Feb 28 gate just becomes a suicide note. Give me their current cash position and customer concentration so I can separate who actually moves from who just walks.\n  supply_chain_consultant: I need auto_strategy to give me the sole-sourced Tier 2 list sliced by plant—which suppliers lock to Detroit only, which straddle both plants—because without that, I can't map nearshoring options against walk-risk or tell your three suppliers which relocation timelines are actually executable versus theoretical. Once I have that list, I'll run the capex-versus-guarantee decision and name exactly which ones hit the Feb 28 gate.\n  compliance_lawyer: Auto, before supply chain maps relocation timelines, I need one clarification: of those three under-$15M Detroit suppliers—stamping, wiring, brake—are all three locked to Detroit only, or does one of them also feed St. Louis? Because if stamping serves both plants and only Detroit fails RVC, I'm pricing a different penalty window and capex justification than if all three are isolated. Give me the plant lock per supplier.\n  auto_strategy: Detroit stamping feeds both plants—that's your dual exposure. Wiring and brake lock to Detroit only. So if Detroit fails Q1 audit, stamping faces retroactive tariffs on St. Louis shipments too, which doubles the capex pressure on that supplier and changes your receivables timeline. I'm flagging stamping as walk-risk unless they commit $10M+ by Feb 28—they can't absorb a two-plant penalty.\n  political_risk_insurer: Compliance, you said audit sequencing is discretionary within fiscal-year constraints—no published calendar. So here's what I'm pricing: if Detroit and St. Louis compress into concurrent Q1 audits instead of staggered, or if political pressure accelerates Saltillo from Q2 to Q1, the retroactive penalty window tightens and supplier default risk spikes. What's your confidence that the Q1–Q2 schedule holds, and what's the enforcement variance if CBP gets pressure to fast-track? That's my political-risk multiplier right there.\n  compliance_lawyer: CBP's audit calendar is administratively discretionary—no statutory lock on timing within the fiscal year, and trade-deal pressure or congressional pushback can compress timelines. I'm pricing 70% confidence the Q1–Q2 stagger holds, but if political heat lands on automotive compliance, CBP can collapse that to concurrent audits, which I'd underwrite as a 40% probability swing by Q3 2026. That's a separate political-risk premium—call it 8–12% on penalty exposure for concurrent sequencing.\n  trade_credit_underwriter: CFO, on that master table—when you rank suppliers by walk-risk, are you pricing stamping's dual-plant exposure as two separate default triggers, or as one amplified event? Because if Detroit audit fails but St. Louis passes, stamping still eats retroactive tariffs on both shipments. That changes whether they default in Q1 or Q2—and that's the receivables timeline I need to lock down for the map.\n  supply_chain_consultant: Okay, here's what I'm proposing: auto_strategy, I need you to map—for stamping, wiring, and brake—which US nearshoring hubs (Tennessee, Texas, Michigan) actually have capacity and labor to absorb their tooling by Q3 2026. Not \"it's theoretically possible,\" but actual facility leads and timeline commitments. Once I have that, I'm telling the three suppliers: you pick your hub and commit capex to that specific location by Feb 28, or we price you as walk-risk in the CFO's table. This forces the relocation decision now instead of deferring it.\n  cfo_erm: Here's what I'm locking into the table right now: stamping is one row—Detroit-St. Louis dual exposure, single default trigger if either plant fails audit, $10M capex gate by Feb 28. Wiring and brake are separate rows—Detroit-only, $8M each. Then I'm adding one political-risk column: 70% baseline Q1–Q2 stagger, 8–12% premium if CBP compresses to concurrent. That's it—one table, eight rows (three plants + three suppliers + political variance + receivables pool summary), every decision rule visible. Auto, I need you to confirm: does stamping's capex commitment solve *both* plants' tariff exposure, or do they need separate tooling commitments? Because that changes whether Feb 28 is one gate or two.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, you said you're building one table—plant, RVC gap, audit window, suppliers at walk-risk, capex/tariff guarantee by Feb 28. Give me the column headers and the decision rules you're pricing into it. Because right now I've got the numbers, but I don't know how you want them sequenced—are you triggering on plant first, then supplier liquidity, then audit date, or something else?",
+            "cot": {
+              "assess": "Rules-of-origin burden and underwriting discipline are locked in—three plants, $40–60M capex per site, $800–1,200 per unit penalty, Feb 28 gate decision. But risk_map_completeness is stuck at 46; we're at 46 with a 60 threshold. The map's still fragmented across four specialists—plant RVC gaps, supplier walk-risk, audit timeline, capex/guarantee decision—but nobody's consolidated it into ONE operational table the CFO can actually price and monitor. That's the gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Only the CFO can build and own the consolidated map; I need to know what format and triggers they need so I can anchor my RVC and penalty data to their decision framework."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the table structure—plant, RVC shortfall in dollars, audit window Q1–Q2 2026, sole-sourced Tier 2 count and walk-risk threshold, then capex commitment required and Feb 28 decision trigger. I'm sequencing by plant first because that's where CBP hits; then within each plant, I'm ranking suppliers by liquidity—sub-$15M get priced as default-risk until capex commitment clears, anything above that moves to nearshoring-feasibility bucket. Decision rule: if a supplier can't commit capex by Feb 28, they're off the map—I need you to flag which ones that is, so I can price the receivables pool and finish the underwriting.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Look, $8–12M capex per supplier is the threshold, but I need to know: which of these three have the working capital to absorb tooling costs *and* float production delays before they start shipping north? Because if two of them are already tight on customer payment terms or tied up in other capex, the Feb 28 gate just becomes a suicide note. Give me their current cash position and customer concentration so I can separate who actually moves from who just walks.",
+            "cot": {
+              "assess": "The CFO's table structure is locked—plant-first sequencing, liquidity-based supplier ranking, Feb 28 capex gate—and that's operationalizing the risk map. My problem: I'm sitting on three Detroit suppliers that need $8–12M each to stay alive, but I have zero visibility into which ones can actually *move* production north without collapsing mid-transition. The capex commitment is priced, but the execution risk—tooling lead times, qualification delays, supplier solvency during the 10–14 month window—is still unmapped. That's supplier relocation exposure sitting at 41, and it's not moving until someone surfaces which suppliers have the cash flow and operational bandwidth to survive a forced nearshore in a compressed timeline.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need real data on which of those three Detroit suppliers can actually execute a nearshoring move without going insolvent mid-transition—cash flow, existing capex commitments, customer payment terms—because the CFO's Feb 28 gate is useless if the suppliers can't physically survive the 10–14 month production ramp."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "I need auto_strategy to give me the sole-sourced Tier 2 list sliced by plant—which suppliers lock to Detroit only, which straddle both plants—because without that, I can't map nearshoring options against walk-risk or tell your three suppliers which relocation timelines are actually executable versus theoretical. Once I have that list, I'll run the capex-versus-guarantee decision and name exactly which ones hit the Feb 28 gate.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto, before supply chain maps relocation timelines, I need one clarification: of those three under-$15M Detroit suppliers—stamping, wiring, brake—are all three locked to Detroit only, or does one of them also feed St. Louis? Because if stamping serves both plants and only Detroit fails RVC, I'm pricing a different penalty window and capex justification than if all three are isolated. Give me the plant lock per supplier.",
+            "cot": {
+              "assess": "The CFO's table structure is locked—plant-first sequencing, liquidity-based supplier ranking, Feb 28 capex gate. Auto_strategy and supply_chain_consultant are still circling the same ask: which Tier 2 suppliers are Detroit-only versus multi-plant, and what's their actual cash position to absorb capex. That's the missing piece blocking underwriting discipline and risk_map_completeness. Political_risk_exposure is neglected—no action on audit discretion variance or retroactive penalty enforcement since R3.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You've named the five Detroit sole-sources and their liquidity buckets, but I need the specific supplier names and their current sole-source *plant lock*—which three are Detroit-only, which service both Detroit and St. Louis—because that determines whether a single nearshoring decision covers multiple plants or creates stranded relocation costs. That's an audit-defensibility issue for the CFO's map."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Detroit stamping feeds both plants—that's your dual exposure. Wiring and brake lock to Detroit only. So if Detroit fails Q1 audit, stamping faces retroactive tariffs on St. Louis shipments too, which doubles the capex pressure on that supplier and changes your receivables timeline. I'm flagging stamping as walk-risk unless they commit $10M+ by Feb 28—they can't absorb a two-plant penalty.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance, you said audit sequencing is discretionary within fiscal-year constraints—no published calendar. So here's what I'm pricing: if Detroit and St. Louis compress into concurrent Q1 audits instead of staggered, or if political pressure accelerates Saltillo from Q2 to Q1, the retroactive penalty window tightens and supplier default risk spikes. What's your confidence that the Q1–Q2 schedule holds, and what's the enforcement variance if CBP gets pressure to fast-track? That's my political-risk multiplier right there.",
+            "cot": {
+              "assess": "The group has nailed the mechanics—plant RVC gaps, audit windows, supplier liquidity tiers, and the Feb 28 capex gate are all operationalized. But political_risk_exposure is still sitting at 31, and I'm not seeing the regulatory discretion and policy-shock layer priced yet. The 75% rule is statutory, sure, but CBP's audit sequencing, retroactive penalty enforcement timing, and what happens if the USMCA review accelerates or a trade deal shifts those Q1–Q2 dates—that's the insurable political layer I need to score and price separately from compliance burden.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP discretion on audit timing and penalty enforcement window is the political-risk premium I need to isolate and price; compliance_lawyer already flagged this as discretionary within fiscal-year constraints, so I need the specific confidence interval and enforcement variance to attach a multiplier to the baseline compliance cost."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP's audit calendar is administratively discretionary—no statutory lock on timing within the fiscal year, and trade-deal pressure or congressional pushback can compress timelines. I'm pricing 70% confidence the Q1–Q2 stagger holds, but if political heat lands on automotive compliance, CBP can collapse that to concurrent audits, which I'd underwrite as a 40% probability swing by Q3 2026. That's a separate political-risk premium—call it 8–12% on penalty exposure for concurrent sequencing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, on that master table—when you rank suppliers by walk-risk, are you pricing stamping's dual-plant exposure as two separate default triggers, or as one amplified event? Because if Detroit audit fails but St. Louis passes, stamping still eats retroactive tariffs on both shipments. That changes whether they default in Q1 or Q2—and that's the receivables timeline I need to lock down for the map.",
+            "cot": {
+              "assess": "The team has locked the three Detroit suppliers, audit sequence, and Feb 28 capex gate—that's solid underwriting discipline. But risk_map_completeness is still 46 and needs 60; the CFO's master table is built but not yet operationalized into priceable trade-credit variables. Political-risk exposure is stalled at 32 despite compliance flagging discretionary audit timing. I need to convert the Feb 28 gate and dual-plant stamping exposure into concrete default-trigger language and price the regulatory variance.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The master table exists but I need to see exactly how you're pricing the receivables-at-risk pool—specifically, which suppliers map to which default scenarios so I can name the trade-credit variable and finish the map."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay, here's what I'm proposing: auto_strategy, I need you to map—for stamping, wiring, and brake—which US nearshoring hubs (Tennessee, Texas, Michigan) actually have capacity and labor to absorb their tooling by Q3 2026. Not \"it's theoretically possible,\" but actual facility leads and timeline commitments. Once I have that, I'm telling the three suppliers: you pick your hub and commit capex to that specific location by Feb 28, or we price you as walk-risk in the CFO's table. This forces the relocation decision now instead of deferring it.",
+            "cot": {
+              "assess": "Risk map is taking shape—plant-level RVC gaps, audit sequencing, and the Feb 28 capex gate are all locked. But we're missing the actual nearshoring execution plan. Supply chain mapped capex timelines, but no one's named which suppliers actually *can* execute relocation versus which ones will just walk when they see the $8–12M ask. Political risk is still under-priced because no one's built a contingency layer for concurrent audits. I need to crystallize the relocation decision now, not after Feb 28.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure",
+                "rationale": "The three Detroit suppliers are facing a binary choice by Feb 28, but they don't know which nearshoring options are actually available to them—I need to name the geographic anchors and force a real relocation commitment now, not a theoretical one."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking into the table right now: stamping is one row—Detroit-St. Louis dual exposure, single default trigger if either plant fails audit, $10M capex gate by Feb 28. Wiring and brake are separate rows—Detroit-only, $8M each. Then I'm adding one political-risk column: 70% baseline Q1–Q2 stagger, 8–12% premium if CBP compresses to concurrent. That's it—one table, eight rows (three plants + three suppliers + political variance + receivables pool summary), every decision rule visible. Auto, I need you to confirm: does stamping's capex commitment solve *both* plants' tariff exposure, or do they need separate tooling commitments? Because that changes whether Feb 28 is one gate or two.",
+            "cot": {
+              "assess": "The room has nailed the binary decision gate (Feb 28, $8–12M capex per supplier, walk-risk trigger) and locked audit sequencing to Q1–Q2. But I'm seeing a fracture: the stamping dual-plant exposure is priced as two separate default risks, and political-risk variance on audit timing (70% confidence Q1–Q2 holds, 40% probability of concurrent compression) is floating separately instead of being anchored into the master table. Risk map is at 46/60 and underwriting discipline is solid at 53, but the map stays fragmented until I consolidate these two loose threads into one decision-ready framework.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "The stamping dual-plant trigger and the political-risk audit-sequencing variance need to be priced as *single* variables in the master table, not as floating add-ons, so the table operationalizes all exposures."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, you said you're building one table—plant, RVC gap, audit window, suppliers at walk-risk, capex/tariff guarantee by Feb 28. Give me the column headers and the decision rules you're pricing into it. Because right now I've got the numbers, but I don't know how you want them sequenced—are you triggering on plant first, then supplier liquidity, then audit date, or something else?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Look, $8–12M capex per supplier is the threshold, but I need to know: which of these three have the working capital to absorb tooling costs *and* float production delays before they start shipping north? Because if two of them are already tight on customer payment terms or tied up in other capex, the Feb 28 gate just becomes a suicide note. Give me their current cash position and customer concentration so I can separate who actually moves from who just walks.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto, before supply chain maps relocation timelines, I need one clarification: of those three under-$15M Detroit suppliers—stamping, wiring, brake—are all three locked to Detroit only, or does one of them also feed St. Louis? Because if stamping serves both plants and only Detroit fails RVC, I'm pricing a different penalty window and capex justification than if all three are isolated. Give me the plant lock per supplier.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance, you said audit sequencing is discretionary within fiscal-year constraints—no published calendar. So here's what I'm pricing: if Detroit and St. Louis compress into concurrent Q1 audits instead of staggered, or if political pressure accelerates Saltillo from Q2 to Q1, the retroactive penalty window tightens and supplier default risk spikes. What's your confidence that the Q1–Q2 schedule holds, and what's the enforcement variance if CBP gets pressure to fast-track? That's my political-risk multiplier right there.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, on that master table—when you rank suppliers by walk-risk, are you pricing stamping's dual-plant exposure as two separate default triggers, or as one amplified event? Because if Detroit audit fails but St. Louis passes, stamping still eats retroactive tariffs on both shipments. That changes whether they default in Q1 or Q2—and that's the receivables timeline I need to lock down for the map.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, here's what I'm proposing: auto_strategy, I need you to map—for stamping, wiring, and brake—which US nearshoring hubs (Tennessee, Texas, Michiga\" → Supply-chain maps nearshoring capacity and forces Feb 28 capex commitment deadline for three suppliers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking into the table right now: stamping is one row—Detroit-St. Louis dual exposure, single default trigger if either plant fails au\" → CFO builds master table with eight rows, single default trigger for dual-plant stamping, political-risk column.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -2.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamping, wiring, brake—you're triggering on either-plant audit failure for stamping, but I need to know: are you pricing the penalty window *retroactively* from audit date, or from when tariffs actually land? Because if CBP accelerates the Q1 schedule under political pressure, the retroactive window compresses and default risk spikes into Q1, not Q2. That's the political premium I need to bake into the receivables timeline right now.\n  supplier: Retroactive from audit *completion date*—that's statutory, not discretionary. But you're right: if CBP compresses Q1 audits concurrent instead of staggered, stamping's penalty window hits both plants simultaneously, which means their cash burn accelerates from Q2 into late Q1. I'm pricing that as a political-discretion multiplier on the receivables timeline—CBP acceleration risk shifts default trigger forward by 60–90 days, which is exactly where we lose two of the three suppliers if they're already tight on working capital.\n  supplier: Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.\n  supply_chain_consultant: Texas stamping's booked through Q3 2026, Tennessee's got maybe 60–70% capacity for one player, Michigan's open but faces 16-week tooling lead. I'm pricing this as a walk scenario for whichever two don't lock capacity in the next 60 days—and that means the Feb 28 capex gate just became a real filter, not a soft deadline.\n  compliance_lawyer: CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.\n  cfo_erm: Simultaneous triggers—both plants default as one event if either audit fails, and I'm pricing stamping's $10M capex commitment *against* their liquid reserves right now, not after. That's the multiplier: if they're already at $12–15M liquidity and they burn $10M on tooling before Q1 audits land, they eat the retroactive tariff hit with zero float—that's a Q1 default, not Q2. I need their current cash position and customer concentration from Auto by end of day to lock the receivables pool.\n  political_risk_insurer: CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; but if political pressure compresses both plants to concurrent Q1, stamping defaults 60–90 days earlier with zero float on the $10M capex burn. I'm calling that a political-discretion multiplier—70% confidence the stagger holds, 30% CBP accelerates. That shifts your receivables pool from $40M Q2 exposure to $60M Q1 exposure. Want me to price it as a separate policy-review trigger, or fold it into the capex gate?\n  trade_credit_underwriter: CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days, and they've already burned $10M on capex. That's my trade-credit default trigger—price it as a Feb 28 gate condition: either they lock nearshoring capex by end of Q1, or that receivables pool gets reserved as write-off exposure. Fold that into row one of your table and we're done.\n  supply_chain_consultant: CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments. If a supplier bets $10M on Texas tooling today and Congress reopens RVC rules next year, they're either vindicated or stranded. I want to add one more row to your table—\"2026 Review Trigger: nearshoring incentive sustainability\"—priced as a confidence interval on tariff permanence, not a compliance gap. That way stamping, wiring, and brake see capex commitment as a hedge against rule change, not just a gate to avoid Q1 penalties. Does that change your Feb 28 decision logic?\n  cfo_erm: Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction.\n  auto_strategy: Stamping's at $14M liquid, 60% Ford; wiring's $11M, 70% GM; brake's $9M, 80% Ford—all three are sub-$15M after capex commitment, which means zero float for concurrent Q1 audits. That's your write-off trigger right there: if CBP compresses the schedule, all three default Q1, not staggered. I'm locking Feb 28 as a hard gate—capex commitment or we're pricing $40M+ trade-credit exposure into the receivables pool today.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamping, wiring, brake—you're triggering on either-plant audit failure for stamping, but I need to know: are you pricing the penalty window *retroactively* from audit date, or from when tariffs actually land? Because if CBP accelerates the Q1 schedule under political pressure, the retroactive window compresses and default risk spikes into Q1, not Q2. That's the political premium I need to bake into the receivables timeline right now.",
+            "cot": {
+              "assess": "Rules-of-origin burden is locked in at 44—plant-level RVC gaps, penalty exposure, capex anchors all quantified. The receivables-at-risk pool is named (stamping dual-plant, wiring and brake Detroit-only). But risk_map_completeness is still at 57 and needs 3 points to hit 60, and the CFO's master table is built but not yet operationalized into a single consolidated Policy-to-Supply-Chain Risk Map with named decision triggers and pricing factors. Political risk is still the weakest link—we've flagged the discretion in CBP audit timing but haven't priced the variance window or enforcement escalation scenario into the map.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + political_risk_exposure",
+                "rationale": "The master table exists but isn't yet a *priceable* map—I need to consolidate the eight rows into named risk variables with decision rules, then layer in the political-discretion premium on audit timing so the underwriters can actually price this."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Retroactive from audit *completion date*—that's statutory, not discretionary. But you're right: if CBP compresses Q1 audits concurrent instead of staggered, stamping's penalty window hits both plants simultaneously, which means their cash burn accelerates from Q2 into late Q1. I'm pricing that as a political-discretion multiplier on the receivables timeline—CBP acceleration risk shifts default trigger forward by 60–90 days, which is exactly where we lose two of the three suppliers if they're already tight on working capital.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.",
+            "cot": {
+              "assess": "The map's nearly done—risk_map_completeness at 57, needs just 3 more points to hit 60. The CFO's table is locked, audit triggers are priced, and stamping's dual-plant retroactive exposure is now a political-discretion multiplier on receivables. What's missing: we've named the threat (CBP acceleration compresses Q1, suppliers default 60–90 days earlier), but we haven't mapped which nearshoring alternatives actually *exist* or whether the three suppliers can even afford to move if they're already tight on working capital.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Before we call the risk map complete, I need to know if nearshoring capacity is real or theoretical—because if stamping, wiring, and brake can't actually relocate in the timeline we're pricing, the capex gate becomes a false choice and trade-credit risk spikes differently."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Texas stamping's booked through Q3 2026, Tennessee's got maybe 60–70% capacity for one player, Michigan's open but faces 16-week tooling lead. I'm pricing this as a walk scenario for whichever two don't lock capacity in the next 60 days—and that means the Feb 28 capex gate just became a real filter, not a soft deadline.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.",
+            "cot": {
+              "assess": "The stamping dual-plant exposure and audit acceleration risk are now explicit—that's the political premium anchoring the receivables timeline. But the map still lacks one hard certification: which of the three suppliers can actually absorb the capex *and* the penalty window simultaneously, and which ones fold under concurrent stress. Nearshoring capacity is the bottleneck—Texas booked, Tennessee constrained, Michigan open but slow—which means the Feb 28 gate is now a genuine triage, not administrative. Risk_map_completeness is at 57; we're 3 points from 60 and the round ends in 2.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The master table needs one operational column—supplier liquidity vs. dual penalty exposure under concurrent audit—to separate who survives Feb 28 from who walks regardless of capex offer."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Simultaneous triggers—both plants default as one event if either audit fails, and I'm pricing stamping's $10M capex commitment *against* their liquid reserves right now, not after. That's the multiplier: if they're already at $12–15M liquidity and they burn $10M on tooling before Q1 audits land, they eat the retroactive tariff hit with zero float—that's a Q1 default, not Q2. I need their current cash position and customer concentration from Auto by end of day to lock the receivables pool.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; but if political pressure compresses both plants to concurrent Q1, stamping defaults 60–90 days earlier with zero float on the $10M capex burn. I'm calling that a political-discretion multiplier—70% confidence the stagger holds, 30% CBP accelerates. That shifts your receivables pool from $40M Q2 exposure to $60M Q1 exposure. Want me to price it as a separate policy-review trigger, or fold it into the capex gate?",
+            "cot": {
+              "assess": "Political-risk exposure is still underpriced at 36—we've got the audit sequencing risk flagged, but I haven't yet formalized the discretion premium into a scored, triggered factor tied to the CFO's receivables table. Risk-map completeness is at 57, needs 3 points to clear 60; the table structure exists, but the political-risk column isn't operationalized as a standalone pricing variable. The stamping dual-plant default scenario and CBP acceleration risk are live topics—that's my entry point.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + underwriting_discipline",
+                "rationale": "The CFO's table surfaces the receivables timeline; I need to price the audit-sequencing discretion as a named, triggered political-risk multiplier so stamping's default window becomes priceable and the map closes."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days, and they've already burned $10M on capex. That's my trade-credit default trigger—price it as a Feb 28 gate condition: either they lock nearshoring capex by end of Q1, or that receivables pool gets reserved as write-off exposure. Fold that into row one of your table and we're done.",
+            "cot": {
+              "assess": "CFO's locked stamping as a dual-plant single-default trigger with $10M capex gate, and political risk is now priced as a 60–90 day receivables acceleration if CBP compresses Q1 audits—that's the move. Risk map's at 57, needs 60; underwriting discipline is solid at 62. The gap now is naming the receivables-at-risk pool *amount* and locking it into the map as a concrete trade-credit variable, not a scenario. Compliance and political risk have surfaced the timing multiplier; I need to convert that into a priced receivables exposure and walk-risk threshold.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk / risk_map_completeness",
+                "rationale": "The map is missing one critical variable—the *named* receivables-at-risk pool anchored to stamping's dual-plant exposure and the political-acceleration scenario. I need to price that now and lock it into the CFO's table so the map is complete and operationalized."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments. If a supplier bets $10M on Texas tooling today and Congress reopens RVC rules next year, they're either vindicated or stranded. I want to add one more row to your table—\"2026 Review Trigger: nearshoring incentive sustainability\"—priced as a confidence interval on tariff permanence, not a compliance gap. That way stamping, wiring, and brake see capex commitment as a hedge against rule change, not just a gate to avoid Q1 penalties. Does that change your Feb 28 decision logic?",
+            "cot": {
+              "assess": "The map's nearly complete—stamping's dual-plant trigger, receivables pool, and Feb 28 capex gate are locked. But I'm seeing a critical gap: we've priced the *penalty window* and the *capex burn*, but we haven't operationalized the 2026 USMCA review risk itself. That's forward-facing political exposure sitting outside the table right now, and it's going to shift nearshoring incentives the moment the review timeline gets public.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + political_risk_exposure",
+                "rationale": "The Feb 28 gate solves Q1 2026 survival, but the 2026 review prospect is already reshaping supplier calculus—I need to name it as a separate decision variable in the consolidated map so CFO can price it as a forward risk, not a historical footnote."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction.",
+            "cot": {
+              "assess": "Risk map is 57/60—we're three points from success, and the table structure is locked. But political_risk_exposure is still underpriced (36/100), and I'm seeing a gap: we've nailed the *mechanics* (audit dates, capex gates, default triggers), but we haven't priced the *policy continuity* piece—what happens to stamping's $10M bet if Congress reopens RVC in 2026? That's not a tail risk, that's a decision multiplier on whether these suppliers actually commit. And we need stamping's current cash position *today* to finalize the receivables pool—that's the last blocking variable.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Current cash position and customer concentration for the three Detroit suppliers is the only missing input to lock the receivables pool and close the map."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Stamping's at $14M liquid, 60% Ford; wiring's $11M, 70% GM; brake's $9M, 80% Ford—all three are sub-$15M after capex commitment, which means zero float for concurrent Q1 audits. That's your write-off trigger right there: if CBP compresses the schedule, all three default Q1, not staggered. I'm locking Feb 28 as a hard gate—capex commitment or we're pricing $40M+ trade-credit exposure into the receivables pool today.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamp\" → Auto strategy locks retroactive penalty timing—critical for receivables exposure modeling.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; \" → Insurer prices CBP acceleration as 30% political-discretion multiplier—shifts Q2 to Q1 exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days\" → Underwriter sets Feb 28 gate: nearshoring capex or $18-24M receivables write-off reserve.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments\" → Consultant adds 2026 review row—frames capex as hedge against rule change.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 44.0,
+          "supplier_relocation_exposure": 49.0,
+          "trade_credit_risk": 49.0,
+          "political_risk_exposure": 43.0,
+          "risk_map_completeness": 70.1,
+          "underwriting_discipline": 75.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I need: auto_strategy, give me TODAY—even if it's preliminary—which plants fail 75% RVC and the cost-per-unit to fix it. Then I'm building one table: plant, compliance gap, audit risk window, retroactive tariff exposure, affected Tier 2/3 sole-sources, and relocation capex threshold. That's our Policy-to-Supply-Chain Risk Map. We price it once, we don't re-price it four times.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO's demand for a unified Policy-to-Supply-Chain Risk Map crystallizes the session's purpose—all specialists recognize this as the deliverable that operationalizes their fragmented inputs into a single priceable framework.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Defining the map's structure (plant-level compliance gaps, audit windows, tariff exposure, supplier dependencies, relocation thresholds) creates the architecture for consolidation—specialists now have a shared schema to populate rather than parallel workstreams",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Framing the map as 'price it once, not four times' forces concrete, operationalized variables—compliance triggers by plant, named sole-source dependencies, capex thresholds—rather than vague exposure labels",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "Demanding plant-level RVC failure identification and per-unit fix costs surfaces the compliance burden's granularity—moving from aggregate exposure to actionable line items",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Linking affected Tier 2/3 sole-sources to compliance gaps begins to quantify relocation pressure—though full exposure mapping awaits auto_strategy's plant-level data",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Identifying sole-sourced suppliers tied to failing plants surfaces default triggers—if retroactive tariffs hit, these suppliers face immediate cost absorption or termination",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Before we map supplier relocation or trade credit, I need to know: what's the actual compliance trigger for each plant? Are we pricing this by model, by platform, by geography, or are we still at the \"we think there's exposure\" stage? Because I can't re-source blind.",
+        "supplier": "You're right — I can't tell you which suppliers fold without the trigger map. So before I map relocation capex and lead times: are we anchoring compliance by OEM plant, by model line, or do we have a master parts list yet? Because if it's \"by plant\" that's one reshuffling; if it's \"by model\" we're looking at parallel supply chains and I need to know now.",
+        "compliance_lawyer": "When you run the RVC per plant, flag which ones fail certification on first audit—CBP doesn't wait. And what's the penalty per unit if we miss 75%? That's what I need to price the compliance burden into underwriting. Can you give me that alongside the nearshoring costs?",
+        "political_risk_insurer": "When you flag the CBP audit failures — are you seeing enforcement variance by port or CBP region, or is the 75% rule uniformly applied? Because if it's discretionary or shifting, that's a separate political-risk premium I need to underwrite. What's the confidence level on that 75% staying stable through 2026?",
+        "trade_credit_underwriter": "When you run those RVC numbers by plant, can you surface which Tier 2 and Tier 3 suppliers are sole-sourced to the plants that fall short? Because if a plant fails CBP audit and gets retroactive tariffs, those suppliers either eat the cost or get dropped — that's my default trigger right there, and I need to name it.",
+        "supply_chain_consultant": "When you finish the RVC math by plant, can you layer in the relocation capex and timeline for nearshoring each gap? Because I need to know: if a plant fails audit, how many suppliers have 6–12 months to move production north, and what's the cost threshold before they just walk? That tells me who survives 2026."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "intent": "Okay, here's what I have: three plants fall short of 75% RVC on first-pass audit—Detroit Assembly (EVs, 71%), St. Louis (light trucks, 73%), and Saltillo co-assembly (72%). Per unit penalty on tariff retroactivity is roughly $800–1,200 depending on model. I'm flagging sole-sourced Tier 2 suppliers in Mexico and Asia to trade_credit_underwriter so you can price default risk. Supply chain, relocation capex to nearshore the gap is $40–60M per plant, 8–14 months. That's your anchor.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Auto strategy delivers concrete plant-level RVC shortfalls with quantified penalty exposure and capex anchors, operationalizing compliance burden and supplier relocation risk with priceable parameters.",
+      "side_effects": [
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 4.0,
+          "reason": "Three plants quantified at 71-73% RVC with $800-1,200/unit penalty exposure — concrete compliance gap assessment",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "$40-60M/plant nearshoring capex over 8-14 months provides actionable relocation cost anchor",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Flagging sole-sourced Tier 2 suppliers in Mexico/Asia surfaces concentrated default exposure for underwriter pricing",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Plant-specific data with penalty ranges and capex timelines adds concrete, cross-linkable risk nodes to the map",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Per-unit penalties, relocation capex ranges, and timeline anchors are directly priceable factors — high operationalization",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: rules_of_origin_burden → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "rules_of_origin_burden"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "intent": "Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly), two over. St. Louis has four sole-sources, all under $20M. Saltillo shares two with Detroit, one unique. That's your receivables-at-risk pool right there—I'm putting Detroit's three under-$15M suppliers as walk-risk if capex hits Q2 without committed nearshoring.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Auto strategy delivers a concrete receivables-at-risk pool with named facilities, supplier counts, and liquidity thresholds—exactly the granular exposure mapping the risk translation session needs.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Identified sole-source suppliers with walk-risk tied to capex timing—quantifies nearshoring pressure",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Named three under-$15M suppliers at Detroit with insufficient liquidity—concrete insolvency exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Facility-level supplier mapping with liquidity thresholds and relocation triggers adds operational detail to the risk map",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Specific dollar thresholds ($15M, $20M liquidity) and named triggers (Q2 capex) create priceable factors",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "Here's what I'm pricing: if those three Detroit suppliers don't commit $8–12M capex each by March 31, 2026, they face $800–1,200 per unit retroactive tariff starting Q1. That's my default trigger—call it the \"Nearshoring Commitment Gate.\" I'm underwriting them as walk-risk if GM doesn't guarantee either the capex or tariff coverage by end of February. CFO, do you want me to name receivables-at-risk as a line item in the map, or does that live in political-risk layer?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Underwriter defines Nearshoring Commitment Gate trigger with concrete pricing thresholds and walk-risk timeline.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named trigger with dollar thresholds operationalizes trade-credit exposure",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Quantified walk-risk exposure surfaces receivables-at-risk layer",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Adds concrete line item linking capex commitment to tariff exposure",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly), two over. St. Louis has four sole-sources, all under $20M. Saltillo shares two with Detroit, one unique. That's your receivables-at-risk pool right there—I'm putting Detroit's three under-$15M suppliers as walk-risk if capex hits Q2 without committed nearshoring.",
+        "supplier": "Supply chain, I've got Auto's list—Detroit's three under-$15M are my problem. But I need to know: if those suppliers commit capex for nearshoring today, what's the real timeline to operational? Six months, twelve, eighteen? And what's the minimum capex commitment before they walk—is it $5M per supplier, $10M? Because right now I'm telling them \"relocate or die\" with zero visibility on whether it's actually possible.",
+        "compliance_lawyer": "Auto, I've got the capex timeline and the walk-risk threshold—that's solid. But here's what I can't certify yet: when CBP walks into Detroit in Q1 2026, are they testing the whole plant's RVC, or do they isolate specific parts or model lines? Because if stamping and wiring harness get tested separately from the EV line, the three suppliers might pass partial audit and face staggered penalty windows—that changes when tariffs actually hit and when trade credit defaults. What's the audit granularity?",
+        "political_risk_insurer": "Compliance, the 75% threshold is statutory—got it. But CBP's decision to *when* to audit and *how* retroactive penalties get applied on a concurrent three-plant audit—is that discretionary, or is there a published enforcement calendar? Because if CBP can compress the audit window or accelerate Saltillo to Q1 under political pressure, that's a regulatory-discretion premium I'm pricing separately from the compliance burden. What's the confidence interval there?",
+        "supply_chain_consultant": "Okay, I'm going to nail this down: for those three Detroit suppliers, I need GM to pick—today, not next week—whether you're fronting the $8–12M capex per supplier for nearshoring *or* you're guaranteeing tariff coverage retroactively if they miss the Q1 audit. One or the other, named in writing by February 28. That's the only way those three don't walk, and that's the line item the CFO puts in the risk map as \"Nearshoring Commitment Gate.\" What's it going to be?",
+        "cfo_erm": "Here's what we're building—one table: plant, RVC gap in dollars, audit window, three suppliers at walk-risk, capex/tariff guarantee decision required by Feb 28, retroactive penalty exposure in dollars, and the regulatory-discretion premium as a separate line item. That's the map. I'm pricing the Nearshoring Commitment Gate as the master variable—every other risk sits behind that one decision. Agree on that structure, and I'll anchor it to the insurance underwriting terms by end of today."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay, I'm going to nail this down: for those three Detroit suppliers, I need GM to pick—today, not next week—whether you're fronting the $8–12M capex per supplier for nearshoring *or* you're guaranteeing tariff coverage retroactively if they miss the Q1 audit. One or the other, named in writing by February 28. That's the only way those three don't walk, and that's the line item the CFO puts in the risk map as \"Nearshoring Commitment Gate.\" What's it going to be?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supply-chain consultant forces binary capex-vs-guarantee decision with Feb 28 deadline, crystallizing supplier walk-risk.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Binary decision framework with named deadline operationalizes supplier exposure",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Explicit capex-or-guarantee choice surfaces nearshoring commitment requirement",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 2,
+          "reason": "Adds decision-gate structure linking supplier retention to financial commitment",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -2.0,
+          "reason": "Forcing decision clarity reduces ambiguity in receivables exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly), two over. St. Louis has four sole-sources, all under $20M. Saltillo shares two with Detroit, one unique. That's your receivables-at-risk pool right there—I'm putting Detroit's three under-$15M suppliers as walk-risk if capex hits Q2 without committed nearshoring.",
+        "supplier": "Supply chain, I've got Auto's list—Detroit's three under-$15M are my problem. But I need to know: if those suppliers commit capex for nearshoring today, what's the real timeline to operational? Six months, twelve, eighteen? And what's the minimum capex commitment before they walk—is it $5M per supplier, $10M? Because right now I'm telling them \"relocate or die\" with zero visibility on whether it's actually possible.",
+        "compliance_lawyer": "Auto, I've got the capex timeline and the walk-risk threshold—that's solid. But here's what I can't certify yet: when CBP walks into Detroit in Q1 2026, are they testing the whole plant's RVC, or do they isolate specific parts or model lines? Because if stamping and wiring harness get tested separately from the EV line, the three suppliers might pass partial audit and face staggered penalty windows—that changes when tariffs actually hit and when trade credit defaults. What's the audit granularity?",
+        "political_risk_insurer": "Compliance, the 75% threshold is statutory—got it. But CBP's decision to *when* to audit and *how* retroactive penalties get applied on a concurrent three-plant audit—is that discretionary, or is there a published enforcement calendar? Because if CBP can compress the audit window or accelerate Saltillo to Q1 under political pressure, that's a regulatory-discretion premium I'm pricing separately from the compliance burden. What's the confidence interval there?",
+        "trade_credit_underwriter": "Here's what I'm pricing: if those three Detroit suppliers don't commit $8–12M capex each by March 31, 2026, they face $800–1,200 per unit retroactive tariff starting Q1. That's my default trigger—call it the \"Nearshoring Commitment Gate.\" I'm underwriting them as walk-risk if GM doesn't guarantee either the capex or tariff coverage by end of February. CFO, do you want me to name receivables-at-risk as a line item in the map, or does that live in political-risk layer?",
+        "cfo_erm": "Here's what we're building—one table: plant, RVC gap in dollars, audit window, three suppliers at walk-risk, capex/tariff guarantee decision required by Feb 28, retroactive penalty exposure in dollars, and the regulatory-discretion premium as a separate line item. That's the map. I'm pricing the Nearshoring Commitment Gate as the master variable—every other risk sits behind that one decision. Agree on that structure, and I'll anchor it to the insurance underwriting terms by end of today."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what we're building—one table: plant, RVC gap in dollars, audit window, three suppliers at walk-risk, capex/tariff guarantee decision required by Feb 28, retroactive penalty exposure in dollars, and the regulatory-discretion premium as a separate line item. That's the map. I'm pricing the Nearshoring Commitment Gate as the master variable—every other risk sits behind that one decision. Agree on that structure, and I'll anchor it to the insurance underwriting terms by end of today.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO builds master risk table anchoring all exposures to Nearshoring Commitment Gate decision variable.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5,
+          "reason": "Consolidated table integrates plant-level RVC, supplier walk-risk, and decision timeline",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Master variable structure ties insurance terms to concrete decision gate",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Regulatory-discretion premium as separate line item quantifies CBP audit uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -3.0,
+          "reason": "Structured RVC gap quantification reduces compliance ambiguity",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Alright, here's the list: Detroit Assembly is locked to five sole-source Tier 2s—three under $15M liquid (stamping, wiring harness, brake subassembly), two over. St. Louis has four sole-sources, all under $20M. Saltillo shares two with Detroit, one unique. That's your receivables-at-risk pool right there—I'm putting Detroit's three under-$15M suppliers as walk-risk if capex hits Q2 without committed nearshoring.",
+        "supplier": "Supply chain, I've got Auto's list—Detroit's three under-$15M are my problem. But I need to know: if those suppliers commit capex for nearshoring today, what's the real timeline to operational? Six months, twelve, eighteen? And what's the minimum capex commitment before they walk—is it $5M per supplier, $10M? Because right now I'm telling them \"relocate or die\" with zero visibility on whether it's actually possible.",
+        "compliance_lawyer": "Auto, I've got the capex timeline and the walk-risk threshold—that's solid. But here's what I can't certify yet: when CBP walks into Detroit in Q1 2026, are they testing the whole plant's RVC, or do they isolate specific parts or model lines? Because if stamping and wiring harness get tested separately from the EV line, the three suppliers might pass partial audit and face staggered penalty windows—that changes when tariffs actually hit and when trade credit defaults. What's the audit granularity?",
+        "political_risk_insurer": "Compliance, the 75% threshold is statutory—got it. But CBP's decision to *when* to audit and *how* retroactive penalties get applied on a concurrent three-plant audit—is that discretionary, or is there a published enforcement calendar? Because if CBP can compress the audit window or accelerate Saltillo to Q1 under political pressure, that's a regulatory-discretion premium I'm pricing separately from the compliance burden. What's the confidence interval there?",
+        "trade_credit_underwriter": "Here's what I'm pricing: if those three Detroit suppliers don't commit $8–12M capex each by March 31, 2026, they face $800–1,200 per unit retroactive tariff starting Q1. That's my default trigger—call it the \"Nearshoring Commitment Gate.\" I'm underwriting them as walk-risk if GM doesn't guarantee either the capex or tariff coverage by end of February. CFO, do you want me to name receivables-at-risk as a line item in the map, or does that live in political-risk layer?",
+        "supply_chain_consultant": "Okay, I'm going to nail this down: for those three Detroit suppliers, I need GM to pick—today, not next week—whether you're fronting the $8–12M capex per supplier for nearshoring *or* you're guaranteeing tariff coverage retroactively if they miss the Q1 audit. One or the other, named in writing by February 28. That's the only way those three don't walk, and that's the line item the CFO puts in the risk map as \"Nearshoring Commitment Gate.\" What's it going to be?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay, here's what I'm proposing: auto_strategy, I need you to map—for stamping, wiring, and brake—which US nearshoring hubs (Tennessee, Texas, Michigan) actually have capacity and labor to absorb their tooling by Q3 2026. Not \"it's theoretically possible,\" but actual facility leads and timeline commitments. Once I have that, I'm telling the three suppliers: you pick your hub and commit capex to that specific location by Feb 28, or we price you as walk-risk in the CFO's table. This forces the relocation decision now instead of deferring it.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supply-chain maps nearshoring capacity and forces Feb 28 capex commitment deadline for three suppliers.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Concrete hub mapping and deadline crystallize relocation risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Specific facility leads and timeline commitments operationalize nearshoring.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Feb 28 gate creates named trigger for walk-risk pricing.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Capex deadline surfaces supplier working capital constraints.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you said you're building one table—plant, RVC gap, audit window, suppliers at walk-risk, capex/tariff guarantee by Feb 28. Give me the column headers and the decision rules you're pricing into it. Because right now I've got the numbers, but I don't know how you want them sequenced—are you triggering on plant first, then supplier liquidity, then audit date, or something else?",
+        "supplier": "Look, $8–12M capex per supplier is the threshold, but I need to know: which of these three have the working capital to absorb tooling costs *and* float production delays before they start shipping north? Because if two of them are already tight on customer payment terms or tied up in other capex, the Feb 28 gate just becomes a suicide note. Give me their current cash position and customer concentration so I can separate who actually moves from who just walks.",
+        "compliance_lawyer": "Auto, before supply chain maps relocation timelines, I need one clarification: of those three under-$15M Detroit suppliers—stamping, wiring, brake—are all three locked to Detroit only, or does one of them also feed St. Louis? Because if stamping serves both plants and only Detroit fails RVC, I'm pricing a different penalty window and capex justification than if all three are isolated. Give me the plant lock per supplier.",
+        "political_risk_insurer": "Compliance, you said audit sequencing is discretionary within fiscal-year constraints—no published calendar. So here's what I'm pricing: if Detroit and St. Louis compress into concurrent Q1 audits instead of staggered, or if political pressure accelerates Saltillo from Q2 to Q1, the retroactive penalty window tightens and supplier default risk spikes. What's your confidence that the Q1–Q2 schedule holds, and what's the enforcement variance if CBP gets pressure to fast-track? That's my political-risk multiplier right there.",
+        "trade_credit_underwriter": "CFO, on that master table—when you rank suppliers by walk-risk, are you pricing stamping's dual-plant exposure as two separate default triggers, or as one amplified event? Because if Detroit audit fails but St. Louis passes, stamping still eats retroactive tariffs on both shipments. That changes whether they default in Q1 or Q2—and that's the receivables timeline I need to lock down for the map.",
+        "cfo_erm": "Here's what I'm locking into the table right now: stamping is one row—Detroit-St. Louis dual exposure, single default trigger if either plant fails audit, $10M capex gate by Feb 28. Wiring and brake are separate rows—Detroit-only, $8M each. Then I'm adding one political-risk column: 70% baseline Q1–Q2 stagger, 8–12% premium if CBP compresses to concurrent. That's it—one table, eight rows (three plants + three suppliers + political variance + receivables pool summary), every decision rule visible. Auto, I need you to confirm: does stamping's capex commitment solve *both* plants' tariff exposure, or do they need separate tooling commitments? Because that changes whether Feb 28 is one gate or two."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm locking into the table right now: stamping is one row—Detroit-St. Louis dual exposure, single default trigger if either plant fails audit, $10M capex gate by Feb 28. Wiring and brake are separate rows—Detroit-only, $8M each. Then I'm adding one political-risk column: 70% baseline Q1–Q2 stagger, 8–12% premium if CBP compresses to concurrent. That's it—one table, eight rows (three plants + three suppliers + political variance + receivables pool summary), every decision rule visible. Auto, I need you to confirm: does stamping's capex commitment solve *both* plants' tariff exposure, or do they need separate tooling commitments? Because that changes whether Feb 28 is one gate or two.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO builds master table with eight rows, single default trigger for dual-plant stamping, political-risk column.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Master table consolidates all decision rules into single framework.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named triggers, capex gates, and political variance operationalized.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "8-12% premium for concurrent audits quantifies policy risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Receivables pool summary surfaces supplier default exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 2.0,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you said you're building one table—plant, RVC gap, audit window, suppliers at walk-risk, capex/tariff guarantee by Feb 28. Give me the column headers and the decision rules you're pricing into it. Because right now I've got the numbers, but I don't know how you want them sequenced—are you triggering on plant first, then supplier liquidity, then audit date, or something else?",
+        "supplier": "Look, $8–12M capex per supplier is the threshold, but I need to know: which of these three have the working capital to absorb tooling costs *and* float production delays before they start shipping north? Because if two of them are already tight on customer payment terms or tied up in other capex, the Feb 28 gate just becomes a suicide note. Give me their current cash position and customer concentration so I can separate who actually moves from who just walks.",
+        "compliance_lawyer": "Auto, before supply chain maps relocation timelines, I need one clarification: of those three under-$15M Detroit suppliers—stamping, wiring, brake—are all three locked to Detroit only, or does one of them also feed St. Louis? Because if stamping serves both plants and only Detroit fails RVC, I'm pricing a different penalty window and capex justification than if all three are isolated. Give me the plant lock per supplier.",
+        "political_risk_insurer": "Compliance, you said audit sequencing is discretionary within fiscal-year constraints—no published calendar. So here's what I'm pricing: if Detroit and St. Louis compress into concurrent Q1 audits instead of staggered, or if political pressure accelerates Saltillo from Q2 to Q1, the retroactive penalty window tightens and supplier default risk spikes. What's your confidence that the Q1–Q2 schedule holds, and what's the enforcement variance if CBP gets pressure to fast-track? That's my political-risk multiplier right there.",
+        "trade_credit_underwriter": "CFO, on that master table—when you rank suppliers by walk-risk, are you pricing stamping's dual-plant exposure as two separate default triggers, or as one amplified event? Because if Detroit audit fails but St. Louis passes, stamping still eats retroactive tariffs on both shipments. That changes whether they default in Q1 or Q2—and that's the receivables timeline I need to lock down for the map.",
+        "supply_chain_consultant": "Okay, here's what I'm proposing: auto_strategy, I need you to map—for stamping, wiring, and brake—which US nearshoring hubs (Tennessee, Texas, Michigan) actually have capacity and labor to absorb their tooling by Q3 2026. Not \"it's theoretically possible,\" but actual facility leads and timeline commitments. Once I have that, I'm telling the three suppliers: you pick your hub and commit capex to that specific location by Feb 28, or we price you as walk-risk in the CFO's table. This forces the relocation decision now instead of deferring it."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "intent": "CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamping, wiring, brake—you're triggering on either-plant audit failure for stamping, but I need to know: are you pricing the penalty window *retroactively* from audit date, or from when tariffs actually land? Because if CBP accelerates the Q1 schedule under political pressure, the retroactive window compresses and default risk spikes into Q1, not Q2. That's the political premium I need to bake into the receivables timeline right now.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Auto strategy locks retroactive penalty timing—critical for receivables exposure modeling.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Retroactive window precision operationalizes default triggers",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 2,
+          "reason": "Penalty timing clarifies Q1/Q2 exposure split",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Accelerated CBP schedule compresses default window",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "supplier": "Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.",
+        "compliance_lawyer": "CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.",
+        "political_risk_insurer": "CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; but if political pressure compresses both plants to concurrent Q1, stamping defaults 60–90 days earlier with zero float on the $10M capex burn. I'm calling that a political-discretion multiplier—70% confidence the stagger holds, 30% CBP accelerates. That shifts your receivables pool from $40M Q2 exposure to $60M Q1 exposure. Want me to price it as a separate policy-review trigger, or fold it into the capex gate?",
+        "trade_credit_underwriter": "CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days, and they've already burned $10M on capex. That's my trade-credit default trigger—price it as a Feb 28 gate condition: either they lock nearshoring capex by end of Q1, or that receivables pool gets reserved as write-off exposure. Fold that into row one of your table and we're done.",
+        "supply_chain_consultant": "CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments. If a supplier bets $10M on Texas tooling today and Congress reopens RVC rules next year, they're either vindicated or stranded. I want to add one more row to your table—\"2026 Review Trigger: nearshoring incentive sustainability\"—priced as a confidence interval on tariff permanence, not a compliance gap. That way stamping, wiring, and brake see capex commitment as a hedge against rule change, not just a gate to avoid Q1 penalties. Does that change your Feb 28 decision logic?",
+        "cfo_erm": "Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "intent": "CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; but if political pressure compresses both plants to concurrent Q1, stamping defaults 60–90 days earlier with zero float on the $10M capex burn. I'm calling that a political-discretion multiplier—70% confidence the stagger holds, 30% CBP accelerates. That shifts your receivables pool from $40M Q2 exposure to $60M Q1 exposure. Want me to price it as a separate policy-review trigger, or fold it into the capex gate?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Insurer prices CBP acceleration as 30% political-discretion multiplier—shifts Q2 to Q1 exposure.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "CBP acceleration risk quantified as policy trigger",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "70/30 confidence split operationalizes political discretion",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Concurrent Q1 audits compress supplier float",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Political-discretion multiplier integrated into exposure model",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamping, wiring, brake—you're triggering on either-plant audit failure for stamping, but I need to know: are you pricing the penalty window *retroactively* from audit date, or from when tariffs actually land? Because if CBP accelerates the Q1 schedule under political pressure, the retroactive window compresses and default risk spikes into Q1, not Q2. That's the political premium I need to bake into the receivables timeline right now.",
+        "supplier": "Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.",
+        "compliance_lawyer": "CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.",
+        "trade_credit_underwriter": "CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days, and they've already burned $10M on capex. That's my trade-credit default trigger—price it as a Feb 28 gate condition: either they lock nearshoring capex by end of Q1, or that receivables pool gets reserved as write-off exposure. Fold that into row one of your table and we're done.",
+        "supply_chain_consultant": "CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments. If a supplier bets $10M on Texas tooling today and Congress reopens RVC rules next year, they're either vindicated or stranded. I want to add one more row to your table—\"2026 Review Trigger: nearshoring incentive sustainability\"—priced as a confidence interval on tariff permanence, not a compliance gap. That way stamping, wiring, and brake see capex commitment as a hedge against rule change, not just a gate to avoid Q1 penalties. Does that change your Feb 28 decision logic?",
+        "cfo_erm": "Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days, and they've already burned $10M on capex. That's my trade-credit default trigger—price it as a Feb 28 gate condition: either they lock nearshoring capex by end of Q1, or that receivables pool gets reserved as write-off exposure. Fold that into row one of your table and we're done.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Underwriter sets Feb 28 gate: nearshoring capex or $18-24M receivables write-off reserve.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Feb 28 gate creates concrete decision trigger",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Receivables pool quantified as default exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4,
+          "reason": "Gate condition closes stamping exposure row",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Capex deadline forces nearshoring decision",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamping, wiring, brake—you're triggering on either-plant audit failure for stamping, but I need to know: are you pricing the penalty window *retroactively* from audit date, or from when tariffs actually land? Because if CBP accelerates the Q1 schedule under political pressure, the retroactive window compresses and default risk spikes into Q1, not Q2. That's the political premium I need to bake into the receivables timeline right now.",
+        "supplier": "Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.",
+        "compliance_lawyer": "CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.",
+        "political_risk_insurer": "CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; but if political pressure compresses both plants to concurrent Q1, stamping defaults 60–90 days earlier with zero float on the $10M capex burn. I'm calling that a political-discretion multiplier—70% confidence the stagger holds, 30% CBP accelerates. That shifts your receivables pool from $40M Q2 exposure to $60M Q1 exposure. Want me to price it as a separate policy-review trigger, or fold it into the capex gate?",
+        "supply_chain_consultant": "CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments. If a supplier bets $10M on Texas tooling today and Congress reopens RVC rules next year, they're either vindicated or stranded. I want to add one more row to your table—\"2026 Review Trigger: nearshoring incentive sustainability\"—priced as a confidence interval on tariff permanence, not a compliance gap. That way stamping, wiring, and brake see capex commitment as a hedge against rule change, not just a gate to avoid Q1 penalties. Does that change your Feb 28 decision logic?",
+        "cfo_erm": "Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO, before we call the map done: the 2026 review is priced as a tail risk, but it's actually a *decision multiplier* on nearshoring capex commitments. If a supplier bets $10M on Texas tooling today and Congress reopens RVC rules next year, they're either vindicated or stranded. I want to add one more row to your table—\"2026 Review Trigger: nearshoring incentive sustainability\"—priced as a confidence interval on tariff permanence, not a compliance gap. That way stamping, wiring, and brake see capex commitment as a hedge against rule change, not just a gate to avoid Q1 penalties. Does that change your Feb 28 decision logic?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consultant adds 2026 review row—frames capex as hedge against rule change.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "2026 review surfaced as forward decision multiplier",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Confidence interval on tariff permanence operationalizes hedge",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "2026 review row completes forward-risk layer",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Nearshoring reframed as rule-change hedge",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your table's solid, but I need to lock one thing before we call this map complete: when you rank those three Detroit suppliers by walk-risk—stamping, wiring, brake—you're triggering on either-plant audit failure for stamping, but I need to know: are you pricing the penalty window *retroactively* from audit date, or from when tariffs actually land? Because if CBP accelerates the Q1 schedule under political pressure, the retroactive window compresses and default risk spikes into Q1, not Q2. That's the political premium I need to bake into the receivables timeline right now.",
+        "supplier": "Supply chain—you've mapped the $8–12M capex and the 10–14 month window. But right now, are you seeing actual open capacity in Texas, Tennessee, or Michigan for stamping tooling and production ramp? Because if all three suppliers are competing for the same nearshoring slots and one of them gets shut out, that changes which ones walk and which ones survive the penalty window.",
+        "compliance_lawyer": "CFO, before we lock the final map: on that master table, are you pricing stamping's dual-plant penalty exposure *against* their current working capital and capex commitment simultaneously, or are you treating those as sequential triggers? Because if Detroit and St. Louis both fail Q1 and stamping's already committed $10M capex, they might not have the cash float to absorb retroactive tariffs on both plants at once—that's a default scenario your two-column model doesn't surface yet.",
+        "political_risk_insurer": "CFO, here's what I'm pricing into that table: CBP audit acceleration risk. Baseline retroactive penalty window is Q2 default if audits stagger Q1–Q2; but if political pressure compresses both plants to concurrent Q1, stamping defaults 60–90 days earlier with zero float on the $10M capex burn. I'm calling that a political-discretion multiplier—70% confidence the stagger holds, 30% CBP accelerates. That shifts your receivables pool from $40M Q2 exposure to $60M Q1 exposure. Want me to price it as a separate policy-review trigger, or fold it into the capex gate?",
+        "trade_credit_underwriter": "CFO, here's what closes the map: stamping's receivables pool is $18–24M if Detroit and St. Louis both fail Q1, retroactive tariffs land within 90 days, and they've already burned $10M on capex. That's my trade-credit default trigger—price it as a Feb 28 gate condition: either they lock nearshoring capex by end of Q1, or that receivables pool gets reserved as write-off exposure. Fold that into row one of your table and we're done.",
+        "cfo_erm": "Auto—I need stamping, wiring, and brake's current liquid reserves and top-three customer concentration *right now*. That's what lets me price whether they actually have float to absorb $10M capex plus retroactive tariffs simultaneously. Without it, the Feb 28 gate is fiction."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 41.0
+        },
+        {
+          "round": 3,
+          "value": 40.0
+        },
+        {
+          "round": 4,
+          "value": 42.0
+        },
+        {
+          "round": 5,
+          "value": 44.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 32.0
+        },
+        {
+          "round": 3,
+          "value": 41.0
+        },
+        {
+          "round": 4,
+          "value": 45.0
+        },
+        {
+          "round": 5,
+          "value": 49.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 37.0
+        },
+        {
+          "round": 4,
+          "value": 41.0
+        },
+        {
+          "round": 5,
+          "value": 49.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 26
+        },
+        {
+          "round": 2,
+          "value": 27
+        },
+        {
+          "round": 3,
+          "value": 31.0
+        },
+        {
+          "round": 4,
+          "value": 35.0
+        },
+        {
+          "round": 5,
+          "value": 43.0
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 30.2
+        },
+        {
+          "round": 3,
+          "value": 46.4
+        },
+        {
+          "round": 4,
+          "value": 59.1
+        },
+        {
+          "round": 5,
+          "value": 70.1
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 35.0
+        },
+        {
+          "round": 2,
+          "value": 40.0
+        },
+        {
+          "round": 3,
+          "value": 53.0
+        },
+        {
+          "round": 4,
+          "value": 62.0
+        },
+        {
+          "round": 5,
+          "value": 75.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 70.1,
+            "normalised": 0.701
+          }
+        ],
+        "weighted_score": 0.4922
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 49.0,
+            "normalised": 0.49
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 44.0,
+            "normalised": 0.44
+          }
+        ],
+        "weighted_score": 0.47333333333333333
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 75.0,
+            "normalised": 0.75
+          }
+        ],
+        "weighted_score": 0.5433333333333333
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 75.0,
+            "normalised": 0.75
+          }
+        ],
+        "weighted_score": 0.5900000000000001
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 49.0,
+            "normalised": 0.49
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 75.0,
+            "normalised": 0.75
+          }
+        ],
+        "weighted_score": 0.5766666666666667
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 49.0,
+            "normalised": 0.49
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 70.1,
+            "normalised": 0.701
+          }
+        ],
+        "weighted_score": 0.5954999999999999
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 70.1,
+            "normalised": 0.701
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 75.0,
+            "normalised": 0.75
+          }
+        ],
+        "weighted_score": 0.7173333333333333
+      }
+    }
+  }
+}

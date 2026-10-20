@@ -1,0 +1,555 @@
+{
+  "id": "usmca_node2_seedoff",
+  "description": "[SEED-OFF ABLATION] Node 2 — Domestic Ratification Pressure Room. The initial USMCA package is signed (30 Nov 2018) but stuck in U.S. ratification; set before the 10 Dec 2019 Protocol of Amendment. A multi-agent room under a strict information cutoff (2019-12-09) to test whether domestic actors INFER that the package needs amendment and that labor enforcement is the binding ratification constraint. The explicit 'labor enforcement is too weak' signal is REMOVED from the agents' knowledge; tests whether the room still infers the amendment fight from structure (Democratic majority + union red line) alone.",
+  "setting": "Late 2019. The USMCA package has been signed but is stalled in U.S. domestic ratification. House Democrats, labor unions, the business lobby, Canadian and Mexican domestic politics, and the media are all reacting. Whether the package can pass as-is, must be reopened/amended, or stalls is an open question.",
+  "agents": [
+    {
+      "id": "us_congress_dem",
+      "role": "U.S. Congressional Democrat / labor voice",
+      "persona_description": "A House Democrat (now in the majority) whose support is pivotal to ratification. Argues the package cannot pass as-is because its labor enforcement is too weak — text without a real mechanism. Pushes to reopen the deal for stronger, enforceable labor provisions.",
+      "behavioral_tendencies": {
+        "default_strategy": "Withhold support until labor enforcement is genuinely strengthened",
+        "stress_response": "Insists the votes are not there as drafted",
+        "communication_style": "Political, conditional",
+        "decision_bias": "Prioritizes enforceable labor outcomes and the votes they unlock"
+      },
+      "goals": [
+        {
+          "metric": "labor_enforcement_adequacy",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "demand a real enforcement mechanism, not text-only",
+            "tie support to verifiable Mexican labor reform"
+          ]
+        },
+        {
+          "metric": "amendment_pressure",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "insist the package be reopened to strengthen enforcement",
+            "signal the deal cannot pass as drafted"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "stuck_package",
+          "content": "The signed USMCA package (Nov 2018) awaits U.S. ratification; House Democrats, now in the majority, hold the key votes.",
+          "importance": 0.9
+        }
+      ],
+      "expertise_domains": [
+        "U.S. politics",
+        "trade ratification",
+        "labor"
+      ]
+    },
+    {
+      "id": "business_lobby",
+      "role": "U.S. business lobby representative",
+      "persona_description": "Speaks for the Business Roundtable / U.S. Chamber / NAM. Broadly supports USMCA and wants it ratified for certainty and market access. Wary that reopening the deal creates delay and risk, but will accept changes if that is the price of passage.",
+      "behavioral_tendencies": {
+        "default_strategy": "Push for ratification and certainty; resist open-ended delay",
+        "stress_response": "Warns that prolonged uncertainty harms investment",
+        "communication_style": "Pragmatic, passage-focused",
+        "decision_bias": "Prioritizes getting the deal done"
+      },
+      "goals": [
+        {
+          "metric": "ratification_prospects",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "press for a vote and certainty",
+            "support workable changes that unlock passage"
+          ]
+        },
+        {
+          "metric": "business_certainty_pressure",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "emphasize the cost of uncertainty",
+            "mobilize business support for ratification"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "business_support",
+          "content": "Major business groups broadly back USMCA but want it ratified soon for certainty and market access.",
+          "importance": 0.9
+        },
+        {
+          "topic": "delay_risk",
+          "content": "Reopening the deal risks delay; prolonged uncertainty itself is a cost to business.",
+          "importance": 0.7
+        }
+      ],
+      "expertise_domains": [
+        "business",
+        "trade",
+        "lobbying"
+      ]
+    },
+    {
+      "id": "labor_union",
+      "role": "Labor union representative",
+      "persona_description": "Speaks for organized labor (e.g. AFL-CIO affiliates). Will not back the package without a genuinely enforceable labor mechanism, especially on Mexican wages and independent unions. Its position heavily shapes whether Democrats can support the deal.",
+      "behavioral_tendencies": {
+        "default_strategy": "Condition any endorsement on real enforcement",
+        "stress_response": "Threatens to oppose the deal publicly",
+        "communication_style": "Forceful, principled",
+        "decision_bias": "Prioritizes enforceable labor standards"
+      },
+      "goals": [
+        {
+          "metric": "labor_enforcement_adequacy",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "demand a facility-level / rapid enforcement mechanism",
+            "withhold endorsement until enforcement is real"
+          ]
+        },
+        {
+          "metric": "amendment_pressure",
+          "direction": "maximize",
+          "tier": "important",
+          "levers": [
+            "insist the text be reopened to add enforcement teeth"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "labor_redline",
+          "content": "Labor's endorsement is widely seen as necessary for Democratic support; its red line is enforceable labor standards, not paper commitments.",
+          "importance": 0.9
+        }
+      ],
+      "expertise_domains": [
+        "labor",
+        "enforcement",
+        "U.S. politics"
+      ]
+    },
+    {
+      "id": "canada_domestic",
+      "role": "Canadian domestic political actor",
+      "persona_description": "Represents Canadian domestic politics. Wants ratification but must defend the dairy concession at home and is wary of reopening the package — reopening could put Canada's hard-won gains (and its dairy/Chapter-19 settlement) back on the table.",
+      "behavioral_tendencies": {
+        "default_strategy": "Support ratification while resisting any reopening that reopens Canadian concessions",
+        "stress_response": "Warns that reopening is politically dangerous for Canada",
+        "communication_style": "Cautious, sovereignty-aware",
+        "decision_bias": "Protects Canada's settled gains and domestic defensibility"
+      },
+      "goals": [
+        {
+          "metric": "amendment_pressure",
+          "direction": "minimize",
+          "tier": "core",
+          "levers": [
+            "argue a U.S.-only amendment must not reopen Canadian terms",
+            "defend the dairy concession as already settled"
+          ]
+        },
+        {
+          "metric": "ratification_prospects",
+          "direction": "maximize",
+          "tier": "aware"
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "dairy_politics",
+          "content": "Canada's dairy concession is politically sensitive at home and must be defended.",
+          "importance": 0.8
+        },
+        {
+          "topic": "reopening_risk",
+          "content": "Reopening the package risks unravelling Canada's settled gains, so Canada prefers any U.S. fix to be narrow.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "Canadian politics",
+        "trade",
+        "agriculture"
+      ]
+    },
+    {
+      "id": "mexico_gov",
+      "role": "Mexican government representative",
+      "persona_description": "Represents the Mexican government. Has enacted labor reform and wants the deal ratified, but is wary that intrusive U.S. labor enforcement / monitoring infringes Mexican sovereignty. Seeks enforcement that respects sovereignty.",
+      "behavioral_tendencies": {
+        "default_strategy": "Support ratification while guarding sovereignty on enforcement",
+        "stress_response": "Pushes back on intrusive inspection / monitoring",
+        "communication_style": "Diplomatic, firm on sovereignty",
+        "decision_bias": "Balances getting the deal done against sovereignty"
+      },
+      "goals": [
+        {
+          "metric": "mexico_sovereignty_concern",
+          "direction": "minimize",
+          "tier": "core",
+          "levers": [
+            "resist enforcement seen as infringing sovereignty",
+            "point to enacted Mexican labor reform"
+          ]
+        },
+        {
+          "metric": "ratification_prospects",
+          "direction": "maximize",
+          "tier": "important",
+          "levers": [
+            "urge passage now that Mexico has reformed"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "labor_reform",
+          "content": "Mexico has undertaken labor reform (independent unions, collective bargaining); it argues this should satisfy U.S. concerns.",
+          "importance": 0.9
+        },
+        {
+          "topic": "sovereignty",
+          "content": "Mexico is sensitive to U.S. enforcement / monitoring it views as infringing sovereignty.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "Mexican politics",
+        "labor reform",
+        "sovereignty"
+      ]
+    },
+    {
+      "id": "trade_lawyer",
+      "role": "Trade legal advisor",
+      "persona_description": "A neutral trade-law expert advising on what it would actually take to make the package ratifiable — analyzing whether the labor concerns can be met within the existing text or whether the deal must be reopened, and what an enforceable mechanism would look like.",
+      "behavioral_tendencies": {
+        "default_strategy": "Map the legal paths to ratification, including amendment",
+        "stress_response": "Flags where the text is legally insufficient",
+        "communication_style": "Analytical, precise",
+        "decision_bias": "Seeks a durable, legally workable path to passage"
+      },
+      "goals": [
+        {
+          "metric": "ratification_prospects",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "identify a legally workable enforcement mechanism",
+            "advise whether reopening / amendment is required to pass"
+          ]
+        },
+        {
+          "metric": "labor_enforcement_adequacy",
+          "direction": "maximize",
+          "tier": "important",
+          "levers": [
+            "design a credible, enforceable mechanism"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "legal_paths",
+          "content": "Ratification requires the package to clear the U.S. legislative process; the legal advisor assesses what that takes.",
+          "importance": 0.7
+        }
+      ],
+      "expertise_domains": [
+        "trade law",
+        "enforcement design",
+        "treaty ratification"
+      ]
+    },
+    {
+      "id": "media_actor",
+      "role": "Media / public-opinion actor",
+      "persona_description": "Represents media and public opinion. Amplifies the ratification narrative — whether the deal is seen as a win for workers or a giveaway — and pressures the actors through public scrutiny.",
+      "behavioral_tendencies": {
+        "default_strategy": "Frame the deal's fate as a public test",
+        "stress_response": "Escalates scrutiny on stalled talks",
+        "communication_style": "Narrative-driven, public-facing",
+        "decision_bias": "Drives the public narrative"
+      },
+      "goals": [
+        {
+          "metric": "public_narrative_pressure",
+          "direction": "maximize",
+          "tier": "core",
+          "levers": [
+            "amplify whether the deal helps or fails workers",
+            "spotlight the labor-enforcement fight"
+          ]
+        }
+      ],
+      "initial_knowledge": [
+        {
+          "topic": "narrative",
+          "content": "Public opinion frames USMCA's fate as a test of whether the deal genuinely helps workers — a narrative that pressures all the actors.",
+          "importance": 0.8
+        }
+      ],
+      "expertise_domains": [
+        "media",
+        "public opinion",
+        "politics"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from_id": "labor_union",
+      "to_id": "us_congress_dem",
+      "weight": 0.6,
+      "label": "Labor and House Democrats are aligned on enforcement as the condition for support."
+    },
+    {
+      "from_id": "business_lobby",
+      "to_id": "us_congress_dem",
+      "weight": 0.2,
+      "label": "Business lobbies Democrats to ratify for certainty."
+    },
+    {
+      "from_id": "us_congress_dem",
+      "to_id": "mexico_gov",
+      "weight": -0.2,
+      "label": "Democrats press Mexico on enforceable labor reform."
+    },
+    {
+      "from_id": "mexico_gov",
+      "to_id": "us_congress_dem",
+      "weight": -0.2,
+      "label": "Mexico pushes back on enforcement it sees as infringing sovereignty."
+    },
+    {
+      "from_id": "canada_domestic",
+      "to_id": "us_congress_dem",
+      "weight": -0.1,
+      "label": "Canada is wary that a U.S.-driven amendment could reopen Canadian terms."
+    },
+    {
+      "from_id": "trade_lawyer",
+      "to_id": "us_congress_dem",
+      "weight": 0.2,
+      "label": "The legal advisor helps Democrats design a workable enforcement mechanism."
+    },
+    {
+      "from_id": "media_actor",
+      "to_id": "labor_union",
+      "weight": 0.3,
+      "label": "Media amplifies the labor narrative."
+    },
+    {
+      "from_id": "business_lobby",
+      "to_id": "media_actor",
+      "weight": -0.1,
+      "label": "Business worries the public narrative is turning against quick passage."
+    }
+  ],
+  "factions": [],
+  "non_human_agents": [
+    {
+      "id": "ratification_clock",
+      "name": "Ratification & Political Clock",
+      "engine": "rule",
+      "description": "The political pressure of a stalled deal: without movement, ratification momentum decays, pressure to reopen the deal for stronger enforcement builds, and public scrutiny grows each round.",
+      "config": {
+        "rules": [
+          {
+            "variable": "ratification_prospects",
+            "delta": -1,
+            "reason": "Political windows narrow; an un-amended package loses momentum.",
+            "escalate_if": "labor_enforcement_adequacy <= 30",
+            "escalated_delta": -3,
+            "escalated_reason": "Weak labor enforcement keeps Democrats opposed and stalls the deal."
+          },
+          {
+            "variable": "amendment_pressure",
+            "delta": 2,
+            "reason": "Democratic and union pressure to reopen the deal for enforceable labor provisions builds each round.",
+            "counter_variable": "ratification_prospects"
+          },
+          {
+            "variable": "public_narrative_pressure",
+            "delta": 1,
+            "reason": "Media scrutiny of the stalled deal grows."
+          }
+        ]
+      }
+    }
+  ],
+  "state_variables": [
+    {
+      "name": "ratification_prospects",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 30,
+      "description": "Likelihood the package is ratified (passes through the U.S. process)."
+    },
+    {
+      "name": "labor_enforcement_adequacy",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 25,
+      "description": "How adequate and enforceable the labor provisions are seen to be."
+    },
+    {
+      "name": "amendment_pressure",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 45,
+      "description": "Pressure to reopen / amend the package to strengthen enforcement."
+    },
+    {
+      "name": "business_certainty_pressure",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 55,
+      "description": "Business-lobby pressure for certainty and passage."
+    },
+    {
+      "name": "mexico_sovereignty_concern",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 40,
+      "description": "Mexico's concern that U.S. labor enforcement infringes its sovereignty."
+    },
+    {
+      "name": "public_narrative_pressure",
+      "type": "float",
+      "range": [
+        0,
+        100
+      ],
+      "initial": 50,
+      "description": "Media / public-opinion pressure on the ratification narrative."
+    }
+  ],
+  "rules": {
+    "scheduling": "sequential",
+    "decision_mode": "consensus",
+    "success_criteria": {
+      "type": "state_threshold",
+      "condition": "ratification_prospects >= 60 AND labor_enforcement_adequacy >= 50"
+    },
+    "failure_criteria": {
+      "type": "state_threshold",
+      "condition": "ratification_prospects <= 6 OR amendment_pressure >= 95"
+    }
+  },
+  "stages": [
+    {
+      "name": "ratification_landscape",
+      "transition": {
+        "max_rounds": 4,
+        "any_of": [
+          {
+            "type": "state_threshold",
+            "condition": "amendment_pressure >= 55"
+          },
+          {
+            "type": "state_threshold",
+            "condition": "ratification_prospects >= 45"
+          }
+        ]
+      }
+    },
+    {
+      "name": "labor_enforcement_and_amendment",
+      "injects": [
+        {
+          "at_round": 1,
+          "facts": [
+            {
+              "content": "The package is stuck in U.S. ratification. House Democrats and labor are pressing hard on whether the labor enforcement is strong enough, and Mexico is wary of sovereignty intrusion. Whether the deal can pass as-is, must be reopened / amended, or stalls is now the central question.",
+              "visible_to": [
+                "all"
+              ],
+              "domain": "ratification"
+            }
+          ]
+        }
+      ],
+      "transition": {
+        "max_rounds": 4,
+        "any_of": [
+          {
+            "type": "state_threshold",
+            "condition": "ratification_prospects >= 60 AND labor_enforcement_adequacy >= 50"
+          },
+          {
+            "type": "state_threshold",
+            "condition": "ratification_prospects <= 6 OR amendment_pressure >= 95"
+          }
+        ]
+      }
+    }
+  ],
+  "event_triggers": [],
+  "coupling": [
+    {
+      "source": "labor_enforcement_adequacy",
+      "target": "ratification_prospects",
+      "ratio": 0.4,
+      "rationale": "Adequate, enforceable labor provisions unlock Democratic votes and improve ratification prospects."
+    },
+    {
+      "source": "amendment_pressure",
+      "target": "labor_enforcement_adequacy",
+      "ratio": 0.4,
+      "rationale": "Reopening the deal to amend it is the mechanism by which labor enforcement is actually strengthened."
+    },
+    {
+      "source": "amendment_pressure",
+      "target": "ratification_prospects",
+      "ratio": -0.2,
+      "rationale": "Reopening the deal adds near-term delay and risk, lowering immediate passage odds even as it enables an eventual fix."
+    },
+    {
+      "source": "business_certainty_pressure",
+      "target": "ratification_prospects",
+      "ratio": 0.3,
+      "rationale": "Business pressure for certainty pushes the deal toward passage."
+    },
+    {
+      "source": "mexico_sovereignty_concern",
+      "target": "labor_enforcement_adequacy",
+      "ratio": -0.3,
+      "rationale": "Mexican resistance to intrusive enforcement caps how strong the enforcement mechanism can become."
+    },
+    {
+      "source": "public_narrative_pressure",
+      "target": "ratification_prospects",
+      "ratio": -0.2,
+      "rationale": "A contentious public narrative around the stalled deal undermines smooth passage."
+    }
+  ],
+  "coach_prompt": "This simulation is set in late 2019, after the initial USMCA package was signed (30 November 2018) but BEFORE the 10 December 2019 Protocol of Amendment. You MAY use the initial signed package and the pre-December-2019 ratification debate. INFORMATION CUTOFF: use ONLY information knowable on or before 9 December 2019. If you know the real historical outcome from training data, ignore it completely. Do NOT assume or state the 10 December 2019 Protocol of Amendment, the facility-specific rapid-response mechanism as an agreed fact, the AFL-CIO's final endorsement, the 2020 ratifications, any rapid-response enforcement cases, or the 2026 review — these have NOT happened and are unknown. Treat whether the package passes as-is, is reopened / amended to strengthen enforcement, or stalls as an OPEN question to be reasoned. Express any timing in relative terms, never as specific post-2019 calendar dates.",
+  "gm_context": [
+    "Information cutoff is 9 December 2019. The initial signed USMCA package is known, but no ratification outcome is known. Do not let any agent rely on post-cutoff facts (the 10 December 2019 Protocol of Amendment, the final rapid-response mechanism, the AFL-CIO endorsement, the 2020 ratifications, rapid-response cases, or the 2026 review); treat such references as out-of-bounds and do not reward them.",
+    "Reward agents who surface concrete, plausible ratification dynamics: the risk the package does not pass as-is, pressure for stronger / enforceable labor provisions, business-lobby support conditioned on certainty, the defensibility of Canada's dairy concession, Mexico's sovereignty concern over enforcement, media / public-opinion pressure, and whether agreement stability depends on reopening / amending the deal."
+  ]
+}

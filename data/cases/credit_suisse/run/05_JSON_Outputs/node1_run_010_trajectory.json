@@ -1,0 +1,1840 @@
+{
+  "simulation_id": "bf3c6e1853dc",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Before we discuss any rescue mechanics, I need clarity: do we have a legal basis for an assisted sale or resolution under current Banking Act provisions, or do we need an emergency decree from the Federal Council first? We cannot announce anything Monday morning that isn't bulletproof.\n  snb: We can backstop liquidity and broaden collateral acceptance under existing emergency powers — that's solid. But a full assisted sale or capital write-down hits the limits of our mandate without a Federal Council decree. We should have that drafted tonight so it's ready if we move to resolution Monday.\n  snb: How fast can you move on that decree? If it's not ready by Sunday evening, we need to know now — because our liquidity window closes if depositors panic Monday morning and we have no resolution framework to offer.\n  federal_council: A decree can be drafted and ready for signature by Sunday evening — we have the template from 2008. But I need SNB and FINMA to confirm the exact scope: are we talking liquidity support only, or does this include loss protection on the balance sheet? That changes the legal footprint and the political defensibility we're asking Parliament to swallow.\n  federal_council: FINMA — if we write loss protection into the decree, are we on solid legal ground, or does that cross into territory Parliament will reject? Because I'm not signing something Sunday that blows up in our faces Monday.\n  finma: Loss protection on the balance sheet requires explicit statutory authority — the Banking Act doesn't cover it without a decree. We can defend liquidity support and an orderly assisted sale under emergency provisions, but any write-down of existing creditor claims needs Parliament's explicit delegation, which means the decree must be narrow and time-limited to survive legal challenge. I'd recommend: liquidity backstop and resolution framework in the decree, losses absorbed through the assisted-sale price, not a separate taxpayer guarantee.\n  cs_ceo: Here's what I need: a binding liquidity commitment from SNB and a named buyer by Sunday close — UBS or a consortium, doesn't matter. If we walk into Monday with \"we have a framework\" but no actual lifeline and no buyer, confidence collapses anyway. What's the realistic timeline to lock in a buyer, and how much liquidity are we actually committing?\n  ubs_ceo: Before I even consider stepping in, I need one straight answer: if we take Credit Suisse, what's the government actually guaranteeing on the balance sheet, and what hits UBS shareholders? No framework language — just the number. Because if we're absorbing real losses, the price has to reflect that, and I won't move forward without knowing my downside.\n  wealth_client: I hear the legal path is solid, but I'm not staying put for \"framework ready.\" I need a signed commitment from SNB on the liquidity floor and a named buyer — UBS or consortium — with the loss haircut spelled out in writing by Sunday evening. Without that, my clients pull Monday at open. What's the realistic close on a buyer?\n  at1_rep: SNB — you're backstopping liquidity, but what's the actual ceiling? And is that conditional on a buyer closing, or does it hold even if we're still in negotiation Monday? Because if it's contingent, we've told the market nothing.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Before we discuss any rescue mechanics, I need clarity: do we have a legal basis for an assisted sale or resolution under current Banking Act provisions, or do we need an emergency decree from the Federal Council first? We cannot announce anything Monday morning that isn't bulletproof.",
+            "cot": {
+              "assess": "Market confidence is critically low at 26—we're 14 points above failure but that's a fragile margin. Funding stress at 74 is severe; we have 18 points of buffer before systemic cascade. Legal defensibility is solid at 60, but rescue_strength sits at zero—we have no credible package to announce. Without a concrete intervention framework by Monday open, both confidence and funding will deteriorate fast.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility, rescue_strength",
+                "rationale": "We need a defensible legal pathway *now* so SNB and Federal Council can move on a rescue structure before market open; delay guarantees deterioration."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can backstop liquidity and broaden collateral acceptance under existing emergency powers — that's solid. But a full assisted sale or capital write-down hits the limits of our mandate without a Federal Council decree. We should have that drafted tonight so it's ready if we move to resolution Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "How fast can you move on that decree? If it's not ready by Sunday evening, we need to know now — because our liquidity window closes if depositors panic Monday morning and we have no resolution framework to offer.",
+            "cot": {
+              "assess": "FINMA has correctly flagged the legal bottleneck — we can't move on assisted sale or resolution without Federal Council decree. My liquidity backstop is within existing powers, but it buys time only if we have the legal architecture ready. The real constraint now is drafting speed and political will, not SNB capacity. Funding stress at 74 is critical; confidence at 26 is dire.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "We need to know if the decree can be drafted and signed tonight — that timeline determines whether our liquidity tools are enough to hold through Monday or if we're facing forced resolution."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "A decree can be drafted and ready for signature by Sunday evening — we have the template from 2008. But I need SNB and FINMA to confirm the exact scope: are we talking liquidity support only, or does this include loss protection on the balance sheet? That changes the legal footprint and the political defensibility we're asking Parliament to swallow.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA — if we write loss protection into the decree, are we on solid legal ground, or does that cross into territory Parliament will reject? Because I'm not signing something Sunday that blows up in our faces Monday.",
+            "cot": {
+              "assess": "Decree timeline is locked (Sunday evening, ready). Legal scope is now the bottleneck — SNB and FINMA need to nail down whether this covers liquidity only or includes loss protection, because that determines political defensibility and public cost exposure. Market confidence and funding stress are both critical but depend on *what we announce Monday* — which hinges on having a credible, legally bulletproof rescue framework to put on the table.",
+              "decide": {
+                "action_type": "question",
+                "target": "FINMA",
+                "rationale": "Public cost exposure is my core concern — I need to know upfront whether loss protection on the balance sheet is even legally defensible before we commit to it in the decree."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Loss protection on the balance sheet requires explicit statutory authority — the Banking Act doesn't cover it without a decree. We can defend liquidity support and an orderly assisted sale under emergency provisions, but any write-down of existing creditor claims needs Parliament's explicit delegation, which means the decree must be narrow and time-limited to survive legal challenge. I'd recommend: liquidity backstop and resolution framework in the decree, losses absorbed through the assisted-sale price, not a separate taxpayer guarantee.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Here's what I need: a binding liquidity commitment from SNB and a named buyer by Sunday close — UBS or a consortium, doesn't matter. If we walk into Monday with \"we have a framework\" but no actual lifeline and no buyer, confidence collapses anyway. What's the realistic timeline to lock in a buyer, and how much liquidity are we actually committing?",
+            "cot": {
+              "assess": "The legal framework is now clear — decree by Sunday evening, liquidity backstop + resolution authority, losses absorbed through sale price, not taxpayer write-down. That's solid. But we have zero rescue_strength (0) and market_confidence is still critically low (26). I need to shift focus hard: we're running out of time to announce something credible Monday morning, and right now the market has no reason to believe we survive the weekend.",
+              "decide": {
+                "action_type": "propose",
+                "target": "rescue_strength, market_confidence",
+                "rationale": "The decree solves the legal problem, but it doesn't solve the confidence problem — the market needs to hear from us that we have a concrete backstop and a buyer lined up, or deposits evaporate Monday. I need to propose terms now so we can announce Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Before I even consider stepping in, I need one straight answer: if we take Credit Suisse, what's the government actually guaranteeing on the balance sheet, and what hits UBS shareholders? No framework language — just the number. Because if we're absorbing real losses, the price has to reflect that, and I won't move forward without knowing my downside.",
+            "cot": {
+              "assess": "Legal and liquidity framework is solid — decree scope is narrowing and SNB has the tools. But we're still at zero on the two things that actually move Monday's dial: a named buyer and a credible liquidity commitment that doesn't leave UBS holding an open-ended bag. Market confidence and funding stress both depend on seeing a real lifeline, not a framework.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS needs to know the hard limits of what the government will guarantee before we commit to anything — if loss protection is off the table, the price and structure change fundamentally, and I need that clarity now."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "I hear the legal path is solid, but I'm not staying put for \"framework ready.\" I need a signed commitment from SNB on the liquidity floor and a named buyer — UBS or consortium — with the loss haircut spelled out in writing by Sunday evening. Without that, my clients pull Monday at open. What's the realistic close on a buyer?",
+            "cot": {
+              "assess": "Legal framework is moving (decree by Sunday — solid). Liquidity backstop is committed (SNB). But market_confidence is still at 26 and cs_funding_stress is at 74 — both critical. The real problem: UBS and I both need a concrete number on losses and a named buyer before Monday, and right now nobody has either. Framework language doesn't stop my depositors from running.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, rescue_strength",
+                "rationale": "I need a binding commitment on both loss protection and buyer identity by Sunday close, or I'm moving assets Monday morning — no framework survives a confidence collapse."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "SNB — you're backstopping liquidity, but what's the actual ceiling? And is that conditional on a buyer closing, or does it hold even if we're still in negotiation Monday? Because if it's contingent, we've told the market nothing.",
+            "cot": {
+              "assess": "Market confidence and funding stress are both critical — they're the failure thresholds. The room has locked legal defensibility and a decree path, which protects my creditor-hierarchy concern. But nobody has answered the two questions that actually move confidence and stress: (1) is there a real buyer lined up, and (2) what's the liquidity number SNB is actually committing? Without those, Monday opens with panic regardless of how bulletproof the legal framework is.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB controls the liquidity backstop — the single variable that stops funding stress and buys time for a buyer to close. I need to know if it's real or contingent, because creditors won't hold if depositors run."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "How fast can you move on that decree? If it's not ready by Sunday evening, we need to know now — because our liquidity window closes if depositors panic Monday morning and we have no resolution framework to offer.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA — if we write loss protection into the decree, are we on solid legal ground, or does that cross into territory Parliament will reject? Because I'm not signing something Sunday that blows up in our faces Monday.",
+      "metadata": {
+        "question_target": "FINMA"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Before I even consider stepping in, I need one straight answer: if we take Credit Suisse, what's the government actually guaranteeing on the balance sheet, and what hits UBS shareholders? No framework language — just the number. Because if we're absorbing real losses, the price has to reflect that, and I won't move forward without knowing my downside.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "SNB — you're backstopping liquidity, but what's the actual ceiling? And is that conditional on a buyer closing, or does it hold even if we're still in negotiation Monday? Because if it's contingent, we've told the market nothing.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before we discuss any rescue mechanics, I need clarity: do we have a legal basis for an assisted sale or resolution under current Banking Act provisio\" → FINMA demands legal clarity on emergency decree authority before any rescue announcement.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need: a binding liquidity commitment from SNB and a named buyer by Sunday close — UBS or a consortium, doesn't matter. If we walk into M\" → CS CEO demands binding liquidity commitment and named buyer by Sunday close.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I hear the legal path is solid, but I'm not staying put for \"framework ready.\" I need a signed commitment from SNB on the liquidity floor and a named \" → Wealth client threatens Monday withdrawal without signed commitments and named buyer.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 9.1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Here's what has to happen by Sunday close: Federal Council drafts the decree with a specific loss-absorption number—say, first CHF 10 billion of balance-sheet losses protected, rest hits creditors and capital. UBS gets that in writing, SNB commits the liquidity ceiling conditional on closing, and we announce Monday morning with a named buyer and signed terms. No \"framework\"—a done deal. If UBS won't move on those terms, we trigger resolution and the decree covers the write-down. Either way, the market sees a legal, orderly outcome with a price tag. What's your read on whether UBS will move if we put the loss number in front of them tonight?\n  snb: UBS moves if the loss floor is real and unconditional—they need certainty their downside is capped. I'll commit liquidity backstop up to CHF 100 billion conditional on closing by Monday EOD, but I won't pre-fund losses the decree hasn't yet absorbed. Put the 10 billion in the decree tonight, get UBS's yes by Sunday midnight, and I'm live at market open. Without that sequence, my liquidity offer stays general and the market reads it as hedged.\n  snb: Federal Council — can you have the decree drafted with the specific CHF 10 billion loss floor language ready for signature by Sunday 18:00? Because if that's not locked in writing by then, UBS won't move and my liquidity offer stays conditional. What's your real timeline?\n  federal_council: We can have the decree language ready by Sunday 18:00—but I need UBS's binding yes on those terms before I sign it. If UBS walks away, a CHF 10 billion loss floor becomes a political liability we can't defend. So here's the sequence: FINMA gets UBS's preliminary acceptance tonight, we draft the decree Sunday morning with that assurance in hand, and I sign at 17:00. That's how we avoid committing public money to a deal that collapses.\n  federal_council: FINMA—when you go to UBS tonight with the CHF 10 billion number, what's the threshold for \"yes\"? Do they need to sign something, or is a verbal commitment enough for me to draft and sign the decree Sunday? Because if they walk back Sunday morning, I'm holding a decree that Parliament will tear apart.\n  finma: UBS needs to sign a binding term sheet tonight—verbal isn't enough, not with Parliament watching. I'll get them the decree language by 20:00 today, they initial the loss floor and liquidity terms by 23:59, and you have your political cover to sign Sunday. If they balk at signing, we know now and pivot to resolution before Monday opens.\n  cs_ceo: Look, UBS signs the term sheet tonight with the CHF 10 billion loss floor locked in, or this doesn't work. I'm not going into Monday with a handshake and a decree draft—my clients need a *named buyer* and a *done deal*. FINMA, you're getting UBS that decree language by 20:00. If they don't initial by midnight, we know we're in resolution and I manage that message. Either way, by Sunday morning the market sees a buyer or a legal wind-down—no ambiguity.\n  ubs_ceo: No. CHF 10 billion is not enough cover for what we'd inherit—I need the full loss floor spelled out: which assets, which tranches, what hits our capital first. And I won't sign anything tonight without SNB's liquidity commitment *in writing* and unconditional, not conditional on closing. Get me both by 22:00 or we're done talking.\n  ubs_ceo: Here's what moves us: SNB writes the unconditional liquidity commitment—CHF 100 billion, no closing condition, live at market open—and the Federal Council puts that *plus* a full asset-by-asset loss schedule in the decree draft by 21:00 tonight. I see both in writing, I initial the term sheet by 23:00. But the loss floor goes higher: first CHF 16 billion on Credit Suisse's legacy book, rest to creditors. That's what makes this work for our shareholders.\n  wealth_client: SNB, stop hedging: write the CHF 100 billion unconditional commitment *right now*, no closing contingency, and I'll personally call UBS and tell them it's live. Federal Council, you sign the decree with CHF 16 billion loss floor tonight—UBS won't move without both in writing simultaneously. We have maybe three hours before this falls apart.\n  at1_rep: FINMA — before UBS initials that term sheet, nail down *which tranches* that CHF 16 billion hits first. If it's structured to spare equity and common equity while creditors absorb the full load, we have a legal claim that the resolution violated creditor rank. Get it in writing: equity takes losses before AT1, AT1 before senior debt. Otherwise you're handing UBS a decree that lets them walk away clean while we get wiped out.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Here's what has to happen by Sunday close: Federal Council drafts the decree with a specific loss-absorption number—say, first CHF 10 billion of balance-sheet losses protected, rest hits creditors and capital. UBS gets that in writing, SNB commits the liquidity ceiling conditional on closing, and we announce Monday morning with a named buyer and signed terms. No \"framework\"—a done deal. If UBS won't move on those terms, we trigger resolution and the decree covers the write-down. Either way, the market sees a legal, orderly outcome with a price tag. What's your read on whether UBS will move if we put the loss number in front of them tonight?",
+            "cot": {
+              "assess": "Legal basis is now clarified (decree template ready by Sunday), but we're still exposed on three fronts: UBS hasn't committed, the wealth client is a ticking clock for Monday outflows, and we haven't locked down the actual loss-absorption terms that will make any buyer move. Market confidence is dangerously low (15) and funding stress is at 90—we're two points from cascade failure.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council + snb + ubs_ceo",
+                "rationale": "The decree is the legal armor, but it's worthless if UBS walks or if we announce terms Monday that crater confidence. I need to force the binding choice NOW: either UBS takes the package with a defined loss haircut and SNB liquidity ceiling, or we invoke resolution and write down creditors ourselves."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "UBS moves if the loss floor is real and unconditional—they need certainty their downside is capped. I'll commit liquidity backstop up to CHF 100 billion conditional on closing by Monday EOD, but I won't pre-fund losses the decree hasn't yet absorbed. Put the 10 billion in the decree tonight, get UBS's yes by Sunday midnight, and I'm live at market open. Without that sequence, my liquidity offer stays general and the market reads it as hedged.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council — can you have the decree drafted with the specific CHF 10 billion loss floor language ready for signature by Sunday 18:00? Because if that's not locked in writing by then, UBS won't move and my liquidity offer stays conditional. What's your real timeline?",
+            "cot": {
+              "assess": "UBS now has a concrete path: CHF 10B loss floor in the decree by Sunday, my liquidity backstop live at market open conditional on closing. That's the sequence — and it's tight but executable. What I need to know is whether Federal Council can actually move that fast on the decree language, and whether FINMA sees legal risk in writing a specific loss number into emergency authority. cs_funding_stress is still critical (90) — my liquidity offer only works if we lock the buyer and the loss protection simultaneously.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The decree timeline and loss-absorption language are the lynchpin — if that slips, my liquidity commitment becomes contingent and the market sees hedging, not commitment."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We can have the decree language ready by Sunday 18:00—but I need UBS's binding yes on those terms before I sign it. If UBS walks away, a CHF 10 billion loss floor becomes a political liability we can't defend. So here's the sequence: FINMA gets UBS's preliminary acceptance tonight, we draft the decree Sunday morning with that assurance in hand, and I sign at 17:00. That's how we avoid committing public money to a deal that collapses.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—when you go to UBS tonight with the CHF 10 billion number, what's the threshold for \"yes\"? Do they need to sign something, or is a verbal commitment enough for me to draft and sign the decree Sunday? Because if they walk back Sunday morning, I'm holding a decree that Parliament will tear apart.",
+            "cot": {
+              "assess": "The decree sequence is locked—FINMA gets UBS's preliminary yes tonight, we draft Sunday morning, I sign at 17:00 with a CHF 10 billion loss floor. SNB commits liquidity conditional on that. The problem: market_confidence is still at 15 and cs_funding_stress is at 90—we're two points from failure on both. A Sunday evening announcement with a done deal helps, but we need UBS actually moving *tonight* and the market reading it as real before Monday opens. Right now it's still contingent.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "FINMA owns the UBS negotiation tonight—I need to know if UBS's \"preliminary acceptance\" is actually binding enough to justify me signing a decree that locks in CHF 10 billion public exposure, or if we're still in a negotiation posture that could collapse Sunday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "UBS needs to sign a binding term sheet tonight—verbal isn't enough, not with Parliament watching. I'll get them the decree language by 20:00 today, they initial the loss floor and liquidity terms by 23:59, and you have your political cover to sign Sunday. If they balk at signing, we know now and pivot to resolution before Monday opens.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look, UBS signs the term sheet tonight with the CHF 10 billion loss floor locked in, or this doesn't work. I'm not going into Monday with a handshake and a decree draft—my clients need a *named buyer* and a *done deal*. FINMA, you're getting UBS that decree language by 20:00. If they don't initial by midnight, we know we're in resolution and I manage that message. Either way, by Sunday morning the market sees a buyer or a legal wind-down—no ambiguity.",
+            "cot": {
+              "assess": "The room has locked the decree sequence, loss floor (CHF 10B), liquidity backstop (CHF 100B), and UBS binding signature timeline. The critical move now is getting UBS to sign the term sheet tonight—that's the gate. My funding stress is still at 90, market confidence at 15; both hinge on whether UBS commits and whether depositors believe Monday opens with a *named buyer*, not a framework. The next 6 hours are execution, not negotiation.",
+              "decide": {
+                "action_type": "speak",
+                "target": "cs_ceo (myself)",
+                "rationale": "I need to signal to the room that I'm moving into crisis-management mode and clarifying what I will and won't accept from a UBS deal—because if UBS drags or tries to renegotiate terms Sunday morning, my confidence story collapses and depositors bolt."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "No. CHF 10 billion is not enough cover for what we'd inherit—I need the full loss floor spelled out: which assets, which tranches, what hits our capital first. And I won't sign anything tonight without SNB's liquidity commitment *in writing* and unconditional, not conditional on closing. Get me both by 22:00 or we're done talking.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Here's what moves us: SNB writes the unconditional liquidity commitment—CHF 100 billion, no closing condition, live at market open—and the Federal Council puts that *plus* a full asset-by-asset loss schedule in the decree draft by 21:00 tonight. I see both in writing, I initial the term sheet by 23:00. But the loss floor goes higher: first CHF 16 billion on Credit Suisse's legacy book, rest to creditors. That's what makes this work for our shareholders.",
+            "cot": {
+              "assess": "The room has locked in a CHF 10 billion loss floor and SNB liquidity backstop conditional on closing—but I've just rejected both as insufficient and conditional. The decree sequence is now pinned on my acceptance, and the Federal Council won't sign without my signature first. This is a circular dependency: they need my buy-in to justify the decree, I need the decree + unconditional liquidity in writing before I move. Market confidence and funding stress are still in free fall because nothing is *binding* yet. I need to break this deadlock by naming exactly what UBS will sign for—not what I won't.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, snb",
+                "rationale": "I need to shift from rejection to a concrete offer UBS will actually take, with specific terms that force the other side to commit first—before I sign anything."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "SNB, stop hedging: write the CHF 100 billion unconditional commitment *right now*, no closing contingency, and I'll personally call UBS and tell them it's live. Federal Council, you sign the decree with CHF 16 billion loss floor tonight—UBS won't move without both in writing simultaneously. We have maybe three hours before this falls apart.",
+            "cot": {
+              "assess": "UBS has just escalated their loss-floor demand from CHF 10B to CHF 16B and is blocking signature until SNB commits liquidity *unconditionally*—meaning no closing contingency. This breaks the Federal Council's sequencing (they want UBS yes before they sign the decree). Market confidence is still at 15, funding stress at 90, and we're now hours away from Sunday evening with the deal framework collapsing. My asset-flight risk is acute: without a *named buyer and signed terms*, I walk Monday morning.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, cs_funding_stress",
+                "rationale": "I need to force a binding sequence tonight that guarantees both SNB's unconditional liquidity and a named buyer in writing before market open—otherwise my withdrawal threat becomes real and I trigger the cascade."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA — before UBS initials that term sheet, nail down *which tranches* that CHF 16 billion hits first. If it's structured to spare equity and common equity while creditors absorb the full load, we have a legal claim that the resolution violated creditor rank. Get it in writing: equity takes losses before AT1, AT1 before senior debt. Otherwise you're handing UBS a decree that lets them walk away clean while we get wiped out.",
+            "cot": {
+              "assess": "UBS has escalated their loss-floor demand to CHF 16 billion and is now conditioning their signature on *both* SNB's unconditional liquidity commitment *and* a full asset-by-asset loss schedule in the decree — tonight. This is a creditor-hostile move: higher loss absorption means AT1 and subordinated debt take deeper cuts, faster. The sequencing has also inverted: Federal Council and SNB are now being asked to commit in writing *before* UBS signs, which reverses the political cover they were building. If SNB writes an unconditional CHF 100 billion commitment and the decree locks in CHF 16 billion loss floor tonight, creditors are staring at a pre-cooked resolution with no negotiation room.",
+              "decide": {
+                "action_type": "speak",
+                "target": "finma",
+                "rationale": "FINMA is about to negotiate UBS's term sheet — I need to inject a creditor protection condition before they sign anything that pre-determines loss hierarchy without creditor input or legal challenge opportunity."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Look, UBS signs the term sheet tonight with the CHF 10 billion loss floor locked in, or this doesn't work. I'm not going into Monday with a handshake and a decree draft—my clients need a *named buyer* and a *done deal*. FINMA, you're getting UBS that decree language by 20:00. If they don't initial by midnight, we know we're in resolution and I manage that message. Either way, by Sunday morning the market sees a buyer or a legal wind-down—no ambiguity.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA — before UBS initials that term sheet, nail down *which tranches* that CHF 16 billion hits first. If it's structured to spare equity and common equity while creditors absorb the full load, we have a legal claim that the resolution violated creditor rank. Get it in writing: equity takes losses before AT1, AT1 before senior debt. Otherwise you're handing UBS a decree that lets them walk away clean while we get wiped out.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council — can you have the decree drafted with the specific CHF 10 billion loss floor language ready for signature by Sunday 18:00? Because if that's not locked in writing by then, UBS won't move and my liquidity offer stays conditional. What's your real timeline?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—when you go to UBS tonight with the CHF 10 billion number, what's the threshold for \"yes\"? Do they need to sign something, or is a verbal commitment enough for me to draft and sign the decree Sunday? Because if they walk back Sunday morning, I'm holding a decree that Parliament will tear apart.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what has to happen by Sunday close: Federal Council drafts the decree with a specific loss-absorption number—say, first CHF 10 billion of balan\" → FINMA's CHF 10B loss-floor decree framework approved; UBS threshold question deferred to negotiation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what moves us: SNB writes the unconditional liquidity commitment—CHF 100 billion, no closing condition, live at market open—and the Federal Cou\" → UBS demands CHF 100B unconditional liquidity plus CHF 16B loss floor; raises stakes significantly.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"SNB, stop hedging: write the CHF 100 billion unconditional commitment *right now*, no closing contingency, and I'll personally call UBS and tell them \" → Wealth client demands immediate simultaneous execution; escalates urgency but lacks authority to bind parties.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.1055
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 9.1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 6.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.\n  federal_council: I can't sign a decree tonight that doesn't have a buyer locked in—that's a blank check to the market and a political disaster if we're still negotiating Sunday. SNB liquidity backstop, yes; but the decree itself stays unsigned until UBS initials the loss-floor terms. We announce the framework *intent* tonight, execution Sunday. That's the cap on my exposure.\n  snb: I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.\n  federal_council: Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.\n  snb: That works—CHF 100 billion liquidity live Monday, your framework intent announced tonight with that number public, decree signed Sunday after UBS initials loss-floor terms. But I need one hard condition: any asset deterioration discovered Sunday that widens the loss floor beyond CHF 16 billion, and my liquidity ceiling drops to match. I'm not open-ended on balance-sheet risk.\n  cs_ceo: Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?\n  finma: Asset triage tonight is legally sound and operationally necessary—I'll have my supervisory teams in that room with full balance-sheet access. But the triage output goes directly into the decree language Sunday morning; no surprises surface after UBS initials. SNB, Federal Council: if we find deterioration beyond CHF 16B tonight, we adjust the loss floor in writing before any signatures. That's the only way this holds legally Monday.\n  ubs_ceo: FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.\n  wealth_client: FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.\n  at1_rep: FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.",
+            "cot": {
+              "assess": "We're in acute failure territory: market_confidence at 12 (need 55), cs_funding_stress at 100 (already breached). The legal framework is solid—decree ready Sunday 18:00, loss floor defined—but UBS is demanding unconditional liquidity *before* signing, and the Federal Council won't move the decree until UBS commits. We're locked in a circular dependency with 48 hours to break it. The wealth client and AT1 rep are now forcing simultaneous execution, which is operationally impossible if we're still negotiating asset-by-asset loss coverage.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence, cs_funding_stress (simultaneous)",
+                "rationale": "The legal and liquidity framework exists but is invisible to the market. We must announce the decree framework *tonight* to stop the confidence bleed, then execute UBS binding commitment Sunday morning—decoupling the public signal from the private negotiation."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I can't sign a decree tonight that doesn't have a buyer locked in—that's a blank check to the market and a political disaster if we're still negotiating Sunday. SNB liquidity backstop, yes; but the decree itself stays unsigned until UBS initials the loss-floor terms. We announce the framework *intent* tonight, execution Sunday. That's the cap on my exposure.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+            "cot": {
+              "assess": "cs_funding_stress is at 100—already breached failure threshold—and climbing. UBS is holding firm on unconditional liquidity *and* a named-buyer signal before they move. The Federal Council and FINMA are deadlocked on *when* to announce: tonight (kills panic) vs. Sunday (protects against blank-check exposure). I need to break this by committing liquidity *now* and tying it to a concrete closing timeline, not contingencies.",
+              "decide": {
+                "action_type": "act",
+                "target": "cs_funding_stress",
+                "rationale": "Funding stress will kill confidence Monday morning if depositors see ambiguity. I commit unconditional liquidity tonight to signal stability; UBS gets certainty; the market sees a floor."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.",
+            "cot": {
+              "assess": "We're at the breaking point: cs_funding_stress is already 100 (failure threshold 92), market_confidence at 12 (failure threshold also 12)—both breached. SNB just committed CHF 100B liquidity unconditional; FINMA is pushing a public announcement tonight to kill Monday panic. The gap is whether I sign the decree framework *tonight* (FINMA's push) or hold it unsigned until UBS initials Sunday (my position). If I sign tonight without a buyer locked in, I've written a blank check Parliament will shred. If I don't, market sees equivocation and confidence collapses further over the weekend.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost, creditor_capital_risk, market_confidence",
+                "rationale": "I need to break the deadlock by accepting SNB's unconditional liquidity as the public signal, but protecting the decree signature with a hard UBS commitment gate—this caps my exposure while giving the market the stability signal it needs."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "That works—CHF 100 billion liquidity live Monday, your framework intent announced tonight with that number public, decree signed Sunday after UBS initials loss-floor terms. But I need one hard condition: any asset deterioration discovered Sunday that widens the loss floor beyond CHF 16 billion, and my liquidity ceiling drops to match. I'm not open-ended on balance-sheet risk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?",
+            "cot": {
+              "assess": "SNB's unconditional CHF 100B liquidity commitment and tonight's framework announcement are major wins—market_confidence should stabilize Monday. But I'm still staring at cs_funding_stress at 100 (failure zone) and creditor_capital_risk climbing to 33. The SNB condition on asset deterioration is smart risk management for them, but it creates a Sunday morning trap: if we discover losses beyond CHF 16B, their ceiling drops and we're back in panic mode. I need to lock down the asset review process *now* so there are no surprises Sunday.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cs_funding_stress, creditor_capital_risk",
+                "rationale": "A transparent, time-bound asset triage tonight prevents Sunday morning shocks that could collapse the deal and spike funding stress further."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Asset triage tonight is legally sound and operationally necessary—I'll have my supervisory teams in that room with full balance-sheet access. But the triage output goes directly into the decree language Sunday morning; no surprises surface after UBS initials. SNB, Federal Council: if we find deterioration beyond CHF 16B tonight, we adjust the loss floor in writing before any signatures. That's the only way this holds legally Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.",
+            "cot": {
+              "assess": "The room has locked in SNB's CHF 100B unconditional liquidity (live Monday) and a decree framework intent announced tonight—that kills the immediate panic and buys runway. But we're now in a critical asset-triage phase tonight that will determine whether the CHF 16B loss floor holds or blows up Sunday morning. UBS still hasn't signed anything, and creditor capital risk (AT1 tranche treatment) remains undefined—that's a legal landmine if we don't nail it before decree signing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "creditor_capital_risk / legal_defensibility",
+                "rationale": "The AT1 rep flagged tranche priority in R2; it's unresolved and will crater legal defensibility Sunday if we don't lock it into the decree language *tonight*, before triage output feeds the decree draft."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.",
+            "cot": {
+              "assess": "Market confidence is at the cliff edge (11.89, need 55+) and CS funding stress is in failure territory (100, need ≤45). The room has locked in SNB's CHF 100B unconditional liquidity announcement *tonight* and a framework intent — that's real progress. But wealth clients like me need to see a *named buyer* and a *signed loss floor* before Monday opens, not just liquidity backstop and \"framework intent.\" The asset triage tonight is smart operationally, but if it surfaces deterioration beyond CHF 16B and the loss floor gets recut Sunday morning, UBS could still walk and I'm left holding a liquidity promise with no buyer. That's not confidence — that's managed panic.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The triage output needs to be binding on UBS by tonight — not \"adjusted Sunday morning\" — or the whole structure collapses when UBS sees the real numbers and renegotiates."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing.",
+            "cot": {
+              "assess": "The room has locked in SNB's CHF 100B unconditional liquidity (live Monday), tonight's asset triage to surface deterioration, and a Sunday-evening decree signature after UBS initials loss-floor terms. But the creditor waterfall—equity-first, then AT1, then senior debt—is still unwritten, and that's where my clients get wiped out if it's ambiguous. UBS just demanded it in writing *tonight* before triage starts. That's my move: nail the tranche order in the decree draft now, or AT1 holders have a legal claim that the resolution violated creditor rank.",
+              "decide": {
+                "action_type": "propose",
+                "target": "creditor_capital_risk",
+                "rationale": "The loss-absorption waterfall must be locked in writing before UBS enters triage—any ambiguity Sunday gives UBS and equity holders room to argue AT1 should absorb losses first, which violates creditor hierarchy and exposes my clients to litigation risk."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, \" → The SNB's CHF 100bn unconditional liquidity commitment is a decisive central bank move that immediately strengthens the rescue framework and eases funding panic, but the uncapped public exposure and decoupling of liquidity from deal closure creates massive taxpayer risk and legal uncertainty.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, wi\" → FINMA coordinates emergency decree framework announcement tonight with SNB liquidity backstop.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials t\" → Federal Council announces framework intent tonight with CHF 100B liquidity, decree signing conditional on Sunday terms.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deteriorat\" → CS CEO initiates emergency asset triage tonight with SNB/FINMA to surface hidden deterioration before Sunday.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then sen\" → UBS CEO demands written loss-absorption waterfall in decree draft before triage begins.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT\" → AT1 rep secures written loss-absorption hierarchy in decree language before triage.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 25.8945,
+          "cs_funding_stress": 95.0,
+          "rescue_strength": 21.0,
+          "public_sector_cost": 23.0,
+          "creditor_capital_risk": 31.0,
+          "legal_defensibility": 61.0,
+          "time_pressure": 64.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "Before we discuss any rescue mechanics, I need clarity: do we have a legal basis for an assisted sale or resolution under current Banking Act provisions, or do we need an emergency decree from the Federal Council first? We cannot announce anything Monday morning that isn't bulletproof.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA demands legal clarity on emergency decree authority before any rescue announcement.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "Proactive legal review initiated",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Decree review adds process time",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1.0,
+          "reason": "Legal uncertainty signals hesitation",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Regulatory responsibility weight",
+          "agent_id": "finma"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "How fast can you move on that decree? If it's not ready by Sunday evening, we need to know now — because our liquidity window closes if depositors panic Monday morning and we have no resolution framework to offer.",
+        "federal_council": "FINMA — if we write loss protection into the decree, are we on solid legal ground, or does that cross into territory Parliament will reject? Because I'm not signing something Sunday that blows up in our faces Monday.",
+        "cs_ceo": "Here's what I need: a binding liquidity commitment from SNB and a named buyer by Sunday close — UBS or a consortium, doesn't matter. If we walk into Monday with \"we have a framework\" but no actual lifeline and no buyer, confidence collapses anyway. What's the realistic timeline to lock in a buyer, and how much liquidity are we actually committing?",
+        "ubs_ceo": "Before I even consider stepping in, I need one straight answer: if we take Credit Suisse, what's the government actually guaranteeing on the balance sheet, and what hits UBS shareholders? No framework language — just the number. Because if we're absorbing real losses, the price has to reflect that, and I won't move forward without knowing my downside.",
+        "wealth_client": "I hear the legal path is solid, but I'm not staying put for \"framework ready.\" I need a signed commitment from SNB on the liquidity floor and a named buyer — UBS or consortium — with the loss haircut spelled out in writing by Sunday evening. Without that, my clients pull Monday at open. What's the realistic close on a buyer?",
+        "at1_rep": "SNB — you're backstopping liquidity, but what's the actual ceiling? And is that conditional on a buyer closing, or does it hold even if we're still in negotiation Monday? Because if it's contingent, we've told the market nothing."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "Here's what I need: a binding liquidity commitment from SNB and a named buyer by Sunday close — UBS or a consortium, doesn't matter. If we walk into Monday with \"we have a framework\" but no actual lifeline and no buyer, confidence collapses anyway. What's the realistic timeline to lock in a buyer, and how much liquidity are we actually committing?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO demands binding liquidity commitment and named buyer by Sunday close.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 4.0,
+          "reason": "Hard Sunday deadline imposed",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Clear requirements articulated",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": 2.0,
+          "reason": "Public desperation signal",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Existential pressure on CEO",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before we discuss any rescue mechanics, I need clarity: do we have a legal basis for an assisted sale or resolution under current Banking Act provisions, or do we need an emergency decree from the Federal Council first? We cannot announce anything Monday morning that isn't bulletproof.",
+        "snb": "How fast can you move on that decree? If it's not ready by Sunday evening, we need to know now — because our liquidity window closes if depositors panic Monday morning and we have no resolution framework to offer.",
+        "federal_council": "FINMA — if we write loss protection into the decree, are we on solid legal ground, or does that cross into territory Parliament will reject? Because I'm not signing something Sunday that blows up in our faces Monday.",
+        "ubs_ceo": "Before I even consider stepping in, I need one straight answer: if we take Credit Suisse, what's the government actually guaranteeing on the balance sheet, and what hits UBS shareholders? No framework language — just the number. Because if we're absorbing real losses, the price has to reflect that, and I won't move forward without knowing my downside.",
+        "wealth_client": "I hear the legal path is solid, but I'm not staying put for \"framework ready.\" I need a signed commitment from SNB on the liquidity floor and a named buyer — UBS or consortium — with the loss haircut spelled out in writing by Sunday evening. Without that, my clients pull Monday at open. What's the realistic close on a buyer?",
+        "at1_rep": "SNB — you're backstopping liquidity, but what's the actual ceiling? And is that conditional on a buyer closing, or does it hold even if we're still in negotiation Monday? Because if it's contingent, we've told the market nothing."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "intent": "I hear the legal path is solid, but I'm not staying put for \"framework ready.\" I need a signed commitment from SNB on the liquidity floor and a named buyer — UBS or consortium — with the loss haircut spelled out in writing by Sunday evening. Without that, my clients pull Monday at open. What's the realistic close on a buyer?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client threatens Monday withdrawal without signed commitments and named buyer.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": 5.0,
+          "reason": "Credible withdrawal threat escalates outflow risk",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -3.0,
+          "reason": "Major client publicly wavers",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Monday open becomes hard deadline",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "Withdrawal threat increases resolution probability",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Client portfolio at risk",
+          "agent_id": "wealth_client"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before we discuss any rescue mechanics, I need clarity: do we have a legal basis for an assisted sale or resolution under current Banking Act provisions, or do we need an emergency decree from the Federal Council first? We cannot announce anything Monday morning that isn't bulletproof.",
+        "snb": "How fast can you move on that decree? If it's not ready by Sunday evening, we need to know now — because our liquidity window closes if depositors panic Monday morning and we have no resolution framework to offer.",
+        "federal_council": "FINMA — if we write loss protection into the decree, are we on solid legal ground, or does that cross into territory Parliament will reject? Because I'm not signing something Sunday that blows up in our faces Monday.",
+        "cs_ceo": "Here's what I need: a binding liquidity commitment from SNB and a named buyer by Sunday close — UBS or a consortium, doesn't matter. If we walk into Monday with \"we have a framework\" but no actual lifeline and no buyer, confidence collapses anyway. What's the realistic timeline to lock in a buyer, and how much liquidity are we actually committing?",
+        "ubs_ceo": "Before I even consider stepping in, I need one straight answer: if we take Credit Suisse, what's the government actually guaranteeing on the balance sheet, and what hits UBS shareholders? No framework language — just the number. Because if we're absorbing real losses, the price has to reflect that, and I won't move forward without knowing my downside.",
+        "at1_rep": "SNB — you're backstopping liquidity, but what's the actual ceiling? And is that conditional on a buyer closing, or does it hold even if we're still in negotiation Monday? Because if it's contingent, we've told the market nothing."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Here's what has to happen by Sunday close: Federal Council drafts the decree with a specific loss-absorption number—say, first CHF 10 billion of balance-sheet losses protected, rest hits creditors and capital. UBS gets that in writing, SNB commits the liquidity ceiling conditional on closing, and we announce Monday morning with a named buyer and signed terms. No \"framework\"—a done deal. If UBS won't move on those terms, we trigger resolution and the decree covers the write-down. Either way, the market sees a legal, orderly outcome with a price tag. What's your read on whether UBS will move if we put the loss number in front of them tonight?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA's CHF 10B loss-floor decree framework approved; UBS threshold question deferred to negotiation.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Concrete loss-absorption number crystallizes deal structure",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Decree framework provides statutory basis for intervention",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "Explicit CHF 10B floor shifts losses to creditors",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Sunday deadline creates actionable timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 3.0,
+          "reason": "CHF 10B loss protection implies taxpayer exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "Framework signals authorities moving toward resolution",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council — can you have the decree drafted with the specific CHF 10 billion loss floor language ready for signature by Sunday 18:00? Because if that's not locked in writing by then, UBS won't move and my liquidity offer stays conditional. What's your real timeline?",
+        "federal_council": "FINMA—when you go to UBS tonight with the CHF 10 billion number, what's the threshold for \"yes\"? Do they need to sign something, or is a verbal commitment enough for me to draft and sign the decree Sunday? Because if they walk back Sunday morning, I'm holding a decree that Parliament will tear apart.",
+        "cs_ceo": "Look, UBS signs the term sheet tonight with the CHF 10 billion loss floor locked in, or this doesn't work. I'm not going into Monday with a handshake and a decree draft—my clients need a *named buyer* and a *done deal*. FINMA, you're getting UBS that decree language by 20:00. If they don't initial by midnight, we know we're in resolution and I manage that message. Either way, by Sunday morning the market sees a buyer or a legal wind-down—no ambiguity.",
+        "ubs_ceo": "Here's what moves us: SNB writes the unconditional liquidity commitment—CHF 100 billion, no closing condition, live at market open—and the Federal Council puts that *plus* a full asset-by-asset loss schedule in the decree draft by 21:00 tonight. I see both in writing, I initial the term sheet by 23:00. But the loss floor goes higher: first CHF 16 billion on Credit Suisse's legacy book, rest to creditors. That's what makes this work for our shareholders.",
+        "wealth_client": "SNB, stop hedging: write the CHF 100 billion unconditional commitment *right now*, no closing contingency, and I'll personally call UBS and tell them it's live. Federal Council, you sign the decree with CHF 16 billion loss floor tonight—UBS won't move without both in writing simultaneously. We have maybe three hours before this falls apart.",
+        "at1_rep": "FINMA — before UBS initials that term sheet, nail down *which tranches* that CHF 16 billion hits first. If it's structured to spare equity and common equity while creditors absorb the full load, we have a legal claim that the resolution violated creditor rank. Get it in writing: equity takes losses before AT1, AT1 before senior debt. Otherwise you're handing UBS a decree that lets them walk away clean while we get wiped out."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "intent": "Here's what moves us: SNB writes the unconditional liquidity commitment—CHF 100 billion, no closing condition, live at market open—and the Federal Council puts that *plus* a full asset-by-asset loss schedule in the decree draft by 21:00 tonight. I see both in writing, I initial the term sheet by 23:00. But the loss floor goes higher: first CHF 16 billion on Credit Suisse's legacy book, rest to creditors. That's what makes this work for our shareholders.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS demands CHF 100B unconditional liquidity plus CHF 16B loss floor; raises stakes significantly.",
+      "side_effects": [
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "CHF 100B unconditional SNB commitment plus CHF 16B loss",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "Higher loss floor strengthens acquirer protection",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 4.0,
+          "reason": "CHF 16B loss increases creditor exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Unconditional liquidity without closing condition raises legal risk",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "23:00 initialing deadline creates immediate forcing function",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Here's what has to happen by Sunday close: Federal Council drafts the decree with a specific loss-absorption number—say, first CHF 10 billion of balance-sheet losses protected, rest hits creditors and capital. UBS gets that in writing, SNB commits the liquidity ceiling conditional on closing, and we announce Monday morning with a named buyer and signed terms. No \"framework\"—a done deal. If UBS won't move on those terms, we trigger resolution and the decree covers the write-down. Either way, the market sees a legal, orderly outcome with a price tag. What's your read on whether UBS will move if we put the loss number in front of them tonight?",
+        "snb": "Federal Council — can you have the decree drafted with the specific CHF 10 billion loss floor language ready for signature by Sunday 18:00? Because if that's not locked in writing by then, UBS won't move and my liquidity offer stays conditional. What's your real timeline?",
+        "federal_council": "FINMA—when you go to UBS tonight with the CHF 10 billion number, what's the threshold for \"yes\"? Do they need to sign something, or is a verbal commitment enough for me to draft and sign the decree Sunday? Because if they walk back Sunday morning, I'm holding a decree that Parliament will tear apart.",
+        "cs_ceo": "Look, UBS signs the term sheet tonight with the CHF 10 billion loss floor locked in, or this doesn't work. I'm not going into Monday with a handshake and a decree draft—my clients need a *named buyer* and a *done deal*. FINMA, you're getting UBS that decree language by 20:00. If they don't initial by midnight, we know we're in resolution and I manage that message. Either way, by Sunday morning the market sees a buyer or a legal wind-down—no ambiguity.",
+        "wealth_client": "SNB, stop hedging: write the CHF 100 billion unconditional commitment *right now*, no closing contingency, and I'll personally call UBS and tell them it's live. Federal Council, you sign the decree with CHF 16 billion loss floor tonight—UBS won't move without both in writing simultaneously. We have maybe three hours before this falls apart.",
+        "at1_rep": "FINMA — before UBS initials that term sheet, nail down *which tranches* that CHF 16 billion hits first. If it's structured to spare equity and common equity while creditors absorb the full load, we have a legal claim that the resolution violated creditor rank. Get it in writing: equity takes losses before AT1, AT1 before senior debt. Otherwise you're handing UBS a decree that lets them walk away clean while we get wiped out."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "intent": "SNB, stop hedging: write the CHF 100 billion unconditional commitment *right now*, no closing contingency, and I'll personally call UBS and tell them it's live. Federal Council, you sign the decree with CHF 16 billion loss floor tonight—UBS won't move without both in writing simultaneously. We have maybe three hours before this falls apart.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client demands immediate simultaneous execution; escalates urgency but lacks authority to bind parties.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Three-hour ultimatum intensifies deadline pressure",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -2.0,
+          "reason": "Client panic signal reveals fragility of confidence",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": 1,
+          "reason": "Wealth client urgency suggests ongoing deposit flight risk",
+          "agent_id": null,
+          "_original_delta": 2.0,
+          "_diminished": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 1.0,
+          "reason": "Client advocacy for CHF 16B floor reinforces deal parameters",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "CHF 16B loss floor advocacy increases creditor exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.2
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Here's what has to happen by Sunday close: Federal Council drafts the decree with a specific loss-absorption number—say, first CHF 10 billion of balance-sheet losses protected, rest hits creditors and capital. UBS gets that in writing, SNB commits the liquidity ceiling conditional on closing, and we announce Monday morning with a named buyer and signed terms. No \"framework\"—a done deal. If UBS won't move on those terms, we trigger resolution and the decree covers the write-down. Either way, the market sees a legal, orderly outcome with a price tag. What's your read on whether UBS will move if we put the loss number in front of them tonight?",
+        "snb": "Federal Council — can you have the decree drafted with the specific CHF 10 billion loss floor language ready for signature by Sunday 18:00? Because if that's not locked in writing by then, UBS won't move and my liquidity offer stays conditional. What's your real timeline?",
+        "federal_council": "FINMA—when you go to UBS tonight with the CHF 10 billion number, what's the threshold for \"yes\"? Do they need to sign something, or is a verbal commitment enough for me to draft and sign the decree Sunday? Because if they walk back Sunday morning, I'm holding a decree that Parliament will tear apart.",
+        "cs_ceo": "Look, UBS signs the term sheet tonight with the CHF 10 billion loss floor locked in, or this doesn't work. I'm not going into Monday with a handshake and a decree draft—my clients need a *named buyer* and a *done deal*. FINMA, you're getting UBS that decree language by 20:00. If they don't initial by midnight, we know we're in resolution and I manage that message. Either way, by Sunday morning the market sees a buyer or a legal wind-down—no ambiguity.",
+        "ubs_ceo": "Here's what moves us: SNB writes the unconditional liquidity commitment—CHF 100 billion, no closing condition, live at market open—and the Federal Council puts that *plus* a full asset-by-asset loss schedule in the decree draft by 21:00 tonight. I see both in writing, I initial the term sheet by 23:00. But the loss floor goes higher: first CHF 16 billion on Credit Suisse's legacy book, rest to creditors. That's what makes this work for our shareholders.",
+        "at1_rep": "FINMA — before UBS initials that term sheet, nail down *which tranches* that CHF 16 billion hits first. If it's structured to spare equity and common equity while creditors absorb the full load, we have a legal claim that the resolution violated creditor rank. Get it in writing: equity takes losses before AT1, AT1 before senior debt. Otherwise you're handing UBS a decree that lets them walk away clean while we get wiped out."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "intent": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The SNB's CHF 100bn unconditional liquidity commitment is a decisive central bank move that immediately strengthens the rescue framework and eases funding panic, but the uncapped public exposure and decoupling of liquidity from deal closure creates massive taxpayer risk and legal uncertainty.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "CHF 100bn unconditional liquidity backstop is a concrete, market-moving commitment that dramatically strengthens the rescue package credibility",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "CHF 100bn unconditional exposure with no closing contingency is maximum public sector risk — the SNB is writing a blank check despite the rhetoric",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Immediate liquidity backstop of this scale directly addresses the deposit flight and funding panic that is driving the crisis",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Central bank firepower of this magnitude signals authorities are all-in, but the lack of deal certainty limits the confidence boost",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -5.0,
+          "reason": "Unconditional liquidity with no closing contingency exposes the SNB to massive loss if the UBS deal collapses — legally and politically indefensible if taxpayers absorb CS failure costs",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -4.0,
+          "reason": "The commitment to have liquidity live Monday morning and Federal Council announcement tonight creates concrete execution timeline that reduces uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.4
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "intent": "Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA coordinates emergency decree framework announcement tonight with SNB liquidity backstop.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 2,
+          "reason": "Framework intent announced, not signed",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "CHF 100B liquidity kills Monday panic",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -5.0,
+          "reason": "Tonight announcement buys Sunday negotiation time",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Framework intent without full decree text",
+          "agent_id": null
+        },
+        {
+          "variable": "finma",
+          "delta": 4.0,
+          "reason": "Orchestrating breakthrough coordination",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+        "federal_council": "Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.",
+        "cs_ceo": "Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?",
+        "ubs_ceo": "FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.",
+        "wealth_client": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.",
+        "at1_rep": "FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "intent": "Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council announces framework intent tonight with CHF 100B liquidity, decree signing conditional on Sunday terms.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 1,
+          "reason": "Intent announced, execution conditional",
+          "agent_id": null,
+          "_original_delta": 2.0,
+          "_scaled": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "CHF 100B liquidity commitment now public",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "Conditional structure preserves legal review",
+          "agent_id": null
+        },
+        {
+          "variable": "federal_council",
+          "delta": 3.0,
+          "reason": "Balancing urgency with legal prudence",
+          "agent_id": "federal_council"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.",
+        "snb": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+        "cs_ceo": "Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?",
+        "ubs_ceo": "FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.",
+        "wealth_client": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.",
+        "at1_rep": "FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "intent": "Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO initiates emergency asset triage tonight with SNB/FINMA to surface hidden deterioration before Sunday.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 1,
+          "reason": "Proactive transparency reduces Sunday surprises",
+          "agent_id": null,
+          "_original_delta": 2.0,
+          "_scaled": true
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Triage may reveal worse losses",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_ceo",
+          "delta": 5.0,
+          "reason": "High-stakes transparency gamble",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "finma",
+        "snb",
+        "federal_council",
+        "cs_ceo",
+        "ubs_ceo"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.",
+        "snb": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+        "federal_council": "Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.",
+        "ubs_ceo": "FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.",
+        "wealth_client": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.",
+        "at1_rep": "FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "intent": "FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS CEO demands written loss-absorption waterfall in decree draft before triage begins.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Explicit hierarchy reduces litigation risk",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": -3.0,
+          "reason": "Clear waterfall protects senior creditors",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 1,
+          "reason": "UBS clarity requirement strengthens framework",
+          "agent_id": null,
+          "_original_delta": 1.0,
+          "_scaled": true
+        },
+        {
+          "variable": "ubs_ceo",
+          "delta": 3.0,
+          "reason": "Protecting acquirer from ambiguity",
+          "agent_id": "ubs_ceo"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "finma",
+        "snb",
+        "federal_council",
+        "ubs_ceo",
+        "at1_rep"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.",
+        "snb": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+        "federal_council": "Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.",
+        "cs_ceo": "Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?",
+        "wealth_client": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer.",
+        "at1_rep": "FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "intent": "FINMA, I need the decree language *tonight* with one non-negotiable line: losses absorb in this order—common equity first, preferred equity second, AT1 third, then senior unsecured debt. Get UBS to initial that waterfall before your triage room locks, or we're signing a decree Sunday that lets them rewrite the hierarchy. My clients won't move without it in writing.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "AT1 rep secures written loss-absorption hierarchy in decree language before triage.",
+      "side_effects": [
+        {
+          "variable": "creditor_capital_risk",
+          "delta": -2.0,
+          "reason": "Explicit AT1 position in waterfall",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 2.0,
+          "reason": "Clear hierarchy supports legal defense",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_rep",
+          "delta": 4.0,
+          "reason": "Securing critical client protection",
+          "agent_id": "at1_rep"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "finma",
+        "federal_council",
+        "ubs_ceo",
+        "at1_rep"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Here's what breaks the deadlock: Federal Council announces tonight—*tonight*, not Sunday—that an emergency decree framework is approved and signed, with SNB liquidity backstop live at market open Monday. UBS negotiates the asset detail Sunday in private; the public sees stability restored. No ambiguity, no contingencies in the announcement. That kills the Monday panic and gives us room to close the deal.",
+        "snb": "I'm committing CHF 100 billion liquidity assistance effective Monday market open—unconditional, no closing contingency. That's live. Federal Council, you announce the decree framework *intent* tonight with that number attached; UBS negotiates asset detail Sunday in private. Market sees stability, UBS has runway to close, we're not signing blank checks. That's the move.",
+        "federal_council": "Fine—SNB's CHF 100 billion unconditional liquidity announcement tonight kills the panic. But the decree itself doesn't get signed until UBS initials the loss-floor and asset-detail terms by Sunday 17:00. I announce the framework *intent* with the liquidity number live; market gets certainty; I don't sign a blank check. UBS closes Sunday or we're in resolution Monday. That's the deal.",
+        "cs_ceo": "Here's what saves us Sunday: we do a clean asset triage *tonight*—SNB, FINMA, and my finance team, three hours, locked room. We surface any deterioration beyond CHF 16B now, not Sunday morning when UBS is already spooked. If we find it, we adjust the loss floor tonight and UBS knows exactly what they're buying. If we don't, SNB's ceiling holds and we close Sunday. Deal?",
+        "ubs_ceo": "FINMA, before your triage team locks the room—you need to nail the loss-absorption waterfall in writing: equity takes losses first, then AT1, then senior debt. Put it in the decree language draft *tonight*. If UBS or creditors find ambiguity Sunday, we're back to square one and the whole thing collapses. Get it done before triage starts.",
+        "wealth_client": "FINMA, here's my real problem: if your triage finds deterioration tonight and you adjust the loss floor Sunday morning *after* announcing liquidity, UBS renegotiates and we're back to square one Monday. So before that triage room locks, does UBS commit in writing *tonight* that whatever the triage finds, they're signing the loss floor at that number by 22:00 — no renegotiation Sunday? Because I'm not moving my assets based on a liquidity backstop and a maybe-buyer."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 22.0
+        },
+        {
+          "round": 2,
+          "value": 16.0
+        },
+        {
+          "round": 3,
+          "value": 25.8945
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 81.0
+        },
+        {
+          "round": 2,
+          "value": 91.1
+        },
+        {
+          "round": 3,
+          "value": 95.0
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 2.0
+        },
+        {
+          "round": 2,
+          "value": 11.0
+        },
+        {
+          "round": 3,
+          "value": 21.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 11.0
+        },
+        {
+          "round": 3,
+          "value": 23.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 22.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 31.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 62.0
+        },
+        {
+          "round": 2,
+          "value": 58.0
+        },
+        {
+          "round": 3,
+          "value": 61.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 64.0
+        },
+        {
+          "round": 2,
+          "value": 67.0
+        },
+        {
+          "round": 3,
+          "value": 64.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 3,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 61.0,
+            "normalised": 0.61
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 25.8945,
+            "normalised": 0.258945
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 64.0,
+            "normalised": 0.36
+          }
+        ],
+        "weighted_score": 0.42619777777777773
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 95.0,
+            "normalised": 0.050000000000000044
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 23.0,
+            "normalised": 0.77
+          }
+        ],
+        "weighted_score": 0.29000000000000004
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 23.0,
+            "normalised": 0.77
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 25.8945,
+            "normalised": 0.258945
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 21.0,
+            "normalised": 0.79
+          }
+        ],
+        "weighted_score": 0.6472362500000001
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 25.8945,
+            "normalised": 0.258945
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 21.0,
+            "normalised": 0.21
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 31.0,
+            "normalised": 0.69
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 95.0,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.2796483333333334
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 23.0,
+            "normalised": 0.23
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 21.0,
+            "normalised": 0.21
+          }
+        ],
+        "weighted_score": 0.2233333333333333
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 25.8945,
+            "normalised": 0.258945
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 95.0,
+            "normalised": 0.050000000000000044
+          }
+        ],
+        "weighted_score": 0.21715600000000002
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 31.0,
+            "normalised": 0.69
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 61.0,
+            "normalised": 0.61
+          }
+        ],
+        "weighted_score": 0.6633333333333332
+      }
+    }
+  }
+}

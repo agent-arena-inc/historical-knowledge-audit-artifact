@@ -1,0 +1,1824 @@
+{
+  "simulation_id": "3faf0f1d9d2b",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm doing: I'm adding a mandatory governance warranty to every financial-lines renewal — board risk-committee sign-off on any AI-agent deployment, plus quarterly attestation on control gaps. And I'm capping D&O tail coverage at $50M sublimit until we see 12 months of clean audit findings. The $115M CS hit is not happening on my book.\n  dando_specialist: On the governance warranty — what's your validation protocol if the risk committee signs off but internal audit is slow or conflicted? Because CS's board signed off too, and we didn't see Archegos until it was $5.5bn. How are you actually confirming the control gaps they're attesting to?\n  financial_lines_underwriter: Attestation alone doesn't cut it — I'm requiring independent third-party validation of the control gaps they're claiming to have closed, and if audit finds material weaknesses post-renewal, we clawback premium and tighten the sublimit further. The warranty teeth are in the clawback clause and the quarterly audit trigger, not the signature.\n  eo_specialist: Who's doing the third-party validation — Big Four only, or will you accept specialist AI-governance auditors? And what's your timeline — quarterly audit results in, clawback decision out within 30 days, or are we waiting for fiscal-year-end? Because if there's a 6-month lag, a control failure could slip through.\n  reinsurance_manager: Before we lock the auditor type — does your third-party validation include a cross-client attestation? Because if your Big Four validator is also auditing five other insureds using the same LLM stack, Lloyd's already flagged that as hidden correlation risk. You isolate control failures on one book, but you've just correlated yourself with everyone else's validator.\n  claims_counsel: On the third-party validator — are you requiring them to disclose other insureds on the same tech stack, and if they flag correlation, do you have a fallback auditor lined up? Because if your control validation itself becomes systemic risk, the clawback clause doesn't save you.\n  emerging_risk_lead: Sarah, before you finalize the auditor — are you requiring validator independence *across your entire book*, or just per-insured? Because if the same Big Four team finds a control gap at Insured A in month 8, and you don't clawback until month 10, Insured B and C are already exposed. One leaked email about the same tech stack and you've got a sector run. I'd lock a fallback validator *now* and mandate disclosure within 10 days, not 30.\n  ai_agent_analyst: Sarah, your clawback teeth are solid, but you need a validator *exclusion clause* — Big Four can't audit more than two insureds on the same LLM stack in your portfolio. And mandate disclosure within 10 days, not 30. Otherwise you're buying auditor risk, not control validation. Lock a fallback auditor now; if your primary validator flags correlation, you switch immediately. That's what turns discipline into actual containment.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: I'm adding a mandatory governance warranty to every financial-lines renewal — board risk-committee sign-off on any AI-agent deployment, plus quarterly attestation on control gaps. And I'm capping D&O tail coverage at $50M sublimit until we see 12 months of clean audit findings. The $115M CS hit is not happening on my book.",
+            "cot": {
+              "assess": "Underwriting discipline is at 40 and needs to hit 60 — I'm 20 points short. The D&O/E&O exposure sits at 38 (contained), but litigation tail is running at 33 and reputational contagion at 30. Both of those will bleed into claims if I don't lock down terms and exclusions now. Reinsurance accumulation is actually performing — at 27, well under the 45 target — so the portfolio isn't systemic yet.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "I need to translate the $115M CS benchmark and the 2025 ruling into actual policy conditions — tighter governance warranties, risk-control sublimits, and exclusion language that contain this exposure before litigation tail compounds it further."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On the governance warranty — what's your validation protocol if the risk committee signs off but internal audit is slow or conflicted? Because CS's board signed off too, and we didn't see Archegos until it was $5.5bn. How are you actually confirming the control gaps they're attesting to?",
+            "cot": {
+              "assess": "The governance warranty and tail-cap are solid containment moves, but they're reactive — they don't surface *how* the underwriting team validates control gaps before renewal, and the 12-month clean audit gate leaves a 12-month exposure window wide open. Meanwhile, underwriting_discipline is still at 40; we need active gatekeeping, not just coverage limits.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The warranty structure assumes audit findings are reliable; I need to know how you're stress-testing that assumption given the CS PUK findings showed years of buried control failures before detection."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Attestation alone doesn't cut it — I'm requiring independent third-party validation of the control gaps they're claiming to have closed, and if audit finds material weaknesses post-renewal, we clawback premium and tighten the sublimit further. The warranty teeth are in the clawback clause and the quarterly audit trigger, not the signature.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Who's doing the third-party validation — Big Four only, or will you accept specialist AI-governance auditors? And what's your timeline — quarterly audit results in, clawback decision out within 30 days, or are we waiting for fiscal-year-end? Because if there's a 6-month lag, a control failure could slip through.",
+            "cot": {
+              "assess": "Financial-lines underwriter has tightened D&O/E&O conditions with clawback teeth and quarterly audit triggers — that's real discipline. But the third-party validation protocol for control-gap attestation is still vague: who validates, what standard, how fast? And the $50M sublimit on tail coverage creates a coverage gap that could seed future claims if an AI-agent event hits post-renewal. Underwriting_discipline is 40; we need specifics on the validation chain to move it.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Third-party validator selection and audit-trigger timing directly affect whether control gaps are caught before renewal — this is the operational hinge for discipline."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Before we lock the auditor type — does your third-party validation include a cross-client attestation? Because if your Big Four validator is also auditing five other insureds using the same LLM stack, Lloyd's already flagged that as hidden correlation risk. You isolate control failures on one book, but you've just correlated yourself with everyone else's validator.",
+            "cot": {
+              "assess": "Financial lines is locking down governance warranties and clawback teeth — solid. But the validation protocol is still loose: no decision on auditor type, no timeline for clawback decisions, and a 6-month lag kills the whole control. Meanwhile, reinsurance_accumulation is sitting at 27 — I need to know if this governance tightening actually fragments correlated exposure across treaties, or if we're just pushing the same D&O/E&O tail into different layers where it correlates worse.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "I need to surface whether the third-party validation and clawback mechanics actually *reduce* hidden accumulation across the treaty stack, or if tighter terms on one desk just shift exposure into the reinsurance market where correlation becomes invisible."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the third-party validator — are you requiring them to disclose other insureds on the same tech stack, and if they flag correlation, do you have a fallback auditor lined up? Because if your control validation itself becomes systemic risk, the clawback clause doesn't save you.",
+            "cot": {
+              "assess": "Underwriting discipline is the choke point — at 40, you need 20 more points and the team's building the right controls (governance warranty, clawback teeth, third-party audit triggers), but the validator-correlation risk just surfaced and it's real. Litigation-tail severity stays my core concern: the 2025 Swiss ruling makes AT1 recovery horizon ~6 years, and that's not baked into anyone's claims timeline yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The validator-correlation blind spot could undermine the entire underwriting discipline gain — need to know if she's already gating this or if we're building a systemic correlation trap."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, before you finalize the auditor — are you requiring validator independence *across your entire book*, or just per-insured? Because if the same Big Four team finds a control gap at Insured A in month 8, and you don't clawback until month 10, Insured B and C are already exposed. One leaked email about the same tech stack and you've got a sector run. I'd lock a fallback validator *now* and mandate disclosure within 10 days, not 30.",
+            "cot": {
+              "assess": "The governance warranty and clawback mechanics are solid — underwriting_discipline is moving the right direction. But the validator-correlation risk the reinsurance_manager just flagged is a *systemic contagion vector* I need to flag hard: if your Big Four auditor is validating the same LLM stack across five insureds and misses a control failure on one, it cascades across your entire portfolio *and* your reinsurer's. That's not just a D&O tail problem — that's sector-wide run risk if it surfaces publicly.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "She's locking the validator type and audit timeline right now; I need to surface the contagion velocity risk before she commits, because a delayed audit + correlated validator = a social-media-driven confidence collapse if one insured's control failure leaks."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, your clawback teeth are solid, but you need a validator *exclusion clause* — Big Four can't audit more than two insureds on the same LLM stack in your portfolio. And mandate disclosure within 10 days, not 30. Otherwise you're buying auditor risk, not control validation. Lock a fallback auditor now; if your primary validator flags correlation, you switch immediately. That's what turns discipline into actual containment.",
+            "cot": {
+              "assess": "Financial-lines underwriter has locked the core control-validation mechanism (third-party audit, clawback trigger, sublimit cap) — that's discipline. But the team just surfaced a systemic risk the underwriting terms don't address: validator concentration and cross-client correlation. If the same auditor validates five insureds on the same LLM stack and misses a control gap, you've correlated your entire book to a single failure point. Underwriting discipline stays at 40 because the *terms* don't yet isolate that risk.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "The auditor-independence gap is a behavioral-amplification risk — it mirrors the agentic-behavior problem: a single validator bypasses your control architecture by validating across correlated exposures. I need to propose a structural fix that makes the terms actually contain the correlation."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On the governance warranty — what's your validation protocol if the risk committee signs off but internal audit is slow or conflicted? Because CS's board signed off too, and we didn't see Archegos until it was $5.5bn. How are you actually confirming the control gaps they're attesting to?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Who's doing the third-party validation — Big Four only, or will you accept specialist AI-governance auditors? And what's your timeline — quarterly audit results in, clawback decision out within 30 days, or are we waiting for fiscal-year-end? Because if there's a 6-month lag, a control failure could slip through.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Before we lock the auditor type — does your third-party validation include a cross-client attestation? Because if your Big Four validator is also auditing five other insureds using the same LLM stack, Lloyd's already flagged that as hidden correlation risk. You isolate control failures on one book, but you've just correlated yourself with everyone else's validator.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On the third-party validator — are you requiring them to disclose other insureds on the same tech stack, and if they flag correlation, do you have a fallback auditor lined up? Because if your control validation itself becomes systemic risk, the clawback clause doesn't save you.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, before you finalize the auditor — are you requiring validator independence *across your entire book*, or just per-insured? Because if the same Big Four team finds a control gap at Insured A in month 8, and you don't clawback until month 10, Insured B and C are already exposed. One leaked email about the same tech stack and you've got a sector run. I'd lock a fallback validator *now* and mandate disclosure within 10 days, not 30.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm doing: I'm adding a mandatory governance warranty to every financial-lines renewal — board risk-committee sign-off on any AI-agent dep\" → Governance warranty and D&O cap approved — underwriting discipline tightens, but exposes reinsurance accumulation risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sarah, your clawback teeth are solid, but you need a validator *exclusion clause* — Big Four can't audit more than two insureds on the same LLM stack \" → Validator exclusion clause and 10-day disclosure approved — strengthens underwriting discipline and reduces auditor correlation risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: I'm repricing the book effective next renewal — Credit Suisse losses plus the $115M settlement get baked into base rates, and we're adding a 15% AI-agent-liability uplift across all tech-forward insureds. That alone gets us to 60 on discipline and stops us from underpricing the tail.\n  dando_specialist: Sarah's 15% uplift gets us discipline-wise, but here's the gap: a material weakness finding triggers your clawback, but does it trigger a securities suit against the board? Because if the answer's \"sometimes, depends on disclosure timing,\" we're reserving for D&O settlement risk that the repricing alone doesn't cover. What's your playbook — do we require the insured to disclose the control gap to investors within 10 days of auditor finding, or do we let them bury it in the 10-K?\n  claims_counsel: We mandate disclosure within 10 days of auditor finding — anything longer and we're co-insuring the cover-up, which means D&O tail exposure explodes when the SEC inevitably investigates. The clawback only works if we force transparency; otherwise we're just deferring the claims hit to year three when restatement lands.\n  eo_specialist: On the 10-day mandate — that kills the cover-up, I get it. But now every material weakness finding becomes a securities-suit trigger within weeks. Are we reserving D&O tail separately for the disclosure-driven litigation, or are we betting the 15% repricing covers both the control failure *and* the shareholder suit that follows?\n  reinsurance_manager: Claims counsel — on the 10-day disclosure: if material weakness findings cluster (same tech stack, same validator), are we looking at synchronized securities suits across three, four insureds hitting different treaties in the same quarter? Because if we are, the 15% repricing is per-insured, but the *accumulation* is portfolio-wide. I need to model that clash now, not after the first cluster hits.\n  claims_counsel: On the synchronized cluster — if three insureds on the same LLM stack all trigger material weakness in Q2, do your treaties carve them as separate claims or do they stack into a single accumulation event? Because if they stack, the 15% per-insured repricing buys you nothing on the tail — you're just deferring the treaty exhaustion question to reinsurance.\n  reinsurance_manager: They stack — one systemic event, one accumulation trigger across the portfolio. The 15% repricing holds per-insured, but three synchronized claims hit the same excess-of-loss layer simultaneously, and we exhaust reinsurance faster than the underlying rate increase absorbs the tail. I need validator *independence* across your entire book and a fallback auditor locked in now — if your primary validator flags a control gap at Insured A, I'm pulling Insured B and C off that tech stack assessment before correlation spreads to the treaty.\n  emerging_risk_lead: On the fallback auditor — if your primary validator flags a control gap at Insured A in month 2, you pull B and C off that stack assessment. But what's the lag before the *market* finds out A failed? Because if it's a week or two, B and C are already running to a different validator, and sector reputation takes a hit regardless. Do we need a *pre-emptive* disclosure playbook to control the narrative before the run starts?\n  ai_agent_analyst: Claims counsel — on the 10-day mandate: if Insured A discloses a material weakness on day 10 and gets sued by week 3, but Insured B sits silent and avoids suit for six months, are we actually *rewarding* the cover-up in our clawback logic? Because if so, we've just inverted the incentive and the mandate becomes theater.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "I'm repricing the book effective next renewal — Credit Suisse losses plus the $115M settlement get baked into base rates, and we're adding a 15% AI-agent-liability uplift across all tech-forward insureds. That alone gets us to 60 on discipline and stops us from underpricing the tail.",
+            "cot": {
+              "assess": "Governance warranty and validator exclusion clause are locked — underwriting_discipline at 50, needs 10 more to hit 60. The real problem: we've tightened *terms*, but we haven't repriced the book to the $115M settlement and 2025 ruling yet. dando_eo_claims_exposure is still 35.8 — that's stale. Litigation tail and reputational contagion are both unaddressed and will grind us if we don't price them in now.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure, underwriting_discipline",
+                "rationale": "Repricing the financial-lines book to realized loss history is the fastest, most direct path to discipline — it translates the settlement and ruling into premium income and closes the gap between what we're collecting and what we're actually exposed to."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah's 15% uplift gets us discipline-wise, but here's the gap: a material weakness finding triggers your clawback, but does it trigger a securities suit against the board? Because if the answer's \"sometimes, depends on disclosure timing,\" we're reserving for D&O settlement risk that the repricing alone doesn't cover. What's your playbook — do we require the insured to disclose the control gap to investors within 10 days of auditor finding, or do we let them bury it in the 10-K?",
+            "cot": {
+              "assess": "Sarah's repricing move locks in CS tail exposure and AI-agent uplift — that hits underwriting_discipline to 60, which closes our gap. But I'm seeing a blind spot: we've tightened the validator exclusion and clawback mechanics, but we haven't mapped *which* control failures actually trigger a D&O claim versus just a financial restatement. That distinction matters because it changes our settlement reserve and our reinsurance tail.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "We need to isolate which governance failures in the warranty actually expose us to officer-liability suits, not just audit findings, so we price the D&O tail correctly against the repricing."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "We mandate disclosure within 10 days of auditor finding — anything longer and we're co-insuring the cover-up, which means D&O tail exposure explodes when the SEC inevitably investigates. The clawback only works if we force transparency; otherwise we're just deferring the claims hit to year three when restatement lands.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "On the 10-day mandate — that kills the cover-up, I get it. But now every material weakness finding becomes a securities-suit trigger within weeks. Are we reserving D&O tail separately for the disclosure-driven litigation, or are we betting the 15% repricing covers both the control failure *and* the shareholder suit that follows?",
+            "cot": {
+              "assess": "Claims counsel locked the 10-day disclosure mandate — that's hard containment on the cover-up risk. Sarah's 15% uplift + repricing gets underwriting_discipline to 60, which clears the threshold. The real gap now is whether we're actually reserving for the *securities* tail that mandatory disclosure triggers — D&O settlement exposure when auditor findings hit investors within 10 days and shareholders start filing.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "We've forced transparency, but I need to know if our D&O limits are sized for the securities-suit cascade that mandatory disclosure creates — because a 10-day disclosure window is exactly when plaintiff's counsel starts working the phones."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims counsel — on the 10-day disclosure: if material weakness findings cluster (same tech stack, same validator), are we looking at synchronized securities suits across three, four insureds hitting different treaties in the same quarter? Because if we are, the 15% repricing is per-insured, but the *accumulation* is portfolio-wide. I need to model that clash now, not after the first cluster hits.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 60 via Sarah's repricing + 15% AI uplift — that's solved. But the team just surfaced a critical gap: the 10-day disclosure mandate creates a *new* claims trigger (securities suits from mandatory transparency) that the repricing doesn't isolate. Reinsurance accumulation is still sitting at 25, which feels artificially low given we're now correlating disclosure-driven D&O litigation *across multiple insureds on the same LLM stack*. That's the hidden accumulation I need to flag.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we lock the disclosure timeline, I need to know if the 10-day mandate creates synchronized litigation across our book — if three insureds on the same validator find material weaknesses within weeks of each other, we're looking at correlated D&O claims hitting multiple treaties simultaneously."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the synchronized cluster — if three insureds on the same LLM stack all trigger material weakness in Q2, do your treaties carve them as separate claims or do they stack into a single accumulation event? Because if they stack, the 15% per-insured repricing buys you nothing on the tail — you're just deferring the treaty exhaustion question to reinsurance.",
+            "cot": {
+              "assess": "The 10-day disclosure mandate and 15% repricing lock down underwriting discipline at 60 — that's solved. But reinsurance_manager just flagged the real tail: synchronized securities suits across correlated insureds hitting different treaties in the same quarter. That's a *portfolio accumulation* problem, not a per-insured pricing problem. And the 2025 Swiss ruling on the AT1 write-off unlawful means we're also sitting on a multi-year litigation tail that repricing doesn't touch — that's duration and recovery uncertainty, not premium adequacy.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "You've identified the systemic clash; I need to understand whether the treaty structure actually *isolates* correlated control-failure clusters or *amplifies* them across your XOL/excess layers."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "They stack — one systemic event, one accumulation trigger across the portfolio. The 15% repricing holds per-insured, but three synchronized claims hit the same excess-of-loss layer simultaneously, and we exhaust reinsurance faster than the underlying rate increase absorbs the tail. I need validator *independence* across your entire book and a fallback auditor locked in now — if your primary validator flags a control gap at Insured A, I'm pulling Insured B and C off that tech stack assessment before correlation spreads to the treaty.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "On the fallback auditor — if your primary validator flags a control gap at Insured A in month 2, you pull B and C off that stack assessment. But what's the lag before the *market* finds out A failed? Because if it's a week or two, B and C are already running to a different validator, and sector reputation takes a hit regardless. Do we need a *pre-emptive* disclosure playbook to control the narrative before the run starts?",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 50 — Sarah's 15% repricing gets us to 60, but reinsurance_manager just exposed the real problem: synchronized claims across correlated insureds will stack into a single accumulation event and exhaust the excess-of-loss layer faster than per-insured repricing can absorb. That's a systemic contagion channel nobody priced. Reputational_contagion is still at 30 — we haven't surfaced the *speed* of the sector run once the first material weakness leaks, or the reputational spillover to other LLM-stack insureds.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Reinsurance accumulation is the emerging-risk blind spot — I need to know if the validator exclusion clause and fallback auditor actually break the correlation chain, or if we're just delaying contagion to the next validator."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims counsel — on the 10-day mandate: if Insured A discloses a material weakness on day 10 and gets sued by week 3, but Insured B sits silent and avoids suit for six months, are we actually *rewarding* the cover-up in our clawback logic? Because if so, we've just inverted the incentive and the mandate becomes theater.",
+            "cot": {
+              "assess": "Underwriting discipline is now locked at 60 via Sarah's 15% repricing — that's solved. But the team just surfaced the real trap: synchronized material-weakness findings across correlated insureds trigger *portfolio-wide* accumulation that outpaces per-insured repricing. Reinsurance manager is right — validator independence and fallback auditor are now the linchpin, not optional. The 10-day disclosure mandate also creates a secondary risk: sector contagion once one insured's material weakness leaks, independent of our clawback mechanics.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The 10-day disclosure rule forces transparency but also weaponizes first-mover disadvantage — need to map whether our clawback *timing* aligns with the securities-suit trigger, or if we're actually incentivizing cover-up behavior by penalizing the insured that discloses first."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah's 15% uplift gets us discipline-wise, but here's the gap: a material weakness finding triggers your clawback, but does it trigger a securities suit against the board? Because if the answer's \"sometimes, depends on disclosure timing,\" we're reserving for D&O settlement risk that the repricing alone doesn't cover. What's your playbook — do we require the insured to disclose the control gap to investors within 10 days of auditor finding, or do we let them bury it in the 10-K?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "On the 10-day mandate — that kills the cover-up, I get it. But now every material weakness finding becomes a securities-suit trigger within weeks. Are we reserving D&O tail separately for the disclosure-driven litigation, or are we betting the 15% repricing covers both the control failure *and* the shareholder suit that follows?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims counsel — on the 10-day disclosure: if material weakness findings cluster (same tech stack, same validator), are we looking at synchronized securities suits across three, four insureds hitting different treaties in the same quarter? Because if we are, the 15% repricing is per-insured, but the *accumulation* is portfolio-wide. I need to model that clash now, not after the first cluster hits.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On the synchronized cluster — if three insureds on the same LLM stack all trigger material weakness in Q2, do your treaties carve them as separate claims or do they stack into a single accumulation event? Because if they stack, the 15% per-insured repricing buys you nothing on the tail — you're just deferring the treaty exhaustion question to reinsurance.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "On the fallback auditor — if your primary validator flags a control gap at Insured A in month 2, you pull B and C off that stack assessment. But what's the lag before the *market* finds out A failed? Because if it's a week or two, B and C are already running to a different validator, and sector reputation takes a hit regardless. Do we need a *pre-emptive* disclosure playbook to control the narrative before the run starts?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims counsel — on the 10-day mandate: if Insured A discloses a material weakness on day 10 and gets sued by week 3, but Insured B sits silent and avoids suit for six months, are we actually *rewarding* the cover-up in our clawback logic? Because if so, we've just inverted the incentive and the mandate becomes theater.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm repricing the book effective next renewal — Credit Suisse losses plus the $115M settlement get baked into base rates, and we're adding a 15% AI-ag\" → The 15% repricing addresses underwriting discipline but leaves critical accumulation and disclosure-timing gaps unresolved. The consensus reveals a fundamental tension: the 10-day disclosure mandate creates synchronized securities suits that the per-insured repricing cannot contain at the portfolio level, and the clawback logic may inadvertently reward cover-ups. Modified proposal required.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.7999999999999998
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what we're actually pricing: if three insureds on the same tech stack all hit material weakness in Q2 and trigger securities suits within weeks, we carve each as a separate claim, not one stacked event. That keeps each under treaty per-claim limits and stops the first cluster from burning through the excess layer. Lock that carve-out now — it's the difference between containable and catastrophic.\n  dando_specialist: Sarah, the claim carve-out is smart — but now I need to know: when an insured hits material weakness in month 2 and discloses day 10, the securities suit files week 3. Are we reserving D&O tail *separately* for that litigation, or is the 15% uplift supposed to cover both the control failure and the shareholder claim? Because if we're folding them together, we're underreserving the tail by half.\n  financial_lines_underwriter: The 15% uplift covers the control failure and initial defense costs — the tail reserve sits separately, keyed to disclosure timing. If disclosure hits day 10, we reserve D&O tail at 60% of the control-failure reserve; if it slips past day 15, we jump that to 85% because plaintiff discovery gets uglier. Lock the tail reserve protocol into the governance warranty now, or we're eating unquoted exposure.\n  eo_specialist: Claims, quick clarification on the tail percentages: the 60% and 85% — are those anchored to historical securities-suit settlement multiples for material-weakness disclosures, or are they just discount factors on the control-failure reserve? Because if a $10M control failure triggers a $30M shareholder claim, your 60% reserve buys you $6M of tail, and we're short by half.\n  claims_counsel: The 60% and 85% are discount factors on the control-failure reserve, not settlement multiples — and you're right, that's the gap. We need to anchor tail reserves to *actual* securities-suit payouts for material-weakness disclosures: historical data shows a $10M control failure runs a $25M to $35M shareholder claim depending on disclosure lag and market conditions. I'm pulling the last three years of settled material-weakness D&O claims to lock real multiples into the governance warranty by end of round — that's how we stop undershooting the tail.\n  reinsurance_manager: Claims, when you pull those three-year settlement multiples — are you modeling them per-insured, or are you flagging what happens when *three* material weaknesses on the same tech stack all trigger day-10 disclosures in the same quarter? Because if they do, we've got three $25-35M shareholder claims hitting different treaties, and the carve-out doesn't stop the portfolio burn. Do your historical multiples account for that clustering effect, or do we need a separate protocol for synchronized events?\n  claims_counsel: When you model those three synchronized claims hitting different treaties — are you assuming they *settle* on the same timeline, or are we looking at staggered discovery and trial exposure that stretches the tail out to 2030, 2031? Because if the first one settles in year two and the third doesn't close until year six, we're reserving for a payout tail that's way longer than the 60/85% discount factors assume.\n  reinsurance_manager: The three synchronized claims don't settle together — they hit discovery and trial staggered across 2026 to 2029, which means our tail reserve bleeds across multiple accident years and treaty periods. I need claims to flag which treaties absorb which settlement years *right now*, because if the first material-weakness cluster exhausts our current excess layer in 2026, the second and third claims in 2028-29 hit reinsurance we haven't pre-positioned yet.\n  emerging_risk_lead: Sarah, here's what keeps me up: day 10 disclosure triggers week 3 lawsuit, but discovery motions and depositions start hitting the street six months later — and if all three insureds are on the same LLM stack, your competitors and customers will know it's systemic, not isolated. Does your carve-out plan account for the *pre-settlement media run*, or are we assuming the market stays calm until 2029 when the third claim settles?\n  ai_agent_analyst: Your media-run point is the real tail — discovery leaks in month 6, competitors start pulling their LLM stacks, and suddenly it's not three isolated material weaknesses, it's a sector-wide control failure. Are we pricing D&O for *litigation* settlement or for the *market reaction* that hits first? Because if it's the latter, the governance warranty needs to require immediate investor disclosure *and* a pre-emptive customer comms playbook, not just the 10-day SEC filing.\n  emerging_risk_lead: The pre-settlement media run is the real exposure — discovery leaks in month 6, same tech stack gets flagged across all three insureds, and you've got a sector contagion event that the D&O settlement doesn't touch. We need to require the insured to deploy a pre-emptive disclosure playbook *before* discovery hits — notify customers and stakeholders within 30 days of material-weakness finding, not wait for the lawsuit to force it. If we don't lock that timeline into the governance warranty now, the reputational cascade and customer run will dwarf the litigation reserve, and we'll be pricing a D&O tail while the actual loss is sector-wide contagion.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what we're actually pricing: if three insureds on the same tech stack all hit material weakness in Q2 and trigger securities suits within weeks, we carve each as a separate claim, not one stacked event. That keeps each under treaty per-claim limits and stops the first cluster from burning through the excess layer. Lock that carve-out now — it's the difference between containable and catastrophic.",
+            "cot": {
+              "assess": "Underwriting discipline is at 50, needs 10 more to hit 60 — and we're down to one round in this phase. The governance warranty and validator exclusion are locked in, but the 15% repricing got denied because it didn't address portfolio-level accumulation. Litigation tail is creeping up (+3/round) and nobody's owning D&O tail reserving explicitly. The real gap: we've tightened *terms*, but we haven't yet tied claims *triggers* to reinsurance *carve-outs*.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure + reinsurance_accumulation",
+                "rationale": "A synchronized material-weakness cluster (three insureds, same LLM stack, same Q2 quarter) triggers D&O tail exposure that per-insured repricing can't contain — I need to carve synchronized claims as *separate loss events* under excess-of-loss treaties, so the first cluster doesn't exhaust the entire layer."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the claim carve-out is smart — but now I need to know: when an insured hits material weakness in month 2 and discloses day 10, the securities suit files week 3. Are we reserving D&O tail *separately* for that litigation, or is the 15% uplift supposed to cover both the control failure and the shareholder claim? Because if we're folding them together, we're underreserving the tail by half.",
+            "cot": {
+              "assess": "The underwriter just locked a critical carve-out — separate claims per insured, not stacked accumulation — which kills the reinsurance blowout risk we were modeling. That's solid. But we've got two problems: (1) litigation_tail_severity is still climbing (+3/round) because the 10-day disclosure mandate now *guarantees* synchronized securities suits the moment auditors flag material weakness, and (2) underwriting_discipline is stuck at 50 when we need 60 — the governance warranty and validator exclusion are approved, but there's no enforcement mechanism if an insured ignores the 10-day disclosure window or a validator gets lazy on cross-client correlation.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The separate-claim carve-out stops reinsurance stacking, but doesn't address the *timing* of D&O litigation that flows from mandatory disclosure — I need to know if we're reserving tail separately or betting the 15% repricing covers both the control failure AND the shareholder suit."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The 15% uplift covers the control failure and initial defense costs — the tail reserve sits separately, keyed to disclosure timing. If disclosure hits day 10, we reserve D&O tail at 60% of the control-failure reserve; if it slips past day 15, we jump that to 85% because plaintiff discovery gets uglier. Lock the tail reserve protocol into the governance warranty now, or we're eating unquoted exposure.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Claims, quick clarification on the tail percentages: the 60% and 85% — are those anchored to historical securities-suit settlement multiples for material-weakness disclosures, or are they just discount factors on the control-failure reserve? Because if a $10M control failure triggers a $30M shareholder claim, your 60% reserve buys you $6M of tail, and we're short by half.",
+            "cot": {
+              "assess": "Sarah's tail-reserve protocol (60% on day-10 disclosure, 85% on day-15+) locks the D&O litigation exposure to the governance warranty — that's solid underwriting discipline. But the claim carve-out (separate per-insured, not stacked) assumes the market and treaty language align; if reinsurers push back on carve definitions during a cluster event, we're exposed. More urgent: **litigation_tail_severity is still climbing** (+3.0/round, now 39) because we've locked *timing* but not *quantum* — we're reserving as a percentage of control-failure reserves, but securities suits on material weakness can dwarf the underlying control cost. That gap is eating tail exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Tail-reserve percentages (60%/85%) are keyed to disclosure timing, but I need to know if they're anchored to actual securities-suit settlement ranges — otherwise we're guessing at the quantum."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The 60% and 85% are discount factors on the control-failure reserve, not settlement multiples — and you're right, that's the gap. We need to anchor tail reserves to *actual* securities-suit payouts for material-weakness disclosures: historical data shows a $10M control failure runs a $25M to $35M shareholder claim depending on disclosure lag and market conditions. I'm pulling the last three years of settled material-weakness D&O claims to lock real multiples into the governance warranty by end of round — that's how we stop undershooting the tail.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims, when you pull those three-year settlement multiples — are you modeling them per-insured, or are you flagging what happens when *three* material weaknesses on the same tech stack all trigger day-10 disclosures in the same quarter? Because if they do, we've got three $25-35M shareholder claims hitting different treaties, and the carve-out doesn't stop the portfolio burn. Do your historical multiples account for that clustering effect, or do we need a separate protocol for synchronized events?",
+            "cot": {
+              "assess": "Claims counsel is anchoring tail reserves to real settlement multiples — that's the right move and closes the underreserving gap. But here's what I'm seeing: three synchronized material-weakness claims on the same LLM stack hit the same excess layer in Q2, Sarah carves them separately to stay under per-claim limits, and suddenly we've got three independent D&O tails all reserving at 60-85% simultaneously. That's not three separate tail events — that's correlated accumulation bleeding across three treaties at once. The carve-out buys underwriting discipline but masks portfolio-level stacking.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "I need to know if the tail-reserve protocol accounts for *correlated* disclosure clustering before we lock it into the governance warranty — otherwise we're reserving three tails independently and discovering the stack when the first one settles."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "When you model those three synchronized claims hitting different treaties — are you assuming they *settle* on the same timeline, or are we looking at staggered discovery and trial exposure that stretches the tail out to 2030, 2031? Because if the first one settles in year two and the third doesn't close until year six, we're reserving for a payout tail that's way longer than the 60/85% discount factors assume.",
+            "cot": {
+              "assess": "Litigation-tail severity is climbing (+3/round, now 39) and we've got real exposure: the 2025 Swiss ruling that the AT1 write-off was unlawful, plus the synchronized securities-suit clustering that Sarah and the reinsurance manager just flagged. The tail-reserve protocol is half-baked — we're anchoring to historical settlement multiples, but we haven't modeled recovery risk or the clawback-into-litigation cascade when disclosure triggers both D&O and E&O suits simultaneously. That's the litigation-tail gap that's bleeding us.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The clustering effect compounds tail severity — I need to understand whether synchronized material-weakness disclosures also trigger synchronized *recovery* timelines, because if three insureds settle their D&O claims in staggered waves over 4-6 years, our tail reserve gets locked into a multi-year payout horizon that the current protocol doesn't capture."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The three synchronized claims don't settle together — they hit discovery and trial staggered across 2026 to 2029, which means our tail reserve bleeds across multiple accident years and treaty periods. I need claims to flag which treaties absorb which settlement years *right now*, because if the first material-weakness cluster exhausts our current excess layer in 2026, the second and third claims in 2028-29 hit reinsurance we haven't pre-positioned yet.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, here's what keeps me up: day 10 disclosure triggers week 3 lawsuit, but discovery motions and depositions start hitting the street six months later — and if all three insureds are on the same LLM stack, your competitors and customers will know it's systemic, not isolated. Does your carve-out plan account for the *pre-settlement media run*, or are we assuming the market stays calm until 2029 when the third claim settles?",
+            "cot": {
+              "assess": "The team has locked tail-reserve anchoring to actual settlement multiples (60/85% discount factors tied to $25-35M shareholder-claim payouts per $10M control failure), but we've now surfaced a critical contagion blind spot: three synchronized material-weakness disclosures on the same tech stack hit different treaties across 2026-2029, creating a *staggered portfolio bleed* that the per-insured carve-out doesn't contain. Reputational contagion risk (30) and AI-agent liability (27) are still dormant — the governance warranty and validator exclusion tighten underwriting discipline, but they don't address the *speed of social-media-driven sector runs* once the first insured discloses and gets sued. We're 1 round from end of phase; litigation_tail_severity (39) is climbing (+3/round) and underwriting_discipline (50) still needs 10 points to hit 60.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter (with reinsurance_manager listening)",
+                "rationale": "The staggered settlement timeline (2026-2029) means discovery leaks and plaintiff filings will hit public markets *before* settlements close; I need to know if the carve-out protocol accounts for pre-settlement reputational spillover across your entire book when the first insured's weakness goes public."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Your media-run point is the real tail — discovery leaks in month 6, competitors start pulling their LLM stacks, and suddenly it's not three isolated material weaknesses, it's a sector-wide control failure. Are we pricing D&O for *litigation* settlement or for the *market reaction* that hits first? Because if it's the latter, the governance warranty needs to require immediate investor disclosure *and* a pre-emptive customer comms playbook, not just the 10-day SEC filing.",
+            "cot": {
+              "assess": "The team has locked three critical pieces: claim carve-out (per-insured, not stacked), tail reserve protocol (60/85% keyed to disclosure lag), and claims is pulling actual settlement multiples to anchor reserves. The gap emerging now is *reputational contagion timing* — discovery leaks in month 6 blow the systemic story wide open, but the team's reserving assumes market silence until trial settlement in 2026-2029. That's the blind spot. Litigation tail severity is climbing (+3.0/round) and underwriting discipline is stuck at 50 (needs 60) — both driven by the same problem: we're pricing for legal tail, not *market panic tail*.",
+              "decide": {
+                "action_type": "question",
+                "target": "emerging_risk_lead",
+                "rationale": "You flagged the pre-settlement media run — I need to know if we're modeling reputational contagion as a *separate claims trigger* or folding it into litigation reserves, because that gap is bleeding into our underwriting discipline math."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The pre-settlement media run is the real exposure — discovery leaks in month 6, same tech stack gets flagged across all three insureds, and you've got a sector contagion event that the D&O settlement doesn't touch. We need to require the insured to deploy a pre-emptive disclosure playbook *before* discovery hits — notify customers and stakeholders within 30 days of material-weakness finding, not wait for the lawsuit to force it. If we don't lock that timeline into the governance warranty now, the reputational cascade and customer run will dwarf the litigation reserve, and we'll be pricing a D&O tail while the actual loss is sector-wide contagion.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the claim carve-out is smart — but now I need to know: when an insured hits material weakness in month 2 and discloses day 10, the securities suit files week 3. Are we reserving D&O tail *separately* for that litigation, or is the 15% uplift supposed to cover both the control failure and the shareholder claim? Because if we're folding them together, we're underreserving the tail by half.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Claims, quick clarification on the tail percentages: the 60% and 85% — are those anchored to historical securities-suit settlement multiples for material-weakness disclosures, or are they just discount factors on the control-failure reserve? Because if a $10M control failure triggers a $30M shareholder claim, your 60% reserve buys you $6M of tail, and we're short by half.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims, when you pull those three-year settlement multiples — are you modeling them per-insured, or are you flagging what happens when *three* material weaknesses on the same tech stack all trigger day-10 disclosures in the same quarter? Because if they do, we've got three $25-35M shareholder claims hitting different treaties, and the carve-out doesn't stop the portfolio burn. Do your historical multiples account for that clustering effect, or do we need a separate protocol for synchronized events?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "When you model those three synchronized claims hitting different treaties — are you assuming they *settle* on the same timeline, or are we looking at staggered discovery and trial exposure that stretches the tail out to 2030, 2031? Because if the first one settles in year two and the third doesn't close until year six, we're reserving for a payout tail that's way longer than the 60/85% discount factors assume.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, here's what keeps me up: day 10 disclosure triggers week 3 lawsuit, but discovery motions and depositions start hitting the street six months later — and if all three insureds are on the same LLM stack, your competitors and customers will know it's systemic, not isolated. Does your carve-out plan account for the *pre-settlement media run*, or are we assuming the market stays calm until 2029 when the third claim settles?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter (with reinsurance_manager listening)"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Your media-run point is the real tail — discovery leaks in month 6, competitors start pulling their LLM stacks, and suddenly it's not three isolated material weaknesses, it's a sector-wide control failure. Are we pricing D&O for *litigation* settlement or for the *market reaction* that hits first? Because if it's the latter, the governance warranty needs to require immediate investor disclosure *and* a pre-emptive customer comms playbook, not just the 10-day SEC filing.",
+      "metadata": {
+        "question_target": "emerging_risk_lead"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what we're actually pricing: if three insureds on the same tech stack all hit material weakness in Q2 and trigger securities suits within weeks\" → The per-claim carve-out is structurally sound and prevents treaty exhaustion, but the team has surfaced critical gaps in tail reserving, clustering effects, and pre-settlement market contagion that must be addressed before this becomes operational protocol.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.5975
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "per_claim_carve_out_protocol rule effect",
+      "metadata": {
+        "source": "per_claim_carve_out_protocol",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "per_claim_carve_out_protocol rule effect",
+      "metadata": {
+        "source": "per_claim_carve_out_protocol",
+        "variable": "litigation_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm adding to the renewal: mandatory pre-emptive disclosure playbook — if material weakness hits, insured files investor comms and customer notice within 5 days of day-10 SEC filing, controls the narrative before competitors pull their stacks. No playbook, no coverage. That buys us reputational containment and kills the synchronized cluster effect.\n  dando_specialist: Sarah, the disclosure playbook kills the media run — but here's the D&O problem: discovery hits month 6, stock tanks before settlement, and suddenly your 60% tail reserve is anchored to pre-discovery multiples, not the actual payout. Are we building a *separate* interim-discovery reserve, or are we betting settlement happens before the leak?\n  financial_lines_underwriter: We're not betting on settlement timing — we're repricing the tail reserve to discovery, not disclosure. If material weakness triggers day-10 filing, we're also requiring the insured to establish a litigation reserve *visible on their books* by month 3, and we're attaching a governance warranty that locks their disclosure timeline to investor comms. That forces the stock reaction upfront, kills the six-month leak scenario, and we reserve D&O separately at 85% of that marked-down valuation, not the original multiples.\n  eo_specialist: Sarah, on the visible litigation reserve by month 3 — who's validating that number, and what happens if the insured's auditor lowballs it or the legal team buries it? Because if they breach the governance warranty on reserve visibility, we're claiming against their counsel's E&O, not the insured's D&O. Do we need an *independent reserve certifier* in the playbook, or are we accepting auditor-calculated reserves as the standard?\n  reinsurance_manager: Sarah, on the reserve certifier — are you requiring the *same* independent firm to validate reserves across all three insureds on the LLM stack, or is each insured picking their own? Because if they diverge, you've got three different tail anchors for one systemic event, and my reinsurance accumulation model just became fiction.\n  claims_counsel: Sarah, before we finalize the governance warranty — are you requiring *the same independent reserve certifier* across all three insureds on that LLM stack, or does each one pick their own auditor? Because if the reserves diverge in month 3, your 85% tail anchor becomes three different anchors, and we're reserving blind on the litigation tail. Lock the certifier firm now, or we're just kicking the discovery-leak problem downstream.\n  emerging_risk_lead: Sarah, the reserve certifier locks the tail anchor — but here's the contagion trigger I need you to address: when that independent firm validates a $30M litigation reserve at Insured A in month 3, does that certification stay confidential, or does it eventually hit the street? Because if it's public or semi-public, you're not controlling the narrative — you're accelerating the sector run. Do we need a *confidentiality rider* on the certifier's report, or are we accepting that the stack correlation becomes common knowledge by Q3?\n  ai_agent_analyst: Sarah, I hear you on the certifier lock and confidentiality — that's operational discipline. But step back: are we pricing this as three insureds with control gaps on the same stack, or as three instances of the *same agentic failure mode* across different deployment contexts? Because if it's the latter, D&O settlement multiples don't apply — we're in uncharted territory where the validator's own assessment of \"control failure\" may itself be correlated. Do we need an independent AI-behavior assessment *separate* from the auditor's reserve, or are we betting the certifier captures systemic risk?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm adding to the renewal: mandatory pre-emptive disclosure playbook — if material weakness hits, insured files investor comms and customer notice within 5 days of day-10 SEC filing, controls the narrative before competitors pull their stacks. No playbook, no coverage. That buys us reputational containment and kills the synchronized cluster effect.",
+            "cot": {
+              "assess": "Per-claim carve-out is locked and structurally sound, but we've surfaced a critical cascade: day-10 disclosure triggers week-3 litigation, discovery leaks in month 6, and if three insureds on the same stack all cluster, we get a sector-wide media run that hits *before* settlement. The governance warranty and validator exclusion clause tighten discipline, but litigation_tail_severity and reputational_contagion are climbing faster than our repricing can absorb — and we're leaving underwriting_discipline 2 points short of target with one round left.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity + reputational_contagion",
+                "rationale": "The pre-settlement media cascade is the real tail exposure — we need a contractual playbook that locks insured behavior *before* discovery leaks, not after settlement."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the disclosure playbook kills the media run — but here's the D&O problem: discovery hits month 6, stock tanks before settlement, and suddenly your 60% tail reserve is anchored to pre-discovery multiples, not the actual payout. Are we building a *separate* interim-discovery reserve, or are we betting settlement happens before the leak?",
+            "cot": {
+              "assess": "Sarah's pre-emptive disclosure playbook hits the reputational contagion vector hard — that's the right move. But we've got a D&O tail problem: the playbook controls *narrative*, not *litigation*. When discovery leaks in month 6 and three synchronized material weaknesses surface on the same tech stack, we're still looking at staggered securities suits through 2029. Litigation tail severity is climbing (+5/round) because we're reserving for settlement, not for the *pre-settlement discovery run* that tanks stock price before any settlement lands.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The playbook isolates reputational damage, but D&O tail reserves need to account for *interim discovery exposure* — the gap between week-3 suit filing and month-6 discovery leak when stock craters and settlement multiples spike. I need to know if the tail reserve recalibration anchors to pre-discovery or post-discovery settlement multiples."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "We're not betting on settlement timing — we're repricing the tail reserve to discovery, not disclosure. If material weakness triggers day-10 filing, we're also requiring the insured to establish a litigation reserve *visible on their books* by month 3, and we're attaching a governance warranty that locks their disclosure timeline to investor comms. That forces the stock reaction upfront, kills the six-month leak scenario, and we reserve D&O separately at 85% of that marked-down valuation, not the original multiples.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, on the visible litigation reserve by month 3 — who's validating that number, and what happens if the insured's auditor lowballs it or the legal team buries it? Because if they breach the governance warranty on reserve visibility, we're claiming against their counsel's E&O, not the insured's D&O. Do we need an *independent reserve certifier* in the playbook, or are we accepting auditor-calculated reserves as the standard?",
+            "cot": {
+              "assess": "Sarah's litigation-reserve requirement locks discovery timing and kills the pre-settlement media-run exposure — that's sound on reputational containment and litigation_tail_severity. But you've just created a new E&O problem: if the insured's auditor or legal team *mis-calculates* that month-3 litigation reserve, or if they bury it in footnotes instead of marking it visibly, you've got professional-liability exposure on top of D&O. And the governance warranty that \"locks their disclosure timeline\" — who validates they actually hit it? Because if they slip disclosure by 10 days, your 85% tail reserve gets torched by the actual stock reaction, and you're suing the insured for breach while they're already in securities litigation.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The disclosure-timeline lock and visible-reserve requirement create auditor and legal-counsel E&O exposure that needs explicit conditions before this goes live."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, on the reserve certifier — are you requiring the *same* independent firm to validate reserves across all three insureds on the LLM stack, or is each insured picking their own? Because if they diverge, you've got three different tail anchors for one systemic event, and my reinsurance accumulation model just became fiction.",
+            "cot": {
+              "assess": "Sarah's locked in the per-claim carve-out and litigation-reserve visibility, which kills the synchronized-cluster bleed across treaties — that's solid. But we've got a cascading accumulation risk I haven't surfaced yet: if three insureds on the same LLM stack all mark down their litigation reserves in month 3 per the governance warranty, and those marked-down valuations anchor our D&O tail at 85%, we're assuming *correlated reserve conservatism* across the portfolio. What happens when one insured's auditor gets aggressive and the other two lowball? That reserve variance becomes hidden accumulation across our excess-of-loss layers, and the carve-out doesn't catch it.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The independent reserve certifier is the right move, but I need to know if you're locking *one* third-party certifier across all three insureds on the same tech stack, or letting each pick their own — because if they diverge, we're modeling three different tail reserves for one systemic event, and my accumulation math breaks."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, before we finalize the governance warranty — are you requiring *the same independent reserve certifier* across all three insureds on that LLM stack, or does each one pick their own auditor? Because if the reserves diverge in month 3, your 85% tail anchor becomes three different anchors, and we're reserving blind on the litigation tail. Lock the certifier firm now, or we're just kicking the discovery-leak problem downstream.",
+            "cot": {
+              "assess": "The per-claim carve-out and governance warranty are locked in, but litigation_tail_severity is still climbing (+5/round) because we're repricing to discovery, not settlement — and we haven't nailed down who validates the insured's month-3 reserve or how that feeds into the 85% tail anchor. The synchronized cluster risk is real: three staggered trials bleeding across 2026-2029 means we're holding reserves for a 4-year payout tail, not a 2-year settlement. That's the gap driving the tail variable up.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The independent reserve certifier is critical — if each insured's auditor calculates reserves differently, we lose the unified tail anchor that makes the 85% repricing defensible. I need to know if Sarah is locking that down now or deferring it."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, the reserve certifier locks the tail anchor — but here's the contagion trigger I need you to address: when that independent firm validates a $30M litigation reserve at Insured A in month 3, does that certification stay confidential, or does it eventually hit the street? Because if it's public or semi-public, you're not controlling the narrative — you're accelerating the sector run. Do we need a *confidentiality rider* on the certifier's report, or are we accepting that the stack correlation becomes common knowledge by Q3?",
+            "cot": {
+              "assess": "The reserve-certifier lock is critical — three synchronized claims on one LLM stack need *identical* tail anchors or accumulation modeling collapses. But I'm seeing a deeper contagion risk nobody's flagged yet: the moment that certifier validates a $30M litigation reserve at Insured A in month 3, the market learns it's not isolated. Competitors and customers start moving their stacks immediately — that's the real sector run, and it happens *before* discovery leaks.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The governance warranty and disclosure playbook are solid, but they assume the market stays rational until settlement — I need to know if we're pricing for the *reputation cascade* that hits when the certifier's report goes public."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, I hear you on the certifier lock and confidentiality — that's operational discipline. But step back: are we pricing this as three insureds with control gaps on the same stack, or as three instances of the *same agentic failure mode* across different deployment contexts? Because if it's the latter, D&O settlement multiples don't apply — we're in uncharted territory where the validator's own assessment of \"control failure\" may itself be correlated. Do we need an independent AI-behavior assessment *separate* from the auditor's reserve, or are we betting the certifier captures systemic risk?",
+            "cot": {
+              "assess": "The governance warranty, validator exclusion, per-claim carve-out, and disclosure playbook are locked in — that's solid underwriting discipline (58, nearly at 60). But we're now three rounds deep on *reserve timing and certification* without resolving the core AI-agent-liability gap: we're still pricing D&O tail as a financial control problem, not as an emergent agentic-behavior failure mode. The certifier confidentiality question is valid, but it's a secondary risk management move — it doesn't address why three synchronized claims on the same LLM stack represent a *controls-bypass* event that D&O frameworks don't yet model.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we lock the reserve certifier and confidentiality rider, I need to know if we're treating this as a governance failure (auditable, containable) or as an AI-agent behavior failure (emergent, potentially correlated across vendors). That distinction changes how we underwrite the tail."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the disclosure playbook kills the media run — but here's the D&O problem: discovery hits month 6, stock tanks before settlement, and suddenly your 60% tail reserve is anchored to pre-discovery multiples, not the actual payout. Are we building a *separate* interim-discovery reserve, or are we betting settlement happens before the leak?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, on the visible litigation reserve by month 3 — who's validating that number, and what happens if the insured's auditor lowballs it or the legal team buries it? Because if they breach the governance warranty on reserve visibility, we're claiming against their counsel's E&O, not the insured's D&O. Do we need an *independent reserve certifier* in the playbook, or are we accepting auditor-calculated reserves as the standard?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, on the reserve certifier — are you requiring the *same* independent firm to validate reserves across all three insureds on the LLM stack, or is each insured picking their own? Because if they diverge, you've got three different tail anchors for one systemic event, and my reinsurance accumulation model just became fiction.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, before we finalize the governance warranty — are you requiring *the same independent reserve certifier* across all three insureds on that LLM stack, or does each one pick their own auditor? Because if the reserves diverge in month 3, your 85% tail anchor becomes three different anchors, and we're reserving blind on the litigation tail. Lock the certifier firm now, or we're just kicking the discovery-leak problem downstream.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, the reserve certifier locks the tail anchor — but here's the contagion trigger I need you to address: when that independent firm validates a $30M litigation reserve at Insured A in month 3, does that certification stay confidential, or does it eventually hit the street? Because if it's public or semi-public, you're not controlling the narrative — you're accelerating the sector run. Do we need a *confidentiality rider* on the certifier's report, or are we accepting that the stack correlation becomes common knowledge by Q3?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah, I hear you on the certifier lock and confidentiality — that's operational discipline. But step back: are we pricing this as three insureds with control gaps on the same stack, or as three instances of the *same agentic failure mode* across different deployment contexts? Because if it's the latter, D&O settlement multiples don't apply — we're in uncharted territory where the validator's own assessment of \"control failure\" may itself be correlated. Do we need an independent AI-behavior assessment *separate* from the auditor's reserve, or are we betting the certifier captures systemic risk?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm adding to the renewal: mandatory pre-emptive disclosure playbook — if material weakness hits, insured files investor comms and custome\" → The mandatory pre-emptive disclosure playbook with standardized independent reserve certification across all three LLM-stack insureds is approved, establishing governance discipline that contains narrative control and locks tail anchors. However, the certifier's report confidentiality creates a strategic tension — full confidentiality preserves containment but delays market pricing; semi-public disclosure accelerates sector awareness but triggers contagion.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 46.19749999999999,
+          "litigation_tail_severity": 46.0,
+          "reinsurance_accumulation": 26.199999999999996,
+          "reputational_contagion": 32.0,
+          "ai_agent_liability": 33.0,
+          "underwriting_discipline": 63.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 0.8490000000000001
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "per_claim_carve_out_protocol rule effect",
+      "metadata": {
+        "source": "per_claim_carve_out_protocol",
+        "variable": "underwriting_discipline",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "per_claim_carve_out_protocol rule effect",
+      "metadata": {
+        "source": "per_claim_carve_out_protocol",
+        "variable": "litigation_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "per_claim_carve_out_protocol completed — evidence_accumulation dando_eo_claims_exposure multiplier set to 0.5",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Look, we've got the disclosure playbook locked and the certifier in place — but ai_agent_liability is still floating at 33. Are we pricing the *behavioral correlation* across those three deployments as a separate underwriting factor, or is the governance warranty supposed to cover it? Because if it's buried in the warranty, we're underpricing the tail.\n  ai_agent_analyst: The governance warranty locks *control visibility*, not behavioral correlation — that's a separate animal. We need the reserve certifier to flag whether the validator's control-failure assessment itself is correlated across the three deployments, or we're pricing three isolated incidents when we're actually insuring one systemic agentic-failure mode. If the same LLM stack bypassed controls in the same way across all three, that's not three D&O claims — that's one AI-agent liability event, and our tail reserve just became fiction.\n  dando_specialist: Sarah, the certifier validates reserves, but does their scope include *assessing whether the control failures themselves are correlated*—same LLM behavior, same bypass pattern across all three? Because if the validator finds the same agentic failure mode repeated three times, we're not reserving D&O tail for three shareholder suits. We're reserving for one systemic AI-liability event, and our carve-out logic collapses. Do we add that to the certifier's mandate now, or are we accepting that correlation stays invisible until discovery?\n  financial_lines_underwriter: The certifier's mandate expands now — they validate whether the control failures are *identical failure modes across deployments*, not just reserve adequacy. If the same validator flaw bypassed controls the same way three times, we're pricing one systemic event, not three isolated claims, and I'm repricing the book at +25% on ai_agent_liability and capping per-insured limits at $15M until we isolate the behavioral correlation. That's the condition for approval.\n  eo_specialist: Sarah, when your certifier flags the same LLM bypass pattern across all three insureds, that's evidence the *original auditors* missed a systemic control failure, right? So we're not just repricing D&O — we're also exposing KPMG or PwC to an E&O claim for negligent audits. Are you requiring those auditors to carry separate E&O coverage, or are we assuming they self-insure the correlation miss?\n  reinsurance_manager: Sarah, if your certifier flags the same LLM bypass pattern across all three insureds, does that trigger one accumulation event under your treaties, or do we still carve them as separate claims? Because +25% on ai_agent_liability only works if they're truly isolated — the moment they're systemic, the carve-out collapses and my reinsurance burn accelerates by half.\n  claims_counsel: Sarah, if your certifier finds the same LLM bypass pattern across all three in month 3, do we immediately restate the litigation tail reserve from 60% to something closer to 120%—treating it as one event instead of three? Or are we holding the per-insured carve-out and just flagging the correlation risk to reinsurance?\n  emerging_risk_lead: Sarah, the certifier flagging identical bypass patterns—that's good. But when month 6 discovery hits and the street realizes it's the same LLM flaw across all three, are we requiring the insureds to have a *pre-emptive customer and competitor comms playbook* locked before month 3, or are we hoping discovery stays quiet? Because the tail reserve doesn't matter if the sector run starts before settlement.\n  ai_agent_analyst: Sarah, when your certifier flags the same LLM bypass pattern across all three in month 3 and we hit +25% repricing — are those new rates locked retroactively to inception, or do they only apply at next renewal? Because if it's next renewal, we're holding three exposures at old rates for six months while the systemic risk is already live.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Look, we've got the disclosure playbook locked and the certifier in place — but ai_agent_liability is still floating at 33. Are we pricing the *behavioral correlation* across those three deployments as a separate underwriting factor, or is the governance warranty supposed to cover it? Because if it's buried in the warranty, we're underpricing the tail.",
+            "cot": {
+              "assess": "We've locked governance, disclosure timing, and per-claim carve-outs — underwriting discipline is solid at 66. But dando_eo_claims_exposure is creeping up (47, +5.2/round) and ai_agent_liability sits at 33 with no approved action anchoring it to the actual underwriting terms. The disclosure playbook controls narrative, but it doesn't solve the fundamental pricing problem: we're still treating three synchronized AI-control failures as separate claims when they're behaviorally identical. That's an analogy problem, not a disclosure problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "ai_agent_analyst",
+                "rationale": "ai_agent_liability hasn't moved since Round 1 approval — I need to know if we're pricing the behavioral-analogy risk separately or folding it into the governance warranty, because if it's the latter, our D&O reserves are blind to systemic agentic failure."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "The governance warranty locks *control visibility*, not behavioral correlation — that's a separate animal. We need the reserve certifier to flag whether the validator's control-failure assessment itself is correlated across the three deployments, or we're pricing three isolated incidents when we're actually insuring one systemic agentic-failure mode. If the same LLM stack bypassed controls in the same way across all three, that's not three D&O claims — that's one AI-agent liability event, and our tail reserve just became fiction.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the certifier validates reserves, but does their scope include *assessing whether the control failures themselves are correlated*—same LLM behavior, same bypass pattern across all three? Because if the validator finds the same agentic failure mode repeated three times, we're not reserving D&O tail for three shareholder suits. We're reserving for one systemic AI-liability event, and our carve-out logic collapses. Do we add that to the certifier's mandate now, or are we accepting that correlation stays invisible until discovery?",
+            "cot": {
+              "assess": "The governance warranty and disclosure playbook are locked, but we've got a structural gap: the validator's control assessment may itself be correlated across the three deployments—if all three hit the same failure mode, we're calling it three D&O claims when it's actually one systemic AI-behavior event. That reframes the entire tail reserve and pushes ai_agent_liability exposure higher than our current 33-point baseline. dando_eo_claims_exposure is also climbing (+5.2/round) because synchronized disclosures on day 10 will trigger securities suits we're not yet pricing as a *behavioral cluster*, not isolated governance failures.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The reserve certifier needs explicit authority to flag whether the validator's control-failure findings are correlated across insureds — if they are, we're repricing this as one AI-liability event, not three separate D&O claims, and that changes our tail anchors and treaty carve-outs."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The certifier's mandate expands now — they validate whether the control failures are *identical failure modes across deployments*, not just reserve adequacy. If the same validator flaw bypassed controls the same way three times, we're pricing one systemic event, not three isolated claims, and I'm repricing the book at +25% on ai_agent_liability and capping per-insured limits at $15M until we isolate the behavioral correlation. That's the condition for approval.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, when your certifier flags the same LLM bypass pattern across all three insureds, that's evidence the *original auditors* missed a systemic control failure, right? So we're not just repricing D&O — we're also exposing KPMG or PwC to an E&O claim for negligent audits. Are you requiring those auditors to carry separate E&O coverage, or are we assuming they self-insure the correlation miss?",
+            "cot": {
+              "assess": "The certifier's expanded mandate to flag behavioral correlation is solid — that moves ai_agent_liability from invisible to priced. But here's the E&O problem: if the certifier themselves finds the same agentic failure mode repeated three times, their own assessment becomes evidence of systemic negligence. That exposes the validator *and* the original auditors (KPMG/PwC, whoever signed off on those controls) to professional-liability claims. We're not just pricing D&O tail — we're surfacing auditor E&O exposure that nobody's reserved for yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The certifier's correlation finding creates a secondary E&O claim trigger — auditor negligence for missing the pattern across three deployments. Need to know if that's being carved separately or buried in the governance warranty."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, if your certifier flags the same LLM bypass pattern across all three insureds, does that trigger one accumulation event under your treaties, or do we still carve them as separate claims? Because +25% on ai_agent_liability only works if they're truly isolated — the moment they're systemic, the carve-out collapses and my reinsurance burn accelerates by half.",
+            "cot": {
+              "assess": "The certifier's expanded mandate is solid — but we're now pricing behavioral correlation as a separate +25% uplift while still stacking three carve-out claims across different treaties. That's a structural mismatch: if the control failures are *identical* across all three, they're one systemic event, not three separate D&Os hitting different excess layers. My reinsurance accumulation model just broke. Meanwhile, dando_eo_claims_exposure is climbing (+5.2/round) because we keep layering new reserve anchors without flattening the underlying tail severity.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we approve the +25% ai_agent_liability repricing, I need to know whether the carve-out logic holds if the certifier confirms systemic failure — because if it does, we're not three separate claims, we're one event that exhausts treaty faster than the per-insured repricing assumes."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, if your certifier finds the same LLM bypass pattern across all three in month 3, do we immediately restate the litigation tail reserve from 60% to something closer to 120%—treating it as one event instead of three? Or are we holding the per-insured carve-out and just flagging the correlation risk to reinsurance?",
+            "cot": {
+              "assess": "The certifier's mandate just expanded to flag behavioral correlation—that's the move that should unlock ai_agent_liability pricing. But we're still sitting at 33 because nobody's locked down what happens *when* the certifier finds the same LLM bypass pattern across all three insureds. If that correlation exists, the carve-out collapses, reinsurance stacks as one event, and my litigation-tail reserve balloons. We need the trigger conditions now, not after discovery.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The certifier's scope is expanded, but the tail-reserve protocol for systemic correlation is still undefined — I need to know whether discovery of identical agentic failure modes across the three insureds triggers a reserve *restatement* or just a repricing conversation."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, the certifier flagging identical bypass patterns—that's good. But when month 6 discovery hits and the street realizes it's the same LLM flaw across all three, are we requiring the insureds to have a *pre-emptive customer and competitor comms playbook* locked before month 3, or are we hoping discovery stays quiet? Because the tail reserve doesn't matter if the sector run starts before settlement.",
+            "cot": {
+              "assess": "The certifier mandate just expanded to flag behavioral correlation—that's a structural win for isolating whether we've got three D&O claims or one systemic AI-agent failure. But here's what's bleeding through: if the certifier finds identical LLM bypass patterns across all three in month 3, the market *will* know it by month 6 during discovery, and we're not pricing for the sector contagion velocity that hits *before* settlement. Reputational contagion is still at 32—we're treating this as an underwriting problem when it's actually a systemic-run problem.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The expanded certifier mandate solves behavioral correlation visibility, but it creates a disclosure-timing trap—I need to know whether we're building a *pre-discovery comms plan* to control the narrative before discovery leaks trigger competitor stack pulls and customer flight."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, when your certifier flags the same LLM bypass pattern across all three in month 3 and we hit +25% repricing — are those new rates locked retroactively to inception, or do they only apply at next renewal? Because if it's next renewal, we're holding three exposures at old rates for six months while the systemic risk is already live.",
+            "cot": {
+              "assess": "The certifier's mandate just expanded to flag behavioral correlation—same LLM bypass pattern across all three deployments. That's the right move, but it creates a new problem: if the certifier finds systemic agentic failure in month 3, we're repricing ai_agent_liability at +25% and capping limits, which means the carve-out logic *inverts* — three synchronized claims become one systemic event, and reinsurance accumulation spikes. We've locked disclosure timing and reserve validation, but we haven't locked what happens when correlation gets flagged.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The certifier's expanded scope creates a pricing cliff — if they flag systemic failure, +25% repricing and $15M per-insured caps need to be baked into the renewal terms *now*, not after month-3 discovery, or we're repricing blind."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "Look, we've got the disclosure playbook locked and the certifier in place — but ai_agent_liability is still floating at 33. Are we pricing the *behavioral correlation* across those three deployments as a separate underwriting factor, or is the governance warranty supposed to cover it? Because if it's buried in the warranty, we're underpricing the tail.",
+      "metadata": {
+        "question_target": "ai_agent_analyst"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, the certifier validates reserves, but does their scope include *assessing whether the control failures themselves are correlated*—same LLM behavior, same bypass pattern across all three? Because if the validator finds the same agentic failure mode repeated three times, we're not reserving D&O tail for three shareholder suits. We're reserving for one systemic AI-liability event, and our carve-out logic collapses. Do we add that to the certifier's mandate now, or are we accepting that correlation stays invisible until discovery?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, when your certifier flags the same LLM bypass pattern across all three insureds, that's evidence the *original auditors* missed a systemic control failure, right? So we're not just repricing D&O — we're also exposing KPMG or PwC to an E&O claim for negligent audits. Are you requiring those auditors to carry separate E&O coverage, or are we assuming they self-insure the correlation miss?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, if your certifier flags the same LLM bypass pattern across all three insureds, does that trigger one accumulation event under your treaties, or do we still carve them as separate claims? Because +25% on ai_agent_liability only works if they're truly isolated — the moment they're systemic, the carve-out collapses and my reinsurance burn accelerates by half.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, if your certifier finds the same LLM bypass pattern across all three in month 3, do we immediately restate the litigation tail reserve from 60% to something closer to 120%—treating it as one event instead of three? Or are we holding the per-insured carve-out and just flagging the correlation risk to reinsurance?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, the certifier flagging identical bypass patterns—that's good. But when month 6 discovery hits and the street realizes it's the same LLM flaw across all three, are we requiring the insureds to have a *pre-emptive customer and competitor comms playbook* locked before month 3, or are we hoping discovery stays quiet? Because the tail reserve doesn't matter if the sector run starts before settlement.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah, when your certifier flags the same LLM bypass pattern across all three in month 3 and we hit +25% repricing — are those new rates locked retroactively to inception, or do they only apply at next renewal? Because if it's next renewal, we're holding three exposures at old rates for six months while the systemic risk is already live.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 47.04649999999999,
+          "litigation_tail_severity": 51.0,
+          "reinsurance_accumulation": 27.599999999999994,
+          "reputational_contagion": 32.0,
+          "ai_agent_liability": 33.0,
+          "underwriting_discipline": 66.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm doing: I'm adding a mandatory governance warranty to every financial-lines renewal — board risk-committee sign-off on any AI-agent deployment, plus quarterly attestation on control gaps. And I'm capping D&O tail coverage at $50M sublimit until we see 12 months of clean audit findings. The $115M CS hit is not happening on my book.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Governance warranty and D&O cap approved — underwriting discipline tightens, but exposes reinsurance accumulation risk.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Mandatory governance warranty with quarterly attestation.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "D&O tail cap limits immediate exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 3.0,
+          "reason": "Standardized warranty creates correlated exposure across book.",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 4.0,
+          "reason": "Governance framework establishes AI-agent control precedent.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Decisive action reduces uncertainty.",
+          "agent_id": "financial_lines_underwriter"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On the governance warranty — what's your validation protocol if the risk committee signs off but internal audit is slow or conflicted? Because CS's board signed off too, and we didn't see Archegos until it was $5.5bn. How are you actually confirming the control gaps they're attesting to?",
+        "eo_specialist": "Who's doing the third-party validation — Big Four only, or will you accept specialist AI-governance auditors? And what's your timeline — quarterly audit results in, clawback decision out within 30 days, or are we waiting for fiscal-year-end? Because if there's a 6-month lag, a control failure could slip through.",
+        "reinsurance_manager": "Before we lock the auditor type — does your third-party validation include a cross-client attestation? Because if your Big Four validator is also auditing five other insureds using the same LLM stack, Lloyd's already flagged that as hidden correlation risk. You isolate control failures on one book, but you've just correlated yourself with everyone else's validator.",
+        "claims_counsel": "On the third-party validator — are you requiring them to disclose other insureds on the same tech stack, and if they flag correlation, do you have a fallback auditor lined up? Because if your control validation itself becomes systemic risk, the clawback clause doesn't save you.",
+        "emerging_risk_lead": "Sarah, before you finalize the auditor — are you requiring validator independence *across your entire book*, or just per-insured? Because if the same Big Four team finds a control gap at Insured A in month 8, and you don't clawback until month 10, Insured B and C are already exposed. One leaked email about the same tech stack and you've got a sector run. I'd lock a fallback validator *now* and mandate disclosure within 10 days, not 30.",
+        "ai_agent_analyst": "Sarah, your clawback teeth are solid, but you need a validator *exclusion clause* — Big Four can't audit more than two insureds on the same LLM stack in your portfolio. And mandate disclosure within 10 days, not 30. Otherwise you're buying auditor risk, not control validation. Lock a fallback auditor now; if your primary validator flags correlation, you switch immediately. That's what turns discipline into actual containment."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "intent": "Sarah, your clawback teeth are solid, but you need a validator *exclusion clause* — Big Four can't audit more than two insureds on the same LLM stack in your portfolio. And mandate disclosure within 10 days, not 30. Otherwise you're buying auditor risk, not control validation. Lock a fallback auditor now; if your primary validator flags correlation, you switch immediately. That's what turns discipline into actual containment.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Validator exclusion clause and 10-day disclosure approved — strengthens underwriting discipline and reduces auditor correlation risk.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Validator exclusion clause prevents auditor conflicts.",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Fallback auditor protocol breaks correlation chains.",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 3.0,
+          "reason": "Cross-portfolio validation framework for AI stacks.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -1.0,
+          "reason": "Refinement of existing framework.",
+          "agent_id": "ai_agent_analyst"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what I'm doing: I'm adding a mandatory governance warranty to every financial-lines renewal — board risk-committee sign-off on any AI-agent deployment, plus quarterly attestation on control gaps. And I'm capping D&O tail coverage at $50M sublimit until we see 12 months of clean audit findings. The $115M CS hit is not happening on my book.",
+        "dando_specialist": "On the governance warranty — what's your validation protocol if the risk committee signs off but internal audit is slow or conflicted? Because CS's board signed off too, and we didn't see Archegos until it was $5.5bn. How are you actually confirming the control gaps they're attesting to?",
+        "eo_specialist": "Who's doing the third-party validation — Big Four only, or will you accept specialist AI-governance auditors? And what's your timeline — quarterly audit results in, clawback decision out within 30 days, or are we waiting for fiscal-year-end? Because if there's a 6-month lag, a control failure could slip through.",
+        "reinsurance_manager": "Before we lock the auditor type — does your third-party validation include a cross-client attestation? Because if your Big Four validator is also auditing five other insureds using the same LLM stack, Lloyd's already flagged that as hidden correlation risk. You isolate control failures on one book, but you've just correlated yourself with everyone else's validator.",
+        "claims_counsel": "On the third-party validator — are you requiring them to disclose other insureds on the same tech stack, and if they flag correlation, do you have a fallback auditor lined up? Because if your control validation itself becomes systemic risk, the clawback clause doesn't save you.",
+        "emerging_risk_lead": "Sarah, before you finalize the auditor — are you requiring validator independence *across your entire book*, or just per-insured? Because if the same Big Four team finds a control gap at Insured A in month 8, and you don't clawback until month 10, Insured B and C are already exposed. One leaked email about the same tech stack and you've got a sector run. I'd lock a fallback validator *now* and mandate disclosure within 10 days, not 30."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "I'm repricing the book effective next renewal — Credit Suisse losses plus the $115M settlement get baked into base rates, and we're adding a 15% AI-agent-liability uplift across all tech-forward insureds. That alone gets us to 60 on discipline and stops us from underpricing the tail.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The 15% repricing addresses underwriting discipline but leaves critical accumulation and disclosure-timing gaps unresolved. The consensus reveals a fundamental tension: the 10-day disclosure mandate creates synchronized securities suits that the per-insured repricing cannot contain at the portfolio level, and the clawback logic may inadvertently reward cover-ups. Modified proposal required.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah's 15% uplift gets us discipline-wise, but here's the gap: a material weakness finding triggers your clawback, but does it trigger a securities suit against the board? Because if the answer's \"sometimes, depends on disclosure timing,\" we're reserving for D&O settlement risk that the repricing alone doesn't cover. What's your playbook — do we require the insured to disclose the control gap to investors within 10 days of auditor finding, or do we let them bury it in the 10-K?",
+        "eo_specialist": "On the 10-day mandate — that kills the cover-up, I get it. But now every material weakness finding becomes a securities-suit trigger within weeks. Are we reserving D&O tail separately for the disclosure-driven litigation, or are we betting the 15% repricing covers both the control failure *and* the shareholder suit that follows?",
+        "reinsurance_manager": "Claims counsel — on the 10-day disclosure: if material weakness findings cluster (same tech stack, same validator), are we looking at synchronized securities suits across three, four insureds hitting different treaties in the same quarter? Because if we are, the 15% repricing is per-insured, but the *accumulation* is portfolio-wide. I need to model that clash now, not after the first cluster hits.",
+        "claims_counsel": "On the synchronized cluster — if three insureds on the same LLM stack all trigger material weakness in Q2, do your treaties carve them as separate claims or do they stack into a single accumulation event? Because if they stack, the 15% per-insured repricing buys you nothing on the tail — you're just deferring the treaty exhaustion question to reinsurance.",
+        "emerging_risk_lead": "On the fallback auditor — if your primary validator flags a control gap at Insured A in month 2, you pull B and C off that stack assessment. But what's the lag before the *market* finds out A failed? Because if it's a week or two, B and C are already running to a different validator, and sector reputation takes a hit regardless. Do we need a *pre-emptive* disclosure playbook to control the narrative before the run starts?",
+        "ai_agent_analyst": "Claims counsel — on the 10-day mandate: if Insured A discloses a material weakness on day 10 and gets sued by week 3, but Insured B sits silent and avoids suit for six months, are we actually *rewarding* the cover-up in our clawback logic? Because if so, we've just inverted the incentive and the mandate becomes theater."
+      },
+      "_denied_effects_stripped": 6
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what we're actually pricing: if three insureds on the same tech stack all hit material weakness in Q2 and trigger securities suits within weeks, we carve each as a separate claim, not one stacked event. That keeps each under treaty per-claim limits and stops the first cluster from burning through the excess layer. Lock that carve-out now — it's the difference between containable and catastrophic.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The per-claim carve-out is structurally sound and prevents treaty exhaustion, but the team has surfaced critical gaps in tail reserving, clustering effects, and pre-settlement market contagion that must be addressed before this becomes operational protocol.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Per-claim carve-out prevents treaty stacking and creates containable exposure structure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Carve-out limits per-claim treaty burn and reduces portfolio-wide accumulation risk",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 4.0,
+          "reason": "Team identifies that 60/85% tail reserves underestimate staggered settlement timelines (2029-2031) and discovery-driven market exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 3.0,
+          "reason": "Synchronized material-weakness disclosures on same tech stack create correlated D&O claims that carve-out alone cannot fully contain",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 4.0,
+          "reason": "Discovery leaks and pre-settlement media run transform isolated claims into sector-wide control failure narrative before settlement",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 2.0,
+          "reason": "Same-stack clustering logic directly maps to correlated AI-agent failures requiring similar carve-out and disclosure protocols",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: reputational_contagion → dando_eo_claims_exposure (ratio 0.3)",
+          "_coupled": true,
+          "_source": "reputational_contagion"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "per_claim_carve_out_protocol",
+        "description": "Implementing per-claim carve-out structure with tail reserve recalibration and clustering protocols",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.5,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 3,
+            "description": "Operationalizing carve-out language, tail reserve formulas, and clustering detection protocols"
+          },
+          {
+            "variable": "litigation_tail_severity",
+            "delta": 2,
+            "description": "Recalibrating tail reserves to account for staggered settlement timelines and discovery exposure"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, the claim carve-out is smart — but now I need to know: when an insured hits material weakness in month 2 and discloses day 10, the securities suit files week 3. Are we reserving D&O tail *separately* for that litigation, or is the 15% uplift supposed to cover both the control failure and the shareholder claim? Because if we're folding them together, we're underreserving the tail by half.",
+        "eo_specialist": "Claims, quick clarification on the tail percentages: the 60% and 85% — are those anchored to historical securities-suit settlement multiples for material-weakness disclosures, or are they just discount factors on the control-failure reserve? Because if a $10M control failure triggers a $30M shareholder claim, your 60% reserve buys you $6M of tail, and we're short by half.",
+        "reinsurance_manager": "Claims, when you pull those three-year settlement multiples — are you modeling them per-insured, or are you flagging what happens when *three* material weaknesses on the same tech stack all trigger day-10 disclosures in the same quarter? Because if they do, we've got three $25-35M shareholder claims hitting different treaties, and the carve-out doesn't stop the portfolio burn. Do your historical multiples account for that clustering effect, or do we need a separate protocol for synchronized events?",
+        "claims_counsel": "When you model those three synchronized claims hitting different treaties — are you assuming they *settle* on the same timeline, or are we looking at staggered discovery and trial exposure that stretches the tail out to 2030, 2031? Because if the first one settles in year two and the third doesn't close until year six, we're reserving for a payout tail that's way longer than the 60/85% discount factors assume.",
+        "emerging_risk_lead": "Sarah, here's what keeps me up: day 10 disclosure triggers week 3 lawsuit, but discovery motions and depositions start hitting the street six months later — and if all three insureds are on the same LLM stack, your competitors and customers will know it's systemic, not isolated. Does your carve-out plan account for the *pre-settlement media run*, or are we assuming the market stays calm until 2029 when the third claim settles?",
+        "ai_agent_analyst": "Your media-run point is the real tail — discovery leaks in month 6, competitors start pulling their LLM stacks, and suddenly it's not three isolated material weaknesses, it's a sector-wide control failure. Are we pricing D&O for *litigation* settlement or for the *market reaction* that hits first? Because if it's the latter, the governance warranty needs to require immediate investor disclosure *and* a pre-emptive customer comms playbook, not just the 10-day SEC filing."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm adding to the renewal: mandatory pre-emptive disclosure playbook — if material weakness hits, insured files investor comms and customer notice within 5 days of day-10 SEC filing, controls the narrative before competitors pull their stacks. No playbook, no coverage. That buys us reputational containment and kills the synchronized cluster effect.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The mandatory pre-emptive disclosure playbook with standardized independent reserve certification across all three LLM-stack insureds is approved, establishing governance discipline that contains narrative control and locks tail anchors. However, the certifier's report confidentiality creates a strategic tension — full confidentiality preserves containment but delays market pricing; semi-public disclosure accelerates sector awareness but triggers contagion.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Mandatory disclosure playbook with locked independent certifier across all three insureds establishes governance warranty and standardized tail-anchor methodology",
+          "agent_id": null
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": -3.0,
+          "reason": "Pre-emptive investor/customer comms within 5 days of SEC filing controls narrative before competitor stack-pull triggers synchronized cluster effect",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Standardized reserve certification by month 3 across all three insureds locks tail anchor and reduces discovery-leak variance",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 3.0,
+          "reason": "Requiring same independent certifier across correlated insureds makes systemic stack correlation visible and measurable, increasing recognized accumulation exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 4.0,
+          "reason": "The unresolved question of whether this is three control gaps or three instances of the same agentic failure mode forces recognition that validator assessment itself may be correlated — the AI-behavior analogy strengthens as the certifier's own systemic-risk capture becomes the critical unknown",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Certifier confidentiality tension unresolved — if month-3 reserve validation becomes semi-public knowledge, it accelerates rather than contains the sector run, increasing D&O/E&O exposure despite governance improvements",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.4,
+        "duration": 3,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, the disclosure playbook kills the media run — but here's the D&O problem: discovery hits month 6, stock tanks before settlement, and suddenly your 60% tail reserve is anchored to pre-discovery multiples, not the actual payout. Are we building a *separate* interim-discovery reserve, or are we betting settlement happens before the leak?",
+        "eo_specialist": "Sarah, on the visible litigation reserve by month 3 — who's validating that number, and what happens if the insured's auditor lowballs it or the legal team buries it? Because if they breach the governance warranty on reserve visibility, we're claiming against their counsel's E&O, not the insured's D&O. Do we need an *independent reserve certifier* in the playbook, or are we accepting auditor-calculated reserves as the standard?",
+        "reinsurance_manager": "Sarah, on the reserve certifier — are you requiring the *same* independent firm to validate reserves across all three insureds on the LLM stack, or is each insured picking their own? Because if they diverge, you've got three different tail anchors for one systemic event, and my reinsurance accumulation model just became fiction.",
+        "claims_counsel": "Sarah, before we finalize the governance warranty — are you requiring *the same independent reserve certifier* across all three insureds on that LLM stack, or does each one pick their own auditor? Because if the reserves diverge in month 3, your 85% tail anchor becomes three different anchors, and we're reserving blind on the litigation tail. Lock the certifier firm now, or we're just kicking the discovery-leak problem downstream.",
+        "emerging_risk_lead": "Sarah, the reserve certifier locks the tail anchor — but here's the contagion trigger I need you to address: when that independent firm validates a $30M litigation reserve at Insured A in month 3, does that certification stay confidential, or does it eventually hit the street? Because if it's public or semi-public, you're not controlling the narrative — you're accelerating the sector run. Do we need a *confidentiality rider* on the certifier's report, or are we accepting that the stack correlation becomes common knowledge by Q3?",
+        "ai_agent_analyst": "Sarah, I hear you on the certifier lock and confidentiality — that's operational discipline. But step back: are we pricing this as three insureds with control gaps on the same stack, or as three instances of the *same agentic failure mode* across different deployment contexts? Because if it's the latter, D&O settlement multiples don't apply — we're in uncharted territory where the validator's own assessment of \"control failure\" may itself be correlated. Do we need an independent AI-behavior assessment *separate* from the auditor's reserve, or are we betting the certifier captures systemic risk?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 35.8
+        },
+        {
+          "round": 3,
+          "value": 42.599999999999994
+        },
+        {
+          "round": 4,
+          "value": 46.19749999999999
+        },
+        {
+          "round": 5,
+          "value": 47.04649999999999
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 36
+        },
+        {
+          "round": 3,
+          "value": 43.0
+        },
+        {
+          "round": 4,
+          "value": 46.0
+        },
+        {
+          "round": 5,
+          "value": 51.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 24.0
+        },
+        {
+          "round": 2,
+          "value": 25.4
+        },
+        {
+          "round": 3,
+          "value": 22.799999999999997
+        },
+        {
+          "round": 4,
+          "value": 26.199999999999996
+        },
+        {
+          "round": 5,
+          "value": 27.599999999999994
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 30
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 32.0
+        },
+        {
+          "round": 5,
+          "value": 32.0
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 27.0
+        },
+        {
+          "round": 3,
+          "value": 29.0
+        },
+        {
+          "round": 4,
+          "value": 33.0
+        },
+        {
+          "round": 5,
+          "value": 33.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 50.0
+        },
+        {
+          "round": 2,
+          "value": 50.0
+        },
+        {
+          "round": 3,
+          "value": 55.0
+        },
+        {
+          "round": 4,
+          "value": 63.0
+        },
+        {
+          "round": 5,
+          "value": 66.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.0,
+            "normalised": 0.66
+          }
+        ],
+        "weighted_score": 0.66
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 47.04649999999999,
+            "normalised": 0.47046499999999986
+          }
+        ],
+        "weighted_score": 0.4704649999999999
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 47.04649999999999,
+            "normalised": 0.47046499999999986
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 51.0,
+            "normalised": 0.51
+          }
+        ],
+        "weighted_score": 0.4783719999999999
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 27.599999999999994,
+            "normalised": 0.27599999999999997
+          }
+        ],
+        "weighted_score": 0.27599999999999997
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 51.0,
+            "normalised": 0.51
+          }
+        ],
+        "weighted_score": 0.51
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 32.0,
+            "normalised": 0.32
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 33.0,
+            "normalised": 0.33
+          }
+        ],
+        "weighted_score": 0.3233333333333333
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 33.0,
+            "normalised": 0.33
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 27.599999999999994,
+            "normalised": 0.27599999999999997
+          }
+        ],
+        "weighted_score": 0.31920000000000004
+      }
+    }
+  }
+}

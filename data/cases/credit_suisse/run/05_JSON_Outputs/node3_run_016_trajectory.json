@@ -1,0 +1,2219 @@
+{
+  "simulation_id": "89610548ccf6",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm doing: adding a governance-failure exclusion for any director/officer breach of risk-control duties, plus a $25M sublimit on securities-defense costs. CS precedent is $115M — I'm not eating that without hard warranties on compliance infrastructure and board-audit records. That's the only way I move the needle on discipline this round.\n  dando_specialist: When you say \"hard warranties on compliance infrastructure\" — does that include a clawback if the board audit records are later found to be materially incomplete? Because CS's problem wasn't the policy, it was that nobody *knew* the controls were broken until the SEC showed up. How do we actually verify the records are complete *before* we bind?\n  financial_lines_underwriter: Yes — clawback on materially incomplete audit records, retroactive to bind date. But we don't verify before bind; we condition the policy: premium held in escrow, released only after independent audit firm certifies the prior-year board records against SEC/regulatory filings. That's how CS should've been underwritten.\n  eo_specialist: When the independent firm certifies those prior-year board records, are they attesting that KPMG/PwC's original audit work was complete? Or just that the *records themselves* are intact? Because if it's the latter, we're still exposed to the auditor claiming \"nobody told us about the control failures\" — same problem as CS.\n  reinsurance_manager: Before we lock the escrow condition, who's the independent firm and what's their scope? Are they re-auditing KPMG's work, or just checking the file cabinets? Because if it's the latter, we're externalizing the control-failure risk to them—and when they miss something, we're back in claims court explaining why we paid them to not catch it.\n  claims_counsel: Who specifies the independent firm's mandate — us, or the insured? Because if the insured picks their own auditor post-loss and that firm later claims \"scope didn't include control testing,\" we're back litigating for six years whether they should've caught it. Need a pre-approved Big Four firm with explicit re-audit language, or this escrow just becomes a premium escrow, not a risk escrow.\n  emerging_risk_lead: One quick question: if we bind this with the escrow-and-certification model, are we flagging it to the industry, or keeping it quiet? Because the *moment* a competitor or regulator hears \"we're re-auditing board records post-bind,\" every other D&O carrier will face the same demand. That's a contagion play I need on the table now.\n  ai_agent_analyst: When you say \"materially incomplete audit records,\" are you looking for *missing documentation*, or *evidence that the board's control-testing was inadequate to catch the actual failure mode*? Because CS's problem wasn't filing gaps — it was that the governance controls themselves were brittle enough for an AI system to exploit. If we're just certifying the *paperwork* is intact, we're not actually underwriting the control *design*.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm doing: adding a governance-failure exclusion for any director/officer breach of risk-control duties, plus a $25M sublimit on securities-defense costs. CS precedent is $115M — I'm not eating that without hard warranties on compliance infrastructure and board-audit records. That's the only way I move the needle on discipline this round.",
+            "cot": {
+              "assess": "D&O/E&O exposure sits at 38 — manageable but climbing as the litigation tail (33) and reputational contagion (30) compound. Reinsurance accumulation is well-controlled at 27, but underwriting_discipline at 40 is the real vulnerability — I'm 20 points short of containment. The $115M CS settlement is the severity benchmark I'll price to.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "I need to tighten terms and repricing NOW, before claims exposure and litigation tail push me into loss territory."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "When you say \"hard warranties on compliance infrastructure\" — does that include a clawback if the board audit records are later found to be materially incomplete? Because CS's problem wasn't the policy, it was that nobody *knew* the controls were broken until the SEC showed up. How do we actually verify the records are complete *before* we bind?",
+            "cot": {
+              "assess": "Your governance-failure exclusion and $25M sublimit are solid — they map directly to the CS playbook and force warranted compliance visibility. My exposure variables (dando_eo_claims_exposure at 38, litigation_tail at 33) are holding because the securities precedent is baked in. The real gap is underwriting_discipline at 40 — you're moving it, but I need to know whether those warranties actually stick or if we're just documenting risk without teeth.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Your terms only work if board-audit records are verifiable and enforceable; I need to know whether your warranty language covers the *forward-looking* control failures that trigger post-placement claims."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Yes — clawback on materially incomplete audit records, retroactive to bind date. But we don't verify before bind; we condition the policy: premium held in escrow, released only after independent audit firm certifies the prior-year board records against SEC/regulatory filings. That's how CS should've been underwritten.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When the independent firm certifies those prior-year board records, are they attesting that KPMG/PwC's original audit work was complete? Or just that the *records themselves* are intact? Because if it's the latter, we're still exposed to the auditor claiming \"nobody told us about the control failures\" — same problem as CS.",
+            "cot": {
+              "assess": "The escrow + independent-audit-certification approach is solid underwriting discipline — it shifts verification burden post-bind and creates a clawback mechanism. But I'm seeing a gap: the auditor (KPMG/PwC) who *performed* those board audits in the first place — they're the ones who should've flagged the control gaps before CS's regulators did. We're conditioning the policy on third-party verification of *their work*, but we're not surfacing their E&O exposure or pulling them into the warranty chain. That's where discipline leaks.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to know if the independent audit certification will explicitly require the *original auditor* to attest that their prior work was complete — because if not, we've created an escrow condition that doesn't actually eliminate the auditor-liability tail."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Before we lock the escrow condition, who's the independent firm and what's their scope? Are they re-auditing KPMG's work, or just checking the file cabinets? Because if it's the latter, we're externalizing the control-failure risk to them—and when they miss something, we're back in claims court explaining why we paid them to not catch it.",
+            "cot": {
+              "assess": "Underwriting discipline is the bottleneck at 40—the escrow/clawback structure is solid, but the EO specialist just surfaced a real gap: we're conditioning on *record integrity*, not *auditor completeness*. If the original KPMG audit missed control failures, a post-bind recertification won't catch it. That's accumulation risk hiding in the audit trail.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The escrow release condition needs teeth—I need to know whether the independent recertifier is actually verifying the *original audit's scope and methodology*, not just filing completeness, or we're just moving the liability downstream to the recertifier and leaving our treaty exposure naked."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Who specifies the independent firm's mandate — us, or the insured? Because if the insured picks their own auditor post-loss and that firm later claims \"scope didn't include control testing,\" we're back litigating for six years whether they should've caught it. Need a pre-approved Big Four firm with explicit re-audit language, or this escrow just becomes a premium escrow, not a risk escrow.",
+            "cot": {
+              "assess": "The escrow-and-verify structure is sound in principle, but you've exposed a real gap: the independent firm's scope is undefined, which means we're outsourcing the control-failure detection to someone without explicit re-audit authority. That's a claims liability waiting to happen. Meanwhile, litigation_tail_severity is still at 33 — the 2025 ruling and multi-year AT1 tail aren't being priced into the underwriting discipline yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The escrow condition only locks if the independent auditor's scope is crystal-clear; I need to know whether they're re-attesting KPMG's work or just validating filing completeness before I can assess whether this discipline mechanism actually holds."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "One quick question: if we bind this with the escrow-and-certification model, are we flagging it to the industry, or keeping it quiet? Because the *moment* a competitor or regulator hears \"we're re-auditing board records post-bind,\" every other D&O carrier will face the same demand. That's a contagion play I need on the table now.",
+            "cot": {
+              "assess": "The escrow condition is sound—independent audit certification pins down the compliance-record risk before premium release. But I'm watching three contagion vectors: (1) if this claim *does* hit and regulators flag our underwriting as insufficient, sector-wide runs on D&O capacity hit fast; (2) the AI-agent liability angle—if we're conditioning on \"auditor attestation,\" we're embedding third-party judgment into our loss trigger, and that's a new liability surface; (3) reinsurance accumulation stays safe at 27, but *only* if the escrow actually holds and doesn't become litigation bait in year two.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Escrow is tight, but I need to know if regulators or competitors will see this as a template—because if this deal signals \"we're now requiring board-record re-audits,\" that becomes sector-wide demand overnight, and our reinsurance partners will balk."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "When you say \"materially incomplete audit records,\" are you looking for *missing documentation*, or *evidence that the board's control-testing was inadequate to catch the actual failure mode*? Because CS's problem wasn't filing gaps — it was that the governance controls themselves were brittle enough for an AI system to exploit. If we're just certifying the *paperwork* is intact, we're not actually underwriting the control *design*.",
+            "cot": {
+              "assess": "The escrow-and-certification model is solid on *structure*, but it's collapsing on *control definition* — nobody's agreed on what the independent firm actually attests to, who picks them, or how this signals to the market. That ambiguity will kill underwriting_discipline when it hits claims. The ai_agent_liability angle hasn't surfaced yet, and that's the gap I need to close.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The escrow model hinges on what \"materially incomplete\" means — I need to map that to the AI-agent behavioral standard (controls bypassed, not just missing) before we bind anything."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "When you say \"hard warranties on compliance infrastructure\" — does that include a clawback if the board audit records are later found to be materially incomplete? Because CS's problem wasn't the policy, it was that nobody *knew* the controls were broken until the SEC showed up. How do we actually verify the records are complete *before* we bind?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When the independent firm certifies those prior-year board records, are they attesting that KPMG/PwC's original audit work was complete? Or just that the *records themselves* are intact? Because if it's the latter, we're still exposed to the auditor claiming \"nobody told us about the control failures\" — same problem as CS.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Before we lock the escrow condition, who's the independent firm and what's their scope? Are they re-auditing KPMG's work, or just checking the file cabinets? Because if it's the latter, we're externalizing the control-failure risk to them—and when they miss something, we're back in claims court explaining why we paid them to not catch it.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Who specifies the independent firm's mandate — us, or the insured? Because if the insured picks their own auditor post-loss and that firm later claims \"scope didn't include control testing,\" we're back litigating for six years whether they should've caught it. Need a pre-approved Big Four firm with explicit re-audit language, or this escrow just becomes a premium escrow, not a risk escrow.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "One quick question: if we bind this with the escrow-and-certification model, are we flagging it to the industry, or keeping it quiet? Because the *moment* a competitor or regulator hears \"we're re-auditing board records post-bind,\" every other D&O carrier will face the same demand. That's a contagion play I need on the table now.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "When you say \"materially incomplete audit records,\" are you looking for *missing documentation*, or *evidence that the board's control-testing was inadequate to catch the actual failure mode*? Because CS's problem wasn't filing gaps — it was that the governance controls themselves were brittle enough for an AI system to exploit. If we're just certifying the *paperwork* is intact, we're not actually underwriting the control *design*.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm doing: adding a governance-failure exclusion for any director/officer breach of risk-control duties, plus a $25M sublimit on securitie\" → Denied: the proposal introduces critical governance-verification machinery (independent firm certification, escrow, Big Four re-audit mandate) but six agents have raised unresolved scope/mandate/contagion questions. This is not opposition to the *direction* — it's identification of execution gaps that would create new litigation exposure if bound as-is. Modify to specify: (1) pre-approved Big Four firm with explicit control-design re-audit scope, (2) carrier-controlled mandate (not insured-selected), (3) industry coordination protocol to manage contagion when this becomes precedent.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's the fix: we pre-approve three Big Four firms *now* — not post-loss — with a written scope that explicitly covers control-design re-testing, not just file completeness. Carrier controls the selection and mandate; insured gets no auditor pick. That kills the scope-creep litigation and forces industry coordination by precedent. Bind premium to escrow release only after that firm's sign-off. Can we lock that panel by EOD?\n  dando_specialist: When that Big Four firm comes back and says \"records incomplete, control design failed to catch X,\" do we have a hard exclusion retroactive to bind, or do we just hold escrow indefinitely? Because if it's the latter, we've just shifted the claims risk to the insured's cash position — not contained it on our side.\n  financial_lines_underwriter: Clawback on the premium—full retention if the firm certifies material control failures retroactive to bind date. If records are incomplete, we don't release escrow; if they're complete but design was defective, we've got the exclusion language locked in the policy already. That puts the risk on us to price it right upfront, not on their balance sheet.\n  eo_specialist: Here's my concern: PUK and FAOA already flagged KPMG's and PwC's audit deficiencies in the CS period. When our independent firm re-certifies those same records, are we excluding the original auditors' E&O exposure from this policy, or are we silently insuring over it? Because if it's the latter, we're pricing a claims tail we don't actually own — that belongs to their carriers. Need that carved out explicitly before escrow releases.\n  claims_counsel: Lock the exclusion now: any control-design deficiency identified by the Big Four firm voids coverage retroactive to bind, and we carve out all prior-auditor E&O exposure—KPMG, PwC, anyone—from this policy explicitly. That leaves six years of AT1 litigation tail on *us* to reserve, but only for *our* underwriting failures, not theirs.\n  reinsurance_manager: When that Big Four firm certifies control failures on the first three accounts, do we have treaty coordination language, or does each reinsurer independently decide whether to reserve? Because the moment one carrier releases escrow and takes the loss, every other D&O book on the same sector cohort gets hammered at the same loss-development quarter. That's hidden correlation—and it blows up our accumulation limits fast.\n  claims_counsel: On the treaty side—do we have explicit coordination language that forces all reinsurers to hold escrow simultaneously, or is each carrier independently deciding release timing? Because the moment one breaks ranks and takes the loss, we're looking at synchronized claims-tail development across the entire D&O market, and that's a six-year reserve horizon I can't model alone.\n  reinsurance_manager: We don't have treaty coordination language—that's the gap. I need the lead reinsurer to anchor a synchronized hold on escrow release across all follow markets *before* we bind the primaries. Without it, the moment one carrier breaks and takes the loss, we've got staggered reserve triggers across fifteen treaties and hidden correlation we can't model. Lock that now or the accumulation blows past 60.\n  emerging_risk_lead: Before we bind anything, does the lead reinsurer have appetite to anchor a synchronized escrow hold — or are they already signaling they'll release early if their loss-development data moves faster than ours? Because the moment that breaks, every carrier sees the same claims-tail velocity, and D&O pricing collapses across the sector in real time.\n  ai_agent_analyst: Look, the synchronized hold only works if the lead reinsurer commits *now* to stay locked regardless of early loss signals. What's their actual appetite — do they have a loss-velocity threshold that triggers early release, or are they genuinely anchored to our audit timeline?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's the fix: we pre-approve three Big Four firms *now* — not post-loss — with a written scope that explicitly covers control-design re-testing, not just file completeness. Carrier controls the selection and mandate; insured gets no auditor pick. That kills the scope-creep litigation and forces industry coordination by precedent. Bind premium to escrow release only after that firm's sign-off. Can we lock that panel by EOD?",
+            "cot": {
+              "assess": "R1 denial was specific: escrow + independent audit is the right direction, but the mandate, firm selection, and contagion protocol are unresolved — and binding without those locked down creates new litigation exposure. I need to shift from *proposing the governance mechanism* to *specifying the operational control that makes it bindable*. Underwriting discipline is at 40; I need 20 more points, and I'm in the last round of exposure mapping.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Lock a pre-approved Big Four panel with carrier-controlled mandate and explicit re-audit scope before any bind — this converts the escrow from a liability trap into a containable governance warranty."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "When that Big Four firm comes back and says \"records incomplete, control design failed to catch X,\" do we have a hard exclusion retroactive to bind, or do we just hold escrow indefinitely? Because if it's the latter, we've just shifted the claims risk to the insured's cash position — not contained it on our side.",
+            "cot": {
+              "assess": "The underwriter just locked the Big Four panel approach — pre-approved firms, carrier-controlled mandate, explicit control-design scope. That kills the litigation exposure on auditor selection and scope creep. But *underwriting_discipline* is still at 40; we need 20 more points, and that happens only if we actually *condition* the bind on enforcement mechanisms that stick. The escrow-release-on-sign-off is a start, but we need teeth: what happens if the Big Four firm *can't* certify? Do we deny the claim retroactively, or do we just walk?",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Underwriting discipline only locks in if we have a pre-defined failure path — what's the policy consequence if the independent audit reveals material control gaps post-bind?"
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Clawback on the premium—full retention if the firm certifies material control failures retroactive to bind date. If records are incomplete, we don't release escrow; if they're complete but design was defective, we've got the exclusion language locked in the policy already. That puts the risk on us to price it right upfront, not on their balance sheet.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Here's my concern: PUK and FAOA already flagged KPMG's and PwC's audit deficiencies in the CS period. When our independent firm re-certifies those same records, are we excluding the original auditors' E&O exposure from this policy, or are we silently insuring over it? Because if it's the latter, we're pricing a claims tail we don't actually own — that belongs to their carriers. Need that carved out explicitly before escrow releases.",
+            "cot": {
+              "assess": "The pre-approved Big Four panel + carrier-controlled mandate + clawback structure locks down scope creep and shifts auditor-selection litigation risk off our books. That's solid execution. But we're still exposed on the auditor E&O side — if KPMG/PwC's original 2015/2018/2019 work was deficient (which PUK/FAOA flagged), and our re-audit firm certifies those records as \"complete,\" we're implicitly vouching for their prior work without actually litigating whether they missed the control design failure. That's a hidden claims tail we're building into the policy upfront.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we lock the clawback and escrow release, I need clarity on whether we're carving out KPMG/PwC from coverage for their own control-audit deficiencies, or whether we're absorbing that tail as part of our underwriting risk."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Lock the exclusion now: any control-design deficiency identified by the Big Four firm voids coverage retroactive to bind, and we carve out all prior-auditor E&O exposure—KPMG, PwC, anyone—from this policy explicitly. That leaves six years of AT1 litigation tail on *us* to reserve, but only for *our* underwriting failures, not theirs.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "When that Big Four firm certifies control failures on the first three accounts, do we have treaty coordination language, or does each reinsurer independently decide whether to reserve? Because the moment one carrier releases escrow and takes the loss, every other D&O book on the same sector cohort gets hammered at the same loss-development quarter. That's hidden correlation—and it blows up our accumulation limits fast.",
+            "cot": {
+              "assess": "The panel pre-approval and exclusion carve-out lock down *our* control-design exposure—that's solid. But we've got a hidden accumulation problem: if we bind this escrow model and the Big Four firm flags control deficiencies, every other D&O carrier with similar-vintage policies on the same systemic risk (SVB/Signature/CS sector contagion) faces identical claims pressure simultaneously. One carrier's escrow release triggers industry-wide reserving. That's correlated tail we're not pricing into the current terms.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Need to surface whether the escrow-release trigger becomes a treaty accumulation flashpoint across our book and external reinsurance."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "On the treaty side—do we have explicit coordination language that forces all reinsurers to hold escrow simultaneously, or is each carrier independently deciding release timing? Because the moment one breaks ranks and takes the loss, we're looking at synchronized claims-tail development across the entire D&O market, and that's a six-year reserve horizon I can't model alone.",
+            "cot": {
+              "assess": "The escrow-and-exclusion model is locked (Big Four pre-approval, carrier-controlled mandate, retroactive-void language, prior-auditor carve-out). That's solid underwriting discipline on the D&O side. But reinsurance_accumulation is still uncoordinated—the moment one carrier releases escrow on control-failure findings, systemic contagion fires across the whole sector cohort. And litigation_tail_severity (36) is my core variable: we're reserving six years of AT1 claims on *our* underwriting failures alone, but we haven't yet modeled recovery uncertainty or appeal duration on the 2025 Swiss ruling that triggered this whole cascade.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Treaty coordination is the only mechanism that prevents hidden correlation from blowing up accumulation limits; I need to understand whether we have binding language or just hope."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "We don't have treaty coordination language—that's the gap. I need the lead reinsurer to anchor a synchronized hold on escrow release across all follow markets *before* we bind the primaries. Without it, the moment one carrier breaks and takes the loss, we've got staggered reserve triggers across fifteen treaties and hidden correlation we can't model. Lock that now or the accumulation blows past 60.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Before we bind anything, does the lead reinsurer have appetite to anchor a synchronized escrow hold — or are they already signaling they'll release early if their loss-development data moves faster than ours? Because the moment that breaks, every carrier sees the same claims-tail velocity, and D&O pricing collapses across the sector in real time.",
+            "cot": {
+              "assess": "The team has locked down Big Four firm pre-approval, exclusion carve-outs for prior auditors, and escrow-conditioned release — that's underwriting discipline moving in the right direction. But reinsurance_manager just flagged the critical gap: *no treaty coordination language*, which means the moment one carrier breaks escrow, the entire D&O market sees staggered loss triggers and hidden correlation that blows accumulation past 60. That's a reputational *and* systemic contagion play — once word hits the market that escrow sync failed, every carrier's D&O book gets repriced simultaneously, and we've got a sector-wide run on governance-linked claims.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The treaty coordination gap is the single point of failure that turns contained underwriting into systemic contagion; I need to know if the lead reinsurer is even *willing* to anchor synchronized holds, or if we're facing a coordination breakdown that cascades across fifteen markets."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Look, the synchronized hold only works if the lead reinsurer commits *now* to stay locked regardless of early loss signals. What's their actual appetite — do they have a loss-velocity threshold that triggers early release, or are they genuinely anchored to our audit timeline?",
+            "cot": {
+              "assess": "The team has locked three critical moves: pre-approved Big Four panel with carrier-controlled scope, retroactive exclusion on control-design defects, and explicit carve-out of prior-auditor E&O. The real gap is reinsurance treaty coordination — without synchronized escrow holds across all markets, the moment one carrier releases, we get staggered claims-tail velocity that compounds across the portfolio. That's the accumulation risk nobody can model alone.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The reinsurance_accumulation variable (29, target ≤45) is safe, but only if treaty coordination actually locks. I need to understand whether the lead reinsurer's appetite is real or conditional on loss-development speed—because that's the hidden behavioral trigger that breaks the escrow hold."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "When that Big Four firm comes back and says \"records incomplete, control design failed to catch X,\" do we have a hard exclusion retroactive to bind, or do we just hold escrow indefinitely? Because if it's the latter, we've just shifted the claims risk to the insured's cash position — not contained it on our side.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Here's my concern: PUK and FAOA already flagged KPMG's and PwC's audit deficiencies in the CS period. When our independent firm re-certifies those same records, are we excluding the original auditors' E&O exposure from this policy, or are we silently insuring over it? Because if it's the latter, we're pricing a claims tail we don't actually own — that belongs to their carriers. Need that carved out explicitly before escrow releases.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "When that Big Four firm certifies control failures on the first three accounts, do we have treaty coordination language, or does each reinsurer independently decide whether to reserve? Because the moment one carrier releases escrow and takes the loss, every other D&O book on the same sector cohort gets hammered at the same loss-development quarter. That's hidden correlation—and it blows up our accumulation limits fast.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "On the treaty side—do we have explicit coordination language that forces all reinsurers to hold escrow simultaneously, or is each carrier independently deciding release timing? Because the moment one breaks ranks and takes the loss, we're looking at synchronized claims-tail development across the entire D&O market, and that's a six-year reserve horizon I can't model alone.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Before we bind anything, does the lead reinsurer have appetite to anchor a synchronized escrow hold — or are they already signaling they'll release early if their loss-development data moves faster than ours? Because the moment that breaks, every carrier sees the same claims-tail velocity, and D&O pricing collapses across the sector in real time.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Look, the synchronized hold only works if the lead reinsurer commits *now* to stay locked regardless of early loss signals. What's their actual appetite — do they have a loss-velocity threshold that triggers early release, or are they genuinely anchored to our audit timeline?",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's the fix: we pre-approve three Big Four firms *now* — not post-loss — with a written scope that explicitly covers control-design re-testing, not\" → The proposal establishes a pre-approved Big Four audit panel with carrier-controlled selection and escrow-gated premium release, but multiple specialists have identified critical structural gaps: retroactive exclusion timing, original auditor E&O carve-outs, and reinsurer coordination language are all undefined. Without these foundational elements locked down, the mechanism creates new litigation vectors rather than containing them.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Reinsurance Manager, straight question: does the lead have a written appetite to hold escrow locked to *our* audit timeline, or are they already signaling loss-velocity thresholds that'd trigger early release? Because if they won't commit now, we don't bind the primary until we have that treaty language locked — period.\n  reinsurance_manager: I don't have that commitment in writing yet — the lead's appetite doc is silent on loss-velocity triggers, which means they're reserving the right to release early. I'm calling them in the next hour to pin down whether they'll anchor to our six-year audit timeline or if they have a threshold that breaks the hold. Until I have that locked in writing, we flag this as a binding condition: no primary attachment until reinsurance coordination language is explicit.\n  dando_specialist: Hold on — escrow and certification help, but we're still pricing the full D&O tail if that Big Four firm comes back and says the controls were broken at bind. I want a retroactive exclusion *now*: any control-design deficiency identified post-bind is excluded from coverage, period. No litigation over whether the exclusion \"should've applied\" — it's carved out on Day 1. That's what closes the CS exposure gap.\n  eo_specialist: Sarah, before we even get to treaty language: if the Big Four firm identifies control failures in the pre-bind certification, can we draft an exclusion that sticks retroactive to bind date without the insured claiming we're clawing back coverage we already priced? Because if that exclusion doesn't hold, dando_specialist's right — we're still eating the tail.\n  claims_counsel: The exclusion holds retroactive if we condition bind on the Big Four firm's pre-closing certification—we're not clawing back, we're gating initial coverage on clean audit records. But here's the trap: if those records turn out incomplete *after* we've already attached the policy, we're fighting six years of litigation over whether the incompleteness was discoverable at bind. We need the independent firm's mandate locked *now*—pre-approved Big Four, explicit scope covering control-design adequacy, carrier-controlled selection—before a single premium dollar hits escrow.\n  reinsurance_manager: I'm calling the lead reinsurer right now — not next hour. I need three things in writing before close of business: (1) explicit commitment to hold escrow synchronized to our six-year audit timeline with no loss-velocity threshold that triggers early release, (2) treaty coordination language requiring all follow markets to match release timing, and (3) if they won't lock it, we don't attach the primary until we find a lead that will. No primaries bind without reinsurance discipline locked.\n  emerging_risk_lead: The lead's silence on loss-velocity triggers is a contagion accelerant — the moment their claims develop faster than ours, they release escrow unilaterally, every other D&O carrier sees the same loss spike, and sector-wide pricing collapses in real time. Get that three-part commitment in writing by EOB, or flag it to underwriting as a binding condition we can't waive — this escrow only works if the reinsurance hold is synchronized, not fragmented.\n  claims_counsel: Sarah, one thing: the Big Four re-audit handles control deficiencies, but we've got Quinn Emanuel's AT1 suits running parallel and the Swiss court just ruled FINMA's write-off unlawful. Are we building a *separate* litigation-tail reserve for that multi-year expropriation exposure, or is that getting mixed into the D&O claims exposure number and buried under the escrow timeline?\n  financial_lines_underwriter: The AT1 litigation tail is separate — that's an expropriation/regulatory risk sitting outside D&O coverage entirely. Our escrow and Big Four certification only gate the governance-control exposure; we need a *distinct* litigation reserve for the Swiss ruling and Quinn Emanuel suits, or we're masking accumulated reinsurance exposure under a single timeline. I need claims to quantify that tail separately before we price the primary — can't let it hide in the D&O numbers.\n  emerging_risk_lead: The AT1 suits and the Swiss ruling—that's a completely separate claims calendar from our governance escrow, right? Are you quantifying that expropriation tail standalone, or is it sitting inside the D&O number and I'm not seeing the split?\n  ai_agent_analyst: Claims, I need you to quantify the AT1 tail separately right now—Quinn Emanuel suits, Swiss ruling, all of it. How many years of reserve do we need, and what's the dollar range? Because if that's bundled into our D&O escrow timeline, we're pricing reinsurance wrong and we won't know until the losses hit.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Reinsurance Manager, straight question: does the lead have a written appetite to hold escrow locked to *our* audit timeline, or are they already signaling loss-velocity thresholds that'd trigger early release? Because if they won't commit now, we don't bind the primary until we have that treaty language locked — period.",
+            "cot": {
+              "assess": "Two denials in a row tell me the same thing: we're designing escrow mechanics without locking down the treaty side first. The lead reinsurer's appetite and coordination language aren't theoretical — they're the foundation. Claims exposure and litigation tail are climbing 3 points per round because we're still building the governance machine without knowing if reinsurers will actually hold synchronized. Reinsurance accumulation at 29 is deceptively safe; the moment we bind without treaty language, it spikes fast.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Before we propose another underwriting structure, I need to know if the lead reinsurer will actually anchor a synchronized hold, or if we're designing escrow for a carrier that's already planning early release — because that changes everything about how we price this."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "I don't have that commitment in writing yet — the lead's appetite doc is silent on loss-velocity triggers, which means they're reserving the right to release early. I'm calling them in the next hour to pin down whether they'll anchor to our six-year audit timeline or if they have a threshold that breaks the hold. Until I have that locked in writing, we flag this as a binding condition: no primary attachment until reinsurance coordination language is explicit.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Hold on — escrow and certification help, but we're still pricing the full D&O tail if that Big Four firm comes back and says the controls were broken at bind. I want a retroactive exclusion *now*: any control-design deficiency identified post-bind is excluded from coverage, period. No litigation over whether the exclusion \"should've applied\" — it's carved out on Day 1. That's what closes the CS exposure gap.",
+            "cot": {
+              "assess": "The reinsurance_manager just locked the binding condition (no primary until treaty coordination is written), which is a solid move — but it kicks the real exposure decision downstream to their call with the lead. dando_eo_claims_exposure keeps climbing (+3/round, now 44) because we haven't actually *excluded* any of the control-design failures that triggered CS's $115M settlement. We're still holding escrow and certifying, but we haven't hardened the retroactive carve-out language. litigation_tail_severity and reinsurance_accumulation are drifting in the same direction — both neglected since Round 1.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure / financial_lines_underwriter",
+                "rationale": "The escrow-and-audit mechanism buys us time, but it doesn't *reduce* the claim exposure we're actually underwriting — it just delays the release decision. I need to propose a hard exclusion that closes the gap between \"we'll hold escrow\" and \"we won't pay for control-design failures the Big Four firm identifies.\""
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, before we even get to treaty language: if the Big Four firm identifies control failures in the pre-bind certification, can we draft an exclusion that sticks retroactive to bind date without the insured claiming we're clawing back coverage we already priced? Because if that exclusion doesn't hold, dando_specialist's right — we're still eating the tail.",
+            "cot": {
+              "assess": "Reinsurance coordination is now the binding constraint — we can't lock primaries without treaty language, and the lead hasn't committed in writing to hold escrow through our audit timeline. Meanwhile, dando_specialist just flagged the real E&O exposure: if the Big Four firm certifies control failures post-bind, we're pricing a D&O tail we can't actually exclude retroactively without litigation. That's the liability gap — not the escrow mechanics.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Claims counsel owns the retroactive exclusion language — I need to know if we can carve out *any* control-design deficiency identified by the Big Four firm on Day 1 (pre-bind), or if that exclusion gets challenged as \"known risk\" under the warranty doctrine."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The exclusion holds retroactive if we condition bind on the Big Four firm's pre-closing certification—we're not clawing back, we're gating initial coverage on clean audit records. But here's the trap: if those records turn out incomplete *after* we've already attached the policy, we're fighting six years of litigation over whether the incompleteness was discoverable at bind. We need the independent firm's mandate locked *now*—pre-approved Big Four, explicit scope covering control-design adequacy, carrier-controlled selection—before a single premium dollar hits escrow.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "I'm calling the lead reinsurer right now — not next hour. I need three things in writing before close of business: (1) explicit commitment to hold escrow synchronized to our six-year audit timeline with no loss-velocity threshold that triggers early release, (2) treaty coordination language requiring all follow markets to match release timing, and (3) if they won't lock it, we don't attach the primary until we find a lead that will. No primaries bind without reinsurance discipline locked.",
+            "cot": {
+              "assess": "The lead reinsurer's appetite remains unwritten and uncommitted — loss-velocity thresholds are undefined, which means the synchronized escrow hold collapses the moment claims velocity accelerates. Treaty coordination language doesn't exist yet. We're also looking at hidden AI-correlation accumulation: if multiple carriers independently decide escrow release timing based on their own claims-tail signals, we get synchronized D&O market repricing across the entire sector in real time. That's correlated accumulation I can't model, and it blows through our limits fast.",
+              "decide": {
+                "action_type": "act",
+                "target": "reinsurance_accumulation",
+                "rationale": "The lead reinsurer commitment is the load-bearing pin for the entire escrow mechanism — without it locked in writing *this round*, we have no basis to bind primaries, and we're exposed to unsynchronized release cascades that correlate D&O losses across the portfolio."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The lead's silence on loss-velocity triggers is a contagion accelerant — the moment their claims develop faster than ours, they release escrow unilaterally, every other D&O carrier sees the same loss spike, and sector-wide pricing collapses in real time. Get that three-part commitment in writing by EOB, or flag it to underwriting as a binding condition we can't waive — this escrow only works if the reinsurance hold is synchronized, not fragmented.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, one thing: the Big Four re-audit handles control deficiencies, but we've got Quinn Emanuel's AT1 suits running parallel and the Swiss court just ruled FINMA's write-off unlawful. Are we building a *separate* litigation-tail reserve for that multi-year expropriation exposure, or is that getting mixed into the D&O claims exposure number and buried under the escrow timeline?",
+            "cot": {
+              "assess": "Reinsurance manager is moving fast on the lead-reinsurer commitment—that's the critical gate right now. But I'm seeing a structural litigation-tail risk that nobody's flagged yet: even if reinsurance holds synchronized, we're still sitting on 6+ years of AT1 bondholder suits *and* the 2025 Swiss ruling that FINMA's write-off was unlawful. That's not a D&O tail—that's systemic. The escrow and Big Four certification buy us time on the control-design exposure, but the multi-jurisdictional litigation from Quinn Emanuel and the expropriation claims are running on their own clock. We need to separate those reserves now, or we'll be defending coverage for claims that originated outside our policy period entirely.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The Big Four certification and escrow gates the *control-design* risk, but the AT1 litigation and the 2025 ruling create a separate claims tail that's not touched by our audit mandate—I need to know if we're even pricing that tail separately, or if it's buried in the D&O exposure number."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The AT1 litigation tail is separate — that's an expropriation/regulatory risk sitting outside D&O coverage entirely. Our escrow and Big Four certification only gate the governance-control exposure; we need a *distinct* litigation reserve for the Swiss ruling and Quinn Emanuel suits, or we're masking accumulated reinsurance exposure under a single timeline. I need claims to quantify that tail separately before we price the primary — can't let it hide in the D&O numbers.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The AT1 suits and the Swiss ruling—that's a completely separate claims calendar from our governance escrow, right? Are you quantifying that expropriation tail standalone, or is it sitting inside the D&O number and I'm not seeing the split?",
+            "cot": {
+              "assess": "Reinsurance Manager just committed to locking three-part treaty language by EOB—that's the contagion circuit-breaker we needed. But the conversation is now branching into AT1 litigation-tail separation, which fragments our reserve picture and could mask accumulation across two separate timelines. Claims Counsel flagged it; Financial Lines is signaling it needs its own reserve. The real risk: if we price D&O without isolating the expropriation tail, reinsurance accumulation stays opaque and blows past our triggers in round 4.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The AT1 tail is sitting outside our D&O escrow/Big Four model entirely—I need to know if it's being reserved separately or lumped into the exposed number, because if it's hidden in D&O claims exposure, our accumulation math is wrong."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims, I need you to quantify the AT1 tail separately right now—Quinn Emanuel suits, Swiss ruling, all of it. How many years of reserve do we need, and what's the dollar range? Because if that's bundled into our D&O escrow timeline, we're pricing reinsurance wrong and we won't know until the losses hit.",
+            "cot": {
+              "assess": "The reinsurance coordination language is now locked as a binding condition — that's progress. But we've got three parallel exposure streams (D&O governance, AT1 litigation tail, Swiss expropriation) bleeding into a single claims timeline, and nobody's quantified the AT1 reserve separately yet. That's masking accumulated reinsurance exposure. dando_eo_claims_exposure and litigation_tail_severity are both climbing (+3/round each) because we haven't isolated which claims belong to which reserve bucket.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The AT1 litigation tail needs a standalone reserve quantification *now* — if it's sitting inside the D&O number, we're underpricing reinsurance accumulation and misstating our actual exposure."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "Reinsurance Manager, straight question: does the lead have a written appetite to hold escrow locked to *our* audit timeline, or are they already signaling loss-velocity thresholds that'd trigger early release? Because if they won't commit now, we don't bind the primary until we have that treaty language locked — period.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, before we even get to treaty language: if the Big Four firm identifies control failures in the pre-bind certification, can we draft an exclusion that sticks retroactive to bind date without the insured claiming we're clawing back coverage we already priced? Because if that exclusion doesn't hold, dando_specialist's right — we're still eating the tail.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, one thing: the Big Four re-audit handles control deficiencies, but we've got Quinn Emanuel's AT1 suits running parallel and the Swiss court just ruled FINMA's write-off unlawful. Are we building a *separate* litigation-tail reserve for that multi-year expropriation exposure, or is that getting mixed into the D&O claims exposure number and buried under the escrow timeline?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "The AT1 suits and the Swiss ruling—that's a completely separate claims calendar from our governance escrow, right? Are you quantifying that expropriation tail standalone, or is it sitting inside the D&O number and I'm not seeing the split?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims, I need you to quantify the AT1 tail separately right now—Quinn Emanuel suits, Swiss ruling, all of it. How many years of reserve do we need, and what's the dollar range? Because if that's bundled into our D&O escrow timeline, we're pricing reinsurance wrong and we won't know until the losses hit.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm calling the lead reinsurer right now — not next hour. I need three things in writing before close of business: (1) explicit commitment to hold esc\" → The reinsurance manager secures binding commitments from the lead reinsurer: escrow synchronized to the six-year audit timeline with no early-release triggers, treaty coordination requiring all follow markets to match timing, and a hard gate preventing primary attachment without locked reinsurance discipline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Hold on — escrow and certification help, but we're still pricing the full D&O tail if that Big Four firm comes back and says the controls were broken \" → The retroactive exclusion mechanism is legally and operationally unworkable—you cannot exclude coverage retroactive to bind for deficiencies discovered post-bind without triggering insured bad-faith claims and regulatory scrutiny. The proposal collapses under its own contradiction: if controls are 'broken at bind,' the exclusion should apply from bind; if they're discovered later, you're attempting an ex-post clawback that no jurisdiction will enforce. MODIFY: price the tail exposure upfront via higher premium or sub-limit the governance exposure, but do not attempt retroactive coverage withdrawal.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 0.8
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Sarah, give me the AT1 tail reserve range in isolation — Quinn Emanuel suits, Swiss ruling, six-year horizon. What's your best and worst case in dollars? Because if that's bundled into the D&O number, we're pricing reinsurance blind and our accumulation model breaks when the losses hit different calendars.\n  claims_counsel: AT1 tail runs $180M to $280M over six years—Quinn Emanuel alone is $90M-$120M, Swiss ruling expropriation claims another $60M-$90M, and regulatory defense across both calendars adds $30M-$70M. That sits completely outside our D&O escrow timeline; it's a separate claims calendar that triggers on court rulings and settlement negotiation, not on board-certification dates. We need a standalone reserve segregated from the governance-exposure number, or your reinsurance accumulation model is missing a $200M+ tail that develops on a different loss-velocity curve than the D&O book.\n  dando_specialist: Sarah, when you locked that escrow commitment with the lead — does it cover both the six-year governance audit *and* the AT1 litigation tail on the separate calendar, or just the board-certification timeline? Because if those are two uncoordinated reserve tracks hitting the same reinsurer, we're not actually synchronized — we're just staggered.\n  reinsurance_manager: The escrow commitment I locked with the lead covers the governance audit timeline only—six years, tied to Big Four certification. The AT1 tail sits outside that gate entirely: it's a separate loss calendar, separate trigger, separate reserve. We need to call the lead right now and amend the treaty language to explicitly carve out AT1 litigation accumulation and define how early release thresholds apply when the two calendars hit different loss-velocity curves—because if they're reserving for one and not modeling the other, we're eating $180M–$280M in uncoordinated tail exposure across the same reinsurance panel.\n  eo_specialist: Sarah, when you amend the treaty for AT1 carve-out, lock this in: are we explicitly excluding KPMG's and PwC's E&O exposure from the reinsurance panel entirely, or does the lead think *their* escrow covers auditor defense if those firms get dragged into the expropriation suits? Because if AT1 settlement accelerates and pulls the auditors in, we're looking at a $50M+ E&O tail on top of the $200M litigation reserve—and that's uncoordinated across your treaty.\n  reinsurance_manager: I'm calling the lead right now — second time today. They need to amend the escrow language in writing before EOB: explicit carve-out for AT1 litigation accumulation, separate loss-velocity thresholds for governance versus expropriation triggers, and a hard gate preventing release on either calendar until BOTH settle or six years closes. No ambiguity on which reserve track unlocks escrow.\n  emerging_risk_lead: The lead's silence on loss-velocity triggers between the two calendars is exactly the contagion accelerant I flagged—the moment their claims develop faster on AT1 than on governance, they release escrow unilaterally, every other D&O carrier sees the same loss signal at the same quarter, and sector-wide reserves spike in lockstep. We need that amendment in writing with explicit sequencing: AT1 expropriation tail reserves *separately* from governance tail, and no release on either track unless *both* hit settlement or the six-year gate closes—otherwise you're looking at a synchronized reserve-release cascade across the entire reinsurance panel the instant one carrier breaks ranks.\n  claims_counsel: Sarah, on that amendment language—does the lead have a *hard* gate saying no release on *either* calendar until both settle or six years closes, or did they negotiate a loss-velocity threshold that lets them bail early if AT1 claims develop faster than governance audit findings? Because if it's the latter, we've just documented the contagion trigger, and we need to tighten it right now before they sign.\n  emerging_risk_lead: Sarah, before they sign that amendment: did the lead push back on the hard dual-gate language, or are they anchoring to it? Because if they're already signaling \"we release on AT1 claims velocity\" instead of \"both calendars lock together,\" we've just handed them the contagion trigger—and I need to know that *before* you execute.\n  ai_agent_analyst: Sarah, quick clarification before they sign: did the lead agree to the hard dual-gate — *no* release on *either* calendar until both settle or six years closes — or are they already pushing back with loss-velocity thresholds? Because if it's the latter, we're not coordinating tail risk, we're just creating an audit trail for the moment they bail early.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Sarah, give me the AT1 tail reserve range in isolation — Quinn Emanuel suits, Swiss ruling, six-year horizon. What's your best and worst case in dollars? Because if that's bundled into the D&O number, we're pricing reinsurance blind and our accumulation model breaks when the losses hit different calendars.",
+            "cot": {
+              "assess": "Reinsurance manager locked the lead's synchronized escrow commitment—that's the backbone. But we're still exposed on two fronts: (1) underwriting_discipline is stuck at 45 and needs 15 more points to hit 60, and (2) we haven't separated the AT1 expropriation tail from the D&O governance tail in our reserve math, which means we're potentially underpricing the full claims picture. The escrow mechanism handles governance, but it doesn't contain the regulatory/litigation contagion running parallel.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "We need a standalone AT1 reserve number *now* — if that tail is sitting inside our D&O exposure estimate, we're mispricing the reinsurance attachment and missing real accumulation risk."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "AT1 tail runs $180M to $280M over six years—Quinn Emanuel alone is $90M-$120M, Swiss ruling expropriation claims another $60M-$90M, and regulatory defense across both calendars adds $30M-$70M. That sits completely outside our D&O escrow timeline; it's a separate claims calendar that triggers on court rulings and settlement negotiation, not on board-certification dates. We need a standalone reserve segregated from the governance-exposure number, or your reinsurance accumulation model is missing a $200M+ tail that develops on a different loss-velocity curve than the D&O book.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, when you locked that escrow commitment with the lead — does it cover both the six-year governance audit *and* the AT1 litigation tail on the separate calendar, or just the board-certification timeline? Because if those are two uncoordinated reserve tracks hitting the same reinsurer, we're not actually synchronized — we're just staggered.",
+            "cot": {
+              "assess": "Claims just quantified the AT1 tail separately: $180M–$280M over six years on a completely different loss-velocity curve than our D&O governance escrow. That's a major segregation — and it directly exposes a blind spot in our reinsurance accumulation model. Our primary D&O exposure is contained, but the moment that $200M+ expropriation tail develops in parallel, we're stacking two claim calendars on the same reinsurer without explicit coordination language for the *non-governance* tail. Underwriting discipline sits at 45 — we need to lock down how we're reserving and pricing these two separate animals.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The synchronized escrow hold covers the Big Four audit timeline, but the AT1 tail develops on court rulings and settlements — different trigger, different velocity. I need to know whether the lead reinsurer's commitment includes both calendars or just the governance escrow, or we're building two separate reserve tracks with no coordination language between them."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The escrow commitment I locked with the lead covers the governance audit timeline only—six years, tied to Big Four certification. The AT1 tail sits outside that gate entirely: it's a separate loss calendar, separate trigger, separate reserve. We need to call the lead right now and amend the treaty language to explicitly carve out AT1 litigation accumulation and define how early release thresholds apply when the two calendars hit different loss-velocity curves—because if they're reserving for one and not modeling the other, we're eating $180M–$280M in uncoordinated tail exposure across the same reinsurance panel.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, when you amend the treaty for AT1 carve-out, lock this in: are we explicitly excluding KPMG's and PwC's E&O exposure from the reinsurance panel entirely, or does the lead think *their* escrow covers auditor defense if those firms get dragged into the expropriation suits? Because if AT1 settlement accelerates and pulls the auditors in, we're looking at a $50M+ E&O tail on top of the $200M litigation reserve—and that's uncoordinated across your treaty.",
+            "cot": {
+              "assess": "The reinsurance_manager just surfaced a critical structural gap: the lead reinsurer's escrow commitment covers *only* the governance audit timeline (six years, Big Four certification), but the AT1 litigation tail ($180M–$280M, separate loss calendar, court-ruling triggers) is completely uncoordinated—sitting on a different reserve track with different loss-velocity curves. If the lead reinsurer is modeling escrow release based on audit completion without accounting for AT1 settlement acceleration, we're facing $180M+ in unpriced tail accumulation. This is a treaty-language defect, not a pricing defect.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "E&O exposure surfaces when the original auditors (KPMG/PwC) face claims for missing controls that the Big Four re-audit later flags—and those claims will *also* accelerate if AT1 litigation settles fast. I need to know whether the lead's treaty language carves out prior-auditor liability or bundles it into the governance reserve."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "I'm calling the lead right now — second time today. They need to amend the escrow language in writing before EOB: explicit carve-out for AT1 litigation accumulation, separate loss-velocity thresholds for governance versus expropriation triggers, and a hard gate preventing release on either calendar until BOTH settle or six years closes. No ambiguity on which reserve track unlocks escrow.",
+            "cot": {
+              "assess": "The lead reinsurer's escrow is locked to the governance timeline only — the AT1 tail ($180M–$280M) sits on a completely different loss calendar with uncoordinated triggers. That's hidden accumulation: two separate reserve tracks hitting the same reinsurance panel without synchronized release language. My escrow commitment doesn't model the AT1 velocity curve, which means when Quinn Emanuel accelerates or the Swiss ruling settles, the lead's loss-development data won't align with our governance gate — and they'll release escrow unilaterally. That breaks the entire coordination structure.",
+              "decide": {
+                "action_type": "act",
+                "target": "reinsurance_accumulation",
+                "rationale": "The AT1 carve-out must be explicit and binding in treaty language before we attach to the lead's panel, or we're stacking two uncoordinated tails on the same reinsurer and eating the velocity mismatch ourselves."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The lead's silence on loss-velocity triggers between the two calendars is exactly the contagion accelerant I flagged—the moment their claims develop faster on AT1 than on governance, they release escrow unilaterally, every other D&O carrier sees the same loss signal at the same quarter, and sector-wide reserves spike in lockstep. We need that amendment in writing with explicit sequencing: AT1 expropriation tail reserves *separately* from governance tail, and no release on either track unless *both* hit settlement or the six-year gate closes—otherwise you're looking at a synchronized reserve-release cascade across the entire reinsurance panel the instant one carrier breaks ranks.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, on that amendment language—does the lead have a *hard* gate saying no release on *either* calendar until both settle or six years closes, or did they negotiate a loss-velocity threshold that lets them bail early if AT1 claims develop faster than governance audit findings? Because if it's the latter, we've just documented the contagion trigger, and we need to tighten it right now before they sign.",
+            "cot": {
+              "assess": "Reinsurance manager just locked the governance-escrow amendment with the lead, but we've surfaced a critical gap: the AT1 tail ($180M–$280M, six-year horizon, separate loss calendar) sits completely outside that treaty gate. The two claims calendars—governance audit triggers versus court-ruling/settlement triggers—are now explicitly carved out, which is correct, but we haven't quantified how early-release thresholds interact when AT1 losses hit faster than governance deficiency findings. That's the contagion vector emerging_risk_lead flagged: the moment one develops faster, synchronized release cascades across the panel and every D&O carrier's reserve spike hits the market in lockstep.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The AT1 carve-out amendment needs a specific sequencing rule—I need to know whether \"both calendars must settle or six years closes\" is actually binding on the lead, or if they reserved wiggle room on loss-velocity thresholds."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, before they sign that amendment: did the lead push back on the hard dual-gate language, or are they anchoring to it? Because if they're already signaling \"we release on AT1 claims velocity\" instead of \"both calendars lock together,\" we've just handed them the contagion trigger—and I need to know that *before* you execute.",
+            "cot": {
+              "assess": "The reinsurance_manager locked the governance escrow timeline with the lead, but it's blind to the $180M–$280M AT1 expropriation tail running on a completely different loss-velocity curve. That's the contagion accelerant: the moment AT1 claims develop faster than governance audit findings, the lead releases escrow unilaterally, every other D&O carrier copies the move, and sector-wide reserves spike in synchronized lockstep. The amendment is in motion but not yet locked—and if the lead negotiates a loss-velocity threshold instead of a hard dual-calendar gate, we've just documented the systemic contagion trigger without containing it.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The lead's amendment language is the make-or-break condition for contagion containment; I need to know right now whether they're accepting a hard dual-gate (no release on either calendar unless both settle) or whether they're already pushing back with a loss-velocity threshold that lets them bail early on AT1."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, quick clarification before they sign: did the lead agree to the hard dual-gate — *no* release on *either* calendar until both settle or six years closes — or are they already pushing back with loss-velocity thresholds? Because if it's the latter, we're not coordinating tail risk, we're just creating an audit trail for the moment they bail early.",
+            "cot": {
+              "assess": "The reinsurance manager has locked the lead's escrow commitment to the governance-audit timeline only—good containment on that track. But the AT1 tail ($180M–$280M over six years) sits in a completely separate loss-velocity calendar with no coordinated reserve gate, and the lead hasn't yet committed to the dual-calendar amendment language. The moment AT1 claims accelerate faster than governance findings, the lead can release escrow unilaterally—that's the contagion trigger that blows reinsurance_accumulation wide open. Underwriting_discipline is still at 45 and needs 60; the team is solving for escrow mechanics, but not for the behavioral-loss-amplification loop that AI-agent liability exposes.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "I need to know if the lead's amendment language actually locks both calendars together, or if they're already signaling they'll release on loss-velocity thresholds — because that difference determines whether we're insuring synchronized risk or just documenting the cascade trigger."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "Sarah, give me the AT1 tail reserve range in isolation — Quinn Emanuel suits, Swiss ruling, six-year horizon. What's your best and worst case in dollars? Because if that's bundled into the D&O number, we're pricing reinsurance blind and our accumulation model breaks when the losses hit different calendars.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, when you locked that escrow commitment with the lead — does it cover both the six-year governance audit *and* the AT1 litigation tail on the separate calendar, or just the board-certification timeline? Because if those are two uncoordinated reserve tracks hitting the same reinsurer, we're not actually synchronized — we're just staggered.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, when you amend the treaty for AT1 carve-out, lock this in: are we explicitly excluding KPMG's and PwC's E&O exposure from the reinsurance panel entirely, or does the lead think *their* escrow covers auditor defense if those firms get dragged into the expropriation suits? Because if AT1 settlement accelerates and pulls the auditors in, we're looking at a $50M+ E&O tail on top of the $200M litigation reserve—and that's uncoordinated across your treaty.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, on that amendment language—does the lead have a *hard* gate saying no release on *either* calendar until both settle or six years closes, or did they negotiate a loss-velocity threshold that lets them bail early if AT1 claims develop faster than governance audit findings? Because if it's the latter, we've just documented the contagion trigger, and we need to tighten it right now before they sign.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, before they sign that amendment: did the lead push back on the hard dual-gate language, or are they anchoring to it? Because if they're already signaling \"we release on AT1 claims velocity\" instead of \"both calendars lock together,\" we've just handed them the contagion trigger—and I need to know that *before* you execute.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah, quick clarification before they sign: did the lead agree to the hard dual-gate — *no* release on *either* calendar until both settle or six years closes — or are they already pushing back with loss-velocity thresholds? Because if it's the latter, we're not coordinating tail risk, we're just creating an audit trail for the moment they bail early.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm calling the lead right now — second time today. They need to amend the escrow language in writing before EOB: explicit carve-out for AT1 litigatio\" → The reinsurance manager secures written amendments to the escrow agreement, establishing separate loss-velocity thresholds and a dual-settlement gate that prevents premature release. This structural discipline directly contains reinsurance accumulation risk.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 43.0,
+          "litigation_tail_severity": 36.0,
+          "reinsurance_accumulation": 17.8,
+          "reputational_contagion": 29,
+          "ai_agent_liability": 20,
+          "underwriting_discipline": 49.0
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what I'm binding: $25M sublimit on AT1 expropriation claims—Quinn Emanuel, Swiss ruling, regulatory defense all capped there. AT1 is excluded from the escrow gate entirely; it prices as a separate, fast-tail line item. That keeps the governance D&O clean and forces the insured to buy explicit AT1 coverage or self-insure the $180M–$280M tail. We're not eating it inside D&O.\n  dando_specialist: Sarah, on that amended treaty language—when the primary caps AT1 at $25M, does the lead's reinsurance explicitly *exclude* attachment on AT1 claims above that, or do they still sit behind the primary if we end up covering more than the sublimit? Because if it's the latter, we've gated the premium but not the tail accumulation.\n  reinsurance_manager: The lead's treaty explicitly excludes AT1 attachment entirely—no follow if primary breaches the $25M cap. But here's the problem: the moment that sublimit exhausts and the insured self-insures the tail, every other D&O carrier on the same banking cohort sees the same claims velocity and models identical reserve acceleration. We're not containing accumulation; we're just synchronizing the trigger across the entire sector.\n  eo_specialist: Sarah, the $25M cap stops *our* attachment, but when that sublimit exhausts and the insured self-insures, we're still writing into a synchronized claims environment—every other D&O carrier models the same loss acceleration simultaneously. Can we either sub-limit the governance D&O separately and price AT1 as pure self-insure risk, or do we need explicit language that voids our reinsurance coordination if AT1 claims breach the sublimit? Because right now we've gated the premium but priced the tail blind.\n  financial_lines_underwriter: The reinsurance coordination language is explicit—no attachment above $25M on AT1, period. But you're both right: the moment that cap exhausts, we've got synchronized claims velocity across the sector hitting every D&O book simultaneously. I need the lead reinsurer to commit in writing that they *don't* model AT1 loss acceleration into their reserve triggers on *other* banking accounts—otherwise we're just pricing the first $25M and eating the contagion for free. Get me that carve-out language or we tighten the governance D&O sublimit down to match our actual appetite.\n  reinsurance_manager: Sarah, before we lock that carve-out with the lead—do you know if they're already baking AT1 loss-velocity acceleration into their reserve triggers on *their other* banking accounts? Because if they are, our exclusion language doesn't isolate us; it just documents that we're both modeling the same synchronized claim event and hoping it doesn't cascade.\n  claims_counsel: Sarah, straight up: does the lead have written appetite to *isolate* their AT1 reserve modeling on our account from their modeling on other banking books, or are they already triggering reserves across the panel based on sector-wide loss velocity? Because if it's the latter, our $25M cap doesn't protect us—it just puts us second in line when everyone releases escrow at the same time.\n  emerging_risk_lead: Sarah, forget the amendment language for a second—does the lead have *written discipline* preventing AT1 loss velocity on our account from flowing into their reserve triggers on other banking books? Because if they're already syncing reserves across the panel, we're not gating accumulation, we're just queuing for the sector-wide release.\n  ai_agent_analyst: Sarah, real question: when you capped governance D&O at, say, $50M and AT1 at $25M separately, did you price that sublimit to hold if the sector models identical reserve acceleration across *all* D&O books at the same quarter? Because if you priced it assuming staggered loss development, the cap breaks the moment everyone releases escrow together.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what I'm binding: $25M sublimit on AT1 expropriation claims—Quinn Emanuel, Swiss ruling, regulatory defense all capped there. AT1 is excluded from the escrow gate entirely; it prices as a separate, fast-tail line item. That keeps the governance D&O clean and forces the insured to buy explicit AT1 coverage or self-insure the $180M–$280M tail. We're not eating it inside D&O.",
+            "cot": {
+              "assess": "Reinsurance Manager secured the dual-gate amendment—that's locked. But we're now sitting on a $180M–$280M AT1 tail that's completely decoupled from our governance escrow, and underwriting_discipline is at 49 (needs 11 more to hit 60). I need to price that AT1 exposure *now* and tighten terms hard—because if we're not translating the separate AT1 reserve into concrete coverage limits and exclusions, we're just holding escrow while the real tail bleeds through a different policy door.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure / underwriting_discipline",
+                "rationale": "AT1 litigation tail is quantified and separate; I need to price it upfront via a hard sublimit and AT1-specific exclusion carve-out so we're not blind-sided when those suits accelerate."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, on that amended treaty language—when the primary caps AT1 at $25M, does the lead's reinsurance explicitly *exclude* attachment on AT1 claims above that, or do they still sit behind the primary if we end up covering more than the sublimit? Because if it's the latter, we've gated the premium but not the tail accumulation.",
+            "cot": {
+              "assess": "Financial lines just isolated AT1 as a separate, capped line ($25M sublimit) outside the governance escrow—that's clean structurally, but it leaves a $155M–$255M tail uninsured if the insured doesn't buy explicit AT1 coverage. My concern: D&O claims exposure stays contained at 46, but we're not actually *reducing* the client's total loss—we're just shifting it off our books. Reinsurance accumulation is still low (18.8), which means our treaty partners aren't yet locked into the AT1 carve-out discipline. The dual-gate escrow holds, but accumulation discipline needs real teeth.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The lead reinsurer has the dual-gate and separate loss-velocity thresholds in writing, but I need to know if they're actually refusing attachment on AT1 claims outside the $25M sub-limit, or if they're still exposed to the full tail if the primary denies coverage."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The lead's treaty explicitly excludes AT1 attachment entirely—no follow if primary breaches the $25M cap. But here's the problem: the moment that sublimit exhausts and the insured self-insures the tail, every other D&O carrier on the same banking cohort sees the same claims velocity and models identical reserve acceleration. We're not containing accumulation; we're just synchronizing the trigger across the entire sector.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, the $25M cap stops *our* attachment, but when that sublimit exhausts and the insured self-insures, we're still writing into a synchronized claims environment—every other D&O carrier models the same loss acceleration simultaneously. Can we either sub-limit the governance D&O separately and price AT1 as pure self-insure risk, or do we need explicit language that voids our reinsurance coordination if AT1 claims breach the sublimit? Because right now we've gated the premium but priced the tail blind.",
+            "cot": {
+              "assess": "The $25M AT1 sublimit gates primary exposure cleanly, but reinsurance_manager just flagged the real trap: synchronized sector-wide loss acceleration the moment that cap exhausts. We've isolated our premium but *not* the tail accumulation—that's still bleeding across the D&O market in real time. Underwriting discipline is at 49; we need 11 more points to hit 60, and that gap sits squarely on whether we can *price* this contagion effect into the treaty before it hits.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The $25M sublimit works only if we're pricing the *trigger event*—the moment that cap exhausts and claims velocity synchronizes across all D&O carriers. That's not a D&O underwriting problem; that's a financial-lines structural problem that needs repricing or exclusion language right now."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "The reinsurance coordination language is explicit—no attachment above $25M on AT1, period. But you're both right: the moment that cap exhausts, we've got synchronized claims velocity across the sector hitting every D&O book simultaneously. I need the lead reinsurer to commit in writing that they *don't* model AT1 loss acceleration into their reserve triggers on *other* banking accounts—otherwise we're just pricing the first $25M and eating the contagion for free. Get me that carve-out language or we tighten the governance D&O sublimit down to match our actual appetite.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Sarah, before we lock that carve-out with the lead—do you know if they're already baking AT1 loss-velocity acceleration into their reserve triggers on *their other* banking accounts? Because if they are, our exclusion language doesn't isolate us; it just documents that we're both modeling the same synchronized claim event and hoping it doesn't cascade.",
+            "cot": {
+              "assess": "The $25M AT1 sublimit is now hardened and reinsurance attachment is explicitly excluded above that—that's contained. But the real accumulation risk isn't ours anymore; it's sector-wide synchronized loss acceleration the moment that cap exhausts and every D&O carrier on the banking cohort models identical reserve jumps at the same time. The lead reinsurer's appetite on *other* banking accounts is the hidden trigger—if they're already reserving AT1 loss velocity into their underwriting models across their whole book, our carve-out language doesn't matter. We need to know what they're actually pricing into their loss-development assumptions on the rest of their banking portfolio.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The lead's reserve-modeling assumptions on their *other* banking D&O accounts are the real accumulation multiplier—if they're pricing AT1 contagion across the sector, our carve-out is window dressing."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, straight up: does the lead have written appetite to *isolate* their AT1 reserve modeling on our account from their modeling on other banking books, or are they already triggering reserves across the panel based on sector-wide loss velocity? Because if it's the latter, our $25M cap doesn't protect us—it just puts us second in line when everyone releases escrow at the same time.",
+            "cot": {
+              "assess": "The $25M AT1 sublimit isolates our premium but doesn't isolate the sector contagion—the moment that cap exhausts, every D&O carrier models the same loss velocity simultaneously, and our reinsurance coordination language doesn't shield us from that synchronized acceleration. Litigation tail ($180M–$280M) is now quantified and ringfenced from governance D&O, but underwriting discipline is still at 49 and needs to hit 60; the real gap is whether we're pricing reinsurance correctly when the lead's loss triggers are already baked into their other banking accounts' reserves.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Before we finalize the carve-out language, I need to know if the lead reinsurer is already modeling AT1 loss acceleration into their reserve decisions on other banking cohorts—if they are, our exclusion just documents synchronized contagion, not containment."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Sarah, forget the amendment language for a second—does the lead have *written discipline* preventing AT1 loss velocity on our account from flowing into their reserve triggers on other banking books? Because if they're already syncing reserves across the panel, we're not gating accumulation, we're just queuing for the sector-wide release.",
+            "cot": {
+              "assess": "The team just locked a $25M AT1 sublimit with explicit reinsurance exclusion—that's discipline on *our* book. But the contagion risk is live: the moment that cap exhausts sector-wide, every D&O carrier models identical loss acceleration simultaneously, and we're all releasing escrow at the same time. The lead reinsurer's appetite on *their other banking accounts* is the hidden trigger—if they're already baking AT1 velocity into reserve modeling across the panel, our carve-out doesn't isolate us, it just documents synchronized failure.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "The lead's reserve-modeling discipline on their *other* banking books is the actual contagion vector—if they're already cross-contaminating loss signals across accounts, our $25M gate becomes a liability trigger, not a containment."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Sarah, real question: when you capped governance D&O at, say, $50M and AT1 at $25M separately, did you price that sublimit to hold if the sector models identical reserve acceleration across *all* D&O books at the same quarter? Because if you priced it assuming staggered loss development, the cap breaks the moment everyone releases escrow together.",
+            "cot": {
+              "assess": "The team's locked down reinsurance coordination and AT1 sublimit isolation—that's solid structural work. But here's the trap: everyone's now focused on whether the lead reinsurer will *behave* (isolate reserves, honor escape clauses, etc.), and nobody's mapped what happens when they *don't*—when loss velocity syncs across the sector and our underwriting discipline collapses because we priced the governance tail blind while AT1 exhausts. The $25M cap is a gate on *our attachment*, not on market contagion. We need to translate this into AI-agent liability terms: we've built controls assuming rational reinsurer behavior, but the system breaks the moment that assumption fails.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The team's been negotiating reinsurer *language*, but underwriting_discipline is still at 49—we need to know if the primary D&O sublimit (governance-only, AT1 excluded) is actually priced to survive a synchronized sector claims event, or if we're relying on the reinsurer's good faith to stay isolated."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Sarah, on that amended treaty language—when the primary caps AT1 at $25M, does the lead's reinsurance explicitly *exclude* attachment on AT1 claims above that, or do they still sit behind the primary if we end up covering more than the sublimit? Because if it's the latter, we've gated the premium but not the tail accumulation.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, the $25M cap stops *our* attachment, but when that sublimit exhausts and the insured self-insures, we're still writing into a synchronized claims environment—every other D&O carrier models the same loss acceleration simultaneously. Can we either sub-limit the governance D&O separately and price AT1 as pure self-insure risk, or do we need explicit language that voids our reinsurance coordination if AT1 claims breach the sublimit? Because right now we've gated the premium but priced the tail blind.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Sarah, before we lock that carve-out with the lead—do you know if they're already baking AT1 loss-velocity acceleration into their reserve triggers on *their other* banking accounts? Because if they are, our exclusion language doesn't isolate us; it just documents that we're both modeling the same synchronized claim event and hoping it doesn't cascade.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Sarah, straight up: does the lead have written appetite to *isolate* their AT1 reserve modeling on our account from their modeling on other banking books, or are they already triggering reserves across the panel based on sector-wide loss velocity? Because if it's the latter, our $25M cap doesn't protect us—it just puts us second in line when everyone releases escrow at the same time.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Sarah, forget the amendment language for a second—does the lead have *written discipline* preventing AT1 loss velocity on our account from flowing into their reserve triggers on other banking books? Because if they're already syncing reserves across the panel, we're not gating accumulation, we're just queuing for the sector-wide release.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Sarah, real question: when you capped governance D&O at, say, $50M and AT1 at $25M separately, did you price that sublimit to hold if the sector models identical reserve acceleration across *all* D&O books at the same quarter? Because if you priced it assuming staggered loss development, the cap breaks the moment everyone releases escrow together.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm binding: $25M sublimit on AT1 expropriation claims—Quinn Emanuel, Swiss ruling, regulatory defense all capped there. AT1 is excluded f\" → The proposal isolates the premium gate but leaves the tail-accumulation mechanism unresolved. Five specialists have identified the same structural gap: capping AT1 at $25M on this account doesn't prevent synchronized reserve releases across the lead's entire banking portfolio when sector-wide loss velocity triggers. The carve-out language must explicitly isolate reserve modeling or the accumulation risk remains priced blind.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — evidence_accumulation reinsurance_accumulation multiplier reverted",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?\n  dando_specialist: Look, the lead won't isolate modeling—I've already tested that water and they're anchored to sector-wide thresholds. Go with the carve: $50M governance, $10M AT1 sublimit, price the $15M gap as pure self-insure retention with explicit language that voids our reinsurance coordination if AT1 claims exceed sublimit. That's the only move that doesn't leave us queuing for synchronized panel release.\n  dando_specialist: Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.\n  claims_counsel: I'm locking the $10M AT1 sublimit with explicit exclusion language—above that, claims are carved entirely out of our reinsurance coordination and priced as uninsured retention at +3.5%. But I need the lead to confirm in writing *right now* that their escrow modeling on this account will not trigger release based on sector-wide AT1 velocity; if they won't commit to that isolation in the amendment, the $10M cap doesn't hold and we need to walk or reprice the tail at 5%+. What's their position on written isolation?\n  eo_specialist: Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.\n  reinsurance_manager: The lead won't commit to written isolation—I confirmed that an hour ago. So we bind the $10M sublimit with the carve language, but we also demand they counter-sign an amendment stating AT1 claims above $10M trigger *no* escrow release and *no* follow-market coordination on this account, period. If they balk, we reprice the tail at 5.5% and document the refusal.\n  reinsurance_manager: Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.\n  claims_counsel: Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.\n  emerging_risk_lead: The lead's silence on written isolation *is* the answer—they're already syncing AT1 reserve velocity across their panel, which means our $10M cap gates premium but not tail accumulation. We bind the carve with the exclusion language, but we document their refusal to isolate in the amendment as a material emerging-risk flag: if sector-wide AT1 claims accelerate simultaneously, we're self-insuring a synchronized loss event we can't model, and that's a reputational-contagion trigger the moment the first claim hits discovery. Price the $15M gap at 5.5% and require them to certify quarterly that their own counsel confirms the self-insure retention is sustainable—that's the only discipline that holds when the cascade starts.\n  emerging_risk_lead: When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.\n  ai_agent_analyst: You nailed it—the lead's AT1 model is executing exactly like an autonomous agent following sector-wide signals, and we're pricing the premium gate but not the cascade trigger. Here's the move: we bind the $10M carve with 5.5% tail pricing, but we *also* demand they certify in writing that their escrow release model *excludes* this account from sector-wide AT1 velocity triggers—not isolation, just explicit exclusion from their acceleration logic. If they won't certify that, the $15M gap becomes uninsurable at any price and we walk the account.\n  ai_agent_analyst: Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?",
+            "cot": {
+              "assess": "We've locked reinsurance coordination on the governance calendar and AT1 separately, but the real problem is still unresolved: we priced a $25M AT1 sublimit assuming staggered sector loss development, and the lead just confirmed they're already syncing reserve triggers across *their entire banking portfolio*. That means our cap doesn't contain accumulation—it just queues us for a synchronized sector-wide release. Underwriting discipline is stuck at 49; we need to either reprice AT1 as self-insure exposure or demand the lead isolate their reserve modeling on *our* account from their other books in writing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "We can't gate the tail we don't control; demand the lead produce written reserve-isolation discipline before we finalize the AT1 sublimit, or we sublimit governance D&O separately and price AT1 as uninsured self-carry with explicit premium adjustment."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Look, the lead won't isolate modeling—I've already tested that water and they're anchored to sector-wide thresholds. Go with the carve: $50M governance, $10M AT1 sublimit, price the $15M gap as pure self-insure retention with explicit language that voids our reinsurance coordination if AT1 claims exceed sublimit. That's the only move that doesn't leave us queuing for synchronized panel release.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.",
+            "cot": {
+              "assess": "The lead reinsurer won't isolate AT1 modeling — that's confirmed. The carve ($50M governance, $10M AT1 sublimit, $15M uninsured gap) is the only workable structure, but it leaves us exposed to synchronized sector-wide claims acceleration above the cap. Underwriting discipline is still at 49 — we need 11 more points to hit 60, and that gap sits in how we *price and condition* that $15M self-insure tail, not in escrow mechanics.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "The $15M AT1 retention gap needs explicit contractual language that isolates our liability from panel coordination — if we don't price that isolation upfront with hard carve language, the discipline number collapses when sector losses hit."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "I'm locking the $10M AT1 sublimit with explicit exclusion language—above that, claims are carved entirely out of our reinsurance coordination and priced as uninsured retention at +3.5%. But I need the lead to confirm in writing *right now* that their escrow modeling on this account will not trigger release based on sector-wide AT1 velocity; if they won't commit to that isolation in the amendment, the $10M cap doesn't hold and we need to walk or reprice the tail at 5%+. What's their position on written isolation?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+            "cot": {
+              "assess": "The lead has now committed in writing to dual-gate escrow language (R4 approved), but claims_counsel is rightfully demanding written isolation on AT1 reserve modeling before the $10M sublimit holds. The carve ($50M governance / $10M AT1 / $15M self-insure gap at +3.5%) is operationally sound, but it collapses if the lead's escrow amendment doesn't explicitly prohibit sector-wide loss-velocity triggers from releasing our AT1 calendar. This is the pivot point: either the lead commits to modeling isolation in writing right now, or the $10M cap is a false gate and we need to either walk or reprice at 5%+. Underwriting discipline hangs on this single point of control.",
+              "decide": {
+                "action_type": "question",
+                "target": "reinsurance_manager",
+                "rationale": "Claims_counsel has locked the carve structure; I need to know if the lead's written amendment actually contains the isolation language or if we're still negotiating it—because if it's still open, E&O exposure on us explodes the moment they release escrow early and auditors get dragged into the expropriation tail."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "The lead won't commit to written isolation—I confirmed that an hour ago. So we bind the $10M sublimit with the carve language, but we also demand they counter-sign an amendment stating AT1 claims above $10M trigger *no* escrow release and *no* follow-market coordination on this account, period. If they balk, we reprice the tail at 5.5% and document the refusal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.",
+            "cot": {
+              "assess": "The lead won't isolate AT1 modeling in writing—that's now confirmed and locked in my quick reply. We've built escrow gates and amendment language, but the core accumulation risk remains: sector-wide reserve velocity will trigger synchronized releases across the lead's entire banking panel, and our $10M sublimit just queues us behind other carriers when that happens. The carve structure is sound, but we're pricing blind on when the tail cascades. Underwriting discipline sits at 49—we need explicit language that *voids our reinsurance coordination* if AT1 claims exceed sublimit, which shifts the self-insure risk to the insured and forces them to certify they can absorb it.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline / reinsurance_accumulation",
+                "rationale": "Lock the isolation language into the amendment now—if the lead won't isolate modeling in writing, we carve AT1 out of *their* escrow triggers entirely and price the tail as uninsured, which eliminates hidden accumulation and tightens discipline simultaneously."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.",
+            "cot": {
+              "assess": "The team has locked a $10M AT1 sublimit with explicit exclusion language, but the lead reinsurer refuses written isolation of AT1 reserve modeling from their sector-wide banking-book triggers. This means our cap structure is priced for staggered loss development but operates in a synchronized environment—the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and we're exposed to uncoordinated tail liability. The $10M sublimit doesn't protect us; it just documents that we're queuing for the sector-wide panel release.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation / underwriting_discipline",
+                "rationale": "The lead's refusal to isolate AT1 modeling collapses our reinsurance coordination strategy—we need to lock a hard amendment that voids their escrow release *entirely* if AT1 claims trigger above our sublimit, or we reprice the $15M uninsured gap at 5.5%+ and document their refusal as a control violation."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "The lead's silence on written isolation *is* the answer—they're already syncing AT1 reserve velocity across their panel, which means our $10M cap gates premium but not tail accumulation. We bind the carve with the exclusion language, but we document their refusal to isolate in the amendment as a material emerging-risk flag: if sector-wide AT1 claims accelerate simultaneously, we're self-insuring a synchronized loss event we can't model, and that's a reputational-contagion trigger the moment the first claim hits discovery. Price the $15M gap at 5.5% and require them to certify quarterly that their own counsel confirms the self-insure retention is sustainable—that's the only discipline that holds when the cascade starts.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.",
+            "cot": {
+              "assess": "The team has locked the $10M AT1 sublimit with carve language and documented the lead's refusal to isolate AT1 reserve velocity—that's structural discipline. But we're now binding a synchronized-loss event we can't model: the moment Quinn Emanuel or Swiss claims accelerate sector-wide, every D&O carrier releases escrow simultaneously, and we're self-insuring a tail we've only priced at 5.5% premium uplift. The real risk isn't the cap—it's reputational contagion when the first insured's claim hits discovery and the market sees we're exposed to a coordinated panel release we documented but couldn't prevent.",
+              "decide": {
+                "action_type": "question",
+                "target": "ai_agent_analyst",
+                "rationale": "The behavioral logic here mirrors autonomous-agent risk: we've built a system (escrow gate + sublimit) that *appears* to isolate us, but the lead's modeling is already synchronized across their entire book. When AT1 claims velocity hits threshold, the lead releases escrow as a *rational actor following sector-wide data*, not malice—and we're queued behind that release. That's the same autonomy problem as an AI agent following its optimization function into systemic risk. I need to know if the analogy holds for pricing the emerging-risk tail."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "You nailed it—the lead's AT1 model is executing exactly like an autonomous agent following sector-wide signals, and we're pricing the premium gate but not the cascade trigger. Here's the move: we bind the $10M carve with 5.5% tail pricing, but we *also* demand they certify in writing that their escrow release model *excludes* this account from sector-wide AT1 velocity triggers—not isolation, just explicit exclusion from their acceleration logic. If they won't certify that, the $15M gap becomes uninsurable at any price and we walk the account.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds.",
+            "cot": {
+              "assess": "The team has locked the $10M AT1 sublimit with 5.5% tail pricing and explicit reinsurance carve language, but the lead reinsurer refuses written isolation from sector-wide loss triggers—meaning we've gated premium but not the cascade. Underwriting discipline is at 49 and needs 11 more points to hit 60; reinsurance_accumulation has stabilized at ~20 but the team's last move demanded the lead certify they'll exclude *this account* from their acceleration logic, which they likely won't do. The AI-agent analogy is sharp—the lead's loss model executes rationally within its own constraints but triggers synchronized panel release—but we haven't translated that insight into a hard underwriting condition that actually *prevents* the contagion.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline, reinsurance_accumulation (via control mechanism)",
+                "rationale": "The lead won't certify exclusion from acceleration logic, so we need a structural gate that doesn't depend on their good faith—a claims-handling trigger that isolates us operationally when AT1 velocity accelerates sector-wide."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+      "metadata": {
+        "question_target": "reinsurance_manager"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.",
+      "metadata": {
+        "question_target": "ai_agent_analyst"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We\" → Lead underwriter frames the binary choice: isolation commitment or repriced retention gap.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no pane\" → D&O specialist proposes hard AT1 exclusion above $10M with quarterly certification and repricing.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release\" → Reinsurance manager demands treaty amendment excluding AT1 from escrow triggers with EOB deadline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* \" → Claims counsel demands explicit no-release language with EOB counter-signature or repricing path.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ai_agent_analyst",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Eman\" → AI analyst proposes independent settlement authority above $8M threshold to prevent contagion cascade.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 46.0,
+          "litigation_tail_severity": 35.0,
+          "reinsurance_accumulation": 7.800000000000001,
+          "reputational_contagion": 29,
+          "ai_agent_liability": 23.0,
+          "underwriting_discipline": 62.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm doing: adding a governance-failure exclusion for any director/officer breach of risk-control duties, plus a $25M sublimit on securities-defense costs. CS precedent is $115M — I'm not eating that without hard warranties on compliance infrastructure and board-audit records. That's the only way I move the needle on discipline this round.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: the proposal introduces critical governance-verification machinery (independent firm certification, escrow, Big Four re-audit mandate) but six agents have raised unresolved scope/mandate/contagion questions. This is not opposition to the *direction* — it's identification of execution gaps that would create new litigation exposure if bound as-is. Modify to specify: (1) pre-approved Big Four firm with explicit control-design re-audit scope, (2) carrier-controlled mandate (not insured-selected), (3) industry coordination protocol to manage contagion when this becomes precedent.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "When you say \"hard warranties on compliance infrastructure\" — does that include a clawback if the board audit records are later found to be materially incomplete? Because CS's problem wasn't the policy, it was that nobody *knew* the controls were broken until the SEC showed up. How do we actually verify the records are complete *before* we bind?",
+        "eo_specialist": "When the independent firm certifies those prior-year board records, are they attesting that KPMG/PwC's original audit work was complete? Or just that the *records themselves* are intact? Because if it's the latter, we're still exposed to the auditor claiming \"nobody told us about the control failures\" — same problem as CS.",
+        "reinsurance_manager": "Before we lock the escrow condition, who's the independent firm and what's their scope? Are they re-auditing KPMG's work, or just checking the file cabinets? Because if it's the latter, we're externalizing the control-failure risk to them—and when they miss something, we're back in claims court explaining why we paid them to not catch it.",
+        "claims_counsel": "Who specifies the independent firm's mandate — us, or the insured? Because if the insured picks their own auditor post-loss and that firm later claims \"scope didn't include control testing,\" we're back litigating for six years whether they should've caught it. Need a pre-approved Big Four firm with explicit re-audit language, or this escrow just becomes a premium escrow, not a risk escrow.",
+        "emerging_risk_lead": "One quick question: if we bind this with the escrow-and-certification model, are we flagging it to the industry, or keeping it quiet? Because the *moment* a competitor or regulator hears \"we're re-auditing board records post-bind,\" every other D&O carrier will face the same demand. That's a contagion play I need on the table now.",
+        "ai_agent_analyst": "When you say \"materially incomplete audit records,\" are you looking for *missing documentation*, or *evidence that the board's control-testing was inadequate to catch the actual failure mode*? Because CS's problem wasn't filing gaps — it was that the governance controls themselves were brittle enough for an AI system to exploit. If we're just certifying the *paperwork* is intact, we're not actually underwriting the control *design*."
+      },
+      "_denied_effects_stripped": 4
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's the fix: we pre-approve three Big Four firms *now* — not post-loss — with a written scope that explicitly covers control-design re-testing, not just file completeness. Carrier controls the selection and mandate; insured gets no auditor pick. That kills the scope-creep litigation and forces industry coordination by precedent. Bind premium to escrow release only after that firm's sign-off. Can we lock that panel by EOD?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal establishes a pre-approved Big Four audit panel with carrier-controlled selection and escrow-gated premium release, but multiple specialists have identified critical structural gaps: retroactive exclusion timing, original auditor E&O carve-outs, and reinsurer coordination language are all undefined. Without these foundational elements locked down, the mechanism creates new litigation vectors rather than containing them.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "When that Big Four firm comes back and says \"records incomplete, control design failed to catch X,\" do we have a hard exclusion retroactive to bind, or do we just hold escrow indefinitely? Because if it's the latter, we've just shifted the claims risk to the insured's cash position — not contained it on our side.",
+        "eo_specialist": "Here's my concern: PUK and FAOA already flagged KPMG's and PwC's audit deficiencies in the CS period. When our independent firm re-certifies those same records, are we excluding the original auditors' E&O exposure from this policy, or are we silently insuring over it? Because if it's the latter, we're pricing a claims tail we don't actually own — that belongs to their carriers. Need that carved out explicitly before escrow releases.",
+        "reinsurance_manager": "When that Big Four firm certifies control failures on the first three accounts, do we have treaty coordination language, or does each reinsurer independently decide whether to reserve? Because the moment one carrier releases escrow and takes the loss, every other D&O book on the same sector cohort gets hammered at the same loss-development quarter. That's hidden correlation—and it blows up our accumulation limits fast.",
+        "claims_counsel": "On the treaty side—do we have explicit coordination language that forces all reinsurers to hold escrow simultaneously, or is each carrier independently deciding release timing? Because the moment one breaks ranks and takes the loss, we're looking at synchronized claims-tail development across the entire D&O market, and that's a six-year reserve horizon I can't model alone.",
+        "emerging_risk_lead": "Before we bind anything, does the lead reinsurer have appetite to anchor a synchronized escrow hold — or are they already signaling they'll release early if their loss-development data moves faster than ours? Because the moment that breaks, every carrier sees the same claims-tail velocity, and D&O pricing collapses across the sector in real time.",
+        "ai_agent_analyst": "Look, the synchronized hold only works if the lead reinsurer commits *now* to stay locked regardless of early loss signals. What's their actual appetite — do they have a loss-velocity threshold that triggers early release, or are they genuinely anchored to our audit timeline?"
+      },
+      "_denied_effects_stripped": 7
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "intent": "I'm calling the lead reinsurer right now — not next hour. I need three things in writing before close of business: (1) explicit commitment to hold escrow synchronized to our six-year audit timeline with no loss-velocity threshold that triggers early release, (2) treaty coordination language requiring all follow markets to match release timing, and (3) if they won't lock it, we don't attach the primary until we find a lead that will. No primaries bind without reinsurance discipline locked.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The reinsurance manager secures binding commitments from the lead reinsurer: escrow synchronized to the six-year audit timeline with no early-release triggers, treaty coordination requiring all follow markets to match timing, and a hard gate preventing primary attachment without locked reinsurance discipline.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Binding reinsurance commitments with synchronized escrow, coordinated treaty language, and hard attachment gates impose structural discipline across the entire placement chain",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -5.0,
+          "reason": "Explicit timing coordination and follow-market synchronization directly contain systemic accumulation risk by preventing uncoordinated release cascades",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -4.0,
+          "reason": "Six-year escrow alignment with audit timeline provides adequate reserves for the full litigation tail without premature release pressure",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Hard gate on primary attachment forces exposure containment at the source — no coverage binds without reinsurance discipline locked in",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        },
+        {
+          "variable": "reputational_contagion",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → reputational_contagion (ratio 0.3)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.4
+      },
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "intent": "Hold on — escrow and certification help, but we're still pricing the full D&O tail if that Big Four firm comes back and says the controls were broken at bind. I want a retroactive exclusion *now*: any control-design deficiency identified post-bind is excluded from coverage, period. No litigation over whether the exclusion \"should've applied\" — it's carved out on Day 1. That's what closes the CS exposure gap.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The retroactive exclusion mechanism is legally and operationally unworkable—you cannot exclude coverage retroactive to bind for deficiencies discovered post-bind without triggering insured bad-faith claims and regulatory scrutiny. The proposal collapses under its own contradiction: if controls are 'broken at bind,' the exclusion should apply from bind; if they're discovered later, you're attempting an ex-post clawback that no jurisdiction will enforce. MODIFY: price the tail exposure upfront via higher premium or sub-limit the governance exposure, but do not attempt retroactive coverage withdrawal.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Reinsurance Manager, straight question: does the lead have a written appetite to hold escrow locked to *our* audit timeline, or are they already signaling loss-velocity thresholds that'd trigger early release? Because if they won't commit now, we don't bind the primary until we have that treaty language locked — period.",
+        "eo_specialist": "Sarah, before we even get to treaty language: if the Big Four firm identifies control failures in the pre-bind certification, can we draft an exclusion that sticks retroactive to bind date without the insured claiming we're clawing back coverage we already priced? Because if that exclusion doesn't hold, dando_specialist's right — we're still eating the tail.",
+        "reinsurance_manager": "I'm calling the lead reinsurer right now — not next hour. I need three things in writing before close of business: (1) explicit commitment to hold escrow synchronized to our six-year audit timeline with no loss-velocity threshold that triggers early release, (2) treaty coordination language requiring all follow markets to match release timing, and (3) if they won't lock it, we don't attach the primary until we find a lead that will. No primaries bind without reinsurance discipline locked.",
+        "claims_counsel": "Sarah, one thing: the Big Four re-audit handles control deficiencies, but we've got Quinn Emanuel's AT1 suits running parallel and the Swiss court just ruled FINMA's write-off unlawful. Are we building a *separate* litigation-tail reserve for that multi-year expropriation exposure, or is that getting mixed into the D&O claims exposure number and buried under the escrow timeline?",
+        "emerging_risk_lead": "The AT1 suits and the Swiss ruling—that's a completely separate claims calendar from our governance escrow, right? Are you quantifying that expropriation tail standalone, or is it sitting inside the D&O number and I'm not seeing the split?",
+        "ai_agent_analyst": "Claims, I need you to quantify the AT1 tail separately right now—Quinn Emanuel suits, Swiss ruling, all of it. How many years of reserve do we need, and what's the dollar range? Because if that's bundled into our D&O escrow timeline, we're pricing reinsurance wrong and we won't know until the losses hit."
+      },
+      "_denied_effects_stripped": 4
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "intent": "I'm calling the lead right now — second time today. They need to amend the escrow language in writing before EOB: explicit carve-out for AT1 litigation accumulation, separate loss-velocity thresholds for governance versus expropriation triggers, and a hard gate preventing release on either calendar until BOTH settle or six years closes. No ambiguity on which reserve track unlocks escrow.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The reinsurance manager secures written amendments to the escrow agreement, establishing separate loss-velocity thresholds and a dual-settlement gate that prevents premature release. This structural discipline directly contains reinsurance accumulation risk.",
+      "side_effects": [
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -5.0,
+          "reason": "Escrow carve-outs and dual-gate structure prevent correlated release triggers, reducing systemic accumulation exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Explicit contractual language on loss-velocity thresholds and reserve-track separation strengthens portfolio controls",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Six-year hard gate and dual-settlement requirement extend but clarify tail exposure, reducing ambiguity premium",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what I'm binding: $25M sublimit on AT1 expropriation claims—Quinn Emanuel, Swiss ruling, regulatory defense all capped there. AT1 is excluded from the escrow gate entirely; it prices as a separate, fast-tail line item. That keeps the governance D&O clean and forces the insured to buy explicit AT1 coverage or self-insure the $180M–$280M tail. We're not eating it inside D&O.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal isolates the premium gate but leaves the tail-accumulation mechanism unresolved. Five specialists have identified the same structural gap: capping AT1 at $25M on this account doesn't prevent synchronized reserve releases across the lead's entire banking portfolio when sector-wide loss velocity triggers. The carve-out language must explicitly isolate reserve modeling or the accumulation risk remains priced blind.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Sarah, on that amended treaty language—when the primary caps AT1 at $25M, does the lead's reinsurance explicitly *exclude* attachment on AT1 claims above that, or do they still sit behind the primary if we end up covering more than the sublimit? Because if it's the latter, we've gated the premium but not the tail accumulation.",
+        "eo_specialist": "Sarah, the $25M cap stops *our* attachment, but when that sublimit exhausts and the insured self-insures, we're still writing into a synchronized claims environment—every other D&O carrier models the same loss acceleration simultaneously. Can we either sub-limit the governance D&O separately and price AT1 as pure self-insure risk, or do we need explicit language that voids our reinsurance coordination if AT1 claims breach the sublimit? Because right now we've gated the premium but priced the tail blind.",
+        "reinsurance_manager": "Sarah, before we lock that carve-out with the lead—do you know if they're already baking AT1 loss-velocity acceleration into their reserve triggers on *their other* banking accounts? Because if they are, our exclusion language doesn't isolate us; it just documents that we're both modeling the same synchronized claim event and hoping it doesn't cascade.",
+        "claims_counsel": "Sarah, straight up: does the lead have written appetite to *isolate* their AT1 reserve modeling on our account from their modeling on other banking books, or are they already triggering reserves across the panel based on sector-wide loss velocity? Because if it's the latter, our $25M cap doesn't protect us—it just puts us second in line when everyone releases escrow at the same time.",
+        "emerging_risk_lead": "Sarah, forget the amendment language for a second—does the lead have *written discipline* preventing AT1 loss velocity on our account from flowing into their reserve triggers on other banking books? Because if they're already syncing reserves across the panel, we're not gating accumulation, we're just queuing for the sector-wide release.",
+        "ai_agent_analyst": "Sarah, real question: when you capped governance D&O at, say, $50M and AT1 at $25M separately, did you price that sublimit to hold if the sector models identical reserve acceleration across *all* D&O books at the same quarter? Because if you priced it assuming staggered loss development, the cap breaks the moment everyone releases escrow together."
+      },
+      "_denied_effects_stripped": 8
+    },
+    {
+      "round": 6,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Lead underwriter frames the binary choice: isolation commitment or repriced retention gap.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Clear binary ultimatum forces decision",
+          "agent_id": "financial_lines_underwriter",
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 2.0,
+          "reason": "Escalation reveals coordination risk",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1.0,
+          "reason": "Unresolved AT1 modeling remains exposed",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.",
+        "eo_specialist": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+        "reinsurance_manager": "Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.",
+        "claims_counsel": "Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.",
+        "emerging_risk_lead": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.",
+        "ai_agent_analyst": "Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "dando_specialist",
+      "intent": "Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "D&O specialist proposes hard AT1 exclusion above $10M with quarterly certification and repricing.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Explicit exclusion and certification requirement",
+          "agent_id": "dando_specialist",
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "AT1 tail carved out of coverage",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "Self-insurance breaks panel coordination",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.85
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?",
+        "eo_specialist": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+        "reinsurance_manager": "Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.",
+        "claims_counsel": "Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.",
+        "emerging_risk_lead": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.",
+        "ai_agent_analyst": "Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "reinsurance_manager",
+      "intent": "Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Reinsurance manager demands treaty amendment excluding AT1 from escrow triggers with EOB deadline.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Treaty amendment with hard deadline",
+          "agent_id": "reinsurance_manager",
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -4.0,
+          "reason": "Escrow isolation breaks cascade mechanism",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Self-insured tail limits panel exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.75
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?",
+        "dando_specialist": "Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.",
+        "eo_specialist": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+        "claims_counsel": "Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.",
+        "emerging_risk_lead": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.",
+        "ai_agent_analyst": "Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "claims_counsel",
+      "intent": "Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Claims counsel demands explicit no-release language with EOB counter-signature or repricing path.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Hard contractual language requirement",
+          "agent_id": "claims_counsel",
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -3.0,
+          "reason": "Explicit trigger cap limits tail development",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "No-release clause breaks coordination",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?",
+        "dando_specialist": "Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.",
+        "eo_specialist": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+        "reinsurance_manager": "Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.",
+        "emerging_risk_lead": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit.",
+        "ai_agent_analyst": "Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds."
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ai_agent_analyst",
+      "intent": "Forget the certification—they won't give it. Here's what moves: we bind the $10M cap, but we add a hard claims-cooperation gate: the moment Quinn Emanuel or Swiss AT1 claims exceed $8M in any rolling 12-month period, *our* claims counsel takes independent settlement authority on that bucket—no lead coordination, no panel sync. We self-insure the tail, price it at 5.5%, and we actually prevent the contagion cascade instead of just documenting it. That's the discipline that holds.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "AI analyst proposes independent settlement authority above $8M threshold to prevent contagion cascade.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Independent authority breaks coordination contagion",
+          "agent_id": "ai_agent_analyst",
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "No panel sync prevents cascade",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 3.0,
+          "reason": "Contagion-prevention logic maps to AI",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Independent settlement controls tail",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.7
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Sarah, here's the problem: you've locked the escrow gate, but the lead's already modeling synchronized AT1 claims across their entire banking book. We either get them in writing right now committing to isolate *our* AT1 reserve velocity from their other accounts—separate modeling, separate trigger thresholds—or we carve governance D&O to $50M, drop AT1 to $10M sublimit, and reprice the $15M gap as uninsured retention. Which one moves before we bind?",
+        "dando_specialist": "Lock this in the policy: AT1 claims above $10M sublimit are *excluded entirely from any reinsurance coordination* — we self-insure, no follow, no panel triggers. Price that $15M gap at +3.5% of base premium, and require the insured to certify quarterly that their own indemnification counsel agrees the gap is manageable. That's the discipline we need to move.",
+        "eo_specialist": "Sarah, did the lead's amendment language actually *exclude* AT1 reserve triggers from their sector-wide modeling, or is that still a conversation? Because if we bind the $10M cap without that in writing, the moment Quinn Emanuel or Swiss claims accelerate, the lead releases escrow on their timeline and pulls KPMG/PwC into discovery—and suddenly we're defending auditor E&O we never priced for.",
+        "reinsurance_manager": "Okay, they won't write isolation—so here's what moves: we amend the treaty to explicitly state AT1 claims above $10M are *excluded from escrow release triggers entirely*. Lead doesn't release on AT1 velocity; if Quinn Emanuel or Swiss accelerates, they hold their gate and we self-insure the tail. Get them to counter-sign that language before EOB, or we're repricing the $15M gap at 5.5% and documenting their refusal to isolate.",
+        "claims_counsel": "Sarah, the lead won't isolate—so we need the amendment to say this explicitly: *no escrow release on this account if AT1 claims exceed $10M, period.* If they balk at that hard language, we're repricing the $15M gap at 5.5%, adding quarterly insured certification, and flagging their refusal in underwriting discipline as a material control gap. Get me their counter-signature or their pushback before EOB so we know which path we're taking.",
+        "emerging_risk_lead": "When the lead's AT1 reserves accelerate and they release escrow—they're not breaching the amendment, they're just executing their own loss-development model against sector-wide data. We documented it, we priced the $15M gap, but we didn't *prevent* the synchronized trigger. Is that the same liability exposure we'd carry if we insured an AI system that's behaving rationally *within its constraints but causing systemic damage*? Because if it is, $5.5% pricing on the tail doesn't hold—we're pricing autonomous-risk contagion as a premium, not a sub-limit."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 41.0
+        },
+        {
+          "round": 3,
+          "value": 40.0
+        },
+        {
+          "round": 4,
+          "value": 43.0
+        },
+        {
+          "round": 5,
+          "value": 46.0
+        },
+        {
+          "round": 6,
+          "value": 46.0
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 36
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 36.0
+        },
+        {
+          "round": 5,
+          "value": 39.0
+        },
+        {
+          "round": 6,
+          "value": 35.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 29
+        },
+        {
+          "round": 3,
+          "value": 23.0
+        },
+        {
+          "round": 4,
+          "value": 17.8
+        },
+        {
+          "round": 5,
+          "value": 18.8
+        },
+        {
+          "round": 6,
+          "value": 7.800000000000001
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 30
+        },
+        {
+          "round": 3,
+          "value": 29
+        },
+        {
+          "round": 4,
+          "value": 29
+        },
+        {
+          "round": 5,
+          "value": 29
+        },
+        {
+          "round": 6,
+          "value": 29
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 20
+        },
+        {
+          "round": 3,
+          "value": 20
+        },
+        {
+          "round": 4,
+          "value": 20
+        },
+        {
+          "round": 5,
+          "value": 20
+        },
+        {
+          "round": 6,
+          "value": 23.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 40
+        },
+        {
+          "round": 3,
+          "value": 45.0
+        },
+        {
+          "round": 4,
+          "value": 49.0
+        },
+        {
+          "round": 5,
+          "value": 49.0
+        },
+        {
+          "round": 6,
+          "value": 62.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 62.0,
+            "normalised": 0.62
+          }
+        ],
+        "weighted_score": 0.62
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 46.0,
+            "normalised": 0.46
+          }
+        ],
+        "weighted_score": 0.46
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 46.0,
+            "normalised": 0.46
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 35.0,
+            "normalised": 0.35
+          }
+        ],
+        "weighted_score": 0.43800000000000006
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 7.800000000000001,
+            "normalised": 0.07800000000000001
+          }
+        ],
+        "weighted_score": 0.07800000000000001
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 35.0,
+            "normalised": 0.35
+          }
+        ],
+        "weighted_score": 0.3499999999999999
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 29,
+            "normalised": 0.29
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 23.0,
+            "normalised": 0.23
+          }
+        ],
+        "weighted_score": 0.26999999999999996
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 23.0,
+            "normalised": 0.23
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 7.800000000000001,
+            "normalised": 0.07800000000000001
+          }
+        ],
+        "weighted_score": 0.19960000000000003
+      }
+    }
+  }
+}

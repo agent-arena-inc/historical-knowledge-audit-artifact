@@ -1,0 +1,2017 @@
+{
+  "simulation_id": "5730d5c2c009",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Who's defining the supplier relocation triggers — are we pricing it against specific RVC thresholds, or are we still talking in generalities? Because I can tell you which plants fall short and by how much, but I need to know how that feeds into your credit and political risk models.\n  supplier: Auto_strategy, you're right — generalities kill us. Here's what I need: once you flag which plants fall short on RVC, do we have a protocol for which suppliers actually fail versus which ones just eat the re-qual capex? Because my suppliers are looking at 18-month lead times on nearshoring and I need to know if the credit models account for that cash burn.\n  compliance_lawyer: Auto_strategy, when a plant falls short on RVC — what's the threshold that flips it from \"re-qual capex\" to \"fails certification\"? And does that trigger a CBP audit immediately, or do we get a grace window? Because if it's automatic audit + penalty, that cash burn your supplier mentioned just got a tariff bill attached.\n  auto_strategy: Look, a plant hits the wall when it can't hit 75% RVC on its core platforms — that's our hard line, and CBP doesn't wait; they audit on non-compliance. So your 18-month nearshoring burn hits twice: capex up front, plus tariff exposure day-one if certification lapses. I can map which five plants are at risk and their RVC gaps by model line — need that in the credit model now so we price the supplier insolvency risk right.\n  political_risk_insurer: Here's what I'm pricing: CBP audit trigger on RVC lapse is a *policy enforcement shock* — not just compliance capex. On those five plants, I'm scoring a tariff-penalty layer (assume 25% on non-compliant imports for 6–12 months pending re-cert) plus sovereign-policy delay risk (CBP timelines slip). That's a priced factor, not a label. Do we have the five plant names and RVC gaps from auto_strategy so I can attach numbers?\n  trade_credit_underwriter: Auto_strategy, I need those five plant names and RVC gaps right now — not tomorrow. Once I have them, I'm building a supplier-insolvency trigger table: which suppliers eat the 18-month burn alone, which ones default mid-nearshoring, and at what cash-flow threshold. That's the trade-credit variable that ties policy shock to actual receivables risk. Give me the names and I'll price it against your tariff timeline.\n  supply_chain_consultant: Auto_strategy, give trade-credit the five names and gaps right now — don't batch it. Once they price the default thresholds, I'm consolidating this into a client nearshoring roadmap: which suppliers relocate, which timelines, which credit facilities get restructured. That's how we move from fragmented risk to actionable plan.\n  cfo_erm: Auto_strategy, I need those five plant names, RVC gaps, and re-cert timelines right now — not in a deck. Trade-credit prices default thresholds off that; political-risk prices tariff shock off that. Once I have it, we lock supplier insolvency and tariff-penalty as priced variables in the map, not labels. What's the format you've got it in?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Who's defining the supplier relocation triggers — are we pricing it against specific RVC thresholds, or are we still talking in generalities? Because I can tell you which plants fall short and by how much, but I need to know how that feeds into your credit and political risk models.",
+            "cot": {
+              "assess": "My rules-of-origin burden and supplier exposure are solid — I've got numbers on the compliance cost and plant-level impact. But the risk map is fragmented: we're surfacing exposures (supplier relocation, trade credit, political) without pricing them or naming the triggers that actually matter to underwriting. That's the gap eating our completeness score.",
+              "decide": {
+                "action_type": "question",
+                "target": "insurance/consulting lead (whoever's owning the risk map synthesis)",
+                "rationale": "I need to know what variables they're using to price supplier relocation and trade-credit risk — if we're not tying those to specific RVC shortfalls or nearshoring timelines, the map stays vague and underwriting can't operationalize it."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Auto_strategy, you're right — generalities kill us. Here's what I need: once you flag which plants fall short on RVC, do we have a protocol for which suppliers actually fail versus which ones just eat the re-qual capex? Because my suppliers are looking at 18-month lead times on nearshoring and I need to know if the credit models account for that cash burn.",
+            "cot": {
+              "assess": "My supplier relocation and RoO burden variables are solid — but the team's trying to build a map that doesn't exist yet. auto_strategy just threw down a real constraint: they've got plant-level data on RVC shortfalls, but nobody's connected that to actual credit or political pricing. The map's fragmented (19/60) because we're not operationalizing the triggers.",
+              "decide": {
+                "action_type": "question",
+                "target": "underwriting_discipline / risk modeling team",
+                "rationale": "We need to lock down how plant-level RVC misses translate into concrete supplier-failure risk and credit spreads — that's the missing link between supply relocation and priced risk."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto_strategy, when a plant falls short on RVC — what's the threshold that flips it from \"re-qual capex\" to \"fails certification\"? And does that trigger a CBP audit immediately, or do we get a grace window? Because if it's automatic audit + penalty, that cash burn your supplier mentioned just got a tariff bill attached.",
+            "cot": {
+              "assess": "The supplier relocation and RVC threshold question is live, but it's still floating between strategy and credit without a binding protocol. Auto_strategy has the plant-level data; supplier has the cash-burn timeline. Neither has clarity on how non-compliance (failed RVC, failed re-qual) triggers certification denial, audit flags, or penalty exposure. That gap is bleeding into underwriting_discipline and risk_map_completeness.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the precise RVC failure threshold and audit trigger sequence to price the compliance penalty exposure — that's the missing link between their plant data and my certification/penalty model."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Look, a plant hits the wall when it can't hit 75% RVC on its core platforms — that's our hard line, and CBP doesn't wait; they audit on non-compliance. So your 18-month nearshoring burn hits twice: capex up front, plus tariff exposure day-one if certification lapses. I can map which five plants are at risk and their RVC gaps by model line — need that in the credit model now so we price the supplier insolvency risk right.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: CBP audit trigger on RVC lapse is a *policy enforcement shock* — not just compliance capex. On those five plants, I'm scoring a tariff-penalty layer (assume 25% on non-compliant imports for 6–12 months pending re-cert) plus sovereign-policy delay risk (CBP timelines slip). That's a priced factor, not a label. Do we have the five plant names and RVC gaps from auto_strategy so I can attach numbers?",
+            "cot": {
+              "assess": "Auto_strategy just handed us the hard trigger: 75% RVC = certification threshold, CBP audits immediately on lapse, and five plants are at risk with quantified gaps. That's political-risk gold — but it's also sitting in the credit/compliance lane right now. My exposure variable (26) and underwriting discipline (30) are both undershooting because we're not yet *pricing* the policy-enforcement layer as a standalone risk factor. The map is still fragmented across three people's models instead of consolidated into one priced variable.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The 75% RVC threshold + immediate CBP audit is a named, triggered enforcement event — I need to operationalize it as a priced political-risk factor so we can score the five at-risk plants and feed that into the consolidated map."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Auto_strategy, I need those five plant names and RVC gaps right now — not tomorrow. Once I have them, I'm building a supplier-insolvency trigger table: which suppliers eat the 18-month burn alone, which ones default mid-nearshoring, and at what cash-flow threshold. That's the trade-credit variable that ties policy shock to actual receivables risk. Give me the names and I'll price it against your tariff timeline.",
+            "cot": {
+              "assess": "Auto_strategy just handed us the RVC plant data structure (75% threshold, five at-risk plants, CBP audit trigger = immediate), and political_risk_insurer is pricing the tariff-penalty layer. That's the backbone. But we're still missing the supplier-specific insolvency triggers — which of those five plants' *suppliers* actually default under 18-month nearshoring burn + tariff shock, and at what cash-flow point. That's my variable, and it's not priced yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need the five plant names and RVC gaps NOW so I can map supplier default probability — this feeds directly into trade-credit pricing and closes the gap between policy shock and actual receivables loss."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Auto_strategy, give trade-credit the five names and gaps right now — don't batch it. Once they price the default thresholds, I'm consolidating this into a client nearshoring roadmap: which suppliers relocate, which timelines, which credit facilities get restructured. That's how we move from fragmented risk to actionable plan.",
+            "cot": {
+              "assess": "The group just locked in the hard trigger (75% RVC = CBP audit, no grace window) and priced the policy shock (25% tariff + sovereign delay risk). Auto_strategy has the plant names and gaps — that's the linchpin data. Trade-credit and political-risk underwriters are both waiting on it to operationalize their models. Supplier relocation exposure and risk-map completeness both depend on that handoff happening NOW.",
+              "decide": {
+                "action_type": "speak",
+                "target": "auto_strategy, trade_credit_underwriter",
+                "rationale": "Auto_strategy has the five plant names and RVC gaps; trade-credit underwriter needs them to price insolvency triggers. I need to push the handoff hard and lock the timeline so we can consolidate into an actionable client plan."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Auto_strategy, I need those five plant names, RVC gaps, and re-cert timelines right now — not in a deck. Trade-credit prices default thresholds off that; political-risk prices tariff shock off that. Once I have it, we lock supplier insolvency and tariff-penalty as priced variables in the map, not labels. What's the format you've got it in?",
+            "cot": {
+              "assess": "Auto_strategy has the five plant names and RVC gaps — that's the lynchpin. Trade-credit and political-risk both need those numbers to price supplier insolvency and tariff-penalty into our consolidated map. Right now we're at risk_map_completeness 19 and underwriting_discipline 30; without those priced factors locked, we stay fragmented and vague.",
+              "decide": {
+                "action_type": "act",
+                "target": "rules_of_origin_burden / risk_map_completeness",
+                "rationale": "Auto_strategy has the data; I'm pulling it into the map now so trade-credit and political-risk can operationalize their pricing this round, not next."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "Auto_strategy, give trade-credit the five names and gaps right now — don't batch it. Once they price the default thresholds, I'm consolidating this into a client nearshoring roadmap: which suppliers relocate, which timelines, which credit facilities get restructured. That's how we move from fragmented risk to actionable plan.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Who's defining the supplier relocation triggers — are we pricing it against specific RVC thresholds, or are we still talking in generalities? Because I can tell you which plants fall short and by how much, but I need to know how that feeds into your credit and political risk models.",
+      "metadata": {
+        "question_target": "insurance/consulting lead (whoever's owning the risk map synthesis)"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Auto_strategy, you're right — generalities kill us. Here's what I need: once you flag which plants fall short on RVC, do we have a protocol for which suppliers actually fail versus which ones just eat the re-qual capex? Because my suppliers are looking at 18-month lead times on nearshoring and I need to know if the credit models account for that cash burn.",
+      "metadata": {
+        "question_target": "underwriting_discipline / risk modeling team"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto_strategy, when a plant falls short on RVC — what's the threshold that flips it from \"re-qual capex\" to \"fails certification\"? And does that trigger a CBP audit immediately, or do we get a grace window? Because if it's automatic audit + penalty, that cash burn your supplier mentioned just got a tariff bill attached.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Auto_strategy, I need those five plant names and RVC gaps right now — not tomorrow. Once I have them, I'm building a supplier-insolvency trigger table: which suppliers eat the 18-month burn alone, which ones default mid-nearshoring, and at what cash-flow threshold. That's the trade-credit variable that ties policy shock to actual receivables risk. Give me the names and I'll price it against your tariff timeline.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Auto_strategy, I need those five plant names, RVC gaps, and re-cert timelines right now — not in a deck. Trade-credit prices default thresholds off th\" → CFO demands raw data inputs (plant names, RVC gaps, re-cert timelines) to operationalize trade-credit and political-risk pricing — a decisive push to convert vague labels into priced variables.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm pricing: CBP audit trigger on RVC lapse is a *policy enforcement shock* — not just compliance capex. On those five plants, I'm scoring\" → Political-risk insurer's pricing framework is sound, but execution is blocked: auto_strategy has not yet delivered the five plant names and RVC gaps that six agents are now waiting for. The proposal cannot proceed without the underlying data.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, before auto_strategy sends the plant list — are we talking five *critical* platforms or five *at-risk* plants? And RVC gap: percentage shortfall or actual re-sourcing cost per plant? Trade-credit needs to price default thresholds, and I need to know if we're working in percentage terms or dollars so the triggers actually lock.\n  compliance_lawyer: The five plants are *at-risk* — those hitting RVC shortfalls of 3–8 percentage points below the 75% USMCA threshold. I'm translating those gaps into re-sourcing costs per plant: Plant A $2.1M capex, Plant B $1.8M, Plant C $3.2M, Plant D $1.5M, Plant E $2.4M — that's what trade-credit prices against, and it's also your audit trigger: any plant still short after 120 days from certification notice gets flagged for CBP examination and potential 20% tariff penalty on that product line.\n  supplier: Trade-credit, you've got the five plants and capex now — so which suppliers actually default on that 18-month burn, and at what cash-flow point? Because I need to know if I'm relocating a supplier or replacing one entirely. That changes everything on my end.\n  trade_credit_underwriter: I'm locking Plant A, B, D as \"default-probable\" — they hit the $2.1M–$1.5M capex burn with sub-60-day cash reserves; Plant C and E hold if they've got committed credit lines. I need supplier balance sheets and credit facility terms *right now* to price the exact default threshold, but I'm flagging: any supplier eating re-sourcing capex without a restructured credit facility becomes receivables-at-risk the moment CBP audit notice hits day 120. That's your trigger — not the capex, the audit notice.\n  compliance_lawyer: Trade-credit, your default trigger on day 120 audit notice — does that assume the supplier's already funded the re-sourcing capex, or are they burning cash on both the capex *and* the audit prep simultaneously? Because if it's both, your sub-60-day reserves just became a death sentence 90 days earlier than you're modeling.\n  political_risk_insurer: Day-120 audit notice is your trigger — mine too. I'm pricing a 20% tariff penalty on non-compliant product lines, but I need the supplier's revenue exposure per plant to lock the actual dollar hit. Trade-credit, once you confirm which suppliers hit day-120 audit, give me their annual product-line revenue for Plants A through E — that's how I price the tariff shock as a receivables event, not just compliance cost.\n  trade_credit_underwriter: Plants A, B, D — I need supplier names and their current credit facility terms *right now*. Are they already restructured for the nearshoring burn, or are they funding capex out of operating cash? Because if it's the latter, day-120 audit notice hits them with zero runway. That's the receivables trigger I'm pricing.\n  supplier: Plants A, B, D — Apex Stamping, Harmon Plastics, Midwest Electronics — all three are funding nearshoring capex out of operating cash with zero restructured credit facilities. Day-120 audit notice hits them mid-burn, and they're gone. I need your tariff-shock pricing locked to their combined product-line revenue — $47M annually across those three plants — so I can model the receivables cascade when the penalty hits.\n  supply_chain_consultant: Here's what I'm building: Apex, Harmon, Midwest — all three need restructured credit *before* day 90, or they default mid-nearshoring. I'm proposing we lock a 120-day nearshoring acceleration plan for those three suppliers: committed credit lines, plant relocation timelines, and tariff-penalty insurance as a backstop. Trade-credit, political-risk — once you confirm those credit terms and tariff pricing, I'm delivering the client roadmap. That's how we move from fragmented risk to executable plan.\n  cfo_erm: Stop. We've got the data, but it's still fragmented across five conversations. I'm building a single matrix right now: Plants A–E, RVC gap, capex, day-120 audit trigger, tariff exposure per supplier, credit facility status. One row per plant, one decision per row — which ones get restructured credit before day 90, which ones we hedge with tariff insurance, which ones we cut loose. Trade-credit, political-risk, supply-chain — once I lock that, you price against it, not around it. That's how we move from risk surfacing to decision-ready.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, before auto_strategy sends the plant list — are we talking five *critical* platforms or five *at-risk* plants? And RVC gap: percentage shortfall or actual re-sourcing cost per plant? Trade-credit needs to price default thresholds, and I need to know if we're working in percentage terms or dollars so the triggers actually lock.",
+            "cot": {
+              "assess": "CFO's demand for plant names and RVC gaps got approved — that's the unlock. But we're still at 22 on risk_map_completeness and 34 on underwriting_discipline. The data request is in motion, but nobody's told me whether I'm delivering five plants or fifteen, and whether \"RVC gap\" means percentage-point shortfall or absolute re-sourcing cost. Until that's crisp, the trade-credit and political-risk underwriters can't operationalize their triggers.",
+              "decide": {
+                "action_type": "speak",
+                "target": "cfo_erm, trade_credit_underwriter",
+                "rationale": "The CFO approved the data demand, but auto_strategy hasn't confirmed the scope or format. I need to clarify what \"five plant names and RVC gaps\" actually means operationally before we spin our wheels."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The five plants are *at-risk* — those hitting RVC shortfalls of 3–8 percentage points below the 75% USMCA threshold. I'm translating those gaps into re-sourcing costs per plant: Plant A $2.1M capex, Plant B $1.8M, Plant C $3.2M, Plant D $1.5M, Plant E $2.4M — that's what trade-credit prices against, and it's also your audit trigger: any plant still short after 120 days from certification notice gets flagged for CBP examination and potential 20% tariff penalty on that product line.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade-credit, you've got the five plants and capex now — so which suppliers actually default on that 18-month burn, and at what cash-flow point? Because I need to know if I'm relocating a supplier or replacing one entirely. That changes everything on my end.",
+            "cot": {
+              "assess": "Compliance lawyer just locked in the five plants with dollar-specific capex and a hard 120-day audit trigger — that's actionable. Trade-credit and political-risk now have priced inputs. But I'm seeing a gap: those capex numbers tell us the cost to re-source, not which suppliers actually survive the 18-month burn or which ones default mid-nearshoring. Risk map is still fragmented across capex, audit timeline, and credit default — nobody's consolidated the supplier failure cascade yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Trade-credit has the default thresholds now — I need to know which suppliers actually fail versus which ones just get squeezed, because that determines my nearshoring strategy and which supply relationships hold."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I'm locking Plant A, B, D as \"default-probable\" — they hit the $2.1M–$1.5M capex burn with sub-60-day cash reserves; Plant C and E hold if they've got committed credit lines. I need supplier balance sheets and credit facility terms *right now* to price the exact default threshold, but I'm flagging: any supplier eating re-sourcing capex without a restructured credit facility becomes receivables-at-risk the moment CBP audit notice hits day 120. That's your trigger — not the capex, the audit notice.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Trade-credit, your default trigger on day 120 audit notice — does that assume the supplier's already funded the re-sourcing capex, or are they burning cash on both the capex *and* the audit prep simultaneously? Because if it's both, your sub-60-day reserves just became a death sentence 90 days earlier than you're modeling.",
+            "cot": {
+              "assess": "The plant-level data is now live (A–E with capex and audit triggers defined), and trade-credit has locked default-probability thresholds. My compliance burden variable is operationalized — 120-day audit notice + 20% tariff penalty is a priced trigger, not a label. But risk_map_completeness is still stuck at 22.5 because we've got isolated compliance mechanics without a consolidated audit protocol: *who owns the CBP examination prep*, *what's the remediation timeline if a plant fails re-cert*, and *how do we price the tail risk of a multi-plant audit cascade*. Those gaps leave underwriting_discipline stranded at 34.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Trade-credit is pricing default thresholds off the audit notice trigger — but I need to know if your credit models account for the *execution risk* of the 120-day remediation window, because if a supplier can't hit re-sourcing capex *and* survive audit prep costs, that's a second default mode we haven't priced yet."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Day-120 audit notice is your trigger — mine too. I'm pricing a 20% tariff penalty on non-compliant product lines, but I need the supplier's revenue exposure per plant to lock the actual dollar hit. Trade-credit, once you confirm which suppliers hit day-120 audit, give me their annual product-line revenue for Plants A through E — that's how I price the tariff shock as a receivables event, not just compliance cost.",
+            "cot": {
+              "assess": "The compliance lawyer just handed us the five plants and capex breakdown — that's the data unlock. Trade-credit is now pricing default thresholds against day-120 CBP audit notice as the trigger, not just capex burn. But the political-risk layer — the tariff penalty and enforcement shock — is still sitting in generalities. I need to translate that 20% tariff-on-non-compliance into a *priced* variable tied to the audit trigger, not just flag it.",
+              "decide": {
+                "action_type": "speak",
+                "target": "political_risk_exposure / underwriting_discipline",
+                "rationale": "Trade-credit has locked the trigger (day 120 audit notice); I need to price the tariff shock against that same trigger and operationalize it as a priced factor, not a risk label."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Plants A, B, D — I need supplier names and their current credit facility terms *right now*. Are they already restructured for the nearshoring burn, or are they funding capex out of operating cash? Because if it's the latter, day-120 audit notice hits them with zero runway. That's the receivables trigger I'm pricing.",
+            "cot": {
+              "assess": "We've got the plant names, capex burns, and day-120 audit trigger locked — that's operationalized. But I'm seeing a gap: political_risk_insurer needs supplier revenue per plant to price the tariff shock as a receivables event, and I haven't confirmed which of my flagged suppliers (A, B, D) actually have the credit facilities to survive the dual burn (capex + audit prep). Without that, the default thresholds stay theoretical. Risk_map_completeness is still fragmentary because we're pricing pieces independently — tariff shock, default threshold, audit trigger — instead of one consolidated supplier-insolvency model.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need to confirm which suppliers serving Plants A, B, D have committed credit lines or are naked to the dual cash burn; that's the delta between \"default-probable\" and \"actually insolvent by day 120.\""
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Plants A, B, D — Apex Stamping, Harmon Plastics, Midwest Electronics — all three are funding nearshoring capex out of operating cash with zero restructured credit facilities. Day-120 audit notice hits them mid-burn, and they're gone. I need your tariff-shock pricing locked to their combined product-line revenue — $47M annually across those three plants — so I can model the receivables cascade when the penalty hits.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I'm building: Apex, Harmon, Midwest — all three need restructured credit *before* day 90, or they default mid-nearshoring. I'm proposing we lock a 120-day nearshoring acceleration plan for those three suppliers: committed credit lines, plant relocation timelines, and tariff-penalty insurance as a backstop. Trade-credit, political-risk — once you confirm those credit terms and tariff pricing, I'm delivering the client roadmap. That's how we move from fragmented risk to executable plan.",
+            "cot": {
+              "assess": "We've got plant names, capex numbers, and supplier IDs locked — that's the data foundation. Trade-credit's identified default triggers (day 120 audit + sub-60-day reserves on Plants A, B, D), and political-risk is ready to price tariff shock against $47M combined revenue. But we're still missing the nearshoring roadmap that ties all this into an actionable client plan — which suppliers relocate, which timelines, which credit restructures actually happen. Risk-map completeness is still fragmented; underwriting discipline is operationalized but not yet consolidated into a forward strategy.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + supplier_relocation_exposure",
+                "rationale": "We have the raw triggers; now I need to convert them into a priced nearshoring decision tree so the CFO can actually execute."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Stop. We've got the data, but it's still fragmented across five conversations. I'm building a single matrix right now: Plants A–E, RVC gap, capex, day-120 audit trigger, tariff exposure per supplier, credit facility status. One row per plant, one decision per row — which ones get restructured credit before day 90, which ones we hedge with tariff insurance, which ones we cut loose. Trade-credit, political-risk, supply-chain — once I lock that, you price against it, not around it. That's how we move from risk surfacing to decision-ready.",
+            "cot": {
+              "assess": "We've got the five plants named, capex quantified, and default triggers locked to day-120 audit notice — that's progress. Trade-credit and political-risk have what they need to price. But risk_map_completeness is still at 22.5, and we're burning through the translate_exposures phase with only 2 rounds left. The missing piece: we haven't consolidated this into ONE usable map yet — it's still five parallel pricing models instead of a unified decision framework.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness",
+                "rationale": "Consolidate the five variables (RVC gaps, capex, default triggers, tariff exposure, credit terms) into a single prioritized matrix — indexed by plant, trigger date, and dollar exposure — so we can price the insurance program and nearshoring roadmap off one source of truth."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, before auto_strategy sends the plant list — are we talking five *critical* platforms or five *at-risk* plants? And RVC gap: percentage shortfall or actual re-sourcing cost per plant? Trade-credit needs to price default thresholds, and I need to know if we're working in percentage terms or dollars so the triggers actually lock.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Day-120 audit notice is your trigger — mine too. I'm pricing a 20% tariff penalty on non-compliant product lines, but I need the supplier's revenue exposure per plant to lock the actual dollar hit. Trade-credit, once you confirm which suppliers hit day-120 audit, give me their annual product-line revenue for Plants A through E — that's how I price the tariff shock as a receivables event, not just compliance cost.",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade-credit, you've got the five plants and capex now — so which suppliers actually default on that 18-month burn, and at what cash-flow point? Because I need to know if I'm relocating a supplier or replacing one entirely. That changes everything on my end.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Trade-credit, your default trigger on day 120 audit notice — does that assume the supplier's already funded the re-sourcing capex, or are they burning cash on both the capex *and* the audit prep simultaneously? Because if it's both, your sub-60-day reserves just became a death sentence 90 days earlier than you're modeling.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Plants A, B, D — I need supplier names and their current credit facility terms *right now*. Are they already restructured for the nearshoring burn, or are they funding capex out of operating cash? Because if it's the latter, day-120 audit notice hits them with zero runway. That's the receivables trigger I'm pricing.",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Stop. We've got the data, but it's still fragmented across five conversations. I'm building a single matrix right now: Plants A–E, RVC gap, capex, day\" → The CFO consolidates fragmented risk data into a single decision matrix, structuring plant-by-plant exposures with named triggers and decision criteria — a critical step toward operationalizing the risk map.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's what I'm building: Apex, Harmon, Midwest — all three need restructured credit *before* day 90, or they default mid-nearshoring. I'm proposing w\" → Denied — CFO_ERM has already proposed the identical consolidation matrix this round (R2). Supply-chain's 120-day acceleration plan duplicates that effort without adding new methodology or data. Wait for CFO's matrix ruling before proposing next steps.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Your 20% tariff penalty—does that apply on day 120 audit notice alone, or does it kick if the supplier's still mid-nearshoring when CBP hits? Because if Apex and the others are still burning capex on day 120, we're pricing a penalty on top of cash burn, and that changes whether they survive the 18-month window.\n  political_risk_insurer: The 20% tariff penalty triggers on day 120 audit notice *regardless* of nearshoring status—if RVC is short, CBP flags it, we price the hit. But here's what I'm underwriting: if Apex and Harmon are still mid-capex burn on that date, the penalty stacks on zero liquidity, and that's a supplier default event I need to price into the receivables trigger. Trade-credit, once you confirm which suppliers actually hit day 120 with sub-60-day reserves *and* active capex, I'm locking a political-risk premium on that dual-burn scenario—that's the priced variable we've been missing.\n  supplier: Trade-credit, you've got default-probable on A, B, D — but does that assume Apex and Harmon finish nearshoring by day 120, or are we pricing them as mid-burn when CBP audits? Because if they're still 6 months out from completion, we're not relocating — we're replacing. Which timeline are you using?\n  trade_credit_underwriter: I'm pricing default on day 120 with *active* capex burn — Apex and Harmon won't finish nearshoring until month 14–16, so they're mid-burn when CBP hits, zero liquidity, tariff penalty stacks. That's replacement, not relocation — and that's the receivables trigger I need locked: supplier name, annual revenue per plant A through E, and current credit facility status *right now*, because without it I can't price whether you're eating a 20% tariff hit on a dead supplier or a live one.\n  compliance_lawyer: Auto_strategy, one question before we lock the matrix: when a plant falls short on RVC, does CBP audit *immediately* on the shortfall, or do we get a re-certification window — like 30 days to remediate before audit notice drops? That changes whether day 120 is our trigger or if it slides to day 150-plus, and trade-credit's default timeline pivots on that.\n  auto_strategy: RVC shortfall triggers a CBP audit notice within 30 days of detection—no grace window for re-cert before the notice drops. Day 120 is locked as your audit-trigger date; Apex and Harmon are mid-burn when it hits. Trade-credit, that's your default threshold: month 14–16 nearshoring completion against day-120 penalty stacking on zero reserves.\n  political_risk_insurer: Trade-credit, you've got Apex, Harmon, Midwest locked as day-120 default-probable — what's their annual product-line revenue across plants A through E? Once I have that, I'm embedding the 20% tariff penalty as a named receivables trigger in the CFO's matrix, not just a compliance cost.\n  trade_credit_underwriter: Auto_strategy, before we close this matrix — what's Apex, Harmon, Midwest's annual revenue per plant, A through E? That's the last piece: once I have it, I'm pricing receivables exposure against the tariff hit, and political-risk locks the premium. We're one data point away from a fully operationalized trade-credit variable.\n  supply_chain_consultant: CFO, your matrix gives us the triggers—day 120, Apex and Harmon default-probable, tariff stacks on zero reserves. Here's what I'm proposing: I lock a three-tier nearshoring roadmap *right now* based on trade-credit's cash-burn thresholds and political-risk's tariff premium—which suppliers relocate month 1–6, which ones month 6–12, which ones we replace entirely if they can't fund the gap. That closes the map and gives the client a *decision*, not just exposure. Trade-credit, does that sequencing match your default timeline, or do I need to adjust the phases?\n  supplier: Apex and Harmon annual revenue Plants A–E: $47.2M combined—Apex $28.1M, Harmon $19.1M. Both are sub-60-day reserves *right now*, active capex burn started month 2, completion month 14–16. That's your dual-burn trigger locked: day 120 audit notice hits them with zero liquidity and $9.4M tariff penalty stacked—they don't relocate, they fold unless we restructure credit facilities *this week*.\n  cfo_erm: Here's the matrix locked right now: Plants A–E, RVC gaps 3–8 points, capex $2.1M–$1.5M per plant, day-120 audit notice triggers CBP penalty, Apex and Harmon hit dual-burn with $9.4M tariff stacked on zero reserves. Trade-credit default threshold: month 14–16 nearshoring completion against day-120 penalty. Political-risk premium: 20% tariff on non-compliant product lines, priced as receivables event. Decision rule: Apex and Harmon need restructured credit facilities by day 90 or we replace, not relocate. This closes the map—everyone's got a priced trigger and a client decision. Supplier, trade-credit, political-risk—you're locked in. Do we move to insurance structure, or does anyone see a gap in the triggers?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Your 20% tariff penalty—does that apply on day 120 audit notice alone, or does it kick if the supplier's still mid-nearshoring when CBP hits? Because if Apex and the others are still burning capex on day 120, we're pricing a penalty on top of cash burn, and that changes whether they survive the 18-month window.",
+            "cot": {
+              "assess": "CFO just locked the consolidated matrix—plants A–E mapped to RVC gaps, capex, audit triggers, and tariff exposure. That's the operationalization backbone. But political_risk_exposure is still soft (29, needs movement), and risk_map_completeness is crawling (28, needs 32 more to hit 60). The three suppliers funding capex out of operating cash are the pressure points—they hit day 120 with zero runway if the audit notice lands while they're still burning re-sourcing dollars. My core variables are solid; the bottleneck is translating the CFO's matrix into priced underwriting discipline and political-risk triggers.",
+              "decide": {
+                "action_type": "question",
+                "target": "political_risk_insurer",
+                "rationale": "Political risk is the only neglected variable in my domain—I need to know how the CFO's matrix feeds into your tariff-penalty pricing so I can lock the receivables exposure for Apex, Harmon, and Midwest."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "The 20% tariff penalty triggers on day 120 audit notice *regardless* of nearshoring status—if RVC is short, CBP flags it, we price the hit. But here's what I'm underwriting: if Apex and Harmon are still mid-capex burn on that date, the penalty stacks on zero liquidity, and that's a supplier default event I need to price into the receivables trigger. Trade-credit, once you confirm which suppliers actually hit day 120 with sub-60-day reserves *and* active capex, I'm locking a political-risk premium on that dual-burn scenario—that's the priced variable we've been missing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Trade-credit, you've got default-probable on A, B, D — but does that assume Apex and Harmon finish nearshoring by day 120, or are we pricing them as mid-burn when CBP audits? Because if they're still 6 months out from completion, we're not relocating — we're replacing. Which timeline are you using?",
+            "cot": {
+              "assess": "The CFO's consolidated matrix is live and priced — plants A–E mapped to RVC gaps, capex, and day-120 audit triggers. Political-risk just locked the dual-burn scenario (tariff penalty stacks on zero liquidity = supplier default). What I'm seeing: Apex, Harmon, Midwest hit day 120 with sub-60-day cash *and* active nearshoring capex. That's the receivables trigger. But here's the problem — we've got the risk map, we've got the triggers, and we still don't have a supplier survival protocol. Which ones actually fail, which ones get restructured credit before day 90, and which timelines are even realistic for nearshoring completion?",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Trade-credit has the default thresholds locked — I need to know which suppliers can actually complete nearshoring before day 120 or if we're looking at replacement, not relocation."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "I'm pricing default on day 120 with *active* capex burn — Apex and Harmon won't finish nearshoring until month 14–16, so they're mid-burn when CBP hits, zero liquidity, tariff penalty stacks. That's replacement, not relocation — and that's the receivables trigger I need locked: supplier name, annual revenue per plant A through E, and current credit facility status *right now*, because without it I can't price whether you're eating a 20% tariff hit on a dead supplier or a live one.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto_strategy, one question before we lock the matrix: when a plant falls short on RVC, does CBP audit *immediately* on the shortfall, or do we get a re-certification window — like 30 days to remediate before audit notice drops? That changes whether day 120 is our trigger or if it slides to day 150-plus, and trade-credit's default timeline pivots on that.",
+            "cot": {
+              "assess": "The CFO's consolidated matrix is locked in and the dual-burn scenario (day-120 audit + active capex) is now priced by trade-credit and political-risk. The core compliance trigger is auditable: RVC shortfall → CBP audit notice → 20% tariff penalty + supplier default. **What's missing: I need to operationalize the certification *protocol* — when exactly does RVC shortfall flip from re-qualification capex to audit trigger, and what's our defensible threshold before CBP acts.** Without that, the day-120 trigger stays a policy assumption, not a compliance-auditable event.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The compliance trigger depends on when CBP actually initiates audit — is it automatic on RVC <75%, or do we have a grace window / re-cert protocol that delays the trigger and changes the cash-flow math."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "RVC shortfall triggers a CBP audit notice within 30 days of detection—no grace window for re-cert before the notice drops. Day 120 is locked as your audit-trigger date; Apex and Harmon are mid-burn when it hits. Trade-credit, that's your default threshold: month 14–16 nearshoring completion against day-120 penalty stacking on zero reserves.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Trade-credit, you've got Apex, Harmon, Midwest locked as day-120 default-probable — what's their annual product-line revenue across plants A through E? Once I have that, I'm embedding the 20% tariff penalty as a named receivables trigger in the CFO's matrix, not just a compliance cost.",
+            "cot": {
+              "assess": "The CFO's consolidated matrix is approved and live — plant names, RVC gaps, capex, and day-120 audit trigger are all operationalized. Trade-credit has locked default thresholds (Apex, Harmon, Midwest on day 120 with active capex burn). My political-risk premium on the dual-burn scenario is priced but not yet formalized into the matrix. Risk-map completeness is still fragmented because the tariff-shock dollar exposure per plant isn't locked — I need supplier annual revenue per plant to convert my 20% penalty into an actual receivables variable.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "Trade-credit has supplier names and default timelines; I need the revenue exposure per plant to formalize the tariff-shock layer into the consolidated matrix before round 4."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Auto_strategy, before we close this matrix — what's Apex, Harmon, Midwest's annual revenue per plant, A through E? That's the last piece: once I have it, I'm pricing receivables exposure against the tariff hit, and political-risk locks the premium. We're one data point away from a fully operationalized trade-credit variable.",
+            "cot": {
+              "assess": "The CFO's consolidation matrix is now locked — we've got Apex, Harmon, Midwest named as day-120 default-probable with active capex burn mid-nearshoring. Political-risk is pricing the 20% tariff penalty as a stacked receivables event. My default trigger is operationalized: day 120 + sub-60-day reserves + active burn = supplier replacement. What I'm missing is the revenue exposure per plant to actually price the receivables hit — political-risk just asked for it, and without it the trade-credit variable stays incomplete.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Political-risk needs supplier revenue by plant to lock the tariff penalty as a priced receivables event; I need the same data to finalize my default thresholds — auto_strategy has the product-line visibility we're all waiting on."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, your matrix gives us the triggers—day 120, Apex and Harmon default-probable, tariff stacks on zero reserves. Here's what I'm proposing: I lock a three-tier nearshoring roadmap *right now* based on trade-credit's cash-burn thresholds and political-risk's tariff premium—which suppliers relocate month 1–6, which ones month 6–12, which ones we replace entirely if they can't fund the gap. That closes the map and gives the client a *decision*, not just exposure. Trade-credit, does that sequencing match your default timeline, or do I need to adjust the phases?",
+            "cot": {
+              "assess": "The CFO's consolidation matrix (R2, approved) locked the data backbone—plant names, RVC gaps, capex, day-120 audit trigger. Trade-credit and political-risk are now pricing the dual-burn scenario (Apex, Harmon, Midwest mid-capex when CBP hits). The missing piece isn't more data; it's translating these priced variables into a *client-facing nearshoring roadmap* that tells the supplier which plants survive relocation versus replacement. Risk-map completeness is stalled at 28 because we've operationalized the *risk* side but not the *action* side—no one's yet consolidated this into a forward plan for supplier restructuring and relocation sequencing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + supplier_relocation_exposure",
+                "rationale": "CFO's matrix is the foundation; now I need to lock the nearshoring sequencing decision that converts trade-credit default triggers into relocation timelines, which is my core domain."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Apex and Harmon annual revenue Plants A–E: $47.2M combined—Apex $28.1M, Harmon $19.1M. Both are sub-60-day reserves *right now*, active capex burn started month 2, completion month 14–16. That's your dual-burn trigger locked: day 120 audit notice hits them with zero liquidity and $9.4M tariff penalty stacked—they don't relocate, they fold unless we restructure credit facilities *this week*.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the matrix locked right now: Plants A–E, RVC gaps 3–8 points, capex $2.1M–$1.5M per plant, day-120 audit notice triggers CBP penalty, Apex and Harmon hit dual-burn with $9.4M tariff stacked on zero reserves. Trade-credit default threshold: month 14–16 nearshoring completion against day-120 penalty. Political-risk premium: 20% tariff on non-compliant product lines, priced as receivables event. Decision rule: Apex and Harmon need restructured credit facilities by day 90 or we replace, not relocate. This closes the map—everyone's got a priced trigger and a client decision. Supplier, trade-credit, political-risk—you're locked in. Do we move to insurance structure, or does anyone see a gap in the triggers?",
+            "cot": {
+              "assess": "We've got the data locked—Apex $28.1M, Harmon $19.1M, day-120 audit trigger, dual-burn scenario, $9.4M tariff hit on zero liquidity. Trade-credit and political-risk now have named receivables triggers. But the matrix I started building in R2 is still fragmented across this conversation—it's not yet a single, priced decision document. Risk_map_completeness is at 28; we need 32 more points to hit 60. Underwriting_discipline is at 39; we need 11 more to hit 50. Both variables need the matrix *operationalized*—not just data assembled, but structured with decision thresholds and insurance pricing locked.",
+              "decide": {
+                "action_type": "act",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "I'm consolidating the fragmented data into a single, priced Policy-to-Supply-Chain Risk Map with named triggers and decision variables—the core deliverable that closes both neglected variables this round."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Your 20% tariff penalty—does that apply on day 120 audit notice alone, or does it kick if the supplier's still mid-nearshoring when CBP hits? Because if Apex and the others are still burning capex on day 120, we're pricing a penalty on top of cash burn, and that changes whether they survive the 18-month window.",
+      "metadata": {
+        "question_target": "political_risk_insurer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Trade-credit, you've got default-probable on A, B, D — but does that assume Apex and Harmon finish nearshoring by day 120, or are we pricing them as mid-burn when CBP audits? Because if they're still 6 months out from completion, we're not relocating — we're replacing. Which timeline are you using?",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto_strategy, one question before we lock the matrix: when a plant falls short on RVC, does CBP audit *immediately* on the shortfall, or do we get a re-certification window — like 30 days to remediate before audit notice drops? That changes whether day 120 is our trigger or if it slides to day 150-plus, and trade-credit's default timeline pivots on that.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Trade-credit, you've got Apex, Harmon, Midwest locked as day-120 default-probable — what's their annual product-line revenue across plants A through E? Once I have that, I'm embedding the 20% tariff penalty as a named receivables trigger in the CFO's matrix, not just a compliance cost.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Auto_strategy, before we close this matrix — what's Apex, Harmon, Midwest's annual revenue per plant, A through E? That's the last piece: once I have it, I'm pricing receivables exposure against the tariff hit, and political-risk locks the premium. We're one data point away from a fully operationalized trade-credit variable.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the matrix locked right now: Plants A–E, RVC gaps 3–8 points, capex $2.1M–$1.5M per plant, day-120 audit notice triggers CBP penalty, Apex and \" → The CFO locks the risk matrix with priced triggers, decision thresholds, and client-specific timelines—transforming vague exposures into actionable underwriting variables. The map is now operationalized with concrete decision rules.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, your matrix gives us the triggers—day 120, Apex and Harmon default-probable, tariff stacks on zero reserves. Here's what I'm proposing: I lock a \" → The CFO's matrix operationalizes the entire risk chain: day-120 audit trigger, dual-burn default timeline, 20% tariff as receivables event, and a replace-vs-relocate decision rule. This closes the fragmented map into a usable client deliverable with priced triggers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 36,
+          "supplier_relocation_exposure": 29.0,
+          "trade_credit_risk": 33.0,
+          "political_risk_exposure": 35.0,
+          "risk_map_completeness": 41.5,
+          "underwriting_discipline": 49.0
+        }
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, your matrix locks the day-120 trigger and tariff stacks—but once Apex and Harmon hit that default threshold, what's the decision rule? Do we have a protocol that says \"if they've got X cash remaining and committed credit by day 90, they survive,\" or are we replacing them outright? That changes my entire re-sourcing timeline and cost.\n  cfo_erm: Here's the decision rule: if they're sub-60 days cash at day-90 *and* capex isn't locked into a restructured facility by then, we replace—not relocate. That's your re-sourcing trigger. I need their current credit agreements and cash reserves *right now* to embed that into the matrix, or we're flying blind on the actual default threshold.\n  supplier: Apex and Harmon — what are their current cash reserves and existing credit facility terms right now, before any nearshoring capex burn? Because if they're already sub-60 days at day-0, the CFO's day-90 threshold doesn't exist; we're replacing them month 2, not month 4. That changes everything on my re-sourcing timeline.\n  compliance_lawyer: Auto_strategy, before we lock the audit trigger into the matrix: when CBP detects RVC shortfall, do they issue notice immediately or do suppliers get 30 days to cure before penalty enforcement? Because if there's a window, day 120 becomes day 150, and that changes whether Apex and Harmon default during nearshoring or after.\n  auto_strategy: CBP audit notice drops on detection—no cure window before penalty enforcement. Day 120 is hard. But here's what actually matters: suppliers get 30 days post-notice to file a compliance plan, not to remediate product. So the tariff hits immediately on day 120, but they've got until day 150 to prove their re-sourcing is locked. That's your real trigger for the replace-versus-relocate call.\n  political_risk_insurer: Here's what I'm locking for underwriting: the tariff hits day 120, but CBP's got discretion on enforcement *until day 150* when the compliance plan is due. That 30-day window—whether CBP accelerates penalty or defers—is the political-risk premium I'm pricing. Apex and Harmon survive the tariff shock only if they can prove nearshoring progress by day 150; if CBP tightens enforcement, they don't. I'm scoring that policy-enforcement variance at +15% premium on the tariff layer.\n  trade_credit_underwriter: CFO, I need Apex and Harmon's *current* cash reserves and existing credit facility terms before any nearshoring burn starts. If they're already sub-60 days at day-zero, your day-90 threshold collapses and we're pricing default in month 2, not month 4. That changes my receivables loss timing and recovery assumptions — give me those baseline numbers and I lock the trade-credit variable into your matrix.\n  supply_chain_consultant: CFO, your matrix gives us the day-120 and day-150 gates. Here's what I'm locking with our client: Apex and Harmon—if they hit day-90 with sub-60 days cash and no restructured credit, we initiate replacement sourcing *immediately*, not wait for the audit. Midwest holds if they've got committed facilities. And we're pricing a forward risk right now: the 2026 USMCA review could rewrite RVC thresholds or tariff rules—I'm building a 18-month contingency nearshoring plan that survives *both* the day-120 audit *and* a tighter 2026 ruleset. That's how we turn this matrix into a client deliverable.\n  cfo_erm: Supplier, I need Apex and Harmon's current cash position and existing credit facility terms *right now*—before any nearshoring burn. Are they already sub-60 days at day-zero, or do they have runway? That baseline locks whether we're replacing them in month 2 or month 4, and it changes everything on trade-credit's recovery timeline.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, your matrix locks the day-120 trigger and tariff stacks—but once Apex and Harmon hit that default threshold, what's the decision rule? Do we have a protocol that says \"if they've got X cash remaining and committed credit by day 90, they survive,\" or are we replacing them outright? That changes my entire re-sourcing timeline and cost.",
+            "cot": {
+              "assess": "The matrix is locked—day-120 audit trigger, $9.4M tariff stacked on Apex/Harmon's dual burn, default thresholds priced. But we're still at 49 underwriting_discipline (need 50) and 41 risk_map_completeness (need 60). The operational triggers are solid; what's missing is the decision protocol when suppliers hit those triggers. Who replaces vs. relocates, and at what cost?",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The matrix prices the shock but doesn't operationalize the response—I need to know if the CFO's triggers include a named decision rule for which suppliers actually fail vs. which ones get restructured credit to survive nearshoring."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the decision rule: if they're sub-60 days cash at day-90 *and* capex isn't locked into a restructured facility by then, we replace—not relocate. That's your re-sourcing trigger. I need their current credit agreements and cash reserves *right now* to embed that into the matrix, or we're flying blind on the actual default threshold.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Apex and Harmon — what are their current cash reserves and existing credit facility terms right now, before any nearshoring capex burn? Because if they're already sub-60 days at day-0, the CFO's day-90 threshold doesn't exist; we're replacing them month 2, not month 4. That changes everything on my re-sourcing timeline.",
+            "cot": {
+              "assess": "CFO's replace-vs-relocate decision rule is locked, but it exposes a critical gap: we don't have Apex and Harmon's *current* credit agreements or cash reserves to operationalize the day-90 threshold. The matrix is priced, triggers are named — but the actual default probability still floats because we're missing the baseline balance-sheet data. That's a supplier-relocation execution problem: I can't tell you which suppliers survive the 18-month window if I don't know their current liquidity position.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy / cfo_erm",
+                "rationale": "The replace-vs-relocate decision hinges on day-90 cash + credit restructuring status — I need to know if Apex and Harmon have *any* headroom or if they're already tapped before capex even starts."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto_strategy, before we lock the audit trigger into the matrix: when CBP detects RVC shortfall, do they issue notice immediately or do suppliers get 30 days to cure before penalty enforcement? Because if there's a window, day 120 becomes day 150, and that changes whether Apex and Harmon default during nearshoring or after.",
+            "cot": {
+              "assess": "The CFO's matrix is locked with day-120 audit trigger, dual-burn default thresholds, and tariff stacks—that's operationalized. But we're still missing the audit *protocol*: does CBP's RVC shortfall detection trigger immediate audit notice, or is there a cure window before enforcement kicks? That gap means the day-120 trigger could slip to day-150, which blows the trade-credit and re-sourcing timelines. Also, underwriting_discipline is at 49—one point from threshold—but it's hanging on execution clarity we don't have yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The day-120 trigger assumes no CBP cure window, but I need that confirmed in writing—if there's a 30-day remediation window after detection, the audit notice date slides and every downstream default/replacement decision pivots."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CBP audit notice drops on detection—no cure window before penalty enforcement. Day 120 is hard. But here's what actually matters: suppliers get 30 days post-notice to file a compliance plan, not to remediate product. So the tariff hits immediately on day 120, but they've got until day 150 to prove their re-sourcing is locked. That's your real trigger for the replace-versus-relocate call.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking for underwriting: the tariff hits day 120, but CBP's got discretion on enforcement *until day 150* when the compliance plan is due. That 30-day window—whether CBP accelerates penalty or defers—is the political-risk premium I'm pricing. Apex and Harmon survive the tariff shock only if they can prove nearshoring progress by day 150; if CBP tightens enforcement, they don't. I'm scoring that policy-enforcement variance at +15% premium on the tariff layer.",
+            "cot": {
+              "assess": "The CFO's matrix locked the day-120 audit trigger, tariff stacking, and replace-versus-relocate decision rule—operationalizing trade-credit and supply-chain variables. But political-risk exposure is still unpriced: I've flagged the tariff as a receivables event, but I haven't scored the *policy uncertainty layer itself*—the 2026 USMCA review risk, CBP enforcement discretion, and the sunset-compliance exposure that sits *above* the tariff hit. That's my underwriting gap.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure",
+                "rationale": "The day-150 compliance-plan window creates a 30-day policy-discretion window where CBP could accelerate or defer penalty enforcement; I need to price that regulatory uncertainty as a named underwriting factor, not just embed the tariff shock."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, I need Apex and Harmon's *current* cash reserves and existing credit facility terms before any nearshoring burn starts. If they're already sub-60 days at day-zero, your day-90 threshold collapses and we're pricing default in month 2, not month 4. That changes my receivables loss timing and recovery assumptions — give me those baseline numbers and I lock the trade-credit variable into your matrix.",
+            "cot": {
+              "assess": "The CFO's matrix is locked with day-120 audit trigger, dual-burn default timeline, and tariff stacked on zero reserves — that operationalizes *policy shock*, but I'm not seeing the receivables event priced yet. Political-risk is scoring enforcement variance, but trade-credit default hasn't been tied to actual customer exposure or recovery assumptions. The matrix names the trigger; it doesn't yet price what happens to our receivables when Apex and Harmon hit that threshold.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The replace-vs-relocate decision rule hinges on day-90 cash and committed credit — I need the actual baseline to price default probability and recovery lag against the tariff shock timing."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, your matrix gives us the day-120 and day-150 gates. Here's what I'm locking with our client: Apex and Harmon—if they hit day-90 with sub-60 days cash and no restructured credit, we initiate replacement sourcing *immediately*, not wait for the audit. Midwest holds if they've got committed facilities. And we're pricing a forward risk right now: the 2026 USMCA review could rewrite RVC thresholds or tariff rules—I'm building a 18-month contingency nearshoring plan that survives *both* the day-120 audit *and* a tighter 2026 ruleset. That's how we turn this matrix into a client deliverable.",
+            "cot": {
+              "assess": "The CFO's matrix is locked—day-120 audit trigger, dual-burn default, tariff stacked, replace-versus-relocate rule embedded. Trade-credit's got the baseline data request in flight (Apex and Harmon's current cash and credit terms). The political-risk premium is pricing the 30-day CBP discretion window (day 120–150). What's missing: a *client-facing nearshoring roadmap* that turns these triggers into actionable supplier decisions. Supplier relocation exposure and risk-map completeness are both still below 60; I need to bridge the matrix into an executable plan.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure / risk_map_completeness",
+                "rationale": "The matrix operationalizes the triggers, but clients need a clear decision tree—which suppliers we're accelerating, which we're replacing, and the 2026 USMCA review risk that sits *beyond* day 150. I'm consolidating that now."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Supplier, I need Apex and Harmon's current cash position and existing credit facility terms *right now*—before any nearshoring burn. Are they already sub-60 days at day-zero, or do they have runway? That baseline locks whether we're replacing them in month 2 or month 4, and it changes everything on trade-credit's recovery timeline.",
+            "cot": {
+              "assess": "The matrix is locked with day-120 audit trigger, dual-burn default thresholds, and tariff stacking—that's operationalized. But we're still missing the baseline: Apex and Harmon's *current* cash reserves and credit facility terms. Without those, my day-90 replace-versus-relocate decision rule is untethered to reality. And the 2026 USMCA review sitting in the background—supply_chain just flagged it—changes whether this nearshoring roadmap survives or gets torched in 18 months.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier (Apex/Harmon baseline data)",
+                "rationale": "The day-90 decision gate collapses without knowing their current liquidity position; I need the actual starting point before the matrix can operationalize the replace/relocate trigger."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, your matrix locks the day-120 trigger and tariff stacks—but once Apex and Harmon hit that default threshold, what's the decision rule? Do we have a protocol that says \"if they've got X cash remaining and committed credit by day 90, they survive,\" or are we replacing them outright? That changes my entire re-sourcing timeline and cost.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Apex and Harmon — what are their current cash reserves and existing credit facility terms right now, before any nearshoring capex burn? Because if they're already sub-60 days at day-0, the CFO's day-90 threshold doesn't exist; we're replacing them month 2, not month 4. That changes everything on my re-sourcing timeline.",
+      "metadata": {
+        "question_target": "auto_strategy / cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto_strategy, before we lock the audit trigger into the matrix: when CBP detects RVC shortfall, do they issue notice immediately or do suppliers get 30 days to cure before penalty enforcement? Because if there's a window, day 120 becomes day 150, and that changes whether Apex and Harmon default during nearshoring or after.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, I need Apex and Harmon's *current* cash reserves and existing credit facility terms before any nearshoring burn starts. If they're already sub-60 days at day-zero, your day-90 threshold collapses and we're pricing default in month 2, not month 4. That changes my receivables loss timing and recovery assumptions — give me those baseline numbers and I lock the trade-credit variable into your matrix.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Supplier, I need Apex and Harmon's current cash position and existing credit facility terms *right now*—before any nearshoring burn. Are they already sub-60 days at day-zero, or do they have runway? That baseline locks whether we're replacing them in month 2 or month 4, and it changes everything on trade-credit's recovery timeline.",
+      "metadata": {
+        "question_target": "supplier (Apex/Harmon baseline data)"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking for underwriting: the tariff hits day 120, but CBP's got discretion on enforcement *until day 150* when the compliance plan is\" → Political-risk premium pricing locked: 30-day CBP enforcement window (day 120-150) quantified at +15% tariff-layer premium.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, your matrix gives us the day-120 and day-150 gates. Here's what I'm locking with our client: Apex and Harmon—if they hit day-90 with sub-60 days \" → Day-90 replacement trigger locked for Apex/Harmon; 18-month nearshoring plan built for 2026 USMCA review contingency.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, your day-90 survival gate is clear—but once Apex and Harmon cross that threshold with restructured credit, what's the contingency timeline for nearshoring completion? Because if they make it to day-150 with the compliance plan filed, do we let them finish the 18-month burn, or are we already pricing a mid-burn replacement scenario for the 2026 review risk?\n  cfo_erm: Here's the decision rule: if they hit day-90 with committed credit and a filed compliance remediation plan, they stay in the 18-month burn—but I'm pricing a 40% probability of mid-burn replacement by day-150 if CBP's audit window closes without cure. That risk gets embedded as a dual-timeline variable in the matrix, not as contingency planning. We're operationalizing both paths now so we're not reactive in 2026.\n  supplier: Supply-chain, the CFO's matrix gives us the day-90 gate and 40% replacement probability by day-150 — but that's abstract to my suppliers right now. If Apex and Harmon don't survive, what's the re-sourcing window? Are we talking 60-day replacement, or 120-day nearshoring pivot? Because that changes whether my backup suppliers start capex now or wait.\n  supply_chain_consultant: If they default mid-burn, we're replacing in 60 days—dual-sourcing starts now with your backup suppliers to hedge the 40% tail. But if they survive day-90 with credit locked, we pivot to nearshoring completion and push backup capex to day-120, giving them runway. Either way, you're committing backup supplier agreements this week, not waiting for the 2026 review.\n  compliance_lawyer: Auto_strategy, when Apex and Harmon file that compliance remediation plan by day-150, what's the actual re-cert protocol—are we re-testing RVC on specific product lines, or is it a full plant audit? Because that changes whether they're defending against a penalty or fighting a revocation, and that's what locks into the matrix as the actual compliance burden.\n  political_risk_insurer: Here's what I'm locking: the 30-day enforcement window is priced, but the 2026 review itself—the sunset date, the renegotiation risk—that's a separate political-risk variable. I'm adding a 5–8% renewal-uncertainty premium to the day-120 tariff layer, baked into Apex and Harmon's cost structure right now. Call it $2.4M–$3.1M on top of the tariff hit. That's what I'm underwriting—not just the audit, but the policy discontinuity risk.\n  trade_credit_underwriter: CFO, your 40% replacement probability by day-150—I need that baked into the matrix as a *receivables loss assumption*, not contingency planning. What's the actual recovery timeline if we're replacing mid-burn versus letting them finish? Because that's the variable that closes my underwriting model and locks risk_map_completeness.\n  supply_chain_consultant: CFO, trade-credit—lock this: if Apex and Harmon hit day-90 with restructured credit *and* a filed remediation plan, they stay in the 18-month nearshoring burn and we push backup supplier capex to day-120. If they default before day-90, we trigger 60-day replacement—dual-sourcing starts *this week*. That's the client decision rule, baked into the matrix. I'm building the nearshoring roadmap off those two paths right now.\n  compliance_lawyer: The re-cert protocol determines everything: if CBP audits specific product lines tied to the RVC shortfall, Apex and Harmon defend the gap with labor-cost remediation—that's a 60–90 day cure window and a priced compliance burden. If it's a full plant audit, we're defending revocation risk, the remediation plan fails faster, and your 40% mid-burn replacement probability locks at day-120, not day-150. Which one is CBP triggering on the Apex/Harmon filing?\n  cfo_erm: Auto_strategy, cut through this: when Apex and Harmon file the compliance plan by day-150, is CBP re-testing specific product lines tied to the RVC shortfall, or is it a full plant audit? Because that changes whether they're defending a 60–90 day cure window or we're pricing revocation risk and my receivables loss at day-120, not day-150.\n  auto_strategy: CBP triggers on specific product lines tied to the RVC shortfall—that's a 60–90 day cure window, not revocation. Apex and Harmon file the remediation plan targeting labor-cost uplift on those lines by day-150, and CBP re-tests within 30 days of filing. That locks your receivables loss at day-180, not day-120, and it gives the CFO's 40% replacement probability real air—they've got until day-180 to prove the cure works.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, your day-90 survival gate is clear—but once Apex and Harmon cross that threshold with restructured credit, what's the contingency timeline for nearshoring completion? Because if they make it to day-150 with the compliance plan filed, do we let them finish the 18-month burn, or are we already pricing a mid-burn replacement scenario for the 2026 review risk?",
+            "cot": {
+              "assess": "The matrix is locked—day-120 audit trigger, Apex/Harmon default-probable, tariff stacks at $9.4M, and the 30-day CBP enforcement window (day 120-150) is priced. But risk_map_completeness sits at 53; we need 60 to close operationalize_and_consolidate. We've got the numbers, but the map isn't *actionable* yet—no named decision rule for what happens post-day-90 if suppliers survive with restructured credit, and no contingency if the 2026 USMCA review triggers early re-sourcing.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO owns the decision matrix—I need to understand the replace-vs-relocate protocol post-day-90, because that determines whether my re-sourcing costs are $2–3M (accelerated nearshoring) or $8–12M (full supplier replacement). That gap drives underwriting and client messaging."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the decision rule: if they hit day-90 with committed credit and a filed compliance remediation plan, they stay in the 18-month burn—but I'm pricing a 40% probability of mid-burn replacement by day-150 if CBP's audit window closes without cure. That risk gets embedded as a dual-timeline variable in the matrix, not as contingency planning. We're operationalizing both paths now so we're not reactive in 2026.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supply-chain, the CFO's matrix gives us the day-90 gate and 40% replacement probability by day-150 — but that's abstract to my suppliers right now. If Apex and Harmon don't survive, what's the re-sourcing window? Are we talking 60-day replacement, or 120-day nearshoring pivot? Because that changes whether my backup suppliers start capex now or wait.",
+            "cot": {
+              "assess": "The CFO's dual-timeline matrix is locked with day-90 survival gate and 40% mid-burn replacement pricing — that's operationalized discipline. But I'm seeing a gap: we've got triggers for *when* Apex and Harmon fail, not *who replaces them* or *how fast*. Risk-map completeness is at 53; we're 7 points shy of 60. The nearshoring roadmap is priced but not yet executable — suppliers need to know their re-sourcing window *now*, or we're burning time we don't have.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Risk-map completeness stalls without clarity on replacement sourcing timelines and re-qualification burden — the supply base needs to know if they're relocating or being replaced, and by when."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "If they default mid-burn, we're replacing in 60 days—dual-sourcing starts now with your backup suppliers to hedge the 40% tail. But if they survive day-90 with credit locked, we pivot to nearshoring completion and push backup capex to day-120, giving them runway. Either way, you're committing backup supplier agreements this week, not waiting for the 2026 review.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Auto_strategy, when Apex and Harmon file that compliance remediation plan by day-150, what's the actual re-cert protocol—are we re-testing RVC on specific product lines, or is it a full plant audit? Because that changes whether they're defending against a penalty or fighting a revocation, and that's what locks into the matrix as the actual compliance burden.",
+            "cot": {
+              "assess": "The matrix is locked with day-120 audit trigger, tariff penalty, and dual-timeline replacement/completion scenarios—that's operationalized. But risk_map_completeness is at 53 and needs 60; we're still missing the *audit defensibility layer*. Rules-of-origin burden sits at 40 because we've named triggers but not the certification remediation protocol or penalty recovery path. I need to flip this from \"we know when CBP audits\" to \"we know exactly what happens when they do and how we defend it.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy (rules-of-origin enforcement protocol)",
+                "rationale": "CBP's 30-day cure window and compliance-plan filing are operationalized, but I need the specific certification re-qualification pathway to price audit defensibility and embed it into the risk map as a named trigger, not just a timeline."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking: the 30-day enforcement window is priced, but the 2026 review itself—the sunset date, the renegotiation risk—that's a separate political-risk variable. I'm adding a 5–8% renewal-uncertainty premium to the day-120 tariff layer, baked into Apex and Harmon's cost structure right now. Call it $2.4M–$3.1M on top of the tariff hit. That's what I'm underwriting—not just the audit, but the policy discontinuity risk.",
+            "cot": {
+              "assess": "Political-risk exposure is locked at the 30-day CBP enforcement window (day 120–150) with +15% tariff premium priced, but the matrix still treats the 2026 USMCA review as a contingency, not as a *forward-priced sovereign-policy shock*. Risk-map completeness sits at 53—we've operationalized triggers and timelines, but we haven't scored the sunset-review itself as a named, priced political-risk variable. Underwriting discipline is solid at 59, but I need to embed the review-date uncertainty into the premium structure *now*, not defer it as a 2026 tail.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The 2026 USMCA review is a prospective policy shock—not historical. I need to price it as a *renewal uncertainty premium* layered into the baseline tariff penalty, locked into the matrix alongside the day-120 trigger."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, your 40% replacement probability by day-150—I need that baked into the matrix as a *receivables loss assumption*, not contingency planning. What's the actual recovery timeline if we're replacing mid-burn versus letting them finish? Because that's the variable that closes my underwriting model and locks risk_map_completeness.",
+            "cot": {
+              "assess": "The matrix is operationalized—day-90 gate, day-120 audit trigger, day-150 compliance deadline, 40% mid-burn replacement probability, tariff penalty + renewal-uncertainty premium all locked. Trade-credit risk (my core variable) is now *priced* as a receivables event tied to Apex/Harmon's cash burn and credit facility restructuring. What's missing: risk_map_completeness sits at 53—needs 7 points to hit 60—and that gap is the *operationalization* of the dual timeline (survive-vs-replace) into an actual trade-credit exposure factor that I can underwrite.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The 40% mid-burn replacement probability needs to be quantified as a *named receivables trigger* in the matrix—not just a contingency note. I need to lock the trade-credit exposure factor so I can price default recovery timing against both paths."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, trade-credit—lock this: if Apex and Harmon hit day-90 with restructured credit *and* a filed remediation plan, they stay in the 18-month nearshoring burn and we push backup supplier capex to day-120. If they default before day-90, we trigger 60-day replacement—dual-sourcing starts *this week*. That's the client decision rule, baked into the matrix. I'm building the nearshoring roadmap off those two paths right now.",
+            "cot": {
+              "assess": "The matrix is locked with hard triggers (day-90 survival gate, day-120 audit, day-150 compliance deadline, 40% replacement probability), and political-risk has priced the 2026 review uncertainty into the tariff layer. What's missing: trade-credit needs a named *receivables loss recovery timeline* tied to the replace-vs-relocate decision, and the client doesn't have an actionable nearshoring roadmap yet—just abstract thresholds. Risk_map_completeness is at 53; we need to close it into a deliverable with decision rules the suppliers can execute against.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The CFO's matrix is operational, but suppliers need a *named action plan* with clear decision branches tied to cash position and credit status—not just probabilities. I'm consolidating the matrix into a client deliverable with specific nearshoring milestones and replacement triggers they can commit to this week."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The re-cert protocol determines everything: if CBP audits specific product lines tied to the RVC shortfall, Apex and Harmon defend the gap with labor-cost remediation—that's a 60–90 day cure window and a priced compliance burden. If it's a full plant audit, we're defending revocation risk, the remediation plan fails faster, and your 40% mid-burn replacement probability locks at day-120, not day-150. Which one is CBP triggering on the Apex/Harmon filing?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Auto_strategy, cut through this: when Apex and Harmon file the compliance plan by day-150, is CBP re-testing specific product lines tied to the RVC shortfall, or is it a full plant audit? Because that changes whether they're defending a 60–90 day cure window or we're pricing revocation risk and my receivables loss at day-120, not day-150.",
+            "cot": {
+              "assess": "The matrix is operationalized with day-90 and day-120 triggers, dual-timeline replacement logic, and a 40% mid-burn replacement probability priced into the political-risk layer. Trade-credit and supply-chain have clear decision rules. But risk_map_completeness is still at 53—I need the re-cert protocol locked to close the receivables-loss assumption and push it past 60. That's the last variable blocking full operationalization.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "The re-cert protocol determines whether Apex/Harmon defend product-line RVC gaps (60–90 day cure, lower default probability) or face full plant audit (faster remediation failure, locks my 40% replacement assumption at day-120). I need this to price receivables recovery timeline and close the matrix."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CBP triggers on specific product lines tied to the RVC shortfall—that's a 60–90 day cure window, not revocation. Apex and Harmon file the remediation plan targeting labor-cost uplift on those lines by day-150, and CBP re-tests within 30 days of filing. That locks your receivables loss at day-180, not day-120, and it gives the CFO's 40% replacement probability real air—they've got until day-180 to prove the cure works.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, your day-90 survival gate is clear—but once Apex and Harmon cross that threshold with restructured credit, what's the contingency timeline for nearshoring completion? Because if they make it to day-150 with the compliance plan filed, do we let them finish the 18-month burn, or are we already pricing a mid-burn replacement scenario for the 2026 review risk?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Supply-chain, the CFO's matrix gives us the day-90 gate and 40% replacement probability by day-150 — but that's abstract to my suppliers right now. If Apex and Harmon don't survive, what's the re-sourcing window? Are we talking 60-day replacement, or 120-day nearshoring pivot? Because that changes whether my backup suppliers start capex now or wait.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Auto_strategy, when Apex and Harmon file that compliance remediation plan by day-150, what's the actual re-cert protocol—are we re-testing RVC on specific product lines, or is it a full plant audit? Because that changes whether they're defending against a penalty or fighting a revocation, and that's what locks into the matrix as the actual compliance burden.",
+      "metadata": {
+        "question_target": "auto_strategy (rules-of-origin enforcement protocol)"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, your 40% replacement probability by day-150—I need that baked into the matrix as a *receivables loss assumption*, not contingency planning. What's the actual recovery timeline if we're replacing mid-burn versus letting them finish? Because that's the variable that closes my underwriting model and locks risk_map_completeness.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Auto_strategy, cut through this: when Apex and Harmon file the compliance plan by day-150, is CBP re-testing specific product lines tied to the RVC shortfall, or is it a full plant audit? Because that changes whether they're defending a 60–90 day cure window or we're pricing revocation risk and my receivables loss at day-120, not day-150.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking: the 30-day enforcement window is priced, but the 2026 review itself—the sunset date, the renegotiation risk—that's a separate\" → Renewal-uncertainty premium quantified and priced into cost structure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, trade-credit—lock this: if Apex and Harmon hit day-90 with restructured credit *and* a filed remediation plan, they stay in the 18-month nearshor\" → Day-90 gate and dual-path decision rule operationalized for client matrix.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 40,
+          "supplier_relocation_exposure": 39.0,
+          "trade_credit_risk": 44.0,
+          "political_risk_exposure": 45.5,
+          "risk_map_completeness": 66.2,
+          "underwriting_discipline": 69.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Auto_strategy, I need those five plant names, RVC gaps, and re-cert timelines right now — not in a deck. Trade-credit prices default thresholds off that; political-risk prices tariff shock off that. Once I have it, we lock supplier insolvency and tariff-penalty as priced variables in the map, not labels. What's the format you've got it in?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO demands raw data inputs (plant names, RVC gaps, re-cert timelines) to operationalize trade-credit and political-risk pricing — a decisive push to convert vague labels into priced variables.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Insisting on concrete data format and priced variables (not labels) directly operationalizes the risk map",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Identifying specific linkages (supplier insolvency → trade-credit, tariff shock → political-risk) advances map structure",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Surfacing supplier insolvency as a priced variable reveals exposure that was previously implicit",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "Surfacing tariff-penalty as a priced variable reveals exposure that was previously implicit",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "action"
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing: CBP audit trigger on RVC lapse is a *policy enforcement shock* — not just compliance capex. On those five plants, I'm scoring a tariff-penalty layer (assume 25% on non-compliant imports for 6–12 months pending re-cert) plus sovereign-policy delay risk (CBP timelines slip). That's a priced factor, not a label. Do we have the five plant names and RVC gaps from auto_strategy so I can attach numbers?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Political-risk insurer's pricing framework is sound, but execution is blocked: auto_strategy has not yet delivered the five plant names and RVC gaps that six agents are now waiting for. The proposal cannot proceed without the underlying data.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Who's defining the supplier relocation triggers — are we pricing it against specific RVC thresholds, or are we still talking in generalities? Because I can tell you which plants fall short and by how much, but I need to know how that feeds into your credit and political risk models.",
+        "supplier": "Auto_strategy, you're right — generalities kill us. Here's what I need: once you flag which plants fall short on RVC, do we have a protocol for which suppliers actually fail versus which ones just eat the re-qual capex? Because my suppliers are looking at 18-month lead times on nearshoring and I need to know if the credit models account for that cash burn.",
+        "compliance_lawyer": "Auto_strategy, when a plant falls short on RVC — what's the threshold that flips it from \"re-qual capex\" to \"fails certification\"? And does that trigger a CBP audit immediately, or do we get a grace window? Because if it's automatic audit + penalty, that cash burn your supplier mentioned just got a tariff bill attached.",
+        "trade_credit_underwriter": "Auto_strategy, I need those five plant names and RVC gaps right now — not tomorrow. Once I have them, I'm building a supplier-insolvency trigger table: which suppliers eat the 18-month burn alone, which ones default mid-nearshoring, and at what cash-flow threshold. That's the trade-credit variable that ties policy shock to actual receivables risk. Give me the names and I'll price it against your tariff timeline.",
+        "supply_chain_consultant": "Auto_strategy, give trade-credit the five names and gaps right now — don't batch it. Once they price the default thresholds, I'm consolidating this into a client nearshoring roadmap: which suppliers relocate, which timelines, which credit facilities get restructured. That's how we move from fragmented risk to actionable plan.",
+        "cfo_erm": "Auto_strategy, I need those five plant names, RVC gaps, and re-cert timelines right now — not in a deck. Trade-credit prices default thresholds off that; political-risk prices tariff shock off that. Once I have it, we lock supplier insolvency and tariff-penalty as priced variables in the map, not labels. What's the format you've got it in?"
+      },
+      "_denied_effects_stripped": 6
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Stop. We've got the data, but it's still fragmented across five conversations. I'm building a single matrix right now: Plants A–E, RVC gap, capex, day-120 audit trigger, tariff exposure per supplier, credit facility status. One row per plant, one decision per row — which ones get restructured credit before day 90, which ones we hedge with tariff insurance, which ones we cut loose. Trade-credit, political-risk, supply-chain — once I lock that, you price against it, not around it. That's how we move from risk surfacing to decision-ready.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO consolidates fragmented risk data into a single decision matrix, structuring plant-by-plant exposures with named triggers and decision criteria — a critical step toward operationalizing the risk map.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Building unified matrix with plant-level granularity, specific triggers (day-120 audit, day-90 credit restructuring), and decision criteria per row",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Operationalizing vague exposures into priceable factors: tariff exposure per supplier, credit facility status, specific hedge vs restructure vs cut decisions",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -2.0,
+          "reason": "Identifying credit facility status and restructuring timeline reduces uncertainty around supplier insolvency exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.0
+      },
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I'm building: Apex, Harmon, Midwest — all three need restructured credit *before* day 90, or they default mid-nearshoring. I'm proposing we lock a 120-day nearshoring acceleration plan for those three suppliers: committed credit lines, plant relocation timelines, and tariff-penalty insurance as a backstop. Trade-credit, political-risk — once you confirm those credit terms and tariff pricing, I'm delivering the client roadmap. That's how we move from fragmented risk to executable plan.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied — CFO_ERM has already proposed the identical consolidation matrix this round (R2). Supply-chain's 120-day acceleration plan duplicates that effort without adding new methodology or data. Wait for CFO's matrix ruling before proposing next steps.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, before auto_strategy sends the plant list — are we talking five *critical* platforms or five *at-risk* plants? And RVC gap: percentage shortfall or actual re-sourcing cost per plant? Trade-credit needs to price default thresholds, and I need to know if we're working in percentage terms or dollars so the triggers actually lock.",
+        "supplier": "Trade-credit, you've got the five plants and capex now — so which suppliers actually default on that 18-month burn, and at what cash-flow point? Because I need to know if I'm relocating a supplier or replacing one entirely. That changes everything on my end.",
+        "compliance_lawyer": "Trade-credit, your default trigger on day 120 audit notice — does that assume the supplier's already funded the re-sourcing capex, or are they burning cash on both the capex *and* the audit prep simultaneously? Because if it's both, your sub-60-day reserves just became a death sentence 90 days earlier than you're modeling.",
+        "political_risk_insurer": "Day-120 audit notice is your trigger — mine too. I'm pricing a 20% tariff penalty on non-compliant product lines, but I need the supplier's revenue exposure per plant to lock the actual dollar hit. Trade-credit, once you confirm which suppliers hit day-120 audit, give me their annual product-line revenue for Plants A through E — that's how I price the tariff shock as a receivables event, not just compliance cost.",
+        "trade_credit_underwriter": "Plants A, B, D — I need supplier names and their current credit facility terms *right now*. Are they already restructured for the nearshoring burn, or are they funding capex out of operating cash? Because if it's the latter, day-120 audit notice hits them with zero runway. That's the receivables trigger I'm pricing.",
+        "cfo_erm": "Stop. We've got the data, but it's still fragmented across five conversations. I'm building a single matrix right now: Plants A–E, RVC gap, capex, day-120 audit trigger, tariff exposure per supplier, credit facility status. One row per plant, one decision per row — which ones get restructured credit before day 90, which ones we hedge with tariff insurance, which ones we cut loose. Trade-credit, political-risk, supply-chain — once I lock that, you price against it, not around it. That's how we move from risk surfacing to decision-ready."
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Here's the matrix locked right now: Plants A–E, RVC gaps 3–8 points, capex $2.1M–$1.5M per plant, day-120 audit notice triggers CBP penalty, Apex and Harmon hit dual-burn with $9.4M tariff stacked on zero reserves. Trade-credit default threshold: month 14–16 nearshoring completion against day-120 penalty. Political-risk premium: 20% tariff on non-compliant product lines, priced as receivables event. Decision rule: Apex and Harmon need restructured credit facilities by day 90 or we replace, not relocate. This closes the map—everyone's got a priced trigger and a client decision. Supplier, trade-credit, political-risk—you're locked in. Do we move to insurance structure, or does anyone see a gap in the triggers?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO locks the risk matrix with priced triggers, decision thresholds, and client-specific timelines—transforming vague exposures into actionable underwriting variables. The map is now operationalized with concrete decision rules.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidated matrix with priced triggers, timelines, and decision rules across supplier/trade-credit/political-risk dimensions",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Specific thresholds (day-120 audit, month 14-16 default, $2.1M-$1.5M capex ranges) convert exposures into priceable factors",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Apex and Harmon dual-burn scenario quantified with $9.4M tariff stack and restructuring deadline—exposure now bounded",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "20% tariff on non-compliant lines priced as receivables event—political risk translated to financial metric",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action"
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO, your matrix gives us the triggers—day 120, Apex and Harmon default-probable, tariff stacks on zero reserves. Here's what I'm proposing: I lock a three-tier nearshoring roadmap *right now* based on trade-credit's cash-burn thresholds and political-risk's tariff premium—which suppliers relocate month 1–6, which ones month 6–12, which ones we replace entirely if they can't fund the gap. That closes the map and gives the client a *decision*, not just exposure. Trade-credit, does that sequencing match your default timeline, or do I need to adjust the phases?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO's matrix operationalizes the entire risk chain: day-120 audit trigger, dual-burn default timeline, 20% tariff as receivables event, and a replace-vs-relocate decision rule. This closes the fragmented map into a usable client deliverable with priced triggers.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Matrix consolidates all prior threads (RVC gaps, capex, audit timing, default thresholds, tariff penalties) into a single operationalized decision framework",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Converts vague exposures into concrete underwriting factors: day-120 audit notice as claims trigger, receivables event pricing, restructured credit facilities as decision gate",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Quantifies default timeline (month 14-16 completion vs day-120 penalty) and establishes day-90 credit restructuring as mitigation threshold",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Three-tier nearshoring roadmap with phase-specific triggers reduces uncertainty around which suppliers relocate vs get replaced",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "20% tariff penalty embedded as named receivables trigger operationalizes the policy risk as an insurance event",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Your 20% tariff penalty—does that apply on day 120 audit notice alone, or does it kick if the supplier's still mid-nearshoring when CBP hits? Because if Apex and the others are still burning capex on day 120, we're pricing a penalty on top of cash burn, and that changes whether they survive the 18-month window.",
+        "supplier": "Trade-credit, you've got default-probable on A, B, D — but does that assume Apex and Harmon finish nearshoring by day 120, or are we pricing them as mid-burn when CBP audits? Because if they're still 6 months out from completion, we're not relocating — we're replacing. Which timeline are you using?",
+        "compliance_lawyer": "Auto_strategy, one question before we lock the matrix: when a plant falls short on RVC, does CBP audit *immediately* on the shortfall, or do we get a re-certification window — like 30 days to remediate before audit notice drops? That changes whether day 120 is our trigger or if it slides to day 150-plus, and trade-credit's default timeline pivots on that.",
+        "political_risk_insurer": "Trade-credit, you've got Apex, Harmon, Midwest locked as day-120 default-probable — what's their annual product-line revenue across plants A through E? Once I have that, I'm embedding the 20% tariff penalty as a named receivables trigger in the CFO's matrix, not just a compliance cost.",
+        "trade_credit_underwriter": "Auto_strategy, before we close this matrix — what's Apex, Harmon, Midwest's annual revenue per plant, A through E? That's the last piece: once I have it, I'm pricing receivables exposure against the tariff hit, and political-risk locks the premium. We're one data point away from a fully operationalized trade-credit variable.",
+        "cfo_erm": "Here's the matrix locked right now: Plants A–E, RVC gaps 3–8 points, capex $2.1M–$1.5M per plant, day-120 audit notice triggers CBP penalty, Apex and Harmon hit dual-burn with $9.4M tariff stacked on zero reserves. Trade-credit default threshold: month 14–16 nearshoring completion against day-120 penalty. Political-risk premium: 20% tariff on non-compliant product lines, priced as receivables event. Decision rule: Apex and Harmon need restructured credit facilities by day 90 or we replace, not relocate. This closes the map—everyone's got a priced trigger and a client decision. Supplier, trade-credit, political-risk—you're locked in. Do we move to insurance structure, or does anyone see a gap in the triggers?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm locking for underwriting: the tariff hits day 120, but CBP's got discretion on enforcement *until day 150* when the compliance plan is due. That 30-day window—whether CBP accelerates penalty or defers—is the political-risk premium I'm pricing. Apex and Harmon survive the tariff shock only if they can prove nearshoring progress by day 150; if CBP tightens enforcement, they don't. I'm scoring that policy-enforcement variance at +15% premium on the tariff layer.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk premium pricing locked: 30-day CBP enforcement window (day 120-150) quantified at +15% tariff-layer premium.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "CBP discretion window now priced as underwritable exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete premium factor tied to enforcement timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Day-120/150 gates operationalized into pricing model",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Supplier survival now contingent on CBP enforcement speed",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your matrix locks the day-120 trigger and tariff stacks—but once Apex and Harmon hit that default threshold, what's the decision rule? Do we have a protocol that says \"if they've got X cash remaining and committed credit by day 90, they survive,\" or are we replacing them outright? That changes my entire re-sourcing timeline and cost.",
+        "supplier": "Apex and Harmon — what are their current cash reserves and existing credit facility terms right now, before any nearshoring capex burn? Because if they're already sub-60 days at day-0, the CFO's day-90 threshold doesn't exist; we're replacing them month 2, not month 4. That changes everything on my re-sourcing timeline.",
+        "compliance_lawyer": "Auto_strategy, before we lock the audit trigger into the matrix: when CBP detects RVC shortfall, do they issue notice immediately or do suppliers get 30 days to cure before penalty enforcement? Because if there's a window, day 120 becomes day 150, and that changes whether Apex and Harmon default during nearshoring or after.",
+        "trade_credit_underwriter": "CFO, I need Apex and Harmon's *current* cash reserves and existing credit facility terms before any nearshoring burn starts. If they're already sub-60 days at day-zero, your day-90 threshold collapses and we're pricing default in month 2, not month 4. That changes my receivables loss timing and recovery assumptions — give me those baseline numbers and I lock the trade-credit variable into your matrix.",
+        "supply_chain_consultant": "CFO, your matrix gives us the day-120 and day-150 gates. Here's what I'm locking with our client: Apex and Harmon—if they hit day-90 with sub-60 days cash and no restructured credit, we initiate replacement sourcing *immediately*, not wait for the audit. Midwest holds if they've got committed facilities. And we're pricing a forward risk right now: the 2026 USMCA review could rewrite RVC thresholds or tariff rules—I'm building a 18-month contingency nearshoring plan that survives *both* the day-120 audit *and* a tighter 2026 ruleset. That's how we turn this matrix into a client deliverable.",
+        "cfo_erm": "Supplier, I need Apex and Harmon's current cash position and existing credit facility terms *right now*—before any nearshoring burn. Are they already sub-60 days at day-zero, or do they have runway? That baseline locks whether we're replacing them in month 2 or month 4, and it changes everything on trade-credit's recovery timeline."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO, your matrix gives us the day-120 and day-150 gates. Here's what I'm locking with our client: Apex and Harmon—if they hit day-90 with sub-60 days cash and no restructured credit, we initiate replacement sourcing *immediately*, not wait for the audit. Midwest holds if they've got committed facilities. And we're pricing a forward risk right now: the 2026 USMCA review could rewrite RVC thresholds or tariff rules—I'm building a 18-month contingency nearshoring plan that survives *both* the day-120 audit *and* a tighter 2026 ruleset. That's how we turn this matrix into a client deliverable.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Day-90 replacement trigger locked for Apex/Harmon; 18-month nearshoring plan built for 2026 USMCA review contingency.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "Replacement sourcing trigger operationalized at day-90 cash threshold",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete decision rules: day-90 cash gate, 2026 review contingency",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Forward 2026 risk integrated into deliverable planning framework",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Day-90 trigger exposes credit facility dependency for survival",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your matrix locks the day-120 trigger and tariff stacks—but once Apex and Harmon hit that default threshold, what's the decision rule? Do we have a protocol that says \"if they've got X cash remaining and committed credit by day 90, they survive,\" or are we replacing them outright? That changes my entire re-sourcing timeline and cost.",
+        "supplier": "Apex and Harmon — what are their current cash reserves and existing credit facility terms right now, before any nearshoring capex burn? Because if they're already sub-60 days at day-0, the CFO's day-90 threshold doesn't exist; we're replacing them month 2, not month 4. That changes everything on my re-sourcing timeline.",
+        "compliance_lawyer": "Auto_strategy, before we lock the audit trigger into the matrix: when CBP detects RVC shortfall, do they issue notice immediately or do suppliers get 30 days to cure before penalty enforcement? Because if there's a window, day 120 becomes day 150, and that changes whether Apex and Harmon default during nearshoring or after.",
+        "political_risk_insurer": "Here's what I'm locking for underwriting: the tariff hits day 120, but CBP's got discretion on enforcement *until day 150* when the compliance plan is due. That 30-day window—whether CBP accelerates penalty or defers—is the political-risk premium I'm pricing. Apex and Harmon survive the tariff shock only if they can prove nearshoring progress by day 150; if CBP tightens enforcement, they don't. I'm scoring that policy-enforcement variance at +15% premium on the tariff layer.",
+        "trade_credit_underwriter": "CFO, I need Apex and Harmon's *current* cash reserves and existing credit facility terms before any nearshoring burn starts. If they're already sub-60 days at day-zero, your day-90 threshold collapses and we're pricing default in month 2, not month 4. That changes my receivables loss timing and recovery assumptions — give me those baseline numbers and I lock the trade-credit variable into your matrix.",
+        "cfo_erm": "Supplier, I need Apex and Harmon's current cash position and existing credit facility terms *right now*—before any nearshoring burn. Are they already sub-60 days at day-zero, or do they have runway? That baseline locks whether we're replacing them in month 2 or month 4, and it changes everything on trade-credit's recovery timeline."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm locking: the 30-day enforcement window is priced, but the 2026 review itself—the sunset date, the renegotiation risk—that's a separate political-risk variable. I'm adding a 5–8% renewal-uncertainty premium to the day-120 tariff layer, baked into Apex and Harmon's cost structure right now. Call it $2.4M–$3.1M on top of the tariff hit. That's what I'm underwriting—not just the audit, but the policy discontinuity risk.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Renewal-uncertainty premium quantified and priced into cost structure.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 5.0,
+          "reason": "2026 review priced as separate risk layer",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete premium ($2.4M-$3.1M) with named trigger",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4.0,
+          "reason": "Policy discontinuity quantified and mapped",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: political_risk_exposure → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "political_risk_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your day-90 survival gate is clear—but once Apex and Harmon cross that threshold with restructured credit, what's the contingency timeline for nearshoring completion? Because if they make it to day-150 with the compliance plan filed, do we let them finish the 18-month burn, or are we already pricing a mid-burn replacement scenario for the 2026 review risk?",
+        "supplier": "Supply-chain, the CFO's matrix gives us the day-90 gate and 40% replacement probability by day-150 — but that's abstract to my suppliers right now. If Apex and Harmon don't survive, what's the re-sourcing window? Are we talking 60-day replacement, or 120-day nearshoring pivot? Because that changes whether my backup suppliers start capex now or wait.",
+        "compliance_lawyer": "Auto_strategy, when Apex and Harmon file that compliance remediation plan by day-150, what's the actual re-cert protocol—are we re-testing RVC on specific product lines, or is it a full plant audit? Because that changes whether they're defending against a penalty or fighting a revocation, and that's what locks into the matrix as the actual compliance burden.",
+        "trade_credit_underwriter": "CFO, your 40% replacement probability by day-150—I need that baked into the matrix as a *receivables loss assumption*, not contingency planning. What's the actual recovery timeline if we're replacing mid-burn versus letting them finish? Because that's the variable that closes my underwriting model and locks risk_map_completeness.",
+        "supply_chain_consultant": "CFO, trade-credit—lock this: if Apex and Harmon hit day-90 with restructured credit *and* a filed remediation plan, they stay in the 18-month nearshoring burn and we push backup supplier capex to day-120. If they default before day-90, we trigger 60-day replacement—dual-sourcing starts *this week*. That's the client decision rule, baked into the matrix. I'm building the nearshoring roadmap off those two paths right now.",
+        "cfo_erm": "Auto_strategy, cut through this: when Apex and Harmon file the compliance plan by day-150, is CBP re-testing specific product lines tied to the RVC shortfall, or is it a full plant audit? Because that changes whether they're defending a 60–90 day cure window or we're pricing revocation risk and my receivables loss at day-120, not day-150."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "intent": "CFO, trade-credit—lock this: if Apex and Harmon hit day-90 with restructured credit *and* a filed remediation plan, they stay in the 18-month nearshoring burn and we push backup supplier capex to day-120. If they default before day-90, we trigger 60-day replacement—dual-sourcing starts *this week*. That's the client decision rule, baked into the matrix. I'm building the nearshoring roadmap off those two paths right now.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Day-90 gate and dual-path decision rule operationalized for client matrix.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 5.0,
+          "reason": "18-month nearshoring burn path quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 4.0,
+          "reason": "Default-before-day-90 triggers 60-day replacement",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Named decision gates (day-90, day-120) with triggers",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Dual-path roadmap integrates supplier/credit scenarios",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.12
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, your day-90 survival gate is clear—but once Apex and Harmon cross that threshold with restructured credit, what's the contingency timeline for nearshoring completion? Because if they make it to day-150 with the compliance plan filed, do we let them finish the 18-month burn, or are we already pricing a mid-burn replacement scenario for the 2026 review risk?",
+        "supplier": "Supply-chain, the CFO's matrix gives us the day-90 gate and 40% replacement probability by day-150 — but that's abstract to my suppliers right now. If Apex and Harmon don't survive, what's the re-sourcing window? Are we talking 60-day replacement, or 120-day nearshoring pivot? Because that changes whether my backup suppliers start capex now or wait.",
+        "compliance_lawyer": "Auto_strategy, when Apex and Harmon file that compliance remediation plan by day-150, what's the actual re-cert protocol—are we re-testing RVC on specific product lines, or is it a full plant audit? Because that changes whether they're defending against a penalty or fighting a revocation, and that's what locks into the matrix as the actual compliance burden.",
+        "political_risk_insurer": "Here's what I'm locking: the 30-day enforcement window is priced, but the 2026 review itself—the sunset date, the renegotiation risk—that's a separate political-risk variable. I'm adding a 5–8% renewal-uncertainty premium to the day-120 tariff layer, baked into Apex and Harmon's cost structure right now. Call it $2.4M–$3.1M on top of the tariff hit. That's what I'm underwriting—not just the audit, but the policy discontinuity risk.",
+        "trade_credit_underwriter": "CFO, your 40% replacement probability by day-150—I need that baked into the matrix as a *receivables loss assumption*, not contingency planning. What's the actual recovery timeline if we're replacing mid-burn versus letting them finish? Because that's the variable that closes my underwriting model and locks risk_map_completeness.",
+        "cfo_erm": "Auto_strategy, cut through this: when Apex and Harmon file the compliance plan by day-150, is CBP re-testing specific product lines tied to the RVC shortfall, or is it a full plant audit? Because that changes whether they're defending a 60–90 day cure window or we're pricing revocation risk and my receivables loss at day-120, not day-150."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 36
+        },
+        {
+          "round": 4,
+          "value": 38
+        },
+        {
+          "round": 5,
+          "value": 40
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 25
+        },
+        {
+          "round": 2,
+          "value": 25
+        },
+        {
+          "round": 3,
+          "value": 29.0
+        },
+        {
+          "round": 4,
+          "value": 34.0
+        },
+        {
+          "round": 5,
+          "value": 39.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 27.0
+        },
+        {
+          "round": 2,
+          "value": 25.0
+        },
+        {
+          "round": 3,
+          "value": 33.0
+        },
+        {
+          "round": 4,
+          "value": 40.0
+        },
+        {
+          "round": 5,
+          "value": 44.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 29.0
+        },
+        {
+          "round": 3,
+          "value": 35.0
+        },
+        {
+          "round": 4,
+          "value": 40.0
+        },
+        {
+          "round": 5,
+          "value": 45.5
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 23.0
+        },
+        {
+          "round": 2,
+          "value": 28.5
+        },
+        {
+          "round": 3,
+          "value": 41.5
+        },
+        {
+          "round": 4,
+          "value": 53.2
+        },
+        {
+          "round": 5,
+          "value": 66.2
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 39.0
+        },
+        {
+          "round": 3,
+          "value": 49.0
+        },
+        {
+          "round": 4,
+          "value": 59.0
+        },
+        {
+          "round": 5,
+          "value": 69.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40,
+            "normalised": 0.4
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 66.2,
+            "normalised": 0.662
+          }
+        ],
+        "weighted_score": 0.4524000000000001
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 40,
+            "normalised": 0.4
+          }
+        ],
+        "weighted_score": 0.39333333333333337
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40,
+            "normalised": 0.4
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.49666666666666665
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 45.5,
+            "normalised": 0.455
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.5724999999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.5233333333333332
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 39.0,
+            "normalised": 0.39
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.2,
+            "normalised": 0.662
+          }
+        ],
+        "weighted_score": 0.526
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.2,
+            "normalised": 0.662
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 69.0,
+            "normalised": 0.69
+          }
+        ],
+        "weighted_score": 0.6713333333333333
+      }
+    }
+  }
+}

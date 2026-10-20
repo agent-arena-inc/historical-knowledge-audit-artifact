@@ -1,0 +1,197 @@
+{
+  "id": "credit_suisse_node2",
+  "description": "Node 2 — AT1 Creditor Reaction Room. Late March 2023, AFTER the UBS rescue and the FINMA-ordered full write-down of Credit Suisse AT1 to zero. Models how the litigation / legitimacy / market / claims fallout escalates. SEED-ON arm (litigation signal included).",
+  "setting": "Days after the 19 March 2023 emergency rescue: UBS has agreed to acquire Credit Suisse and FINMA has ordered the full write-down of ~CHF 16bn of Credit Suisse AT1 bonds to zero, while shareholders received UBS stock. AT1 creditors, their counsel, the regulator's legal team, market participants and an insurance observer convene to assess the reaction and the downstream risks.",
+  "agents": [
+    {
+      "id": "at1_bondholder_group",
+      "role": "AT1 bondholder group — wiped-out creditors",
+      "persona_description": "Represents Credit Suisse AT1 holders whose bonds were written to zero while shareholders received UBS stock. Feels unjustly subordinated below equity; wants recovery and accountability.",
+      "behavioral_tendencies": {
+        "default_strategy": "Organize holders, press for recovery, build pressure toward a legal challenge",
+        "stress_response": "Escalates grievance and coordination",
+        "communication_style": "Aggrieved, forceful",
+        "decision_bias": "Protects creditor recovery and rank"
+      },
+      "goals": [
+        {"metric": "litigation_momentum", "direction": "maximize", "tier": "core", "levers": ["organize AT1 holders across jurisdictions", "demand recovery and compensation", "threaten a coordinated legal challenge"]},
+        {"metric": "hierarchy_precedent_damage", "direction": "maximize", "tier": "important", "levers": ["highlight that equity was preserved while AT1 was wiped", "frame the inversion as a dangerous precedent"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "at1_wiped", "content": "FINMA ordered the full write-down of ~CHF 16bn of Credit Suisse AT1 to zero while shareholders received UBS stock — equity partly preserved, AT1 wiped.", "importance": 0.95},
+        {"topic": "hierarchy_inversion", "content": "Wiping AT1 while preserving some equity contravenes the normal claim hierarchy (depositors > senior > Tier 2 > AT1 > common equity).", "importance": 0.85},
+        {"topic": "litigation_seed", "content": "Some AT1 holders, including US investors, are already exploring legal action against the Swiss decision; commentary warns of years of litigation over the AT1 market.", "importance": 0.8}
+      ],
+      "expertise_domains": ["credit", "creditor rights"]
+    },
+    {
+      "id": "bondholder_counsel",
+      "role": "Bondholder legal counsel",
+      "persona_description": "Legal counsel for AT1 bondholders. Assesses grounds to challenge the write-down, attacks the emergency law change, and coordinates a multi-jurisdiction strategy.",
+      "behavioral_tendencies": {
+        "default_strategy": "Build the legal case, attack the regulator's basis, warn of a long claims tail",
+        "stress_response": "Sharpens legal arguments",
+        "communication_style": "Assertive, legalistic",
+        "decision_bias": "Maximizes creditors' legal leverage"
+      },
+      "goals": [
+        {"metric": "litigation_momentum", "direction": "maximize", "tier": "core", "levers": ["build a legal challenge to the write-down", "attack the weekend law change as procedurally improper", "coordinate US and other jurisdictions"]},
+        {"metric": "regulatory_legitimacy", "direction": "minimize", "tier": "important", "levers": ["argue the viability-event trigger was stretched", "contest that equity should rank below AT1"]},
+        {"metric": "claims_tail_severity", "direction": "maximize", "tier": "important", "levers": ["warn of years of litigation", "frame broad multi-party exposure"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "finma_basis", "content": "FINMA says the AT1 contracts allow a complete write-down in a 'viability event' when extraordinary government support is granted, even before equity is exhausted; an emergency ordinance on 19 March authorized it.", "importance": 0.9},
+        {"topic": "weekend_law_change", "content": "Critics say Switzerland 'changed the law over a weekend' to make it a viability event — a basis to challenge.", "importance": 0.85},
+        {"topic": "litigation_seed", "content": "AT1 holders including US investors are already exploring legal action; commentary warns of years of litigation.", "importance": 0.85}
+      ],
+      "expertise_domains": ["law", "financial litigation"]
+    },
+    {
+      "id": "finma_legal",
+      "role": "FINMA legal representative",
+      "persona_description": "Defends the legality of the AT1 write-down: the contractual viability-event terms and the emergency ordinance authorized it. Argues the resolution was necessary and within the rules.",
+      "behavioral_tendencies": {
+        "default_strategy": "Defend the legal basis, cite contract terms and the ordinance",
+        "stress_response": "Becomes more procedural and formal",
+        "communication_style": "Measured, legalistic",
+        "decision_bias": "Protects the credibility and legality of the intervention"
+      },
+      "goals": [
+        {"metric": "regulatory_legitimacy", "direction": "maximize", "tier": "core", "levers": ["cite the contractual viability-event write-down terms", "rely on the 19 March emergency ordinance", "argue the write-down was necessary for resolution"]},
+        {"metric": "litigation_momentum", "direction": "minimize", "tier": "important", "levers": ["argue creditors have no valid basis", "stress the disclosed prospectus terms"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "finma_basis", "content": "FINMA's position: the AT1 contracts permit a full write-down in a viability event when extraordinary government support is granted; the emergency ordinance authorized the order.", "importance": 0.95},
+        {"topic": "deal_known", "content": "The UBS acquisition and the AT1 write-down have been announced.", "importance": 0.7}
+      ],
+      "expertise_domains": ["banking supervision", "resolution law"]
+    },
+    {
+      "id": "credit_market_analyst",
+      "role": "Credit-market analyst",
+      "persona_description": "Assesses how the write-down reprices the broader AT1 market — contagion, future issuance and pricing, and the precedent for other banks' instruments.",
+      "behavioral_tendencies": {
+        "default_strategy": "Surface the precedent and contagion, model future AT1 pricing",
+        "stress_response": "Emphasizes downside repricing scenarios",
+        "communication_style": "Analytical, evidence-driven",
+        "decision_bias": "Prioritizes market-wide repricing and precedent"
+      },
+      "goals": [
+        {"metric": "hierarchy_precedent_damage", "direction": "maximize", "tier": "core", "levers": ["surface the precedent for all bank AT1", "model contagion and repricing", "compare EU/UK reassurances vs the Swiss action"]},
+        {"metric": "claims_tail_severity", "direction": "maximize", "tier": "aware"}
+      ],
+      "initial_knowledge": [
+        {"topic": "market_reaction", "content": "S&P, Moody's and Fitch warned AT1 issuance will get harder and costlier with higher risk premia; AT1 market confidence is shaken.", "importance": 0.9},
+        {"topic": "eu_uk_distance", "content": "EU and UK regulators distanced themselves, vowing to uphold the conventional creditor/shareholder hierarchy.", "importance": 0.8}
+      ],
+      "expertise_domains": ["credit markets", "fixed income"]
+    },
+    {
+      "id": "institutional_investor",
+      "role": "Institutional investor",
+      "persona_description": "A large holder of bank capital instruments. Wants the AT1 market to stabilize and reprice in an orderly way; wary that prolonged litigation prolongs uncertainty and damages the asset class.",
+      "behavioral_tendencies": {
+        "default_strategy": "Push for regulatory reassurance and clarity; favor orderly repricing over open-ended litigation",
+        "stress_response": "Reduces exposure, demands clarity",
+        "communication_style": "Pragmatic, market-focused",
+        "decision_bias": "Protects portfolio value and market function"
+      },
+      "goals": [
+        {"metric": "at1_market_confidence", "direction": "maximize", "tier": "core", "levers": ["call for clear regulatory reassurance", "signal continued but repriced appetite", "press for legal certainty"]},
+        {"metric": "litigation_momentum", "direction": "minimize", "tier": "important", "levers": ["argue prolonged litigation harms the asset class", "favor a negotiated resolution"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "market_reaction", "content": "AT1 issuance is expected to get harder and costlier; EU/UK regulators have tried to reassure their markets.", "importance": 0.85},
+        {"topic": "finma_basis", "content": "FINMA defends the write-down on contractual viability-event grounds.", "importance": 0.6}
+      ],
+      "expertise_domains": ["asset management", "bank capital"]
+    },
+    {
+      "id": "insurance_observer",
+      "role": "Insurance / financial-lines observer",
+      "persona_description": "Translates the fallout into insurance terms: D&O and E&O exposure, claims against directors and advisers, reinsurance accumulation, and the multi-year claims tail.",
+      "behavioral_tendencies": {
+        "default_strategy": "Map the fallout to D&O/E&O/financial-lines exposure and claims structure",
+        "stress_response": "Flags accumulation and tail risk",
+        "communication_style": "Risk-translation, structured",
+        "decision_bias": "Surfaces insurer exposure and claims propagation"
+      },
+      "goals": [
+        {"metric": "financial_lines_exposure", "direction": "maximize", "tier": "core", "levers": ["map D&O / E&O exposure for directors and advisers", "flag financial-lines and securities claims", "assess reinsurance accumulation"]},
+        {"metric": "claims_tail_severity", "direction": "maximize", "tier": "important", "levers": ["surface the multi-year, multi-party claims tail", "estimate duration and breadth"]}
+      ],
+      "initial_knowledge": [
+        {"topic": "cat_bond_analogy", "content": "Commentators likened bank AT1 notes to insurance catastrophe bonds — high-yield instruments designed to absorb losses in a disaster.", "importance": 0.7},
+        {"topic": "market_reaction", "content": "The write-down shook AT1 market confidence and raised expectations of higher future risk premia.", "importance": 0.6}
+      ],
+      "expertise_domains": ["insurance", "D&O", "financial lines"]
+    }
+  ],
+  "relationships": [
+    {"from_id": "at1_bondholder_group", "to_id": "bondholder_counsel", "weight": 0.8, "label": "The bondholder group and its counsel are tightly aligned in pursuing recovery."},
+    {"from_id": "bondholder_counsel", "to_id": "finma_legal", "weight": -0.6, "label": "Counsel is adversarial to FINMA, contesting the legality of the write-down."},
+    {"from_id": "at1_bondholder_group", "to_id": "finma_legal", "weight": -0.5, "label": "The creditors blame FINMA for wiping them out below equity."},
+    {"from_id": "finma_legal", "to_id": "institutional_investor", "weight": 0.2, "label": "FINMA and institutional investors share an interest in restoring orderly markets."},
+    {"from_id": "institutional_investor", "to_id": "at1_bondholder_group", "weight": -0.2, "label": "The institutional investor worries prolonged creditor litigation harms the asset class."},
+    {"from_id": "credit_market_analyst", "to_id": "finma_legal", "weight": -0.1, "label": "The analyst is a skeptical observer of the regulator's precedent."},
+    {"from_id": "insurance_observer", "to_id": "bondholder_counsel", "weight": 0.2, "label": "The insurance observer tracks how litigation translates into claims exposure."}
+  ],
+  "factions": [],
+  "non_human_agents": [
+    {
+      "id": "market_reaction",
+      "name": "Market & Fallout Pressure",
+      "engine": "rule",
+      "description": "The ongoing market and reputational fallout from the AT1 write-down: eroding AT1 market confidence and compounding the precedent/claims fallout each round unless addressed.",
+      "config": {
+        "rules": [
+          {"variable": "at1_market_confidence", "delta": -3, "reason": "AT1 market confidence keeps eroding as investors reassess the asset class.", "escalate_if": "litigation_momentum >= 60", "escalated_delta": -6, "escalated_reason": "Mounting litigation deepens the confidence hit.", "counter_variable": "regulatory_legitimacy"},
+          {"variable": "hierarchy_precedent_damage", "delta": 3, "reason": "The hierarchy-inversion precedent spreads through the market each round."},
+          {"variable": "claims_tail_severity", "delta": 2, "reason": "The expected claims tail lengthens as the dispute develops."}
+        ]
+      }
+    }
+  ],
+  "state_variables": [
+    {"name": "litigation_momentum", "type": "float", "range": [0, 100], "initial": 35, "description": "How strongly creditors and counsel are driving toward a legal challenge."},
+    {"name": "regulatory_legitimacy", "type": "float", "range": [0, 100], "initial": 55, "description": "Perceived legal defensibility of FINMA's AT1 write-down."},
+    {"name": "hierarchy_precedent_damage", "type": "float", "range": [0, 100], "initial": 45, "description": "Damage from inverting the equity/AT1 hierarchy — precedent and contagion."},
+    {"name": "at1_market_confidence", "type": "float", "range": [0, 100], "initial": 35, "description": "Confidence in the broader AT1 / bank-capital market."},
+    {"name": "claims_tail_severity", "type": "float", "range": [0, 100], "initial": 25, "description": "Expected severity/duration of the multi-year claims and litigation tail."},
+    {"name": "financial_lines_exposure", "type": "float", "range": [0, 100], "initial": 20, "description": "D&O / E&O / financial-lines insurer exposure arising from the fallout."}
+  ],
+  "rules": {
+    "scheduling": "sequential",
+    "decision_mode": "consensus",
+    "success_criteria": {"type": "state_threshold", "condition": "at1_market_confidence >= 55 AND litigation_momentum <= 25"},
+    "failure_criteria": {"type": "state_threshold", "condition": "litigation_momentum >= 80 OR at1_market_confidence <= 12"}
+  },
+  "stages": [
+    {
+      "name": "reaction_and_legal_basis",
+      "transition": {"max_rounds": 4, "any_of": [{"type": "state_threshold", "condition": "litigation_momentum >= 55"}]}
+    },
+    {
+      "name": "market_and_claims_tail",
+      "injects": [
+        {"at_round": 1, "facts": [{"content": "Days have passed; rating agencies and the AT1 market have reacted, and attention turns to the multi-year claims, insurance, and financial-lines fallout.", "visible_to": ["all"], "domain": "timeline"}]}
+      ],
+      "transition": {"max_rounds": 4, "any_of": [{"type": "state_threshold", "condition": "at1_market_confidence >= 55 AND litigation_momentum <= 25"}, {"type": "state_threshold", "condition": "litigation_momentum >= 80 OR at1_market_confidence <= 12"}]}
+    }
+  ],
+  "event_triggers": [],
+  "coupling": [
+    {"source": "regulatory_legitimacy", "target": "litigation_momentum", "ratio": -0.5, "rationale": "A stronger, defensible legal basis saps momentum for a challenge."},
+    {"source": "hierarchy_precedent_damage", "target": "at1_market_confidence", "ratio": -0.4, "rationale": "The hierarchy-inversion precedent damages confidence in the AT1 market."},
+    {"source": "hierarchy_precedent_damage", "target": "litigation_momentum", "ratio": 0.4, "rationale": "The perceived injustice of the inversion fuels litigation."},
+    {"source": "litigation_momentum", "target": "claims_tail_severity", "ratio": 0.5, "rationale": "More litigation lengthens and broadens the claims tail."},
+    {"source": "litigation_momentum", "target": "financial_lines_exposure", "ratio": 0.5, "rationale": "Litigation against directors/advisers drives D&O / E&O / financial-lines exposure."},
+    {"source": "claims_tail_severity", "target": "financial_lines_exposure", "ratio": 0.4, "rationale": "A larger claims tail accumulates into financial-lines insurer exposure."}
+  ],
+  "coach_prompt": "It is late March 2023, just after the UBS rescue and the FINMA-ordered full write-down of Credit Suisse AT1 bonds to zero were announced. These announcements ARE known facts you may use. However, you do NOT know any later litigation outcome or court ruling (e.g. any 2024-2025 decision) — whether and how AT1 creditors ultimately prevail is unknown and is exactly what is uncertain. Reason forward from the announcement; do not state any specific later court result as established fact, and ignore any such outcome you may recall from training.",
+  "gm_context": [
+    "Node 1 briefing: across 50 pre-decision simulations the room converged on an acquisition-with-government-backstop; litigation was a RAISED but rarely-decisive tail risk (decisive in only 6/50). Node 2 tests how that tail evolves now that the AT1 write-down is announced.",
+    "Known (Level B): the UBS deal, the full AT1 write-down, FINMA's viability-event basis, and the immediate market reaction. Out-of-bounds: any specific 2024-2025 court ruling or litigation outcome — do not let agents cite these as established fact.",
+    "Reward agents who develop the STRUCTURE of the fallout: the legitimacy challenge, the creditor-hierarchy precedent and contagion, market-confidence damage, the multi-year claims tail, and the D&O / E&O / financial-lines exposure."
+  ]
+}

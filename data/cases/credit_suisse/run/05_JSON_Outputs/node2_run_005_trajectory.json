@@ -1,0 +1,748 @@
+{
+  "simulation_id": "b9af0e3fe354",
+  "config_id": "credit_suisse_node2",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'reaction_and_legal_basis' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: We're organizing a formal creditor committee across US, EU, and Swiss holders — filing a notice of intent to challenge the write-down within two weeks unless FINMA opens recovery talks. This isn't a bluff. We've got counsel aligned, and the hierarchy inversion is indefensible once we're in court.\n  credit_market_analyst: The hierarchy inversion is defensible *only* if FINMA can argue emergency resolution powers override creditor law — but that argument collapses the moment you file, because discovery forces them to prove CS equity was actually worthless and AT1 salvageable, which the UBS deal contradicts. Your filing accelerates repricing across the entire AT1 market; I'd estimate 150–200 bps of new risk premium on subordinated issuance within 30 days of notice, which means every bank with outstanding AT1 faces immediate refinancing pressure. File the notice — litigation risk is now your leverage, not theirs.\n  bondholder_counsel: File the notice in two weeks — but before you do, we issue a joint creditor statement flagging the AT1 market repricing as direct evidence that FINMA's write-down violated fundamental capital hierarchy, which is now pricing in systemic risk across the sector. That's not litigation posturing, that's discovery ammunition and regulatory pressure in one move.\n  finma_legal: When you say 150–200 bps repricing hits within 30 days of notice—is that pricing in the litigation risk itself, or the *precedent* of the write-down? Because if it's precedent, the notice filing doesn't move the needle; the damage is already priced. If it's litigation risk, we need to know whether a settlement signal from FINMA *before* they file actually stops that repricing or just delays it.\n  credit_market_analyst: Here's the hard part: the repricing isn't *either/or* — it's both. Precedent damage is already baked in at 48, but litigation risk is the *accelerant*. So the question for you is brutal — can FINMA credibly table a settlement offer *before* they file the notice in two weeks, or do we assume the 150–200 bps hit is now inevitable and plan the market stabilization around that damage?\n  finma_legal: A settlement signal before filing is credible *only* if we move now — within days, not weeks. We table a recovery framework tied to the emergency ordinance's necessity finding: partial AT1 recovery funded through a FINMA-administered resolution fund, conditioned on creditors withdrawing the notice. That stops litigation acceleration; the repricing damage holds at current levels instead of spiking 150–200 bps on filing.\n  institutional_investor: FINMA, I'm listening—but \"partial AT1 recovery\" means what, exactly? Twenty cents on the dollar? Fifty? And is this resolution fund backed by actual capital or a promissory note? Because my LPs won't sit through two years of litigation uncertainty for a maybe. Give me a concrete number *this week*, or I'm telling my peers to assume the write-down precedent holds and reprice accordingly. That's how we kill the market.\n  at1_bondholder_group: FINMA's \"partial recovery\" is theater unless they put actual numbers on the table — and they won't, because admitting AT1 had salvageable value *proves* the write-down was a choice, not an emergency. We file the notice in two weeks regardless; settlement talks don't stop us, they just buy them time to leak a better offer to someone else. The repricing hits either way — we might as well own the litigation momentum.\n  insurance_observer: Before you file that notice, I need to understand: who's advising FINMA and UBS on the AT1 write-down *right now*? Because once you file, discovery pulls every memo, valuation model, and legal opinion — and if an adviser told either of them AT1 had recovery value but they wrote it down anyway, that's E&O and D&O tail for years. Who should I be tracking?\n  bondholder_counsel: The advisers matter less than the paper trail — once we file, we're pulling FINMA's internal emails on the viability event finding, UBS's valuation work, and any legal opinions that flagged AT1 recovery risk. That's where the E&O exposure lives, and it's going to be substantial once discovery runs.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "We're organizing a formal creditor committee across US, EU, and Swiss holders — filing a notice of intent to challenge the write-down within two weeks unless FINMA opens recovery talks. This isn't a bluff. We've got counsel aligned, and the hierarchy inversion is indefensible once we're in court.",
+            "cot": {
+              "assess": "We're at 35 litigation_momentum with a 80-point failure threshold — that's still runway, but market confidence is already cratering at 32, and regulatory_legitimacy sits at 55, meaning FINMA's legal position is contested. The hierarchy inversion (AT1 wiped, equity preserved) is the gasoline here; every day we don't move, more counsel signs up and precedent hardens.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum",
+                "rationale": "We need to signal coordinated legal action NOW to crystallize holder alignment and force negotiation — waiting lets FINMA consolidate their narrative and individual lawsuits dilute our leverage."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "The hierarchy inversion is defensible *only* if FINMA can argue emergency resolution powers override creditor law — but that argument collapses the moment you file, because discovery forces them to prove CS equity was actually worthless and AT1 salvageable, which the UBS deal contradicts. Your filing accelerates repricing across the entire AT1 market; I'd estimate 150–200 bps of new risk premium on subordinated issuance within 30 days of notice, which means every bank with outstanding AT1 faces immediate refinancing pressure. File the notice — litigation risk is now your leverage, not theirs.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "File the notice in two weeks — but before you do, we issue a joint creditor statement flagging the AT1 market repricing as direct evidence that FINMA's write-down violated fundamental capital hierarchy, which is now pricing in systemic risk across the sector. That's not litigation posturing, that's discovery ammunition and regulatory pressure in one move.",
+            "cot": {
+              "assess": "The creditor committee is moving fast — filing within two weeks, which locks in litigation_momentum as our primary lever. The analyst just confirmed discovery will force FINMA to defend the equity-worthlessness claim, and the UBS deal contradicts it. That's our opening. But we need to weaponize the market signal NOW — the 150–200 bps repricing isn't just damage, it's proof that FINMA's action destabilized the entire AT1 market, which strengthens our damages case and regulatory-legitimacy attack.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum + regulatory_legitimacy",
+                "rationale": "Filing the notice locks in legal momentum AND forces FINMA into a defensive posture where every statement they make becomes discoverable; we also need to coordinate a public statement that emphasizes the hierarchy inversion's market-wide contagion risk to shift the narrative."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "When you say 150–200 bps repricing hits within 30 days of notice—is that pricing in the litigation risk itself, or the *precedent* of the write-down? Because if it's precedent, the notice filing doesn't move the needle; the damage is already priced. If it's litigation risk, we need to know whether a settlement signal from FINMA *before* they file actually stops that repricing or just delays it.",
+            "cot": {
+              "assess": "The creditor committee is mobilizing fast—notice filing in two weeks, joint statement teed up, litigation leverage now active. Your regulatory_legitimacy is holding at 55, but litigation_momentum is creeping toward the danger zone (currently 35, needs to stay ≤25), and at1_market_confidence is underwater at 32 (needs 55+). The market repricing signal they're flagging is real—it's contagion risk you can't ignore.",
+              "decide": {
+                "action_type": "question",
+                "target": "credit_market_analyst",
+                "rationale": "You need to understand the repricing mechanics and timeline before FINMA responds—if 150–200 bps hits the AT1 market in 30 days, that's a regulatory legitimacy crisis, not just a market problem."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Here's the hard part: the repricing isn't *either/or* — it's both. Precedent damage is already baked in at 48, but litigation risk is the *accelerant*. So the question for you is brutal — can FINMA credibly table a settlement offer *before* they file the notice in two weeks, or do we assume the 150–200 bps hit is now inevitable and plan the market stabilization around that damage?",
+            "cot": {
+              "assess": "FINMA's legitimacy argument is collapsing under discovery risk — that's working. But the repricing signal is being misread: it's *both* precedent AND litigation risk, and that distinction matters because it means the notice filing *will* move the needle further. The real problem is at1_market_confidence is still at 32 — we need to know whether FINMA can credibly signal a settlement *before* the notice drops, or if we're watching a cascading repricing that hits every subordinated issuer in the sector.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA's settlement signal timing is the only lever that stops the 150–200 bps repricing from becoming permanent; I need clarity on whether they can move fast enough to preempt the notice, because if not, litigation momentum hits 80+ and market confidence collapses further."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "A settlement signal before filing is credible *only* if we move now — within days, not weeks. We table a recovery framework tied to the emergency ordinance's necessity finding: partial AT1 recovery funded through a FINMA-administered resolution fund, conditioned on creditors withdrawing the notice. That stops litigation acceleration; the repricing damage holds at current levels instead of spiking 150–200 bps on filing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "FINMA, I'm listening—but \"partial AT1 recovery\" means what, exactly? Twenty cents on the dollar? Fifty? And is this resolution fund backed by actual capital or a promissory note? Because my LPs won't sit through two years of litigation uncertainty for a maybe. Give me a concrete number *this week*, or I'm telling my peers to assume the write-down precedent holds and reprice accordingly. That's how we kill the market.",
+            "cot": {
+              "assess": "FINMA's got a narrow window—days, not weeks—to credibly table a settlement before the notice filing accelerates repricing and locks in litigation momentum. The 150–200 bps hit is real either way, but litigation *filing* turns precedent damage into systemic contagion. My portfolio can't absorb both; I need regulatory clarity *fast*, or I'm reducing AT1 exposure across the board.",
+              "decide": {
+                "action_type": "propose",
+                "target": "finma_legal",
+                "rationale": "The settlement framework FINMA sketched is the only circuit-breaker; I need to know if it's real and what the recovery haircut actually is before creditors file, because vague promises won't hold my book."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "FINMA's \"partial recovery\" is theater unless they put actual numbers on the table — and they won't, because admitting AT1 had salvageable value *proves* the write-down was a choice, not an emergency. We file the notice in two weeks regardless; settlement talks don't stop us, they just buy them time to leak a better offer to someone else. The repricing hits either way — we might as well own the litigation momentum.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Before you file that notice, I need to understand: who's advising FINMA and UBS on the AT1 write-down *right now*? Because once you file, discovery pulls every memo, valuation model, and legal opinion — and if an adviser told either of them AT1 had recovery value but they wrote it down anyway, that's E&O and D&O tail for years. Who should I be tracking?",
+            "cot": {
+              "assess": "Litigation momentum is creeping up (35→trending higher) because bondholder counsel and AT1 holders are filing a notice in two weeks *regardless* of settlement talks — they've lost faith in FINMA's \"partial recovery\" theater. The repricing accelerant (150–200 bps) hits either way, but litigation filing locks it in. AT1 market confidence stays underwater (32) until someone credibly *stops* the filing or FINMA puts hard numbers on recovery — neither is happening this round.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to map the D&O and E&O exposure *during* the two-week pre-filing window — because that's where advisers and directors face the highest claims tail if FINMA or UBS later claim they were misled on AT1 salvageability."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "The advisers matter less than the paper trail — once we file, we're pulling FINMA's internal emails on the viability event finding, UBS's valuation work, and any legal opinions that flagged AT1 recovery risk. That's where the E&O exposure lives, and it's going to be substantial once discovery runs.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "When you say 150–200 bps repricing hits within 30 days of notice—is that pricing in the litigation risk itself, or the *precedent* of the write-down? Because if it's precedent, the notice filing doesn't move the needle; the damage is already priced. If it's litigation risk, we need to know whether a settlement signal from FINMA *before* they file actually stops that repricing or just delays it.",
+      "metadata": {
+        "question_target": "credit_market_analyst"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Here's the hard part: the repricing isn't *either/or* — it's both. Precedent damage is already baked in at 48, but litigation risk is the *accelerant*. So the question for you is brutal — can FINMA credibly table a settlement offer *before* they file the notice in two weeks, or do we assume the 150–200 bps hit is now inevitable and plan the market stabilization around that damage?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Before you file that notice, I need to understand: who's advising FINMA and UBS on the AT1 write-down *right now*? Because once you file, discovery pulls every memo, valuation model, and legal opinion — and if an adviser told either of them AT1 had recovery value but they wrote it down anyway, that's E&O and D&O tail for years. Who should I be tracking?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're organizing a formal creditor committee across US, EU, and Swiss holders — filing a notice of intent to challenge the write-down within two weeks\" → Creditor committee formation and notice filing escalate litigation threat and market uncertainty.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"File the notice in two weeks — but before you do, we issue a joint creditor statement flagging the AT1 market repricing as direct evidence that FINMA'\" → Joint creditor statement weaponizes market repricing data as litigation evidence and regulatory pressure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"FINMA, I'm listening—but \"partial AT1 recovery\" means what, exactly? Twenty cents on the dollar? Fifty? And is this resolution fund backed by actual c\" → One-week ultimatum for concrete recovery terms forces FINMA decision and threatens market repricing cascade.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: litigation_momentum >= 80 OR at1_market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: litigation_momentum >= 80 OR at1_market_confidence <= 12"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'reaction_and_legal_basis' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis",
+        "world_state_snapshot": {
+          "litigation_momentum": 56.0,
+          "regulatory_legitimacy": 41.0,
+          "hierarchy_precedent_damage": 58.0,
+          "at1_market_confidence": 11.0,
+          "claims_tail_severity": 46.0,
+          "financial_lines_exposure": 34.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "intent": "We're organizing a formal creditor committee across US, EU, and Swiss holders — filing a notice of intent to challenge the write-down within two weeks unless FINMA opens recovery talks. This isn't a bluff. We've got counsel aligned, and the hierarchy inversion is indefensible once we're in court.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Creditor committee formation and notice filing escalate litigation threat and market uncertainty.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Formal committee with cross-jurisdictional coordination",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -4.0,
+          "reason": "Challenge signals defensibility weakness",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -5.0,
+          "reason": "Two-week deadline creates acute uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 5.0,
+          "reason": "Multi-jurisdiction litigation now probable",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 4.0,
+          "reason": "D&O exposure rises with litigation threat",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": 3.0,
+          "reason": "Formal challenge amplifies hierarchy inversion visibility",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "File the notice in two weeks — but before you do, we issue a joint creditor statement flagging the AT1 market repricing as direct evidence that FINMA's write-down violated fundamental capital hierarchy, which is now pricing in systemic risk across the sector. That's not litigation posturing, that's discovery ammunition and regulatory pressure in one move.",
+        "finma_legal": "When you say 150–200 bps repricing hits within 30 days of notice—is that pricing in the litigation risk itself, or the *precedent* of the write-down? Because if it's precedent, the notice filing doesn't move the needle; the damage is already priced. If it's litigation risk, we need to know whether a settlement signal from FINMA *before* they file actually stops that repricing or just delays it.",
+        "credit_market_analyst": "Here's the hard part: the repricing isn't *either/or* — it's both. Precedent damage is already baked in at 48, but litigation risk is the *accelerant*. So the question for you is brutal — can FINMA credibly table a settlement offer *before* they file the notice in two weeks, or do we assume the 150–200 bps hit is now inevitable and plan the market stabilization around that damage?",
+        "institutional_investor": "FINMA, I'm listening—but \"partial AT1 recovery\" means what, exactly? Twenty cents on the dollar? Fifty? And is this resolution fund backed by actual capital or a promissory note? Because my LPs won't sit through two years of litigation uncertainty for a maybe. Give me a concrete number *this week*, or I'm telling my peers to assume the write-down precedent holds and reprice accordingly. That's how we kill the market.",
+        "insurance_observer": "Before you file that notice, I need to understand: who's advising FINMA and UBS on the AT1 write-down *right now*? Because once you file, discovery pulls every memo, valuation model, and legal opinion — and if an adviser told either of them AT1 had recovery value but they wrote it down anyway, that's E&O and D&O tail for years. Who should I be tracking?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "intent": "File the notice in two weeks — but before you do, we issue a joint creditor statement flagging the AT1 market repricing as direct evidence that FINMA's write-down violated fundamental capital hierarchy, which is now pricing in systemic risk across the sector. That's not litigation posturing, that's discovery ammunition and regulatory pressure in one move.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Joint creditor statement weaponizes market repricing data as litigation evidence and regulatory pressure.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 4,
+          "reason": "Discovery ammunition strengthens legal position",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -5.0,
+          "reason": "Market evidence undermines write-down rationale",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": 4.0,
+          "reason": "Public statement amplifies hierarchy violation narrative",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -4.0,
+          "reason": "Statement highlights systemic risk contagion",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 5.0,
+          "reason": "Discovery scope expands with market evidence",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're organizing a formal creditor committee across US, EU, and Swiss holders — filing a notice of intent to challenge the write-down within two weeks unless FINMA opens recovery talks. This isn't a bluff. We've got counsel aligned, and the hierarchy inversion is indefensible once we're in court.",
+        "finma_legal": "When you say 150–200 bps repricing hits within 30 days of notice—is that pricing in the litigation risk itself, or the *precedent* of the write-down? Because if it's precedent, the notice filing doesn't move the needle; the damage is already priced. If it's litigation risk, we need to know whether a settlement signal from FINMA *before* they file actually stops that repricing or just delays it.",
+        "credit_market_analyst": "Here's the hard part: the repricing isn't *either/or* — it's both. Precedent damage is already baked in at 48, but litigation risk is the *accelerant*. So the question for you is brutal — can FINMA credibly table a settlement offer *before* they file the notice in two weeks, or do we assume the 150–200 bps hit is now inevitable and plan the market stabilization around that damage?",
+        "institutional_investor": "FINMA, I'm listening—but \"partial AT1 recovery\" means what, exactly? Twenty cents on the dollar? Fifty? And is this resolution fund backed by actual capital or a promissory note? Because my LPs won't sit through two years of litigation uncertainty for a maybe. Give me a concrete number *this week*, or I'm telling my peers to assume the write-down precedent holds and reprice accordingly. That's how we kill the market.",
+        "insurance_observer": "Before you file that notice, I need to understand: who's advising FINMA and UBS on the AT1 write-down *right now*? Because once you file, discovery pulls every memo, valuation model, and legal opinion — and if an adviser told either of them AT1 had recovery value but they wrote it down anyway, that's E&O and D&O tail for years. Who should I be tracking?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "intent": "FINMA, I'm listening—but \"partial AT1 recovery\" means what, exactly? Twenty cents on the dollar? Fifty? And is this resolution fund backed by actual capital or a promissory note? Because my LPs won't sit through two years of litigation uncertainty for a maybe. Give me a concrete number *this week*, or I'm telling my peers to assume the write-down precedent holds and reprice accordingly. That's how we kill the market.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "One-week ultimatum for concrete recovery terms forces FINMA decision and threatens market repricing cascade.",
+      "side_effects": [
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -5.0,
+          "reason": "Ultimatum exposes lack of credible recovery plan",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -5.0,
+          "reason": "Threat to reprice entire market accelerates contagion",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 3,
+          "reason": "Institutional pressure validates litigation path",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 4.0,
+          "reason": "LP pressure extends litigation timeline expectations",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": 3.0,
+          "reason": "Market repricing threat highlights precedent severity",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 1,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "instant",
+        "effects": [
+          {
+            "variable": "at1_market_confidence",
+            "delta": -4
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're organizing a formal creditor committee across US, EU, and Swiss holders — filing a notice of intent to challenge the write-down within two weeks unless FINMA opens recovery talks. This isn't a bluff. We've got counsel aligned, and the hierarchy inversion is indefensible once we're in court.",
+        "bondholder_counsel": "File the notice in two weeks — but before you do, we issue a joint creditor statement flagging the AT1 market repricing as direct evidence that FINMA's write-down violated fundamental capital hierarchy, which is now pricing in systemic risk across the sector. That's not litigation posturing, that's discovery ammunition and regulatory pressure in one move.",
+        "finma_legal": "When you say 150–200 bps repricing hits within 30 days of notice—is that pricing in the litigation risk itself, or the *precedent* of the write-down? Because if it's precedent, the notice filing doesn't move the needle; the damage is already priced. If it's litigation risk, we need to know whether a settlement signal from FINMA *before* they file actually stops that repricing or just delays it.",
+        "credit_market_analyst": "Here's the hard part: the repricing isn't *either/or* — it's both. Precedent damage is already baked in at 48, but litigation risk is the *accelerant*. So the question for you is brutal — can FINMA credibly table a settlement offer *before* they file the notice in two weeks, or do we assume the 150–200 bps hit is now inevitable and plan the market stabilization around that damage?",
+        "insurance_observer": "Before you file that notice, I need to understand: who's advising FINMA and UBS on the AT1 write-down *right now*? Because once you file, discovery pulls every memo, valuation model, and legal opinion — and if an adviser told either of them AT1 had recovery value but they wrote it down anyway, that's E&O and D&O tail for years. Who should I be tracking?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "litigation_momentum": [
+        {
+          "round": 1,
+          "value": 56.0
+        }
+      ],
+      "regulatory_legitimacy": [
+        {
+          "round": 1,
+          "value": 41.0
+        }
+      ],
+      "hierarchy_precedent_damage": [
+        {
+          "round": 1,
+          "value": 58.0
+        }
+      ],
+      "at1_market_confidence": [
+        {
+          "round": 1,
+          "value": 11.0
+        }
+      ],
+      "claims_tail_severity": [
+        {
+          "round": 1,
+          "value": 46.0
+        }
+      ],
+      "financial_lines_exposure": [
+        {
+          "round": 1,
+          "value": 34.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: litigation_momentum >= 80 OR at1_market_confidence <= 12",
+    "round_ended": 1,
+    "per_agent_scores": {
+      "at1_bondholder_group": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 56.0,
+            "normalised": 0.56
+          },
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 58.0,
+            "normalised": 0.58
+          }
+        ],
+        "weighted_score": 0.5666666666666667
+      },
+      "bondholder_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 56.0,
+            "normalised": 0.56
+          },
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 41.0,
+            "normalised": 0.5900000000000001
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 46.0,
+            "normalised": 0.46
+          }
+        ],
+        "weighted_score": 0.5425000000000001
+      },
+      "finma_legal": {
+        "scores": [
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 56.0,
+            "normalised": 0.43999999999999995
+          }
+        ],
+        "weighted_score": 0.41999999999999993
+      },
+      "credit_market_analyst": {
+        "scores": [
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 58.0,
+            "normalised": 0.58
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 46.0,
+            "normalised": 0.46
+          }
+        ],
+        "weighted_score": 0.5559999999999999
+      },
+      "institutional_investor": {
+        "scores": [
+          {
+            "metric": "at1_market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 11.0,
+            "normalised": 0.11
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 56.0,
+            "normalised": 0.43999999999999995
+          }
+        ],
+        "weighted_score": 0.21999999999999997
+      },
+      "insurance_observer": {
+        "scores": [
+          {
+            "metric": "financial_lines_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.0,
+            "normalised": 0.34
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 46.0,
+            "normalised": 0.46
+          }
+        ],
+        "weighted_score": 0.38
+      }
+    }
+  }
+}

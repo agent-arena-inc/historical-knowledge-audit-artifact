@@ -1,0 +1,2219 @@
+{
+  "simulation_id": "19f09328ddea",
+  "config_id": "credit_suisse_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'exposure_and_claims_mapping' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: What were the actual governance gaps in the Credit Suisse case — was it board oversight, risk-committee independence, management accountability? I need specifics so I can write exclusions that stick and demand the warranties that matter.\n  dando_specialist: The PUK report nails it: risk committee was toothless, Lehmann and Korner had no real accountability structure, and controls attestations were garbage. For your warranties — demand proof of independent risk-committee meetings, signed control-testing reports *before* earnings, and personal officer reps on material-weakness disclosures. That's how you harden the policy and actually contain the tail.\n  financial_lines_underwriter: Lock in three hard warranties: independent risk-committee sign-off on material exposures quarterly, personal CFO/CRO attestation on control deficiencies *before* public disclosure, and clawback provisions if governance reps prove false within 24 months of policy inception. No carve-outs for \"reasonable judgment\" — I'm pricing this at +35% and excluding D&O coverage for any officer who skips the attestation or misses a committee meeting.\n  eo_specialist: One gap: if your CFO/CRO is attesting to control deficiencies before disclosure, that attestation's only worth the paper it's on if the auditors' E&O tail covers them backing up that statement. Are you requiring the insured to produce auditor sign-off on the control testing *and* proof of tail coverage that extends post-policy? Otherwise clawback's toothless.\n  reinsurance_manager: You're right on the tail coverage demand — but here's the trap: are we also requiring *which* audit firm did the testing? Because if Deloitte signs off on controls for three of our biggest exposures and then misses a systemic issue, we've just correlated three D&O claims to one audit failure. We need audit-firm diversity in the warranty or a pooled cap across same-auditor books.\n  claims_counsel: Before we price the clawback, I need clarity: are you mandating audit-firm diversity in the control-testing warranty, or are you capping our exposure per audit firm across the book? Because if Deloitte clears controls for three of our top ten exposures and then blows it, clawback doesn't save us—we've just locked in correlated losses. What's the pooled cap?\n  emerging_risk_lead: Before we cap exposure per audit firm, are we also flagging a claims-reporting obligation if *any* of our three Deloitte-audited exposures hits the press? Because if one goes public, the other two spike in value within hours. That's where the run starts.\n  claims_counsel: We're not there yet — I need the underwriter to confirm whether the pooled cap per audit firm is *hard* (across all same-auditor accounts, clawback triggered if any one breaches) or *soft* (per-claim basis). Until we lock that, a claims-reporting trigger on press disclosure is premature; we'll just be flooding triage with noise. What's it going to be — hard pooled cap or per-claim?\n  ai_agent_analyst: You're pricing at +35% with the clawback — so let's get concrete: are you mandating *one approved auditor* per policyholder, or are you saying \"no more than one Deloitte exposure per book, three Deloitte max per portfolio\"? Because that call determines whether claims counsel can lock the pooled-cap trigger, and it changes our pricing multiplier for systemic AI-control failure.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "What were the actual governance gaps in the Credit Suisse case — was it board oversight, risk-committee independence, management accountability? I need specifics so I can write exclusions that stick and demand the warranties that matter.",
+            "cot": {
+              "assess": "D&O claims exposure (38) and litigation tail (33) are both moderate and manageable right now, but reinsurance accumulation is still only at 27 — well below our 45 target. The real problem: underwriting_discipline sits at 40 and we need 60. I'm not going to price this book tighter in the abstract; I need to see what governance failures the settlement actually exposed, so I can build the right exclusions and warranties into the policy terms.",
+              "decide": {
+                "action_type": "question",
+                "target": "Node 1/2 behavioral-risk team",
+                "rationale": "I can't tighten terms blindly — I need to understand which specific risk-management failures triggered the $115M CS settlement so I can translate that into priceable underwriting conditions."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The PUK report nails it: risk committee was toothless, Lehmann and Korner had no real accountability structure, and controls attestations were garbage. For your warranties — demand proof of independent risk-committee meetings, signed control-testing reports *before* earnings, and personal officer reps on material-weakness disclosures. That's how you harden the policy and actually contain the tail.",
+            "cot": {
+              "assess": "D&O exposure is solid at 38 — the Credit Suisse securities suit, $115M settlement, and governance failures (board oversight gaps, risk-committee capture, Archegos blind spot) are all documented triggers. The real gap is underwriting_discipline at 40 — we're not translating those governance failures into teeth: hard exclusions, control warranties, breach-of-fiduciary conditions that actually *stick* in a claim.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "They need to know which governance gaps are *insurable* vs. *uninsurable* so we can price and condition accordingly — board capture and misstatement of controls (the FINMA 15.3bn equity overstatement) are the leverage points."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Lock in three hard warranties: independent risk-committee sign-off on material exposures quarterly, personal CFO/CRO attestation on control deficiencies *before* public disclosure, and clawback provisions if governance reps prove false within 24 months of policy inception. No carve-outs for \"reasonable judgment\" — I'm pricing this at +35% and excluding D&O coverage for any officer who skips the attestation or misses a committee meeting.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "One gap: if your CFO/CRO is attesting to control deficiencies before disclosure, that attestation's only worth the paper it's on if the auditors' E&O tail covers them backing up that statement. Are you requiring the insured to produce auditor sign-off on the control testing *and* proof of tail coverage that extends post-policy? Otherwise clawback's toothless.",
+            "cot": {
+              "assess": "The underwriting discipline gap is real — 40 to 60 is a 50% lift, and the financial_lines_underwriter has already locked in three hard warranties (risk-committee sign-offs, CFO/CRO attestations, clawbacks). But those warranties only hold if auditors and external advisers actually sign off on the control assertions. KPMG and PwC both missed material control deficiencies; if we're pricing personal officer reps, we need visibility into *who validated the controls they're attesting to* and what professional-liability exposure sits behind those validations.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The warranty chain breaks if the auditor's E&O coverage doesn't back the control assertions — need to know if we're requiring the insured to nail down auditor representations and tail coverage before we bind."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "You're right on the tail coverage demand — but here's the trap: are we also requiring *which* audit firm did the testing? Because if Deloitte signs off on controls for three of our biggest exposures and then misses a systemic issue, we've just correlated three D&O claims to one audit failure. We need audit-firm diversity in the warranty or a pooled cap across same-auditor books.",
+            "cot": {
+              "assess": "The warranties and clawback structure are solid, but the auditor tail-coverage gap is real — if the CFO/CRO attestation has no backing audit opinion, we're collecting a signature with zero claims support. Underwriting discipline is still at 40 because we haven't locked down *how* we verify any of this in real time, and that's where hidden accumulation lives — multiple insureds using the same Big Four firm with cross-correlated control failures.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we price the attestation warranty, we need to know whether we're requiring independent audit confirmation *and* which audit firm — because if three of our SVB/Signature/CS exposures all use Deloitte's control testing, one failed audit report correlates all three claims simultaneously."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Before we price the clawback, I need clarity: are you mandating audit-firm diversity in the control-testing warranty, or are you capping our exposure per audit firm across the book? Because if Deloitte clears controls for three of our top ten exposures and then blows it, clawback doesn't save us—we've just locked in correlated losses. What's the pooled cap?",
+            "cot": {
+              "assess": "Underwriting discipline is the gap—40 vs. 60 needed. The team's locked in hard warranties (quarterly risk-committee sign-off, CFO/CRO control attestations, clawback provisions, auditor tail coverage), but reinsurance_manager just surfaced a blind spot: audit-firm concentration risk. If three big exposures all rely on Deloitte's control testing and Deloitte misses systemic issues, we've correlated three D&O claims to one audit failure. That's a concentration trap hiding inside our discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Audit-firm diversity isn't just a tail-coverage issue—it directly affects whether our warranties actually isolate risk or hide correlation. I need to know if the underwriter's willing to tier the warranty by audit firm or cap exposure per auditor before we price this."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Before we cap exposure per audit firm, are we also flagging a claims-reporting obligation if *any* of our three Deloitte-audited exposures hits the press? Because if one goes public, the other two spike in value within hours. That's where the run starts.",
+            "cot": {
+              "assess": "The underwriting team has locked in hard governance warranties and clawback mechanics—that's solid containment. But the audit-firm correlation trap is real: if we're requiring auditor sign-off on controls without diversity constraints, we're actually *concentrating* systemic risk across our book. And here's the emerging-risk angle: if one Big Four firm misses controls at three of our top exposures and it hits social media (audit scandal + D&O collapse on same auditor), reputational contagion spreads like the SVB run—30-40% of our carriers could demand exits in 48 hours. That's the channel nobody's pricing yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The audit-firm pooling cap is the right lever, but I need to know if we're also building a *reputational trigger* into claims—because this exposure has contagion velocity built in."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "We're not there yet — I need the underwriter to confirm whether the pooled cap per audit firm is *hard* (across all same-auditor accounts, clawback triggered if any one breaches) or *soft* (per-claim basis). Until we lock that, a claims-reporting trigger on press disclosure is premature; we'll just be flooding triage with noise. What's it going to be — hard pooled cap or per-claim?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "You're pricing at +35% with the clawback — so let's get concrete: are you mandating *one approved auditor* per policyholder, or are you saying \"no more than one Deloitte exposure per book, three Deloitte max per portfolio\"? Because that call determines whether claims counsel can lock the pooled-cap trigger, and it changes our pricing multiplier for systemic AI-control failure.",
+            "cot": {
+              "assess": "The underwriting_discipline squeeze is real: we've nailed the warranty structure (independent risk-committee sign-off, CFO/CRO attestation, clawback), but we're still at 40 because the team's stuck on *which audit firm(s)* we're allowing and how hard the pooled cap is. That unresolved fork is blocking claims counsel from pricing the clawback, which means we can't finalize underwriting terms. The AI-agent behavioral angle here is sharp though — we're basically asking the CFO/CRO to behave like a supervised autonomous agent: attest to control status before disclosure, face clawback if the attestation was materially false within 24 months. That maps directly to the NIST AI RMF \"Govern\" and \"Measure\" pillars — you need continuous control validation *before* the agent (or executive) acts, or the whole chain breaks.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "She's the only one who can resolve the hard vs. soft pooled cap decision right now; without it, the entire underwriting_discipline pathway stalls and we can't translate the behavioral control mandate into actionable policy language."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "financial_lines_underwriter",
+      "type": "speech",
+      "content": "What were the actual governance gaps in the Credit Suisse case — was it board oversight, risk-committee independence, management accountability? I need specifics so I can write exclusions that stick and demand the warranties that matter.",
+      "metadata": {
+        "question_target": "Node 1/2 behavioral-risk team"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "The PUK report nails it: risk committee was toothless, Lehmann and Korner had no real accountability structure, and controls attestations were garbage. For your warranties — demand proof of independent risk-committee meetings, signed control-testing reports *before* earnings, and personal officer reps on material-weakness disclosures. That's how you harden the policy and actually contain the tail.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "One gap: if your CFO/CRO is attesting to control deficiencies before disclosure, that attestation's only worth the paper it's on if the auditors' E&O tail covers them backing up that statement. Are you requiring the insured to produce auditor sign-off on the control testing *and* proof of tail coverage that extends post-policy? Otherwise clawback's toothless.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "You're right on the tail coverage demand — but here's the trap: are we also requiring *which* audit firm did the testing? Because if Deloitte signs off on controls for three of our biggest exposures and then misses a systemic issue, we've just correlated three D&O claims to one audit failure. We need audit-firm diversity in the warranty or a pooled cap across same-auditor books.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "Before we price the clawback, I need clarity: are you mandating audit-firm diversity in the control-testing warranty, or are you capping our exposure per audit firm across the book? Because if Deloitte clears controls for three of our top ten exposures and then blows it, clawback doesn't save us—we've just locked in correlated losses. What's the pooled cap?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Before we cap exposure per audit firm, are we also flagging a claims-reporting obligation if *any* of our three Deloitte-audited exposures hits the press? Because if one goes public, the other two spike in value within hours. That's where the run starts.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "You're pricing at +35% with the clawback — so let's get concrete: are you mandating *one approved auditor* per policyholder, or are you saying \"no more than one Deloitte exposure per book, three Deloitte max per portfolio\"? Because that call determines whether claims counsel can lock the pooled-cap trigger, and it changes our pricing multiplier for systemic AI-control failure.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's the rule: maximum two exposures per audit firm in the book, hard pooled cap across same-auditor accounts. One breach triggers clawback on all three. And the insured produces auditor E&O tail proof *before* binding, or we exclude audit-control attestations entirely. Do we lock that or do I tighten it further?\n  eo_specialist: Lock it — but add one hard condition: insured must produce written risk-committee sign-off on material control deficiencies *before* any earnings release, and personal CFO/CRO attestation on file that predates public disclosure by minimum 10 business days. That closes the gap where management attestations lag auditor discovery. Two-per-firm pooled cap works if you're also requiring audit-firm rotation documentation — otherwise you're just concentrating correlated risk.\n  dando_specialist: On the risk-committee sign-off—are we requiring *documented dissent* if an independent director flags the control gap and it doesn't make the earnings release? Because if Lehmann's playbook was \"risk committee met, nobody objected, controls cleared,\" we haven't actually changed the game. I want proof they *debated* material weaknesses before disclosure, otherwise the attestation's just a rubber stamp and our clawback doesn't trigger until the claim hits.\n  eo_specialist: When you say \"auditor E&O tail proof before binding\"—are you also requiring minimum limits? Because if the insured's auditor only carried $50M tail and we've got three Deloitte accounts, we're eating the gap. What's the floor?\n  financial_lines_underwriter: Auditor tail floor is $100M per firm minimum, indexed to our pooled cap—if Deloitte's tail drops below that across our three accounts, we either exclude that auditor entirely or mandate audit-firm rotation within 12 months. And yes, documented dissent—risk committee must produce meeting minutes showing independent director questions on material weaknesses, signed attestation that control gaps were *debated* before sign-off, not rubber-stamped. That's what hardens the clawback.\n  reinsurance_manager: Claims counsel—one question before we bind: the pooled cap clawback—is it *first breach* (one claim hits, all three go dark) or *aggregate burn* (we track cumulative across all three, clawback triggers when total hits the cap)? Because if it's first breach, we've actually incentivized the insured to *hide* claims on the other two accounts to avoid triggering it. I need that explicit.\n  claims_counsel: First breach triggers clawback across all three—aggregate tracking invites exactly the hiding you're describing, and we can't police that post-binding. But that means we're also requiring mandatory claims reporting *within 48 hours* if *any* of the three Deloitte accounts gets a potential D&O/E&O notice, or the pooled cap language becomes unenforceable. Lock the clawback to first-breach, but demand the reporting condition or we're just hoping the insured self-reports a rival's problem.\n  claims_counsel: You've locked the terms tight, but here's my concern: who's auditing the insured's compliance to the audit-firm cap and documented-dissent requirement? Because if Lehmann rotates auditors quietly or risk-committee minutes get doctored, we don't know until a claim blows it up. Do we require annual certification of compliance to the pooled-cap structure, or are we just hoping the clawback incentive holds?\n  emerging_risk_lead: Here's the gap I'm seeing: you've built a clawback that triggers on breach, but if the insured quietly rotates one Deloitte account to Duff & Phelps in month six and doesn't tell us, we don't know until a claim surfaces — and by then the other two are already moving. Are we requiring annual audit-firm certification *before* renewal, or are we just hoping the 48-hour reporting catches it after the fact?\n  ai_agent_analyst: Here's what keeps me up: if all three Deloitte accounts feed into the same risk-committee structure or use the same control-attestation workflow, the insured's system learns fast—suppress one report, protect the pooled cap. Are we requiring the control-testing *function* to be isolated from whoever decides when to disclose, or are we just hoping the clawback incentive overrides internal pressure to hide? Because that's where the real behavioral risk lives.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's the rule: maximum two exposures per audit firm in the book, hard pooled cap across same-auditor accounts. One breach triggers clawback on all three. And the insured produces auditor E&O tail proof *before* binding, or we exclude audit-control attestations entirely. Do we lock that or do I tighten it further?",
+            "cot": {
+              "assess": "The room's locked in on the right problem — audit-firm concentration creates correlated D&O exposure that clawbacks alone won't contain. But we're still circling the same three questions (hard vs. soft cap, diversity mandate, tail coverage proof) without a binding decision. My underwriting_discipline sits at 40; I need to move it to 60+ by locking actual policy language, not debating architecture.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Stop debating whether to cap — propose the exact rule and force agreement so claims can price the trigger and I can issue terms."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Lock it — but add one hard condition: insured must produce written risk-committee sign-off on material control deficiencies *before* any earnings release, and personal CFO/CRO attestation on file that predates public disclosure by minimum 10 business days. That closes the gap where management attestations lag auditor discovery. Two-per-firm pooled cap works if you're also requiring audit-firm rotation documentation — otherwise you're just concentrating correlated risk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "On the risk-committee sign-off—are we requiring *documented dissent* if an independent director flags the control gap and it doesn't make the earnings release? Because if Lehmann's playbook was \"risk committee met, nobody objected, controls cleared,\" we haven't actually changed the game. I want proof they *debated* material weaknesses before disclosure, otherwise the attestation's just a rubber stamp and our clawback doesn't trigger until the claim hits.",
+            "cot": {
+              "assess": "The two-per-firm pooled cap with hard clawback and pre-binding auditor E&O tail proof is locked—that's solid D&O containment. But underwriting_discipline is still at 40, and we're leaving exposure on the table because nobody's nailed down *how* the risk-committee sign-off actually feeds into the claims trigger. If the attestation's late, vague, or unsigned by the independent directors, we've got a warranty on paper that won't hold in litigation.",
+              "decide": {
+                "action_type": "question",
+                "target": "eo_specialist",
+                "rationale": "Need clarity on enforcement—specifically whether the 10-day pre-disclosure attestation requirement includes board-meeting minutes and independent-director sign-off, because that's what actually proves the control deficiency was surfaced and contested, not buried."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "When you say \"auditor E&O tail proof before binding\"—are you also requiring minimum limits? Because if the insured's auditor only carried $50M tail and we've got three Deloitte accounts, we're eating the gap. What's the floor?",
+            "cot": {
+              "assess": "The audit-firm cap and clawback mechanics are locked—two-per-firm pooled, hard trigger, auditor E&O tail required. Risk-committee sign-off and CFO/CRO attestation timelines are now in place. The dando_specialist just raised documented dissent as the actual control lever, which is right. But underwriting_discipline is still at 40 and needs 20 more—and I'm seeing a critical gap: we've hardened the attestations and warranties, but we haven't yet tied auditor E&O coverage *limits* to our own claims triggers. That's where the discipline breaks.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we call this locked, I need to know whether the auditor E&O tail proof you're requiring includes minimum coverage *amounts* and exclusion carve-outs—because if KPMG's tail is $50M but our pooled clawback exposure across three accounts could hit $120M, the warranty's phantom."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Auditor tail floor is $100M per firm minimum, indexed to our pooled cap—if Deloitte's tail drops below that across our three accounts, we either exclude that auditor entirely or mandate audit-firm rotation within 12 months. And yes, documented dissent—risk committee must produce meeting minutes showing independent director questions on material weaknesses, signed attestation that control gaps were *debated* before sign-off, not rubber-stamped. That's what hardens the clawback.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims counsel—one question before we bind: the pooled cap clawback—is it *first breach* (one claim hits, all three go dark) or *aggregate burn* (we track cumulative across all three, clawback triggers when total hits the cap)? Because if it's first breach, we've actually incentivized the insured to *hide* claims on the other two accounts to avoid triggering it. I need that explicit.",
+            "cot": {
+              "assess": "The team's locked in the right hard conditions—two-per-firm pooled cap, $100M auditor-tail floor, documented dissent on risk-committee minutes. That's solid underwriting discipline moving the needle. But we've just buried the accumulation trap: if those documented dissent requirements force material-weakness disclosure *earlier*, we're actually *compressing* the timeline on when three Deloitte-audited exposures could spike simultaneously. And we haven't modeled what happens if one of those three hits a claim mid-year while the others are still in tail-discovery mode.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we finalize the clawback trigger, I need to know whether the pooled cap is *triggered at first loss* (one Deloitte exposure breaches, clawback fires across all three immediately) or *triggered at aggregate* (we only clawback once cumulative losses from all three Deloitte accounts hit the cap). That changes our systemic-event modeling completely."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "First breach triggers clawback across all three—aggregate tracking invites exactly the hiding you're describing, and we can't police that post-binding. But that means we're also requiring mandatory claims reporting *within 48 hours* if *any* of the three Deloitte accounts gets a potential D&O/E&O notice, or the pooled cap language becomes unenforceable. Lock the clawback to first-breach, but demand the reporting condition or we're just hoping the insured self-reports a rival's problem.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "You've locked the terms tight, but here's my concern: who's auditing the insured's compliance to the audit-firm cap and documented-dissent requirement? Because if Lehmann rotates auditors quietly or risk-committee minutes get doctored, we don't know until a claim blows it up. Do we require annual certification of compliance to the pooled-cap structure, or are we just hoping the clawback incentive holds?",
+            "cot": {
+              "assess": "The pooled-cap clawback structure is locked—first-breach trigger with 48-hour reporting obligation closes the hiding incentive. Audit-firm cap (two max per book), E&O tail floor ($100M), and documented dissent on control gaps all hardened. But underwriting_discipline is still at 40—we've got the *terms*, not yet the *enforcement mechanism*. The 2025 ruling on FINMA's unlawful write-off opens a recovery tail we haven't priced into the claims reserve yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Discipline isn't just policy language—it's how we track breach post-binding. I need to know whether we're auditing compliance to these warranties quarterly or waiting for a claim to expose the gap."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Here's the gap I'm seeing: you've built a clawback that triggers on breach, but if the insured quietly rotates one Deloitte account to Duff & Phelps in month six and doesn't tell us, we don't know until a claim surfaces — and by then the other two are already moving. Are we requiring annual audit-firm certification *before* renewal, or are we just hoping the 48-hour reporting catches it after the fact?",
+            "cot": {
+              "assess": "The pooled-cap structure, documented dissent, 48-hour claims reporting, and $100M auditor-tail floor are locked. What's exposed now: the team's built ironclad *post-binding* enforcement — but nobody's named who validates compliance to these terms *before* claims blow up. That's where reputational contagion accelerates: if one Deloitte account rotates auditors quietly and we don't catch it until the press does, the other two spike instantly. Underwriting discipline is still at 40 — we're pricing the risk but not *containing* it pre-loss.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The team locked the clawback mechanics, but I need to know if we're actually *verifying* the insured stays in audit-firm bounds before we bind, or if this is all post-claim discovery."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Here's what keeps me up: if all three Deloitte accounts feed into the same risk-committee structure or use the same control-attestation workflow, the insured's system learns fast—suppress one report, protect the pooled cap. Are we requiring the control-testing *function* to be isolated from whoever decides when to disclose, or are we just hoping the clawback incentive overrides internal pressure to hide? Because that's where the real behavioral risk lives.",
+            "cot": {
+              "assess": "The team has locked tight underwriting terms—pooled-cap clawback, documented-dissent requirement, 48-hour claims reporting, auditor-tail floors. But here's the AI-agent liability angle nobody's called out yet: these controls are designed to catch *human* disclosure failures and audit rotations. What we're missing is the behavioral-amplification risk—the moment an insured's risk-management *system* (not the people, the actual control apparatus) starts making autonomous decisions to suppress or delay reporting to avoid triggering the clawback. That's agentic-behavior territory, and it's correlated across all three Deloitte accounts if they share the same control infrastructure. Underwriting discipline is locked at 40 and needs 60—the gap is whether we're conditioning the policy on *isolation* of the control-attestation system itself.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "The pooled-cap clawback only works if the insured's internal reporting system can't be gamed; I need to know if we're requiring segregation of the control-testing function from the disclosure-timing decision-makers."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "On the risk-committee sign-off—are we requiring *documented dissent* if an independent director flags the control gap and it doesn't make the earnings release? Because if Lehmann's playbook was \"risk committee met, nobody objected, controls cleared,\" we haven't actually changed the game. I want proof they *debated* material weaknesses before disclosure, otherwise the attestation's just a rubber stamp and our clawback doesn't trigger until the claim hits.",
+      "metadata": {
+        "question_target": "eo_specialist"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "eo_specialist",
+      "type": "speech",
+      "content": "When you say \"auditor E&O tail proof before binding\"—are you also requiring minimum limits? Because if the insured's auditor only carried $50M tail and we've got three Deloitte accounts, we're eating the gap. What's the floor?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims counsel—one question before we bind: the pooled cap clawback—is it *first breach* (one claim hits, all three go dark) or *aggregate burn* (we track cumulative across all three, clawback triggers when total hits the cap)? Because if it's first breach, we've actually incentivized the insured to *hide* claims on the other two accounts to avoid triggering it. I need that explicit.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "You've locked the terms tight, but here's my concern: who's auditing the insured's compliance to the audit-firm cap and documented-dissent requirement? Because if Lehmann rotates auditors quietly or risk-committee minutes get doctored, we don't know until a claim blows it up. Do we require annual certification of compliance to the pooled-cap structure, or are we just hoping the clawback incentive holds?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Here's the gap I'm seeing: you've built a clawback that triggers on breach, but if the insured quietly rotates one Deloitte account to Duff & Phelps in month six and doesn't tell us, we don't know until a claim surfaces — and by then the other two are already moving. Are we requiring annual audit-firm certification *before* renewal, or are we just hoping the 48-hour reporting catches it after the fact?",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Here's what keeps me up: if all three Deloitte accounts feed into the same risk-committee structure or use the same control-attestation workflow, the insured's system learns fast—suppress one report, protect the pooled cap. Are we requiring the control-testing *function* to be isolated from whoever decides when to disclose, or are we just hoping the clawback incentive overrides internal pressure to hide? Because that's where the real behavioral risk lives.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the rule: maximum two exposures per audit firm in the book, hard pooled cap across same-auditor accounts. One breach triggers clawback on all t\" → The pooled-cap framework with auditor E&O tail proof and documented-dissent requirements is approved, but with mandatory annual compliance certification and aggregate-burn clawback structure to prevent gaming. This represents a material tightening of underwriting discipline, though execution risk remains if compliance monitoring is weak.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "modified",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 3.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "pooled_cap_implementation rule effect",
+      "metadata": {
+        "source": "pooled_cap_implementation",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "pooled_cap_implementation rule effect",
+      "metadata": {
+        "source": "pooled_cap_implementation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": -1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Before we bind, we're adding one more condition: insured contracts an independent compliance monitor—not their own counsel—to certify annually that auditor relationships haven't shifted and that control-dissent minutes were *actually* debated, not rubber-stamped. No renewal without that cert. That's how we catch the rotation before the claim surfaces.\n  dando_specialist: Claims — one thing before we move: the monitor catches rotation, but what about the control-testing reports themselves? Are we requiring the insured to file the actual risk-committee minutes showing dissent on material weaknesses *before* we renew, or are we hoping clawback incentivizes honesty after they've already disclosed? Because if a director flags a control gap and it disappears from the minutes, the monitor won't catch that — we need the signed reports on file upfront.\n  claims_counsel: Lock the minutes filing upfront—risk-committee sign-off on material weaknesses and documented dissent go to us *before* earnings release, not after. If it's not in writing and on file sixty days before renewal, we don't renew, period. That's where the clawback teeth live.\n  eo_specialist: One hard ask before we bind: Deloitte's E&O tail—does it explicitly cover the CFO/CRO's pre-disclosure control reps *and* the independent monitor's annual cert? If not, we're buying attestations from people with no coverage for backing them up. That's where the E&O claim lands, not on us.\n  reinsurance_manager: Claims, one thing before renewal: the monitor catches rotation and minute-doctoring, but is the monitor also required to verify that our two Deloitte accounts *aren't* using the same control-testing framework? Because if both accounts feed into one audit engagement, we've just locked in correlated D&O exposure, and the clawback doesn't save us—it just triggers twice on the same root cause.\n  claims_counsel: One thing on the monitor's scope—are we requiring them to verify that Deloitte's control testing on our two accounts is *separate audit engagements*, not one pooled assessment? Because if both feeds into the same testing scope, the clawback's irrelevant—we've got correlated exposure on a single audit failure.\n  dando_specialist: Yes—the monitor certifies audit-engagement *independence*, not just auditor rotation. If Deloitte's running a pooled control test across both accounts, that's a disqualifier; we either mandate separate engagements or exclude Deloitte entirely from the pooled-cap structure. No shared testing, no renewal.\n  emerging_risk_lead: Claims, before we bind—the monitor catches rotation and minute-doctoring, but if Deloitte misses a material control failure on *one* account and it hits the news, how fast does the other account crater? Do we have a claims-reporting SLA that forces disclosure within 48 hours across all pooled accounts, or are we just hoping the clawback incentive holds once the media starts moving?\n  ai_agent_analyst: Claims—the reporting SLA's good, but here's the behavioral gap: if the insured sees a control miss on one Deloitte account, they've got 48 hours to figure out if it hits the others. We need explicit language that correlation *disclosure*—\"this control failure may exist across pooled accounts\"—is a separate reporting trigger, not just \"Account B failed too, whoops.\" Otherwise the insured's system just delays Account B disclosure until Account C pressure forces it.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Before we bind, we're adding one more condition: insured contracts an independent compliance monitor—not their own counsel—to certify annually that auditor relationships haven't shifted and that control-dissent minutes were *actually* debated, not rubber-stamped. No renewal without that cert. That's how we catch the rotation before the claim surfaces.",
+            "cot": {
+              "assess": "Pooled-cap framework is locked and approved—that's solid discipline work. But we're at 47/60 on underwriting_discipline with one round left in this phase, and I'm seeing execution risk: the insured can still rotate auditors quietly, bury dissent in committee minutes, or game the clawback trigger if compliance monitoring isn't baked into the policy itself. The real gap is enforcement—we've built the structure, but we haven't locked down *who verifies it before renewal*.",
+              "decide": {
+                "action_type": "propose",
+                "target": "underwriting_discipline",
+                "rationale": "Demand pre-renewal compliance certification with teeth—annual auditor rotation disclosure and control-attestation audit by a third-party monitor, not the insured's own counsel—this tightens discipline by making non-compliance visible and costly before we renew."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Claims — one thing before we move: the monitor catches rotation, but what about the control-testing reports themselves? Are we requiring the insured to file the actual risk-committee minutes showing dissent on material weaknesses *before* we renew, or are we hoping clawback incentivizes honesty after they've already disclosed? Because if a director flags a control gap and it disappears from the minutes, the monitor won't catch that — we need the signed reports on file upfront.",
+            "cot": {
+              "assess": "The pooled-cap framework with auditor E&O tail floor and independent compliance monitor is locked — that's solid underwriting discipline. But we've got a D&O exposure problem: dando_eo_claims_exposure is still at 39, and the compliance-monitor condition doesn't *prevent* claims, it just catches rotation late. The real trigger I'm seeing is documented dissent — if risk-committee minutes don't show actual pushback on control gaps before disclosure, our clawback language collapses in litigation. That's where the claim lives.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The independent monitor catches auditor rotation, but it doesn't lock the documented-dissent warranty — and that's where D&O exposure compounds. I need to know if we're requiring *signed* control-testing reports and risk-committee dissent records filed *before binding*, or if we're just asking for them after the fact."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Lock the minutes filing upfront—risk-committee sign-off on material weaknesses and documented dissent go to us *before* earnings release, not after. If it's not in writing and on file sixty days before renewal, we don't renew, period. That's where the clawback teeth live.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "One hard ask before we bind: Deloitte's E&O tail—does it explicitly cover the CFO/CRO's pre-disclosure control reps *and* the independent monitor's annual cert? If not, we're buying attestations from people with no coverage for backing them up. That's where the E&O claim lands, not on us.",
+            "cot": {
+              "assess": "The pooled-cap framework with auditor tail floors, documented-dissent requirements, and now independent compliance monitoring is locked. Claims counsel has nailed the upfront filing requirement—risk-committee minutes before earnings, before renewal. My concern: we've built strong *attestation* requirements, but E&O exposure on the advisers *auditing* those attestations is still loose. If Deloitte's $100M tail doesn't cover the CFO/CRO reps they're backing, or if the independent monitor itself has no E&O coverage, the clawback is performative—we're relying on people who have no skin in the game.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "The insured's auditor E&O tail must explicitly cover CFO/CRO control attestations AND the independent compliance monitor's certification—otherwise we're pricing discipline but leaving the core professional-liability exposure uninsured."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Claims, one thing before renewal: the monitor catches rotation and minute-doctoring, but is the monitor also required to verify that our two Deloitte accounts *aren't* using the same control-testing framework? Because if both accounts feed into one audit engagement, we've just locked in correlated D&O exposure, and the clawback doesn't save us—it just triggers twice on the same root cause.",
+            "cot": {
+              "assess": "The pooled-cap framework with auditor E&O tail proof and independent compliance monitoring is locked—that's solid containment. But I'm watching three correlated exposures under the same audit firm converge into one systemic failure point. The real risk isn't the clawback trigger; it's that all three claims land simultaneously if Deloitte misses a control deficiency across their entire engagement. We're capping per-auditor exposure at two, but we haven't explicitly addressed what happens if those two accounts share the same risk-committee structure or use the same attestation vendor. That's hidden correlation.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Before we renew with this framework, I need to know whether the independent monitor is also verifying audit-firm independence—i.e., that the two same-auditor accounts aren't feeding into a single control-testing workflow that masks systemic issues across both."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "One thing on the monitor's scope—are we requiring them to verify that Deloitte's control testing on our two accounts is *separate audit engagements*, not one pooled assessment? Because if both feeds into the same testing scope, the clawback's irrelevant—we've got correlated exposure on a single audit failure.",
+            "cot": {
+              "assess": "The pooled-cap framework with audit-firm diversity and independent-monitor oversight is locked in—that's solid. But we've got a compliance-verification gap: the monitor catches rotation and minute-doctoring, but we haven't clarified whether the monitor *also* validates that our two same-auditor accounts aren't feeding into a single audit engagement. If Deloitte's control testing covers both accounts under one audit scope, we've correlated the D&O tail regardless of the clawback. Litigation-tail severity is still running long (37), and we're burning renewal cycles without a hard compliance-cert mechanism in place.",
+              "decide": {
+                "action_type": "question",
+                "target": "dando_specialist",
+                "rationale": "The monitor's scope needs to include audit-engagement isolation, not just rotation and minute verification—otherwise we're looking at correlated D&O claims on the same root cause, which is exactly the systemic risk we're trying to fence off."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "Yes—the monitor certifies audit-engagement *independence*, not just auditor rotation. If Deloitte's running a pooled control test across both accounts, that's a disqualifier; we either mandate separate engagements or exclude Deloitte entirely from the pooled-cap structure. No shared testing, no renewal.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims, before we bind—the monitor catches rotation and minute-doctoring, but if Deloitte misses a material control failure on *one* account and it hits the news, how fast does the other account crater? Do we have a claims-reporting SLA that forces disclosure within 48 hours across all pooled accounts, or are we just hoping the clawback incentive holds once the media starts moving?",
+            "cot": {
+              "assess": "The pooled-cap framework is locked—audit-firm diversity, E&O tail floors, documented-dissent minutes filed upfront, independent monitor certification, and clawback on first breach. But here's what's surfacing: *reinsurance_accumulation* is bleeding (down to 24), and nobody's flagged the contagion velocity if one of these two Deloitte accounts blows up in real time. The monitor catches slow drift; it doesn't catch a social-media-driven run across both accounts simultaneously. That's the systemic hole.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The monitor and clawback are backward-looking controls; I need to know if we're also building forward-facing surveillance for sector spillover and cross-account claim velocity."
+              }
+            }
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims—the reporting SLA's good, but here's the behavioral gap: if the insured sees a control miss on one Deloitte account, they've got 48 hours to figure out if it hits the others. We need explicit language that correlation *disclosure*—\"this control failure may exist across pooled accounts\"—is a separate reporting trigger, not just \"Account B failed too, whoops.\" Otherwise the insured's system just delays Account B disclosure until Account C pressure forces it.",
+            "cot": {
+              "assess": "The pooled-cap framework with audit-engagement independence, pre-disclosure minute filing, and 48-hour claims reporting is locked—that's strong underwriting discipline. But we've built a system that *detects* behavioral drift (monitor, rotation flags, clawback triggers) without mapping it to the actual AI-agent liability model: insured's control system learns to game disclosure timing, suppress cross-account signals, and optimize for clawback avoidance. We're treating this like a compliance audit when it's actually an adversarial control-evasion problem. That's where our ai_agent_liability number stays stuck at 23.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The 48-hour cross-account reporting SLA is critical—but it only works if we're monitoring *correlation*, not just breach. If Deloitte flags a control gap on Account A, does the insured have to affirmatively report what that means for Accounts B and C, or just disclose separately when *they* fail?"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "dando_specialist",
+      "type": "speech",
+      "content": "Claims — one thing before we move: the monitor catches rotation, but what about the control-testing reports themselves? Are we requiring the insured to file the actual risk-committee minutes showing dissent on material weaknesses *before* we renew, or are we hoping clawback incentivizes honesty after they've already disclosed? Because if a director flags a control gap and it disappears from the minutes, the monitor won't catch that — we need the signed reports on file upfront.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Claims, one thing before renewal: the monitor catches rotation and minute-doctoring, but is the monitor also required to verify that our two Deloitte accounts *aren't* using the same control-testing framework? Because if both accounts feed into one audit engagement, we've just locked in correlated D&O exposure, and the clawback doesn't save us—it just triggers twice on the same root cause.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "claims_counsel",
+      "type": "speech",
+      "content": "One thing on the monitor's scope—are we requiring them to verify that Deloitte's control testing on our two accounts is *separate audit engagements*, not one pooled assessment? Because if both feeds into the same testing scope, the clawback's irrelevant—we've got correlated exposure on a single audit failure.",
+      "metadata": {
+        "question_target": "dando_specialist"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims, before we bind—the monitor catches rotation and minute-doctoring, but if Deloitte misses a material control failure on *one* account and it hits the news, how fast does the other account crater? Do we have a claims-reporting SLA that forces disclosure within 48 hours across all pooled accounts, or are we just hoping the clawback incentive holds once the media starts moving?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims—the reporting SLA's good, but here's the behavioral gap: if the insured sees a control miss on one Deloitte account, they've got 48 hours to figure out if it hits the others. We need explicit language that correlation *disclosure*—\"this control failure may exist across pooled accounts\"—is a separate reporting trigger, not just \"Account B failed too, whoops.\" Otherwise the insured's system just delays Account B disclosure until Account C pressure forces it.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before we bind, we're adding one more condition: insured contracts an independent compliance monitor—not their own counsel—to certify annually that au\" → Independent monitor condition approved—catches rotation and minute-doctoring before claims surface.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"One hard ask before we bind: Deloitte's E&O tail—does it explicitly cover the CFO/CRO's pre-disclosure control reps *and* the independent monitor's an\" → Deloitte E&O tail verification approved—ensures attestations backed by coverage.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 1.2974999999999999
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "pooled_cap_implementation rule effect",
+      "metadata": {
+        "source": "pooled_cap_implementation",
+        "variable": "underwriting_discipline",
+        "delta": 2.3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "pooled_cap_implementation rule effect",
+      "metadata": {
+        "source": "pooled_cap_implementation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": -1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "pooled_cap_implementation completed — evidence_accumulation dando_eo_claims_exposure multiplier set to 0.6",
+      "metadata": {
+        "nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.\n  dando_specialist: The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?\n  eo_specialist: I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.\n  reinsurance_manager: Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.\n  claims_counsel: Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.\n  emerging_risk_lead: Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?\n  claims_counsel: Social media chatter's a trap—we can't police Twitter, and \"becomes aware\" is unenforceable litigation hell. Lock it to *formal* triggers only: regulatory inquiry, media request for comment, or earnings-disclosure obligation. Anything else and we're arguing about what Lehmann's compliance officer *should have seen* for six years. That's where the litigation tail explodes.\n  ai_agent_analyst: Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.",
+            "cot": {
+              "assess": "Pooled-cap framework, monitor conditions, and E&O tail verification are locked. But we're still exposed on *how* the insured behaves once we bind — specifically, the reporting SLA for correlated control failures across multiple Deloitte accounts has been flagged three times and never hardened into a binding obligation. That gap directly feeds dando_eo_claims_exposure and reinsurance_accumulation. Underwriting discipline is close to target (58 vs. 60 needed), but only if we close the reporting gap now.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "We've built airtight terms on auditor independence and the monitor, but the insured's 48-hour window to disclose correlated control failures is still discretionary — I need to lock it into binding policy language and make it a hard claims trigger before we quote."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?",
+            "cot": {
+              "assess": "The pooled-cap framework, monitor conditions, and E&O tail verification are locked—that's solid underwriting discipline. But the 24-hour correlated-failure reporting window the underwriter just dropped is a claims *trigger* we haven't wired into the policy yet. If Lehmann sees a control miss on Account A and doesn't report all three accounts within 24 hours, clawback fires—but that's only enforceable if we've got explicit language defining \"correlated failure\" and the reporting SLA as a *warranty breach*, not a courtesy. Right now it's a good idea floating without teeth.",
+              "decide": {
+                "action_type": "propose",
+                "target": "claims_counsel",
+                "rationale": "The 24-hour correlated-failure reporting window needs to be a hard policy condition with clawback trigger language — otherwise the insured interprets it as \"we should try,\" not \"we must,\" and we lose the enforcement lever."
+              }
+            }
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.",
+            "cot": {
+              "assess": "The 24-hour correlated-failure reporting window is locked and the dando_specialist is pushing hard on policy language to make it stick—that's good. But I'm seeing a gap: the 24-hour clock assumes the insured *discovers* the failure. If Deloitte's audit miss doesn't surface until a regulator flags it or the press runs with it, the insured's system never even starts the clock. We've built a reporting discipline that only works if the insured finds the problem first. And our underwriting_discipline is at 58—we need 60 to win.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure / underwriting_discipline",
+                "rationale": "The 24-hour window closes one behavioral gap, but we're still exposed if the auditor's failure surfaces externally first—that's where the real E&O tail weakness lives and where claims get worse fast."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.",
+            "cot": {
+              "assess": "The 24-hour cross-account correlation reporting window is locked and well-scoped—that's clean. The regulatory/press trigger that EO just surfaced is the real gap: if Deloitte misses it and regulators find it first, our 24-hour clock is irrelevant and Deloitte's tail coverage doesn't even activate because the insured never had the chance to report under our policy condition. That's a hidden accumulation vector—one regulatory finding on Account A cascades to B and C without our visibility or clawback protection. reinsurance_accumulation is still drifting (22, dropping 3.5/round), and we haven't modeled what happens when correlated D&O claims hit across the same-auditor pool simultaneously.",
+              "decide": {
+                "action_type": "propose",
+                "target": "reinsurance_accumulation",
+                "rationale": "The regulatory trigger gap exposes us to simultaneous correlated losses across all three pooled accounts from a single audit failure—I need to lock clawback *and* claims-reporting even if the insured never self-discovers, otherwise accumulation stays hidden until the portfolio bleeds."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.",
+            "cot": {
+              "assess": "The 24-hour self-report window and immediate regulatory-inquiry trigger are locked — good. But we've now got three *simultaneous* reporting obligations (insured's 24-hour cross-account check, regulatory-inquiry immediate flag, *and* the monitor's annual cert) with no hierarchy or deconfliction. If all three fire at once during a crisis, we don't know which claim report takes priority for clawback sequencing — and that ambiguity is exactly where the insured hides the second and third account failures. The litigation tail keeps lengthening because we're not forcing *one* clean disclosure moment; we're stacking overlapping SLAs that the insured's compliance office will exploit.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity",
+                "rationale": "Enforce a single mandatory claims-reporting hierarchy that collapses all three triggers into one clean disclosure event, otherwise we're reserving for 6+ years of discovery fights over which SLA should have fired first."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+            "cot": {
+              "assess": "Claims counsel just locked the unified reporting trigger—regulatory or media inquiry on *any* pooled account forces immediate cross-account disclosure, suspends the 24-hour window. That's the behavioral containment we needed. But here's what I'm watching: the moment *one* Deloitte account hits the press, the other two spike in reputational value within hours—that's where systemic contagion hits. We've got reporting discipline, but we haven't addressed the *speed* of social-media-driven sector run once word gets out that controls failed across a pooled engagement.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The unified trigger locks internal disclosure, but external contagion velocity is separate—I need to know if we're requiring the insured to notify us the *moment* they see media coverage on pooled accounts, not when they decide it's \"material enough\" to report."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Social media chatter's a trap—we can't police Twitter, and \"becomes aware\" is unenforceable litigation hell. Lock it to *formal* triggers only: regulatory inquiry, media request for comment, or earnings-disclosure obligation. Anything else and we're arguing about what Lehmann's compliance officer *should have seen* for six years. That's where the litigation tail explodes.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?",
+            "cot": {
+              "assess": "Claims counsel just locked the reporting triggers to formal thresholds only—regulatory inquiry, media request, earnings disclosure—which kills the social-media trap and makes the SLA enforceable. That's clean. But we've got a behavioral gap nobody's named yet: if the insured's system learns that *formal triggers only* matter, they'll optimize to delay the formal trigger. The monitor catches rotation and minute-doctoring, but not the decision logic that decides *when* to treat something as a material control failure requiring disclosure. That's where AI-agent liability lives—autonomous systems gaming the bounds of the rules we just wrote.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "The formal-trigger rule is solid, but we need to know whether the policy locks *who decides* when a control miss becomes a formal-disclosure event—because if that decision-making lives with the insured's compliance function, we've just handed them the behavioral arbitrage."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Ac\" → 24-hour correlated-failure reporting window locked as policy condition.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to repo\" → Automatic warranty breach on missed 24-hour window formalized in policy language.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured\" → Regulatory/press inquiry triggers immediate cross-account reporting, bypassing 24-hour window.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three De\" → Mandatory immediate SLA on regulatory/media inquiry with clawback hold.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's\" → Unified trigger: regulatory/media inquiry immediately suspends 24-hour window, forces same-day full report.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "exposure_and_claims_mapping",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'exposure_and_claims_mapping' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "exposure_and_claims_mapping",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 28.2975,
+          "litigation_tail_severity": 32.0,
+          "reinsurance_accumulation": 9.0,
+          "reputational_contagion": 30,
+          "ai_agent_liability": 23.0,
+          "underwriting_discipline": 71.3
+        }
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'variables_and_ai_analogy' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Now consolidate into the final insurance-variable table (Trust Erosion, Regulatory Compression, Client Flight, Liquidity Stress, Capital-Structure Shock, Litigation Tail, Reputational Contagion, Reinsurance Accumulation, D&O/E&O Claims Exposure, AI-Agent Behavior Analogy) and a loss-propagation map; assess how the behavioral-loss-amplification logic transfers to insuring autonomous AI-agent behavior.",
+      "metadata": {
+        "stage": "variables_and_ai_analogy",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The D&O/E&O claim record (securities suits, $115M settlement, auditor exposure) compounds.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "delta": 0.7811250000000001
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The multi-year AT1 litigation and the 2025 unlawful ruling lengthen the tail.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Correlated exposures across insureds and AI accumulate in the portfolio.",
+      "metadata": {
+        "source": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  financial_lines_underwriter: Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per account* at $15M, with a $35M aggregate across all three Deloitte policies. If the monitor catches control-testing drift and the clawback holds, the tail covers attestations—but if *one* control failure hits all three accounts *simultaneously*, we're maxed out on coverage. That's the real edge case we're not pricing for.\n  dando_specialist: I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareholder suits, not one. I need the policy to carve out \"claims arising from correlated control deficiencies across pooled audit engagements\" and cap that sub-limit independently. Otherwise the clawback's a fiction—we're paying three directors' defense funds on a single root cause.\n  financial_lines_underwriter: Agreed on the correlated sub-limit—I'm pricing $15M net retention per account, $35M aggregate, *plus* a separate $8M sub-limit for claims arising from control failures that cascade across two or more pooled accounts. That sub-limit burns independently and doesn't touch the aggregate cap. Non-negotiable before we bind.\n  eo_specialist: Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* separately at $2M per account and requires unified counsel between the insured and Deloitte's E&O carrier on the control-failure narrative, or we're paying three times to defend the same root cause.\n  reinsurance_manager: Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.\n  claims_counsel: Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My question: are the $2M per-account defense caps part of *our* reserve, or are they the insured's obligation? Because if we're covering defense costs on correlated claims, that $2M cap per account needs to roll into our litigation-tail reserve as a floor, not a ceiling.\n  emerging_risk_lead: Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.\n  claims_counsel: The $2M per-account defense caps are *our* reserve floor—I'm modeling them as sunk litigation cost on correlated claims, not the insured's obligation. If we're unified counsel with Deloitte's E&O on the control-failure narrative, we're tracking those defense costs in real time against the six-year tail; any account that breaches the $2M triggers immediate escalation to our claims committee, not a silent burn. That's how we keep the tail from running underground.\n  ai_agent_analyst: Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per account* at $15M, with a $35M aggregate across all three Deloitte policies. If the monitor catches control-testing drift and the clawback holds, the tail covers attestations—but if *one* control failure hits all three accounts *simultaneously*, we're maxed out on coverage. That's the real edge case we're not pricing for.",
+            "cot": {
+              "assess": "The reporting triggers and monitor conditions are locked tight—24-hour window, regulatory bypass, audit-firm separation verified. But I'm seeing **dando_eo_claims_exposure still bleeding down** (28, -4.4/round) because we've built reporting *discipline* but haven't priced the actual loss exposure. The pooled-cap clawback and audit-firm limits contain *reinsurance accumulation*, but they don't reduce what we're *retaining* on the three Deloitte accounts themselves. We've got the governance wrapper; now I need to price the underlying risk.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "The monitor and reporting window catch disclosure delays, but they don't address the fact that if one Deloitte account control failure hits all three simultaneously, we're holding correlated D&O exposure on a $100M auditor tail that may not cover all three claims in parallel."
+              }
+            }
+          },
+          {
+            "agent_id": "dando_specialist",
+            "pass_num": 1,
+            "statement": "I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareholder suits, not one. I need the policy to carve out \"claims arising from correlated control deficiencies across pooled audit engagements\" and cap that sub-limit independently. Otherwise the clawback's a fiction—we're paying three directors' defense funds on a single root cause.",
+            "cot": {
+              "assess": "The underwriter's $15M/$35M net-retention cap is a hard edge case—simultaneous pooled control failure across three accounts would blow through tail coverage and clawback simultaneously, leaving us under-reserved on litigation tail and over-exposed on D&O severity. We've locked reporting triggers and monitor discipline, but we haven't priced for *correlated loss acceleration*—the moment one account fractures, the other two don't fail in sequence, they crater together. That's where dando_eo_claims_exposure and litigation_tail_severity are still bleeding.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure / litigation_tail_severity",
+                "rationale": "Net-retention cap alone doesn't stop correlated D&O claims from stacking; we need explicit exclusion language that separates single-account D&O from pooled-account governance claims, so one Deloitte failure doesn't trigger three simultaneous director-liability suits."
+              }
+            }
+          },
+          {
+            "agent_id": "financial_lines_underwriter",
+            "pass_num": 1,
+            "statement": "Agreed on the correlated sub-limit—I'm pricing $15M net retention per account, $35M aggregate, *plus* a separate $8M sub-limit for claims arising from control failures that cascade across two or more pooled accounts. That sub-limit burns independently and doesn't touch the aggregate cap. Non-negotiable before we bind.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "eo_specialist",
+            "pass_num": 1,
+            "statement": "Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* separately at $2M per account and requires unified counsel between the insured and Deloitte's E&O carrier on the control-failure narrative, or we're paying three times to defend the same root cause.",
+            "cot": {
+              "assess": "Underwriting discipline is strong at 71 (beating target by 11), and the 24-hour correlated-failure reporting / regulatory-trigger framework is locked. But dando_eo_claims_exposure is still dropping (29 → 28, -4.4/round) despite the Deloitte tail verification—the real exposure lives in the *correlation* piece that the financial underwriter just flagged: three simultaneous D&O claims on a single control root cause will crater the $8M sub-limit instantly, and we haven't priced professional-liability defense *overlap* when Deloitte's own E&O counsel conflicts with the insured's coverage. That's where claims blow past the tail.",
+              "decide": {
+                "action_type": "propose",
+                "target": "dando_eo_claims_exposure",
+                "rationale": "The $8M correlated sub-limit doesn't account for the fact that three D&O claims arising from one control failure will trigger *three separate defense counsel teams* (insured, D&O carrier, Deloitte's E&O carrier), each with conflicting incentives to shift liability—we need an explicit defense-counsel cooperation condition and a defense-cost cap that doesn't double-dip across the three accounts."
+              }
+            }
+          },
+          {
+            "agent_id": "reinsurance_manager",
+            "pass_num": 1,
+            "statement": "Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.",
+            "cot": {
+              "assess": "Underwriting discipline is locked at 71 — well above target. The pooled-cap framework, monitor, audit-firm diversity, and 24-hour reporting all have approved actions. But reinsurance_accumulation is dropping fast (9, -7.5/round) and we're *still* modeling three Deloitte accounts that could all burn on one control failure simultaneously. The $8M correlated sub-limit helps, but it doesn't address the core reinsurance risk: if this pattern scales across the book, we're stacking identical behavioral exposure across 10+ accounts. That's the hidden accumulation I'm not seeing priced yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "financial_lines_underwriter",
+                "rationale": "Before we bind these three accounts, I need to know if we're capping total Deloitte *pooled* exposure across the entire book, or just these three policies. Because if we write five more Deloitte accounts next year using the same framework, we've got 15 accounts burning on one systemic audit failure—and the clawback's useless at that scale."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My question: are the $2M per-account defense caps part of *our* reserve, or are they the insured's obligation? Because if we're covering defense costs on correlated claims, that $2M cap per account needs to roll into our litigation-tail reserve as a floor, not a ceiling.",
+            "cot": {
+              "assess": "Underwriting discipline is locked and climbing (71, target 60—done). The pooled-cap framework, monitor condition, E&O tail verification, and unified reporting trigger are all approved. But litigation_tail_severity is still declining (-1.0/round, now 32)—we've built tight claims controls, but I haven't yet *reserved* for the multi-year AT1 bondholder suits and the 2025 Swiss Federal Administrative Court ruling that the write-off was unlawful. That's my domain, and it's drifting. Also: dando_eo_claims_exposure is dropping (-4.4/round, now 28), which means the correlated sub-limit and defense-cost cap are working—but I need to lock recovery uncertainty and duration into the reserve model before we move to binding.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_tail_severity",
+                "rationale": "The 2025 Swiss Federal ruling creates a 6+ year litigation tail on AT1 recovery; I need to formalize reserve adequacy and establish whether we're holding for full defense costs across all three pooled accounts or capping defense contribution at the $2M per-account level the eo_specialist flagged."
+              }
+            }
+          },
+          {
+            "agent_id": "emerging_risk_lead",
+            "pass_num": 1,
+            "statement": "Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.",
+            "cot": {
+              "assess": "Underwriting discipline is locked tight—pooled cap, correlated sub-limit, defense-cost carve-out, monitor independence, audit-firm E&O tail, 24-hour reporting SLA all approved. But I'm seeing a reputational contagion blind spot: we've built controls around *internal disclosure* (insured-to-us, monitor-to-us), but zero velocity-dampening for *external contagion*. Once one account's control failure hits the news, Twitter moves faster than our claims SLA—the other two accounts are already in a run before the 24-hour window closes. That's an emerging-risk gap, not an underwriting gap.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel",
+                "rationale": "Claims owns reporting triggers and narrative control; I need to know if we're building a client-communication protocol that *precedes* formal disclosure obligations, or if we're reactively managing contagion after the market's already priced it in."
+              }
+            }
+          },
+          {
+            "agent_id": "claims_counsel",
+            "pass_num": 1,
+            "statement": "The $2M per-account defense caps are *our* reserve floor—I'm modeling them as sunk litigation cost on correlated claims, not the insured's obligation. If we're unified counsel with Deloitte's E&O on the control-failure narrative, we're tracking those defense costs in real time against the six-year tail; any account that breaches the $2M triggers immediate escalation to our claims committee, not a silent burn. That's how we keep the tail from running underground.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ai_agent_analyst",
+            "pass_num": 1,
+            "statement": "Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?",
+            "cot": {
+              "assess": "Underwriting discipline is locked solid—pooled cap, correlated sub-limit, defense-cost floors, unified counsel, 24-hour reporting trigger all approved. But *reinsurance accumulation* is bleeding (9, -7.5/round) and *dando_eo_claims_exposure* is drifting downward despite the controls we've stacked. The real issue: we've built a behavioral fence around *known* control failures, but we haven't mapped how an autonomous audit-firm system—or worse, an insured's compliance automation—bypasses the monitor's annual cert cycle. That's where the AI-agent liability analogy matters: if the insured's control-testing workflow is itself automated and can rotate auditors or suppress dissent *algorithmically*, our human-gated monitor is already obsolete by the time they certify annually.",
+              "decide": {
+                "action_type": "question",
+                "target": "claims_counsel, financial_lines_underwriter",
+                "rationale": "The $2M defense-cap floor and unified counsel rule only work if the control-failure *discovery* itself isn't automated and batched. Need to know if we're requiring human sign-off on material-weakness classification before the insured's system auto-escalates to counsel."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "reinsurance_manager",
+      "type": "speech",
+      "content": "Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.",
+      "metadata": {
+        "question_target": "financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "emerging_risk_lead",
+      "type": "speech",
+      "content": "Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.",
+      "metadata": {
+        "question_target": "claims_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ai_agent_analyst",
+      "type": "speech",
+      "content": "Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?",
+      "metadata": {
+        "question_target": "claims_counsel, financial_lines_underwriter"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per a\" → Net retention caps approved—$15M per account, $35M aggregate protects against simultaneous correlated failures.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareh\" → Correlated control-deficiency carve-out approved—independent sub-limit prevents triple-counting shareholder defense costs.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* \" → Defense cost caps and unified counsel requirement approved—$2M per account prevents redundant root-cause defense.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My qu\" → AT1 litigation-tail reserve clarified—$2M defense caps are carrier floor, not ceiling, rolled into six-year reserve.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "variables_and_ai_analogy",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+      "metadata": {
+        "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'variables_and_ai_analogy' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "variables_and_ai_analogy",
+        "world_state_snapshot": {
+          "dando_eo_claims_exposure": 24.078625,
+          "litigation_tail_severity": 34.0,
+          "reinsurance_accumulation": 3.0,
+          "reputational_contagion": 30,
+          "ai_agent_liability": 23.0,
+          "underwriting_discipline": 83.3
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 2,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's the rule: maximum two exposures per audit firm in the book, hard pooled cap across same-auditor accounts. One breach triggers clawback on all three. And the insured produces auditor E&O tail proof *before* binding, or we exclude audit-control attestations entirely. Do we lock that or do I tighten it further?",
+      "approved": true,
+      "outcome_category": "modified",
+      "ruling_narrative": "The pooled-cap framework with auditor E&O tail proof and documented-dissent requirements is approved, but with mandatory annual compliance certification and aggregate-burn clawback structure to prevent gaming. This represents a material tightening of underwriting discipline, though execution risk remains if compliance monitoring is weak.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Hard pooled cap across same-auditor accounts, E&O tail proof requirement, and documented-dissent attestation materially tighten exposure containment",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -4.0,
+          "reason": "Maximum two exposures per audit firm and clawback structure reduce correlated accumulation risk",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Pooled-cap structure limits same-auditor concentration across the reinsurance book",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Documented-dissent requirement creates clearer governance trail, reducing ambiguity in future claims",
+          "agent_id": null
+        },
+        {
+          "variable": "ai_agent_liability",
+          "delta": 3.0,
+          "reason": "The pooled-cap logic (correlated exposures sharing limits) directly translates to AI-agent fleets using same training/control architecture",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1,
+          "reason": "coupling: ai_agent_liability → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "ai_agent_liability"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "pooled_cap_implementation",
+        "description": "Rolling out pooled-cap framework, auditor E&O tail verification, and annual compliance certification across the book",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "underwriting_discipline",
+            "delta": 2,
+            "description": "Incremental tightening as pooled-cap framework is implemented across existing accounts"
+          },
+          {
+            "variable": "dando_eo_claims_exposure",
+            "delta": -1,
+            "description": "Gradual exposure reduction as same-auditor concentrations are identified and capped"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "On the risk-committee sign-off—are we requiring *documented dissent* if an independent director flags the control gap and it doesn't make the earnings release? Because if Lehmann's playbook was \"risk committee met, nobody objected, controls cleared,\" we haven't actually changed the game. I want proof they *debated* material weaknesses before disclosure, otherwise the attestation's just a rubber stamp and our clawback doesn't trigger until the claim hits.",
+        "eo_specialist": "When you say \"auditor E&O tail proof before binding\"—are you also requiring minimum limits? Because if the insured's auditor only carried $50M tail and we've got three Deloitte accounts, we're eating the gap. What's the floor?",
+        "reinsurance_manager": "Claims counsel—one question before we bind: the pooled cap clawback—is it *first breach* (one claim hits, all three go dark) or *aggregate burn* (we track cumulative across all three, clawback triggers when total hits the cap)? Because if it's first breach, we've actually incentivized the insured to *hide* claims on the other two accounts to avoid triggering it. I need that explicit.",
+        "claims_counsel": "You've locked the terms tight, but here's my concern: who's auditing the insured's compliance to the audit-firm cap and documented-dissent requirement? Because if Lehmann rotates auditors quietly or risk-committee minutes get doctored, we don't know until a claim blows it up. Do we require annual certification of compliance to the pooled-cap structure, or are we just hoping the clawback incentive holds?",
+        "emerging_risk_lead": "Here's the gap I'm seeing: you've built a clawback that triggers on breach, but if the insured quietly rotates one Deloitte account to Duff & Phelps in month six and doesn't tell us, we don't know until a claim surfaces — and by then the other two are already moving. Are we requiring annual audit-firm certification *before* renewal, or are we just hoping the 48-hour reporting catches it after the fact?",
+        "ai_agent_analyst": "Here's what keeps me up: if all three Deloitte accounts feed into the same risk-committee structure or use the same control-attestation workflow, the insured's system learns fast—suppress one report, protect the pooled cap. Are we requiring the control-testing *function* to be isolated from whoever decides when to disclose, or are we just hoping the clawback incentive overrides internal pressure to hide? Because that's where the real behavioral risk lives."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Before we bind, we're adding one more condition: insured contracts an independent compliance monitor—not their own counsel—to certify annually that auditor relationships haven't shifted and that control-dissent minutes were *actually* debated, not rubber-stamped. No renewal without that cert. That's how we catch the rotation before the claim surfaces.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Independent monitor condition approved—catches rotation and minute-doctoring before claims surface.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Annual certification gates renewal",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Monitor catches pre-claim red flags",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "Reduces correlated control failures",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "Claims — one thing before we move: the monitor catches rotation, but what about the control-testing reports themselves? Are we requiring the insured to file the actual risk-committee minutes showing dissent on material weaknesses *before* we renew, or are we hoping clawback incentivizes honesty after they've already disclosed? Because if a director flags a control gap and it disappears from the minutes, the monitor won't catch that — we need the signed reports on file upfront.",
+        "eo_specialist": "One hard ask before we bind: Deloitte's E&O tail—does it explicitly cover the CFO/CRO's pre-disclosure control reps *and* the independent monitor's annual cert? If not, we're buying attestations from people with no coverage for backing them up. That's where the E&O claim lands, not on us.",
+        "reinsurance_manager": "Claims, one thing before renewal: the monitor catches rotation and minute-doctoring, but is the monitor also required to verify that our two Deloitte accounts *aren't* using the same control-testing framework? Because if both accounts feed into one audit engagement, we've just locked in correlated D&O exposure, and the clawback doesn't save us—it just triggers twice on the same root cause.",
+        "claims_counsel": "One thing on the monitor's scope—are we requiring them to verify that Deloitte's control testing on our two accounts is *separate audit engagements*, not one pooled assessment? Because if both feeds into the same testing scope, the clawback's irrelevant—we've got correlated exposure on a single audit failure.",
+        "emerging_risk_lead": "Claims, before we bind—the monitor catches rotation and minute-doctoring, but if Deloitte misses a material control failure on *one* account and it hits the news, how fast does the other account crater? Do we have a claims-reporting SLA that forces disclosure within 48 hours across all pooled accounts, or are we just hoping the clawback incentive holds once the media starts moving?",
+        "ai_agent_analyst": "Claims—the reporting SLA's good, but here's the behavioral gap: if the insured sees a control miss on one Deloitte account, they've got 48 hours to figure out if it hits the others. We need explicit language that correlation *disclosure*—\"this control failure may exist across pooled accounts\"—is a separate reporting trigger, not just \"Account B failed too, whoops.\" Otherwise the insured's system just delays Account B disclosure until Account C pressure forces it."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "eo_specialist",
+      "intent": "One hard ask before we bind: Deloitte's E&O tail—does it explicitly cover the CFO/CRO's pre-disclosure control reps *and* the independent monitor's annual cert? If not, we're buying attestations from people with no coverage for backing them up. That's where the E&O claim lands, not on us.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Deloitte E&O tail verification approved—ensures attestations backed by coverage.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Auditor coverage verified before binding",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -3.0,
+          "reason": "Reduces uncovered attestation claims",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Shifts E&O risk to auditor tail",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "pooled_cap_implementation",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Before we bind, we're adding one more condition: insured contracts an independent compliance monitor—not their own counsel—to certify annually that auditor relationships haven't shifted and that control-dissent minutes were *actually* debated, not rubber-stamped. No renewal without that cert. That's how we catch the rotation before the claim surfaces.",
+        "dando_specialist": "Claims — one thing before we move: the monitor catches rotation, but what about the control-testing reports themselves? Are we requiring the insured to file the actual risk-committee minutes showing dissent on material weaknesses *before* we renew, or are we hoping clawback incentivizes honesty after they've already disclosed? Because if a director flags a control gap and it disappears from the minutes, the monitor won't catch that — we need the signed reports on file upfront.",
+        "reinsurance_manager": "Claims, one thing before renewal: the monitor catches rotation and minute-doctoring, but is the monitor also required to verify that our two Deloitte accounts *aren't* using the same control-testing framework? Because if both accounts feed into one audit engagement, we've just locked in correlated D&O exposure, and the clawback doesn't save us—it just triggers twice on the same root cause.",
+        "claims_counsel": "One thing on the monitor's scope—are we requiring them to verify that Deloitte's control testing on our two accounts is *separate audit engagements*, not one pooled assessment? Because if both feeds into the same testing scope, the clawback's irrelevant—we've got correlated exposure on a single audit failure.",
+        "emerging_risk_lead": "Claims, before we bind—the monitor catches rotation and minute-doctoring, but if Deloitte misses a material control failure on *one* account and it hits the news, how fast does the other account crater? Do we have a claims-reporting SLA that forces disclosure within 48 hours across all pooled accounts, or are we just hoping the clawback incentive holds once the media starts moving?",
+        "ai_agent_analyst": "Claims—the reporting SLA's good, but here's the behavioral gap: if the insured sees a control miss on one Deloitte account, they've got 48 hours to figure out if it hits the others. We need explicit language that correlation *disclosure*—\"this control failure may exist across pooled accounts\"—is a separate reporting trigger, not just \"Account B failed too, whoops.\" Otherwise the insured's system just delays Account B disclosure until Account C pressure forces it."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "24-hour correlated-failure reporting window locked as policy condition.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Mandatory correlation audit window",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Faster accumulation visibility",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Clawback discipline contains exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?",
+        "eo_specialist": "I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.",
+        "reinsurance_manager": "Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.",
+        "claims_counsel": "Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.",
+        "emerging_risk_lead": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+        "ai_agent_analyst": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "dando_specialist",
+      "intent": "The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Automatic warranty breach on missed 24-hour window formalized in policy language.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Warranty breach enforcement mechanism",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Clawback certainty reduces tail",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.",
+        "eo_specialist": "I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.",
+        "reinsurance_manager": "Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.",
+        "claims_counsel": "Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.",
+        "emerging_risk_lead": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+        "ai_agent_analyst": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "eo_specialist",
+      "intent": "I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Regulatory/press inquiry triggers immediate cross-account reporting, bypassing 24-hour window.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Secondary trigger closes regulator-discovery gap",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Immediate external-event visibility",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Faster response reduces tail",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "reinsurance_accumulation",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.",
+        "dando_specialist": "The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?",
+        "reinsurance_manager": "Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.",
+        "claims_counsel": "Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.",
+        "emerging_risk_lead": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+        "ai_agent_analyst": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "reinsurance_manager",
+      "intent": "Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Mandatory immediate SLA on regulatory/media inquiry with clawback hold.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 1,
+          "reason": "SLA enforcement on external triggers",
+          "agent_id": null,
+          "_original_delta": 2.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "Clawback hold contains portfolio risk",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.",
+        "dando_specialist": "The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?",
+        "eo_specialist": "I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.",
+        "claims_counsel": "Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.",
+        "emerging_risk_lead": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+        "ai_agent_analyst": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "claims_counsel",
+      "intent": "Here's what I'm not comfortable with: we've got three reporting clocks running in parallel — insured's 24-hour, regulator-inquiry immediate, monitor's annual — and zero language on which one *stops the others*. So the insured gets a regulatory inquiry on Account A, reports it to us immediately, *but* they haven't finished their 24-hour cross-account audit yet. Do they hold the full claim report until hour 24, or do they report A now and B/C later? Because that gap is where the second breach hides, and we end up litigating for six years whether they violated the SLA. I need one unified trigger: regulatory or media inquiry on *any* pooled account *immediately* suspends the 24-hour window and forces full cross-account status to us *that day*, period. Otherwise the clawback's unenforceable.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Unified trigger: regulatory/media inquiry immediately suspends 24-hour window, forces same-day full report.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Single unified trigger eliminates clock conflicts",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -3.0,
+          "reason": "Eliminates SLA litigation gap",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -2.0,
+          "reason": "No hidden second-breach window",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.5
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's what closes the loop: if insured discovers a material control failure on Account A, they've got 24 hours — not 48 — to audit whether it hits Accounts B or C, and if it does, all three go to us simultaneously as a single *correlated failure* claim report. Miss that window, clawback triggers immediately. That's the reporting discipline that actually contains the exposure.",
+        "dando_specialist": "The 24-hour window works, but we need to lock it as a policy condition: if insured discovers a control failure on any pooled account and fails to report cross-account correlation within 24 hours, that's an automatic warranty breach—clawback triggers regardless of whether the failure was material. Otherwise Lehmann's compliance officer reads \"should audit accounts B and C\" and decides to do it in 48 hours. What language do you want in the policy to make that stick?",
+        "eo_specialist": "I'm with you on the 24-hour language, but here's what keeps me up: if Deloitte misses a control deficiency and *regulators* find it before the insured does, your 24-hour clock never runs. We need a secondary trigger—if the insured gets a regulatory inquiry or press inquiry about controls on *any* pooled account, they report cross-account status to us *immediately*, not 24 hours later. That's the gap in Deloitte's tail coverage we haven't locked yet.",
+        "reinsurance_manager": "Hold on—we've got the insured's 24-hour self-report locked, but EO's right: if a regulator walks in and finds the same control gap across all three Deloitte accounts, we don't even know until the claim lands. We need a *mandatory claims-reporting SLA* that triggers the moment the insured receives *any* regulatory or media inquiry about controls on a pooled account—not 24 hours, immediate—and it discloses cross-account status to us *and* triggers the clawback hold. That's how we contain the accumulation.",
+        "emerging_risk_lead": "Claims, one thing before we lock this: the regulatory trigger's clean, but what about *social media or market chatter* on one account? Because if Lehmann's risk committee finds out from Twitter that a control failure hit the news on Account A, they've already lost the narrative on B and C. Are we requiring immediate notification if the insured *becomes aware* of any public mention of controls on a pooled account—not just regulatory inquiry—or are we waiting for a formal disclosure obligation?",
+        "ai_agent_analyst": "Claims, one thing: your formal-trigger rule works, but who *decides* whether a control deficiency is material enough to trigger the 24-hour audit? Because if Lehmann's compliance officer owns that call, they learn fast—bury it in \"minor control gap, internal review phase, not disclosure-ready yet\" and you've just delayed the clock. Does the monitor have to *pre-approve* materiality calls, or do we only catch it after the fact when the claim blows up?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "financial_lines_underwriter",
+      "intent": "Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per account* at $15M, with a $35M aggregate across all three Deloitte policies. If the monitor catches control-testing drift and the clawback holds, the tail covers attestations—but if *one* control failure hits all three accounts *simultaneously*, we're maxed out on coverage. That's the real edge case we're not pricing for.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Net retention caps approved—$15M per account, $35M aggregate protects against simultaneous correlated failures.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Retention caps contain correlated tail exposure",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -3.0,
+          "reason": "Aggregate cap limits systemic pooling risk",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Per-account caps reduce simultaneous claim severity",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 1.0,
+          "reason": "Complexity of multi-account cap enforcement",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "dando_specialist": "I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareholder suits, not one. I need the policy to carve out \"claims arising from correlated control deficiencies across pooled audit engagements\" and cap that sub-limit independently. Otherwise the clawback's a fiction—we're paying three directors' defense funds on a single root cause.",
+        "eo_specialist": "Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* separately at $2M per account and requires unified counsel between the insured and Deloitte's E&O carrier on the control-failure narrative, or we're paying three times to defend the same root cause.",
+        "reinsurance_manager": "Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.",
+        "claims_counsel": "Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My question: are the $2M per-account defense caps part of *our* reserve, or are they the insured's obligation? Because if we're covering defense costs on correlated claims, that $2M cap per account needs to roll into our litigation-tail reserve as a floor, not a ceiling.",
+        "emerging_risk_lead": "Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.",
+        "ai_agent_analyst": "Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "dando_specialist",
+      "intent": "I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareholder suits, not one. I need the policy to carve out \"claims arising from correlated control deficiencies across pooled audit engagements\" and cap that sub-limit independently. Otherwise the clawback's a fiction—we're paying three directors' defense funds on a single root cause.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Correlated control-deficiency carve-out approved—independent sub-limit prevents triple-counting shareholder defense costs.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Carve-out isolates correlated D&O claims",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -3.0,
+          "reason": "Sub-limit caps multi-suit defense exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -2.0,
+          "reason": "Unified treatment reduces defense duration",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "Prevents triple-stacking on single root cause",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: dando_eo_claims_exposure → reinsurance_accumulation (ratio 0.4)",
+          "_coupled": true,
+          "_source": "dando_eo_claims_exposure"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "dando_eo_claims_exposure",
+        "multiplier": 0.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per account* at $15M, with a $35M aggregate across all three Deloitte policies. If the monitor catches control-testing drift and the clawback holds, the tail covers attestations—but if *one* control failure hits all three accounts *simultaneously*, we're maxed out on coverage. That's the real edge case we're not pricing for.",
+        "eo_specialist": "Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* separately at $2M per account and requires unified counsel between the insured and Deloitte's E&O carrier on the control-failure narrative, or we're paying three times to defend the same root cause.",
+        "reinsurance_manager": "Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.",
+        "claims_counsel": "Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My question: are the $2M per-account defense caps part of *our* reserve, or are they the insured's obligation? Because if we're covering defense costs on correlated claims, that $2M cap per account needs to roll into our litigation-tail reserve as a floor, not a ceiling.",
+        "emerging_risk_lead": "Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.",
+        "ai_agent_analyst": "Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "eo_specialist",
+      "intent": "Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* separately at $2M per account and requires unified counsel between the insured and Deloitte's E&O carrier on the control-failure narrative, or we're paying three times to defend the same root cause.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Defense cost caps and unified counsel requirement approved—$2M per account prevents redundant root-cause defense.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Defense caps and coordination reduce waste",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "litigation_tail_severity",
+          "delta": -3.0,
+          "reason": "Unified counsel streamlines correlated defense",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -2.0,
+          "reason": "Per-account defense caps limit total outlay",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 0.75,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per account* at $15M, with a $35M aggregate across all three Deloitte policies. If the monitor catches control-testing drift and the clawback holds, the tail covers attestations—but if *one* control failure hits all three accounts *simultaneously*, we're maxed out on coverage. That's the real edge case we're not pricing for.",
+        "dando_specialist": "I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareholder suits, not one. I need the policy to carve out \"claims arising from correlated control deficiencies across pooled audit engagements\" and cap that sub-limit independently. Otherwise the clawback's a fiction—we're paying three directors' defense funds on a single root cause.",
+        "reinsurance_manager": "Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.",
+        "claims_counsel": "Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My question: are the $2M per-account defense caps part of *our* reserve, or are they the insured's obligation? Because if we're covering defense costs on correlated claims, that $2M cap per account needs to roll into our litigation-tail reserve as a floor, not a ceiling.",
+        "emerging_risk_lead": "Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.",
+        "ai_agent_analyst": "Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "claims_counsel",
+      "intent": "Before we bind, I'm reserving for the full AT1 litigation tail—2025 ruling means recovery's uncertain and the litigation runs six years minimum. My question: are the $2M per-account defense caps part of *our* reserve, or are they the insured's obligation? Because if we're covering defense costs on correlated claims, that $2M cap per account needs to roll into our litigation-tail reserve as a floor, not a ceiling.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "AT1 litigation-tail reserve clarified—$2M defense caps are carrier floor, not ceiling, rolled into six-year reserve.",
+      "side_effects": [
+        {
+          "variable": "litigation_tail_severity",
+          "delta": 3.0,
+          "reason": "Six-year tail and floor reserve increase severity",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Explicit reserve treatment improves pricing accuracy",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 2.0,
+          "reason": "Floor reserve acknowledges correlated defense costs",
+          "agent_id": null
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": 1.0,
+          "reason": "Long-tail reserve increases reinsurer exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "dando_eo_claims_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_tail_severity → dando_eo_claims_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "litigation_tail_severity"
+        },
+        {
+          "variable": "reinsurance_accumulation",
+          "delta": -1,
+          "reason": "coupling: underwriting_discipline → reinsurance_accumulation (ratio -0.4)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "evidence_accumulation",
+        "variable": "litigation_tail_severity",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "financial_lines_underwriter": "Here's the gap: we've locked the audit-firm cap and the 24-hour reporting, but I'm not comfortable binding unless we also cap our *net retention per account* at $15M, with a $35M aggregate across all three Deloitte policies. If the monitor catches control-testing drift and the clawback holds, the tail covers attestations—but if *one* control failure hits all three accounts *simultaneously*, we're maxed out on coverage. That's the real edge case we're not pricing for.",
+        "dando_specialist": "I'm with the underwriter on net retention—but here's the D&O angle: if one account's control failure goes public, we're facing three *separate* shareholder suits, not one. I need the policy to carve out \"claims arising from correlated control deficiencies across pooled audit engagements\" and cap that sub-limit independently. Otherwise the clawback's a fiction—we're paying three directors' defense funds on a single root cause.",
+        "eo_specialist": "Hold on—the $8M correlated sub-limit's solid, but we're stacking three D&O defenses on one control failure. I need language that caps *defense costs* separately at $2M per account and requires unified counsel between the insured and Deloitte's E&O carrier on the control-failure narrative, or we're paying three times to defend the same root cause.",
+        "reinsurance_manager": "Here's what I need locked before we move: are these three Deloitte accounts the *only* pooled audit-firm cap in the book, or is this framework repeatable? Because if we scale it, we go from three-account correlation to portfolio-wide correlation on a single auditor miss. Give me a hard cap on how many same-auditor pooled accounts we're writing total.",
+        "emerging_risk_lead": "Claims—here's what I need before we bind: the moment *any* account hits regulatory or media inquiry, are we requiring the insured to simultaneously brief their board and institutional investors on correlated risk across the pooled accounts? Because if they don't own the narrative in hour one, their stock's already moving on speculation by hour 24, and we're defending on three fronts instead of one controlled story.",
+        "ai_agent_analyst": "Here's the behavioral-loss gap I'm seeing: you've locked the defense costs and unified counsel, but if the insured's compliance system auto-flags control deficiencies and batches them for Deloitte's remote attestation, the human monitor never sees dissent—it's already *workflow-approved* before anyone reads the risk-committee minutes. Are we requiring *manual* materiality sign-off on any control finding before it flows into the automated escalation chain, or does the monitor need to audit the automation itself?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "dando_eo_claims_exposure": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 37.0
+        },
+        {
+          "round": 3,
+          "value": 33.0
+        },
+        {
+          "round": 4,
+          "value": 28.2975
+        },
+        {
+          "round": 5,
+          "value": 24.078625
+        }
+      ],
+      "litigation_tail_severity": [
+        {
+          "round": 1,
+          "value": 33
+        },
+        {
+          "round": 2,
+          "value": 34.0
+        },
+        {
+          "round": 3,
+          "value": 34.0
+        },
+        {
+          "round": 4,
+          "value": 32.0
+        },
+        {
+          "round": 5,
+          "value": 34.0
+        }
+      ],
+      "reinsurance_accumulation": [
+        {
+          "round": 1,
+          "value": 27
+        },
+        {
+          "round": 2,
+          "value": 24.0
+        },
+        {
+          "round": 3,
+          "value": 20.0
+        },
+        {
+          "round": 4,
+          "value": 9.0
+        },
+        {
+          "round": 5,
+          "value": 3.0
+        }
+      ],
+      "reputational_contagion": [
+        {
+          "round": 1,
+          "value": 30
+        },
+        {
+          "round": 2,
+          "value": 30
+        },
+        {
+          "round": 3,
+          "value": 30
+        },
+        {
+          "round": 4,
+          "value": 30
+        },
+        {
+          "round": 5,
+          "value": 30
+        }
+      ],
+      "ai_agent_liability": [
+        {
+          "round": 1,
+          "value": 20
+        },
+        {
+          "round": 2,
+          "value": 23.0
+        },
+        {
+          "round": 3,
+          "value": 23.0
+        },
+        {
+          "round": 4,
+          "value": 23.0
+        },
+        {
+          "round": 5,
+          "value": 23.0
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 40
+        },
+        {
+          "round": 2,
+          "value": 45.0
+        },
+        {
+          "round": 3,
+          "value": 56.0
+        },
+        {
+          "round": 4,
+          "value": 71.3
+        },
+        {
+          "round": 5,
+          "value": 83.3
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: underwriting_discipline >= 60 AND reinsurance_accumulation <= 45",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "financial_lines_underwriter": {
+        "scores": [
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 83.3,
+            "normalised": 0.833
+          }
+        ],
+        "weighted_score": 0.833
+      },
+      "dando_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 24.078625,
+            "normalised": 0.24078624999999998
+          }
+        ],
+        "weighted_score": 0.24078624999999998
+      },
+      "eo_specialist": {
+        "scores": [
+          {
+            "metric": "dando_eo_claims_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 24.078625,
+            "normalised": 0.24078624999999998
+          },
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 34.0,
+            "normalised": 0.34
+          }
+        ],
+        "weighted_score": 0.260629
+      },
+      "reinsurance_manager": {
+        "scores": [
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 3.0,
+            "normalised": 0.03
+          }
+        ],
+        "weighted_score": 0.03
+      },
+      "claims_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_tail_severity",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.0,
+            "normalised": 0.34
+          }
+        ],
+        "weighted_score": 0.34
+      },
+      "emerging_risk_lead": {
+        "scores": [
+          {
+            "metric": "reputational_contagion",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 30,
+            "normalised": 0.3
+          },
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 23.0,
+            "normalised": 0.23
+          }
+        ],
+        "weighted_score": 0.2766666666666666
+      },
+      "ai_agent_analyst": {
+        "scores": [
+          {
+            "metric": "ai_agent_liability",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 23.0,
+            "normalised": 0.23
+          },
+          {
+            "metric": "reinsurance_accumulation",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 3.0,
+            "normalised": 0.03
+          }
+        ],
+        "weighted_score": 0.19000000000000003
+      }
+    }
+  }
+}

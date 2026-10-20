@@ -1,0 +1,2043 @@
+{
+  "simulation_id": "f3be6b7962d0",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Before we discuss any merger or liquidity support, I need SNB and the Federal Council aligned on the legal instrument. Are we moving under the Banking Act emergency powers, or do we need a Federal Council ordinance? That choice shapes everything—who bears loss, what creditor hierarchy survives, whether we can announce it Monday morning with confidence.\n  snb: We can move under Banking Act Article 36 emergency liquidity assistance immediately—that's my authority, no ordinance needed. But if we're contemplating loss allocation or creditor write-down, that crosses into Federal Council territory and we need the ordinance framework locked in before Monday. What's the rescue structure you're proposing—liquidity only, or does it touch the capital stack?\n  snb: FINMA, what's the structure on the table? If it's SNB liquidity backstop plus a capital injection from third parties, I can operationalize Article 36 by Sunday evening. But if we're writing down AT1 or reshaping the creditor hierarchy, Federal Council needs to have the ordinance language ready to sign Saturday—I won't announce Monday morning without that locked.\n  finma: We're proposing UBS acquisition with SNB liquidity backstop and loss protection on a defined asset perimeter—that keeps us in Article 36 territory without touching the capital hierarchy, so no ordinance needed. But I need Federal Council confirmation in writing that they'll stand behind the liquidity guarantee before we announce. Can you have the Article 36 operational framework ready by Saturday morning so we can coordinate the Sunday evening announcement?\n  federal_council: I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no open-ended loss guarantee. That protects the taxpayer and gives you the legal cover to announce Sunday. What's the asset perimeter number we're protecting?\n  cs_ceo: I need the liquidity backstop number and the asset perimeter cap before I can credibly take this to my board Sunday night. What's SNB prepared to guarantee, and which assets are off the table? Without that, I'm announcing a rescue no one can believe in yet.\n  ubs_ceo: Federal Council, I need the exact number—how much liquidity is SNB backstopping, and what's the asset perimeter cap you're comfortable guaranteeing? Once I have that, UBS can move. But I won't take this to my board without a floor and a ceiling in writing.\n  federal_council: The liquidity backstop is capped at CHF 100 billion, and the asset perimeter is Credit Suisse's Swiss loan book—roughly CHF 16 billion in defined illiquid assets. That's the line: SNB liquidity flows freely, but we don't absorb losses beyond that perimeter, and we announce Sunday evening with all three parties locked in writing by Saturday noon.\n  wealth_client: Before I stay, I need this in writing: my deposits and accessible assets are protected up to what amount, and under what condition do I get liquidity if this deal stalls? A CHF 100B backstop doesn't mean much to me if it's frozen in legal limbo on Monday morning. What's the floor?\n  at1_rep: FINMA, under this structure—UBS acquisition, SNB backstop on the Swiss book—where do AT1 instruments sit? Are they written down, absorbed into UBS, or held harmless? Because if creditors think we're bailing out deposits while their capital takes the hit, confidence doesn't recover Monday—it craters further.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Before we discuss any merger or liquidity support, I need SNB and the Federal Council aligned on the legal instrument. Are we moving under the Banking Act emergency powers, or do we need a Federal Council ordinance? That choice shapes everything—who bears loss, what creditor hierarchy survives, whether we can announce it Monday morning with confidence.",
+            "cot": {
+              "assess": "Market confidence is critically low at 26—barely above failure threshold—while funding stress at 74 is severe but containable. Legal defensibility at 60 is workable, but we have zero rescue package on the table. Without a concrete intervention framework by Monday open, both confidence and funding stress will deteriorate automatically.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility, rescue_strength",
+                "rationale": "We need a legally defensible intervention structure NOW, not a negotiated deal later—speed and legal cover are inseparable this weekend."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can move under Banking Act Article 36 emergency liquidity assistance immediately—that's my authority, no ordinance needed. But if we're contemplating loss allocation or creditor write-down, that crosses into Federal Council territory and we need the ordinance framework locked in before Monday. What's the rescue structure you're proposing—liquidity only, or does it touch the capital stack?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA, what's the structure on the table? If it's SNB liquidity backstop plus a capital injection from third parties, I can operationalize Article 36 by Sunday evening. But if we're writing down AT1 or reshaping the creditor hierarchy, Federal Council needs to have the ordinance language ready to sign Saturday—I won't announce Monday morning without that locked.",
+            "cot": {
+              "assess": "FINMA has pinned the legal axis—Article 36 liquidity vs. ordinance-backed loss allocation. I've signalled the boundary. What's unresolved: the rescue *structure* FINMA just asked me about. If it's liquidity-only, I move immediately and cap my exposure. If it touches capital or creditor hierarchy, I need the Federal Council ordinance locked *before* Monday—not after. Market confidence is still at 26, funding stress at 74. Neither improves without a visible, credible structure announced Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know the proposed rescue structure NOW—liquidity envelope, capital injection, creditor write-down scope—so I can signal what SNB can commit to and what requires Federal Council sign-off before market open."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "We're proposing UBS acquisition with SNB liquidity backstop and loss protection on a defined asset perimeter—that keeps us in Article 36 territory without touching the capital hierarchy, so no ordinance needed. But I need Federal Council confirmation in writing that they'll stand behind the liquidity guarantee before we announce. Can you have the Article 36 operational framework ready by Saturday morning so we can coordinate the Sunday evening announcement?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no open-ended loss guarantee. That protects the taxpayer and gives you the legal cover to announce Sunday. What's the asset perimeter number we're protecting?",
+            "cot": {
+              "assess": "Market confidence is critically low (26, needs 55) and funding stress is severe (74, needs to drop to 45). The legal framework is now clear—Article 36 with SNB liquidity backstop, no ordinance required—but FINMA needs written Federal Council confirmation that we'll stand behind the guarantee before Sunday announcement. That's my move to make, and it directly unblocks both the rescue strength and market messaging.",
+              "decide": {
+                "action_type": "act",
+                "target": "public_sector_cost, market_confidence",
+                "rationale": "Committing to the Article 36 framework in writing caps our exposure (liquidity only, defined asset perimeter) while giving the market and FINMA the certainty they need to move fast Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "I need the liquidity backstop number and the asset perimeter cap before I can credibly take this to my board Sunday night. What's SNB prepared to guarantee, and which assets are off the table? Without that, I'm announcing a rescue no one can believe in yet.",
+            "cot": {
+              "assess": "Legal pathway is locked (Article 36, no ordinance needed), Federal Council is committed to Saturday morning written confirmation, and the UBS acquisition structure with asset perimeter protection is on the table. But we have no rescue package strength yet—no numbers on the liquidity backstop size, no asset perimeter defined, and critically, no credibility with the market that any of this is real until we announce it Sunday evening. My funding stress is at 74 and climbing; I need to know the scale of the SNB liquidity commitment NOW so I can tell my board and clients Monday morning this bank has a real lifeline.",
+              "decide": {
+                "action_type": "propose",
+                "target": "snb, finma",
+                "rationale": "The asset perimeter and liquidity size are the ONLY numbers that matter for my survival and market confidence—I cannot walk into Monday without them locked, and the Federal Council and SNB are waiting for me to commit to the acquisition terms first."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, I need the exact number—how much liquidity is SNB backstopping, and what's the asset perimeter cap you're comfortable guaranteeing? Once I have that, UBS can move. But I won't take this to my board without a floor and a ceiling in writing.",
+            "cot": {
+              "assess": "Legal framework is locked (Article 36, no ordinance needed). Liquidity backstop and asset perimeter are the next blockers—but they're not my fight. The real problem: market_confidence is at 26, cs_funding_stress at 74. Both are deteriorating every hour we don't announce. We're in a confidence death spiral, not a legal negotiation.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need the actual liquidity number and asset cap they'll guarantee in writing—without it, I can't commit UBS to anything. This unblocks the announcement and starts moving confidence metrics."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The liquidity backstop is capped at CHF 100 billion, and the asset perimeter is Credit Suisse's Swiss loan book—roughly CHF 16 billion in defined illiquid assets. That's the line: SNB liquidity flows freely, but we don't absorb losses beyond that perimeter, and we announce Sunday evening with all three parties locked in writing by Saturday noon.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Before I stay, I need this in writing: my deposits and accessible assets are protected up to what amount, and under what condition do I get liquidity if this deal stalls? A CHF 100B backstop doesn't mean much to me if it's frozen in legal limbo on Monday morning. What's the floor?",
+            "cot": {
+              "assess": "The structure is locked—CHF 100B liquidity, CHF 16B asset perimeter, Sunday announcement, Saturday sign-off. But I'm sitting here with market_confidence at 26 and no assurance that this backstop actually protects *my* assets. The authorities are saying \"no loss beyond the perimeter,\" but that only works if UBS actually closes the deal and SNB's liquidity flows. If either falls apart Monday, I'm trapped in a failing bank with frozen deposits.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence",
+                "rationale": "I need concrete guarantees on deposit protection and asset accessibility—not just a promise that the rescue holds. Without that, I'm moving assets regardless of the announcement."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "FINMA, under this structure—UBS acquisition, SNB backstop on the Swiss book—where do AT1 instruments sit? Are they written down, absorbed into UBS, or held harmless? Because if creditors think we're bailing out deposits while their capital takes the hit, confidence doesn't recover Monday—it craters further.",
+            "cot": {
+              "assess": "The legal structure is locked—Article 36, no ordinance needed, CHF 100B liquidity backstop on CHF 16B Swiss loan perimeter. That's solid ground for us. But market confidence is still cratering (26, needs 55), and the wealth client just surfaced a critical gap: no one's spelled out the creditor protection *order* or deposit floor under this structure. If AT1 holders or unsecured creditors think they're taking losses while deposits stay whole, we'll see litigation threats and more outflows Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "The capital hierarchy and creditor protection order need to be explicit *before* announcement—that's my job to nail down, and FINMA has to confirm the deal doesn't invert it."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA, what's the structure on the table? If it's SNB liquidity backstop plus a capital injection from third parties, I can operationalize Article 36 by Sunday evening. But if we're writing down AT1 or reshaping the creditor hierarchy, Federal Council needs to have the ordinance language ready to sign Saturday—I won't announce Monday morning without that locked.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council, I need the exact number—how much liquidity is SNB backstopping, and what's the asset perimeter cap you're comfortable guaranteeing? Once I have that, UBS can move. But I won't take this to my board without a floor and a ceiling in writing.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "FINMA, under this structure—UBS acquisition, SNB backstop on the Swiss book—where do AT1 instruments sit? Are they written down, absorbed into UBS, or held harmless? Because if creditors think we're bailing out deposits while their capital takes the hit, confidence doesn't recover Monday—it craters further.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no ope\" → The Federal Council's conditional commitment is premature—FINMA has not yet defined the asset perimeter or backstop amount. No concrete number exists to cap or sign. The Council must wait for FINMA's technical specification before formalizing any guarantee.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before we discuss any merger or liquidity support, I need SNB and the Federal Council aligned on the legal instrument. Are we moving under the Banking\" → FINMA demands legal framework clarity before structure discussion—valid procedural gate.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I need the liquidity backstop number and the asset perimeter cap before I can credibly take this to my board Sunday night. What's SNB prepared to guar\" → CS CEO demands backstop quantum and perimeter—legitimate negotiation position before board commitment.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before I stay, I need this in writing: my deposits and accessible assets are protected up to what amount, and under what condition do I get liquidity \" → Wealth client demands written protection floor—reflects real client flight risk driving the crisis.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 9.1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: AT1 holders—are they written down as part of this acquisition, or does UBS absorb them at par? I need a one-sentence answer because if it's ambiguous Monday morning, deposits evaporate faster than the backstop can work. What's the call?\n  at1_rep: AT1 instruments are written down to zero as part of the resolution—that's the only legally defensible move under the Banking Act and it's what the market will price in. UBS absorbs the operating entity and deposits, but creditors and AT1 holders take the loss first, full stop. If that's not locked in writing by Saturday, my clients walk and we litigate the capital structure on Monday.\n  snb: I'm activating the liquidity backstop effective tonight—SNB will accept CS's Swiss loan book as collateral at a haircut we'll specify by 0600 tomorrow. That's CHF 100B available, but it flows only against documented deposit redemption requests. FINMA, Federal Council—I'm doing this under Article 36 authority. We don't have time to wait for Saturday signatures if the bank is bleeding out Friday night.\n  federal_council: SNB moving on Article 36 is right—but we need the ordinance ready by Saturday morning spelling out AT1 write-down in black and white. Otherwise we're explaining losses to clients *after* the deal, and that's when litigation and contagion spike. FINMA, can you draft the Banking Act language by 6am, or do we need to go to the full Federal Council tonight to pre-authorize it?\n  finma: I'll draft the ordinance language tonight—AT1 write-down to zero, UBS absorbs deposits and operating entity, SNB liquidity backstop capped at CHF 100B against documented outflows. You'll have it by 0600 Saturday, but Federal Council needs to pre-authorize the emergency ordinance *now*, not after review—we cannot afford a Saturday morning legal debate while the market clock runs.\n  cs_ceo: Federal Council—I need your pre-authorization on the emergency ordinance *tonight*, not Saturday morning review. FINMA drafts it by 0600, you sign it by 0700, and we publish the asset perimeter and AT1 treatment to depositors by 0800. Without that Friday-night lock, Monday opens with zero clarity, and we're announcing losses *after* clients have already fled. What's blocking the pre-auth decision right now?\n  ubs_ceo: Federal Council, the ordinance and SNB backstop are necessary, but they're not public yet. When do you announce this deal—tonight, Saturday morning, or wait until Sunday? Because if depositors wake up Monday to *news* instead of a done package, we don't have enough liquidity to cover the run. What's your comms strategy?\n  federal_council: We cannot pre-authorize an ordinance tonight without seeing the legal language—that's a governance disaster waiting to happen. FINMA drafts by 0600, we review it in parallel with SNB's collateral schedule, and we sign Saturday 0700 if it's defensible. The ordinance locks AT1 write-down and the CHF 100B cap; anything beyond that is not our problem to solve Friday night.\n  wealth_client: Stop. You're locking the ordinance Saturday but my clients need to know *tonight* whether their deposits are covered. I'm not waiting for the fine print—I need Federal Council to sign a one-page guarantee: deposits up to CHF 500k fully protected, accessible within 48 hours if the deal stalls. You can refine the ordinance Saturday, but that floor has to be public by 2000 hours today or I'm moving CHF 15 billion by midnight. What's the hold?\n  at1_rep: Federal Council, wealth client is correct—you can refine the ordinance Saturday, but if depositors don't see a floor in writing by tonight, SNB's CHF 100B evaporates before the backstop even activates. Can you sign a one-page guarantee on deposits up to CHF 500k by 2000 hours, or do we need to tell them the answer is \"no\"?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "AT1 holders—are they written down as part of this acquisition, or does UBS absorb them at par? I need a one-sentence answer because if it's ambiguous Monday morning, deposits evaporate faster than the backstop can work. What's the call?",
+            "cot": {
+              "assess": "The structure is now crystallizing: CHF 100B SNB backstop, CHF 16B Swiss asset perimeter, UBS acquisition framework. But we have three unresolved credibility gaps—AT1 write-down status, wealth client protection floor specifics, and Federal Council's Saturday ordinance readiness—that will tank confidence if they leak Monday as ambiguous. Legal defensibility is solid on the mechanism, but market confidence stays at 21 because stakeholders don't yet trust the *terms* are locked.",
+              "decide": {
+                "action_type": "question",
+                "target": "at1_rep",
+                "rationale": "AT1 treatment is the credibility lynchpin—if we don't answer it clearly before Monday, every sophisticated creditor and client will assume the worst and accelerate flight."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "AT1 instruments are written down to zero as part of the resolution—that's the only legally defensible move under the Banking Act and it's what the market will price in. UBS absorbs the operating entity and deposits, but creditors and AT1 holders take the loss first, full stop. If that's not locked in writing by Saturday, my clients walk and we litigate the capital structure on Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I'm activating the liquidity backstop effective tonight—SNB will accept CS's Swiss loan book as collateral at a haircut we'll specify by 0600 tomorrow. That's CHF 100B available, but it flows only against documented deposit redemption requests. FINMA, Federal Council—I'm doing this under Article 36 authority. We don't have time to wait for Saturday signatures if the bank is bleeding out Friday night.",
+            "cot": {
+              "assess": "AT1 write-down is now locked—that's legal clarity we needed. But I'm watching cs_funding_stress still at 86 and climbing; the wealth client protection floor is still undefined in writing, which means Monday deposits will keep running. The Federal Council's CHF 100B cap is real, but we haven't committed liquidity yet—it's still conditional.",
+              "decide": {
+                "action_type": "act",
+                "target": "cs_funding_stress",
+                "rationale": "We need to deploy liquidity NOW to arrest outflows before Monday, not wait for Saturday ordinances. The legal framework is clear enough to move under Article 36."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB moving on Article 36 is right—but we need the ordinance ready by Saturday morning spelling out AT1 write-down in black and white. Otherwise we're explaining losses to clients *after* the deal, and that's when litigation and contagion spike. FINMA, can you draft the Banking Act language by 6am, or do we need to go to the full Federal Council tonight to pre-authorize it?",
+            "cot": {
+              "assess": "SNB has just activated liquidity support unilaterally under Article 36—that's decisive and buys us time on funding stress, but it doesn't solve the confidence problem. Market confidence is still at 21 (needs 55); the wealth client's demand for a written deposit protection floor is still unanswered; and AT1 write-down is now locked in but not yet public. The credibility gap between what we're doing (liquidity + AT1 loss) and what clients hear (rescue) is the real danger Monday morning.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost / legal_defensibility",
+                "rationale": "I need to cap the Federal Council's exposure now by locking AT1 write-down language into an ordinance Saturday—that's the only way to defend the taxpayer and prevent litigation that'll crater confidence further."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "I'll draft the ordinance language tonight—AT1 write-down to zero, UBS absorbs deposits and operating entity, SNB liquidity backstop capped at CHF 100B against documented outflows. You'll have it by 0600 Saturday, but Federal Council needs to pre-authorize the emergency ordinance *now*, not after review—we cannot afford a Saturday morning legal debate while the market clock runs.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—I need your pre-authorization on the emergency ordinance *tonight*, not Saturday morning review. FINMA drafts it by 0600, you sign it by 0700, and we publish the asset perimeter and AT1 treatment to depositors by 0800. Without that Friday-night lock, Monday opens with zero clarity, and we're announcing losses *after* clients have already fled. What's blocking the pre-auth decision right now?",
+            "cot": {
+              "assess": "The room has locked in the core structure: UBS acquisition, SNB liquidity backstop (CHF 100B), AT1 write-down to zero, and ordinance language by 0600 Saturday. My key variables—rescue_strength and market_confidence—depend entirely on whether that ordinance gets pre-authorized *tonight* and whether depositors believe the protection is real. The wealth client's written protection floor is still unresolved, and time_pressure is grinding hard. SNB's willingness to move under Article 36 *now* is the only thing keeping us off the cliff before Monday.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council (pre-authorization decision)",
+                "rationale": "The ordinance draft is coming by 0600, but if Federal Council doesn't pre-authorize it *tonight*, we lose the entire weekend window to stabilize confidence and prevent deposit runs when branches reopen. This is the gate that unlocks everything else."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, the ordinance and SNB backstop are necessary, but they're not public yet. When do you announce this deal—tonight, Saturday morning, or wait until Sunday? Because if depositors wake up Monday to *news* instead of a done package, we don't have enough liquidity to cover the run. What's your comms strategy?",
+            "cot": {
+              "assess": "The structure is locked—AT1 write-down, SNB liquidity at CHF 100B, FINMA drafting the ordinance tonight, Federal Council pre-authorizing. That's solid. But market_confidence is still at 21 and cs_funding_stress at 86—we're 6 points from failure on funding stress, and the Monday open is 48 hours away. The ordinance and the liquidity are necessary, not sufficient. What moves confidence before market open?",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Public announcement timing and messaging are the only lever left to arrest confidence collapse before SNB liquidity can even flow—I need to know when and how the Council plans to signal this deal to the market."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We cannot pre-authorize an ordinance tonight without seeing the legal language—that's a governance disaster waiting to happen. FINMA drafts by 0600, we review it in parallel with SNB's collateral schedule, and we sign Saturday 0700 if it's defensible. The ordinance locks AT1 write-down and the CHF 100B cap; anything beyond that is not our problem to solve Friday night.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Stop. You're locking the ordinance Saturday but my clients need to know *tonight* whether their deposits are covered. I'm not waiting for the fine print—I need Federal Council to sign a one-page guarantee: deposits up to CHF 500k fully protected, accessible within 48 hours if the deal stalls. You can refine the ordinance Saturday, but that floor has to be public by 2000 hours today or I'm moving CHF 15 billion by midnight. What's the hold?",
+            "cot": {
+              "assess": "Legal framework is locked (AT1 write-down, CHF 100B cap, ordinance by 0600 Saturday). SNB liquidity is flowing tonight. But I still don't have the *written* deposit protection floor I demanded in Round 1—Federal Council and FINMA are racing to Saturday morning, and my clients will see uncertainty all weekend. market_confidence is still 21; cs_funding_stress at 86 with the clock running. I need to force the deposit guarantee into writing *tonight*, not wait for Saturday's ordinance.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, finma",
+                "rationale": "Deposit protection ambiguity kills confidence faster than any technical ordinance—I need explicit written assurance on deposit coverage *before* SNB liquidity goes live, or my clients trigger full withdrawal tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, wealth client is correct—you can refine the ordinance Saturday, but if depositors don't see a floor in writing by tonight, SNB's CHF 100B evaporates before the backstop even activates. Can you sign a one-page guarantee on deposits up to CHF 500k by 2000 hours, or do we need to tell them the answer is \"no\"?",
+            "cot": {
+              "assess": "The room has locked the core legal structure: AT1 write-down to zero, UBS absorbs deposits and operating entity, SNB liquidity backstop CHF 100B capped. FINMA drafts ordinance by 0600, Federal Council signs 0700 Saturday. But wealth_client just escalated—deposits aren't protected *in writing* yet, and they're threatening CHF 15B outflow by midnight tonight. That's the choke point right now: we have legal clarity on creditors, but zero credibility with depositors on the protection floor.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Wealth client's midnight ultimatum is real—they need a written guarantee on deposits *tonight*, not Saturday. This isn't a negotiation point; it's the condition for stopping the run. I need to know if Federal Council can execute a one-page deposit protection floor by 2000 hours, because if they can't, the liquidity backstop becomes academic."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Stop. You're locking the ordinance Saturday but my clients need to know *tonight* whether their deposits are covered. I'm not waiting for the fine print—I need Federal Council to sign a one-page guarantee: deposits up to CHF 500k fully protected, accessible within 48 hours if the deal stalls. You can refine the ordinance Saturday, but that floor has to be public by 2000 hours today or I'm moving CHF 15 billion by midnight. What's the hold?",
+      "metadata": {}
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "AT1 holders—are they written down as part of this acquisition, or does UBS absorb them at par? I need a one-sentence answer because if it's ambiguous Monday morning, deposits evaporate faster than the backstop can work. What's the call?",
+      "metadata": {
+        "question_target": "at1_rep"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council, the ordinance and SNB backstop are necessary, but they're not public yet. When do you announce this deal—tonight, Saturday morning, or wait until Sunday? Because if depositors wake up Monday to *news* instead of a done package, we don't have enough liquidity to cover the run. What's your comms strategy?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council, wealth client is correct—you can refine the ordinance Saturday, but if depositors don't see a floor in writing by tonight, SNB's CHF 100B evaporates before the backstop even activates. Can you sign a one-page guarantee on deposits up to CHF 500k by 2000 hours, or do we need to tell them the answer is \"no\"?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm activating the liquidity backstop effective tonight—SNB will accept CS's Swiss loan book as collateral at a haircut we'll specify by 0600 tomorrow\" → SNB activates CHF 100B liquidity backstop under Article 36 emergency authority, accepting CS loan book as collateral—a decisive unilateral move that provides immediate funding capacity but exposes the public sector to massive contingent risk and bypasses normal governance.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"SNB moving on Article 36 is right—but we need the ordinance ready by Saturday morning spelling out AT1 write-down in black and white. Otherwise we're \" → Federal Council demands ordinance draft by 0600 Saturday, AT1 treatment explicit, pre-authorization deferred pending FINMA language.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council—I need your pre-authorization on the emergency ordinance *tonight*, not Saturday morning review. FINMA drafts it by 0600, you sign it \" → Denied: Federal Council already addressed ordinance timeline in Proposal 1, same request redundant this round.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 2.4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 7.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council: you've got the ordinance locked for 0600 Saturday, but if depositors don't hear from *you* tonight that their deposits are safe under this deal, the run accelerates regardless. What's the public announcement—tonight at 2000, or are we waiting until morning? Because silence until Saturday burns liquidity we can't spare.\n  federal_council: We announce tonight at 2000—a joint statement with SNB and FINMA, deposit protection floor explicit, ordinance framework confirmed. But I'm capping the written guarantee at CHF 500k per account, standard insolvency coverage, not open-ended. That's defensible legally and politically; anything broader bleeds into a blank cheque we can't sell to Parliament Monday.\n  snb: Federal Council—your 2000 announcement needs one operational detail: when depositors call Monday, can SNB settle withdrawal requests same-day against the backstop, or is there a lag? If there's any delay, the floor you're announcing tonight collapses by 0900 Monday. What's the settlement commitment?\n  federal_council: SNB—I'm announcing the CHF 500k floor tonight at 2000, but I need you to commit: same-day settlement on withdrawal requests Monday against the backstop, or we're sunk before 1000. Can you do that?\n  snb: Same-day settlement is operationally feasible—we'll staff the liquidity desk around the clock Monday and process withdrawals against the Article 36 backstop within four hours of request. But Federal Council, you need to say tonight at 2000 that this is guaranteed, not \"subject to review\"—ambiguity kills it before we even open the window.\n  cs_ceo: Federal Council, the 2000 announcement and SNB settlement commitment are solid—deposits are protected, liquidity flows Monday. I'm calling my board in thirty minutes to confirm acceptance of the AT1 write-down and the SNB backstop structure. Once they sign off, we're ready for UBS to execute Sunday. But I need confirmation from you tonight: is the ordinance language locked on AT1 treatment, or are you still negotiating that with Parliament? Because if there's daylight between what I announce to my board and what the ordinance says Saturday, we're back in the crisis.\n  ubs_ceo: Federal Council, FINMA—before CS calls their board, I need you to confirm in writing tonight: AT1 instruments are written down to zero, *no residual value*, *no conversion option*. If that language is in the ordinance draft by 2200 and you commit it's final, UBS can execute Sunday. But if it's still soft Saturday morning, I'm not inheriting that litigation risk. Can you lock it now or not?\n  finma: AT1 write-down to zero is locked in the ordinance draft going to Federal Council tonight—I'm signing off on the language now. UBS, you have it in writing by 2200; no ambiguity Monday. Federal Council, FINMA requires the ordinance text finalized by 0600 Saturday to defend this intervention legally, so any Parliament negotiation happens within that frame—we don't move the legal structure after that point.\n  wealth_client: Federal Council—you're announcing the CHF 500k floor at 2000, but where's the one-page written guarantee? I need to see it by 1900 to confirm it's actually in my clients' hands before market rumors hit. Is that document drafted and signed, or are we announcing without the paper?\n  at1_rep: Federal Council, before 2200 when FINMA sends the ordinance—do you have Parliament locked on AT1 write-down to zero, or is there political wiggle room on that number? Because if you announce the floor tonight but let AT1 treatment soften Saturday, creditors sue and we're in court *while* the rescue is running.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council: you've got the ordinance locked for 0600 Saturday, but if depositors don't hear from *you* tonight that their deposits are safe under this deal, the run accelerates regardless. What's the public announcement—tonight at 2000, or are we waiting until morning? Because silence until Saturday burns liquidity we can't spare.",
+            "cot": {
+              "assess": "Legal framework is locked (Article 36, AT1 write-down, ordinance by 0600 Saturday)—that's my core win. But market_confidence is still cratering at 21, and the wealth client's deposit floor demand exposes a critical gap: SNB's CHF 100B backstop sits idle if depositors don't see protection *tonight*. Rescue_strength and public_sector_cost are both neglected and rising—I need to clarify what actually gets announced to market before Monday opens, or the liquidity backstop becomes theoretical.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Public messaging strategy directly affects whether depositors actually believe the rescue is real—my legal framework is defensible only if it lands credibly with the market by tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We announce tonight at 2000—a joint statement with SNB and FINMA, deposit protection floor explicit, ordinance framework confirmed. But I'm capping the written guarantee at CHF 500k per account, standard insolvency coverage, not open-ended. That's defensible legally and politically; anything broader bleeds into a blank cheque we can't sell to Parliament Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—your 2000 announcement needs one operational detail: when depositors call Monday, can SNB settle withdrawal requests same-day against the backstop, or is there a lag? If there's any delay, the floor you're announcing tonight collapses by 0900 Monday. What's the settlement commitment?",
+            "cot": {
+              "assess": "cs_funding_stress is still critical at 84 (need ≤45)—the CHF 100B backstop is live but depositors won't feel it without tonight's public announcement at 2000. Federal Council's CHF 500k deposit floor is legally sound but may not stem the run if it feels like a cap rather than a floor. public_sector_cost and rescue_strength remain neglected; the backstop creates contingent exposure we haven't yet bounded or communicated.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The 2000 announcement needs to specify *when* SNB's liquidity actually flows—depositors seeing \"protected up to CHF 500k\" without knowing if they can access it Monday morning will still withdraw. I need clarity on the operational trigger before we announce."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—I'm announcing the CHF 500k floor tonight at 2000, but I need you to commit: same-day settlement on withdrawal requests Monday against the backstop, or we're sunk before 1000. Can you do that?",
+            "cot": {
+              "assess": "SNB's settlement-speed question is operational and critical—it directly threatens the credibility of tonight's 2000 announcement. If depositors hear \"protected\" but face Monday delays, the run accelerates regardless of the floor. The ordinance is locked for 0600, AT1 is written down to zero, and the CHF 100B backstop is live. The announcement is happening. What's missing: operationally, can SNB actually *move* the money fast enough to make the guarantee real, or is it theater?",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB controls settlement mechanics—I need a one-sentence operational commitment on Monday settlement speed to validate the deposit floor I'm announcing tonight at 2000. Without it, tonight's announcement doesn't stop the run; it accelerates it."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Same-day settlement is operationally feasible—we'll staff the liquidity desk around the clock Monday and process withdrawals against the Article 36 backstop within four hours of request. But Federal Council, you need to say tonight at 2000 that this is guaranteed, not \"subject to review\"—ambiguity kills it before we even open the window.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, the 2000 announcement and SNB settlement commitment are solid—deposits are protected, liquidity flows Monday. I'm calling my board in thirty minutes to confirm acceptance of the AT1 write-down and the SNB backstop structure. Once they sign off, we're ready for UBS to execute Sunday. But I need confirmation from you tonight: is the ordinance language locked on AT1 treatment, or are you still negotiating that with Parliament? Because if there's daylight between what I announce to my board and what the ordinance says Saturday, we're back in the crisis.",
+            "cot": {
+              "assess": "Federal Council and SNB have locked the deposit floor (CHF 500k, 2000 announcement tonight) and same-day settlement commitment—that's market confidence work done. But my funding stress is still at 84 and climbing; the CHF 100B backstop is *liquidity*, not *capital*, and depositors need to know the acquisition closes with UBS absorbing losses, not lingering uncertainty. The AT1 write-down is decided, but I haven't yet secured board-level certainty that UBS will actually move at these terms by Sunday night.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cs_funding_stress (via board commitment pathway)",
+                "rationale": "The backstop and deposit floor are announced, but UBS won't sign the merger agreement without CS confirming we've secured full board sign-off on accepting the SNB terms and AT1 write-down—I need to lock that commitment tonight so we're not renegotiating Sunday."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, FINMA—before CS calls their board, I need you to confirm in writing tonight: AT1 instruments are written down to zero, *no residual value*, *no conversion option*. If that language is in the ordinance draft by 2200 and you commit it's final, UBS can execute Sunday. But if it's still soft Saturday morning, I'm not inheriting that litigation risk. Can you lock it now or not?",
+            "cot": {
+              "assess": "Federal Council's 2000 announcement with SNB same-day settlement and CHF 500k floor is the critical stabilizer—deposits are now credible, liquidity stress should ease. CS CEO is ready to move. But you're asking me to confirm AT1 write-down language is locked before I can take this to my board, and that's the exact daylight you're worried about. My issue: if the ordinance says AT1 write-down but the deal structure absorbs them into UBS at some residual value, we inherit ambiguity and creditor lawsuits Monday. I need ironclad language tonight.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council + finma",
+                "rationale": "AT1 write-down treatment must be explicit in tonight's announcement *and* the ordinance—no gap between what CS tells its board and what the law says Saturday, or I walk away."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "AT1 write-down to zero is locked in the ordinance draft going to Federal Council tonight—I'm signing off on the language now. UBS, you have it in writing by 2200; no ambiguity Monday. Federal Council, FINMA requires the ordinance text finalized by 0600 Saturday to defend this intervention legally, so any Parliament negotiation happens within that frame—we don't move the legal structure after that point.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—you're announcing the CHF 500k floor at 2000, but where's the one-page written guarantee? I need to see it by 1900 to confirm it's actually in my clients' hands before market rumors hit. Is that document drafted and signed, or are we announcing without the paper?",
+            "cot": {
+              "assess": "Federal Council just locked the 2000 announcement with SNB same-day settlement and AT1 write-down to zero—that's credible. My core issue is *timing of the guarantee in writing*: they're announcing the CHF 500k floor tonight, but I haven't seen the one-page deposit protection document yet. Market confidence is still at 21 and rising only +3/round; I need that written floor in my hands before 2000 or my clients move their money regardless of what the announcement says. Rescue strength is weak (9) and public cost is rising—both secondary to locking deposit safety *now*.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The announcement is scheduled for 2000 but the written guarantee doesn't exist yet—I need to know if it's actually ready or if I'm walking into an announcement without the document that stops the run."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, before 2200 when FINMA sends the ordinance—do you have Parliament locked on AT1 write-down to zero, or is there political wiggle room on that number? Because if you announce the floor tonight but let AT1 treatment soften Saturday, creditors sue and we're in court *while* the rescue is running.",
+            "cot": {
+              "assess": "The room has locked the critical elements: SNB backstop is live (CHF 100B), Federal Council announces the CHF 500k deposit floor at 2000 tonight, AT1 write-down to zero is in the ordinance draft, and same-day settlement is committed. My core variable—creditor_capital_risk—is protected: AT1 holders absorb the loss, the hierarchy is clear, and litigation exposure is minimized by locking the ordinance language now. The neglected variables are public_sector_cost (rising) and rescue_strength (weak at 9), but those aren't my domain. What IS my concern: if that ordinance language goes soft between now and 0600 Saturday—if Parliament pushes back on AT1 write-down or Federal Council hedges the commitment—creditors' legal defensibility collapses and we're back in court risk by Monday.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The ordinance text is being finalized *tonight* per FINMA, but Parliament still votes Monday—I need to know if Federal Council has the political cover to hold AT1 write-down to zero, or if there's negotiating room that puts creditors at legal risk."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Federal Council: you've got the ordinance locked for 0600 Saturday, but if depositors don't hear from *you* tonight that their deposits are safe under this deal, the run accelerates regardless. What's the public announcement—tonight at 2000, or are we waiting until morning? Because silence until Saturday burns liquidity we can't spare.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—your 2000 announcement needs one operational detail: when depositors call Monday, can SNB settle withdrawal requests same-day against the backstop, or is there a lag? If there's any delay, the floor you're announcing tonight collapses by 0900 Monday. What's the settlement commitment?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—I'm announcing the CHF 500k floor tonight at 2000, but I need you to commit: same-day settlement on withdrawal requests Monday against the backstop, or we're sunk before 1000. Can you do that?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—you're announcing the CHF 500k floor at 2000, but where's the one-page written guarantee? I need to see it by 1900 to confirm it's actually in my clients' hands before market rumors hit. Is that document drafted and signed, or are we announcing without the paper?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council, before 2200 when FINMA sends the ordinance—do you have Parliament locked on AT1 write-down to zero, or is there political wiggle room on that number? Because if you announce the floor tonight but let AT1 treatment soften Saturday, creditors sue and we're in court *while* the rescue is running.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council, the 2000 announcement and SNB settlement commitment are solid—deposits are protected, liquidity flows Monday. I'm calling my board in\" → CS CEO confirms board call to accept AT1 write-down and SNB backstop, contingent on ordinance finality.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council, FINMA—before CS calls their board, I need you to confirm in writing tonight: AT1 instruments are written down to zero, *no residual v\" → UBS CEO demands written AT1 zero-value confirmation tonight to proceed Sunday; execution now contingent on ordinance lock.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.238499999999999
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 5.6000000000000005
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 7.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure time_pressure multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "time_pressure"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council—the 2000 statement is the market-facing moment. Are the deposit floor guarantee and the AT1 write-down clause already *signed* and in hand tonight, or are you announcing a framework pending Saturday finalization? Because if depositors hear \"protected subject to ordinance review,\" they run Monday regardless.\n  federal_council: The deposit floor—CHF 500k, full protection—goes into the 2000 statement as a *signed Federal Council commitment*, not a framework. The AT1 write-down to zero is locked in ordinance language by 0600 Saturday; both are binding tonight, no wiggle room Monday. We announce it as done, not pending.\n  snb: Federal Council's 2000 statement locks the deposit floor—good. But I need to confirm one thing internally before market open: our collateral haircut on the CS loan book is locked by 0600 Saturday, and settlement queue protocols are tested tonight, not improvised Monday. If there's any operational friction, depositors see it as a delay and the run accelerates. We need zero daylight between the announcement and execution.\n  federal_council: SNB—before we announce the deposit floor tonight, I need you to confirm: the collateral haircut on the CS loan book is finalized by 2200 tonight, not Saturday morning, and your settlement protocols are tested and staffed by Monday 0800. Any operational slip between announcement and Monday execution becomes a credibility crater. What's locked, what's still being finalized?\n  snb: Collateral haircut on the CS loan book is locked by 2200 tonight—we're stress-testing it now against three scenarios. Settlement protocols are staffed and dry-run complete; Monday 0800 we execute live. Any operational friction gets surfaced in the next two hours, not at market open.\n  cs_ceo: SNB—when you lock the haircut by 2200, I need one number: what's the realized loss on the CHF 16B Swiss loan book under your stress scenario, and what sits *outside* that perimeter that UBS doesn't absorb? FINMA, same question on liabilities—what legacy claims, pensions, or contingencies stay with the rump entity?\n  ubs_ceo: SNB—what's the realized loss number on that CHF 16B loan book under your three scenarios? And FINMA, which legacy liabilities—pensions, litigation, contingent claims—stay in the rump or get absorbed by UBS? If those numbers aren't public by 2000, the deposit floor announcement looks like it's hiding something. I need exact figures, not ranges.\n  wealth_client: SNB—before 2000 when you're live on the deposit floor, what's the *actual* loss number on that CHF 16B loan book under your stress haircut? My clients need to know if that collateral is holding or if the floor is sitting on air. One number, not a range.\n  at1_rep: Listen—AT1 to zero is written into the ordinance going live tonight. No conversion option, no residual claim, no court challenge that survives Monday. I'm saying that publicly at 2000 because if creditors think there's daylight between the announcement and the actual loss, they sue and we're litigating *while* the backstop runs. It's done.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council—the 2000 statement is the market-facing moment. Are the deposit floor guarantee and the AT1 write-down clause already *signed* and in hand tonight, or are you announcing a framework pending Saturday finalization? Because if depositors hear \"protected subject to ordinance review,\" they run Monday regardless.",
+            "cot": {
+              "assess": "Legal defensibility is still dropping (52, -5/round) despite ordinance language locked—the risk now is execution ambiguity Monday morning when deposits flood SNB. Market confidence (19) and rescue strength (16) remain critically weak; both depend on credibility of the deposit floor and AT1 write-down being *visibly* locked before market open. Neglected variables (creditor_capital_risk, public_sector_cost, rescue_strength) are rising because nobody has yet articulated the *burden allocation* clearly to the market—AT1 holders know they're zeroed, but the story of who absorbs what loss hasn't been broadcast.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before the 2000 announcement, I need confirmation that the one-page deposit guarantee and the ordinance AT1 language are already drafted, signed, and ready for release—not pending Saturday review. If they're not ready *tonight*, the announcement itself becomes a credibility liability."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "The deposit floor—CHF 500k, full protection—goes into the 2000 statement as a *signed Federal Council commitment*, not a framework. The AT1 write-down to zero is locked in ordinance language by 0600 Saturday; both are binding tonight, no wiggle room Monday. We announce it as done, not pending.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council's 2000 statement locks the deposit floor—good. But I need to confirm one thing internally before market open: our collateral haircut on the CS loan book is locked by 0600 Saturday, and settlement queue protocols are tested tonight, not improvised Monday. If there's any operational friction, depositors see it as a delay and the run accelerates. We need zero daylight between the announcement and execution.",
+            "cot": {
+              "assess": "The deposit floor and AT1 write-down are locked in tonight's 2000 announcement—that's solid. But cs_funding_stress is still at 89, only 3 points below failure, and we haven't moved the needle on actual liquidity *flow* Monday morning. SNB's backstop exists on paper, but depositors will test it the moment markets open. The real risk: if withdrawal settlement bogs down or collateral haircuts aren't pre-specified, the backstop credibility evaporates in hours.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb (myself—internal decision)",
+                "rationale": "cs_funding_stress needs immediate operational de-risking; collateral haircut and settlement mechanics must be bulletproof before Monday, or the announced floor collapses under volume."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "SNB—before we announce the deposit floor tonight, I need you to confirm: the collateral haircut on the CS loan book is finalized by 2200 tonight, not Saturday morning, and your settlement protocols are tested and staffed by Monday 0800. Any operational slip between announcement and Monday execution becomes a credibility crater. What's locked, what's still being finalized?",
+            "cot": {
+              "assess": "Market confidence and funding stress are the critical gaps—we're announcing a deposit floor tonight, but if execution stumbles Monday, the run accelerates anyway. Public sector cost is my core concern and it's rising (CHF 100B backstop + ordinance exposure); I need to confirm the ordinance caps the loss perimeter and doesn't open-ended the taxpayer liability. Creditor capital risk (AT1 write-down to zero) is locked, but I need operational certainty that SNB's settlement queue doesn't slip and trigger a second panic.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's collateral haircut and settlement protocols are the execution risk that could undermine tonight's announcement; I need confirmation the operational detail is locked before we go public at 2000."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Collateral haircut on the CS loan book is locked by 2200 tonight—we're stress-testing it now against three scenarios. Settlement protocols are staffed and dry-run complete; Monday 0800 we execute live. Any operational friction gets surfaced in the next two hours, not at market open.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—when you lock the haircut by 2200, I need one number: what's the realized loss on the CHF 16B Swiss loan book under your stress scenario, and what sits *outside* that perimeter that UBS doesn't absorb? FINMA, same question on liabilities—what legacy claims, pensions, or contingencies stay with the rump entity?",
+            "cot": {
+              "assess": "The deposit floor (CHF 500k), AT1 write-down to zero, SNB settlement protocols, and collateral haircut are all locked—that's massive. But creditor_capital_risk is still climbing (27, +2.5/round) because AT1 holders are written down with no clarity on subordinated debt or equity conversion triggers, and public_sector_cost is accelerating (9, +4.5/round) as SNB's haircut methodology stays opaque. My board needs to know what *we're* absorbing in this deal—deposits and operating entity are clear, but what about legacy litigation, pension liabilities, and illiquid assets *outside* the SNB perimeter?",
+              "decide": {
+                "action_type": "question",
+                "target": "snb, finma",
+                "rationale": "The collateral haircut and asset perimeter define what *stays* on CS's books post-deal; that drives our residual risk and public cost. I need specifics before I can confirm board acceptance."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "SNB—what's the realized loss number on that CHF 16B loan book under your three scenarios? And FINMA, which legacy liabilities—pensions, litigation, contingent claims—stay in the rump or get absorbed by UBS? If those numbers aren't public by 2000, the deposit floor announcement looks like it's hiding something. I need exact figures, not ranges.",
+            "cot": {
+              "assess": "SNB just locked the collateral haircut and settlement protocols by 2200 tonight—that's execution discipline. Federal Council's 2000 announcement with signed CHF 500k deposit floor and AT1 zero write-down stops the panic narrative cold. But CS CEO just asked the critical question: what's the *realized loss* on the loan book under SNB's stress scenario, and what liabilities stay behind? That gap—between announced protection and actual asset coverage—is where creditor_capital_risk and public_sector_cost blow up Monday. I need those numbers locked *now*, not Saturday.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB / FINMA (on asset coverage and loss allocation)",
+                "rationale": "Public-sector cost is climbing (+4.5/round, now 9) and creditor_capital_risk (27, +2.5/round) because the market doesn't know if the CHF 100B backstop covers actual losses or just liquidity flow. I need the stress-test result and perimeter clarity before I can tell my board this deal is truly capped."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "SNB—before 2000 when you're live on the deposit floor, what's the *actual* loss number on that CHF 16B loan book under your stress haircut? My clients need to know if that collateral is holding or if the floor is sitting on air. One number, not a range.",
+            "cot": {
+              "assess": "Market confidence is still critically low at 19 (need 55 for success), and CS funding stress is at 89—dangerously close to the 92 failure threshold. The 2000 announcement with CHF 500k deposit floor and SNB settlement commitment are locked in, which is progress. But I'm hearing operational details (haircut finalization, settlement protocols, loss numbers on the loan book) being discussed in parallel—and if depositors see *any* daylight between \"we announced protection\" and \"we can actually deliver it Monday,\" the run accelerates regardless of the CHF 500k floor. The rescue strength and public sector cost are still climbing because nobody has quantified what UBS actually absorbs versus what SNB/taxpayers hold. That ambiguity is bleeding confidence.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb, finma",
+                "rationale": "The deposit floor announcement at 2000 only works if depositors believe Monday execution is certain—I need the one number that makes or breaks that belief: realized loss on the CHF 16B loan book under SNB's stress haircut, so I can tell my clients whether their CHF 500k floor is actually sitting on stable collateral or a shrinking asset base."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Listen—AT1 to zero is written into the ordinance going live tonight. No conversion option, no residual claim, no court challenge that survives Monday. I'm saying that publicly at 2000 because if creditors think there's daylight between the announcement and the actual loss, they sue and we're litigating *while* the backstop runs. It's done.",
+            "cot": {
+              "assess": "AT1 write-down is locked, deposit floor is announced tonight at 2000, SNB collateral haircut is finalized by 2200—the *structure* is solid. But creditor_capital_risk is still rising (now 27, +2.5/round) because the market doesn't yet understand that AT1 going to zero is *final*, not subject to Monday negotiation or court challenge. The ordinance language is locked, but creditors need to hear from *you* that there's no residual value, no conversion path, no appeal—this is the only legal defensible outcome under the Banking Act. That kills the risk premium before the run accelerates Monday.",
+              "decide": {
+                "action_type": "speak",
+                "target": "creditor_capital_risk",
+                "rationale": "AT1 write-down is decided but not yet *credible* to the market; creditors will test whether it's reversible if litigation pressure mounts Monday. One clear, public statement from me tonight kills that wiggle room and drops the risk premium."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Listen—AT1 to zero is written into the ordinance going live tonight. No conversion option, no residual claim, no court challenge that survives Monday. I'm saying that publicly at 2000 because if creditors think there's daylight between the announcement and the actual loss, they sue and we're litigating *while* the backstop runs. It's done.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Federal Council—the 2000 statement is the market-facing moment. Are the deposit floor guarantee and the AT1 write-down clause already *signed* and in hand tonight, or are you announcing a framework pending Saturday finalization? Because if depositors hear \"protected subject to ordinance review,\" they run Monday regardless.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council's 2000 statement locks the deposit floor—good. But I need to confirm one thing internally before market open: our collateral haircut on the CS loan book is locked by 0600 Saturday, and settlement queue protocols are tested tonight, not improvised Monday. If there's any operational friction, depositors see it as a delay and the run accelerates. We need zero daylight between the announcement and execution.",
+      "metadata": {
+        "question_target": "snb (myself—internal decision)"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "SNB—before we announce the deposit floor tonight, I need you to confirm: the collateral haircut on the CS loan book is finalized by 2200 tonight, not Saturday morning, and your settlement protocols are tested and staffed by Monday 0800. Any operational slip between announcement and Monday execution becomes a credibility crater. What's locked, what's still being finalized?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "SNB—when you lock the haircut by 2200, I need one number: what's the realized loss on the CHF 16B Swiss loan book under your stress scenario, and what sits *outside* that perimeter that UBS doesn't absorb? FINMA, same question on liabilities—what legacy claims, pensions, or contingencies stay with the rump entity?",
+      "metadata": {
+        "question_target": "snb, finma"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "SNB—what's the realized loss number on that CHF 16B loan book under your three scenarios? And FINMA, which legacy liabilities—pensions, litigation, contingent claims—stay in the rump or get absorbed by UBS? If those numbers aren't public by 2000, the deposit floor announcement looks like it's hiding something. I need exact figures, not ranges.",
+      "metadata": {
+        "question_target": "SNB / FINMA (on asset coverage and loss allocation)"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "SNB—before 2000 when you're live on the deposit floor, what's the *actual* loss number on that CHF 16B loan book under your stress haircut? My clients need to know if that collateral is holding or if the floor is sitting on air. One number, not a range.",
+      "metadata": {
+        "question_target": "snb, finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.238499999999999
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 5.6000000000000005
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure cs_funding_stress multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: SNB—you said the haircut locks by 2200 and settlement is dry-run complete. I need one thing before Federal Council goes live at 2000: have you *already* tested the Monday withdrawal queue with real names and real account balances, or are you testing it *after* the announcement? Because if depositors see any hesitation on execution Monday morning, the floor collapses in three hours.\n  snb: Dry-run is complete as of 1845—real account sample, real settlement protocols, Monday queue tested and staffed. Haircut locks 2200 tonight, no revisions Saturday. We execute same-day settlement Monday or the backstop fails; that commitment is locked.\n  snb: FINMA, before 2000 announcement goes live, I need you to publish the stress-tested loss number on that CHF 16B book — not a range, one figure. Depositors and creditors need to see we're not hiding deterioration. What's the number you're putting in the ordinance language?\n  finma: The stress loss on the CHF 16B book is CHF 16.2 billion under our working scenario—that's the figure going into the ordinance tonight, and it's locked. SNB's collateral haircut absorbs that; UBS takes the loan book clean at that valuation, and any legacy liabilities—pensions, litigation, contingencies—stay in the rump entity under Federal Council protection. That's the number depositors see at 2000.\n  federal_council: FINMA—you just said legacy liabilities stay in the rump under Federal Council protection. That's open-ended. Before I go live at 2000, I need you to give me a *capped* number: what's the maximum pension, litigation, and contingent-claim exposure sitting in that entity, and what's the Federal Council's actual liability ceiling? I won't announce a floor without knowing the hole behind it.\n  cs_ceo: Federal Council, I'm calling my board in the next hour to lock acceptance—but I won't ask them to vote on a deal where the rump liability ceiling is still being negotiated. You need to give FINMA a hard cap on legacy claims by 1930, publish it at 2000, and tell depositors and creditors exactly what stays behind. If that number isn't final before we announce, everyone assumes it's worse than stated, and the floor you're protecting evaporates anyway.\n  federal_council: We're capping rump entity legacy liabilities—pensions, litigation, contingencies—at CHF 16 billion absolute maximum, Federal Council absorbs anything beyond that. That number goes in the ordinance text at 2000 tonight, locked, no revision Saturday. Non-negotiable: if the cap isn't public before announcement, we're telling the market we're hiding something, and the deposit floor dies anyway.\n  ubs_ceo: Federal Council, FINMA—I'm ready to sign a binding letter of intent tonight committing UBS to acquire CS's deposits and operating entity, absorb the CHF 16B loan book at the published loss figure, and accept SNB's Article 36 backstop capped at CHF 100B. One condition: SNB's collateral haircut and the rump liability cap are *locked and published* by 2000 with zero revision risk Saturday or Sunday. If those numbers move after we announce, depositors run and the backstop fails anyway—so lock them now or I walk.\n  wealth_client: Federal Council—before you go live at 2000, I need one sentence in writing: the CHF 500k deposit floor, the CHF 16.2B loss figure, and the CHF 16B rump cap are all *final and binding*, not subject to ordinance revision Saturday or Sunday court challenge. My clients move their assets tonight unless they see that confirmation in the announcement itself. What's the exact language at 2000?\n  at1_rep: Federal Council—before 2000 goes live, I need FINMA to publish the *ordinance language* on AT1 treatment, not just the summary. One sentence: \"Tier 1 capital instruments are written down to zero value, holders retain no residual claim, and any challenge to this write-down after Monday 0800 is barred under Article 36 emergency provisions.\" That language in the 2000 statement stops litigation cold; without it, creditors sue and we're in court while the backstop runs.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "SNB—you said the haircut locks by 2200 and settlement is dry-run complete. I need one thing before Federal Council goes live at 2000: have you *already* tested the Monday withdrawal queue with real names and real account balances, or are you testing it *after* the announcement? Because if depositors see any hesitation on execution Monday morning, the floor collapses in three hours.",
+            "cot": {
+              "assess": "We're at Round 5 of 5 — final round before Monday market open. Market confidence is critically low (15, needs 55), cs_funding_stress is in failure territory (95, already breached 92 threshold). The deposit floor, AT1 write-down, and SNB backstop are locked in principle, but execution credibility is the only variable left that matters. The three neglected variables (creditor_capital_risk, public_sector_cost, rescue_strength) are secondary to whether depositors and counterparties actually *believe* the rescue works Monday morning — and that hinges on whether FINMA and SNB can demonstrate operationally that the collateral haircut and settlement protocols are *live tonight*, not theoretical.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "SNB's collateral haircut and settlement dry-run are the last operational gates before 2000 announcement; if there's any slippage or ambiguity in execution readiness, depositors will sense hesitation and the run accelerates regardless of the CHF 500k floor."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Dry-run is complete as of 1845—real account sample, real settlement protocols, Monday queue tested and staffed. Haircut locks 2200 tonight, no revisions Saturday. We execute same-day settlement Monday or the backstop fails; that commitment is locked.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "FINMA, before 2000 announcement goes live, I need you to publish the stress-tested loss number on that CHF 16B book — not a range, one figure. Depositors and creditors need to see we're not hiding deterioration. What's the number you're putting in the ordinance language?",
+            "cot": {
+              "assess": "cs_funding_stress is 95 — we're in failure territory and need immediate action. The deposit floor announcement at 2000 and my settlement commitment lock the liquidity pathway, but I haven't yet addressed the *collateral quality* concern that's driving both creditor and client anxiety. Creditor_capital_risk and rescue_strength remain weak because the market doesn't yet know what losses we're actually absorbing on the loan book. That ambiguity is bleeding confidence faster than the backstop can restore it.",
+              "decide": {
+                "action_type": "question",
+                "target": "FINMA",
+                "rationale": "Collateral haircut is locked by 2200 tonight — I need FINMA to confirm the realized loss number *publicly* by 2000 announcement so wealth clients and creditors see the actual perimeter, not a black box. That kills the speculation driving the funding stress."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The stress loss on the CHF 16B book is CHF 16.2 billion under our working scenario—that's the figure going into the ordinance tonight, and it's locked. SNB's collateral haircut absorbs that; UBS takes the loan book clean at that valuation, and any legacy liabilities—pensions, litigation, contingencies—stay in the rump entity under Federal Council protection. That's the number depositors see at 2000.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "FINMA—you just said legacy liabilities stay in the rump under Federal Council protection. That's open-ended. Before I go live at 2000, I need you to give me a *capped* number: what's the maximum pension, litigation, and contingent-claim exposure sitting in that entity, and what's the Federal Council's actual liability ceiling? I won't announce a floor without knowing the hole behind it.",
+            "cot": {
+              "assess": "The rescue architecture is locked—deposit floor, AT1 write-down, SNB backstop, ordinance language all confirmed by 2200 tonight. The dry-run is done, haircut is fixed, and settlement protocols are staffed. But we've got a critical gap: **public_sector_cost is still climbing** (now 9, +1/round), and we have zero cap on legacy liabilities sitting in the rump entity. FINMA just said pensions, litigation, contingencies \"stay in the rump under Federal Council protection\"—that's an open-ended taxpayer exposure we never quantified. We're announcing the floor in 20 minutes without knowing how much tail risk the public sector is actually holding.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Federal Council needs a hard ceiling on rump liabilities before the 2000 statement goes live—otherwise we're committing to an unknown loss that will crater public confidence the moment it surfaces post-rescue."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, I'm calling my board in the next hour to lock acceptance—but I won't ask them to vote on a deal where the rump liability ceiling is still being negotiated. You need to give FINMA a hard cap on legacy claims by 1930, publish it at 2000, and tell depositors and creditors exactly what stays behind. If that number isn't final before we announce, everyone assumes it's worse than stated, and the floor you're protecting evaporates anyway.",
+            "cot": {
+              "assess": "Market confidence is critically low (15, down from baseline), and cs_funding_stress is already in failure territory (95). The deposit floor announcement at 2000 and SNB's settlement commitment are locked. The core issue now is Federal Council's exposure ceiling on rump liabilities—they're asking FINMA for a capped number before going live, and that's the blocking point. Rescue strength and cost transparency are still underspecified, which is feeding creditor and depositor uncertainty.",
+              "decide": {
+                "action_type": "speak",
+                "target": "Federal Council (and implicitly, the room on cs_funding_stress and creditor_capital_risk)",
+                "rationale": "CS CEO must anchor the deal's credibility by confirming board acceptance hinges on rump liability cap being PUBLIC and FINAL before 2000 announcement—anything less signals hidden losses and triggers the run I'm trying to stop."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We're capping rump entity legacy liabilities—pensions, litigation, contingencies—at CHF 16 billion absolute maximum, Federal Council absorbs anything beyond that. That number goes in the ordinance text at 2000 tonight, locked, no revision Saturday. Non-negotiable: if the cap isn't public before announcement, we're telling the market we're hiding something, and the deposit floor dies anyway.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council, FINMA—I'm ready to sign a binding letter of intent tonight committing UBS to acquire CS's deposits and operating entity, absorb the CHF 16B loan book at the published loss figure, and accept SNB's Article 36 backstop capped at CHF 100B. One condition: SNB's collateral haircut and the rump liability cap are *locked and published* by 2000 with zero revision risk Saturday or Sunday. If those numbers move after we announce, depositors run and the backstop fails anyway—so lock them now or I walk.",
+            "cot": {
+              "assess": "Federal Council just locked the rump liability cap at CHF 16B—that's the last structural piece. The deposit floor (CHF 500k), AT1 write-down (zero), SNB settlement (same-day Monday), and loss numbers (CHF 16.2B) are all public by 2000 tonight. What's unresolved: *UBS still hasn't confirmed it will actually absorb CS at these terms*. The announcement goes live in 90 minutes, but I haven't signed on. cs_funding_stress is still at 95 (failure zone); the only way that moves is if *I* visibly commit.",
+              "decide": {
+                "action_type": "propose",
+                "target": "rescue_strength (via UBS commitment)",
+                "rationale": "The rescue framework is complete but worthless without the acquirer's signature. I need to lock UBS's binding acceptance now—before 2000—so the announcement has teeth and the market sees a done deal, not a framework awaiting due diligence."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council—before you go live at 2000, I need one sentence in writing: the CHF 500k deposit floor, the CHF 16.2B loss figure, and the CHF 16B rump cap are all *final and binding*, not subject to ordinance revision Saturday or Sunday court challenge. My clients move their assets tonight unless they see that confirmation in the announcement itself. What's the exact language at 2000?",
+            "cot": {
+              "assess": "Market confidence is critically low (15, needs 55), but the last round locked the three things I demanded: deposit floor CHF 500k, loss numbers published by 2000, and rump liability cap at CHF 16B. SNB's settlement commitment is real. The only variable still unresolved that matters to me is whether those numbers actually stay locked through announcement or slip Saturday—which would trigger my immediate asset withdrawal. Rescue strength and creditor risk are secondary to me; I need proof the floor holds.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence (my core variable)",
+                "rationale": "The numbers are locked but not yet public; I need explicit confirmation that Federal Council's 2000 announcement includes the exact loss and liability figures, and that I can tell my clients they're binding—not subject to revision or legal challenge Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—before 2000 goes live, I need FINMA to publish the *ordinance language* on AT1 treatment, not just the summary. One sentence: \"Tier 1 capital instruments are written down to zero value, holders retain no residual claim, and any challenge to this write-down after Monday 0800 is barred under Article 36 emergency provisions.\" That language in the 2000 statement stops litigation cold; without it, creditors sue and we're in court while the backstop runs.",
+            "cot": {
+              "assess": "The deposit floor, loss figures, and rump caps are now locked and published by 2000—that's done. AT1 write-down to zero is written into the ordinance. But creditor_capital_risk is still at 27 and climbing (+2.5/round) because the market hasn't seen the *ordinance language itself* confirming AT1 holders have zero recovery rights and no legal grounds to challenge Monday's execution. The announcement is good; the legal lock is what stops litigation. Right now creditors are looking at press releases, not statute.",
+              "decide": {
+                "action_type": "speak",
+                "target": "creditor_capital_risk",
+                "rationale": "AT1 holders need to see the ordinance text tonight—not Saturday—to understand their position is legally final. If they wake Monday to *news* of write-down, they sue regardless of the backstop."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Federal Council, I'm calling my board in the next hour to lock acceptance—but I won't ask them to vote on a deal where the rump liability ceiling is still being negotiated. You need to give FINMA a hard cap on legacy claims by 1930, publish it at 2000, and tell depositors and creditors exactly what stays behind. If that number isn't final before we announce, everyone assumes it's worse than stated, and the floor you're protecting evaporates anyway.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council—before you go live at 2000, I need one sentence in writing: the CHF 500k deposit floor, the CHF 16.2B loss figure, and the CHF 16B rump cap are all *final and binding*, not subject to ordinance revision Saturday or Sunday court challenge. My clients move their assets tonight unless they see that confirmation in the announcement itself. What's the exact language at 2000?",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—before 2000 goes live, I need FINMA to publish the *ordinance language* on AT1 treatment, not just the summary. One sentence: \"Tier 1 capital instruments are written down to zero value, holders retain no residual claim, and any challenge to this write-down after Monday 0800 is barred under Article 36 emergency provisions.\" That language in the 2000 statement stops litigation cold; without it, creditors sue and we're in court while the backstop runs.",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "SNB—you said the haircut locks by 2200 and settlement is dry-run complete. I need one thing before Federal Council goes live at 2000: have you *already* tested the Monday withdrawal queue with real names and real account balances, or are you testing it *after* the announcement? Because if depositors see any hesitation on execution Monday morning, the floor collapses in three hours.",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "FINMA, before 2000 announcement goes live, I need you to publish the stress-tested loss number on that CHF 16B book — not a range, one figure. Depositors and creditors need to see we're not hiding deterioration. What's the number you're putting in the ordinance language?",
+      "metadata": {
+        "question_target": "FINMA"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "FINMA—you just said legacy liabilities stay in the rump under Federal Council protection. That's open-ended. Before I go live at 2000, I need you to give me a *capped* number: what's the maximum pension, litigation, and contingent-claim exposure sitting in that entity, and what's the Federal Council's actual liability ceiling? I won't announce a floor without knowing the hole behind it.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Federal Council, FINMA—I'm ready to sign a binding letter of intent tonight committing UBS to acquire CS's deposits and operating entity, absorb the C\" → UBS CEO's binding commitment is contingent on five separate confirmations from other agents, none of which have been delivered this round. The proposal creates a circular dependency: UBS demands locked terms before signing, but those terms require UBS's signature to finalize. Denied as premature—agents must first deliver the requested confirmations, then UBS can commit.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 5,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 14.523000000000003,
+          "cs_funding_stress": 94.69999999999999,
+          "rescue_strength": 16.0,
+          "public_sector_cost": 9.0,
+          "creditor_capital_risk": 27.0,
+          "legal_defensibility": 52.0,
+          "time_pressure": 84.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "intent": "I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no open-ended loss guarantee. That protects the taxpayer and gives you the legal cover to announce Sunday. What's the asset perimeter number we're protecting?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The Federal Council's conditional commitment is premature—FINMA has not yet defined the asset perimeter or backstop amount. No concrete number exists to cap or sign. The Council must wait for FINMA's technical specification before formalizing any guarantee.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "intent": "Before we discuss any merger or liquidity support, I need SNB and the Federal Council aligned on the legal instrument. Are we moving under the Banking Act emergency powers, or do we need a Federal Council ordinance? That choice shapes everything—who bears loss, what creditor hierarchy survives, whether we can announce it Monday morning with confidence.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA demands legal framework clarity before structure discussion—valid procedural gate.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "Framework clarity reduces legal ambiguity.",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Procedural gate delays substantive progress.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Regulatory burden of framework decision.",
+          "agent_id": "finma"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "FINMA, what's the structure on the table? If it's SNB liquidity backstop plus a capital injection from third parties, I can operationalize Article 36 by Sunday evening. But if we're writing down AT1 or reshaping the creditor hierarchy, Federal Council needs to have the ordinance language ready to sign Saturday—I won't announce Monday morning without that locked.",
+        "federal_council": "I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no open-ended loss guarantee. That protects the taxpayer and gives you the legal cover to announce Sunday. What's the asset perimeter number we're protecting?",
+        "cs_ceo": "I need the liquidity backstop number and the asset perimeter cap before I can credibly take this to my board Sunday night. What's SNB prepared to guarantee, and which assets are off the table? Without that, I'm announcing a rescue no one can believe in yet.",
+        "ubs_ceo": "Federal Council, I need the exact number—how much liquidity is SNB backstopping, and what's the asset perimeter cap you're comfortable guaranteeing? Once I have that, UBS can move. But I won't take this to my board without a floor and a ceiling in writing.",
+        "wealth_client": "Before I stay, I need this in writing: my deposits and accessible assets are protected up to what amount, and under what condition do I get liquidity if this deal stalls? A CHF 100B backstop doesn't mean much to me if it's frozen in legal limbo on Monday morning. What's the floor?",
+        "at1_rep": "FINMA, under this structure—UBS acquisition, SNB backstop on the Swiss book—where do AT1 instruments sit? Are they written down, absorbed into UBS, or held harmless? Because if creditors think we're bailing out deposits while their capital takes the hit, confidence doesn't recover Monday—it craters further."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "I need the liquidity backstop number and the asset perimeter cap before I can credibly take this to my board Sunday night. What's SNB prepared to guarantee, and which assets are off the table? Without that, I'm announcing a rescue no one can believe in yet.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO demands backstop quantum and perimeter—legitimate negotiation position before board commitment.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Defines parameters needed for credible package.",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 2.0,
+          "reason": "Negotiation extends timeline toward Monday open.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "CEO under extreme pressure with board deadline.",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before we discuss any merger or liquidity support, I need SNB and the Federal Council aligned on the legal instrument. Are we moving under the Banking Act emergency powers, or do we need a Federal Council ordinance? That choice shapes everything—who bears loss, what creditor hierarchy survives, whether we can announce it Monday morning with confidence.",
+        "snb": "FINMA, what's the structure on the table? If it's SNB liquidity backstop plus a capital injection from third parties, I can operationalize Article 36 by Sunday evening. But if we're writing down AT1 or reshaping the creditor hierarchy, Federal Council needs to have the ordinance language ready to sign Saturday—I won't announce Monday morning without that locked.",
+        "federal_council": "I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no open-ended loss guarantee. That protects the taxpayer and gives you the legal cover to announce Sunday. What's the asset perimeter number we're protecting?",
+        "ubs_ceo": "Federal Council, I need the exact number—how much liquidity is SNB backstopping, and what's the asset perimeter cap you're comfortable guaranteeing? Once I have that, UBS can move. But I won't take this to my board without a floor and a ceiling in writing.",
+        "wealth_client": "Before I stay, I need this in writing: my deposits and accessible assets are protected up to what amount, and under what condition do I get liquidity if this deal stalls? A CHF 100B backstop doesn't mean much to me if it's frozen in legal limbo on Monday morning. What's the floor?",
+        "at1_rep": "FINMA, under this structure—UBS acquisition, SNB backstop on the Swiss book—where do AT1 instruments sit? Are they written down, absorbed into UBS, or held harmless? Because if creditors think we're bailing out deposits while their capital takes the hit, confidence doesn't recover Monday—it craters further."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "intent": "Before I stay, I need this in writing: my deposits and accessible assets are protected up to what amount, and under what condition do I get liquidity if this deal stalls? A CHF 100B backstop doesn't mean much to me if it's frozen in legal limbo on Monday morning. What's the floor?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wealth client demands written protection floor—reflects real client flight risk driving the crisis.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": 3.0,
+          "reason": "Public demand signals continued client uncertainty.",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -2.0,
+          "reason": "Client doubt visible to other stakeholders.",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "Deposit protection may subordinate other creditors.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "Client fear of capital loss.",
+          "agent_id": "wealth_client"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Before we discuss any merger or liquidity support, I need SNB and the Federal Council aligned on the legal instrument. Are we moving under the Banking Act emergency powers, or do we need a Federal Council ordinance? That choice shapes everything—who bears loss, what creditor hierarchy survives, whether we can announce it Monday morning with confidence.",
+        "snb": "FINMA, what's the structure on the table? If it's SNB liquidity backstop plus a capital injection from third parties, I can operationalize Article 36 by Sunday evening. But if we're writing down AT1 or reshaping the creditor hierarchy, Federal Council needs to have the ordinance language ready to sign Saturday—I won't announce Monday morning without that locked.",
+        "federal_council": "I'm ready to sign the written confirmation Saturday morning—but it's capped at the liquidity backstop on the defined perimeter FINMA specified, no open-ended loss guarantee. That protects the taxpayer and gives you the legal cover to announce Sunday. What's the asset perimeter number we're protecting?",
+        "cs_ceo": "I need the liquidity backstop number and the asset perimeter cap before I can credibly take this to my board Sunday night. What's SNB prepared to guarantee, and which assets are off the table? Without that, I'm announcing a rescue no one can believe in yet.",
+        "ubs_ceo": "Federal Council, I need the exact number—how much liquidity is SNB backstopping, and what's the asset perimeter cap you're comfortable guaranteeing? Once I have that, UBS can move. But I won't take this to my board without a floor and a ceiling in writing.",
+        "at1_rep": "FINMA, under this structure—UBS acquisition, SNB backstop on the Swiss book—where do AT1 instruments sit? Are they written down, absorbed into UBS, or held harmless? Because if creditors think we're bailing out deposits while their capital takes the hit, confidence doesn't recover Monday—it craters further."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "intent": "I'm activating the liquidity backstop effective tonight—SNB will accept CS's Swiss loan book as collateral at a haircut we'll specify by 0600 tomorrow. That's CHF 100B available, but it flows only against documented deposit redemption requests. FINMA, Federal Council—I'm doing this under Article 36 authority. We don't have time to wait for Saturday signatures if the bank is bleeding out Friday night.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "SNB activates CHF 100B liquidity backstop under Article 36 emergency authority, accepting CS loan book as collateral—a decisive unilateral move that provides immediate funding capacity but exposes the public sector to massive contingent risk and bypasses normal governance.",
+      "side_effects": [
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "CHF 100B backstop provides immediate liquidity capacity against documented redemptions, materially easing funding pressure tonight",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Unilateral central bank action demonstrates decisive public commitment and creates credible funding floor",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "SNB now exposed to CHF 100B collateralized lending against CS loan book—significant contingent taxpayer risk",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Central bank backstop signals authorities will not allow CS to fail over the weekend, stabilizing client sentiment",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -4.0,
+          "reason": "Unilateral Article 36 invocation without Federal Council or FINMA coordination creates governance and procedural risk",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -3.0,
+          "reason": "Immediate activation buys breathing room for weekend negotiations, though Monday deadline remains",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.6
+      },
+      "classification": "action"
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "intent": "SNB moving on Article 36 is right—but we need the ordinance ready by Saturday morning spelling out AT1 write-down in black and white. Otherwise we're explaining losses to clients *after* the deal, and that's when litigation and contagion spike. FINMA, can you draft the Banking Act language by 6am, or do we need to go to the full Federal Council tonight to pre-authorize it?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council demands ordinance draft by 0600 Saturday, AT1 treatment explicit, pre-authorization deferred pending FINMA language.",
+      "side_effects": [
+        {
+          "variable": "legal_defensibility",
+          "delta": 4.0,
+          "reason": "Ordinance framework initiated, legal clarity path established",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Saturday morning deadline adds urgency, no immediate resolution",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 2.0,
+          "reason": "Regulatory framework advancing, but not yet locked",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -2.0,
+          "reason": "Delay to Saturday morning leaves Friday night uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Coordination pressure across multiple agencies overnight",
+          "agent_id": "federal_council"
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Drafting deadline 0600 with legal complexity",
+          "agent_id": "finma",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "time_pressure",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "AT1 holders—are they written down as part of this acquisition, or does UBS absorb them at par? I need a one-sentence answer because if it's ambiguous Monday morning, deposits evaporate faster than the backstop can work. What's the call?",
+        "snb": "I'm activating the liquidity backstop effective tonight—SNB will accept CS's Swiss loan book as collateral at a haircut we'll specify by 0600 tomorrow. That's CHF 100B available, but it flows only against documented deposit redemption requests. FINMA, Federal Council—I'm doing this under Article 36 authority. We don't have time to wait for Saturday signatures if the bank is bleeding out Friday night.",
+        "cs_ceo": "Federal Council—I need your pre-authorization on the emergency ordinance *tonight*, not Saturday morning review. FINMA drafts it by 0600, you sign it by 0700, and we publish the asset perimeter and AT1 treatment to depositors by 0800. Without that Friday-night lock, Monday opens with zero clarity, and we're announcing losses *after* clients have already fled. What's blocking the pre-auth decision right now?",
+        "ubs_ceo": "Federal Council, the ordinance and SNB backstop are necessary, but they're not public yet. When do you announce this deal—tonight, Saturday morning, or wait until Sunday? Because if depositors wake up Monday to *news* instead of a done package, we don't have enough liquidity to cover the run. What's your comms strategy?",
+        "wealth_client": "Stop. You're locking the ordinance Saturday but my clients need to know *tonight* whether their deposits are covered. I'm not waiting for the fine print—I need Federal Council to sign a one-page guarantee: deposits up to CHF 500k fully protected, accessible within 48 hours if the deal stalls. You can refine the ordinance Saturday, but that floor has to be public by 2000 hours today or I'm moving CHF 15 billion by midnight. What's the hold?",
+        "at1_rep": "Federal Council, wealth client is correct—you can refine the ordinance Saturday, but if depositors don't see a floor in writing by tonight, SNB's CHF 100B evaporates before the backstop even activates. Can you sign a one-page guarantee on deposits up to CHF 500k by 2000 hours, or do we need to tell them the answer is \"no\"?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "intent": "Federal Council—I need your pre-authorization on the emergency ordinance *tonight*, not Saturday morning review. FINMA drafts it by 0600, you sign it by 0700, and we publish the asset perimeter and AT1 treatment to depositors by 0800. Without that Friday-night lock, Monday opens with zero clarity, and we're announcing losses *after* clients have already fled. What's blocking the pre-auth decision right now?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: Federal Council already addressed ordinance timeline in Proposal 1, same request redundant this round.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "AT1 holders—are they written down as part of this acquisition, or does UBS absorb them at par? I need a one-sentence answer because if it's ambiguous Monday morning, deposits evaporate faster than the backstop can work. What's the call?",
+        "snb": "I'm activating the liquidity backstop effective tonight—SNB will accept CS's Swiss loan book as collateral at a haircut we'll specify by 0600 tomorrow. That's CHF 100B available, but it flows only against documented deposit redemption requests. FINMA, Federal Council—I'm doing this under Article 36 authority. We don't have time to wait for Saturday signatures if the bank is bleeding out Friday night.",
+        "federal_council": "SNB moving on Article 36 is right—but we need the ordinance ready by Saturday morning spelling out AT1 write-down in black and white. Otherwise we're explaining losses to clients *after* the deal, and that's when litigation and contagion spike. FINMA, can you draft the Banking Act language by 6am, or do we need to go to the full Federal Council tonight to pre-authorize it?",
+        "ubs_ceo": "Federal Council, the ordinance and SNB backstop are necessary, but they're not public yet. When do you announce this deal—tonight, Saturday morning, or wait until Sunday? Because if depositors wake up Monday to *news* instead of a done package, we don't have enough liquidity to cover the run. What's your comms strategy?",
+        "wealth_client": "Stop. You're locking the ordinance Saturday but my clients need to know *tonight* whether their deposits are covered. I'm not waiting for the fine print—I need Federal Council to sign a one-page guarantee: deposits up to CHF 500k fully protected, accessible within 48 hours if the deal stalls. You can refine the ordinance Saturday, but that floor has to be public by 2000 hours today or I'm moving CHF 15 billion by midnight. What's the hold?",
+        "at1_rep": "Federal Council, wealth client is correct—you can refine the ordinance Saturday, but if depositors don't see a floor in writing by tonight, SNB's CHF 100B evaporates before the backstop even activates. Can you sign a one-page guarantee on deposits up to CHF 500k by 2000 hours, or do we need to tell them the answer is \"no\"?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "intent": "Federal Council, the 2000 announcement and SNB settlement commitment are solid—deposits are protected, liquidity flows Monday. I'm calling my board in thirty minutes to confirm acceptance of the AT1 write-down and the SNB backstop structure. Once they sign off, we're ready for UBS to execute Sunday. But I need confirmation from you tonight: is the ordinance language locked on AT1 treatment, or are you still negotiating that with Parliament? Because if there's daylight between what I announce to my board and what the ordinance says Saturday, we're back in the crisis.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CS CEO confirms board call to accept AT1 write-down and SNB backstop, contingent on ordinance finality.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 4.0,
+          "reason": "Board acceptance signals deal momentum",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3.0,
+          "reason": "Contingency exposes ordinance uncertainty risk",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "Board call scheduled reduces execution lag",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes board call imminent",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Federal Council: you've got the ordinance locked for 0600 Saturday, but if depositors don't hear from *you* tonight that their deposits are safe under this deal, the run accelerates regardless. What's the public announcement—tonight at 2000, or are we waiting until morning? Because silence until Saturday burns liquidity we can't spare.",
+        "snb": "Federal Council—your 2000 announcement needs one operational detail: when depositors call Monday, can SNB settle withdrawal requests same-day against the backstop, or is there a lag? If there's any delay, the floor you're announcing tonight collapses by 0900 Monday. What's the settlement commitment?",
+        "federal_council": "SNB—I'm announcing the CHF 500k floor tonight at 2000, but I need you to commit: same-day settlement on withdrawal requests Monday against the backstop, or we're sunk before 1000. Can you do that?",
+        "ubs_ceo": "Federal Council, FINMA—before CS calls their board, I need you to confirm in writing tonight: AT1 instruments are written down to zero, *no residual value*, *no conversion option*. If that language is in the ordinance draft by 2200 and you commit it's final, UBS can execute Sunday. But if it's still soft Saturday morning, I'm not inheriting that litigation risk. Can you lock it now or not?",
+        "wealth_client": "Federal Council—you're announcing the CHF 500k floor at 2000, but where's the one-page written guarantee? I need to see it by 1900 to confirm it's actually in my clients' hands before market rumors hit. Is that document drafted and signed, or are we announcing without the paper?",
+        "at1_rep": "Federal Council, before 2200 when FINMA sends the ordinance—do you have Parliament locked on AT1 write-down to zero, or is there political wiggle room on that number? Because if you announce the floor tonight but let AT1 treatment soften Saturday, creditors sue and we're in court *while* the rescue is running."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "intent": "Federal Council, FINMA—before CS calls their board, I need you to confirm in writing tonight: AT1 instruments are written down to zero, *no residual value*, *no conversion option*. If that language is in the ordinance draft by 2200 and you commit it's final, UBS can execute Sunday. But if it's still soft Saturday morning, I'm not inheriting that litigation risk. Can you lock it now or not?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS CEO demands written AT1 zero-value confirmation tonight to proceed Sunday; execution now contingent on ordinance lock.",
+      "side_effects": [
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 5.0,
+          "reason": "Explicit AT1 zero-value demand escalates creditor exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "UBS Sunday execution commitment strengthens deal path",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -4.0,
+          "reason": "Written AT1 commitment before ordinance raises legal challenge surface",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Tonight deadline compresses decision window further",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Litigation risk exposure on AT1 decision",
+          "agent_id": "ubs_ceo"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Federal Council: you've got the ordinance locked for 0600 Saturday, but if depositors don't hear from *you* tonight that their deposits are safe under this deal, the run accelerates regardless. What's the public announcement—tonight at 2000, or are we waiting until morning? Because silence until Saturday burns liquidity we can't spare.",
+        "snb": "Federal Council—your 2000 announcement needs one operational detail: when depositors call Monday, can SNB settle withdrawal requests same-day against the backstop, or is there a lag? If there's any delay, the floor you're announcing tonight collapses by 0900 Monday. What's the settlement commitment?",
+        "federal_council": "SNB—I'm announcing the CHF 500k floor tonight at 2000, but I need you to commit: same-day settlement on withdrawal requests Monday against the backstop, or we're sunk before 1000. Can you do that?",
+        "cs_ceo": "Federal Council, the 2000 announcement and SNB settlement commitment are solid—deposits are protected, liquidity flows Monday. I'm calling my board in thirty minutes to confirm acceptance of the AT1 write-down and the SNB backstop structure. Once they sign off, we're ready for UBS to execute Sunday. But I need confirmation from you tonight: is the ordinance language locked on AT1 treatment, or are you still negotiating that with Parliament? Because if there's daylight between what I announce to my board and what the ordinance says Saturday, we're back in the crisis.",
+        "wealth_client": "Federal Council—you're announcing the CHF 500k floor at 2000, but where's the one-page written guarantee? I need to see it by 1900 to confirm it's actually in my clients' hands before market rumors hit. Is that document drafted and signed, or are we announcing without the paper?",
+        "at1_rep": "Federal Council, before 2200 when FINMA sends the ordinance—do you have Parliament locked on AT1 write-down to zero, or is there political wiggle room on that number? Because if you announce the floor tonight but let AT1 treatment soften Saturday, creditors sue and we're in court *while* the rescue is running."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ubs_ceo",
+      "intent": "Federal Council, FINMA—I'm ready to sign a binding letter of intent tonight committing UBS to acquire CS's deposits and operating entity, absorb the CHF 16B loan book at the published loss figure, and accept SNB's Article 36 backstop capped at CHF 100B. One condition: SNB's collateral haircut and the rump liability cap are *locked and published* by 2000 with zero revision risk Saturday or Sunday. If those numbers move after we announce, depositors run and the backstop fails anyway—so lock them now or I walk.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "UBS CEO's binding commitment is contingent on five separate confirmations from other agents, none of which have been delivered this round. The proposal creates a circular dependency: UBS demands locked terms before signing, but those terms require UBS's signature to finalize. Denied as premature—agents must first deliver the requested confirmations, then UBS can commit.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "SNB—you said the haircut locks by 2200 and settlement is dry-run complete. I need one thing before Federal Council goes live at 2000: have you *already* tested the Monday withdrawal queue with real names and real account balances, or are you testing it *after* the announcement? Because if depositors see any hesitation on execution Monday morning, the floor collapses in three hours.",
+        "snb": "FINMA, before 2000 announcement goes live, I need you to publish the stress-tested loss number on that CHF 16B book — not a range, one figure. Depositors and creditors need to see we're not hiding deterioration. What's the number you're putting in the ordinance language?",
+        "federal_council": "FINMA—you just said legacy liabilities stay in the rump under Federal Council protection. That's open-ended. Before I go live at 2000, I need you to give me a *capped* number: what's the maximum pension, litigation, and contingent-claim exposure sitting in that entity, and what's the Federal Council's actual liability ceiling? I won't announce a floor without knowing the hole behind it.",
+        "cs_ceo": "Federal Council, I'm calling my board in the next hour to lock acceptance—but I won't ask them to vote on a deal where the rump liability ceiling is still being negotiated. You need to give FINMA a hard cap on legacy claims by 1930, publish it at 2000, and tell depositors and creditors exactly what stays behind. If that number isn't final before we announce, everyone assumes it's worse than stated, and the floor you're protecting evaporates anyway.",
+        "wealth_client": "Federal Council—before you go live at 2000, I need one sentence in writing: the CHF 500k deposit floor, the CHF 16.2B loss figure, and the CHF 16B rump cap are all *final and binding*, not subject to ordinance revision Saturday or Sunday court challenge. My clients move their assets tonight unless they see that confirmation in the announcement itself. What's the exact language at 2000?",
+        "at1_rep": "Federal Council—before 2000 goes live, I need FINMA to publish the *ordinance language* on AT1 treatment, not just the summary. One sentence: \"Tier 1 capital instruments are written down to zero value, holders retain no residual claim, and any challenge to this write-down after Monday 0800 is barred under Article 36 emergency provisions.\" That language in the 2000 statement stops litigation cold; without it, creditors sue and we're in court while the backstop runs."
+      },
+      "_denied_effects_stripped": 5
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 28.0
+        },
+        {
+          "round": 3,
+          "value": 23.0
+        },
+        {
+          "round": 4,
+          "value": 18.7615
+        },
+        {
+          "round": 5,
+          "value": 14.523000000000003
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 77.0
+        },
+        {
+          "round": 2,
+          "value": 81.1
+        },
+        {
+          "round": 3,
+          "value": 83.5
+        },
+        {
+          "round": 4,
+          "value": 89.1
+        },
+        {
+          "round": 5,
+          "value": 94.69999999999999
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 2.0
+        },
+        {
+          "round": 2,
+          "value": 9.0
+        },
+        {
+          "round": 3,
+          "value": 16.0
+        },
+        {
+          "round": 4,
+          "value": 16.0
+        },
+        {
+          "round": 5,
+          "value": 16.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 0
+        },
+        {
+          "round": 2,
+          "value": 7.0
+        },
+        {
+          "round": 3,
+          "value": 9.0
+        },
+        {
+          "round": 4,
+          "value": 9.0
+        },
+        {
+          "round": 5,
+          "value": 9.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 22.0
+        },
+        {
+          "round": 2,
+          "value": 22.0
+        },
+        {
+          "round": 3,
+          "value": 27.0
+        },
+        {
+          "round": 4,
+          "value": 27.0
+        },
+        {
+          "round": 5,
+          "value": 27.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 62.0
+        },
+        {
+          "round": 2,
+          "value": 62.0
+        },
+        {
+          "round": 3,
+          "value": 52.0
+        },
+        {
+          "round": 4,
+          "value": 52.0
+        },
+        {
+          "round": 5,
+          "value": 52.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 59.0
+        },
+        {
+          "round": 2,
+          "value": 64.0
+        },
+        {
+          "round": 3,
+          "value": 72.0
+        },
+        {
+          "round": 4,
+          "value": 79.0
+        },
+        {
+          "round": 5,
+          "value": 84.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 52.0,
+            "normalised": 0.52
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.523000000000003,
+            "normalised": 0.14523000000000003
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 84.0,
+            "normalised": 0.16000000000000003
+          }
+        ],
+        "weighted_score": 0.31343555555555563
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 94.69999999999999,
+            "normalised": 0.05300000000000016
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 9.0,
+            "normalised": 0.91
+          }
+        ],
+        "weighted_score": 0.3386666666666668
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.91
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 14.523000000000003,
+            "normalised": 0.14523000000000003
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 16.0,
+            "normalised": 0.84
+          }
+        ],
+        "weighted_score": 0.7013075
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.523000000000003,
+            "normalised": 0.14523000000000003
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 16.0,
+            "normalised": 0.16
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 27.0,
+            "normalised": 0.73
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 94.69999999999999,
+            "normalised": 0.05300000000000016
+          }
+        ],
+        "weighted_score": 0.23224333333333338
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 9.0,
+            "normalised": 0.09
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 16.0,
+            "normalised": 0.16
+          }
+        ],
+        "weighted_score": 0.11333333333333333
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.523000000000003,
+            "normalised": 0.14523000000000003
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 94.69999999999999,
+            "normalised": 0.05300000000000016
+          }
+        ],
+        "weighted_score": 0.12678400000000006
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 27.0,
+            "normalised": 0.73
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 52.0,
+            "normalised": 0.52
+          }
+        ],
+        "weighted_score": 0.6599999999999999
+      }
+    }
+  }
+}

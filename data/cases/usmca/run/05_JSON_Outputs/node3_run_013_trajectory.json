@@ -1,0 +1,1943 @@
+{
+  "simulation_id": "2d7f9c38018c",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: What does your underwriting team need from supply chain to turn the labor-wage-floor and RVC reqs into actual priced factors — are we talking named-supplier lists, plant-level compliance gaps, relocation timelines? Right now it's all policy language. We can map it.\n  supplier: We've got maybe 40–50 critical Tier 1 and 2 suppliers who can't hit the wage floor or RVC as-is — I can hand you plant-level gaps, relocation costs, and 12–18 month re-qualification timelines by end of week. But we need to agree now: are we pricing this as supplier-failure risk, capex pass-through, or lead-time premium? That determines what I dig up.\n  auto_strategy: We price it as supplier-failure risk first — that's the underwriting hook. Hand me the plant-level gaps and relocation timelines by Friday; I'll map those directly to compliance-cost triggers and re-sourcing pressure. Once we have named suppliers and timelines, we can model what capex or lead-time premium actually sticks.\n  compliance_lawyer: When you model those supplier gaps as compliance triggers, what's your audit timeline — annual, transaction-by-transaction, or continuous monitoring? That determines whether we're pricing 12-month re-qualification costs or ongoing certification overhead. Can't price the failure without naming the audit.\n  political_risk_insurer: On the audit timeline — I need to know: if a supplier hits the wage floor today, is that *locked in* for 12 months, or does enforcement discretion on what counts as \"wage equivalent\" shift year-to-year? That's the political-risk variable I price. If it's discretionary, the compliance cost has a sunset/review premium baked in.\n  compliance_lawyer: Wage-floor certification locks in for 12 months post-audit, but enforcement discretion on \"equivalent compensation\" — housing allowances, bonuses, benefits — shifts annually with CBP guidance updates. That's your political-risk variable: name the audit cadence first, then price the discretionary-interpretation premium separately from the base compliance cost. Transaction-level audits catch drift faster than annual sweeps, so if you're pricing supplier-failure risk, I'd push for continuous monitoring on your 40–50 critical suppliers — otherwise you're eating the gap between CBP's December interpretation and your April re-cert.\n  trade_credit_underwriter: When you hand me those plant gaps Friday, I also need the AR exposure by supplier — payment terms, invoice volume, any concentration in your top 10. If a supplier's halfway through relocation and CBP denies their re-cert claim, we're writing off receivables, not just capex. That's the trade-credit variable I price.\n  supplier: AR by supplier, payment terms, top-10 concentration — I'm pulling that Friday with the plant gaps. But here's what you need now: our top 5 suppliers represent 62% of Tier 1 volume, and three of them are flagged for relocation; if even one fails re-cert, we're looking at 90+ days of supply disruption plus $8–12M in stranded receivables. That's your trade-credit trigger right there.\n  supply_chain_consultant: Here's what I need Friday alongside those plant gaps: relocation *costs* by supplier and *geography options*—Mexico, Texas, wherever makes sense for RVC. Then we build a 12–18 month nearshoring roadmap that pins the three flagged suppliers to specific sites and re-cert dates *before* the 2026 review hits. That's how we price relocation-as-insurance, not relocation-as-panic. Who owns the site selection and capex approval?\n  cfo_erm: Stop—before Friday, I need us to agree on the map architecture. Plant gaps, AR exposure, relocation costs, re-cert dates—that's four data streams hitting me at once. I'm proposing we rank those 40–50 suppliers TODAY by (1) volume concentration, (2) re-cert risk, (3) AR days-outstanding, then Friday you feed me ONLY the top 15 critical-path suppliers with those three variables filled in. That's underwritable. Who owns the ranking?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "What does your underwriting team need from supply chain to turn the labor-wage-floor and RVC reqs into actual priced factors — are we talking named-supplier lists, plant-level compliance gaps, relocation timelines? Right now it's all policy language. We can map it.",
+            "cot": {
+              "assess": "Rules-of-origin burden is flagged and quantified — that's locked. But we're sitting on a fragmented risk map (19/60) and loose underwriting discipline (30/50). The panel can't price supplier relocation or trade-credit exposure if we don't translate the USMCA labor-content and RVC reqs into specific, named triggers — which models fail compliance, which suppliers have to move, what insolvency thresholds matter.",
+              "decide": {
+                "action_type": "question",
+                "target": "insurance / underwriting lead",
+                "rationale": "They own the discipline variable; I need to know what data structure they need from us (the supply-chain side) to operationalize the labor-content and sourcing-risk factors into priceable insurance triggers."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "We've got maybe 40–50 critical Tier 1 and 2 suppliers who can't hit the wage floor or RVC as-is — I can hand you plant-level gaps, relocation costs, and 12–18 month re-qualification timelines by end of week. But we need to agree now: are we pricing this as supplier-failure risk, capex pass-through, or lead-time premium? That determines what I dig up.",
+            "cot": {
+              "assess": "My supplier-relocation and content-burden variables are solid, but the risk map is fractured — policy language sitting separate from supply-chain reality. The auto strategy team just asked me what they need to operationalize labor and RVC compliance into actual priced factors. That's the bridge we're missing.",
+              "decide": {
+                "action_type": "speak",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "I can immediately surface which suppliers trigger relocation under these rules and what that costs — that's the missing data link between policy and pricing."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "We price it as supplier-failure risk first — that's the underwriting hook. Hand me the plant-level gaps and relocation timelines by Friday; I'll map those directly to compliance-cost triggers and re-sourcing pressure. Once we have named suppliers and timelines, we can model what capex or lead-time premium actually sticks.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "When you model those supplier gaps as compliance triggers, what's your audit timeline — annual, transaction-by-transaction, or continuous monitoring? That determines whether we're pricing 12-month re-qualification costs or ongoing certification overhead. Can't price the failure without naming the audit.",
+            "cot": {
+              "assess": "Rules-of-origin burden is solid at 32, but the map is fragmented — we've got supplier gaps and timelines coming Friday, but zero audit triggers, certification workflows, or penalty thresholds named yet. That's the compliance infrastructure gap; without it, \"supplier-failure risk\" stays theoretical.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Before we price supplier failure, I need to know what audit cadence and certification gates we're actually defending — that's where the cost shock lives."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "On the audit timeline — I need to know: if a supplier hits the wage floor today, is that *locked in* for 12 months, or does enforcement discretion on what counts as \"wage equivalent\" shift year-to-year? That's the political-risk variable I price. If it's discretionary, the compliance cost has a sunset/review premium baked in.",
+            "cot": {
+              "assess": "auto_strategy nailed the underwriting hook (supplier-failure risk, named suppliers by Friday), and compliance_lawyer correctly flagged that audit cadence determines whether we're pricing one-time re-qualification or ongoing overhead. But nobody's locked the political-risk layer yet — the wage floor and RVC themselves are policy-subject-to-review, and that sunset/enforcement uncertainty is unpriced. We're building a compliance-cost model without a policy-stability discount.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "Audit cadence + enforcement discretion are linked; I need to know whether USMCA labor enforcement is deterministic or politically variable before we price the compliance trigger."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Wage-floor certification locks in for 12 months post-audit, but enforcement discretion on \"equivalent compensation\" — housing allowances, bonuses, benefits — shifts annually with CBP guidance updates. That's your political-risk variable: name the audit cadence first, then price the discretionary-interpretation premium separately from the base compliance cost. Transaction-level audits catch drift faster than annual sweeps, so if you're pricing supplier-failure risk, I'd push for continuous monitoring on your 40–50 critical suppliers — otherwise you're eating the gap between CBP's December interpretation and your April re-cert.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When you hand me those plant gaps Friday, I also need the AR exposure by supplier — payment terms, invoice volume, any concentration in your top 10. If a supplier's halfway through relocation and CBP denies their re-cert claim, we're writing off receivables, not just capex. That's the trade-credit variable I price.",
+            "cot": {
+              "assess": "The team's nailed the audit-cadence-and-discretion problem — that's the political-risk variable locked. But I'm seeing a gap: we've got supplier names and timelines coming Friday, but nobody's named the receivables-risk trigger yet. If a supplier relocates and misses the 12-month re-cert window, that's not just a compliance miss — it's a default event on our books. We need to price *when* and *how much* the supplier actually fails, not just the compliance cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "supplier",
+                "rationale": "I need to know the receivables-exposure window — how many of your 40–50 critical suppliers have open payment terms that span a relocation or re-cert miss, and what's the total AR at risk if one stalls mid-transition."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "AR by supplier, payment terms, top-10 concentration — I'm pulling that Friday with the plant gaps. But here's what you need now: our top 5 suppliers represent 62% of Tier 1 volume, and three of them are flagged for relocation; if even one fails re-cert, we're looking at 90+ days of supply disruption plus $8–12M in stranded receivables. That's your trade-credit trigger right there.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I need Friday alongside those plant gaps: relocation *costs* by supplier and *geography options*—Mexico, Texas, wherever makes sense for RVC. Then we build a 12–18 month nearshoring roadmap that pins the three flagged suppliers to specific sites and re-cert dates *before* the 2026 review hits. That's how we price relocation-as-insurance, not relocation-as-panic. Who owns the site selection and capex approval?",
+            "cot": {
+              "assess": "You've locked in supplier-failure pricing, audit cadence (continuous monitoring on critical 40–50), and trade-credit triggers ($8–12M stranded receivables risk). What's missing: a consolidated nearshoring/relocation roadmap that ties those supplier gaps directly to the 2026 USMCA review—and a decision on *who owns the relocation execution*. Right now it's fragmented across compliance, capex, and trade-credit timelines.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, supplier_relocation_exposure",
+                "rationale": "We need to turn Friday's plant-gap data into a phased nearshoring plan tied to the 2026 review cycle—not just a failure list. That consolidates the map and operationalizes relocation as a forward-risk mitigation, not a reactive scramble."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Stop—before Friday, I need us to agree on the map architecture. Plant gaps, AR exposure, relocation costs, re-cert dates—that's four data streams hitting me at once. I'm proposing we rank those 40–50 suppliers TODAY by (1) volume concentration, (2) re-cert risk, (3) AR days-outstanding, then Friday you feed me ONLY the top 15 critical-path suppliers with those three variables filled in. That's underwritable. Who owns the ranking?",
+            "cot": {
+              "assess": "We've locked in supplier-failure pricing as the hook and nailed the audit cadence / political-risk variable—that's progress. But the map is still fragmented: we have plant gaps and AR exposure coming Friday, nearshoring roadmap sketched, and trade-credit triggers named, yet I don't see how these stack into ONE prioritized decision matrix. We're collecting data in silos instead of building the consolidated risk-map I need to underwrite.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "I need to force consolidation NOW—Friday data dumps won't coalesce on their own, and I can't price what I can't see ranked and gated."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "We've got maybe 40–50 critical Tier 1 and 2 suppliers who can't hit the wage floor or RVC as-is — I can hand you plant-level gaps, relocation costs, and 12–18 month re-qualification timelines by end of week. But we need to agree now: are we pricing this as supplier-failure risk, capex pass-through, or lead-time premium? That determines what I dig up.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "What does your underwriting team need from supply chain to turn the labor-wage-floor and RVC reqs into actual priced factors — are we talking named-supplier lists, plant-level compliance gaps, relocation timelines? Right now it's all policy language. We can map it.",
+      "metadata": {
+        "question_target": "insurance / underwriting lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "When you model those supplier gaps as compliance triggers, what's your audit timeline — annual, transaction-by-transaction, or continuous monitoring? That determines whether we're pricing 12-month re-qualification costs or ongoing certification overhead. Can't price the failure without naming the audit.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "On the audit timeline — I need to know: if a supplier hits the wage floor today, is that *locked in* for 12 months, or does enforcement discretion on what counts as \"wage equivalent\" shift year-to-year? That's the political-risk variable I price. If it's discretionary, the compliance cost has a sunset/review premium baked in.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When you hand me those plant gaps Friday, I also need the AR exposure by supplier — payment terms, invoice volume, any concentration in your top 10. If a supplier's halfway through relocation and CBP denies their re-cert claim, we're writing off receivables, not just capex. That's the trade-credit variable I price.",
+      "metadata": {
+        "question_target": "supplier"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need Friday alongside those plant gaps: relocation *costs* by supplier and *geography options*—Mexico, Texas, wherever makes sense for R\" → Roadmap framework approved—relocation costs, geography options, and re-cert timelines will anchor nearshoring planning.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Stop—before Friday, I need us to agree on the map architecture. Plant gaps, AR exposure, relocation costs, re-cert dates—that's four data streams hitt\" → Ranking framework approved—top 15 suppliers by concentration, re-cert risk, AR exposure creates underwritable scope.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "nearshoring_roadmap_build rule effect",
+      "metadata": {
+        "source": "nearshoring_roadmap_build",
+        "variable": "risk_map_completeness",
+        "delta": 3
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "nearshoring_roadmap_build rule effect",
+      "metadata": {
+        "source": "nearshoring_roadmap_build",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: When that supplier data lands Friday, I'm pricing the failure as three scenarios: full re-cert success (12-month lock), partial compliance (annual CBP review premium baked in), and failed re-cert (receivable write-off + capex sunk). But I need to know your recovery assumptions now so I'm not double-counting the loss. What's your secured position on these suppliers?\n  trade_credit_underwriter: Our secured position is minimal—we're unsecured trade creditors on 80% of Tier 1 volume, so if re-cert fails, we're writing off receivables before capex. On the three of your five suppliers holding 62% of volume, I'm seeing zero collateral cushion; assume zero recovery on failed re-cert scenarios. That's your baseline for the write-off pricing.\n  supplier: When you rank those top 15 by concentration and re-cert risk, I need you to also flag which ones have the cash or credit lines to survive a 6–12 month re-qualification cycle without customer volume drop-offs. If supplier three can't bridge that gap, we're not pricing failure — we're managing a bankruptcy.\n  cfo_erm: Pull the AR aging and payment-term concentration for those 62%-volume three suppliers by end of day—I need days-sales-outstanding and invoice frequency to model the write-off timing against their re-cert window. If supplier three hits 90+ DSO and their re-cert drags past month six, we're looking at a liquidity event, not just a compliance miss.\n  compliance_lawyer: When you're modeling those three scenarios—full re-cert, partial compliance, failed re-cert—which one kicks off a CBP audit? Is it transaction-level sampling on shipments post-re-cert, or does the supplier's initial re-cert *application itself* trigger the audit? That determines whether the 12-month lock is real or just wishful thinking, and whether we're pricing ongoing certification overhead or a one-shot re-qual cost.\n  auto_strategy: CBP audit triggers on transaction sampling post-re-cert approval—not the application itself—so your 12-month lock holds if they pass initial audit. But here's the trap: if even one shipment fails sampling in months 4–8, the entire supplier's RVC cert gets suspended pending re-audit, which blows the timeline and forces us to re-price the partial-compliance scenario as an active risk, not a contingency. I need to know your sampling frequency assumption before Friday so I'm not modeling a false 12-month floor.\n  political_risk_insurer: Compliance—on that sampling frequency: is CBP doing this quarterly, random-batch, or triggered only by prior failures? And on \"equivalent compensation\"—how much year-to-year drift have you actually seen in guidance, or are we talking 5% variance, 20%? I need hard numbers to price the discretion premium into the re-cert scenarios.\n  compliance_lawyer: CBP sampling is random-batch post-approval—roughly 5–8% of shipments in the first 12 months, then drops to 2–3% if no flags. On wage-floor drift: we've seen 8–15% variance year-to-year in enforcement guidance on what qualifies as \"equivalent compensation,\" so your partial-compliance scenario needs a built-in discretion premium—I'd floor it at 12% cost uplift per re-cert cycle. That's your pricing anchor for the political-risk variable.\n  trade_credit_underwriter: Sarah, when you pull that AR aging—are you also modeling whether supplier three can bridge a 6–12 month re-cert cycle without customer volume drop? That's the insolvency variable. If they can't, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to underwrite differently.\n  supply_chain_consultant: On those three pricing scenarios — if a supplier relocates to hit the wage floor, does the relocation capex flow to customer pricing, or does it sit inside the failure-risk reserve? That changes whether nearshoring is a compliance solution or a cost-absorption play for us.\n  cfo_erm: Here's what I'm proposing: the three 62%-volume suppliers get ranked Friday not just by re-cert risk, but by liquidity-bridge capacity—can they fund a 6–12 month re-qual without customer volume loss or credit-line strain? If supplier three can't, we price it as insolvency-risk, not receivables-timing. That's one variable, not four. Agree now, and we hand supply chain a one-page ranking template so Friday's data slots straight into the map.\n  supplier: Pull the AR aging and DSO on those three by end of day—I've got the payment-term concentration flagged already. But here's the real tell: supplier three's at 68 DSO today with 40% of invoices hitting net-60, so if re-cert drags past month five, they're underwater before CBP even samples. I'm modeling liquidity-bridge capacity into the ranking Friday—capex relocation or customer volume loss, one of those two has to happen, or they fold.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "When that supplier data lands Friday, I'm pricing the failure as three scenarios: full re-cert success (12-month lock), partial compliance (annual CBP review premium baked in), and failed re-cert (receivable write-off + capex sunk). But I need to know your recovery assumptions now so I'm not double-counting the loss. What's your secured position on these suppliers?",
+            "cot": {
+              "assess": "Plant gaps and AR exposure hit Friday — that's the raw data. But we're still translating policy language into underwritable risk factors. Risk-map completeness is stuck at 34 because we haven't wired the compliance triggers (wage floor, RVC, re-cert dates) into actual failure scenarios with dollar tags. Underwriting discipline at 40 means we're naming the suppliers and timelines, but not yet pricing the failure modes.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "You need AR exposure by supplier Friday, but I need to know upfront: when a supplier fails re-cert mid-relocation, do we write off the full AR balance, or do we have recovery mechanics (secured inventory, lien positions)?"
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Our secured position is minimal—we're unsecured trade creditors on 80% of Tier 1 volume, so if re-cert fails, we're writing off receivables before capex. On the three of your five suppliers holding 62% of volume, I'm seeing zero collateral cushion; assume zero recovery on failed re-cert scenarios. That's your baseline for the write-off pricing.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "When you rank those top 15 by concentration and re-cert risk, I need you to also flag which ones have the cash or credit lines to survive a 6–12 month re-qualification cycle without customer volume drop-offs. If supplier three can't bridge that gap, we're not pricing failure — we're managing a bankruptcy.",
+            "cot": {
+              "assess": "We've locked in the ranking framework and nearshoring roadmap anchors — good. But I'm seeing a hard problem: trade credit just told me we're unsecured on 80% of Tier 1 volume, and my three largest suppliers (62% of spend) have zero collateral cushion. If any of them fails re-cert mid-relocation, we're looking at a receivables write-off *plus* capex sunk with no recovery path. That's not a pricing variable — that's a survival variable for my supply base.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The ranking framework needs to surface which of the top 15 suppliers can actually absorb a re-cert failure or relocation delay without triggering insolvency; that's the underwriting gate we're missing."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Pull the AR aging and payment-term concentration for those 62%-volume three suppliers by end of day—I need days-sales-outstanding and invoice frequency to model the write-off timing against their re-cert window. If supplier three hits 90+ DSO and their re-cert drags past month six, we're looking at a liquidity event, not just a compliance miss.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "When you're modeling those three scenarios—full re-cert, partial compliance, failed re-cert—which one kicks off a CBP audit? Is it transaction-level sampling on shipments post-re-cert, or does the supplier's initial re-cert *application itself* trigger the audit? That determines whether the 12-month lock is real or just wishful thinking, and whether we're pricing ongoing certification overhead or a one-shot re-qual cost.",
+            "cot": {
+              "assess": "You've locked in the ranking framework and roadmap structure—solid. But the three key suppliers holding 62% of volume are now exposing a liquidity-plus-compliance trap: CFO needs DSO and payment concentration by end of day to model write-off timing, and auto_strategy is pricing three failure scenarios without knowing your recovery baseline. The compliance triggers are still vague—we've named the audit timeline (12-month lock, annual discretion), but we haven't tied that to *what CBP actually audits* or *when re-cert denial triggers liability*. That's the gap blocking underwriting discipline.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "Before you price three failure scenarios, I need to clarify the audit trigger that determines which scenario applies—CBP's audit scope and timing directly drive whether re-cert succeeds, fails, or lands in partial-compliance limbo."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CBP audit triggers on transaction sampling post-re-cert approval—not the application itself—so your 12-month lock holds if they pass initial audit. But here's the trap: if even one shipment fails sampling in months 4–8, the entire supplier's RVC cert gets suspended pending re-audit, which blows the timeline and forces us to re-price the partial-compliance scenario as an active risk, not a contingency. I need to know your sampling frequency assumption before Friday so I'm not modeling a false 12-month floor.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance—on that sampling frequency: is CBP doing this quarterly, random-batch, or triggered only by prior failures? And on \"equivalent compensation\"—how much year-to-year drift have you actually seen in guidance, or are we talking 5% variance, 20%? I need hard numbers to price the discretion premium into the re-cert scenarios.",
+            "cot": {
+              "assess": "You've locked in the supplier ranking and roadmap frameworks—good. But political_risk_exposure is still at 27, and underwriting_discipline at 40; we're running out of rounds to operationalize the *enforcement discretion* layer. The CBP sampling trap that auto_strategy just flagged is exactly the kind of discretionary risk I need to price—but it's buried in a compliance timeline, not yet a priced factor.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "CBP sampling frequency and the \"equivalent compensation\" discretion are the two biggest political-risk variables I need to score; I need you to quantify the enforcement uncertainty so I can attach a premium to the 12-month lock."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP sampling is random-batch post-approval—roughly 5–8% of shipments in the first 12 months, then drops to 2–3% if no flags. On wage-floor drift: we've seen 8–15% variance year-to-year in enforcement guidance on what qualifies as \"equivalent compensation,\" so your partial-compliance scenario needs a built-in discretion premium—I'd floor it at 12% cost uplift per re-cert cycle. That's your pricing anchor for the political-risk variable.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Sarah, when you pull that AR aging—are you also modeling whether supplier three can bridge a 6–12 month re-cert cycle without customer volume drop? That's the insolvency variable. If they can't, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to underwrite differently.",
+            "cot": {
+              "assess": "The team has locked in audit triggers, sampling frequency, and wage-floor discretion premiums—that's the political-risk and underwriting scaffolding. But we're still missing the *trade-credit operationalization*: I know the three suppliers holding 62% of volume are unsecured and face re-cert risk, but I don't have their DSO, invoice velocity, or liquidity runway yet. CFO asked for that by end of day, and it's the bridge between compliance failure and actual receivables write-off timing. That's where my variable lives.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "She's pulling the AR data; I need to know if she's flagging the liquidity-runway question (can these suppliers sustain 6–12 month re-qual without volume collapse?) because that's the insolvency trigger I price, not just payment terms."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "On those three pricing scenarios — if a supplier relocates to hit the wage floor, does the relocation capex flow to customer pricing, or does it sit inside the failure-risk reserve? That changes whether nearshoring is a compliance solution or a cost-absorption play for us.",
+            "cot": {
+              "assess": "We've locked in the compliance audit timeline (5–8% sampling, 12% discretion premium) and trade-credit baseline (80% unsecured, zero recovery on failed re-cert). The three high-volume suppliers' liquidity bridge and re-cert timing are now the lynchpin — if supplier three hits 90+ DSO and re-cert drags past month six, we're pricing a bankruptcy event, not compliance risk. But we haven't yet mapped *which nearshoring options actually solve the wage-floor gap* for those 40–50 suppliers, or locked in the relocation-cost pass-through assumption. That's what's blocking the actionable plan.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "You're pricing three scenarios but haven't confirmed whether relocation capex gets passed to customer contracts or absorbed as supplier-failure risk — that determines whether nearshoring *mitigates* the write-off exposure or just spreads it. I need to know your boundary condition before Friday's data lands."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm proposing: the three 62%-volume suppliers get ranked Friday not just by re-cert risk, but by liquidity-bridge capacity—can they fund a 6–12 month re-qual without customer volume loss or credit-line strain? If supplier three can't, we price it as insolvency-risk, not receivables-timing. That's one variable, not four. Agree now, and we hand supply chain a one-page ranking template so Friday's data slots straight into the map.",
+            "cot": {
+              "assess": "We've locked in the pricing scenarios and audit mechanics—that's solid. But the risk map is still fragmented: we've got plant gaps, AR exposure, relocation costs, and re-cert timelines all landing Friday as separate streams. And nobody's named which of these three 62%-volume suppliers actually survives the 6–12 month cycle without going insolvent. That's the gap between underwriting-ready and actually-priced.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We need to collapse the four Friday data streams into one decision-ready variable set *before* the data arrives, not after. Otherwise we're consolidating chaos."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Pull the AR aging and DSO on those three by end of day—I've got the payment-term concentration flagged already. But here's the real tell: supplier three's at 68 DSO today with 40% of invoices hitting net-60, so if re-cert drags past month five, they're underwater before CBP even samples. I'm modeling liquidity-bridge capacity into the ranking Friday—capex relocation or customer volume loss, one of those two has to happen, or they fold.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "When that supplier data lands Friday, I'm pricing the failure as three scenarios: full re-cert success (12-month lock), partial compliance (annual CBP review premium baked in), and failed re-cert (receivable write-off + capex sunk). But I need to know your recovery assumptions now so I'm not double-counting the loss. What's your secured position on these suppliers?",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "When you rank those top 15 by concentration and re-cert risk, I need you to also flag which ones have the cash or credit lines to survive a 6–12 month re-qualification cycle without customer volume drop-offs. If supplier three can't bridge that gap, we're not pricing failure — we're managing a bankruptcy.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "When you're modeling those three scenarios—full re-cert, partial compliance, failed re-cert—which one kicks off a CBP audit? Is it transaction-level sampling on shipments post-re-cert, or does the supplier's initial re-cert *application itself* trigger the audit? That determines whether the 12-month lock is real or just wishful thinking, and whether we're pricing ongoing certification overhead or a one-shot re-qual cost.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "Compliance—on that sampling frequency: is CBP doing this quarterly, random-batch, or triggered only by prior failures? And on \"equivalent compensation\"—how much year-to-year drift have you actually seen in guidance, or are we talking 5% variance, 20%? I need hard numbers to price the discretion premium into the re-cert scenarios.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Sarah, when you pull that AR aging—are you also modeling whether supplier three can bridge a 6–12 month re-cert cycle without customer volume drop? That's the insolvency variable. If they can't, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to underwrite differently.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "On those three pricing scenarios — if a supplier relocates to hit the wage floor, does the relocation capex flow to customer pricing, or does it sit inside the failure-risk reserve? That changes whether nearshoring is a compliance solution or a cost-absorption play for us.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm proposing: the three 62%-volume suppliers get ranked Friday not just by re-cert risk, but by liquidity-bridge capacity—can they fund a\" → The CFO's liquidity-bridge framework unifies the fragmented supplier-risk threads into a single operationalized ranking template, directly advancing map completeness and underwriting discipline while clarifying trade-credit exposure.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 34,
+          "supplier_relocation_exposure": 33.0,
+          "trade_credit_risk": 33.0,
+          "political_risk_exposure": 27,
+          "risk_map_completeness": 39.6,
+          "underwriting_discipline": 44.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.0
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "nearshoring_roadmap_build rule effect",
+      "metadata": {
+        "source": "nearshoring_roadmap_build",
+        "variable": "risk_map_completeness",
+        "delta": 3
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "nearshoring_roadmap_build rule effect",
+      "metadata": {
+        "source": "nearshoring_roadmap_build",
+        "variable": "underwriting_discipline",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "nearshoring_roadmap_build completed — risk_surfacing supplier_relocation_exposure multiplier set to 0.6",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.6
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: On that wage-floor drift—if CBP's only sampling 5–8% of shipments, does that mean 92% of suppliers fly through without annual re-audit? Or is everyone re-certified annually and the sampling just determines *which ones* get scrutinized? That changes whether I'm pricing a 12-month compliance lock or a perpetual re-cert overhead.\n  compliance_lawyer: CBP samples 5–8% of *shipments post-approval*, not suppliers—so your 92% bypass the audit lottery that round, but every supplier still files annually and their certification window resets. You get the 12-month lock on *their* compliance status, but CBP can pull any shipment for forensic review if a prior audit flagged the supplier, which kills the lock retroactively. Pricing model: baseline 12-month overhead plus a discretion premium for suppliers with prior CBP history.\n  supplier: Sarah, when you rank those three 62%-volume suppliers Friday—are you flagging which ones can't actually fund a 6–12 month re-qual without customer volume drop? Supplier three's already at 68 DSO; if they can't bridge the gap, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to price differently. That's the insolvency variable.\n  cfo_erm: The lock is conditional—12 months on *their* filing, but CBP can retroactively audit any shipment if prior history flags them, so we're pricing baseline annual re-cert overhead plus a discretion premium for any supplier with audit history. On your three 62%-volume names: I need Sarah's AR aging and credit-line capacity by Friday to model whether relocation capex or re-cert delays trigger insolvency; if supplier three can't bridge 6–12 months without volume drop, we're reserving for receivable write-off, not just timing risk.\n  compliance_lawyer: When you hand me those 40–50 supplier gaps Friday, flag which ones are RVC-kill vs. wage-floor remediable—are we talking \"relocation fixes it in 12 months\" or \"this supplier's math doesn't work and we're writing them off\"? That determines whether it's a re-cert cost or a supplier-failure reserve.\n  supply_chain_consultant: Friday's data lands with three tiers: suppliers who hit wage floor through relocation in 12–18 months, suppliers needing partial RVC restructuring with 6-month re-cert, and three names—including your supplier three at 68 DSO—flagged as insolvency-risk if re-cert delays stretch beyond Q2. I'm pricing the relocation capex as pass-through to customer contracts, not the reserve, which means nearshoring costs flow to pricing power, not failure risk—but that only holds if supplier three can bridge the gap on credit lines we're validating this week.\n  political_risk_insurer: Here's what I'm pricing: baseline 12-month re-cert overhead plus a discretion premium that scales with CBP guidance drift (8–15% annually) and retroactive audit risk for any supplier with prior flags. When you hand me that Friday data, flag which of your 40–50 have audit history—that's the political-risk multiplier I layer on top of relocation costs. Without it, I'm underpricing the sunset risk by half.\n  trade_credit_underwriter: On the relocation capex: if supplier three relocates and their re-cert still fails mid-cycle, does that capex sit in our cost-of-goods or in a supplier-failure reserve? Because if it's capex pass-through, I'm pricing their insolvency risk at current DSO only — but if we're holding the cost, I need to reserve for full write-off. Which way are we calling it?\n  supply_chain_consultant: Before Friday's data, I need us to agree on one thing: when a supplier relocates to hit wage floor, does that relocation capex flow to their customer contract, or does it sit in our failure reserve? That answer determines whether I'm mapping nearshoring as a pricing play or a loss-mitigation play—totally different roadmap. Tell me now and I'll build the geography options around it.\n  supplier: Relocation capex flows to customer contracts—that's our leverage point. If supplier three can't bridge re-cert delays on their own credit lines, we absorb the gap as a timing cost, not a write-off reserve. I need Sarah's DSO and credit-line data by EOD today, not Friday, so we can model the bridge and flag which suppliers actually survive the cycle.\n  cfo_erm: Here's what I'm locking: relocation capex flows to customer contract *only if* the supplier survives re-cert and doesn't hit insolvency triggers—otherwise it reserves as failure cost. That means Friday I price three outcomes: (1) relocation + re-cert success, (2) relocation + re-cert partial (annual premium), (3) relocation capex + failed re-cert = write-off. Sarah's DSO and credit-line data by EOD today—not Friday—determines which suppliers land in bucket three. Agreed?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "On that wage-floor drift—if CBP's only sampling 5–8% of shipments, does that mean 92% of suppliers fly through without annual re-audit? Or is everyone re-certified annually and the sampling just determines *which ones* get scrutinized? That changes whether I'm pricing a 12-month compliance lock or a perpetual re-cert overhead.",
+            "cot": {
+              "assess": "Rules-of-origin burden is sitting at 36—that's my core variable and it's moving, but I need plant-level compliance gaps Friday to anchor the three pricing scenarios. Risk-map completeness is at 43 and needs 17 more points; the CFO's liquidity-bridge framework is approved, but we're still missing the operationalized triggers that turn \"supplier three can't bridge the re-cert cycle\" into a named, priced underwriting factor. Political risk is underdeveloped at 28—the 8–15% year-to-year wage-floor drift that compliance just flagged is real discretion risk, and I need to know if that becomes a perpetual re-cert cost or a one-shot compliance premium.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "The 8–15% wage-floor drift is a pricing variable I can't quantify without knowing whether CBP re-certifies annually on *all* suppliers or only on those flagged by sampling failures—that determines if the discretion cost is ongoing or episodic."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP samples 5–8% of *shipments post-approval*, not suppliers—so your 92% bypass the audit lottery that round, but every supplier still files annually and their certification window resets. You get the 12-month lock on *their* compliance status, but CBP can pull any shipment for forensic review if a prior audit flagged the supplier, which kills the lock retroactively. Pricing model: baseline 12-month overhead plus a discretion premium for suppliers with prior CBP history.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Sarah, when you rank those three 62%-volume suppliers Friday—are you flagging which ones can't actually fund a 6–12 month re-qual without customer volume drop? Supplier three's already at 68 DSO; if they can't bridge the gap, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to price differently. That's the insolvency variable.",
+            "cot": {
+              "assess": "Compliance timeline is locked—CBP sampling 5–8% of shipments, 12-month baseline overhead, discretion premium for flagged suppliers. But we're still sitting on fragmented data: plant gaps and AR aging due Friday, relocation costs TBD, nearshoring roadmap pending. Risk map is at 43, needs 60—we're building piecemeal. My real concern: supplier three's 68 DSO + 40% late invoices means they're already cash-stressed *before* re-cert. If re-qualification stalls them 6–12 months, we're not pricing failure—we're managing insolvency.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "Supplier three's liquidity gap is the lynchpin for whether nearshoring is a compliance play or a bankruptcy event; I need to know if the ranking framework Friday will surface which of the top 15 actually *can't* bridge a re-cert cycle."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "The lock is conditional—12 months on *their* filing, but CBP can retroactively audit any shipment if prior history flags them, so we're pricing baseline annual re-cert overhead plus a discretion premium for any supplier with audit history. On your three 62%-volume names: I need Sarah's AR aging and credit-line capacity by Friday to model whether relocation capex or re-cert delays trigger insolvency; if supplier three can't bridge 6–12 months without volume drop, we're reserving for receivable write-off, not just timing risk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "When you hand me those 40–50 supplier gaps Friday, flag which ones are RVC-kill vs. wage-floor remediable—are we talking \"relocation fixes it in 12 months\" or \"this supplier's math doesn't work and we're writing them off\"? That determines whether it's a re-cert cost or a supplier-failure reserve.",
+            "cot": {
+              "assess": "The room has locked in three critical frameworks—nearshoring roadmap, liquidity-bridge ranking, and CBP audit mechanics—which pushes risk_map_completeness and underwriting_discipline toward threshold. But I'm seeing a gap: we've named the certification triggers (annual filing, 5–8% shipment sampling, retroactive audit risk), yet we haven't operationalized *which supplier gaps* trigger *which* penalties or re-cert timelines. That's rules_of_origin_burden work—it stays abstract until we attach specific, auditable compliance costs to each supplier scenario.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Before Friday's plant-gap handoff, I need to know which gaps are certification-fatal (RVC miss, labor-cost fail) vs. remediable, so I can price penalty exposure and re-qual timelines with precision."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Friday's data lands with three tiers: suppliers who hit wage floor through relocation in 12–18 months, suppliers needing partial RVC restructuring with 6-month re-cert, and three names—including your supplier three at 68 DSO—flagged as insolvency-risk if re-cert delays stretch beyond Q2. I'm pricing the relocation capex as pass-through to customer contracts, not the reserve, which means nearshoring costs flow to pricing power, not failure risk—but that only holds if supplier three can bridge the gap on credit lines we're validating this week.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Here's what I'm pricing: baseline 12-month re-cert overhead plus a discretion premium that scales with CBP guidance drift (8–15% annually) and retroactive audit risk for any supplier with prior flags. When you hand me that Friday data, flag which of your 40–50 have audit history—that's the political-risk multiplier I layer on top of relocation costs. Without it, I'm underpricing the sunset risk by half.",
+            "cot": {
+              "assess": "Political-risk exposure is still at 27—we're barely moving because we're treating the wage-floor enforcement as a one-time compliance event, not the discretionary, year-to-year policy shift that actually drives my underwriting costs. The 8–15% annual drift in \"equivalent compensation\" guidance and CBP's retroactive audit authority mean the 12-month lock is conditional theater—I need to price that discretion premium into the baseline, not bury it in scenarios. Risk-map completeness is climbing (40 now), but it's fragmenting across four data streams (plant gaps, AR, relocation costs, re-cert dates) without a unified scoring layer that ties political uncertainty to failure triggers.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "I need to operationalize the discretion premium as a named, priced factor tied to CBP guidance volatility and supplier audit history—that moves both political-risk scoring and underwriting discipline from vague risk language into a triggered underwriting variable."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "On the relocation capex: if supplier three relocates and their re-cert still fails mid-cycle, does that capex sit in our cost-of-goods or in a supplier-failure reserve? Because if it's capex pass-through, I'm pricing their insolvency risk at current DSO only — but if we're holding the cost, I need to reserve for full write-off. Which way are we calling it?",
+            "cot": {
+              "assess": "The CFO's liquidity-bridge and ranking frameworks are locked in, which sharpens trade-credit exposure — but we're still floating on three critical unknowns: whether supplier three actually has credit lines to survive 6–12 months of re-cert delay, whether relocation capex flows to customer pricing or our reserve, and which of the 40–50 suppliers have prior CBP audit flags that trigger the political-risk multiplier. Without those, I'm pricing failure blind. The map is getting clearer, but underwriting discipline stays soft until we name the insolvency trigger and the recovery assumption.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The relocation capex allocation — customer pass-through vs. failure reserve — directly determines whether nearshoring is a compliance solution or a cost-absorption event that eats into my failure-risk budget. I need that decision before Friday's data lands."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Before Friday's data, I need us to agree on one thing: when a supplier relocates to hit wage floor, does that relocation capex flow to their customer contract, or does it sit in our failure reserve? That answer determines whether I'm mapping nearshoring as a pricing play or a loss-mitigation play—totally different roadmap. Tell me now and I'll build the geography options around it.",
+            "cot": {
+              "assess": "The liquidity-bridge and relocation frameworks are locked—CFO owns supplier ranking, compliance owns audit triggers, trade-credit owns write-off timing. But **nearshoring itself** hasn't been operationalized yet: we know relocation costs and timelines, but we haven't mapped which suppliers go where, which geographies unlock the best RVC math, or how that reshapes customer pricing. That's my variable to own. Political risk and rules-of-origin burden are still abstract—they need to anchor into the supplier tiers I'm delivering Friday.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The three tiers I'm handing Friday (wage-floor fixable / RVC-partial / insolvency-risk) need geography assignments and customer-pricing flow-through logic NOW, not after Friday—otherwise the data lands and we're still debating whether nearshoring is compliance, capex, or customer cost."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Relocation capex flows to customer contracts—that's our leverage point. If supplier three can't bridge re-cert delays on their own credit lines, we absorb the gap as a timing cost, not a write-off reserve. I need Sarah's DSO and credit-line data by EOD today, not Friday, so we can model the bridge and flag which suppliers actually survive the cycle.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm locking: relocation capex flows to customer contract *only if* the supplier survives re-cert and doesn't hit insolvency triggers—otherwise it reserves as failure cost. That means Friday I price three outcomes: (1) relocation + re-cert success, (2) relocation + re-cert partial (annual premium), (3) relocation capex + failed re-cert = write-off. Sarah's DSO and credit-line data by EOD today—not Friday—determines which suppliers land in bucket three. Agreed?",
+            "cot": {
+              "assess": "Risk map is fragmenting across four pricing scenarios (full re-cert, partial, failed, insolvency) without a single decision rule for capex treatment—that's killing underwriting_discipline and risk_map_completeness. The supplier just locked relocation capex as customer pass-through, but trade_credit_underwriter is still pricing it as write-off reserve. I need to consolidate this into ONE operationalized model before Friday's data lands, or we're underwriting blind.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The capex-flow decision unlocks all three pricing scenarios; without it locked now, Friday's data becomes noise. I'm forcing the call."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "On that wage-floor drift—if CBP's only sampling 5–8% of shipments, does that mean 92% of suppliers fly through without annual re-audit? Or is everyone re-certified annually and the sampling just determines *which ones* get scrutinized? That changes whether I'm pricing a 12-month compliance lock or a perpetual re-cert overhead.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Sarah, when you rank those three 62%-volume suppliers Friday—are you flagging which ones can't actually fund a 6–12 month re-qual without customer volume drop? Supplier three's already at 68 DSO; if they can't bridge the gap, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to price differently. That's the insolvency variable.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "When you hand me those 40–50 supplier gaps Friday, flag which ones are RVC-kill vs. wage-floor remediable—are we talking \"relocation fixes it in 12 months\" or \"this supplier's math doesn't work and we're writing them off\"? That determines whether it's a re-cert cost or a supplier-failure reserve.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "On the relocation capex: if supplier three relocates and their re-cert still fails mid-cycle, does that capex sit in our cost-of-goods or in a supplier-failure reserve? Because if it's capex pass-through, I'm pricing their insolvency risk at current DSO only — but if we're holding the cost, I need to reserve for full write-off. Which way are we calling it?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm pricing: baseline 12-month re-cert overhead plus a discretion premium that scales with CBP guidance drift (8–15% annually) and retroac\" → Insurer defines pricing framework: re-cert overhead plus CBP drift premium and retroactive audit multiplier.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before Friday's data, I need us to agree on one thing: when a supplier relocates to hit wage floor, does that relocation capex flow to their customer \" → Consultant demands capex-flow decision to determine nearshoring roadmap: pricing play vs loss mitigation.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm locking: relocation capex flows to customer contract *only if* the supplier survives re-cert and doesn't hit insolvency triggers—other\" → CFO locks capex-flow rule: flows to customer only if re-cert succeeds; otherwise reserves as failure cost.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.\n  cfo_erm: The reserve covers capex sunk *and* receivables write-off as one failure event — not stacked. If supplier three relocates, fails re-cert, and we're holding the relocation cost, that entire loss sits in the failure reserve; receivables get written off against it, not layered on top. That's how we avoid double-counting when you model the three scenarios Friday.\n  supplier: Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.\n  compliance_lawyer: Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to a named reserve bucket, a dollar threshold, and an audit event that fires it. Plant gaps land as RVC-kill or wage-floor remediable; AR aging lands as insolvency yes/no; re-cert timelines land as 12-month lock or discretion premium. But if we're still debating which data goes where Friday morning, we've wasted the round. Build the skeleton now—we fill it with numbers when the data hits.\n  political_risk_insurer: I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CBP drift premium; retroactive-audit multiplier fires if prior-failure flags exist. On the sunset piece—2026 USMCA review creates a discretion-renewal premium on all three scenarios, since enforcement guidance could shift. That's the political-risk variable: how much compliance cost stays locked vs. reverts to annual uncertainty. Plug the supplier numbers in Friday, but the matrix is done today.\n  trade_credit_underwriter: Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.\n  supply_chain_consultant: Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, just the wage-floor remediable ones, or only supplier three if they pass insolvency screening? (2) Do we build a Mexico nearshoring cluster or scatter to Texas/regional—that changes the re-qual timeline? (3) When does the client *commit* to the roadmap—before or after Friday's data? If it's after, we're already into Q2 and we've lost the 2026 review runway.\n  supplier: Supplier Three hits working-capital insolvency if re-cert slips past month four—they're at 68 DSO with no credit-line buffer, so a six-month cycle tanks them without customer volume bridge or advance payment terms. I'm flagging that as a near-term bankruptcy trigger, not a receivables-timing problem, which means we price their relocation capex as sunk *today*, not contingent on re-cert success. Lock the three relocation decisions before Friday—if we're funding all three, I need to know which ones have the cash runway to survive the cycle, because Supplier Three doesn't without customer intervention.\n  cfo_erm: Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivables with a dollar threshold, wage-floor remediable at overhead-plus-drift with re-cert timeline triggers, and a working-capital insolvency screen that names supplier three as either fundable or not fundable before we commit capex. Friday we plug numbers; today we decide the structure. Who's building that matrix—is that on me, or do we need compliance and supply chain in the room for 45 minutes?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.",
+            "cot": {
+              "assess": "Rules-of-origin burden and trade-credit risk are operationalized but sitting at mid-range (36–38)—they'll climb once Friday's supplier data hits and we price the three failure scenarios. Risk-map completeness is our blocker at 51; we need the consolidated policy-to-supply-chain translation locked before we can price any of this. Political-risk exposure is still soft (31)—CBP discretion premium is named but not quantified yet.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The capex-flow rule is locked, but I need to know the exact failure-cost reserve methodology so I can price supplier-three's insolvency scenario and avoid double-counting losses against trade-credit write-offs."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "The reserve covers capex sunk *and* receivables write-off as one failure event — not stacked. If supplier three relocates, fails re-cert, and we're holding the relocation cost, that entire loss sits in the failure reserve; receivables get written off against it, not layered on top. That's how we avoid double-counting when you model the three scenarios Friday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.",
+            "cot": {
+              "assess": "The CFO just locked the failure-reserve stacking rule—capex and receivables write-off sit as one loss event, not layered. That kills the double-counting trap for pricing. But we've got a bigger problem: risk_map_completeness is stuck at 49, needs 60 by end of operationalize phase (two rounds left), and no one's consolidated the variables into a *named, actionable* policy-to-supply-chain risk map yet. We're still collecting data. I need to push past data-collection mode into operationalization.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO owns risk_map_completeness and underwriting_discipline; I need to know if the Friday supplier data lands into a template or a triage pile, because if we're not consolidating it into priceable variables this round, we'll miss the operationalize window."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to a named reserve bucket, a dollar threshold, and an audit event that fires it. Plant gaps land as RVC-kill or wage-floor remediable; AR aging lands as insolvency yes/no; re-cert timelines land as 12-month lock or discretion premium. But if we're still debating which data goes where Friday morning, we've wasted the round. Build the skeleton now—we fill it with numbers when the data hits.",
+            "cot": {
+              "assess": "The capex/receivables stacking order is locked—that's clean. But the map itself is still fragmented: plant gaps, AR aging, relocation costs, and re-cert triggers land Friday as four separate data streams. We've named the variables (12-month lock, CBP drift premium, failure reserve), but until we operationalize them into a single audit-ready trigger matrix—what compliance event fires which reserve, at what threshold—the map stays incomplete and underwriting discipline stays soft. Risk_map_completeness is at 49; we need 60.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "Consolidate the four Friday data streams into a single operationalized trigger matrix NOW, not after the data lands—so Friday's deliverables slot straight into priced, auditable compliance buckets instead of requiring a separate triage round."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CBP drift premium; retroactive-audit multiplier fires if prior-failure flags exist. On the sunset piece—2026 USMCA review creates a discretion-renewal premium on all three scenarios, since enforcement guidance could shift. That's the political-risk variable: how much compliance cost stays locked vs. reverts to annual uncertainty. Plug the supplier numbers in Friday, but the matrix is done today.",
+            "cot": {
+              "assess": "Political-risk exposure is still underpriced at 31—we've defined the framework (re-cert overhead + CBP drift + retroactive audit), but we haven't tied it to a forward shock scenario or sunset-review trigger. Risk-map completeness is climbing (51 now) but we're two rounds from operationalize-and-consolidate closing; compliance lawyer just demanded the skeleton matrix NOW, not Friday. That's the move.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure + risk_map_completeness",
+                "rationale": "Build the operationalized compliance-trigger matrix THIS round—name reserve buckets, thresholds, and audit events—so we price political risk as a forward variable (2026 USMCA review uncertainty) instead of waiting for Friday's data to flow into a still-undefined template."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.",
+            "cot": {
+              "assess": "The skeleton's built—compliance matrix, reserve buckets, audit triggers all locked. But trade-credit exposure is still soft at 38: I'm pricing supplier-insolvency risk, and supplier three's 68 DSO plus inability to self-fund re-qual without volume drop makes this a *bankruptcy event*, not a receivables-timing problem. That distinction changes default probability and credit horizon. The map's incomplete at 51 until I nail down which three suppliers actually have the liquidity to bridge, versus which ones I'm underwriting as high-probability defaults.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "I need the liquidity-bridge ranking *now*—not Friday—to separate insolvency triggers from re-cert costs and price trade-credit exposure accurately."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, just the wage-floor remediable ones, or only supplier three if they pass insolvency screening? (2) Do we build a Mexico nearshoring cluster or scatter to Texas/regional—that changes the re-qual timeline? (3) When does the client *commit* to the roadmap—before or after Friday's data? If it's after, we're already into Q2 and we've lost the 2026 review runway.",
+            "cot": {
+              "assess": "The skeleton is built—pricing framework locked, capex-flow rule set, three failure scenarios mapped. But we're still missing the operational bridge: which of those 40–50 suppliers actually *relocate*, which ones we write off, and when the nearshoring roadmap hits execution. Risk-map completeness is climbing, but supplier-relocation-exposure is stalling at 40—we're naming the problem, not moving suppliers. Political-risk variable (2026 review sunset) is priced but not yet operationalized into a forward-looking client action plan.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "Friday's data only lands the *gaps*—we need a decision framework *now* on which suppliers get relocated-and-funded vs. written off, so we can hand the client a nearshoring roadmap with named actions and timelines, not just scenarios."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supplier Three hits working-capital insolvency if re-cert slips past month four—they're at 68 DSO with no credit-line buffer, so a six-month cycle tanks them without customer volume bridge or advance payment terms. I'm flagging that as a near-term bankruptcy trigger, not a receivables-timing problem, which means we price their relocation capex as sunk *today*, not contingent on re-cert success. Lock the three relocation decisions before Friday—if we're funding all three, I need to know which ones have the cash runway to survive the cycle, because Supplier Three doesn't without customer intervention.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivables with a dollar threshold, wage-floor remediable at overhead-plus-drift with re-cert timeline triggers, and a working-capital insolvency screen that names supplier three as either fundable or not fundable before we commit capex. Friday we plug numbers; today we decide the structure. Who's building that matrix—is that on me, or do we need compliance and supply chain in the room for 45 minutes?",
+            "cot": {
+              "assess": "We've locked the capex-flow rule and pricing skeleton, but the map is still skeletal—we need the actual reserve thresholds, trigger dollars, and the insolvency screening on those three suppliers *before* Friday data lands, or we'll spend Friday arguing about structure instead of filling it. Risk_map_completeness is at 51 but needs to hit 60 by end of stage; we're burning runway.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "The skeleton exists; we need to operationalize it now with named buckets, trigger thresholds, and the insolvency screen on supplier three—otherwise Friday's data arrives with nowhere to land."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to\" → Compliance matrix skeleton approved—structure locked, Friday data fills buckets.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CB\" → Pricing skeleton built—reserves quantified, sunset premium identified for 2026 review.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, ju\" → Three supplier decisions framed—funding, geography, client commitment timing locked for Friday.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivabl\" → CFO consolidates three buckets—structure finalized, 45-minute working session initiated.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 40.0,
+          "supplier_relocation_exposure": 44.0,
+          "trade_credit_risk": 41.0,
+          "political_risk_exposure": 34.15,
+          "risk_map_completeness": 66.2,
+          "underwriting_discipline": 72.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I need Friday alongside those plant gaps: relocation *costs* by supplier and *geography options*—Mexico, Texas, wherever makes sense for RVC. Then we build a 12–18 month nearshoring roadmap that pins the three flagged suppliers to specific sites and re-cert dates *before* the 2026 review hits. That's how we price relocation-as-insurance, not relocation-as-panic. Who owns the site selection and capex approval?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Roadmap framework approved—relocation costs, geography options, and re-cert timelines will anchor nearshoring planning.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Concrete relocation cost/geography data surfaces exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Nearshoring roadmap adds structured supplier-level detail.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3.0,
+          "reason": "Named suppliers, sites, dates create priceable factors.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Relocation timelines expose transition-period payment risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "nearshoring_roadmap_build",
+        "target_nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": true,
+        "prep_rules": [
+          {
+            "variable": "risk_map_completeness",
+            "delta": 3,
+            "description": "Roadmap construction adds supplier-level detail each round."
+          },
+          {
+            "variable": "underwriting_discipline",
+            "delta": 2,
+            "description": "Site/cost data operationalizes relocation variables."
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "What does your underwriting team need from supply chain to turn the labor-wage-floor and RVC reqs into actual priced factors — are we talking named-supplier lists, plant-level compliance gaps, relocation timelines? Right now it's all policy language. We can map it.",
+        "supplier": "We've got maybe 40–50 critical Tier 1 and 2 suppliers who can't hit the wage floor or RVC as-is — I can hand you plant-level gaps, relocation costs, and 12–18 month re-qualification timelines by end of week. But we need to agree now: are we pricing this as supplier-failure risk, capex pass-through, or lead-time premium? That determines what I dig up.",
+        "compliance_lawyer": "When you model those supplier gaps as compliance triggers, what's your audit timeline — annual, transaction-by-transaction, or continuous monitoring? That determines whether we're pricing 12-month re-qualification costs or ongoing certification overhead. Can't price the failure without naming the audit.",
+        "political_risk_insurer": "On the audit timeline — I need to know: if a supplier hits the wage floor today, is that *locked in* for 12 months, or does enforcement discretion on what counts as \"wage equivalent\" shift year-to-year? That's the political-risk variable I price. If it's discretionary, the compliance cost has a sunset/review premium baked in.",
+        "trade_credit_underwriter": "When you hand me those plant gaps Friday, I also need the AR exposure by supplier — payment terms, invoice volume, any concentration in your top 10. If a supplier's halfway through relocation and CBP denies their re-cert claim, we're writing off receivables, not just capex. That's the trade-credit variable I price.",
+        "cfo_erm": "Stop—before Friday, I need us to agree on the map architecture. Plant gaps, AR exposure, relocation costs, re-cert dates—that's four data streams hitting me at once. I'm proposing we rank those 40–50 suppliers TODAY by (1) volume concentration, (2) re-cert risk, (3) AR days-outstanding, then Friday you feed me ONLY the top 15 critical-path suppliers with those three variables filled in. That's underwritable. Who owns the ranking?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Stop—before Friday, I need us to agree on the map architecture. Plant gaps, AR exposure, relocation costs, re-cert dates—that's four data streams hitting me at once. I'm proposing we rank those 40–50 suppliers TODAY by (1) volume concentration, (2) re-cert risk, (3) AR days-outstanding, then Friday you feed me ONLY the top 15 critical-path suppliers with those three variables filled in. That's underwritable. Who owns the ranking?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Ranking framework approved—top 15 suppliers by concentration, re-cert risk, AR exposure creates underwritable scope.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Three-variable ranking consolidates fragmented data streams.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Volume/re-cert/AR metrics are directly priceable factors.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "AR days-outstanding ranking surfaces payment concentration.",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Re-cert risk ranking identifies relocation candidates.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.4
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "What does your underwriting team need from supply chain to turn the labor-wage-floor and RVC reqs into actual priced factors — are we talking named-supplier lists, plant-level compliance gaps, relocation timelines? Right now it's all policy language. We can map it.",
+        "supplier": "We've got maybe 40–50 critical Tier 1 and 2 suppliers who can't hit the wage floor or RVC as-is — I can hand you plant-level gaps, relocation costs, and 12–18 month re-qualification timelines by end of week. But we need to agree now: are we pricing this as supplier-failure risk, capex pass-through, or lead-time premium? That determines what I dig up.",
+        "compliance_lawyer": "When you model those supplier gaps as compliance triggers, what's your audit timeline — annual, transaction-by-transaction, or continuous monitoring? That determines whether we're pricing 12-month re-qualification costs or ongoing certification overhead. Can't price the failure without naming the audit.",
+        "political_risk_insurer": "On the audit timeline — I need to know: if a supplier hits the wage floor today, is that *locked in* for 12 months, or does enforcement discretion on what counts as \"wage equivalent\" shift year-to-year? That's the political-risk variable I price. If it's discretionary, the compliance cost has a sunset/review premium baked in.",
+        "trade_credit_underwriter": "When you hand me those plant gaps Friday, I also need the AR exposure by supplier — payment terms, invoice volume, any concentration in your top 10. If a supplier's halfway through relocation and CBP denies their re-cert claim, we're writing off receivables, not just capex. That's the trade-credit variable I price.",
+        "supply_chain_consultant": "Here's what I need Friday alongside those plant gaps: relocation *costs* by supplier and *geography options*—Mexico, Texas, wherever makes sense for RVC. Then we build a 12–18 month nearshoring roadmap that pins the three flagged suppliers to specific sites and re-cert dates *before* the 2026 review hits. That's how we price relocation-as-insurance, not relocation-as-panic. Who owns the site selection and capex approval?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm proposing: the three 62%-volume suppliers get ranked Friday not just by re-cert risk, but by liquidity-bridge capacity—can they fund a 6–12 month re-qual without customer volume loss or credit-line strain? If supplier three can't, we price it as insolvency-risk, not receivables-timing. That's one variable, not four. Agree now, and we hand supply chain a one-page ranking template so Friday's data slots straight into the map.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The CFO's liquidity-bridge framework unifies the fragmented supplier-risk threads into a single operationalized ranking template, directly advancing map completeness and underwriting discipline while clarifying trade-credit exposure.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Liquidity-bridge ranking template consolidates supplier re-cert risk, insolvency exposure, and receivables timing into one operationalized framework",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Template creates concrete underwriting factor (liquidity-bridge capacity) with named triggers (6-12 month re-qual survival threshold)",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Explicit separation of insolvency-risk from receivables-timing clarifies trade-credit exposure assessment",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Ranking by re-cert risk surfaces which suppliers face relocation pressure vs. liquidity failure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "When that supplier data lands Friday, I'm pricing the failure as three scenarios: full re-cert success (12-month lock), partial compliance (annual CBP review premium baked in), and failed re-cert (receivable write-off + capex sunk). But I need to know your recovery assumptions now so I'm not double-counting the loss. What's your secured position on these suppliers?",
+        "supplier": "When you rank those top 15 by concentration and re-cert risk, I need you to also flag which ones have the cash or credit lines to survive a 6–12 month re-qualification cycle without customer volume drop-offs. If supplier three can't bridge that gap, we're not pricing failure — we're managing a bankruptcy.",
+        "compliance_lawyer": "When you're modeling those three scenarios—full re-cert, partial compliance, failed re-cert—which one kicks off a CBP audit? Is it transaction-level sampling on shipments post-re-cert, or does the supplier's initial re-cert *application itself* trigger the audit? That determines whether the 12-month lock is real or just wishful thinking, and whether we're pricing ongoing certification overhead or a one-shot re-qual cost.",
+        "political_risk_insurer": "Compliance—on that sampling frequency: is CBP doing this quarterly, random-batch, or triggered only by prior failures? And on \"equivalent compensation\"—how much year-to-year drift have you actually seen in guidance, or are we talking 5% variance, 20%? I need hard numbers to price the discretion premium into the re-cert scenarios.",
+        "trade_credit_underwriter": "Sarah, when you pull that AR aging—are you also modeling whether supplier three can bridge a 6–12 month re-cert cycle without customer volume drop? That's the insolvency variable. If they can't, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to underwrite differently.",
+        "supply_chain_consultant": "On those three pricing scenarios — if a supplier relocates to hit the wage floor, does the relocation capex flow to customer pricing, or does it sit inside the failure-risk reserve? That changes whether nearshoring is a compliance solution or a cost-absorption play for us."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "intent": "Here's what I'm pricing: baseline 12-month re-cert overhead plus a discretion premium that scales with CBP guidance drift (8–15% annually) and retroactive audit risk for any supplier with prior flags. When you hand me that Friday data, flag which of your 40–50 have audit history—that's the political-risk multiplier I layer on top of relocation costs. Without it, I'm underpricing the sunset risk by half.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Insurer defines pricing framework: re-cert overhead plus CBP drift premium and retroactive audit multiplier.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Quantified CBP drift and retroactive audit risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Named pricing factors: re-cert, drift, audit history.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 2.0,
+          "reason": "Audit-history multiplier surfaces supplier credit exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "On that wage-floor drift—if CBP's only sampling 5–8% of shipments, does that mean 92% of suppliers fly through without annual re-audit? Or is everyone re-certified annually and the sampling just determines *which ones* get scrutinized? That changes whether I'm pricing a 12-month compliance lock or a perpetual re-cert overhead.",
+        "supplier": "Sarah, when you rank those three 62%-volume suppliers Friday—are you flagging which ones can't actually fund a 6–12 month re-qual without customer volume drop? Supplier three's already at 68 DSO; if they can't bridge the gap, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to price differently. That's the insolvency variable.",
+        "compliance_lawyer": "When you hand me those 40–50 supplier gaps Friday, flag which ones are RVC-kill vs. wage-floor remediable—are we talking \"relocation fixes it in 12 months\" or \"this supplier's math doesn't work and we're writing them off\"? That determines whether it's a re-cert cost or a supplier-failure reserve.",
+        "trade_credit_underwriter": "On the relocation capex: if supplier three relocates and their re-cert still fails mid-cycle, does that capex sit in our cost-of-goods or in a supplier-failure reserve? Because if it's capex pass-through, I'm pricing their insolvency risk at current DSO only — but if we're holding the cost, I need to reserve for full write-off. Which way are we calling it?",
+        "supply_chain_consultant": "Before Friday's data, I need us to agree on one thing: when a supplier relocates to hit wage floor, does that relocation capex flow to their customer contract, or does it sit in our failure reserve? That answer determines whether I'm mapping nearshoring as a pricing play or a loss-mitigation play—totally different roadmap. Tell me now and I'll build the geography options around it.",
+        "cfo_erm": "Here's what I'm locking: relocation capex flows to customer contract *only if* the supplier survives re-cert and doesn't hit insolvency triggers—otherwise it reserves as failure cost. That means Friday I price three outcomes: (1) relocation + re-cert success, (2) relocation + re-cert partial (annual premium), (3) relocation capex + failed re-cert = write-off. Sarah's DSO and credit-line data by EOD today—not Friday—determines which suppliers land in bucket three. Agreed?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Before Friday's data, I need us to agree on one thing: when a supplier relocates to hit wage floor, does that relocation capex flow to their customer contract, or does it sit in our failure reserve? That answer determines whether I'm mapping nearshoring as a pricing play or a loss-mitigation play—totally different roadmap. Tell me now and I'll build the geography options around it.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consultant demands capex-flow decision to determine nearshoring roadmap: pricing play vs loss mitigation.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Frames relocation as binary: customer contract or reserve.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3.0,
+          "reason": "Forces concrete decision on capex accounting treatment.",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 0.12
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "On that wage-floor drift—if CBP's only sampling 5–8% of shipments, does that mean 92% of suppliers fly through without annual re-audit? Or is everyone re-certified annually and the sampling just determines *which ones* get scrutinized? That changes whether I'm pricing a 12-month compliance lock or a perpetual re-cert overhead.",
+        "supplier": "Sarah, when you rank those three 62%-volume suppliers Friday—are you flagging which ones can't actually fund a 6–12 month re-qual without customer volume drop? Supplier three's already at 68 DSO; if they can't bridge the gap, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to price differently. That's the insolvency variable.",
+        "compliance_lawyer": "When you hand me those 40–50 supplier gaps Friday, flag which ones are RVC-kill vs. wage-floor remediable—are we talking \"relocation fixes it in 12 months\" or \"this supplier's math doesn't work and we're writing them off\"? That determines whether it's a re-cert cost or a supplier-failure reserve.",
+        "political_risk_insurer": "Here's what I'm pricing: baseline 12-month re-cert overhead plus a discretion premium that scales with CBP guidance drift (8–15% annually) and retroactive audit risk for any supplier with prior flags. When you hand me that Friday data, flag which of your 40–50 have audit history—that's the political-risk multiplier I layer on top of relocation costs. Without it, I'm underpricing the sunset risk by half.",
+        "trade_credit_underwriter": "On the relocation capex: if supplier three relocates and their re-cert still fails mid-cycle, does that capex sit in our cost-of-goods or in a supplier-failure reserve? Because if it's capex pass-through, I'm pricing their insolvency risk at current DSO only — but if we're holding the cost, I need to reserve for full write-off. Which way are we calling it?",
+        "cfo_erm": "Here's what I'm locking: relocation capex flows to customer contract *only if* the supplier survives re-cert and doesn't hit insolvency triggers—otherwise it reserves as failure cost. That means Friday I price three outcomes: (1) relocation + re-cert success, (2) relocation + re-cert partial (annual premium), (3) relocation capex + failed re-cert = write-off. Sarah's DSO and credit-line data by EOD today—not Friday—determines which suppliers land in bucket three. Agreed?"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm locking: relocation capex flows to customer contract *only if* the supplier survives re-cert and doesn't hit insolvency triggers—otherwise it reserves as failure cost. That means Friday I price three outcomes: (1) relocation + re-cert success, (2) relocation + re-cert partial (annual premium), (3) relocation capex + failed re-cert = write-off. Sarah's DSO and credit-line data by EOD today—not Friday—determines which suppliers land in bucket three. Agreed?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO locks capex-flow rule: flows to customer only if re-cert succeeds; otherwise reserves as failure cost.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete three-bucket pricing model with named triggers.",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Operationalizes relocation outcomes: success, partial, write-off.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Insolvency triggers now explicit in capex-flow logic.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Consolidates relocation, re-cert, and credit risk into unified framework.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "On that wage-floor drift—if CBP's only sampling 5–8% of shipments, does that mean 92% of suppliers fly through without annual re-audit? Or is everyone re-certified annually and the sampling just determines *which ones* get scrutinized? That changes whether I'm pricing a 12-month compliance lock or a perpetual re-cert overhead.",
+        "supplier": "Sarah, when you rank those three 62%-volume suppliers Friday—are you flagging which ones can't actually fund a 6–12 month re-qual without customer volume drop? Supplier three's already at 68 DSO; if they can't bridge the gap, this stops being a receivables-timing problem and becomes a supplier-bankruptcy event I need to price differently. That's the insolvency variable.",
+        "compliance_lawyer": "When you hand me those 40–50 supplier gaps Friday, flag which ones are RVC-kill vs. wage-floor remediable—are we talking \"relocation fixes it in 12 months\" or \"this supplier's math doesn't work and we're writing them off\"? That determines whether it's a re-cert cost or a supplier-failure reserve.",
+        "political_risk_insurer": "Here's what I'm pricing: baseline 12-month re-cert overhead plus a discretion premium that scales with CBP guidance drift (8–15% annually) and retroactive audit risk for any supplier with prior flags. When you hand me that Friday data, flag which of your 40–50 have audit history—that's the political-risk multiplier I layer on top of relocation costs. Without it, I'm underpricing the sunset risk by half.",
+        "trade_credit_underwriter": "On the relocation capex: if supplier three relocates and their re-cert still fails mid-cycle, does that capex sit in our cost-of-goods or in a supplier-failure reserve? Because if it's capex pass-through, I'm pricing their insolvency risk at current DSO only — but if we're holding the cost, I need to reserve for full write-off. Which way are we calling it?",
+        "supply_chain_consultant": "Before Friday's data, I need us to agree on one thing: when a supplier relocates to hit wage floor, does that relocation capex flow to their customer contract, or does it sit in our failure reserve? That answer determines whether I'm mapping nearshoring as a pricing play or a loss-mitigation play—totally different roadmap. Tell me now and I'll build the geography options around it."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "intent": "Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to a named reserve bucket, a dollar threshold, and an audit event that fires it. Plant gaps land as RVC-kill or wage-floor remediable; AR aging lands as insolvency yes/no; re-cert timelines land as 12-month lock or discretion premium. But if we're still debating which data goes where Friday morning, we've wasted the round. Build the skeleton now—we fill it with numbers when the data hits.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Compliance matrix skeleton approved—structure locked, Friday data fills buckets.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named triggers and reserve buckets defined",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Compliance-to-reserve mapping framework established",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 2.0,
+          "reason": "RVC and wage-floor triggers surfaced",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Framework clarity reduces uncertainty",
+          "agent_id": "compliance_lawyer"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.",
+        "supplier": "Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.",
+        "political_risk_insurer": "I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CBP drift premium; retroactive-audit multiplier fires if prior-failure flags exist. On the sunset piece—2026 USMCA review creates a discretion-renewal premium on all three scenarios, since enforcement guidance could shift. That's the political-risk variable: how much compliance cost stays locked vs. reverts to annual uncertainty. Plug the supplier numbers in Friday, but the matrix is done today.",
+        "trade_credit_underwriter": "Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.",
+        "supply_chain_consultant": "Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, just the wage-floor remediable ones, or only supplier three if they pass insolvency screening? (2) Do we build a Mexico nearshoring cluster or scatter to Texas/regional—that changes the re-qual timeline? (3) When does the client *commit* to the roadmap—before or after Friday's data? If it's after, we're already into Q2 and we've lost the 2026 review runway.",
+        "cfo_erm": "Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivables with a dollar threshold, wage-floor remediable at overhead-plus-drift with re-cert timeline triggers, and a working-capital insolvency screen that names supplier three as either fundable or not fundable before we commit capex. Friday we plug numbers; today we decide the structure. Who's building that matrix—is that on me, or do we need compliance and supply chain in the room for 45 minutes?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CBP drift premium; retroactive-audit multiplier fires if prior-failure flags exist. On the sunset piece—2026 USMCA review creates a discretion-renewal premium on all three scenarios, since enforcement guidance could shift. That's the political-risk variable: how much compliance cost stays locked vs. reverts to annual uncertainty. Plug the supplier numbers in Friday, but the matrix is done today.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Pricing skeleton built—reserves quantified, sunset premium identified for 2026 review.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Concrete pricing formulas and premium structure",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "2026 review discretion premium surfaced",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4,
+          "reason": "Insurance pricing layer completed",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Deliverable complete reduces pressure",
+          "agent_id": "political_risk_insurer"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.",
+        "supplier": "Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.",
+        "compliance_lawyer": "Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to a named reserve bucket, a dollar threshold, and an audit event that fires it. Plant gaps land as RVC-kill or wage-floor remediable; AR aging lands as insolvency yes/no; re-cert timelines land as 12-month lock or discretion premium. But if we're still debating which data goes where Friday morning, we've wasted the round. Build the skeleton now—we fill it with numbers when the data hits.",
+        "trade_credit_underwriter": "Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.",
+        "supply_chain_consultant": "Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, just the wage-floor remediable ones, or only supplier three if they pass insolvency screening? (2) Do we build a Mexico nearshoring cluster or scatter to Texas/regional—that changes the re-qual timeline? (3) When does the client *commit* to the roadmap—before or after Friday's data? If it's after, we're already into Q2 and we've lost the 2026 review runway.",
+        "cfo_erm": "Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivables with a dollar threshold, wage-floor remediable at overhead-plus-drift with re-cert timeline triggers, and a working-capital insolvency screen that names supplier three as either fundable or not fundable before we commit capex. Friday we plug numbers; today we decide the structure. Who's building that matrix—is that on me, or do we need compliance and supply chain in the room for 45 minutes?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, just the wage-floor remediable ones, or only supplier three if they pass insolvency screening? (2) Do we build a Mexico nearshoring cluster or scatter to Texas/regional—that changes the re-qual timeline? (3) When does the client *commit* to the roadmap—before or after Friday's data? If it's after, we're already into Q2 and we've lost the 2026 review runway.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Three supplier decisions framed—funding, geography, client commitment timing locked for Friday.",
+      "side_effects": [
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Relocation decision framework clarifies exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 2,
+          "reason": "Supply-chain layer decision points mapped",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 2,
+          "reason": "Named decision triggers established",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Decision structure reduces ambiguity",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "supplier_relocation_exposure",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.",
+        "supplier": "Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.",
+        "compliance_lawyer": "Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to a named reserve bucket, a dollar threshold, and an audit event that fires it. Plant gaps land as RVC-kill or wage-floor remediable; AR aging lands as insolvency yes/no; re-cert timelines land as 12-month lock or discretion premium. But if we're still debating which data goes where Friday morning, we've wasted the round. Build the skeleton now—we fill it with numbers when the data hits.",
+        "political_risk_insurer": "I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CBP drift premium; retroactive-audit multiplier fires if prior-failure flags exist. On the sunset piece—2026 USMCA review creates a discretion-renewal premium on all three scenarios, since enforcement guidance could shift. That's the political-risk variable: how much compliance cost stays locked vs. reverts to annual uncertainty. Plug the supplier numbers in Friday, but the matrix is done today.",
+        "trade_credit_underwriter": "Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.",
+        "cfo_erm": "Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivables with a dollar threshold, wage-floor remediable at overhead-plus-drift with re-cert timeline triggers, and a working-capital insolvency screen that names supplier three as either fundable or not fundable before we commit capex. Friday we plug numbers; today we decide the structure. Who's building that matrix—is that on me, or do we need compliance and supply chain in the room for 45 minutes?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "intent": "Look, we've got the reserve logic locked, but I need us to build the three decision buckets *right now*: RVC-kill reserve at full capex-plus-receivables with a dollar threshold, wage-floor remediable at overhead-plus-drift with re-cert timeline triggers, and a working-capital insolvency screen that names supplier three as either fundable or not fundable before we commit capex. Friday we plug numbers; today we decide the structure. Who's building that matrix—is that on me, or do we need compliance and supply chain in the room for 45 minutes?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CFO consolidates three buckets—structure finalized, 45-minute working session initiated.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5,
+          "reason": "Cross-functional consolidation integrates all layers",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Insolvency screen and decision hierarchy locked",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Working-capital insolvency screen surfaced",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Coordination burden of final integration",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Working session time commitment",
+          "agent_id": "compliance_lawyer"
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Working session time commitment",
+          "agent_id": "supply_chain_consultant"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Sarah, on the failure-cost reserve you just locked—when supplier three's re-cert fails mid-relocation, does that reserve absorb the full relocation capex *plus* our receivables write-off, or just the capex? I need the stacking order so I'm not pricing the same loss twice when I model the three scenarios Friday.",
+        "supplier": "Sarah, when those plant gaps and AR aging land Friday, are we consolidating them straight into the underwriting template—named variables, price triggers, reserve thresholds—or is that a separate triage step? Because if we wait until after Friday to build the map, we've lost a round we can't get back.",
+        "compliance_lawyer": "Here's what I need before Friday: a single matrix that maps each compliance trigger—RVC fail, wage-floor miss, relocation mid-cycle, re-cert denial—to a named reserve bucket, a dollar threshold, and an audit event that fires it. Plant gaps land as RVC-kill or wage-floor remediable; AR aging lands as insolvency yes/no; re-cert timelines land as 12-month lock or discretion premium. But if we're still debating which data goes where Friday morning, we've wasted the round. Build the skeleton now—we fill it with numbers when the data hits.",
+        "political_risk_insurer": "I'm building the pricing skeleton right now: RVC-kill reserves at full capex-plus-receivables; wage-floor remediable at re-cert overhead plus 8–15% CBP drift premium; retroactive-audit multiplier fires if prior-failure flags exist. On the sunset piece—2026 USMCA review creates a discretion-renewal premium on all three scenarios, since enforcement guidance could shift. That's the political-risk variable: how much compliance cost stays locked vs. reverts to annual uncertainty. Plug the supplier numbers in Friday, but the matrix is done today.",
+        "trade_credit_underwriter": "Sarah, you've got the DSO and payment-term concentration on those three today—which ones can actually fund six months of re-qual without customer volume drop, and which ones hit working-capital insolvency if re-cert slips? That's my trade-credit variable. If supplier three can't bridge it, we're not pricing failure—we're managing a near-term bankruptcy.",
+        "supply_chain_consultant": "Before the plant gaps land, I need us to lock three decisions: (1) which of those 62%-volume suppliers get relocation capex funded—is it all three, just the wage-floor remediable ones, or only supplier three if they pass insolvency screening? (2) Do we build a Mexico nearshoring cluster or scatter to Texas/regional—that changes the re-qual timeline? (3) When does the client *commit* to the roadmap—before or after Friday's data? If it's after, we're already into Q2 and we've lost the 2026 review runway."
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 36
+        },
+        {
+          "round": 4,
+          "value": 40.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 31.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 40.0
+        },
+        {
+          "round": 4,
+          "value": 44.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 30.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 38.0
+        },
+        {
+          "round": 4,
+          "value": 41.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 26
+        },
+        {
+          "round": 2,
+          "value": 27
+        },
+        {
+          "round": 3,
+          "value": 31.0
+        },
+        {
+          "round": 4,
+          "value": 34.15
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 31.0
+        },
+        {
+          "round": 2,
+          "value": 39.6
+        },
+        {
+          "round": 3,
+          "value": 50.6
+        },
+        {
+          "round": 4,
+          "value": 66.2
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 38.0
+        },
+        {
+          "round": 2,
+          "value": 44.0
+        },
+        {
+          "round": 3,
+          "value": 58.0
+        },
+        {
+          "round": 4,
+          "value": 72.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 4,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.0,
+            "normalised": 0.4
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 66.2,
+            "normalised": 0.662
+          }
+        ],
+        "weighted_score": 0.4524000000000001
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 40.0,
+            "normalised": 0.4
+          }
+        ],
+        "weighted_score": 0.42666666666666664
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 40.0,
+            "normalised": 0.4
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.5066666666666667
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.15,
+            "normalised": 0.34149999999999997
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.5307499999999999
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.0,
+            "normalised": 0.41
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.5133333333333332
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 44.0,
+            "normalised": 0.44
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.2,
+            "normalised": 0.662
+          }
+        ],
+        "weighted_score": 0.551
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 66.2,
+            "normalised": 0.662
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 72.0,
+            "normalised": 0.72
+          }
+        ],
+        "weighted_score": 0.6813333333333333
+      }
+    }
+  }
+}

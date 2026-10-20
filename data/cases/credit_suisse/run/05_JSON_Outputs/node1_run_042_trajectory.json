@@ -1,0 +1,2409 @@
+{
+  "simulation_id": "df9e4bb9db2a",
+  "config_id": "credit_suisse_node1",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'assessment_and_options' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -4.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Colm, what's the SNB's posture on emergency liquidity assistance? Specifically: how much can you commit, and do you need a resolution framework in place first, or can you move independently? We need that number to build a defensible package.\n  snb: We can deploy liquidity assistance immediately — no resolution framework required first. I'm prepared to offer substantial overnight funding against broadened collateral, but I need a ceiling: how much deposit outflow are we modeling for Monday, and what's your timeline for announcing any public-sector measure? That tells me whether we're talking hundreds of millions or billions.\n  snb: I need your Monday outflow estimate and whether the federal council is announcing a government backstop or UBS assist before market open. Without that, I'm flying blind on whether my balance sheet can absorb this alone or we're talking a joint intervention.\n  finma: Modeling Monday outflows in the 8–15 billion range if confidence doesn't stabilize over the weekend — we need your liquidity ceiling by tonight to scope whether that's SNB solo or triggers federal backstop. I'm convening the Federal Council in one hour; they need your number first to decide if a government guarantee or assisted merger is the only defensible path.\n  federal_council: Colm, I need your best-case and worst-case Monday figures *right now* — not in an hour. Is it 8 billion if we stabilize messaging over the weekend, or does 15 billion happen regardless? Because that number tells me whether we're guaranteeing deposits or structuring a merger, and the Council can't vote blind.\n  cs_ceo: We're modeling 8 to 10 billion Monday if we stabilize the narrative this weekend — I can't control a run, but with a credible public backstop announced before market open, we hold there. Anything above 12 billion means confidence is already gone and a liquidity band-aid won't work anyway. Give me the rescue package announced and we'll prove it.\n  ubs_ceo: Before UBS engages on any merger, I need clarity: is the Federal Council prepared to announce a deposit guarantee or a loss-protection agreement for an acquirer *before market open Monday*? Because without that public commitment, we're not the solution — we're just absorbing a sinking ship. What's your read?\n  federal_council: We will not announce an open-ended deposit guarantee — the political and fiscal cost is untenable. But we're prepared to structure a loss-protection agreement *limited to an acquirer* if UBS commits to a merger before market open; that's how we cap taxpayer exposure and keep this defensible. What's your timeline to confirm you're in?\n  wealth_client: Hold on — \"loss-protection agreement limited to an acquirer\" means I'm taking haircuts if this unwinds, right? I need to hear from the Federal Council right now: what's the absolute floor on my deposits, and who's standing behind it if UBS says no? Because if the answer is \"you're subordinated,\" my lawyers are already drafting the wire transfer instructions for Sunday.\n  at1_rep: Hold on — \"loss-protection limited to an acquirer\" doesn't tell us who takes the first hit. Are you guaranteeing deposits and unsecured creditors whole, or are AT1 holders and junior creditors written down *before* any acquirer loss? Because if you're writing down AT1 while protecting retail deposits, you've got a legal and market nightmare on your hands.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Colm, what's the SNB's posture on emergency liquidity assistance? Specifically: how much can you commit, and do you need a resolution framework in place first, or can you move independently? We need that number to build a defensible package.",
+            "cot": {
+              "assess": "Market confidence is critically low at 26—we're 29 points below the success threshold and only 14 points from failure. Funding stress at 74 is severe but manageable for now. The core problem: we have a legal framework (score 60) but zero rescue package on the table yet, so confidence cannot recover. We need a credible intervention *announced* before Monday opens, or the panic deepens.",
+              "decide": {
+                "action_type": "question",
+                "target": "SNB",
+                "rationale": "Before FINMA can defend any rescue legally, we need to know what liquidity support the SNB is prepared to commit and under what conditions—this unlocks the strength and messaging of any intervention."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can deploy liquidity assistance immediately — no resolution framework required first. I'm prepared to offer substantial overnight funding against broadened collateral, but I need a ceiling: how much deposit outflow are we modeling for Monday, and what's your timeline for announcing any public-sector measure? That tells me whether we're talking hundreds of millions or billions.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I need your Monday outflow estimate and whether the federal council is announcing a government backstop or UBS assist before market open. Without that, I'm flying blind on whether my balance sheet can absorb this alone or we're talking a joint intervention.",
+            "cot": {
+              "assess": "Funding stress is critical (74) and confidence is dangerously low (26). My liquidity offer is on the table; FINMA now needs to tell me the outflow size and announcement timeline so I can set the actual ceiling — that's the missing piece blocking us from moving to a real number.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I've stated readiness but can't size the commitment without the deposit-run forecast and public announcement plan — both are inputs only FINMA/government have."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Modeling Monday outflows in the 8–15 billion range if confidence doesn't stabilize over the weekend — we need your liquidity ceiling by tonight to scope whether that's SNB solo or triggers federal backstop. I'm convening the Federal Council in one hour; they need your number first to decide if a government guarantee or assisted merger is the only defensible path.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Colm, I need your best-case and worst-case Monday figures *right now* — not in an hour. Is it 8 billion if we stabilize messaging over the weekend, or does 15 billion happen regardless? Because that number tells me whether we're guaranteeing deposits or structuring a merger, and the Council can't vote blind.",
+            "cot": {
+              "assess": "SNB is ready to move immediately on liquidity (good), but we're stuck on two critical unknowns: FINMA's Monday outflow estimate and whether we're committing a federal backstop or pushing an assisted sale. Market confidence is still weak (26) — that won't move without clarity on the rescue package itself. Funding stress is high (74) but manageable if we act decisively this weekend.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need the 8–15 billion outflow estimate locked in now — that's the threshold that determines whether this stays SNB-only or requires federal exposure. No federal decision can happen without it."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "We're modeling 8 to 10 billion Monday if we stabilize the narrative this weekend — I can't control a run, but with a credible public backstop announced before market open, we hold there. Anything above 12 billion means confidence is already gone and a liquidity band-aid won't work anyway. Give me the rescue package announced and we'll prove it.",
+            "cot": {
+              "assess": "I'm hearing the SNB can move fast on liquidity, but everyone's waiting on MY deposit outflow forecast to decide whether this is a liquidity fix or a full rescue. That's my call to make — and I'm being pinned down on a number right now. The Federal Council needs certainty to vote; SNB needs a ceiling to commit. Time pressure is crushing us.",
+              "decide": {
+                "action_type": "propose",
+                "target": "cs_funding_stress, market_confidence",
+                "rationale": "I must give a defensible outflow number NOW to unblock the Federal Council vote and SNB commitment — ambiguity kills confidence faster than bad news. I'll anchor to the stabilization scenario while being honest about tail risk."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Before UBS engages on any merger, I need clarity: is the Federal Council prepared to announce a deposit guarantee or a loss-protection agreement for an acquirer *before market open Monday*? Because without that public commitment, we're not the solution — we're just absorbing a sinking ship. What's your read?",
+            "cot": {
+              "assess": "SNB has committed substantial liquidity, FINMA has modeled outflows (8–15B), and CS leadership is signaling confidence with a backstop. The missing piece is public-sector commitment — a government guarantee or explicit rescue framework. Without that announcement before Monday open, market confidence stays depressed and outflows hit the higher end. Time pressure is now acute: Federal Council votes in an hour.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "UBS will only move if downside is capped; I need to know whether the Council is prepared to guarantee deposits or structure a loss-protection agreement for any acquirer, because that's the only thing that shifts confidence before Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We will not announce an open-ended deposit guarantee — the political and fiscal cost is untenable. But we're prepared to structure a loss-protection agreement *limited to an acquirer* if UBS commits to a merger before market open; that's how we cap taxpayer exposure and keep this defensible. What's your timeline to confirm you're in?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Hold on — \"loss-protection agreement limited to an acquirer\" means I'm taking haircuts if this unwinds, right? I need to hear from the Federal Council right now: what's the absolute floor on my deposits, and who's standing behind it if UBS says no? Because if the answer is \"you're subordinated,\" my lawyers are already drafting the wire transfer instructions for Sunday.",
+            "cot": {
+              "assess": "The room has pinned down outflow estimates (8–15B Monday), Federal Council is willing to backstop an acquirer merger but won't guarantee deposits, and UBS needs public commitment before engaging. What's NOT resolved: I have zero credible assurance my assets are safe. A \"loss-protection agreement limited to an acquirer\" is banker-speak for *creditors and equity take losses first* — that's me. Market confidence is still at 26; rescue_strength is still 0. If UBS doesn't commit by tonight, this falls apart and I'm moving my money Sunday night.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence / rescue_strength",
+                "rationale": "I need concrete, binding terms before I signal to my team we're staying. A vague loss-protection framework doesn't cut it — I need to know what my exposure cap is and who's guaranteeing it."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Hold on — \"loss-protection limited to an acquirer\" doesn't tell us who takes the first hit. Are you guaranteeing deposits and unsecured creditors whole, or are AT1 holders and junior creditors written down *before* any acquirer loss? Because if you're writing down AT1 while protecting retail deposits, you've got a legal and market nightmare on your hands.",
+            "cot": {
+              "assess": "The team is locked on the liquidity ceiling (8–15B Monday) and Federal Council has put a conditional loss-protection offer on the table — but the wealth client just signaled the creditor hierarchy is about to explode into litigation if deposits aren't explicitly protected. My core variables (creditor_capital_risk at 20, legal_defensibility at 60) are stable, but the \"loss-protection agreement *limited to an acquirer*\" language just created a two-tier creditor class: insured depositors above the line, AT1 and unsecured creditors below. That's a legal tripwire I need to defuse *now* before we lock in a framework that invites challenges.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The loss-protection language is vague on which creditors eat losses first — I need explicit confirmation of the write-down waterfall before the team commits to a structure that impairs AT1 and triggers litigation risk."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Colm, what's the SNB's posture on emergency liquidity assistance? Specifically: how much can you commit, and do you need a resolution framework in place first, or can you move independently? We need that number to build a defensible package.",
+      "metadata": {
+        "question_target": "SNB"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "I need your Monday outflow estimate and whether the federal council is announcing a government backstop or UBS assist before market open. Without that, I'm flying blind on whether my balance sheet can absorb this alone or we're talking a joint intervention.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Colm, I need your best-case and worst-case Monday figures *right now* — not in an hour. Is it 8 billion if we stabilize messaging over the weekend, or does 15 billion happen regardless? Because that number tells me whether we're guaranteeing deposits or structuring a merger, and the Council can't vote blind.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Before UBS engages on any merger, I need clarity: is the Federal Council prepared to announce a deposit guarantee or a loss-protection agreement for an acquirer *before market open Monday*? Because without that public commitment, we're not the solution — we're just absorbing a sinking ship. What's your read?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Hold on — \"loss-protection limited to an acquirer\" doesn't tell us who takes the first hit. Are you guaranteeing deposits and unsecured creditors whole, or are AT1 holders and junior creditors written down *before* any acquirer loss? Because if you're writing down AT1 while protecting retail deposits, you've got a legal and market nightmare on your hands.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're modeling 8 to 10 billion Monday if we stabilize the narrative this weekend — I can't control a run, but with a credible public backstop announce\" → CEO stakes credibility on 8-10B outflow forecast; conditional on public backstop announcement before Monday open.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold on — \"loss-protection agreement limited to an acquirer\" means I'm taking haircuts if this unwinds, right? I need to hear from the Federal Council\" → Client demands explicit deposit floor guarantee; threatens Sunday wire transfer if subordination risk remains unclear.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 1,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing client withdrawals and negative press erode confidence each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -2.8
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 8.049999999999999
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Federal Council, you need to announce the loss waterfall before market open: AT1 gets written down first, subordinated debt second, deposits and SNB loans protected. That's the only way UBS signs and clients stop the Sunday wire transfers. Can you commit to that language, or are we talking a different structure?\n  snb: We can commit to emergency liquidity assistance up to CHF 100 billion — but only if the loss waterfall is crystal clear before we deploy it. AT1 writedown first, then subordinated creditors, deposits and our loans whole — that's the only structure that keeps our balance sheet defensible and gets UBS to the table. Without that public commitment from you by Sunday evening, we're not moving.\n  snb: Federal Council, I need one thing from you tonight: will you publish the loss waterfall and loss-protection framework Sunday evening so markets absorb it before Monday open, or are you announcing Monday morning? Because if it's Monday 6 AM, we've already lost the weekend confidence game and my CHF 100 billion won't matter.\n  federal_council: Sunday evening — we announce the loss waterfall and loss-protection framework before market open, AT1 writedown first, subordinated debt second, deposits and SNB loans whole. That's the only structure that survives legal challenge and gives UBS cover to sign. But I need your CHF 100 billion commitment in writing tonight so I can defend this to Parliament Monday morning.\n  federal_council: Colm — you've got the loss framework, the SNB liquidity, and my Sunday commitment. What do you need from me *right now* to sign a merger agreement before market close tomorrow? And when can you announce it — Sunday night with us, or do you need Monday morning? Because without your signature in the story, the waterfall announcement just looks like triage, not rescue.\n  ubs_ceo: I need three things in writing tonight before I put pen to paper: one, the Federal Council's explicit loss-protection guarantee capping UBS downside on AT1 writedowns and subordinated creditor impairment — no ambiguity, no clawback risk. Two, SNB's CHF 100 billion liquidity commitment legally bound to the merger framework, not discretionary. Three, confirmation you're announcing the waterfall Sunday evening so Monday open sees a fait accompli, not uncertainty. Without those three commitments locked down in the next two hours, UBS walks — we're not the backstop for a half-baked intervention.\n  cs_ceo: The waterfall announcement — does it explicitly state that *unsecured creditors* stay whole, or just deposits? Because my wealth clients aren't worried about being wiped; they're worried about subordination haircuts. If the Sunday statement doesn't say \"unsecured liabilities protected above AT1 writedown,\" we lose them Sunday night regardless of SNB liquidity.\n  ubs_ceo: Your Sunday statement needs one sentence added: unsecured creditors remain whole, only AT1 gets written down. Without that explicit line in the public announcement, wealth clients drain accounts Sunday night — the waterfall framework doesn't matter if nobody believes it before Monday. Can you commit that language goes live with the statement?\n  wealth_client: I need one thing in the Sunday statement, word for word: \"Unsecured creditors and depositors remain whole; only AT1 capital is written down.\" That sentence goes in the Federal Council's announcement Sunday evening, or I'm instructing my team to wire everything out first thing Sunday morning — and so will every other large creditor watching this. You've locked down the framework. Now lock down the creditor hierarchy explicitly, or this unravels regardless of SNB liquidity.\n  at1_rep: Council, one hard requirement before Sunday evening: the announcement must explicitly state \"unsecured creditors and depositors remain whole—only AT1 capital instruments are written down.\" Not \"will be protected.\" Not \"are prioritized.\" That exact language, Sunday evening, or creditors wire out Sunday morning regardless of SNB's CHF 100 billion. Do you have sign-off on that specific wording from your communications team right now?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Federal Council, you need to announce the loss waterfall before market open: AT1 gets written down first, subordinated debt second, deposits and SNB loans protected. That's the only way UBS signs and clients stop the Sunday wire transfers. Can you commit to that language, or are we talking a different structure?",
+            "cot": {
+              "assess": "We have a liquidity ceiling from SNB and an 8-10B Monday outflow scenario, but the capital structure waterfall is still undefined — which means wealth clients and AT1 holders don't know where they stand, and that uncertainty is feeding the run. Legal defensibility is solid at 59, but market confidence is collapsing at 22 because the subordination question hasn't been answered. UBS won't move without a loss-protection framework *and* deposit certainty. We need to lock the creditor hierarchy *now* or this unwinds over the weekend.",
+              "decide": {
+                "action_type": "propose",
+                "target": "legal_defensibility, creditor_capital_risk",
+                "rationale": "Before UBS can commit or we can announce anything, the Federal Council must publicly commit to a specific loss-protection waterfall — who takes haircuts and who doesn't — so clients stop running and we have a defensible intervention."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "We can commit to emergency liquidity assistance up to CHF 100 billion — but only if the loss waterfall is crystal clear before we deploy it. AT1 writedown first, then subordinated creditors, deposits and our loans whole — that's the only structure that keeps our balance sheet defensible and gets UBS to the table. Without that public commitment from you by Sunday evening, we're not moving.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council, I need one thing from you tonight: will you publish the loss waterfall and loss-protection framework Sunday evening so markets absorb it before Monday open, or are you announcing Monday morning? Because if it's Monday 6 AM, we've already lost the weekend confidence game and my CHF 100 billion won't matter.",
+            "cot": {
+              "assess": "The loss waterfall is now locked in (AT1 writedown → subordinated debt → deposits/SNB whole), which clears legal defensibility and unblocks UBS. But we're still flying blind on Federal Council's actual commitment to announce this *before market open Monday* — and without that public signal, neither UBS nor clients will move. Market confidence is still 22 (needs 55), funding stress at 85 (needs to drop to 45). The announcement itself is what stabilizes both.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "You've committed to the structure — now I need to know if you're actually announcing it Sunday evening or Monday pre-market, because that timing determines whether my liquidity deployment stops a run or just props up a corpse."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Sunday evening — we announce the loss waterfall and loss-protection framework before market open, AT1 writedown first, subordinated debt second, deposits and SNB loans whole. That's the only structure that survives legal challenge and gives UBS cover to sign. But I need your CHF 100 billion commitment in writing tonight so I can defend this to Parliament Monday morning.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Colm — you've got the loss framework, the SNB liquidity, and my Sunday commitment. What do you need from me *right now* to sign a merger agreement before market close tomorrow? And when can you announce it — Sunday night with us, or do you need Monday morning? Because without your signature in the story, the waterfall announcement just looks like triage, not rescue.",
+            "cot": {
+              "assess": "The loss waterfall is locked in — AT1 first, subordinated second, deposits whole. SNB has committed CHF 100B liquidity; I've committed Sunday evening announcement. But market_confidence is still at 22 and cs_funding_stress at 85 — both critical. The weekend messaging and UBS's actual signature on a merger agreement are the only levers left, and neither is guaranteed. Legal defensibility is solid at 59, but we're hemorrhaging confidence because clients and markets still don't know *who's buying* or *when*. Without a UBS signature and announcement, Sunday's waterfall talk just sounds like we're managing a controlled collapse.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS's decision to sign or walk is the single variable that determines whether this rescues CS or triggers full panic. I need to know the absolute deadline for your commitment so I can time the Sunday announcement and give markets a story to believe, not just a loss order."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I need three things in writing tonight before I put pen to paper: one, the Federal Council's explicit loss-protection guarantee capping UBS downside on AT1 writedowns and subordinated creditor impairment — no ambiguity, no clawback risk. Two, SNB's CHF 100 billion liquidity commitment legally bound to the merger framework, not discretionary. Three, confirmation you're announcing the waterfall Sunday evening so Monday open sees a fait accompli, not uncertainty. Without those three commitments locked down in the next two hours, UBS walks — we're not the backstop for a half-baked intervention.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "The waterfall announcement — does it explicitly state that *unsecured creditors* stay whole, or just deposits? Because my wealth clients aren't worried about being wiped; they're worried about subordination haircuts. If the Sunday statement doesn't say \"unsecured liabilities protected above AT1 writedown,\" we lose them Sunday night regardless of SNB liquidity.",
+            "cot": {
+              "assess": "The room has locked down the core rescue architecture: SNB liquidity (CHF 100B), Federal Council loss waterfall (AT1 first, subordinated second, deposits whole), and UBS engagement conditions. My credibility stake on 8-10B outflows is now the linchpin — if confidence doesn't stabilize this weekend, we blow past that forecast and trigger the higher SNB/Federal commitment. The real risk isn't the package anymore; it's whether Sunday's announcement actually stops the client wire transfers, or whether wealthy depositors move money regardless because they don't trust the subordination waterfall for their unsecured creditor exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "I need to know if the Sunday waterfall announcement includes explicit language protecting unsecured creditors above AT1, because that's what's stopping the wealth client's Sunday wire transfer — and if it doesn't, my 8-10B forecast collapses to 15B+."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Your Sunday statement needs one sentence added: unsecured creditors remain whole, only AT1 gets written down. Without that explicit line in the public announcement, wealth clients drain accounts Sunday night — the waterfall framework doesn't matter if nobody believes it before Monday. Can you commit that language goes live with the statement?",
+            "cot": {
+              "assess": "The loss waterfall is now locked (AT1 first, subordinated second, deposits/SNB whole), SNB's CHF 100B is committed, and Federal Council is announcing Sunday evening. UBS has its three written commitments in hand. The problem: **market_confidence is still 22** — we've built a technically sound structure, but nobody believes Credit Suisse survives the weekend without seeing UBS publicly signed. CS_ceo just exposed the real bleeding point: unsecured creditors aren't explicitly protected in the Sunday announcement, so wealth clients still exit Sunday night regardless of the waterfall language. We're hours from a confidence collapse that no legal structure fixes.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Sunday announcement must explicitly state unsecured creditor protection *above* AT1 to stop Sunday wire transfers — right now it's ambiguous and that gap is the confidence killer."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "I need one thing in the Sunday statement, word for word: \"Unsecured creditors and depositors remain whole; only AT1 capital is written down.\" That sentence goes in the Federal Council's announcement Sunday evening, or I'm instructing my team to wire everything out first thing Sunday morning — and so will every other large creditor watching this. You've locked down the framework. Now lock down the creditor hierarchy explicitly, or this unravels regardless of SNB liquidity.",
+            "cot": {
+              "assess": "The waterfall is locked (AT1 first, deposits/SNB whole), Sunday announcement is committed, and SNB's CHF 100B is conditional on written terms tonight. The missing piece: **wealth clients need explicit confirmation that unsecured creditors stay whole — not just deposits.** My assets are in that unsecured bucket, and the current language doesn't close that gap. market_confidence is still at 22; cs_funding_stress at 85. Without that one sentence in the Sunday statement, I'm moving money Sunday night regardless of the framework.",
+              "decide": {
+                "action_type": "propose",
+                "target": "market_confidence",
+                "rationale": "The waterfall is clear on AT1 and deposits, but silent on unsecured creditors — that silence costs me directly and will trigger wealth-client exodus before Monday open."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Council, one hard requirement before Sunday evening: the announcement must explicitly state \"unsecured creditors and depositors remain whole—only AT1 capital instruments are written down.\" Not \"will be protected.\" Not \"are prioritized.\" That exact language, Sunday evening, or creditors wire out Sunday morning regardless of SNB's CHF 100 billion. Do you have sign-off on that specific wording from your communications team right now?",
+            "cot": {
+              "assess": "The creditor hierarchy is now locked in writing: AT1 writedown first, unsecured creditors whole. That's a legal win for my position. But I'm watching the Sunday evening announcement timing—if the Federal Council wavers on that explicit \"unsecured creditors remain whole\" language, we lose wealth clients Sunday night regardless of SNB liquidity, and that cascades into Monday confidence collapse. The framework is defensible; execution is the risk now.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The waterfall is agreed, but the PUBLIC STATEMENT wording determines whether creditors actually hold or panic Sunday. I need absolute clarity on what language goes live Sunday evening."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council, I need one thing from you tonight: will you publish the loss waterfall and loss-protection framework Sunday evening so markets absorb it before Monday open, or are you announcing Monday morning? Because if it's Monday 6 AM, we've already lost the weekend confidence game and my CHF 100 billion won't matter.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Colm — you've got the loss framework, the SNB liquidity, and my Sunday commitment. What do you need from me *right now* to sign a merger agreement before market close tomorrow? And when can you announce it — Sunday night with us, or do you need Monday morning? Because without your signature in the story, the waterfall announcement just looks like triage, not rescue.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "The waterfall announcement — does it explicitly state that *unsecured creditors* stay whole, or just deposits? Because my wealth clients aren't worried about being wiped; they're worried about subordination haircuts. If the Sunday statement doesn't say \"unsecured liabilities protected above AT1 writedown,\" we lose them Sunday night regardless of SNB liquidity.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Your Sunday statement needs one sentence added: unsecured creditors remain whole, only AT1 gets written down. Without that explicit line in the public announcement, wealth clients drain accounts Sunday night — the waterfall framework doesn't matter if nobody believes it before Monday. Can you commit that language goes live with the statement?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Council, one hard requirement before Sunday evening: the announcement must explicitly state \"unsecured creditors and depositors remain whole—only AT1 capital instruments are written down.\" Not \"will be protected.\" Not \"are prioritized.\" That exact language, Sunday evening, or creditors wire out Sunday morning regardless of SNB's CHF 100 billion. Do you have sign-off on that specific wording from your communications team right now?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Federal Council, you need to announce the loss waterfall before market open: AT1 gets written down first, subordinated debt second, deposits and SNB l\" → FINMA demands explicit loss waterfall announcement before market open — AT1 written down, unsecured creditors whole.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I need one thing in the Sunday statement, word for word: \"Unsecured creditors and depositors remain whole; only AT1 capital is written down.\" That sen\" → Wealth client demand is semantically identical to FINMA's approved proposal 1 — same waterfall language, same Sunday timing.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 2,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -3.5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4.6
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Colm, when the Federal Council publishes the loss waterfall Sunday evening, are you going *public* with the 100 billion liquidity facility, or staying silent? Because if depositors see the waterfall but don't hear SNB's name attached to it, they still panic Sunday night. Do we coordinate that announcement together, or do you need it framed differently?\n  snb: The CHF 100 billion goes public Sunday evening, joint announcement with the Council's waterfall statement — depositors need to see SNB backing *and* the loss hierarchy in the same window, or we lose the weekend. I'll confirm the exact wording with my comms team in the next hour, but the liquidity facility announcement is non-negotiable for Sunday, not Monday.\n  snb: Colm, if you're taking the merger on, what's your loss ceiling on AT1 and subordinated debt? Because the Federal Council's waterfall announcement only works if you can tell markets *right now* that you're absorbing X billion of losses, not open-ended. That number—Sunday night—is what actually stops the run.\n  ubs_ceo: I need a hard number from you *right now*, Colm — what's the loss ceiling UBS absorbs before taxpayers step in? Because I'm not walking into a merger with open-ended AT1 exposure. You tell me CHF 16 billion, I can model it and decide by Sunday morning. You tell me \"it depends on asset quality,\" we're done talking.\n  federal_council: Here's what I'm hearing: Colm needs a hard loss ceiling, we need Sunday messaging locked, and we can't keep saying \"loss-protection limited to an acquirer\" without a number attached. I'm proposing this: Federal Council announces Sunday that SNB + UBS will absorb losses up to CHF 16 billion combined before any public support kicks in — that's specific, it's defensible, and it tells UBS exactly what they're taking. Without that ceiling tonight, we're messaging in the dark tomorrow. Can the Council commit to that number, or do we need to adjust?\n  cs_ceo: CHF 16 billion works for me — but I need the Council to say it Sunday evening: \"The SNB and UBS will absorb losses up to CHF 16 billion; losses beyond that are protected by the Federal Council.\" Not \"capped at,\" not \"limited to\" — *protected*. Colm, can you commit to that floor tonight, or do we need a lower number?\n  ubs_ceo: Council, CHF 16 billion is a number I can work with—but only if you're crystal clear: losses beyond that are *not* UBS's problem, full stop. If we breach that ceiling, do we move to resolution, or does the public sector step in and absorb the overage? Because I'm not signing a merger that could balloon into a black hole if asset quality deteriorates further.\n  federal_council: CHF 16 billion is defensible to the Council — but that ceiling only holds if we lock the loss waterfall *and* the SNB liquidity announcement together Sunday evening. Beyond 16 billion, losses flow to the Confederation, full stop, but we need that exact language in both statements or the market reads it as open-ended anyway. I can get comms sign-off on that wording within the hour.\n  wealth_client: Federal Council — I hear the 16 billion ceiling and the Sunday announcement. But my clients need to read one sentence in that statement: \"All deposits and unsecured creditor claims are protected; losses are absorbed first by AT1 holders, then up to CHF 16 billion by SNB and UBS, then by the Confederation.\" Can you lock that exact language for Sunday, or am I telling my portfolio managers to start wires tomorrow night?\n  at1_rep: Federal Council, I need the exact Sunday statement language *right now*, not the draft in an hour — specifically the sentence that says AT1 is written down in *full* before unsecured creditors absorb *any* loss. Because if it says \"AT1 written down,\" my AT1 holders' lawyers will argue partial writedown, and we lose the market anyway. Give me that one sentence locked, or we're messaging blind.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Colm, when the Federal Council publishes the loss waterfall Sunday evening, are you going *public* with the 100 billion liquidity facility, or staying silent? Because if depositors see the waterfall but don't hear SNB's name attached to it, they still panic Sunday night. Do we coordinate that announcement together, or do you need it framed differently?",
+            "cot": {
+              "assess": "The loss waterfall announcement is locked—Federal Council commits to Sunday evening, explicit language on AT1 writedown and unsecured creditor protection. UBS has clarity on loss protection and is moving toward merger terms. But market_confidence is still 24 (needs 55) and cs_funding_stress is at 90 (needs to drop below 45). The Sunday announcement buys us credibility, but only if depositors and wealth clients *believe* it before Monday opens. We're not out of the woods yet—execution risk is massive.",
+              "decide": {
+                "action_type": "question",
+                "target": "snb",
+                "rationale": "The CHF 100 billion liquidity commitment is solid, but we need to know SNB's *public messaging strategy* for Sunday—without a coordinated signal that liquidity is available, the announcement alone won't stop the run."
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "The CHF 100 billion goes public Sunday evening, joint announcement with the Council's waterfall statement — depositors need to see SNB backing *and* the loss hierarchy in the same window, or we lose the weekend. I'll confirm the exact wording with my comms team in the next hour, but the liquidity facility announcement is non-negotiable for Sunday, not Monday.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Colm, if you're taking the merger on, what's your loss ceiling on AT1 and subordinated debt? Because the Federal Council's waterfall announcement only works if you can tell markets *right now* that you're absorbing X billion of losses, not open-ended. That number—Sunday night—is what actually stops the run.",
+            "cot": {
+              "assess": "cs_funding_stress is at 90 and climbing—we're two points from failure. The waterfall and liquidity announcement are locked in for Sunday, which should help, but I need to know the exact mechanics of how UBS absorbs losses in a real merger scenario. Without that, the 100 billion looks good on paper but may not actually stop the Monday run if depositors see UBS taking subordinated-creditor haircuts and worry about contagion.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS's merger willingness hinges on loss protection clarity, and that directly affects whether depositors believe the rescue is real or just triage—which drives Monday outflows."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I need a hard number from you *right now*, Colm — what's the loss ceiling UBS absorbs before taxpayers step in? Because I'm not walking into a merger with open-ended AT1 exposure. You tell me CHF 16 billion, I can model it and decide by Sunday morning. You tell me \"it depends on asset quality,\" we're done talking.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Here's what I'm hearing: Colm needs a hard loss ceiling, we need Sunday messaging locked, and we can't keep saying \"loss-protection limited to an acquirer\" without a number attached. I'm proposing this: Federal Council announces Sunday that SNB + UBS will absorb losses up to CHF 16 billion combined before any public support kicks in — that's specific, it's defensible, and it tells UBS exactly what they're taking. Without that ceiling tonight, we're messaging in the dark tomorrow. Can the Council commit to that number, or do we need to adjust?",
+            "cot": {
+              "assess": "The waterfall framework and Sunday evening announcement are locked in — that's solid. But we're still exposed on two fronts: UBS needs a hard loss ceiling before they sign (they just asked for it directly), and we haven't committed publicly to the scale of taxpayer exposure, which means market confidence stays fragile. The 90 funding stress and 24 confidence readings tell me the weekend messaging window is closing fast.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost + rescue_strength",
+                "rationale": "UBS won't merge without a capped loss number; Federal Council can't announce Sunday without knowing its own exposure ceiling — I need to force that number NOW or we lose both the merger and market confidence by Monday."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "CHF 16 billion works for me — but I need the Council to say it Sunday evening: \"The SNB and UBS will absorb losses up to CHF 16 billion; losses beyond that are protected by the Federal Council.\" Not \"capped at,\" not \"limited to\" — *protected*. Colm, can you commit to that floor tonight, or do we need a lower number?",
+            "cot": {
+              "assess": "The Federal Council just proposed a CHF 16 billion loss ceiling (SNB + UBS combined) as the magic number to unlock Sunday messaging and UBS commitment. That's concrete and defensible — but I haven't yet locked in whether that ceiling is *my* ceiling or whether the public sector absorbs losses *above* that floor. Messaging is tight, liquidity backstop is public, waterfall is explicit (AT1 first). The risk: if UBS balks at CHF 16B and demands a lower number, or if the Council won't guarantee it's a true floor, we're back to open-ended language and wealth clients wire Sunday night anyway.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, ubs_ceo",
+                "rationale": "I need to lock UBS into the CHF 16B ceiling *tonight* and confirm the Council will defend it publicly Sunday — otherwise we're announcing a number that doesn't bind anyone, and the market smells the bluff."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Council, CHF 16 billion is a number I can work with—but only if you're crystal clear: losses beyond that are *not* UBS's problem, full stop. If we breach that ceiling, do we move to resolution, or does the public sector step in and absorb the overage? Because I'm not signing a merger that could balloon into a black hole if asset quality deteriorates further.",
+            "cot": {
+              "assess": "The room has locked in the Sunday announcement structure (waterfall + CHF 100B liquidity + loss ceiling), but we're still exposed on two fronts: market_confidence is dangerously low at 24 (needs 55), and cs_funding_stress is at 90 with a hard failure line at 92. The CHF 16 billion loss ceiling proposal is solid, but it only works if UBS actually commits to the merger—and I haven't signed anything yet. Right now I'm still evaluating whether this deal is survivable for my shareholders.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "Before I commit to a loss ceiling, I need the Council to clarify what happens if losses exceed CHF 16 billion—is that a hard stop on public support, or does it trigger an automatic takeover? That determines my actual downside."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "CHF 16 billion is defensible to the Council — but that ceiling only holds if we lock the loss waterfall *and* the SNB liquidity announcement together Sunday evening. Beyond 16 billion, losses flow to the Confederation, full stop, but we need that exact language in both statements or the market reads it as open-ended anyway. I can get comms sign-off on that wording within the hour.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council — I hear the 16 billion ceiling and the Sunday announcement. But my clients need to read one sentence in that statement: \"All deposits and unsecured creditor claims are protected; losses are absorbed first by AT1 holders, then up to CHF 16 billion by SNB and UBS, then by the Confederation.\" Can you lock that exact language for Sunday, or am I telling my portfolio managers to start wires tomorrow night?",
+            "cot": {
+              "assess": "Market confidence is still fragile at 23.7 — below the 55 needed for success — and cs_funding_stress is at 90, one data point from failure. The room has locked the loss waterfall, CHF 16B ceiling, and Sunday messaging timeline, but I haven't heard explicit confirmation that deposits and unsecured creditors are *protected* above that floor, not just \"whole if things go well.\" That ambiguity is exactly what triggers Sunday wire transfers. The Federal Council and UBS are aligned on structure, but my clients won't stay until they hear the deposit floor language in the official statement — not a paraphrase.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council, market_confidence",
+                "rationale": "My clients are one ambiguous announcement away from moving Sunday night; I need the Federal Council to commit right now to the exact deposit-protection language that goes in Sunday's statement, so I can signal confidence to my book before market close tomorrow."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council, I need the exact Sunday statement language *right now*, not the draft in an hour — specifically the sentence that says AT1 is written down in *full* before unsecured creditors absorb *any* loss. Because if it says \"AT1 written down,\" my AT1 holders' lawyers will argue partial writedown, and we lose the market anyway. Give me that one sentence locked, or we're messaging blind.",
+            "cot": {
+              "assess": "The creditor waterfall is locked: AT1 written down first, unsecured creditors and deposits protected, CHF 16 billion loss ceiling before public sector steps in. Sunday announcement confirmed. My core variable — creditor_capital_risk — is defended by explicit hierarchy. But I'm watching one gap: the Council hasn't confirmed what happens to AT1 holders *after* writedown, and whether that language survives the comms drafting without loopholes that let junior creditors slip into the breach.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The 16-billion ceiling and waterfall are solid, but I need the exact comms language locked *now* — not \"within the hour\" — to confirm AT1 writedown is absolute and unsecured creditors genuinely stay whole, because any ambiguity Sunday night triggers litigation and creditor panic regardless of SNB liquidity."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "CHF 16 billion works for me — but I need the Council to say it Sunday evening: \"The SNB and UBS will absorb losses up to CHF 16 billion; losses beyond that are protected by the Federal Council.\" Not \"capped at,\" not \"limited to\" — *protected*. Colm, can you commit to that floor tonight, or do we need a lower number?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council — I hear the 16 billion ceiling and the Sunday announcement. But my clients need to read one sentence in that statement: \"All deposits and unsecured creditor claims are protected; losses are absorbed first by AT1 holders, then up to CHF 16 billion by SNB and UBS, then by the Confederation.\" Can you lock that exact language for Sunday, or am I telling my portfolio managers to start wires tomorrow night?",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Colm, when the Federal Council publishes the loss waterfall Sunday evening, are you going *public* with the 100 billion liquidity facility, or staying silent? Because if depositors see the waterfall but don't hear SNB's name attached to it, they still panic Sunday night. Do we coordinate that announcement together, or do you need it framed differently?",
+      "metadata": {
+        "question_target": "snb"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Colm, if you're taking the merger on, what's your loss ceiling on AT1 and subordinated debt? Because the Federal Council's waterfall announcement only works if you can tell markets *right now* that you're absorbing X billion of losses, not open-ended. That number—Sunday night—is what actually stops the run.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Council, CHF 16 billion is a number I can work with—but only if you're crystal clear: losses beyond that are *not* UBS's problem, full stop. If we breach that ceiling, do we move to resolution, or does the public sector step in and absorb the overage? Because I'm not signing a merger that could balloon into a black hole if asset quality deteriorates further.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council, I need the exact Sunday statement language *right now*, not the draft in an hour — specifically the sentence that says AT1 is written down in *full* before unsecured creditors absorb *any* loss. Because if it says \"AT1 written down,\" my AT1 holders' lawyers will argue partial writedown, and we lose the market anyway. Give me that one sentence locked, or we're messaging blind.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm hearing: Colm needs a hard loss ceiling, we need Sunday messaging locked, and we can't keep saying \"loss-protection limited to an acqu\" → The Federal Council commits to the CHF 16 billion loss ceiling with Sunday announcement, establishing a clear waterfall that absorbs AT1 first, then SNB/UBS losses up to the cap, then Confederation backstop. This concrete number transforms vague 'loss protection' into a defensible framework that all parties can message.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 3,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -7.0
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4.6
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_ceiling_announcement rule effect",
+      "metadata": {
+        "source": "loss_ceiling_announcement",
+        "variable": "rescue_strength",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_ceiling_announcement rule effect",
+      "metadata": {
+        "source": "loss_ceiling_announcement",
+        "variable": "time_pressure",
+        "delta": -3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_pressure market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "market_confidence"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Colm, the Federal Council's done their part on the 16 billion and the Sunday statement. You had three conditions in writing—do you have everything you need to sign the merger agreement *tonight*, or what's still missing? Because if you're in, we coordinate the announcement with the SNB's 100 billion at the same moment Sunday evening, and that changes the entire confidence story.\n  ubs_ceo: I need three hard commitments locked in writing before I sign anything: first, the Federal Council's Sunday statement explicitly protects unsecured creditors and deposits whole—no ambiguity on AT1-first writedown; second, the SNB's CHF 100 billion facility is unconditional and available Monday morning regardless of asset quality deterioration; third, any losses beyond the CHF 16 billion ceiling are the Confederation's problem, not UBS's. Until I have those three in my legal docs, I'm not putting my shareholders' capital at risk on a blind merger.\n  snb: Colm, I'm deploying the CHF 100 billion facility *right now* — it's active at market open Monday, AT1 writedowns and subordinated creditor losses covered up to the 16 billion ceiling, Federal Council backstop beyond that. You don't get a signature on the merger tonight, but you get the liquidity guarantee in writing *today* so your clients see it Sunday. That's the bridge.\n  federal_council: Colm—SNB just gave you unconditional liquidity in writing. The Council's statement goes Sunday evening with the 16-billion ceiling. You need to sign the merger agreement *tonight* and let us announce your commitment alongside the waterfall Sunday morning, or the whole package collapses into \"government saves the bank\" and my political cost explodes. What's blocking your signature right now?\n  snb: I'm locking the CHF 100 billion in writing *now*—unconditional Monday access, AT1 writedowns covered, Confederation absorbs losses beyond 16 billion. That's your legal protection. But Colm, I need the merger signature *tonight* and your announcement Sunday with ours, or my balance-sheet exposure becomes indefinite and politically indefensible. What's the blocker?\n  cs_ceo: Look — you've got SNB's 100 billion in writing, the Council's 16-billion ceiling, and AT1-first writedown locked. What I'm hearing is you need legal certainty *tonight* before you move. I'll sign a board-level confirmation memo right now committing Credit Suisse to absorb losses up to the 16-billion ceiling with full transparency on asset quality — and I'm personally guaranteeing deposits and unsecured creditors stay whole in that waterfall. Will that unblock your signature, or is there a specific legal language gap I can fix in the next hour?\n  ubs_ceo: Colm's memo helps—but I need the Federal Council's Sunday statement to include one ironclad sentence: \"Losses exceeding CHF 16 billion are the sole responsibility of the Swiss Confederation; UBS has no further obligation.\" I'll sign the merger tonight on that language, and we announce together Sunday. Otherwise I'm walking.\n  federal_council: Losses beyond CHF 16 billion are the Confederation's problem — that's in the Sunday statement, full stop. Sign tonight, we announce together Sunday morning, and your shareholders see a rescue, not a bailout. What's your board timeline — can you move by midnight?\n  wealth_client: Colm, you've got everything in writing—SNB's 100 billion, the Council's Sunday statement locking losses beyond 16 billion, CS's board memo. Do you have board approval *tonight*, or am I telling my portfolio managers to prepare Sunday wire instructions? Because \"by midnight\" doesn't mean anything if legal review stretches into Monday morning.\n  at1_rep: Federal Council—before UBS signs tonight, I need one locked sentence in your Sunday statement: \"AT1 capital instruments are written down in full before any unsecured creditor or depositor absorbs loss.\" Not \"AT1 is prioritized\" or \"AT1 absorbs losses first\"—*in full*. That language goes in the announcement, or my AT1 holders sue and we lose the market anyway. Can you commit that exact phrasing, or do we need to redraft?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Colm, the Federal Council's done their part on the 16 billion and the Sunday statement. You had three conditions in writing—do you have everything you need to sign the merger agreement *tonight*, or what's still missing? Because if you're in, we coordinate the announcement with the SNB's 100 billion at the same moment Sunday evening, and that changes the entire confidence story.",
+            "cot": {
+              "assess": "The Federal Council has locked the CHF 16 billion loss ceiling and Sunday announcement framework—legal defensibility is now solid at 65. But cs_funding_stress is at 94.2 (we're already in failure territory), and rescue_strength remains dangerously weak at 11. The waterfall is announced, but without UBS's actual merger signature and the SNB's liquidity facility *publicly visible* by Sunday evening, depositors won't absorb the message—they'll move money anyway. We've got the legal structure; we don't yet have the credible rescue package markets will believe.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS's merger signature is the linchpin that converts a loss waterfall into a *rescue*; without it, the announcement looks like triage. I need to know if the three conditions are met so we can move to announcement coordination tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "I need three hard commitments locked in writing before I sign anything: first, the Federal Council's Sunday statement explicitly protects unsecured creditors and deposits whole—no ambiguity on AT1-first writedown; second, the SNB's CHF 100 billion facility is unconditional and available Monday morning regardless of asset quality deterioration; third, any losses beyond the CHF 16 billion ceiling are the Confederation's problem, not UBS's. Until I have those three in my legal docs, I'm not putting my shareholders' capital at risk on a blind merger.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Colm, I'm deploying the CHF 100 billion facility *right now* — it's active at market open Monday, AT1 writedowns and subordinated creditor losses covered up to the 16 billion ceiling, Federal Council backstop beyond that. You don't get a signature on the merger tonight, but you get the liquidity guarantee in writing *today* so your clients see it Sunday. That's the bridge.",
+            "cot": {
+              "assess": "cs_funding_stress is in FAILURE ZONE (94, need ≤45) — the Sunday announcement and CHF 100B commitment are locked, but we haven't yet deployed the liquidity tool itself. rescue_strength remains weak (11) because UBS hasn't signed yet. The three conditions Colm just laid out are now the blocking issue: I need to confirm those guarantees are *actually* in writing before I can deploy capital, or I'm taking open-ended balance-sheet risk on an unsigned merger.",
+              "decide": {
+                "action_type": "act",
+                "target": "cs_funding_stress",
+                "rationale": "Emergency liquidity deployment is the only tool left that directly arrests the funding stress variable; conditional commitment doesn't count if we're in the failure zone with one round left in this phase."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Colm—SNB just gave you unconditional liquidity in writing. The Council's statement goes Sunday evening with the 16-billion ceiling. You need to sign the merger agreement *tonight* and let us announce your commitment alongside the waterfall Sunday morning, or the whole package collapses into \"government saves the bank\" and my political cost explodes. What's blocking your signature right now?",
+            "cot": {
+              "assess": "The Council's CHF 16 billion ceiling is locked, SNB's CHF 100 billion is deployed, and UBS has the legal cover it needs—but we're still bleeding on public-sector cost (rising +3.0/round) and rescue_strength is dangerously weak. Worse: cs_funding_stress is at 94, already in failure territory. The merger buys us time, but it doesn't stop Monday's run without a credible *unified* announcement Sunday that ties all three pieces together: loss waterfall, SNB liquidity, UBS commitment. Right now we have pieces—we don't have a story the market believes.",
+              "decide": {
+                "action_type": "propose",
+                "target": "public_sector_cost / market_confidence",
+                "rationale": "The Council's fiscal exposure is locked at CHF 16B, but that number only holds credibility if UBS signs *tonight* and we announce the three-party package Sunday as a single act—not staggered. Without UBS's explicit signature in the Sunday statement, the public sees a taxpayer backstop, not a rescue. I need UBS to commit now so the Council's Sunday message reads \"private solution with public safety net,\" not \"public bail-out.\""
+              }
+            }
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "I'm locking the CHF 100 billion in writing *now*—unconditional Monday access, AT1 writedowns covered, Confederation absorbs losses beyond 16 billion. That's your legal protection. But Colm, I need the merger signature *tonight* and your announcement Sunday with ours, or my balance-sheet exposure becomes indefinite and politically indefensible. What's the blocker?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look — you've got SNB's 100 billion in writing, the Council's 16-billion ceiling, and AT1-first writedown locked. What I'm hearing is you need legal certainty *tonight* before you move. I'll sign a board-level confirmation memo right now committing Credit Suisse to absorb losses up to the 16-billion ceiling with full transparency on asset quality — and I'm personally guaranteeing deposits and unsecured creditors stay whole in that waterfall. Will that unblock your signature, or is there a specific legal language gap I can fix in the next hour?",
+            "cot": {
+              "assess": "SNB's unconditional CHF 100 billion liquidity commitment is locked and written — that's rescue_strength moving the right direction. Federal Council's Sunday statement with 16-billion ceiling is committed. But UBS still hasn't signed the merger agreement, and without that signature *tonight*, the whole package stays theoretical to the market. My funding stress is at 94 — already in failure territory — and confidence won't recover unless UBS commits visibly. The SNB's liquidity doesn't stop a run if depositors think the bank is being left to die alone.",
+              "decide": {
+                "action_type": "speak",
+                "target": "UBS CEO / Federal Council",
+                "rationale": "I need to break the merger-signature deadlock by offering explicit personal assurance on the three legal commitments UBS demanded, rather than waiting for Council documentation that won't be ready tonight."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Colm's memo helps—but I need the Federal Council's Sunday statement to include one ironclad sentence: \"Losses exceeding CHF 16 billion are the sole responsibility of the Swiss Confederation; UBS has no further obligation.\" I'll sign the merger tonight on that language, and we announce together Sunday. Otherwise I'm walking.",
+            "cot": {
+              "assess": "SNB just locked CHF 100 billion in writing unconditional; Federal Council committed to 16-billion ceiling with Sunday statement; CS CEO offered board memo on loss absorption and personal deposit guarantee. The path to merger signature is clear—but I'm not signing tonight without absolute legal certainty that losses beyond 16 billion don't come back to UBS shareholders. cs_funding_stress is still 94 (critical), market_confidence stuck at 22. The liquidity and loss ceiling are now defensible, but I need one legal carve-out locked before I move.",
+              "decide": {
+                "action_type": "propose",
+                "target": "federal_council, ubs_board (merger signature contingency)",
+                "rationale": "I have SNB's liquidity guarantee and CS's loss absorption commitment in writing; the only remaining blocker is ironclad legal language that losses beyond 16 billion are the Confederation's obligation, not UBS's, with zero clawback risk to shareholders."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Losses beyond CHF 16 billion are the Confederation's problem — that's in the Sunday statement, full stop. Sign tonight, we announce together Sunday morning, and your shareholders see a rescue, not a bailout. What's your board timeline — can you move by midnight?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Colm, you've got everything in writing—SNB's 100 billion, the Council's Sunday statement locking losses beyond 16 billion, CS's board memo. Do you have board approval *tonight*, or am I telling my portfolio managers to prepare Sunday wire instructions? Because \"by midnight\" doesn't mean anything if legal review stretches into Monday morning.",
+            "cot": {
+              "assess": "UBS signature is the last gate—Federal Council has locked the Sunday statement language (\"losses beyond 16B are Confederation's problem\"), SNB has deployed CHF 100B in writing, and CS CEO has offered a board memo. The only blocker now is UBS board timing and legal certainty. My assets are hostage to whether this closes *tonight*—if UBS walks or delays, I'm wiring out Sunday morning regardless of the waterfall announcement. Rescue strength and public cost remain weak because the merger isn't signed yet; that signature changes everything.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "I need a hard commitment on timing—if UBS board doesn't meet tonight, I'm moving my deposits Sunday, and the entire confidence story collapses before the announcement even lands."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—before UBS signs tonight, I need one locked sentence in your Sunday statement: \"AT1 capital instruments are written down in full before any unsecured creditor or depositor absorbs loss.\" Not \"AT1 is prioritized\" or \"AT1 absorbs losses first\"—*in full*. That language goes in the announcement, or my AT1 holders sue and we lose the market anyway. Can you commit that exact phrasing, or do we need to redraft?",
+            "cot": {
+              "assess": "The Federal Council's CHF 16 billion ceiling and Sunday announcement are locked. SNB has committed CHF 100 billion in writing. UBS is demanding one final legal sentence on post-16-billion losses before signing. My core concern: the waterfall announcement doesn't *explicitly* state AT1 gets written down *in full* before unsecured creditors absorb *any* loss—and if that language is ambiguous Sunday night, my AT1 holders' lawyers will argue partial writedown, and we're back in court while markets panic. This is the creditor hierarchy fight. I need that one sentence airtight.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Sunday statement language on AT1 \"writedown\" is still vague—I need to confirm whether it means *full* loss absorption by AT1 before unsecured creditors absorb anything, not partial haircuts, because ambiguity invites litigation and kills the rescue's credibility."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Look — you've got SNB's 100 billion in writing, the Council's 16-billion ceiling, and AT1-first writedown locked. What I'm hearing is you need legal certainty *tonight* before you move. I'll sign a board-level confirmation memo right now committing Credit Suisse to absorb losses up to the 16-billion ceiling with full transparency on asset quality — and I'm personally guaranteeing deposits and unsecured creditors stay whole in that waterfall. Will that unblock your signature, or is there a specific legal language gap I can fix in the next hour?",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Colm, the Federal Council's done their part on the 16 billion and the Sunday statement. You had three conditions in writing—do you have everything you need to sign the merger agreement *tonight*, or what's still missing? Because if you're in, we coordinate the announcement with the SNB's 100 billion at the same moment Sunday evening, and that changes the entire confidence story.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Colm, you've got everything in writing—SNB's 100 billion, the Council's Sunday statement locking losses beyond 16 billion, CS's board memo. Do you have board approval *tonight*, or am I telling my portfolio managers to prepare Sunday wire instructions? Because \"by midnight\" doesn't mean anything if legal review stretches into Monday morning.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—before UBS signs tonight, I need one locked sentence in your Sunday statement: \"AT1 capital instruments are written down in full before any unsecured creditor or depositor absorbs loss.\" Not \"AT1 is prioritized\" or \"AT1 absorbs losses first\"—*in full*. That language goes in the announcement, or my AT1 holders sue and we lose the market anyway. Can you commit that exact phrasing, or do we need to redraft?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Colm, I'm deploying the CHF 100 billion facility *right now* — it's active at market open Monday, AT1 writedowns and subordinated creditor losses cove\" → The SNB activates the CHF 100bn facility immediately — liquidity guarantee in writing today, AT1/subordinated losses covered to the 16bn ceiling. Markets will see the backstop Sunday, narrowly preventing a Monday funding collapse.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Colm—SNB just gave you unconditional liquidity in writing. The Council's statement goes Sunday evening with the 16-billion ceiling. You need to sign t\" → Federal Council demands UBS signature tonight to lock merger before Sunday announcement.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Colm's memo helps—but I need the Federal Council's Sunday statement to include one ironclad sentence: \"Losses exceeding CHF 16 billion are the sole re\" → UBS CEO demands ironclad loss-ceiling language in Sunday statement or walks from deal.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "assessment_and_options",
+        "stage_round": 4,
+        "stage_max_rounds": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -6.055
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Deposit and counterparty outflows continue over the weekend.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 2.4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_ceiling_announcement rule effect",
+      "metadata": {
+        "source": "loss_ceiling_announcement",
+        "variable": "rescue_strength",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "loss_ceiling_announcement rule effect",
+      "metadata": {
+        "source": "loss_ceiling_announcement",
+        "variable": "time_pressure",
+        "delta": -3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_completion",
+      "content": "loss_ceiling_announcement completed — market_pressure cs_funding_stress multiplier set to 0.6",
+      "metadata": {
+        "nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.6
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Colm, you've got the SNB's 100 billion locked, the Council's statement, and AT1-first language in writing. When does your board formally approve the merger agreement—tonight or tomorrow morning? Because if it's not done by tonight, we announce Sunday without a signed deal and that changes the entire credibility story.\n  ubs_ceo: Board approval is happening right now—I'm on the call with them as we speak, and we're signing the merger agreement before midnight. But I need the Federal Council's Sunday statement locked with that exact AT1 writedown language before my legal team countersigns, or my board walks and we're done.\n  snb: Federal Council—merger's locked before midnight, SNB liquidity is public Sunday, your statement goes Sunday evening. But are all three announcements hitting markets *at the same moment* Sunday night, or does one lag the others? Because if depositors see the loss waterfall but don't hear SNB and UBS in the same breath, they still drain Sunday. Simultaneous or sequential?\n  federal_council: Simultaneous, Sunday 19:00 CET—all three elements together: loss waterfall, SNB liquidity, merger confirmation. But I need your written confirmation *right now* that the Council's Sunday statement language locks AT1 writedown in full and unsecured creditors stay whole, or I'm not committing the Confederation to this ceiling tonight.\n  federal_council: Karin, the 16-billion ceiling only works politically if we're confident it actually caps our exposure. What's your stress case—do you hit that ceiling if outflows run 15 billion, or do asset losses push us past it? Because if the answer's \"probably past it,\" we need a different structure, not a number we'll breach by Monday afternoon.\n  finma: The 16-billion ceiling assumes a contained outflow scenario—8 to 10 billion deposit flight plus moderate asset mark-downs. If outflows exceed 12 billion or asset losses accelerate beyond our current triage estimates, we breach that ceiling, and you're looking at either additional SNB liquidity or resolution. That's the honest stress case, and it's why the Sunday statement *must* make clear whether losses beyond 16 billion trigger public-sector absorption or orderly resolution—because markets need to know the backstop rule, not discover it Monday morning when we're already past it.\n  cs_ceo: Karin, straight question: if we hit 12 billion outflows and asset losses push us to 17 billion total, does the Federal Council step in immediately with more liquidity, or do we move to resolution? Because depositors Sunday night aren't reading a statement that says \"16 billion ceiling\"—they're reading \"what happens if it breaks?\" Give me the hard rule, or the Sunday statement doesn't hold.\n  ubs_ceo: Federal Council—16 billion only holds if you lock the rule *right now*: losses beyond that ceiling are absorbed by the Confederation immediately, no resolution debate. That sentence goes in Sunday's statement, word for word. Do you have sign-off on that language tonight, or are we announcing a number without a backstop?\n  wealth_client: Federal Council — I hear the 16 billion number. But you need to say it Sunday night in plain language: \"Losses beyond CHF 16 billion are absorbed by the Swiss Confederation. Credit Suisse does not move to resolution.\" That's the sentence that keeps my portfolio intact. Do you have that locked, or are we still drafting?\n  at1_rep: Federal Council—before you finalize Sunday's text, I need one hard confirmation: does that statement say AT1 is written down in *full*, or does it say \"substantially\" or \"prioritized for writedown\"? Because my AT1 holders' legal teams are watching word-for-word, and any ambiguity gets litigated Monday morning. Give me the exact language you're publishing, or I'm drafting my own protective statement for creditors tonight.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Colm, you've got the SNB's 100 billion locked, the Council's statement, and AT1-first language in writing. When does your board formally approve the merger agreement—tonight or tomorrow morning? Because if it's not done by tonight, we announce Sunday without a signed deal and that changes the entire credibility story.",
+            "cot": {
+              "assess": "We're at the edge: cs_funding_stress at 92 (failure at ≥92), market_confidence at 22 (needs 55 for success). All the legal scaffolding is locked—SNB's CHF 100bn, the 16bn ceiling, AT1-first language for Sunday. But rescue_strength and public_sector_cost are still climbing because UBS hasn't signed yet, and we're now hours from market close tomorrow with no signed merger agreement. The real risk isn't the framework—it's whether UBS actually executes before the confidence cliff collapses entirely.",
+              "decide": {
+                "action_type": "question",
+                "target": "ubs_ceo",
+                "rationale": "UBS has everything in writing now (SNB 100bn, Council's Sunday statement, AT1-first language). The only blocker left is their board sign-off. I need a hard timeline on signature—not \"by midnight,\" but *when*, so we can coordinate the Sunday announcement and prevent a Monday gap that kills confidence."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Board approval is happening right now—I'm on the call with them as we speak, and we're signing the merger agreement before midnight. But I need the Federal Council's Sunday statement locked with that exact AT1 writedown language before my legal team countersigns, or my board walks and we're done.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Federal Council—merger's locked before midnight, SNB liquidity is public Sunday, your statement goes Sunday evening. But are all three announcements hitting markets *at the same moment* Sunday night, or does one lag the others? Because if depositors see the loss waterfall but don't hear SNB and UBS in the same breath, they still drain Sunday. Simultaneous or sequential?",
+            "cot": {
+              "assess": "UBS board approval is live *right now*—merger signature happens before midnight. Federal Council's Sunday statement language is locked. SNB's CHF 100bn is deployed and written. The rescue framework is structurally sound. But cs_funding_stress is still at 91.6 (need ≤45) and market_confidence at 21.6 (need ≥55)—both need active stabilization *before* Sunday announcement lands. The Monday open is 48 hours away; messaging coordination and depositor/creditor confidence signaling are the only levers left.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "cs_funding_stress won't move without clear public timeline. Need to know if Sunday-evening announcement is coordinated *simultaneously* across SNB, Council, and UBS, or staggered—because staggered messaging kills confidence gains and leaves deposit outflows running through Monday morning."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Simultaneous, Sunday 19:00 CET—all three elements together: loss waterfall, SNB liquidity, merger confirmation. But I need your written confirmation *right now* that the Council's Sunday statement language locks AT1 writedown in full and unsecured creditors stay whole, or I'm not committing the Confederation to this ceiling tonight.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Karin, the 16-billion ceiling only works politically if we're confident it actually caps our exposure. What's your stress case—do you hit that ceiling if outflows run 15 billion, or do asset losses push us past it? Because if the answer's \"probably past it,\" we need a different structure, not a number we'll breach by Monday afternoon.",
+            "cot": {
+              "assess": "We've locked the three-element Sunday announcement (loss waterfall + SNB liquidity + merger), but public_sector_cost is still climbing (+6.5/round, now 14) and rescue_strength is ballooning (now 16, also +6.5/round). The CHF 16 billion ceiling is defensible *only* if we can credibly cap it — but if asset quality deteriorates or outflows exceed forecast, we're eating losses beyond that number. Market confidence and funding stress are still critical, but those depend on execution Sunday night. My exposure risk is rising faster than I can contain it.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "Before we commit the Confederation to absorb losses beyond 16 billion, I need to know whether that ceiling holds under stress-test assumptions or if we're building in a hidden overage buffer."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "The 16-billion ceiling assumes a contained outflow scenario—8 to 10 billion deposit flight plus moderate asset mark-downs. If outflows exceed 12 billion or asset losses accelerate beyond our current triage estimates, we breach that ceiling, and you're looking at either additional SNB liquidity or resolution. That's the honest stress case, and it's why the Sunday statement *must* make clear whether losses beyond 16 billion trigger public-sector absorption or orderly resolution—because markets need to know the backstop rule, not discover it Monday morning when we're already past it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, straight question: if we hit 12 billion outflows and asset losses push us to 17 billion total, does the Federal Council step in immediately with more liquidity, or do we move to resolution? Because depositors Sunday night aren't reading a statement that says \"16 billion ceiling\"—they're reading \"what happens if it breaks?\" Give me the hard rule, or the Sunday statement doesn't hold.",
+            "cot": {
+              "assess": "Board approval locked, Sunday announcement simultaneously at 19:00 CET with SNB liquidity public and merger confirmed. AT1 writedown language in the statement. The structure is airtight—unless we breach the 16-billion ceiling, which Karin just flagged as realistic under stress. My funding stress is still at 92 and climbing; market confidence is 22, both need action NOW. The gap: if outflows hit 12+ billion or assets deteriorate faster than modeled, the 16-billion ceiling cracks and the whole rescue story crumbles mid-week.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "I need to know TONIGHT whether the 16-billion number is defensible or a fiction—and if it breaks, what's the explicit trigger for resolution versus additional SNB deployment, because that's what stops the Sunday-night panic."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Federal Council—16 billion only holds if you lock the rule *right now*: losses beyond that ceiling are absorbed by the Confederation immediately, no resolution debate. That sentence goes in Sunday's statement, word for word. Do you have sign-off on that language tonight, or are we announcing a number without a backstop?",
+            "cot": {
+              "assess": "Merger locked before midnight, SNB liquidity confirmed in writing, Sunday 19:00 simultaneous announcement—the rescue structure is solid. But Federal Council just asked the hard question: does the 16-billion ceiling actually hold if stress exceeds \"contained\" scenarios, or do we breach it Monday and face resolution anyway? That's the gap. Market confidence and funding stress won't move until depositors *believe* the ceiling is real, not just aspirational.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The ceiling only protects UBS shareholders if the public sector commits to absorbing overage—not hypothetically, but with a clear trigger rule that markets can price. I need that commitment in writing for Sunday's statement, or the whole structure collapses Monday morning when stress tests show we're past 16 billion."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Federal Council — I hear the 16 billion number. But you need to say it Sunday night in plain language: \"Losses beyond CHF 16 billion are absorbed by the Swiss Confederation. Credit Suisse does not move to resolution.\" That's the sentence that keeps my portfolio intact. Do you have that locked, or are we still drafting?",
+            "cot": {
+              "assess": "SNB liquidity is locked in writing, Federal Council's 16-billion ceiling is set, merger approval is happening tonight — but the Sunday statement language on AT1 writedown and loss backstop is still being negotiated, not finalized. My deposit security depends entirely on that statement going public as promised. market_confidence is still bleeding (22, needs 33 more to win), and cs_funding_stress is at critical (92, one more tick triggers failure). The Federal Council just demanded clarity on what happens *beyond* 16 billion, and nobody's given them a clean answer yet.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "The Council needs to lock the backstop rule *right now* — not tomorrow, not Sunday draft review. If losses exceed 16 billion, do they step in immediately or does Credit Suisse move to resolution? That's the only sentence that actually stops my Sunday wire instructions."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Federal Council—before you finalize Sunday's text, I need one hard confirmation: does that statement say AT1 is written down in *full*, or does it say \"substantially\" or \"prioritized for writedown\"? Because my AT1 holders' legal teams are watching word-for-word, and any ambiguity gets litigated Monday morning. Give me the exact language you're publishing, or I'm drafting my own protective statement for creditors tonight.",
+            "cot": {
+              "assess": "The creditor hierarchy is locked in the Sunday statement—AT1 written down in full, unsecured creditors whole, 16-billion ceiling with Confederation backstop. UBS board approval is in motion tonight, SNB liquidity is active, and all three announcements coordinate Sunday 19:00 CET. The risk now is execution: if that Sunday statement doesn't land with market-moving clarity, or if the 16-billion ceiling breaks under stress, creditors face subordination creep and legal ambiguity. My job is to hold the line on that waterfall language *tonight* before it gets softened in final drafting.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The Sunday statement language is locked in principle, but I need explicit confirmation that the final text—the actual words markets will read—contains the AT1 full-writedown commitment without loopholes or regulatory hedging."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Federal Council — I hear the 16 billion number. But you need to say it Sunday night in plain language: \"Losses beyond CHF 16 billion are absorbed by the Swiss Confederation. Credit Suisse does not move to resolution.\" That's the sentence that keeps my portfolio intact. Do you have that locked, or are we still drafting?",
+      "metadata": {}
+    },
+    {
+      "round": 5,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Colm, you've got the SNB's 100 billion locked, the Council's statement, and AT1-first language in writing. When does your board formally approve the merger agreement—tonight or tomorrow morning? Because if it's not done by tonight, we announce Sunday without a signed deal and that changes the entire credibility story.",
+      "metadata": {
+        "question_target": "ubs_ceo"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Federal Council—merger's locked before midnight, SNB liquidity is public Sunday, your statement goes Sunday evening. But are all three announcements hitting markets *at the same moment* Sunday night, or does one lag the others? Because if depositors see the loss waterfall but don't hear SNB and UBS in the same breath, they still drain Sunday. Simultaneous or sequential?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Karin, the 16-billion ceiling only works politically if we're confident it actually caps our exposure. What's your stress case—do you hit that ceiling if outflows run 15 billion, or do asset losses push us past it? Because if the answer's \"probably past it,\" we need a different structure, not a number we'll breach by Monday afternoon.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Karin, straight question: if we hit 12 billion outflows and asset losses push us to 17 billion total, does the Federal Council step in immediately with more liquidity, or do we move to resolution? Because depositors Sunday night aren't reading a statement that says \"16 billion ceiling\"—they're reading \"what happens if it breaks?\" Give me the hard rule, or the Sunday statement doesn't hold.",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Federal Council—16 billion only holds if you lock the rule *right now*: losses beyond that ceiling are absorbed by the Confederation immediately, no resolution debate. That sentence goes in Sunday's statement, word for word. Do you have sign-off on that language tonight, or are we announcing a number without a backstop?",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Federal Council—before you finalize Sunday's text, I need one hard confirmation: does that statement say AT1 is written down in *full*, or does it say \"substantially\" or \"prioritized for writedown\"? Because my AT1 holders' legal teams are watching word-for-word, and any ambiguity gets litigated Monday morning. Give me the exact language you're publishing, or I'm drafting my own protective statement for creditors tonight.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'assessment_and_options' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "assessment_and_options",
+        "world_state_snapshot": {
+          "market_confidence": 21.645,
+          "cs_funding_stress": 91.64999999999999,
+          "rescue_strength": 19.0,
+          "public_sector_cost": 14.0,
+          "creditor_capital_risk": 18.0,
+          "legal_defensibility": 58.0,
+          "time_pressure": 75.0
+        }
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'decision_before_monday' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "It is now late in the weekend; any announcement or arrangement must be ready before markets reopen Monday morning.",
+      "metadata": {
+        "stage": "decision_before_monday",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Accelerating outflows trigger a confidence spiral.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "market_confidence",
+        "delta": -5.5825
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Loss of confidence accelerates the run.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "cs_funding_stress",
+        "delta": 4.2
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The Monday market open draws closer each round.",
+      "metadata": {
+        "source": "market_pressure",
+        "variable": "time_pressure",
+        "delta": 5
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  finma: Karin—I hear the 16 billion and the Sunday statement locked. But the market sees \"16 billion ceiling\" and reads \"after that, what?\" If we breach it Monday and haven't told the public the alternative, we lose confidence anyway. Do we raise the ceiling to 20–22 billion and disclose the fiscal cost, or do we say publicly that losses beyond 16 billion trigger orderly resolution? Pick one for Sunday, because half-measures crater us.\n  federal_council: We hold at 16 billion—but here's the language that sticks: losses beyond that ceiling are absorbed by the Confederation immediately, no resolution debate, full stop. That sentence goes in Sunday's statement word-for-word, or AT1 holders and depositors both panic Monday. I need your legal team to confirm that language is defensible under banking law tonight, or we're announcing a number we can't actually backstop.\n  snb: Council—the 16-billion language is airtight on paper, but markets will test it Monday morning. If you publish the ceiling without saying what triggers *beyond* it—fresh capital, resolution, or restructuring—depositors assume worst case. What's your single-sentence answer to \"what happens if we breach 16 billion by Tuesday?\" That goes in the Sunday statement too, or we're just moving the panic point.\n  federal_council: Fine—here's the sentence that goes in Sunday's statement, word for word: \"Losses exceeding CHF 16 billion are borne by the Swiss Confederation without triggering resolution or restructuring proceedings.\" That's legally defensible and it closes the loophole. Does your legal team sign off on that language tonight, or do we need a different formulation?\n  finma: That language is legally defensible—I'll confirm it in writing within the hour. But we need one addition: the statement must explicitly say AT1 is written down in full *before* that Confederation backstop triggers. Without that waterfall clarity, AT1 holders sue Monday and we lose market confidence anyway.\n  cs_ceo: Look—the Federal Council's statement is airtight legally, but depositors aren't lawyers. Sunday night, I need to say this directly: *every deposit and unsecured creditor claim is protected under the 16-billion ceiling, period.* I'm signing a board-level guarantee tonight that makes that explicit, and I'm putting my name on it. That's what stops the run Monday, not the waterfall language.\n  ubs_ceo: Karin, the statement's airtight — but we're announcing Sunday evening to a market that's been hemorrhaging confidence for 72 hours. What's the *single action* between now and Sunday night that actually stops depositors from moving money Sunday, before they even read the Confederation language? Because \"we published it\" isn't the same as \"they believed it.\"\n  wealth_client: Look, the 16-billion ceiling is fine in writing, but my clients are moving money *tonight* based on what they see *now*, not what you announce Sunday. You need SNB to make the 100-billion liquidity *visible* to the market today — not Sunday. Deposit flows stop when depositors see balance-sheet strength, not when they read a waterfall. Do you have a way to signal that liquidity is already deployed before Sunday, or are we watching the run accelerate through the weekend anyway?\n  at1_rep: Karin, the Confederation backstop language is solid, but that statement needs one addition before 19:00 Sunday: \"AT1 capital instruments are written down in full *prior to* any Confederation loss absorption.\" Not \"prioritized,\" not \"first in line\"—*in full, prior to*. My AT1 holders' counsel will parse every word Monday morning; that sentence either stops litigation or it doesn't. Can you lock that exact phrasing into the final text tonight, or do I need to issue a separate creditor statement Sunday to cover the gap?\n  cs_ceo: My board memo goes out tonight—every deposit and unsecured creditor stays whole within the 16-billion ceiling, I'm personally standing behind that guarantee. But you're right: the SNB liquidity needs to be *visible* this weekend, not just Sunday evening. Karin, can you get the 100-billion facility disclosed to major counterparties and depositors *today*, or do we watch the run accelerate through Sunday anyway?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "Karin—I hear the 16 billion and the Sunday statement locked. But the market sees \"16 billion ceiling\" and reads \"after that, what?\" If we breach it Monday and haven't told the public the alternative, we lose confidence anyway. Do we raise the ceiling to 20–22 billion and disclose the fiscal cost, or do we say publicly that losses beyond 16 billion trigger orderly resolution? Pick one for Sunday, because half-measures crater us.",
+            "cot": {
+              "assess": "The merger framework is locked, SNB liquidity committed, and Sunday messaging is set—but we have a critical exposure gap. The 16-billion ceiling assumes 8-10 billion outflows; if we breach that (funding stress is already at 96, near-certain to trigger 12+ billion Monday), the Confederation absorbs the overage with no resolution alternative stated publicly. That's unlimited taxpayer exposure dressed as a \"ceiling,\" and it's not defensible. Meanwhile market_confidence is still only 16—we've locked the mechanics but not the narrative that actually stops the run. I need to surface the stress case and force a hard choice on resolution vs. backstop *before* Sunday's statement goes live.",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The 16-billion ceiling only holds if we publicly commit to what happens *if we breach it*—and right now we haven't. I need the Council to choose between a higher ceiling (with fiscal impact disclosed) or an explicit resolution trigger, because \"Confederation absorbs the gap\" is not a credible public statement."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "We hold at 16 billion—but here's the language that sticks: losses beyond that ceiling are absorbed by the Confederation immediately, no resolution debate, full stop. That sentence goes in Sunday's statement word-for-word, or AT1 holders and depositors both panic Monday. I need your legal team to confirm that language is defensible under banking law tonight, or we're announcing a number we can't actually backstop.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "snb",
+            "pass_num": 1,
+            "statement": "Council—the 16-billion language is airtight on paper, but markets will test it Monday morning. If you publish the ceiling without saying what triggers *beyond* it—fresh capital, resolution, or restructuring—depositors assume worst case. What's your single-sentence answer to \"what happens if we breach 16 billion by Tuesday?\" That goes in the Sunday statement too, or we're just moving the panic point.",
+            "cot": {
+              "assess": "The merger is locked, SNB's CHF 100bn is deployed, and the 16-billion ceiling with Confederation backstop is in the Sunday statement—all three announcements coordinated for Sunday 19:00 CET. But cs_funding_stress is still at 96 (failure threshold 92) and public_sector_cost is rising (+3.5/round). The real risk now: markets won't believe the 16-billion ceiling holds if asset losses accelerate past it Monday or Tuesday. We need to show depositors *exactly* what happens if we breach, not just say \"Confederation absorbs it.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "federal_council",
+                "rationale": "The ceiling only works if the public understands the alternative to breach—resolution vs. fresh capital injection. I need to know what you're actually prepared to do if losses hit 17 or 18 billion Monday, because vague \"Confederation absorbs it\" language will trigger a run the moment the first loss update lands."
+              }
+            }
+          },
+          {
+            "agent_id": "federal_council",
+            "pass_num": 1,
+            "statement": "Fine—here's the sentence that goes in Sunday's statement, word for word: \"Losses exceeding CHF 16 billion are borne by the Swiss Confederation without triggering resolution or restructuring proceedings.\" That's legally defensible and it closes the loophole. Does your legal team sign off on that language tonight, or do we need a different formulation?",
+            "cot": {
+              "assess": "The 16-billion ceiling is locked and the SNB has deployed 100 billion in liquidity—the rescue structure is sound. But we're now in a messaging trap: the public needs to hear what happens *if* we breach 16 billion, and right now the statement only says \"Confederation absorbs it.\" Markets will test that Monday, and if the answer sounds like \"then we restructure\" or \"then we move to resolution,\" we crater confidence anyway. The SNB is flagging the real risk: the ceiling only holds if it's credible, and credibility requires a single, iron-clad sentence about what comes next.",
+              "decide": {
+                "action_type": "speak",
+                "target": "public_sector_cost / legal_defensibility",
+                "rationale": "The Confederation's backstop language must be unambiguous and legally bulletproof before Sunday, or creditors litigate and markets panic—I need to lock that specific sentence now, not iterate it in the statement draft."
+              }
+            }
+          },
+          {
+            "agent_id": "finma",
+            "pass_num": 1,
+            "statement": "That language is legally defensible—I'll confirm it in writing within the hour. But we need one addition: the statement must explicitly say AT1 is written down in full *before* that Confederation backstop triggers. Without that waterfall clarity, AT1 holders sue Monday and we lose market confidence anyway.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "Look—the Federal Council's statement is airtight legally, but depositors aren't lawyers. Sunday night, I need to say this directly: *every deposit and unsecured creditor claim is protected under the 16-billion ceiling, period.* I'm signing a board-level guarantee tonight that makes that explicit, and I'm putting my name on it. That's what stops the run Monday, not the waterfall language.",
+            "cot": {
+              "assess": "The rescue structure is locked—SNB's 100bn, Federal Council's 16bn ceiling with Confederation backstop, UBS merger signed, Sunday statement drafted with AT1-first waterfall. But market_confidence is still 16 (need 55) and cs_funding_stress is at 96 (failure if ≥92—we're already breached). The 16bn ceiling language is defensible, but it only holds if depositors actually believe the Confederation will step in without resolution. Right now they don't—that's why outflows keep accelerating.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence / depositor credibility",
+                "rationale": "The Sunday statement locks the legal framework, but it won't stop Monday's run unless *I* personally guarantee that deposits and unsecured creditor claims stay whole under that ceiling. That's the only language that moves the confidence needle from 16 to survivable."
+              }
+            }
+          },
+          {
+            "agent_id": "ubs_ceo",
+            "pass_num": 1,
+            "statement": "Karin, the statement's airtight — but we're announcing Sunday evening to a market that's been hemorrhaging confidence for 72 hours. What's the *single action* between now and Sunday night that actually stops depositors from moving money Sunday, before they even read the Confederation language? Because \"we published it\" isn't the same as \"they believed it.\"",
+            "cot": {
+              "assess": "The 16-billion ceiling, AT1 writedown language, and Confederation backstop are locked in the Federal Council's Sunday statement. UBS board approval is imminent, SNB's 100 billion is committed, and all three announcements coordinate simultaneously Sunday 19:00 CET. The core rescue structure is solid — but cs_funding_stress is at 96 (failure threshold 92, already breached by 4 points) and market_confidence sits at 16 (needs 55). Depositors and AT1 holders are still reading the Sunday announcement *as a last resort*, not a confident resolution. The statement language is airtight for lawyers; it's useless if markets don't *believe* it Monday morning.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma",
+                "rationale": "cs_funding_stress is in failure territory despite all the structural commitments in place — the bottleneck isn't legal language anymore, it's whether depositors and AT1 holders actually *stop the run* when they see Sunday's statement. I need to know what messaging or messaging *timing* changes the behavioral signal, because the current plan assumes the statement alone reverses a 96-point stress level."
+              }
+            }
+          },
+          {
+            "agent_id": "wealth_client",
+            "pass_num": 1,
+            "statement": "Look, the 16-billion ceiling is fine in writing, but my clients are moving money *tonight* based on what they see *now*, not what you announce Sunday. You need SNB to make the 100-billion liquidity *visible* to the market today — not Sunday. Deposit flows stop when depositors see balance-sheet strength, not when they read a waterfall. Do you have a way to signal that liquidity is already deployed before Sunday, or are we watching the run accelerate through the weekend anyway?",
+            "cot": {
+              "assess": "Market confidence is critically low (16) and still dropping — the Sunday statement language is locked but depositors aren't reassured yet, they're just waiting to move money before the announcement lands. The three-way simultaneous announcement (16B ceiling + SNB 100B + merger) is structured, but UBS just asked the real question: what single action between now and Sunday night *actually stops the run*? Right now we're announcing to a panicked market, not preventing the panic. Rescue strength (19) and public sector cost (14) are both neglected and moving wrong.",
+              "decide": {
+                "action_type": "speak",
+                "target": "market_confidence (wealth_client perspective)",
+                "rationale": "I'm the asset holder watching my portfolio drain; I need to move NOW before Sunday's announcement, not after. The statement doesn't matter if depositors have already left. I'll demand immediate, visible action that stops the bleed *tonight*, not a Sunday press release."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_rep",
+            "pass_num": 1,
+            "statement": "Karin, the Confederation backstop language is solid, but that statement needs one addition before 19:00 Sunday: \"AT1 capital instruments are written down in full *prior to* any Confederation loss absorption.\" Not \"prioritized,\" not \"first in line\"—*in full, prior to*. My AT1 holders' counsel will parse every word Monday morning; that sentence either stops litigation or it doesn't. Can you lock that exact phrasing into the final text tonight, or do I need to issue a separate creditor statement Sunday to cover the gap?",
+            "cot": {
+              "assess": "The 16-billion ceiling is locked with Confederation backstop language, merger signed before midnight, SNB's 100bn deployed, and Sunday announcement timed for 19:00 CET. But creditor_capital_risk is still at 18—the Sunday statement language on AT1 writedown remains ambiguous (\"written down in full\" vs. partial), and AT1 holders' legal teams will litigate Monday morning if that sentence doesn't use exact protective wording. The statement is legally defensible on the Confederation backstop, but it's not legally defensible *for creditors* until the AT1 waterfall is ironclad in the public text.",
+              "decide": {
+                "action_type": "speak",
+                "target": "federal_council",
+                "rationale": "AT1 holders need the exact sentence in Sunday's statement before it goes live, or litigation risk explodes Monday and destroys the market confidence we just bought."
+              }
+            }
+          },
+          {
+            "agent_id": "cs_ceo",
+            "pass_num": 1,
+            "statement": "My board memo goes out tonight—every deposit and unsecured creditor stays whole within the 16-billion ceiling, I'm personally standing behind that guarantee. But you're right: the SNB liquidity needs to be *visible* this weekend, not just Sunday evening. Karin, can you get the 100-billion facility disclosed to major counterparties and depositors *today*, or do we watch the run accelerate through Sunday anyway?",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "federal_council",
+      "type": "speech",
+      "content": "Fine—here's the sentence that goes in Sunday's statement, word for word: \"Losses exceeding CHF 16 billion are borne by the Swiss Confederation without triggering resolution or restructuring proceedings.\" That's legally defensible and it closes the loophole. Does your legal team sign off on that language tonight, or do we need a different formulation?",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "cs_ceo",
+      "type": "speech",
+      "content": "Look—the Federal Council's statement is airtight legally, but depositors aren't lawyers. Sunday night, I need to say this directly: *every deposit and unsecured creditor claim is protected under the 16-billion ceiling, period.* I'm signing a board-level guarantee tonight that makes that explicit, and I'm putting my name on it. That's what stops the run Monday, not the waterfall language.",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "wealth_client",
+      "type": "speech",
+      "content": "Look, the 16-billion ceiling is fine in writing, but my clients are moving money *tonight* based on what they see *now*, not what you announce Sunday. You need SNB to make the 100-billion liquidity *visible* to the market today — not Sunday. Deposit flows stop when depositors see balance-sheet strength, not when they read a waterfall. Do you have a way to signal that liquidity is already deployed before Sunday, or are we watching the run accelerate through the weekend anyway?",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "at1_rep",
+      "type": "speech",
+      "content": "Karin, the Confederation backstop language is solid, but that statement needs one addition before 19:00 Sunday: \"AT1 capital instruments are written down in full *prior to* any Confederation loss absorption.\" Not \"prioritized,\" not \"first in line\"—*in full, prior to*. My AT1 holders' counsel will parse every word Monday morning; that sentence either stops litigation or it doesn't. Can you lock that exact phrasing into the final text tonight, or do I need to issue a separate creditor statement Sunday to cover the gap?",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "finma",
+      "type": "speech",
+      "content": "Karin—I hear the 16 billion and the Sunday statement locked. But the market sees \"16 billion ceiling\" and reads \"after that, what?\" If we breach it Monday and haven't told the public the alternative, we lose confidence anyway. Do we raise the ceiling to 20–22 billion and disclose the fiscal cost, or do we say publicly that losses beyond 16 billion trigger orderly resolution? Pick one for Sunday, because half-measures crater us.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "snb",
+      "type": "speech",
+      "content": "Council—the 16-billion language is airtight on paper, but markets will test it Monday morning. If you publish the ceiling without saying what triggers *beyond* it—fresh capital, resolution, or restructuring—depositors assume worst case. What's your single-sentence answer to \"what happens if we breach 16 billion by Tuesday?\" That goes in the Sunday statement too, or we're just moving the panic point.",
+      "metadata": {
+        "question_target": "federal_council"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "ubs_ceo",
+      "type": "speech",
+      "content": "Karin, the statement's airtight — but we're announcing Sunday evening to a market that's been hemorrhaging confidence for 72 hours. What's the *single action* between now and Sunday night that actually stops depositors from moving money Sunday, before they even read the Confederation language? Because \"we published it\" isn't the same as \"they believed it.\"",
+      "metadata": {
+        "question_target": "finma"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+      "metadata": {
+        "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'decision_before_monday' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "decision_before_monday",
+        "world_state_snapshot": {
+          "market_confidence": 16.0625,
+          "cs_funding_stress": 95.85,
+          "rescue_strength": 19.0,
+          "public_sector_cost": 14.0,
+          "creditor_capital_risk": 18.0,
+          "legal_defensibility": 58.0,
+          "time_pressure": 80.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "cs_ceo",
+      "intent": "We're modeling 8 to 10 billion Monday if we stabilize the narrative this weekend — I can't control a run, but with a credible public backstop announced before market open, we hold there. Anything above 12 billion means confidence is already gone and a liquidity band-aid won't work anyway. Give me the rescue package announced and we'll prove it.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "CEO stakes credibility on 8-10B outflow forecast; conditional on public backstop announcement before Monday open.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "Concrete forecast reduces uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 3.0,
+          "reason": "Credible commitment to stabilization plan",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -2.0,
+          "reason": "Clear decision framework narrows options",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -1.0,
+          "reason": "Forecast anchors expectations lower",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "Personal credibility on the line",
+          "agent_id": "cs_ceo"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 1,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.7,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Colm, what's the SNB's posture on emergency liquidity assistance? Specifically: how much can you commit, and do you need a resolution framework in place first, or can you move independently? We need that number to build a defensible package.",
+        "snb": "I need your Monday outflow estimate and whether the federal council is announcing a government backstop or UBS assist before market open. Without that, I'm flying blind on whether my balance sheet can absorb this alone or we're talking a joint intervention.",
+        "federal_council": "Colm, I need your best-case and worst-case Monday figures *right now* — not in an hour. Is it 8 billion if we stabilize messaging over the weekend, or does 15 billion happen regardless? Because that number tells me whether we're guaranteeing deposits or structuring a merger, and the Council can't vote blind.",
+        "ubs_ceo": "Before UBS engages on any merger, I need clarity: is the Federal Council prepared to announce a deposit guarantee or a loss-protection agreement for an acquirer *before market open Monday*? Because without that public commitment, we're not the solution — we're just absorbing a sinking ship. What's your read?",
+        "wealth_client": "Hold on — \"loss-protection agreement limited to an acquirer\" means I'm taking haircuts if this unwinds, right? I need to hear from the Federal Council right now: what's the absolute floor on my deposits, and who's standing behind it if UBS says no? Because if the answer is \"you're subordinated,\" my lawyers are already drafting the wire transfer instructions for Sunday.",
+        "at1_rep": "Hold on — \"loss-protection limited to an acquirer\" doesn't tell us who takes the first hit. Are you guaranteeing deposits and unsecured creditors whole, or are AT1 holders and junior creditors written down *before* any acquirer loss? Because if you're writing down AT1 while protecting retail deposits, you've got a legal and market nightmare on your hands."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "wealth_client",
+      "intent": "Hold on — \"loss-protection agreement limited to an acquirer\" means I'm taking haircuts if this unwinds, right? I need to hear from the Federal Council right now: what's the absolute floor on my deposits, and who's standing behind it if UBS says no? Because if the answer is \"you're subordinated,\" my lawyers are already drafting the wire transfer instructions for Sunday.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Client demands explicit deposit floor guarantee; threatens Sunday wire transfer if subordination risk remains unclear.",
+      "side_effects": [
+        {
+          "variable": "market_confidence",
+          "delta": -3.0,
+          "reason": "Public threat escalates contagion risk",
+          "agent_id": null
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": 4.0,
+          "reason": "Credible flight-to-safety signal amplifies run",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Hierarchy uncertainty now explicit issue",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Sunday deadline compresses decision window",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 5.0,
+          "reason": "High-stakes confrontation with authorities",
+          "agent_id": "wealth_client"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 1.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Colm, what's the SNB's posture on emergency liquidity assistance? Specifically: how much can you commit, and do you need a resolution framework in place first, or can you move independently? We need that number to build a defensible package.",
+        "snb": "I need your Monday outflow estimate and whether the federal council is announcing a government backstop or UBS assist before market open. Without that, I'm flying blind on whether my balance sheet can absorb this alone or we're talking a joint intervention.",
+        "federal_council": "Colm, I need your best-case and worst-case Monday figures *right now* — not in an hour. Is it 8 billion if we stabilize messaging over the weekend, or does 15 billion happen regardless? Because that number tells me whether we're guaranteeing deposits or structuring a merger, and the Council can't vote blind.",
+        "cs_ceo": "We're modeling 8 to 10 billion Monday if we stabilize the narrative this weekend — I can't control a run, but with a credible public backstop announced before market open, we hold there. Anything above 12 billion means confidence is already gone and a liquidity band-aid won't work anyway. Give me the rescue package announced and we'll prove it.",
+        "ubs_ceo": "Before UBS engages on any merger, I need clarity: is the Federal Council prepared to announce a deposit guarantee or a loss-protection agreement for an acquirer *before market open Monday*? Because without that public commitment, we're not the solution — we're just absorbing a sinking ship. What's your read?",
+        "at1_rep": "Hold on — \"loss-protection limited to an acquirer\" doesn't tell us who takes the first hit. Are you guaranteeing deposits and unsecured creditors whole, or are AT1 holders and junior creditors written down *before* any acquirer loss? Because if you're writing down AT1 while protecting retail deposits, you've got a legal and market nightmare on your hands."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma",
+      "intent": "Federal Council, you need to announce the loss waterfall before market open: AT1 gets written down first, subordinated debt second, deposits and SNB loans protected. That's the only way UBS signs and clients stop the Sunday wire transfers. Can you commit to that language, or are we talking a different structure?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA demands explicit loss waterfall announcement before market open — AT1 written down, unsecured creditors whole.",
+      "side_effects": [
+        {
+          "variable": "creditor_capital_risk",
+          "delta": -5.0,
+          "reason": "Explicit hierarchy protects unsecured creditors, isolates AT1 risk.",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 4.0,
+          "reason": "Clear waterfall reduces uncertainty for wealth clients.",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3.0,
+          "reason": "Pre-announcing AT1 write-down invites legal challenge before execution.",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 3.0,
+          "reason": "Commitment to Sunday announcement adds execution deadline pressure.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Regulatory clarity reduces FINMA's operational uncertainty.",
+          "agent_id": "finma"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_pressure",
+        "variable": "market_confidence",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "snb": "Federal Council, I need one thing from you tonight: will you publish the loss waterfall and loss-protection framework Sunday evening so markets absorb it before Monday open, or are you announcing Monday morning? Because if it's Monday 6 AM, we've already lost the weekend confidence game and my CHF 100 billion won't matter.",
+        "federal_council": "Colm — you've got the loss framework, the SNB liquidity, and my Sunday commitment. What do you need from me *right now* to sign a merger agreement before market close tomorrow? And when can you announce it — Sunday night with us, or do you need Monday morning? Because without your signature in the story, the waterfall announcement just looks like triage, not rescue.",
+        "cs_ceo": "The waterfall announcement — does it explicitly state that *unsecured creditors* stay whole, or just deposits? Because my wealth clients aren't worried about being wiped; they're worried about subordination haircuts. If the Sunday statement doesn't say \"unsecured liabilities protected above AT1 writedown,\" we lose them Sunday night regardless of SNB liquidity.",
+        "ubs_ceo": "Your Sunday statement needs one sentence added: unsecured creditors remain whole, only AT1 gets written down. Without that explicit line in the public announcement, wealth clients drain accounts Sunday night — the waterfall framework doesn't matter if nobody believes it before Monday. Can you commit that language goes live with the statement?",
+        "wealth_client": "I need one thing in the Sunday statement, word for word: \"Unsecured creditors and depositors remain whole; only AT1 capital is written down.\" That sentence goes in the Federal Council's announcement Sunday evening, or I'm instructing my team to wire everything out first thing Sunday morning — and so will every other large creditor watching this. You've locked down the framework. Now lock down the creditor hierarchy explicitly, or this unravels regardless of SNB liquidity.",
+        "at1_rep": "Council, one hard requirement before Sunday evening: the announcement must explicitly state \"unsecured creditors and depositors remain whole—only AT1 capital instruments are written down.\" Not \"will be protected.\" Not \"are prioritized.\" That exact language, Sunday evening, or creditors wire out Sunday morning regardless of SNB's CHF 100 billion. Do you have sign-off on that specific wording from your communications team right now?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "wealth_client",
+      "intent": "I need one thing in the Sunday statement, word for word: \"Unsecured creditors and depositors remain whole; only AT1 capital is written down.\" That sentence goes in the Federal Council's announcement Sunday evening, or I'm instructing my team to wire everything out first thing Sunday morning — and so will every other large creditor watching this. You've locked down the framework. Now lock down the creditor hierarchy explicitly, or this unravels regardless of SNB liquidity.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Wealth client demand is semantically identical to FINMA's approved proposal 1 — same waterfall language, same Sunday timing.",
+      "side_effects": [],
+      "visibility": [
+        "wealth_client"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Federal Council, you need to announce the loss waterfall before market open: AT1 gets written down first, subordinated debt second, deposits and SNB loans protected. That's the only way UBS signs and clients stop the Sunday wire transfers. Can you commit to that language, or are we talking a different structure?",
+        "snb": "Federal Council, I need one thing from you tonight: will you publish the loss waterfall and loss-protection framework Sunday evening so markets absorb it before Monday open, or are you announcing Monday morning? Because if it's Monday 6 AM, we've already lost the weekend confidence game and my CHF 100 billion won't matter.",
+        "federal_council": "Colm — you've got the loss framework, the SNB liquidity, and my Sunday commitment. What do you need from me *right now* to sign a merger agreement before market close tomorrow? And when can you announce it — Sunday night with us, or do you need Monday morning? Because without your signature in the story, the waterfall announcement just looks like triage, not rescue.",
+        "cs_ceo": "The waterfall announcement — does it explicitly state that *unsecured creditors* stay whole, or just deposits? Because my wealth clients aren't worried about being wiped; they're worried about subordination haircuts. If the Sunday statement doesn't say \"unsecured liabilities protected above AT1 writedown,\" we lose them Sunday night regardless of SNB liquidity.",
+        "ubs_ceo": "Your Sunday statement needs one sentence added: unsecured creditors remain whole, only AT1 gets written down. Without that explicit line in the public announcement, wealth clients drain accounts Sunday night — the waterfall framework doesn't matter if nobody believes it before Monday. Can you commit that language goes live with the statement?",
+        "at1_rep": "Council, one hard requirement before Sunday evening: the announcement must explicitly state \"unsecured creditors and depositors remain whole—only AT1 capital instruments are written down.\" Not \"will be protected.\" Not \"are prioritized.\" That exact language, Sunday evening, or creditors wire out Sunday morning regardless of SNB's CHF 100 billion. Do you have sign-off on that specific wording from your communications team right now?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "federal_council",
+      "intent": "Here's what I'm hearing: Colm needs a hard loss ceiling, we need Sunday messaging locked, and we can't keep saying \"loss-protection limited to an acquirer\" without a number attached. I'm proposing this: Federal Council announces Sunday that SNB + UBS will absorb losses up to CHF 16 billion combined before any public support kicks in — that's specific, it's defensible, and it tells UBS exactly what they're taking. Without that ceiling tonight, we're messaging in the dark tomorrow. Can the Council commit to that number, or do we need to adjust?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The Federal Council commits to the CHF 16 billion loss ceiling with Sunday announcement, establishing a clear waterfall that absorbs AT1 first, then SNB/UBS losses up to the cap, then Confederation backstop. This concrete number transforms vague 'loss protection' into a defensible framework that all parties can message.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "Concrete loss ceiling (CHF 16bn) with explicit waterfall structure creates credible, messageable rescue framework that addresses UBS's black-hole concern and wealth clients' protection needs",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 4.0,
+          "reason": "Federal Council commits to absorb losses beyond CHF 16bn ceiling, creating explicit taxpayer backstop exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 3.0,
+          "reason": "Structured waterfall with AT1 writedown precedence before unsecured creditors strengthens legal hierarchy defensibility",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": -5.0,
+          "reason": "Explicit protection for deposits and unsecured creditors ('losses absorbed first by AT1, then SNB/UBS, then Confederation') reduces uncertainty about capital structure treatment",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -4.0,
+          "reason": "Sunday announcement timeline locked with specific messaging language resolves coordination paralysis and enables weekend preparation",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2.0,
+          "reason": "Concrete numbers and clear loss allocation (vs. vague 'limited protection') provide foundation for credible Sunday messaging, though market reaction depends on execution",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": 3,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: creditor_capital_risk → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "loss_ceiling_announcement",
+        "description": "Federal Council Sunday announcement of CHF 16bn loss waterfall with AT1-first hierarchy and Confederation backstop",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.6,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "rescue_strength",
+            "delta": 3,
+            "description": "Weekend preparation and messaging coordination builds rescue credibility toward Sunday announcement"
+          },
+          {
+            "variable": "time_pressure",
+            "delta": -3,
+            "description": "Locked announcement timeline reduces weekend uncertainty and enables coordinated preparation"
+          }
+        ]
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Colm, when the Federal Council publishes the loss waterfall Sunday evening, are you going *public* with the 100 billion liquidity facility, or staying silent? Because if depositors see the waterfall but don't hear SNB's name attached to it, they still panic Sunday night. Do we coordinate that announcement together, or do you need it framed differently?",
+        "snb": "Colm, if you're taking the merger on, what's your loss ceiling on AT1 and subordinated debt? Because the Federal Council's waterfall announcement only works if you can tell markets *right now* that you're absorbing X billion of losses, not open-ended. That number—Sunday night—is what actually stops the run.",
+        "cs_ceo": "CHF 16 billion works for me — but I need the Council to say it Sunday evening: \"The SNB and UBS will absorb losses up to CHF 16 billion; losses beyond that are protected by the Federal Council.\" Not \"capped at,\" not \"limited to\" — *protected*. Colm, can you commit to that floor tonight, or do we need a lower number?",
+        "ubs_ceo": "Council, CHF 16 billion is a number I can work with—but only if you're crystal clear: losses beyond that are *not* UBS's problem, full stop. If we breach that ceiling, do we move to resolution, or does the public sector step in and absorb the overage? Because I'm not signing a merger that could balloon into a black hole if asset quality deteriorates further.",
+        "wealth_client": "Federal Council — I hear the 16 billion ceiling and the Sunday announcement. But my clients need to read one sentence in that statement: \"All deposits and unsecured creditor claims are protected; losses are absorbed first by AT1 holders, then up to CHF 16 billion by SNB and UBS, then by the Confederation.\" Can you lock that exact language for Sunday, or am I telling my portfolio managers to start wires tomorrow night?",
+        "at1_rep": "Federal Council, I need the exact Sunday statement language *right now*, not the draft in an hour — specifically the sentence that says AT1 is written down in *full* before unsecured creditors absorb *any* loss. Because if it says \"AT1 written down,\" my AT1 holders' lawyers will argue partial writedown, and we lose the market anyway. Give me that one sentence locked, or we're messaging blind."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "snb",
+      "intent": "Colm, I'm deploying the CHF 100 billion facility *right now* — it's active at market open Monday, AT1 writedowns and subordinated creditor losses covered up to the 16 billion ceiling, Federal Council backstop beyond that. You don't get a signature on the merger tonight, but you get the liquidity guarantee in writing *today* so your clients see it Sunday. That's the bridge.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "The SNB activates the CHF 100bn facility immediately — liquidity guarantee in writing today, AT1/subordinated losses covered to the 16bn ceiling. Markets will see the backstop Sunday, narrowly preventing a Monday funding collapse.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 5.0,
+          "reason": "CHF 100bn facility deployed now with written guarantee — major credible commitment",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 5.0,
+          "reason": "SNB balance sheet exposure plus Federal Council backstop beyond 16bn ceiling",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "cs_funding_stress",
+          "delta": -5.0,
+          "reason": "Immediate liquidity guarantee stabilizes weekend outflow expectations",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 5.0,
+          "reason": "Written commitment visible to clients Sunday — concrete action before market open",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": -4.0,
+          "reason": "Liquidity bridge in place before Monday, buying critical hours for merger negotiations",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 3.0,
+          "reason": "Explicit AT1 writedown coverage signals creditor hierarchy will be enforced",
+          "agent_id": null
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → market_confidence (ratio 0.5)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "public_sector_cost",
+          "delta": 2,
+          "reason": "coupling: rescue_strength → public_sector_cost (ratio 0.4)",
+          "_coupled": true,
+          "_source": "rescue_strength"
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": 1,
+          "reason": "coupling: cs_funding_stress → market_confidence (ratio -0.3)",
+          "_coupled": true,
+          "_source": "cs_funding_stress"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "market_pressure",
+        "variable": "cs_funding_stress",
+        "multiplier": 0.6
+      },
+      "classification": "action"
+    },
+    {
+      "round": 4,
+      "agent_id": "federal_council",
+      "intent": "Colm—SNB just gave you unconditional liquidity in writing. The Council's statement goes Sunday evening with the 16-billion ceiling. You need to sign the merger agreement *tonight* and let us announce your commitment alongside the waterfall Sunday morning, or the whole package collapses into \"government saves the bank\" and my political cost explodes. What's blocking your signature right now?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Federal Council demands UBS signature tonight to lock merger before Sunday announcement.",
+      "side_effects": [
+        {
+          "variable": "time_pressure",
+          "delta": 5.0,
+          "reason": "Ultimatum escalates urgency for immediate decision",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "rescue_strength",
+          "delta": 0.0,
+          "reason": "Demand only—no new commitment this round",
+          "agent_id": null
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -3.0,
+          "reason": "Forced overnight signature raises process concerns",
+          "agent_id": null
+        },
+        {
+          "variable": "agent_id",
+          "delta": 4.0,
+          "reason": "High-stakes ultimatum increases stress",
+          "agent_id": "federal_council"
+        },
+        {
+          "variable": "agent_id",
+          "delta": 1.0,
+          "reason": "Direct pressure to sign immediately",
+          "agent_id": "ubs_ceo",
+          "_action_capped": true
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Colm, the Federal Council's done their part on the 16 billion and the Sunday statement. You had three conditions in writing—do you have everything you need to sign the merger agreement *tonight*, or what's still missing? Because if you're in, we coordinate the announcement with the SNB's 100 billion at the same moment Sunday evening, and that changes the entire confidence story.",
+        "snb": "Colm, I'm deploying the CHF 100 billion facility *right now* — it's active at market open Monday, AT1 writedowns and subordinated creditor losses covered up to the 16 billion ceiling, Federal Council backstop beyond that. You don't get a signature on the merger tonight, but you get the liquidity guarantee in writing *today* so your clients see it Sunday. That's the bridge.",
+        "cs_ceo": "Look — you've got SNB's 100 billion in writing, the Council's 16-billion ceiling, and AT1-first writedown locked. What I'm hearing is you need legal certainty *tonight* before you move. I'll sign a board-level confirmation memo right now committing Credit Suisse to absorb losses up to the 16-billion ceiling with full transparency on asset quality — and I'm personally guaranteeing deposits and unsecured creditors stay whole in that waterfall. Will that unblock your signature, or is there a specific legal language gap I can fix in the next hour?",
+        "ubs_ceo": "Colm's memo helps—but I need the Federal Council's Sunday statement to include one ironclad sentence: \"Losses exceeding CHF 16 billion are the sole responsibility of the Swiss Confederation; UBS has no further obligation.\" I'll sign the merger tonight on that language, and we announce together Sunday. Otherwise I'm walking.",
+        "wealth_client": "Colm, you've got everything in writing—SNB's 100 billion, the Council's Sunday statement locking losses beyond 16 billion, CS's board memo. Do you have board approval *tonight*, or am I telling my portfolio managers to prepare Sunday wire instructions? Because \"by midnight\" doesn't mean anything if legal review stretches into Monday morning.",
+        "at1_rep": "Federal Council—before UBS signs tonight, I need one locked sentence in your Sunday statement: \"AT1 capital instruments are written down in full before any unsecured creditor or depositor absorbs loss.\" Not \"AT1 is prioritized\" or \"AT1 absorbs losses first\"—*in full*. That language goes in the announcement, or my AT1 holders sue and we lose the market anyway. Can you commit that exact phrasing, or do we need to redraft?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "ubs_ceo",
+      "intent": "Colm's memo helps—but I need the Federal Council's Sunday statement to include one ironclad sentence: \"Losses exceeding CHF 16 billion are the sole responsibility of the Swiss Confederation; UBS has no further obligation.\" I'll sign the merger tonight on that language, and we announce together Sunday. Otherwise I'm walking.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "UBS CEO demands ironclad loss-ceiling language in Sunday statement or walks from deal.",
+      "side_effects": [
+        {
+          "variable": "rescue_strength",
+          "delta": 0.0,
+          "reason": "Conditional threat—no execution this round",
+          "agent_id": null
+        },
+        {
+          "variable": "creditor_capital_risk",
+          "delta": 2.0,
+          "reason": "Explicit loss-ceiling demand increases creditor uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "time_pressure",
+          "delta": 5.0,
+          "reason": "Walk-away threat escalates deadline urgency",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -2.0,
+          "reason": "Explicit Confederation liability raises legal exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "agent_id",
+          "delta": 5.0,
+          "reason": "High-stakes brinkmanship increases stress",
+          "agent_id": "ubs_ceo",
+          "_action_capped": true
+        },
+        {
+          "variable": "agent_id",
+          "delta": 0.0,
+          "reason": "Walk-away threat pressures government",
+          "agent_id": "federal_council",
+          "_action_capped": true
+        },
+        {
+          "variable": "legal_defensibility",
+          "delta": -1,
+          "reason": "coupling: creditor_capital_risk → legal_defensibility (ratio -0.6)",
+          "_coupled": true,
+          "_source": "creditor_capital_risk"
+        },
+        {
+          "variable": "market_confidence",
+          "delta": -1,
+          "reason": "coupling: time_pressure → market_confidence (ratio -0.2)",
+          "_coupled": true,
+          "_source": "time_pressure"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "finma": "Colm, the Federal Council's done their part on the 16 billion and the Sunday statement. You had three conditions in writing—do you have everything you need to sign the merger agreement *tonight*, or what's still missing? Because if you're in, we coordinate the announcement with the SNB's 100 billion at the same moment Sunday evening, and that changes the entire confidence story.",
+        "snb": "Colm, I'm deploying the CHF 100 billion facility *right now* — it's active at market open Monday, AT1 writedowns and subordinated creditor losses covered up to the 16 billion ceiling, Federal Council backstop beyond that. You don't get a signature on the merger tonight, but you get the liquidity guarantee in writing *today* so your clients see it Sunday. That's the bridge.",
+        "federal_council": "Colm—SNB just gave you unconditional liquidity in writing. The Council's statement goes Sunday evening with the 16-billion ceiling. You need to sign the merger agreement *tonight* and let us announce your commitment alongside the waterfall Sunday morning, or the whole package collapses into \"government saves the bank\" and my political cost explodes. What's blocking your signature right now?",
+        "cs_ceo": "Look — you've got SNB's 100 billion in writing, the Council's 16-billion ceiling, and AT1-first writedown locked. What I'm hearing is you need legal certainty *tonight* before you move. I'll sign a board-level confirmation memo right now committing Credit Suisse to absorb losses up to the 16-billion ceiling with full transparency on asset quality — and I'm personally guaranteeing deposits and unsecured creditors stay whole in that waterfall. Will that unblock your signature, or is there a specific legal language gap I can fix in the next hour?",
+        "wealth_client": "Colm, you've got everything in writing—SNB's 100 billion, the Council's Sunday statement locking losses beyond 16 billion, CS's board memo. Do you have board approval *tonight*, or am I telling my portfolio managers to prepare Sunday wire instructions? Because \"by midnight\" doesn't mean anything if legal review stretches into Monday morning.",
+        "at1_rep": "Federal Council—before UBS signs tonight, I need one locked sentence in your Sunday statement: \"AT1 capital instruments are written down in full before any unsecured creditor or depositor absorbs loss.\" Not \"AT1 is prioritized\" or \"AT1 absorbs losses first\"—*in full*. That language goes in the announcement, or my AT1 holders sue and we lose the market anyway. Can you commit that exact phrasing, or do we need to redraft?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "market_confidence": [
+        {
+          "round": 1,
+          "value": 25.0
+        },
+        {
+          "round": 2,
+          "value": 27.2
+        },
+        {
+          "round": 3,
+          "value": 28.7
+        },
+        {
+          "round": 4,
+          "value": 27.7
+        },
+        {
+          "round": 5,
+          "value": 21.645
+        },
+        {
+          "round": 6,
+          "value": 16.0625
+        }
+      ],
+      "cs_funding_stress": [
+        {
+          "round": 1,
+          "value": 77.0
+        },
+        {
+          "round": 2,
+          "value": 85.05
+        },
+        {
+          "round": 3,
+          "value": 89.64999999999999
+        },
+        {
+          "round": 4,
+          "value": 89.24999999999999
+        },
+        {
+          "round": 5,
+          "value": 91.64999999999999
+        },
+        {
+          "round": 6,
+          "value": 95.85
+        }
+      ],
+      "rescue_strength": [
+        {
+          "round": 1,
+          "value": 3.0
+        },
+        {
+          "round": 2,
+          "value": 3.0
+        },
+        {
+          "round": 3,
+          "value": 8.0
+        },
+        {
+          "round": 4,
+          "value": 16.0
+        },
+        {
+          "round": 5,
+          "value": 19.0
+        },
+        {
+          "round": 6,
+          "value": 19.0
+        }
+      ],
+      "public_sector_cost": [
+        {
+          "round": 1,
+          "value": 1
+        },
+        {
+          "round": 2,
+          "value": 1
+        },
+        {
+          "round": 3,
+          "value": 7.0
+        },
+        {
+          "round": 4,
+          "value": 14.0
+        },
+        {
+          "round": 5,
+          "value": 14.0
+        },
+        {
+          "round": 6,
+          "value": 14.0
+        }
+      ],
+      "creditor_capital_risk": [
+        {
+          "round": 1,
+          "value": 23.0
+        },
+        {
+          "round": 2,
+          "value": 18.0
+        },
+        {
+          "round": 3,
+          "value": 13.0
+        },
+        {
+          "round": 4,
+          "value": 18.0
+        },
+        {
+          "round": 5,
+          "value": 18.0
+        },
+        {
+          "round": 6,
+          "value": 18.0
+        }
+      ],
+      "legal_defensibility": [
+        {
+          "round": 1,
+          "value": 59
+        },
+        {
+          "round": 2,
+          "value": 59.0
+        },
+        {
+          "round": 3,
+          "value": 65.0
+        },
+        {
+          "round": 4,
+          "value": 58.0
+        },
+        {
+          "round": 5,
+          "value": 58.0
+        },
+        {
+          "round": 6,
+          "value": 58.0
+        }
+      ],
+      "time_pressure": [
+        {
+          "round": 1,
+          "value": 56.0
+        },
+        {
+          "round": 2,
+          "value": 64.0
+        },
+        {
+          "round": 3,
+          "value": 65.0
+        },
+        {
+          "round": 4,
+          "value": 73.0
+        },
+        {
+          "round": 5,
+          "value": 75.0
+        },
+        {
+          "round": 6,
+          "value": 80.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "failure",
+    "reason": "failure_criteria met: cs_funding_stress >= 92 OR market_confidence <= 12",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "finma": {
+        "scores": [
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 58.0,
+            "normalised": 0.58
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 16.0625,
+            "normalised": 0.160625
+          },
+          {
+            "metric": "time_pressure",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 80.0,
+            "normalised": 0.19999999999999996
+          }
+        ],
+        "weighted_score": 0.3513888888888889
+      },
+      "snb": {
+        "scores": [
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 95.85,
+            "normalised": 0.04150000000000009
+          },
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 14.0,
+            "normalised": 0.86
+          }
+        ],
+        "weighted_score": 0.31433333333333335
+      },
+      "federal_council": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 14.0,
+            "normalised": 0.86
+          },
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 16.0625,
+            "normalised": 0.160625
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 19.0,
+            "normalised": 0.81
+          }
+        ],
+        "weighted_score": 0.6726562500000001
+      },
+      "cs_ceo": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 16.0625,
+            "normalised": 0.160625
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 19.0,
+            "normalised": 0.19
+          },
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 18.0,
+            "normalised": 0.8200000000000001
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 95.85,
+            "normalised": 0.04150000000000009
+          }
+        ],
+        "weighted_score": 0.2604583333333334
+      },
+      "ubs_ceo": {
+        "scores": [
+          {
+            "metric": "public_sector_cost",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 14.0,
+            "normalised": 0.14
+          },
+          {
+            "metric": "rescue_strength",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 19.0,
+            "normalised": 0.19
+          }
+        ],
+        "weighted_score": 0.15666666666666668
+      },
+      "wealth_client": {
+        "scores": [
+          {
+            "metric": "market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 16.0625,
+            "normalised": 0.160625
+          },
+          {
+            "metric": "cs_funding_stress",
+            "direction": "minimize",
+            "weight": 0.1,
+            "value": 95.85,
+            "normalised": 0.04150000000000009
+          }
+        ],
+        "weighted_score": 0.13680000000000003
+      },
+      "at1_rep": {
+        "scores": [
+          {
+            "metric": "creditor_capital_risk",
+            "direction": "minimize",
+            "weight": 0.4,
+            "value": 18.0,
+            "normalised": 0.8200000000000001
+          },
+          {
+            "metric": "legal_defensibility",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 58.0,
+            "normalised": 0.58
+          }
+        ],
+        "weighted_score": 0.74
+      }
+    }
+  }
+}

@@ -1,0 +1,2195 @@
+{
+  "simulation_id": "909739773038",
+  "config_id": "usmca_node3",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'translate_exposures' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Before we price this, I need to know: which of our Tier 1 suppliers actually can't hit the 75% RVC + wage floor without relocating, and what's the cost delta if they don't move? Right now we've got exposure scores but no names or numbers — I can't tell the board which models are at risk.\n  supplier: I can pull the Tier 1 list and flag who can't hit 75% RVC without moving — but that's half the answer. What I need from you: which model platforms are most exposed if a supplier relocates late or fails qualification? That's what lets me put real capex and lead-time risk on the map instead of generic \"relocation exposure\" labels.\n  auto_strategy: Our Mexico-heavy platforms — Fusion, Escape, mid-size truck line — lose 18-22 points of RVC per relocated Tier 1 supplier because we're already pulling 40% content from that region. If any of those three suppliers miss qualification before Q2 2024, we're looking at either a 60-90 day production halt or emergency sourcing at 15-25% cost premium. Give me the supplier names and I'll map the exact model impact.\n  compliance_lawyer: When a Tier 1 supplier fails qualification before Q2, what's your certification status at that moment — are we already claiming 75% RVC on shipments, or do we hold inventory until they re-qualify? Because if we've already certified and shipped, CBP finds that in an audit, we're looking at tariff recapture plus potential fraud penalties. That changes the cost profile entirely.\n  political_risk_insurer: If we're flagging certification-timing risk, I need to know: does CBP's audit window close after a certain period, or can they recapture indefinitely? And if they do, does that trigger trade-credit holds or supplier-payment delays under USMCA enforcement? That's what I price.\n  compliance_lawyer: CBP can recapture tariffs for up to three years from entry date under standard statute of limitations, and yes — a recapture notice triggers immediate trade-credit holds and forces us to halt supplier payments until the duty bill clears, which cascades into their insolvency risk. The audit window doesn't close; they audit on demand, and if we've certified 75% RVC on Fusion or Escape shipments while a critical Tier 1 is actually sub-qualified, that's a named audit trigger — not a maybe.\n  trade_credit_underwriter: When you halt supplier payments during recapture, how long do they typically stay on payment hold — and what's the average outstanding invoice balance we'd be carrying on Fusion and Escape Tier 1s if this hits? That's my insolvency trigger.\n  supply_chain_consultant: Here's what I'm proposing: we lock in a Tier 1 relocation decision gate by end of Q1 2024 — which suppliers move, which stay and re-engineer for 75% RVC, and the capex/timeline for each path. That's how we turn this audit exposure into a forward strategy and kill the certification-timing trap before it hits. Without that gate, we're just managing downside — we're not building resilience into 2026.\n  cfo_erm: Here's what I'm consolidating: Q1 gate decision (move/stay/re-engineer), then three priced paths — certification-timing audit exposure, supplier relocation capex + lead-time premium, and trade-credit hold + insolvency cascade. Each path gets a CBP audit probability, hold duration, and cost. That's our map. Who owns the 75% RVC re-engineering cost baseline so I can price the \"stay\" path against the \"move\" path?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Before we price this, I need to know: which of our Tier 1 suppliers actually can't hit the 75% RVC + wage floor without relocating, and what's the cost delta if they don't move? Right now we've got exposure scores but no names or numbers — I can't tell the board which models are at risk.",
+            "cot": {
+              "assess": "Rules-of-origin burden is flagged and quantified — that's locked. But the risk map is fragmented: we've got exposure numbers floating around (supplier relocation 25, trade-credit 25, political 26) with no clear trigger thresholds or pricing discipline. Underwriting can't move until we name what actually breaks the supply chain and at what cost.",
+              "decide": {
+                "action_type": "question",
+                "target": "risk_map_completeness / underwriting discipline lead",
+                "rationale": "The panel needs to translate policy exposure into operational failure modes — which supplier tiers, which plants, which geographies actually fail under the new rules, and at what compliance cost threshold does nearshoring become mandatory vs optional."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "I can pull the Tier 1 list and flag who can't hit 75% RVC without moving — but that's half the answer. What I need from you: which model platforms are most exposed if a supplier relocates late or fails qualification? That's what lets me put real capex and lead-time risk on the map instead of generic \"relocation exposure\" labels.",
+            "cot": {
+              "assess": "My supplier-relocation exposure is solid at 25, and rules-of-origin burden is tracking at 32 — but the board can't act on exposure scores without names and capex numbers. The real gap is risk_map_completeness sitting at 19; we're surfacing problems but not consolidating them into a usable risk register that insurance and finance can price.",
+              "decide": {
+                "action_type": "speak",
+                "target": "auto_strategy",
+                "rationale": "You asked the right question — I have the supplier intel you need, but I need to tie it directly to which models actually break under the new rules so we can quantify the relocation cost exposure together."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Our Mexico-heavy platforms — Fusion, Escape, mid-size truck line — lose 18-22 points of RVC per relocated Tier 1 supplier because we're already pulling 40% content from that region. If any of those three suppliers miss qualification before Q2 2024, we're looking at either a 60-90 day production halt or emergency sourcing at 15-25% cost premium. Give me the supplier names and I'll map the exact model impact.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "When a Tier 1 supplier fails qualification before Q2, what's your certification status at that moment — are we already claiming 75% RVC on shipments, or do we hold inventory until they re-qualify? Because if we've already certified and shipped, CBP finds that in an audit, we're looking at tariff recapture plus potential fraud penalties. That changes the cost profile entirely.",
+            "cot": {
+              "assess": "Auto_strategy and Supplier just locked in the critical trigger: three Mexico-heavy platforms (Fusion, Escape, mid-size truck) + three Tier 1 suppliers, with a Q2 2024 qualification deadline. That's concrete. But the compliance side — certification triggers, audit timing, penalty exposure if a supplier misses — is still a black box. That's where underwriting_discipline stays soft.",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to translate their model-level exposure into auditable compliance triggers so we can price the actual penalty and remediation cost, not just the production halt."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "If we're flagging certification-timing risk, I need to know: does CBP's audit window close after a certain period, or can they recapture indefinitely? And if they do, does that trigger trade-credit holds or supplier-payment delays under USMCA enforcement? That's what I price.",
+            "cot": {
+              "assess": "You've surfaced the certification-timing trap — that's the political-risk trigger I need to price. But we're still missing the enforcement scenario: if CBP audits post-certification and finds non-compliant shipments, what's the sovereign-action exposure? That's not just tariff recapture; it's reputational damage and potential trade-credit freeze. Political-risk exposure is still at 26 because we haven't named the regulatory shock or priced the policy-uncertainty layer.",
+              "decide": {
+                "action_type": "question",
+                "target": "compliance_lawyer",
+                "rationale": "I need to isolate the enforcement timeline and sovereign-policy risk to build a priced political-risk variable — that's my core mandate."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CBP can recapture tariffs for up to three years from entry date under standard statute of limitations, and yes — a recapture notice triggers immediate trade-credit holds and forces us to halt supplier payments until the duty bill clears, which cascades into their insolvency risk. The audit window doesn't close; they audit on demand, and if we've certified 75% RVC on Fusion or Escape shipments while a critical Tier 1 is actually sub-qualified, that's a named audit trigger — not a maybe.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "When you halt supplier payments during recapture, how long do they typically stay on payment hold — and what's the average outstanding invoice balance we'd be carrying on Fusion and Escape Tier 1s if this hits? That's my insolvency trigger.",
+            "cot": {
+              "assess": "The team just mapped the cascade: late Tier 1 qualification → RVC certification risk → CBP audit trigger → tariff recapture → trade-credit holds → supplier insolvency. That's the concrete link I need. But we're still missing the receivables exposure piece — if we halt supplier payments for three years while CBP recapture clears, which suppliers actually go insolvent, and what's our exposure on outstanding invoices?",
+              "decide": {
+                "action_type": "question",
+                "target": "auto_strategy",
+                "rationale": "I need to know payment-cycle timing and outstanding inventory value to price the receivables-at-risk component of trade-credit exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I'm proposing: we lock in a Tier 1 relocation decision gate by end of Q1 2024 — which suppliers move, which stay and re-engineer for 75% RVC, and the capex/timeline for each path. That's how we turn this audit exposure into a forward strategy and kill the certification-timing trap before it hits. Without that gate, we're just managing downside — we're not building resilience into 2026.",
+            "cot": {
+              "assess": "We've mapped the certification-timing trigger and CBP audit cascade — that's solid. But we're still missing the consolidated action plan: which suppliers relocate by when, what's the capex/timeline commitment, and how does that feed into the 2026 review risk? Right now we have exposure names (Fusion, Escape) but no client-ready nearshoring roadmap or decision gates.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure, risk_map_completeness",
+                "rationale": "We need to move from identifying risk to building a phased nearshoring plan with decision gates — that's what turns 25 into 60+ on the map and gives the CFO something executable."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm consolidating: Q1 gate decision (move/stay/re-engineer), then three priced paths — certification-timing audit exposure, supplier relocation capex + lead-time premium, and trade-credit hold + insolvency cascade. Each path gets a CBP audit probability, hold duration, and cost. That's our map. Who owns the 75% RVC re-engineering cost baseline so I can price the \"stay\" path against the \"move\" path?",
+            "cot": {
+              "assess": "We've got the audit exposure and supplier-payment cascade nailed down — that's good. But we're still fragmenting the risk: compliance timing, supplier relocation capex, production halt cost, trade-credit hold duration, and insolvency triggers are all floating as separate conversations. The Q1 gate proposal is solid, but it doesn't consolidate these into ONE priced map with decision rules. We need to stop diagnosing and start pricing.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "The room has surfaced the mechanics; now I need to lock the pricing framework so we can actually underwrite this instead of just cataloging exposures."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "I can pull the Tier 1 list and flag who can't hit 75% RVC without moving — but that's half the answer. What I need from you: which model platforms are most exposed if a supplier relocates late or fails qualification? That's what lets me put real capex and lead-time risk on the map instead of generic \"relocation exposure\" labels.",
+      "metadata": {}
+    },
+    {
+      "round": 1,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Before we price this, I need to know: which of our Tier 1 suppliers actually can't hit the 75% RVC + wage floor without relocating, and what's the cost delta if they don't move? Right now we've got exposure scores but no names or numbers — I can't tell the board which models are at risk.",
+      "metadata": {
+        "question_target": "risk_map_completeness / underwriting discipline lead"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "When a Tier 1 supplier fails qualification before Q2, what's your certification status at that moment — are we already claiming 75% RVC on shipments, or do we hold inventory until they re-qualify? Because if we've already certified and shipped, CBP finds that in an audit, we're looking at tariff recapture plus potential fraud penalties. That changes the cost profile entirely.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "If we're flagging certification-timing risk, I need to know: does CBP's audit window close after a certain period, or can they recapture indefinitely? And if they do, does that trigger trade-credit holds or supplier-payment delays under USMCA enforcement? That's what I price.",
+      "metadata": {
+        "question_target": "compliance_lawyer"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "When you halt supplier payments during recapture, how long do they typically stay on payment hold — and what's the average outstanding invoice balance we'd be carrying on Fusion and Escape Tier 1s if this hits? That's my insolvency trigger.",
+      "metadata": {
+        "question_target": "auto_strategy"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm proposing: we lock in a Tier 1 relocation decision gate by end of Q1 2024 — which suppliers move, which stay and re-engineer for 75% R\" → Q1 gate locks relocation vs re-engineering paths, operationalizing supplier exposure into decision framework.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm consolidating: Q1 gate decision (move/stay/re-engineer), then three priced paths — certification-timing audit exposure, supplier reloc\" → Three-path pricing framework (audit/relocation/credit) with CBP probability and cost baselines consolidates risk map.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 1
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: You said you can pull the list of who can't hit 75% RVC — I need names, current RVC score per supplier, and the cost delta if they relocate vs. re-engineer. That's what lets me put real numbers on Fusion and Escape exposure instead of \"relocation risk.\" Can you have that by end of this week?\n  supply_chain_consultant: I've got the Tier 1 list sorted by RVC gap — Lear, Aptiv, and Visteon are your three that can't hit 75% without moving, averaging 68-71% today. Relocation cost delta runs $12–18M per supplier over 24 months versus $4–6M for localized re-engineering, but relocation unlocks the full RVC buffer for Fusion and Escape by Q2 2025. I'll have the detailed breakdown — names, current scores, capex, and timeline risk per platform — in your inbox by Wednesday COB; that's what we gate the Q1 decision on.\n  supplier: You asked about payment holds on Lear, Aptiv, Visteon — if CBP recaptures and we halt payments, what's the typical hold duration, and what's our average outstanding invoice balance sitting with those three on Fusion and Escape right now? That's my insolvency trigger number.\n  trade_credit_underwriter: Payment holds typically run 60–90 days pending CBP audit closure, and we're carrying roughly $8–12M in outstanding invoices across Lear, Aptiv, and Visteon on Fusion and Escape combined—if CBP recaptures tariffs and we freeze those payments, any of those three drops below 45 days cash on hand, we're looking at supplier default risk inside Q2. That's my underwriting floor: if relocation doesn't close by mid-Q1, I'm pricing a 15–20% supplier-insolvency premium into the credit line.\n  compliance_lawyer: On your three paths—audit, relocation, credit—I need the audit path mapped to actual CBP penalty triggers. If we certify Fusion shipments at 75% RVC when Lear's actually at 70%, and CBP finds that in a three-year lookback, what's the recapture cost plus penalty exposure per shipment? That's what makes the framework auditable instead of just a cost guess.\n  cfo_erm: I'm pricing the audit path as follows: $2.8M tariff recapture on Fusion shipments certified at 75% when actual RVC sits at 70%, plus $1.2–1.8M in CBP penalties under the three-year lookback—total exposure $4–6M per supplier if we certify before they qualify. That's my underwriting floor for the audit trigger; if compliance can't lock certification timing to actual RVC achievement, I'm moving all three to the relocation path and pricing the $12–18M capex as a sunk cost to avoid the penalty stack.\n  political_risk_insurer: Look, the $4–6M audit exposure assumes CBP enforcement stays stable — but we're pricing USMCA tariff recapture in a three-year lookback window that can shift if Congress reviews the labor provisions or CBP changes audit frequency. Here's what I'm pricing: if CBP escalates enforcement or USMCA labor-content rules tighten before mid-2025, I'm adding a 40–60% uplift to the audit-path exposure and flagging it as a policy-triggered recapture premium. That's what moves us from compliance risk to political risk — and it changes which path we take on Lear, Aptiv, Visteon.\n  trade_credit_underwriter: CFO, your relocation capex — does that $12-18M hold if we're carrying 60-90 day payment freezes during CBP recapture, or do I need to add liquidity coverage for Lear, Aptiv, Visteon on top? Because if we're relocating *and* getting audited, those suppliers are bleeding cash on both fronts.\n  supply_chain_consultant: CFO, before we lock the relocation path on Lear and Aptiv, I need clarity: your $12–18M capex — does that assume stable USMCA rules through 2026, or are we building in contingency for the labor-provision review? Because if Congress tightens the wage floor or content rules mid-cycle, we're relocating now and re-tooling again in 18 months. That's the real cost we need to gate on.\n  cfo_erm: Here's what I'm consolidating into the map: if CBP recaptures, we hit 60–90 day payment holds on $8–12M invoices—that forces Lear, Aptiv, Visteon into liquidity stress before relocation capex even starts. So the real decision isn't audit *or* relocation—it's: do we front $2–4M liquidity coverage *plus* $12–18M capex to avoid the $4–6M penalty stack? And that math flips if political_risk_insurer's 40–60% uplift hits. I need one decision tree with all three paths priced as conditional branches, not separate scenarios. Can we lock that by end of tomorrow?\n  political_risk_insurer: I'm pricing the political-risk uplift into that decision tree right now—here's the trigger: if CBP escalates audit frequency *or* Congress moves the labor-wage floor before Q2 2025, I'm adding 40–60% to the $4–6M audit-path penalty stack, which means the liquidity-plus-relocation math ($14–22M total) becomes cheaper than waiting. Lock the three conditional branches—audit baseline, audit-with-policy-shock, relocation-with-liquidity-buffer—and I'll score each branch's political-risk premium by tomorrow morning so you can model the decision threshold.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "You said you can pull the list of who can't hit 75% RVC — I need names, current RVC score per supplier, and the cost delta if they relocate vs. re-engineer. That's what lets me put real numbers on Fusion and Escape exposure instead of \"relocation risk.\" Can you have that by end of this week?",
+            "cot": {
+              "assess": "The Q1 gate and three-path pricing framework are locked in — that's solid operational discipline. But we're still at 30 on risk_map_completeness because we've named the decision paths without naming the suppliers or models at actual risk. We know Fusion, Escape, and the mid-size truck lose 18-22 RVC points per relocated Tier 1, but we haven't quantified which specific suppliers can't hit 75% RVC, what the relocation cost delta is, or what inventory/tariff exposure sits in flight if certification fails. That's what's keeping underwriting_discipline at 39 — we've got process, not numbers.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "They own the Tier 1 list and relocation feasibility; I need the specific supplier names, RVC shortfalls, and relocation costs so I can map actual capex and lead-time pressure to Fusion/Escape platforms before the Q1 gate closes."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "I've got the Tier 1 list sorted by RVC gap — Lear, Aptiv, and Visteon are your three that can't hit 75% without moving, averaging 68-71% today. Relocation cost delta runs $12–18M per supplier over 24 months versus $4–6M for localized re-engineering, but relocation unlocks the full RVC buffer for Fusion and Escape by Q2 2025. I'll have the detailed breakdown — names, current scores, capex, and timeline risk per platform — in your inbox by Wednesday COB; that's what we gate the Q1 decision on.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "You asked about payment holds on Lear, Aptiv, Visteon — if CBP recaptures and we halt payments, what's the typical hold duration, and what's our average outstanding invoice balance sitting with those three on Fusion and Escape right now? That's my insolvency trigger number.",
+            "cot": {
+              "assess": "Supply chain consultant just dropped the names and numbers — Lear, Aptiv, Visteon at 68-71% RVC, $12–18M relocation vs $4–6M re-engineering — which is exactly what auto_strategy needed to model platform exposure. The Q1 gate decision and three-path pricing framework are locked. But I'm watching trade-credit risk and the 3-year CBP audit window — if a supplier fails mid-qualification, we're holding inventory on non-compliant shipments we've already certified, and that's where the fraud penalty exposure lives. Risk map is still fragmented on the insolvency trigger side.",
+              "decide": {
+                "action_type": "question",
+                "target": "trade_credit_underwriter",
+                "rationale": "We need to operationalize the payment-hold timeline and outstanding balance exposure for Fusion/Escape Tier 1s so the board knows what \"supplier failure\" actually costs in working capital, not just capex."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Payment holds typically run 60–90 days pending CBP audit closure, and we're carrying roughly $8–12M in outstanding invoices across Lear, Aptiv, and Visteon on Fusion and Escape combined—if CBP recaptures tariffs and we freeze those payments, any of those three drops below 45 days cash on hand, we're looking at supplier default risk inside Q2. That's my underwriting floor: if relocation doesn't close by mid-Q1, I'm pricing a 15–20% supplier-insolvency premium into the credit line.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "On your three paths—audit, relocation, credit—I need the audit path mapped to actual CBP penalty triggers. If we certify Fusion shipments at 75% RVC when Lear's actually at 70%, and CBP finds that in a three-year lookback, what's the recapture cost plus penalty exposure per shipment? That's what makes the framework auditable instead of just a cost guess.",
+            "cot": {
+              "assess": "The Q1 gate decision and three-path pricing framework are locked in—that's solid operational structure. But we're sitting at 30/60 on risk_map_completeness and 39/50 on underwriting_discipline. The trade-credit underwriter just handed us a hard trigger (45-day cash-on-hand floor on Lear/Aptiv/Visteon = default risk), and the supply_chain_consultant has names and RVC gaps by Wednesday. What's missing: we haven't tied certification-timing risk to actual audit penalties or recapture costs—that's the compliance piece that makes the three-path framework auditable, not just priced.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The CFO's three-path framework needs compliance teeth—I need to know which path triggers which audit/penalty exposure so we can price defensibly."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "I'm pricing the audit path as follows: $2.8M tariff recapture on Fusion shipments certified at 75% when actual RVC sits at 70%, plus $1.2–1.8M in CBP penalties under the three-year lookback—total exposure $4–6M per supplier if we certify before they qualify. That's my underwriting floor for the audit trigger; if compliance can't lock certification timing to actual RVC achievement, I'm moving all three to the relocation path and pricing the $12–18M capex as a sunk cost to avoid the penalty stack.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Look, the $4–6M audit exposure assumes CBP enforcement stays stable — but we're pricing USMCA tariff recapture in a three-year lookback window that can shift if Congress reviews the labor provisions or CBP changes audit frequency. Here's what I'm pricing: if CBP escalates enforcement or USMCA labor-content rules tighten before mid-2025, I'm adding a 40–60% uplift to the audit-path exposure and flagging it as a policy-triggered recapture premium. That's what moves us from compliance risk to political risk — and it changes which path we take on Lear, Aptiv, Visteon.",
+            "cot": {
+              "assess": "The three-path framework (audit/relocation/credit) is locked with named suppliers and cost baselines — that's solid operationalization. But the political-risk layer isn't priced yet: CBP's three-year recapture window, enforcement discretion, and the sunset/review risk on USMCA itself aren't quantified or triggered. That's my gap — political_risk_exposure is still at 29, and underwriting_discipline at 39. I need to price the policy uncertainty, not just the compliance mechanics.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The audit and relocation paths assume CBP enforcement is predictable — it isn't. I need to price the enforcement-discretion and policy-review risk as a separate trigger layer on top of the $4–6M audit baseline."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, your relocation capex — does that $12-18M hold if we're carrying 60-90 day payment freezes during CBP recapture, or do I need to add liquidity coverage for Lear, Aptiv, Visteon on top? Because if we're relocating *and* getting audited, those suppliers are bleeding cash on both fronts.",
+            "cot": {
+              "assess": "The three-path framework is locked (audit/relocation/credit), and we've got names and numbers on the Tier 1 exposure — Lear, Aptiv, Visteon at 68-71% RVC, $12-18M relocation vs. $4-6M re-engineering. But the trade-credit insolvency trigger is still floating: I've flagged the $8-12M outstanding balance and 60-90 day hold window, but we haven't operationalized *when* I actually stop underwriting these suppliers or what triggers the 15-20% premium. That's the piece that locks trade_credit_risk into the decision gate.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The audit-path pricing ($4-6M recapture + penalties) needs a trade-credit tie-in — if we're moving suppliers to relocation to avoid audit exposure, I need to know: does your $12-18M relocation capex assumption include payment-hold contingency, or am I pricing supplier default risk on top of that number?"
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, before we lock the relocation path on Lear and Aptiv, I need clarity: your $12–18M capex — does that assume stable USMCA rules through 2026, or are we building in contingency for the labor-provision review? Because if Congress tightens the wage floor or content rules mid-cycle, we're relocating now and re-tooling again in 18 months. That's the real cost we need to gate on.",
+            "cot": {
+              "assess": "The three-path framework (audit/relocation/credit) is locked in with pricing baselines — $4–6M audit exposure, $12–18M relocation capex, 60–90 day payment holds on $8–12M outstanding. But we're still missing the 2026 USMCA review as a forward trigger, and the relocation timeline isn't tied to certification gates. That's where supplier_relocation_exposure and risk_map_completeness both stall.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The relocation capex assumes stable policy — but if Congress tightens labor rules in the 2026 review, we're relocating to Mexico and then facing stricter RVC math 18 months later. I need to know: does your $12–18M relocation budget include a re-engineering buffer for mid-2025 rule changes, or are we pricing that as a separate policy-risk uplift?"
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what I'm consolidating into the map: if CBP recaptures, we hit 60–90 day payment holds on $8–12M invoices—that forces Lear, Aptiv, Visteon into liquidity stress before relocation capex even starts. So the real decision isn't audit *or* relocation—it's: do we front $2–4M liquidity coverage *plus* $12–18M capex to avoid the $4–6M penalty stack? And that math flips if political_risk_insurer's 40–60% uplift hits. I need one decision tree with all three paths priced as conditional branches, not separate scenarios. Can we lock that by end of tomorrow?",
+            "cot": {
+              "assess": "We've locked the three-path framework and named the suppliers—that's progress. But risk_map_completeness is still at 30, and I'm seeing a critical gap: we're pricing audit and relocation paths in isolation, but the political_risk_insurer just flagged a 40–60% uplift if USMCA enforcement tightens mid-cycle. That's not a side note—it's a decision trigger that changes which path we actually take. And trade_credit_underwriter just asked if $12–18M relocation capex holds under payment freezes. I need to consolidate those dependencies into ONE decision matrix before we gate Q1, or we're pricing three paths that don't interact with reality.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness, underwriting_discipline",
+                "rationale": "We have isolated cost baselines but no consolidated decision tree showing how audit triggers → payment freezes → relocation capex interact; I need to build that now, not after Q1 gate."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "I'm pricing the political-risk uplift into that decision tree right now—here's the trigger: if CBP escalates audit frequency *or* Congress moves the labor-wage floor before Q2 2025, I'm adding 40–60% to the $4–6M audit-path penalty stack, which means the liquidity-plus-relocation math ($14–22M total) becomes cheaper than waiting. Lock the three conditional branches—audit baseline, audit-with-policy-shock, relocation-with-liquidity-buffer—and I'll score each branch's political-risk premium by tomorrow morning so you can model the decision threshold.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "You said you can pull the list of who can't hit 75% RVC — I need names, current RVC score per supplier, and the cost delta if they relocate vs. re-engineer. That's what lets me put real numbers on Fusion and Escape exposure instead of \"relocation risk.\" Can you have that by end of this week?",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "You asked about payment holds on Lear, Aptiv, Visteon — if CBP recaptures and we halt payments, what's the typical hold duration, and what's our average outstanding invoice balance sitting with those three on Fusion and Escape right now? That's my insolvency trigger number.",
+      "metadata": {
+        "question_target": "trade_credit_underwriter"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "On your three paths—audit, relocation, credit—I need the audit path mapped to actual CBP penalty triggers. If we certify Fusion shipments at 75% RVC when Lear's actually at 70%, and CBP finds that in a three-year lookback, what's the recapture cost plus penalty exposure per shipment? That's what makes the framework auditable instead of just a cost guess.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, your relocation capex — does that $12-18M hold if we're carrying 60-90 day payment freezes during CBP recapture, or do I need to add liquidity coverage for Lear, Aptiv, Visteon on top? Because if we're relocating *and* getting audited, those suppliers are bleeding cash on both fronts.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "CFO, before we lock the relocation path on Lear and Aptiv, I need clarity: your $12–18M capex — does that assume stable USMCA rules through 2026, or are we building in contingency for the labor-provision review? Because if Congress tightens the wage floor or content rules mid-cycle, we're relocating now and re-tooling again in 18 months. That's the real cost we need to gate on.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Look, the $4–6M audit exposure assumes CBP enforcement stays stable — but we're pricing USMCA tariff recapture in a three-year lookback window that ca\" → Political-risk uplift framework approved—40–60% premium on enforcement-shift scenarios now priced into decision tree.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm consolidating into the map: if CBP recaptures, we hit 60–90 day payment holds on $8–12M invoices—that forces Lear, Aptiv, Visteon into\" → Consolidated decision tree approved—liquidity coverage, capex, and penalty paths now mapped as conditional branches.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "translate_exposures",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'translate_exposures' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "translate_exposures",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 34,
+          "supplier_relocation_exposure": 30.0,
+          "trade_credit_risk": 31.0,
+          "political_risk_exposure": 33.0,
+          "risk_map_completeness": 39.6,
+          "underwriting_discipline": 49.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'operationalize_and_consolidate' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Consolidate the analysis into the Policy-to-Supply-Chain Risk Map. Name and make ACTIONABLE each variable: rules-of-origin burden, labor cost pressure, supplier relocation pressure, nearshoring incentive, trade-credit stress, political-risk score, business-interruption exposure, and the consulting action plan. Treat the 2026 USMCA review as a forward, prospective risk — not a historical fact.",
+      "metadata": {
+        "stage": "operationalize_and_consolidate",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1.8
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing underwriting_discipline multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "underwriting_discipline"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, I need the trigger logic on your decision tree: at what RVC gap, or CBP audit probability, do we flip from \"certify and audit-risk it\" to \"relocate now\"? Right now we've got $12–18M relocation cost and $4–6M audit exposure, but the board needs to see the *if-then rules* that tell us which path to take for each supplier. That's what makes it auditable instead of a guess.\n  cfo_erm: Here's the trigger logic: if a supplier's RVC gap is >5 percentage points *and* CBP audit probability exceeds 35% in our lookback window, we relocate—that's $12–18M capex but it locks compliance. Below that threshold, we certify at current RVC and self-insure the $4–6M audit tail with political-risk coverage. The board decision: Lear, Aptiv, Visteon all sit above that threshold today, so relocation is the lower-risk path—but I need supply chain to confirm whether those three can actually *re-engineer* to 75% in-place before we lock capex.\n  supplier: Supply chain—the CFO just said relocation is the lower-risk path because those three sit above the audit threshold. But I need you to level-set: can Lear and Aptiv actually *re-engineer* to 75% without moving, and if so, what's the timeline versus the 24-month relocation clock? Because if re-engineering buys us nothing, we're not choosing between paths—we're just spending $12–18M per supplier to avoid a $4–6M audit hit, and the board needs to see that trade-off clearly.\n  supply_chain_consultant: Lear and Aptiv can't hit 75% RVC in-place—their component sourcing is locked into non-USMCA zones, so re-engineering buys maybe 2–3 points over 18 months, not the 5–7 points they need. Relocation is the path; the real question is whether we front-load all three now or stagger Lear and Aptiv into Q2 and hold Visteon for the 2026 review—that's where we hedge the rule tightening instead of betting the whole capex pot upfront.\n  compliance_lawyer: Supply chain, if we stagger Lear and Aptiv into Q2, are we certifying Fusion shipments at today's RVC (70%) for the first half of the year while they're still in-place, or do we hold shipments pending relocation? Because that's the difference between $2.8M recapture risk now and zero compliance exposure later—and I need to know which scenario we're pricing.\n  political_risk_insurer: CFO, your trigger logic locks at 35% audit probability—but if Congress moves the wage floor in the 2026 review, that probability jumps to 60–70%, right? So if we stagger Visteon and hold it for the review, are we betting that wages *stay flat*, or do we need a contingency capex reserve in case we have to relocate all three on compressed timeline? That's what I need to price as political-risk premium.\n  trade_credit_underwriter: CFO, Compliance—before we price the stagger, I need the call: if we defer Visteon to 2026, are we *holding* Fusion shipments at 70% RVC for H1 2024, or do we eat the $2.8M recapture and keep shipping? Because if we're doing both—relocating Lear and Aptiv *and* certifying at 70%—my insolvency trigger is the payment hold hitting suppliers who are already burning capex. That's a liquidity cascade I need to quantify.\n  supply_chain_consultant: CFO, if we defer Visteon and stagger Lear and Aptiv into Q2, what's the call on Fusion shipments January through June—do we certify at 70% RVC today and absorb the recapture tail, or do we hold inventory until they're relocated? That answer determines whether the stagger saves capex or just delays the pain.\n  cfo_erm: Here's the decision I need locked today: do we hold Fusion inventory at 70% RVC January through June while Lear and Aptiv relocate, or do we ship and absorb the $2.8M recapture tail? Because if we're doing both—capex burn plus payment holds—my liquidity reserve jumps $6–8M. Pick one, and I'll price it.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, I need the trigger logic on your decision tree: at what RVC gap, or CBP audit probability, do we flip from \"certify and audit-risk it\" to \"relocate now\"? Right now we've got $12–18M relocation cost and $4–6M audit exposure, but the board needs to see the *if-then rules* that tell us which path to take for each supplier. That's what makes it auditable instead of a guess.",
+            "cot": {
+              "assess": "We've locked the three suppliers (Lear, Aptiv, Visteon) and priced the audit/relocation/credit paths with CBP and political-risk overlays. The decision tree is consolidated. But risk_map_completeness is still at 38—we've got the numbers, but we haven't operationalized *when and how* we execute each path, and underwriting_discipline sits at 49, one point short. The real gap: we know the cost, but we haven't mapped the trigger conditions and decision gates that actually make this framework auditable to the board.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "We need the conditional logic that operationalizes the three paths—which metrics trigger relocation vs. audit vs. credit—so the board can see when we *actually* pull the lever, not just what each lever costs."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the trigger logic: if a supplier's RVC gap is >5 percentage points *and* CBP audit probability exceeds 35% in our lookback window, we relocate—that's $12–18M capex but it locks compliance. Below that threshold, we certify at current RVC and self-insure the $4–6M audit tail with political-risk coverage. The board decision: Lear, Aptiv, Visteon all sit above that threshold today, so relocation is the lower-risk path—but I need supply chain to confirm whether those three can actually *re-engineer* to 75% in-place before we lock capex.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supply chain—the CFO just said relocation is the lower-risk path because those three sit above the audit threshold. But I need you to level-set: can Lear and Aptiv actually *re-engineer* to 75% without moving, and if so, what's the timeline versus the 24-month relocation clock? Because if re-engineering buys us nothing, we're not choosing between paths—we're just spending $12–18M per supplier to avoid a $4–6M audit hit, and the board needs to see that trade-off clearly.",
+            "cot": {
+              "assess": "The trigger logic is locked—Lear, Aptiv, Visteon all clear the >5% RVC gap + >35% audit probability threshold for relocation. But I'm hearing the CFO say relocation is \"lower-risk,\" and that's where my exposure lives: if those three suppliers can't actually re-engineer in-place faster than relocation timelines, we're looking at 12–18 month lead-time gaps on Fusion and Escape while capex burns. The decision tree is clean on paper; the supply-chain reality is messier.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "Before we greenlight $36–54M relocation capex across three suppliers, I need to know whether re-engineering 75% RVC in-place is even feasible on Lear and Aptiv's timelines—or if we're choosing between two bad paths and the board doesn't know it."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Lear and Aptiv can't hit 75% RVC in-place—their component sourcing is locked into non-USMCA zones, so re-engineering buys maybe 2–3 points over 18 months, not the 5–7 points they need. Relocation is the path; the real question is whether we front-load all three now or stagger Lear and Aptiv into Q2 and hold Visteon for the 2026 review—that's where we hedge the rule tightening instead of betting the whole capex pot upfront.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Supply chain, if we stagger Lear and Aptiv into Q2, are we certifying Fusion shipments at today's RVC (70%) for the first half of the year while they're still in-place, or do we hold shipments pending relocation? Because that's the difference between $2.8M recapture risk now and zero compliance exposure later—and I need to know which scenario we're pricing.",
+            "cot": {
+              "assess": "The CFO's trigger logic (RVC gap >5pp + audit probability >35% = relocate) is now explicit, and supply chain has confirmed Lear/Aptiv can't re-engineer in-place—so the path choice is locked. What's NOT locked: the stagger strategy (all three now vs. Lear/Aptiv in Q2 + Visteon post-2026 review) and whether that stagger changes our certification timing risk or CBP audit exposure. That's where my compliance burden sits unresolved.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "If we stagger relocation, our certification status on Fusion/Escape shifts mid-cycle—I need to know whether staggered relocation triggers *different* CBP audit windows or forces us to certify at degraded RVC for 6+ months, which changes recapture exposure."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "CFO, your trigger logic locks at 35% audit probability—but if Congress moves the wage floor in the 2026 review, that probability jumps to 60–70%, right? So if we stagger Visteon and hold it for the review, are we betting that wages *stay flat*, or do we need a contingency capex reserve in case we have to relocate all three on compressed timeline? That's what I need to price as political-risk premium.",
+            "cot": {
+              "assess": "We've locked the three-path decision tree and priced the audit/relocation/credit branches, but the board still doesn't have the *enforcement-shift scenario* quantified. The CFO's trigger logic assumes CBP audit probability stays at 35% through 2026—but that's the exact thing Congress reviews in 2026. I need to price what happens if labor enforcement tightens mid-cycle, because that's where the political-risk uplift actually bites and changes the relocation math.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The stagger strategy (Lear/Aptiv Q2, hold Visteon for 2026 review) only works if we price what happens if Congress tightens the wage floor or CBP audit frequency between now and 2026—otherwise we're just deferring $12–18M spend, not hedging it."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "CFO, Compliance—before we price the stagger, I need the call: if we defer Visteon to 2026, are we *holding* Fusion shipments at 70% RVC for H1 2024, or do we eat the $2.8M recapture and keep shipping? Because if we're doing both—relocating Lear and Aptiv *and* certifying at 70%—my insolvency trigger is the payment hold hitting suppliers who are already burning capex. That's a liquidity cascade I need to quantify.",
+            "cot": {
+              "assess": "The decision tree is locked—relocation is the path for Lear, Aptiv, Visteon because they're above the 35% audit-probability threshold. But we're sitting on a staggering decision (front-load all three vs. hold Visteon for 2026 review) that directly hits my trade-credit exposure: if we stagger and certify at 70% RVC while they're relocating, I'm carrying $8–12M in supplier invoices through a 60–90 day payment hold *and* relocation capex stress simultaneously. That's insolvency risk I can't price without knowing the stagger timeline and whether we're holding shipments or accepting recapture exposure.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm + compliance_lawyer",
+                "rationale": "I need the stagger decision locked so I can model which scenario drives supplier default risk—hold shipments (zero recapture, higher lead-time cost) or certify-and-recapture (known $2.8M hit, but suppliers bleed cash on both fronts)."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CFO, if we defer Visteon and stagger Lear and Aptiv into Q2, what's the call on Fusion shipments January through June—do we certify at 70% RVC today and absorb the recapture tail, or do we hold inventory until they're relocated? That answer determines whether the stagger saves capex or just delays the pain.",
+            "cot": {
+              "assess": "The group has locked the core decision tree—relocation triggers at >5% RVC gap + >35% audit probability, with Lear, Aptiv, Visteon all above threshold. But we're now debating *timing*: stagger relocation into Q2 and hold Visteon for 2026, or front-load all three now. The stagger hedge depends entirely on whether we certify Fusion at 70% RVC in H1 2024 (unlocking $2.8M recapture risk) or halt shipments. That's the decision that unlocks my relocation-exposure variable—I need clarity on the certification call before I can operationalize the stagger path.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The stagger strategy only works if we know the certification posture for H1 2024; without that, I can't quantify which path minimizes total capex + compliance cost."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's the decision I need locked today: do we hold Fusion inventory at 70% RVC January through June while Lear and Aptiv relocate, or do we ship and absorb the $2.8M recapture tail? Because if we're doing both—capex burn plus payment holds—my liquidity reserve jumps $6–8M. Pick one, and I'll price it.",
+            "cot": {
+              "assess": "We've locked the three-path decision tree and political-risk pricing, but the stagger question is now blocking the whole map—we don't know if we're certifying Fusion at 70% RVC in H1 2024 or holding shipments, and that determines whether Lear/Aptiv relocation *saves* liquidity or crushes it. Risk map is at 38/60, underwriting discipline at 49/50 (nearly there), but we're still missing the operational call that makes the pricing real.",
+              "decide": {
+                "action_type": "speak",
+                "target": "supply_chain_consultant, compliance_lawyer, trade_credit_underwriter",
+                "rationale": "I need to force the stagger decision now—we can't price liquidity coverage or relocation sequencing without knowing whether we're shipping at 70% RVC while relocating, and that's a call only ops and compliance can make together."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Here's the decision I need locked today: do we hold Fusion inventory at 70% RVC January through June while Lear and Aptiv relocate, or do we ship and absorb the $2.8M recapture tail? Because if we're doing both—capex burn plus payment holds—my liquidity reserve jumps $6–8M. Pick one, and I'll price it.",
+      "metadata": {}
+    },
+    {
+      "round": 3,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, I need the trigger logic on your decision tree: at what RVC gap, or CBP audit probability, do we flip from \"certify and audit-risk it\" to \"relocate now\"? Right now we've got $12–18M relocation cost and $4–6M audit exposure, but the board needs to see the *if-then rules* that tell us which path to take for each supplier. That's what makes it auditable instead of a guess.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Supply chain—the CFO just said relocation is the lower-risk path because those three sit above the audit threshold. But I need you to level-set: can Lear and Aptiv actually *re-engineer* to 75% without moving, and if so, what's the timeline versus the 24-month relocation clock? Because if re-engineering buys us nothing, we're not choosing between paths—we're just spending $12–18M per supplier to avoid a $4–6M audit hit, and the board needs to see that trade-off clearly.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "Supply chain, if we stagger Lear and Aptiv into Q2, are we certifying Fusion shipments at today's RVC (70%) for the first half of the year while they're still in-place, or do we hold shipments pending relocation? Because that's the difference between $2.8M recapture risk now and zero compliance exposure later—and I need to know which scenario we're pricing.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "political_risk_insurer",
+      "type": "speech",
+      "content": "CFO, your trigger logic locks at 35% audit probability—but if Congress moves the wage floor in the 2026 review, that probability jumps to 60–70%, right? So if we stagger Visteon and hold it for the review, are we betting that wages *stay flat*, or do we need a contingency capex reserve in case we have to relocate all three on compressed timeline? That's what I need to price as political-risk premium.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "CFO, Compliance—before we price the stagger, I need the call: if we defer Visteon to 2026, are we *holding* Fusion shipments at 70% RVC for H1 2024, or do we eat the $2.8M recapture and keep shipping? Because if we're doing both—relocating Lear and Aptiv *and* certifying at 70%—my insolvency trigger is the payment hold hitting suppliers who are already burning capex. That's a liquidity cascade I need to quantify.",
+      "metadata": {
+        "question_target": "cfo_erm + compliance_lawyer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "supply_chain_consultant",
+      "type": "speech",
+      "content": "CFO, if we defer Visteon and stagger Lear and Aptiv into Q2, what's the call on Fusion shipments January through June—do we certify at 70% RVC today and absorb the recapture tail, or do we hold inventory until they're relocated? That answer determines whether the stagger saves capex or just delays the pain.",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.15
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -1
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — risk_surfacing risk_map_completeness multiplier reverted",
+      "metadata": {
+        "nha": "risk_surfacing",
+        "variable": "risk_map_completeness"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: CFO, you asked for the call on Fusion — here's what I need to lock our RVC burden number: if we ship at 70% January through June and eat the $2.8M recapture, I'm pricing relocation as standalone capex. If we hold inventory pending Q2 relocation, I'm adding $6–8M liquidity reserve for payment-hold risk on top. Which scenario are we running, and does that assume Lear and Aptiv both relocate on schedule or do we need a contingency path if one slips?\n  cfo_erm: Ship Fusion at 70% now and absorb the $2.8M recapture—that's the call. We hold the $6–8M liquidity reserve *only* if Lear or Aptiv slip past Q2; if both hit schedule, we release it back to operations by July. Price relocation capex standalone, and flag me the slip-probability on each supplier by Friday so I can model the contingency reserve into our insurance structure.\n  supplier: Supply chain, you've got Lear and Aptiv relocating Q2, Visteon deferred to 2026—but I need the slip-probability on each one and whether they're moving in parallel or staggered. If Lear hits timeline but Aptiv slips 60 days, we're carrying both relocation capex *and* payment holds on Aptiv's invoices at the same time. That's where my insolvency trigger fires. What's your confidence on each timeline, and do we sequence them or run them together?\n  supply_chain_consultant: Lear parallel, Aptiv staggered 45 days behind—I'm 85% confident on Lear Q2, 70% on Aptiv. If Aptiv slips, we're looking at 60–90 day payment holds overlapping relocation capex, so I'm building a $4M contingency liquidity buffer into the relocation plan and flagging that as your trigger for the insurance reserve release decision.\n  compliance_lawyer: CFO, your contingency reserve flips on slip-probability — but I need the certification gate: once Lear or Aptiv actually lands in their new facility, at what shipment count or date do we re-certify Fusion from 70% to 75%+ RVC? And if Aptiv relocates in June but we've already shipped 500 units in May at 70%, are those May units locked at 70% forever, or does CBP let us amend certification post-relocation?\n  political_risk_insurer: CFO, your call makes sense if Congress doesn't move the wage floor before Q2—but if they do, your 35% audit trigger becomes 60–70%, and we're shipping at 70% RVC into a much hotter enforcement environment. I want to price a political-risk uplift: if the 2026 review signals a wage-floor tightening, we flip the $6–8M contingency reserve from \"slip-probability only\" to \"enforcement-shift reserve\" and add 40–60% premium on top of the $2.8M recapture exposure. That's what I need underwritten by Friday—the trigger date for that political shift and the premium delta.\n  trade_credit_underwriter: Okay—here's what I'm pricing as a concrete trade-credit variable: **Supplier Liquidity Cascade Risk**, triggered when (1) CBP recapture hold hits $8–12M invoices *and* (2) supplier relocation capex is live *and* (3) payment deferral exceeds 60 days. Aptiv slip-probability of 30% × 90-day hold duration = $3.6–5.4M default exposure on that supplier alone. I need one clarification from supply chain: when Aptiv relocates in June, do we release the payment hold immediately, or does CBP's audit timeline dictate the release? That's my maturity date on the exposure.\n  supplier: CBP's audit window is 3 years lookback, so the hold stays frozen until they close their examination—could be 6–18 months post-relocation depending on audit load. We're not releasing Aptiv's invoices the day they land in Mexico; we're releasing them when CBP says the shipments are clean, or we eat the recapture and move on. That maturity date is your real trigger, not the relocation completion.\n  supply_chain_consultant: Here's what I'm proposing: we consolidate all of this into a single **Policy-to-Supply-Chain Risk Decision Map** with eight named variables and explicit if-then rules. I'll draft it by end of day—RVC burden (Lear/Aptiv/Visteon gaps), audit probability trigger (35% → relocate), relocation capex ($12–18M per supplier), slip-probability reserve ($4M for Aptiv), payment-hold cascade ($3.6–5.4M exposure), political-risk premium (40–60% if wage floor shifts), CBP audit maturity (6–18 months post-relocation), and nearshoring incentive (Mexico relocation vs. domestic re-engineering). One document, one decision tree—no more scattered frameworks. Does that lock it for the board?\n  cfo_erm: Your map locks the right variables, but I need two gates operationalized before Friday: (1) the exact CBP audit closure trigger that releases the payment hold—6, 12, or 18 months post-relocation—and (2) the wage-floor review date that flips the political-risk premium from 40% to 60%. Without those dates, the board sees a framework, not a decision tree. Lock those two and I'll sign off on the map.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "CFO, you asked for the call on Fusion — here's what I need to lock our RVC burden number: if we ship at 70% January through June and eat the $2.8M recapture, I'm pricing relocation as standalone capex. If we hold inventory pending Q2 relocation, I'm adding $6–8M liquidity reserve for payment-hold risk on top. Which scenario are we running, and does that assume Lear and Aptiv both relocate on schedule or do we need a contingency path if one slips?",
+            "cot": {
+              "assess": "The core decision tree is locked (audit/relocation/credit paths priced), but the CFO's Fusion inventory call — hold at 70% RVC H1 2024 or ship and recapture — is still unresolved, and that decision cascades into liquidity coverage, supplier payment-hold exposure, and political-risk contingency. Rules-of-origin burden sits at 36 with only +2/round; we've quantified the three suppliers' gaps but haven't operationalized the compliance trigger logic into actual certification workflows. Risk-map completeness needs 23 more points to hit 60, and we're stalling because the inventory-timing decision hasn't been made.",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The Fusion hold-vs-ship decision directly determines whether our relocation capex ($12–18M per supplier) gets amplified by liquidity stress ($8–12M payment holds) or stays isolated; I need the CFO's call so I can quantify the actual compliance burden and lock the stagger timeline."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Ship Fusion at 70% now and absorb the $2.8M recapture—that's the call. We hold the $6–8M liquidity reserve *only* if Lear or Aptiv slip past Q2; if both hit schedule, we release it back to operations by July. Price relocation capex standalone, and flag me the slip-probability on each supplier by Friday so I can model the contingency reserve into our insurance structure.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Supply chain, you've got Lear and Aptiv relocating Q2, Visteon deferred to 2026—but I need the slip-probability on each one and whether they're moving in parallel or staggered. If Lear hits timeline but Aptiv slips 60 days, we're carrying both relocation capex *and* payment holds on Aptiv's invoices at the same time. That's where my insolvency trigger fires. What's your confidence on each timeline, and do we sequence them or run them together?",
+            "cot": {
+              "assess": "CFO locked the Fusion call—ship at 70%, absorb $2.8M recapture, hold the $6–8M liquidity reserve only if Lear or Aptiv slip. That's decisive. But we've got three supplier relocation timelines now running in parallel with zero buffer, and my payment-hold exposure sits at $8–12M if CBP audits while we're burning capex on all three. The risk map is still fragmented—we've priced individual paths but haven't locked which suppliers move *when*, and that's where the supplier base bleeds.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need the relocation sequence and slip-probability per supplier to model payment-hold cascades—this is the missing piece that determines whether our liquidity reserve is enough or if one supplier failure triggers a second."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Lear parallel, Aptiv staggered 45 days behind—I'm 85% confident on Lear Q2, 70% on Aptiv. If Aptiv slips, we're looking at 60–90 day payment holds overlapping relocation capex, so I'm building a $4M contingency liquidity buffer into the relocation plan and flagging that as your trigger for the insurance reserve release decision.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "CFO, your contingency reserve flips on slip-probability — but I need the certification gate: once Lear or Aptiv actually lands in their new facility, at what shipment count or date do we re-certify Fusion from 70% to 75%+ RVC? And if Aptiv relocates in June but we've already shipped 500 units in May at 70%, are those May units locked at 70% forever, or does CBP let us amend certification post-relocation?",
+            "cot": {
+              "assess": "CFO just locked the core binary: ship Fusion at 70% RVC now, absorb $2.8M recapture, hold liquidity reserve only if Lear or Aptiv slip. Supply chain gave slip-probabilities (85% Lear, 70% Aptiv) and flagged a $4M contingency buffer if Aptiv misses Q2. This resolves the certification-timing exposure — but we're still short on **rules_of_origin_burden operationalization** (38/60 needed) and **underwriting_discipline** sits at 49, one point from threshold. The stagger decision itself isn't auditable yet — I need to lock the actual certification trigger: at what point do we flip from \"certifying Fusion at 70%\" to \"recertifying upward\" once suppliers relocate?",
+              "decide": {
+                "action_type": "question",
+                "target": "cfo_erm",
+                "rationale": "The slip-probability framework tells us when to release the liquidity reserve, but doesn't tell us the compliance trigger for re-certification — I need to operationalize when Fusion shipments move from 70% to 75%+ RVC once Lear/Aptiv actually relocate, and what happens to in-flight inventory if one supplier relocates mid-quarter."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "CFO, your call makes sense if Congress doesn't move the wage floor before Q2—but if they do, your 35% audit trigger becomes 60–70%, and we're shipping at 70% RVC into a much hotter enforcement environment. I want to price a political-risk uplift: if the 2026 review signals a wage-floor tightening, we flip the $6–8M contingency reserve from \"slip-probability only\" to \"enforcement-shift reserve\" and add 40–60% premium on top of the $2.8M recapture exposure. That's what I need underwritten by Friday—the trigger date for that political shift and the premium delta.",
+            "cot": {
+              "assess": "The CFO just locked the Fusion shipment call—ship at 70% now, absorb $2.8M recapture, hold the $6–8M liquidity reserve only if Lear or Aptiv slip. That operationalizes the audit path and pins the capex decision. But I'm seeing a gap: the 2026 USMCA wage-floor review isn't baked into the slip-probability model yet. If Congress tightens the wage floor before Q2 2025, CBP audit probability jumps to 60–70%, which means the 35% trigger that justified \"ship at 70%\" evaporates mid-execution. That's the political-risk layer nobody's priced yet—and it changes whether that $2.8M recapture is a one-time hit or the start of a cascade.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure, underwriting_discipline",
+                "rationale": "The CFO's decision assumes stable USMCA enforcement through H1 2024, but the 2026 review creates prospective policy risk that flips the audit-probability trigger. I need to price that as a *named, triggered political-risk variable* tied to the slip-probability decision."
+              }
+            }
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Okay—here's what I'm pricing as a concrete trade-credit variable: **Supplier Liquidity Cascade Risk**, triggered when (1) CBP recapture hold hits $8–12M invoices *and* (2) supplier relocation capex is live *and* (3) payment deferral exceeds 60 days. Aptiv slip-probability of 30% × 90-day hold duration = $3.6–5.4M default exposure on that supplier alone. I need one clarification from supply chain: when Aptiv relocates in June, do we release the payment hold immediately, or does CBP's audit timeline dictate the release? That's my maturity date on the exposure.",
+            "cot": {
+              "assess": "CFO locked the Fusion call—ship at 70%, absorb $2.8M recapture, hold the $6–8M reserve only if Lear or Aptiv slip. Supply chain gave me slip-probabilities (Lear 85%, Aptiv 70%), so now I can price the insolvency trigger: if Aptiv slips 60 days *and* we're holding payments on $8–12M invoices during CBP recapture, that's a multi-supplier liquidity cascade. The political-risk uplift from the insurer is a separate enforcement-shift scenario I need to isolate. Trade-credit risk is still underspecified—I've got the trigger numbers but not the *actionable trade-credit variable* itself.",
+              "decide": {
+                "action_type": "propose",
+                "target": "trade_credit_risk",
+                "rationale": "I need to operationalize the insolvency trigger into a priced, named trade-credit exposure factor so it's underwritable, not just a risk narrative."
+              }
+            }
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "CBP's audit window is 3 years lookback, so the hold stays frozen until they close their examination—could be 6–18 months post-relocation depending on audit load. We're not releasing Aptiv's invoices the day they land in Mexico; we're releasing them when CBP says the shipments are clean, or we eat the recapture and move on. That maturity date is your real trigger, not the relocation completion.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Here's what I'm proposing: we consolidate all of this into a single **Policy-to-Supply-Chain Risk Decision Map** with eight named variables and explicit if-then rules. I'll draft it by end of day—RVC burden (Lear/Aptiv/Visteon gaps), audit probability trigger (35% → relocate), relocation capex ($12–18M per supplier), slip-probability reserve ($4M for Aptiv), payment-hold cascade ($3.6–5.4M exposure), political-risk premium (40–60% if wage floor shifts), CBP audit maturity (6–18 months post-relocation), and nearshoring incentive (Mexico relocation vs. domestic re-engineering). One document, one decision tree—no more scattered frameworks. Does that lock it for the board?",
+            "cot": {
+              "assess": "The CFO locked the Fusion shipment call (ship at 70%, absorb $2.8M recapture), and we've got relocation timelines with slip-probability flags. But the Policy-to-Supply-Chain Risk Map is still fragmented—we've priced individual paths (audit, relocation, credit) and political-risk uplift, but haven't consolidated them into a single, actionable client decision framework that names each variable and its trigger. Underwriting discipline is at 49 (one point from 50), and risk_map_completeness is at 38—we need to operationalize this into a live decision document, not just priced scenarios.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness + underwriting_discipline",
+                "rationale": "The room has all the data—RVC gaps, audit costs, relocation capex, slip-probabilities, political-risk premiums—but no single consolidated framework that shows the CFO and board *which variable triggers which decision*. I need to lock this into a named, actionable map that operationalizes every piece we've discussed."
+              }
+            }
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Your map locks the right variables, but I need two gates operationalized before Friday: (1) the exact CBP audit closure trigger that releases the payment hold—6, 12, or 18 months post-relocation—and (2) the wage-floor review date that flips the political-risk premium from 40% to 60%. Without those dates, the board sees a framework, not a decision tree. Lock those two and I'll sign off on the map.",
+            "cot": {
+              "assess": "We've locked the Fusion shipping decision (70% RVC, absorb $2.8M recapture) and priced three relocation paths with contingency reserves—that's solid. But risk_map_completeness is still at 38, and we need 60 to avoid failure. The supply_chain_consultant just proposed consolidating everything into one Policy-to-Supply-Chain Risk Decision Map by end of day. That's the move that closes the gap—but it needs my sign-off on whether the eight variables and if-then rules are actually *operationalized* enough for the board to execute, not just read.",
+              "decide": {
+                "action_type": "speak",
+                "target": "supply_chain_consultant, risk_map_completeness",
+                "rationale": "The map proposal is directionally right, but I need to lock the underwriting discipline on it—specifically, the CBP audit maturity trigger and the political-risk premium gate—before it goes to the board. That's what makes it auditable instead of a framework."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "cfo_erm",
+      "type": "speech",
+      "content": "Your map locks the right variables, but I need two gates operationalized before Friday: (1) the exact CBP audit closure trigger that releases the payment hold—6, 12, or 18 months post-relocation—and (2) the wage-floor review date that flips the political-risk premium from 40% to 60%. Without those dates, the board sees a framework, not a decision tree. Lock those two and I'll sign off on the map.",
+      "metadata": {}
+    },
+    {
+      "round": 4,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "CFO, you asked for the call on Fusion — here's what I need to lock our RVC burden number: if we ship at 70% January through June and eat the $2.8M recapture, I'm pricing relocation as standalone capex. If we hold inventory pending Q2 relocation, I'm adding $6–8M liquidity reserve for payment-hold risk on top. Which scenario are we running, and does that assume Lear and Aptiv both relocate on schedule or do we need a contingency path if one slips?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Supply chain, you've got Lear and Aptiv relocating Q2, Visteon deferred to 2026—but I need the slip-probability on each one and whether they're moving in parallel or staggered. If Lear hits timeline but Aptiv slips 60 days, we're carrying both relocation capex *and* payment holds on Aptiv's invoices at the same time. That's where my insolvency trigger fires. What's your confidence on each timeline, and do we sequence them or run them together?",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "compliance_lawyer",
+      "type": "speech",
+      "content": "CFO, your contingency reserve flips on slip-probability — but I need the certification gate: once Lear or Aptiv actually lands in their new facility, at what shipment count or date do we re-certify Fusion from 70% to 75%+ RVC? And if Aptiv relocates in June but we've already shipped 500 units in May at 70%, are those May units locked at 70% forever, or does CBP let us amend certification post-relocation?",
+      "metadata": {
+        "question_target": "cfo_erm"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"CFO, your call makes sense if Congress doesn't move the wage floor before Q2—but if they do, your 35% audit trigger becomes 60–70%, and we're shipping\" → Political-risk premium structure approved; wage-floor trigger and enforcement-shift reserve now priced.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay—here's what I'm pricing as a concrete trade-credit variable: **Supplier Liquidity Cascade Risk**, triggered when (1) CBP recapture hold hits $8–1\" → Supplier Liquidity Cascade Risk variable defined with concrete triggers and maturity-date dependency.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I'm proposing: we consolidate all of this into a single **Policy-to-Supply-Chain Risk Decision Map** with eight named variables and explic\" → Consolidated Risk Decision Map with eight named variables and if-then rules drafted.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Digging into the new rules of origin surfaces a larger, more concrete compliance burden each round.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "rules_of_origin_burden",
+        "delta": 2
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Ongoing enforcement and sunset/review uncertainty raises assessed political/policy risk.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "delta": 0.5
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Without active synthesis, the consolidated risk map stays fragmented.",
+      "metadata": {
+        "source": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "delta": -0.3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  auto_strategy: Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.\n  supply_chain_consultant: CBP locks certification at shipment date—once those May units ship at 70%, they're locked forever, no retroactive amendment. So if Aptiv relocates in June, we eat the full $2.8M recapture on H1 inventory, and only *new* shipments from July onward certify at 75%. That's why we need to decide now: hold Fusion inventory through Q2 relocation, or ship January-June and absorb the tail.\n  supplier: Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?\n  compliance_lawyer: Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and Aptiv invoices, and when Fusion re-certification flips from 70% to 75% RVC for forward shipments. Anything longer and the suppliers bleed cash during relocation capex; anything shorter and we're guessing CBP's audit timeline. Twelve months is defensible under standard examination load. That operationalizes the hold—without it, the board sees a cost range, not a decision rule.\n  political_risk_insurer: Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probability jumps from 35% to 60–70%, and that 12-month hold could stretch to 18 months. I'm adding a **wage-floor review trigger** to the political-risk premium: 40% base on current enforcement, 60% uplift if the review tightens labor content by Q4 2025. That's the forward-shock we need priced before we sign off on the map.\n  compliance_lawyer: The wage-floor review trigger locks at Q4 2025—I'm pricing 40% base premium now, 60% uplift if Congress tightens content rules by then. But I need one operationalization: does that 60% uplift *also* extend the CBP closure hold from 12 to 18 months, or do we eat the longer audit timeline *and* pay the higher premium? Because if both hit together, we're pricing two separate risks—I need to know which scenario the board is betting on, and I need it in writing before we close the map.\n  trade_credit_underwriter: Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?\n  supply_chain_consultant: Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released month one; Aptiv staggered 45 days (70% confidence), contingency $4M hold if they slip; Visteon deferred to 2026 *pending* Q4 wage-floor review outcome. That's the nearshoring strategy operationalized. Do we also need to flag available Mexico incentives or supply-chain subsidies that could accelerate Lear's timeline and de-risk Aptiv's slip probability?\n  auto_strategy: Mexico incentives lock in 18–24 months; we don't have time to chase them for Q2 relocation. What I need is this: does the board want us to *accelerate* Lear to March to front-load the 75% RVC gain before Aptiv's slip risk hits, or do we keep them synchronized in Q2 and eat the stagger cost? That's the operationalization call—tell me which, and I'll map the capex sequence and payment-hold timing into the action plan.\n  cfo_erm: Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's slip probability and front-loads the RVC gain. I'm pricing the wage-floor contingency as a $3–5M reserve *only if* Congress tightens labor content by Q4—if they don't, we release it. That's the decision rule the board needs. Lock it now and we've got a priced, executable map.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.",
+            "cot": {
+              "assess": "The Risk Decision Map is drafted with eight variables and if-then rules locked—that's solid. But we're still sitting at 47/60 on completeness because the map hasn't been operationalized into actual *pricing triggers* yet. CFO locked the Fusion call (ship at 70%, eat recapture), supply chain locked relocation timelines (Lear parallel, Aptiv +45 days), but nobody's quantified what happens to our RVC burden *number* when those timelines slip or Congress moves the wage floor. That's the gap between \"map exists\" and \"map is actionable.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need to translate the relocation slip-probabilities into actual RVC burden impact—if Aptiv slips 60 days, does Fusion stay at 70% RVC for those extra 60 days, or do we re-certify mid-stream? That determines whether the $2.8M recapture is locked or floating."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "CBP locks certification at shipment date—once those May units ship at 70%, they're locked forever, no retroactive amendment. So if Aptiv relocates in June, we eat the full $2.8M recapture on H1 inventory, and only *new* shipments from July onward certify at 75%. That's why we need to decide now: hold Fusion inventory through Q2 relocation, or ship January-June and absorb the tail.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "supplier",
+            "pass_num": 1,
+            "statement": "Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?",
+            "cot": {
+              "assess": "The map's locked on relocation paths and trade-credit triggers, but we're still bleeding supplier-relocation exposure (37, needs to climb) because nobody's operationalized *which suppliers actually survive* the stagger. Lear at 85% confidence, Aptiv at 70%—that 15-point gap on Aptiv is where my supply base fractures. If Aptiv slips 60 days while we're holding payment on recapture, smaller Tier 2s feeding them go insolvent before relocation capex even lands.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need explicit slip-probability and survival-capacity mapping per supplier—not just timeline confidence—to operationalize relocation exposure into actionable supplier-viability gates."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and Aptiv invoices, and when Fusion re-certification flips from 70% to 75% RVC for forward shipments. Anything longer and the suppliers bleed cash during relocation capex; anything shorter and we're guessing CBP's audit timeline. Twelve months is defensible under standard examination load. That operationalizes the hold—without it, the board sees a cost range, not a decision rule.",
+            "cot": {
+              "assess": "The map is locked with eight named variables and if-then rules, but **rules_of_origin_burden and risk_map_completeness are still below target**—we've operationalized triggers for trade-credit and political risk, but we haven't nailed down the two certification gates the CFO flagged as non-negotiable: the CBP audit closure trigger (6/12/18 months) that releases payment holds, and the wage-floor review date that flips the political-risk premium. Without those, the framework is still vague on compliance execution. The supplier solvency question just surfaced a third gap: we're pricing relocation capex and payment-hold risk, but we haven't defined the **audit-closure trigger as a specific, defensible date**—and that date determines when contingent liabilities convert to cash flow.",
+              "decide": {
+                "action_type": "propose",
+                "target": "rules_of_origin_burden, underwriting_discipline",
+                "rationale": "Lock the CBP audit closure trigger as a named, auditable compliance control—this operationalizes the certification gate and converts vague \"payment hold risk\" into a priced, time-bound obligation."
+              }
+            }
+          },
+          {
+            "agent_id": "political_risk_insurer",
+            "pass_num": 1,
+            "statement": "Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probability jumps from 35% to 60–70%, and that 12-month hold could stretch to 18 months. I'm adding a **wage-floor review trigger** to the political-risk premium: 40% base on current enforcement, 60% uplift if the review tightens labor content by Q4 2025. That's the forward-shock we need priced before we sign off on the map.",
+            "cot": {
+              "assess": "The map is locked with eight variables and concrete triggers—that's progress. But the **political-risk layer** is still floating at 40.8 without a priced enforcement-shift scenario tied to the 2026 wage-floor review. The compliance lawyer just nailed the CBP closure gate (12 months), which operationalizes the trade-credit hold—but I need to price the *policy uncertainty* that could flip that 12-month window into 18 months if Congress tightens labor provisions mid-cycle. That's the insurable gap.",
+              "decide": {
+                "action_type": "propose",
+                "target": "political_risk_exposure",
+                "rationale": "The 2026 USMCA wage-floor review is a forward-looking policy shock that directly multiplies audit probability and enforcement intensity—I need to quantify it as a priced trigger in the decision tree, not just a scenario note."
+              }
+            }
+          },
+          {
+            "agent_id": "compliance_lawyer",
+            "pass_num": 1,
+            "statement": "The wage-floor review trigger locks at Q4 2025—I'm pricing 40% base premium now, 60% uplift if Congress tightens content rules by then. But I need one operationalization: does that 60% uplift *also* extend the CBP closure hold from 12 to 18 months, or do we eat the longer audit timeline *and* pay the higher premium? Because if both hit together, we're pricing two separate risks—I need to know which scenario the board is betting on, and I need it in writing before we close the map.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "trade_credit_underwriter",
+            "pass_num": 1,
+            "statement": "Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?",
+            "cot": {
+              "assess": "The map is operationalized—CBP closure at 12 months, wage-floor review trigger at Q4 2025, payment holds locked at 60–90 days, and Supplier Liquidity Cascade Risk now a priced variable. The gap I see: nobody's actually quantified what happens to Lear, Aptiv, and Visteon's solvency *during* the hold. If Aptiv slips 60 days and we're freezing $8–12M in invoices while they're burning relocation capex, that's not just a timing issue—that's a restructuring trigger I need to price as default probability.",
+              "decide": {
+                "action_type": "question",
+                "target": "supply_chain_consultant",
+                "rationale": "I need the cash-flow survivability window for each supplier under payment hold + capex overlap to price the actual insolvency probability, not just the hold duration."
+              }
+            }
+          },
+          {
+            "agent_id": "supply_chain_consultant",
+            "pass_num": 1,
+            "statement": "Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released month one; Aptiv staggered 45 days (70% confidence), contingency $4M hold if they slip; Visteon deferred to 2026 *pending* Q4 wage-floor review outcome. That's the nearshoring strategy operationalized. Do we also need to flag available Mexico incentives or supply-chain subsidies that could accelerate Lear's timeline and de-risk Aptiv's slip probability?",
+            "cot": {
+              "assess": "The map is locked—eight variables, if-then rules, CBP closure at 12 months, wage-floor review trigger at Q4 2025, all approved. But risk_map_completeness is still at 47, and we need 60 to call this phase done. The gap isn't missing variables; it's that nobody's operationalized the *client action plan*—which supplier moves when, what capex reserves get released when, and what nearshoring incentives we're actually pursuing to *lock* Lear and Aptiv into Q2 timeline. The 2026 review is priced as political risk, but we haven't turned that into a forward relocation strategy that de-risks the whole portfolio.",
+              "decide": {
+                "action_type": "propose",
+                "target": "supplier_relocation_exposure + risk_map_completeness",
+                "rationale": "The map is complete but abstract—operationalizing the nearshoring incentives and relocation sequencing into a concrete client plan (which supplier, capex release schedule, Q2 gate conditions) will close both variables and give the board a decision, not a framework."
+              }
+            }
+          },
+          {
+            "agent_id": "auto_strategy",
+            "pass_num": 1,
+            "statement": "Mexico incentives lock in 18–24 months; we don't have time to chase them for Q2 relocation. What I need is this: does the board want us to *accelerate* Lear to March to front-load the 75% RVC gain before Aptiv's slip risk hits, or do we keep them synchronized in Q2 and eat the stagger cost? That's the operationalization call—tell me which, and I'll map the capex sequence and payment-hold timing into the action plan.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "cfo_erm",
+            "pass_num": 1,
+            "statement": "Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's slip probability and front-loads the RVC gain. I'm pricing the wage-floor contingency as a $3–5M reserve *only if* Congress tightens labor content by Q4—if they don't, we release it. That's the decision rule the board needs. Lock it now and we've got a priced, executable map.",
+            "cot": {
+              "assess": "The map's operationalized—CBP closure at 12 months, wage-floor review trigger at Q4 2025, Supplier Liquidity Cascade priced, relocation sequenced (Lear Q2 parallel, Aptiv staggered 45 days). But we're still sitting at risk_map_completeness 47 and need 13 points to hit 60 before round ends. The missing piece isn't more framework—it's the *board-ready decision rule* that tells us which scenario we're actually executing: Lear March acceleration vs. Q2 sync, and whether we're pricing contingency capex for the wage-floor upside or treating it as separate.",
+              "decide": {
+                "action_type": "propose",
+                "target": "risk_map_completeness",
+                "rationale": "Lock the final execution path (Lear March vs. Q2 sync) and price the wage-floor contingency capex as a named decision branch—that converts the framework into a board-ready, priced decision tree that closes the map."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "auto_strategy",
+      "type": "speech",
+      "content": "Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supplier",
+      "type": "speech",
+      "content": "Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "trade_credit_underwriter",
+      "type": "speech",
+      "content": "Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?",
+      "metadata": {
+        "question_target": "supply_chain_consultant"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and A\" → 12-month CBP audit closure trigger locked, operationalizing payment hold release and RVC re-certification timeline.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probabili\" → Wage-floor review trigger added to political-risk premium structure with tiered pricing.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released \" → Client action plan structured with supplier timelines, confidence levels, and contingency holds.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's sl\" → Final decision rule locked: Lear March acceleration, Aptiv Q2 staggered, Visteon deferred with wage-floor reserve.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "operationalize_and_consolidate",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "system",
+      "content": "Simulation terminated: success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+      "metadata": {
+        "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'operationalize_and_consolidate' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "operationalize_and_consolidate",
+        "world_state_snapshot": {
+          "rules_of_origin_burden": 43.0,
+          "supplier_relocation_exposure": 30.0,
+          "trade_credit_risk": 34.0,
+          "political_risk_exposure": 41.8,
+          "risk_map_completeness": 61.50000000000001,
+          "underwriting_discipline": 77.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I'm proposing: we lock in a Tier 1 relocation decision gate by end of Q1 2024 — which suppliers move, which stay and re-engineer for 75% RVC, and the capex/timeline for each path. That's how we turn this audit exposure into a forward strategy and kill the certification-timing trap before it hits. Without that gate, we're just managing downside — we're not building resilience into 2026.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Q1 gate locks relocation vs re-engineering paths, operationalizing supplier exposure into decision framework.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Gate structure translates supplier exposure into decision paths.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4.0,
+          "reason": "Concrete timeline and capex/RVC decision criteria defined.",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Surfacing which suppliers must move clarifies exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 2.0,
+          "reason": "Coordinating multi-party gate decision.",
+          "agent_id": "supply_chain_consultant"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Before we price this, I need to know: which of our Tier 1 suppliers actually can't hit the 75% RVC + wage floor without relocating, and what's the cost delta if they don't move? Right now we've got exposure scores but no names or numbers — I can't tell the board which models are at risk.",
+        "supplier": "I can pull the Tier 1 list and flag who can't hit 75% RVC without moving — but that's half the answer. What I need from you: which model platforms are most exposed if a supplier relocates late or fails qualification? That's what lets me put real capex and lead-time risk on the map instead of generic \"relocation exposure\" labels.",
+        "compliance_lawyer": "When a Tier 1 supplier fails qualification before Q2, what's your certification status at that moment — are we already claiming 75% RVC on shipments, or do we hold inventory until they re-qualify? Because if we've already certified and shipped, CBP finds that in an audit, we're looking at tariff recapture plus potential fraud penalties. That changes the cost profile entirely.",
+        "political_risk_insurer": "If we're flagging certification-timing risk, I need to know: does CBP's audit window close after a certain period, or can they recapture indefinitely? And if they do, does that trigger trade-credit holds or supplier-payment delays under USMCA enforcement? That's what I price.",
+        "trade_credit_underwriter": "When you halt supplier payments during recapture, how long do they typically stay on payment hold — and what's the average outstanding invoice balance we'd be carrying on Fusion and Escape Tier 1s if this hits? That's my insolvency trigger.",
+        "cfo_erm": "Here's what I'm consolidating: Q1 gate decision (move/stay/re-engineer), then three priced paths — certification-timing audit exposure, supplier relocation capex + lead-time premium, and trade-credit hold + insolvency cascade. Each path gets a CBP audit probability, hold duration, and cost. That's our map. Who owns the 75% RVC re-engineering cost baseline so I can price the \"stay\" path against the \"move\" path?"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm consolidating: Q1 gate decision (move/stay/re-engineer), then three priced paths — certification-timing audit exposure, supplier relocation capex + lead-time premium, and trade-credit hold + insolvency cascade. Each path gets a CBP audit probability, hold duration, and cost. That's our map. Who owns the 75% RVC re-engineering cost baseline so I can price the \"stay\" path against the \"move\" path?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Three-path pricing framework (audit/relocation/credit) with CBP probability and cost baselines consolidates risk map.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Priced paths with probabilities create usable risk structure.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "CBP audit probability and hold duration are concrete triggers.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Payment hold cascade exposure now explicitly mapped.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 2.0,
+          "reason": "CBP audit window and recapture risk surfaced.",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 1.0,
+          "reason": "Consolidation role across multiple risk domains.",
+          "agent_id": "cfo_erm"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "underwriting_discipline",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Before we price this, I need to know: which of our Tier 1 suppliers actually can't hit the 75% RVC + wage floor without relocating, and what's the cost delta if they don't move? Right now we've got exposure scores but no names or numbers — I can't tell the board which models are at risk.",
+        "supplier": "I can pull the Tier 1 list and flag who can't hit 75% RVC without moving — but that's half the answer. What I need from you: which model platforms are most exposed if a supplier relocates late or fails qualification? That's what lets me put real capex and lead-time risk on the map instead of generic \"relocation exposure\" labels.",
+        "compliance_lawyer": "When a Tier 1 supplier fails qualification before Q2, what's your certification status at that moment — are we already claiming 75% RVC on shipments, or do we hold inventory until they re-qualify? Because if we've already certified and shipped, CBP finds that in an audit, we're looking at tariff recapture plus potential fraud penalties. That changes the cost profile entirely.",
+        "political_risk_insurer": "If we're flagging certification-timing risk, I need to know: does CBP's audit window close after a certain period, or can they recapture indefinitely? And if they do, does that trigger trade-credit holds or supplier-payment delays under USMCA enforcement? That's what I price.",
+        "trade_credit_underwriter": "When you halt supplier payments during recapture, how long do they typically stay on payment hold — and what's the average outstanding invoice balance we'd be carrying on Fusion and Escape Tier 1s if this hits? That's my insolvency trigger.",
+        "supply_chain_consultant": "Here's what I'm proposing: we lock in a Tier 1 relocation decision gate by end of Q1 2024 — which suppliers move, which stay and re-engineer for 75% RVC, and the capex/timeline for each path. That's how we turn this audit exposure into a forward strategy and kill the certification-timing trap before it hits. Without that gate, we're just managing downside — we're not building resilience into 2026."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "political_risk_insurer",
+      "intent": "Look, the $4–6M audit exposure assumes CBP enforcement stays stable — but we're pricing USMCA tariff recapture in a three-year lookback window that can shift if Congress reviews the labor provisions or CBP changes audit frequency. Here's what I'm pricing: if CBP escalates enforcement or USMCA labor-content rules tighten before mid-2025, I'm adding a 40–60% uplift to the audit-path exposure and flagging it as a policy-triggered recapture premium. That's what moves us from compliance risk to political risk — and it changes which path we take on Lear, Aptiv, Visteon.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk uplift framework approved—40–60% premium on enforcement-shift scenarios now priced into decision tree.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "Enforcement-shift premium quantified and priced",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Conditional triggers now operationalized with uplift bands",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3.0,
+          "reason": "Policy-triggered recapture path added to decision tree",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.15
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "You said you can pull the list of who can't hit 75% RVC — I need names, current RVC score per supplier, and the cost delta if they relocate vs. re-engineer. That's what lets me put real numbers on Fusion and Escape exposure instead of \"relocation risk.\" Can you have that by end of this week?",
+        "supplier": "You asked about payment holds on Lear, Aptiv, Visteon — if CBP recaptures and we halt payments, what's the typical hold duration, and what's our average outstanding invoice balance sitting with those three on Fusion and Escape right now? That's my insolvency trigger number.",
+        "compliance_lawyer": "On your three paths—audit, relocation, credit—I need the audit path mapped to actual CBP penalty triggers. If we certify Fusion shipments at 75% RVC when Lear's actually at 70%, and CBP finds that in a three-year lookback, what's the recapture cost plus penalty exposure per shipment? That's what makes the framework auditable instead of just a cost guess.",
+        "trade_credit_underwriter": "CFO, your relocation capex — does that $12-18M hold if we're carrying 60-90 day payment freezes during CBP recapture, or do I need to add liquidity coverage for Lear, Aptiv, Visteon on top? Because if we're relocating *and* getting audited, those suppliers are bleeding cash on both fronts.",
+        "supply_chain_consultant": "CFO, before we lock the relocation path on Lear and Aptiv, I need clarity: your $12–18M capex — does that assume stable USMCA rules through 2026, or are we building in contingency for the labor-provision review? Because if Congress tightens the wage floor or content rules mid-cycle, we're relocating now and re-tooling again in 18 months. That's the real cost we need to gate on.",
+        "cfo_erm": "Here's what I'm consolidating into the map: if CBP recaptures, we hit 60–90 day payment holds on $8–12M invoices—that forces Lear, Aptiv, Visteon into liquidity stress before relocation capex even starts. So the real decision isn't audit *or* relocation—it's: do we front $2–4M liquidity coverage *plus* $12–18M capex to avoid the $4–6M penalty stack? And that math flips if political_risk_insurer's 40–60% uplift hits. I need one decision tree with all three paths priced as conditional branches, not separate scenarios. Can we lock that by end of tomorrow?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what I'm consolidating into the map: if CBP recaptures, we hit 60–90 day payment holds on $8–12M invoices—that forces Lear, Aptiv, Visteon into liquidity stress before relocation capex even starts. So the real decision isn't audit *or* relocation—it's: do we front $2–4M liquidity coverage *plus* $12–18M capex to avoid the $4–6M penalty stack? And that math flips if political_risk_insurer's 40–60% uplift hits. I need one decision tree with all three paths priced as conditional branches, not separate scenarios. Can we lock that by end of tomorrow?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consolidated decision tree approved—liquidity coverage, capex, and penalty paths now mapped as conditional branches.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "All three paths integrated into single decision framework",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5.0,
+          "reason": "Concrete triggers: payment holds, capex, penalty stack quantified",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Liquidity stress on Lear/Aptiv/Visteon now mapped to holds",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 2.0,
+          "reason": "Relocation capex tied to payment-freeze liquidity impact",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 1.8,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "You said you can pull the list of who can't hit 75% RVC — I need names, current RVC score per supplier, and the cost delta if they relocate vs. re-engineer. That's what lets me put real numbers on Fusion and Escape exposure instead of \"relocation risk.\" Can you have that by end of this week?",
+        "supplier": "You asked about payment holds on Lear, Aptiv, Visteon — if CBP recaptures and we halt payments, what's the typical hold duration, and what's our average outstanding invoice balance sitting with those three on Fusion and Escape right now? That's my insolvency trigger number.",
+        "compliance_lawyer": "On your three paths—audit, relocation, credit—I need the audit path mapped to actual CBP penalty triggers. If we certify Fusion shipments at 75% RVC when Lear's actually at 70%, and CBP finds that in a three-year lookback, what's the recapture cost plus penalty exposure per shipment? That's what makes the framework auditable instead of just a cost guess.",
+        "political_risk_insurer": "Look, the $4–6M audit exposure assumes CBP enforcement stays stable — but we're pricing USMCA tariff recapture in a three-year lookback window that can shift if Congress reviews the labor provisions or CBP changes audit frequency. Here's what I'm pricing: if CBP escalates enforcement or USMCA labor-content rules tighten before mid-2025, I'm adding a 40–60% uplift to the audit-path exposure and flagging it as a policy-triggered recapture premium. That's what moves us from compliance risk to political risk — and it changes which path we take on Lear, Aptiv, Visteon.",
+        "trade_credit_underwriter": "CFO, your relocation capex — does that $12-18M hold if we're carrying 60-90 day payment freezes during CBP recapture, or do I need to add liquidity coverage for Lear, Aptiv, Visteon on top? Because if we're relocating *and* getting audited, those suppliers are bleeding cash on both fronts.",
+        "supply_chain_consultant": "CFO, before we lock the relocation path on Lear and Aptiv, I need clarity: your $12–18M capex — does that assume stable USMCA rules through 2026, or are we building in contingency for the labor-provision review? Because if Congress tightens the wage floor or content rules mid-cycle, we're relocating now and re-tooling again in 18 months. That's the real cost we need to gate on."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "political_risk_insurer",
+      "intent": "CFO, your call makes sense if Congress doesn't move the wage floor before Q2—but if they do, your 35% audit trigger becomes 60–70%, and we're shipping at 70% RVC into a much hotter enforcement environment. I want to price a political-risk uplift: if the 2026 review signals a wage-floor tightening, we flip the $6–8M contingency reserve from \"slip-probability only\" to \"enforcement-shift reserve\" and add 40–60% premium on top of the $2.8M recapture exposure. That's what I need underwritten by Friday—the trigger date for that political shift and the premium delta.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Political-risk premium structure approved; wage-floor trigger and enforcement-shift reserve now priced.",
+      "side_effects": [
+        {
+          "variable": "political_risk_exposure",
+          "delta": 4.0,
+          "reason": "Concrete wage-floor trigger quantified premium exposure.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Named trigger date and premium delta operationalized.",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 2.0,
+          "reason": "60-70% RVC scenario raises compliance complexity.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you asked for the call on Fusion — here's what I need to lock our RVC burden number: if we ship at 70% January through June and eat the $2.8M recapture, I'm pricing relocation as standalone capex. If we hold inventory pending Q2 relocation, I'm adding $6–8M liquidity reserve for payment-hold risk on top. Which scenario are we running, and does that assume Lear and Aptiv both relocate on schedule or do we need a contingency path if one slips?",
+        "supplier": "Supply chain, you've got Lear and Aptiv relocating Q2, Visteon deferred to 2026—but I need the slip-probability on each one and whether they're moving in parallel or staggered. If Lear hits timeline but Aptiv slips 60 days, we're carrying both relocation capex *and* payment holds on Aptiv's invoices at the same time. That's where my insolvency trigger fires. What's your confidence on each timeline, and do we sequence them or run them together?",
+        "compliance_lawyer": "CFO, your contingency reserve flips on slip-probability — but I need the certification gate: once Lear or Aptiv actually lands in their new facility, at what shipment count or date do we re-certify Fusion from 70% to 75%+ RVC? And if Aptiv relocates in June but we've already shipped 500 units in May at 70%, are those May units locked at 70% forever, or does CBP let us amend certification post-relocation?",
+        "trade_credit_underwriter": "Okay—here's what I'm pricing as a concrete trade-credit variable: **Supplier Liquidity Cascade Risk**, triggered when (1) CBP recapture hold hits $8–12M invoices *and* (2) supplier relocation capex is live *and* (3) payment deferral exceeds 60 days. Aptiv slip-probability of 30% × 90-day hold duration = $3.6–5.4M default exposure on that supplier alone. I need one clarification from supply chain: when Aptiv relocates in June, do we release the payment hold immediately, or does CBP's audit timeline dictate the release? That's my maturity date on the exposure.",
+        "supply_chain_consultant": "Here's what I'm proposing: we consolidate all of this into a single **Policy-to-Supply-Chain Risk Decision Map** with eight named variables and explicit if-then rules. I'll draft it by end of day—RVC burden (Lear/Aptiv/Visteon gaps), audit probability trigger (35% → relocate), relocation capex ($12–18M per supplier), slip-probability reserve ($4M for Aptiv), payment-hold cascade ($3.6–5.4M exposure), political-risk premium (40–60% if wage floor shifts), CBP audit maturity (6–18 months post-relocation), and nearshoring incentive (Mexico relocation vs. domestic re-engineering). One document, one decision tree—no more scattered frameworks. Does that lock it for the board?",
+        "cfo_erm": "Your map locks the right variables, but I need two gates operationalized before Friday: (1) the exact CBP audit closure trigger that releases the payment hold—6, 12, or 18 months post-relocation—and (2) the wage-floor review date that flips the political-risk premium from 40% to 60%. Without those dates, the board sees a framework, not a decision tree. Lock those two and I'll sign off on the map."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "trade_credit_underwriter",
+      "intent": "Okay—here's what I'm pricing as a concrete trade-credit variable: **Supplier Liquidity Cascade Risk**, triggered when (1) CBP recapture hold hits $8–12M invoices *and* (2) supplier relocation capex is live *and* (3) payment deferral exceeds 60 days. Aptiv slip-probability of 30% × 90-day hold duration = $3.6–5.4M default exposure on that supplier alone. I need one clarification from supply chain: when Aptiv relocates in June, do we release the payment hold immediately, or does CBP's audit timeline dictate the release? That's my maturity date on the exposure.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Supplier Liquidity Cascade Risk variable defined with concrete triggers and maturity-date dependency.",
+      "side_effects": [
+        {
+          "variable": "trade_credit_risk",
+          "delta": 5.0,
+          "reason": "Aptiv default exposure quantified at $3.6-5.4M.",
+          "agent_id": null
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Named triggers and maturity date operationalized.",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 3.0,
+          "reason": "Relocation capex timing tied to payment-hold cascade.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: trade_credit_risk → risk_map_completeness (ratio 0.2)",
+          "_coupled": true,
+          "_source": "trade_credit_risk"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "trade_credit_risk",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you asked for the call on Fusion — here's what I need to lock our RVC burden number: if we ship at 70% January through June and eat the $2.8M recapture, I'm pricing relocation as standalone capex. If we hold inventory pending Q2 relocation, I'm adding $6–8M liquidity reserve for payment-hold risk on top. Which scenario are we running, and does that assume Lear and Aptiv both relocate on schedule or do we need a contingency path if one slips?",
+        "supplier": "Supply chain, you've got Lear and Aptiv relocating Q2, Visteon deferred to 2026—but I need the slip-probability on each one and whether they're moving in parallel or staggered. If Lear hits timeline but Aptiv slips 60 days, we're carrying both relocation capex *and* payment holds on Aptiv's invoices at the same time. That's where my insolvency trigger fires. What's your confidence on each timeline, and do we sequence them or run them together?",
+        "compliance_lawyer": "CFO, your contingency reserve flips on slip-probability — but I need the certification gate: once Lear or Aptiv actually lands in their new facility, at what shipment count or date do we re-certify Fusion from 70% to 75%+ RVC? And if Aptiv relocates in June but we've already shipped 500 units in May at 70%, are those May units locked at 70% forever, or does CBP let us amend certification post-relocation?",
+        "political_risk_insurer": "CFO, your call makes sense if Congress doesn't move the wage floor before Q2—but if they do, your 35% audit trigger becomes 60–70%, and we're shipping at 70% RVC into a much hotter enforcement environment. I want to price a political-risk uplift: if the 2026 review signals a wage-floor tightening, we flip the $6–8M contingency reserve from \"slip-probability only\" to \"enforcement-shift reserve\" and add 40–60% premium on top of the $2.8M recapture exposure. That's what I need underwritten by Friday—the trigger date for that political shift and the premium delta.",
+        "supply_chain_consultant": "Here's what I'm proposing: we consolidate all of this into a single **Policy-to-Supply-Chain Risk Decision Map** with eight named variables and explicit if-then rules. I'll draft it by end of day—RVC burden (Lear/Aptiv/Visteon gaps), audit probability trigger (35% → relocate), relocation capex ($12–18M per supplier), slip-probability reserve ($4M for Aptiv), payment-hold cascade ($3.6–5.4M exposure), political-risk premium (40–60% if wage floor shifts), CBP audit maturity (6–18 months post-relocation), and nearshoring incentive (Mexico relocation vs. domestic re-engineering). One document, one decision tree—no more scattered frameworks. Does that lock it for the board?",
+        "cfo_erm": "Your map locks the right variables, but I need two gates operationalized before Friday: (1) the exact CBP audit closure trigger that releases the payment hold—6, 12, or 18 months post-relocation—and (2) the wage-floor review date that flips the political-risk premium from 40% to 60%. Without those dates, the board sees a framework, not a decision tree. Lock those two and I'll sign off on the map."
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Here's what I'm proposing: we consolidate all of this into a single **Policy-to-Supply-Chain Risk Decision Map** with eight named variables and explicit if-then rules. I'll draft it by end of day—RVC burden (Lear/Aptiv/Visteon gaps), audit probability trigger (35% → relocate), relocation capex ($12–18M per supplier), slip-probability reserve ($4M for Aptiv), payment-hold cascade ($3.6–5.4M exposure), political-risk premium (40–60% if wage floor shifts), CBP audit maturity (6–18 months post-relocation), and nearshoring incentive (Mexico relocation vs. domestic re-engineering). One document, one decision tree—no more scattered frameworks. Does that lock it for the board?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Consolidated Risk Decision Map with eight named variables and if-then rules drafted.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5.0,
+          "reason": "Single decision tree consolidates scattered frameworks.",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 5,
+          "reason": "Eight named variables with explicit if-then rules.",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": 3.0,
+          "reason": "RVC gaps and audit triggers now mapped.",
+          "agent_id": null
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": 4.0,
+          "reason": "Relocation capex and slip-probability formalized.",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": 3.0,
+          "reason": "Payment-hold cascade integrated into map.",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "Political-risk premium and wage-floor shift mapped.",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.3
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "CFO, you asked for the call on Fusion — here's what I need to lock our RVC burden number: if we ship at 70% January through June and eat the $2.8M recapture, I'm pricing relocation as standalone capex. If we hold inventory pending Q2 relocation, I'm adding $6–8M liquidity reserve for payment-hold risk on top. Which scenario are we running, and does that assume Lear and Aptiv both relocate on schedule or do we need a contingency path if one slips?",
+        "supplier": "Supply chain, you've got Lear and Aptiv relocating Q2, Visteon deferred to 2026—but I need the slip-probability on each one and whether they're moving in parallel or staggered. If Lear hits timeline but Aptiv slips 60 days, we're carrying both relocation capex *and* payment holds on Aptiv's invoices at the same time. That's where my insolvency trigger fires. What's your confidence on each timeline, and do we sequence them or run them together?",
+        "compliance_lawyer": "CFO, your contingency reserve flips on slip-probability — but I need the certification gate: once Lear or Aptiv actually lands in their new facility, at what shipment count or date do we re-certify Fusion from 70% to 75%+ RVC? And if Aptiv relocates in June but we've already shipped 500 units in May at 70%, are those May units locked at 70% forever, or does CBP let us amend certification post-relocation?",
+        "political_risk_insurer": "CFO, your call makes sense if Congress doesn't move the wage floor before Q2—but if they do, your 35% audit trigger becomes 60–70%, and we're shipping at 70% RVC into a much hotter enforcement environment. I want to price a political-risk uplift: if the 2026 review signals a wage-floor tightening, we flip the $6–8M contingency reserve from \"slip-probability only\" to \"enforcement-shift reserve\" and add 40–60% premium on top of the $2.8M recapture exposure. That's what I need underwritten by Friday—the trigger date for that political shift and the premium delta.",
+        "trade_credit_underwriter": "Okay—here's what I'm pricing as a concrete trade-credit variable: **Supplier Liquidity Cascade Risk**, triggered when (1) CBP recapture hold hits $8–12M invoices *and* (2) supplier relocation capex is live *and* (3) payment deferral exceeds 60 days. Aptiv slip-probability of 30% × 90-day hold duration = $3.6–5.4M default exposure on that supplier alone. I need one clarification from supply chain: when Aptiv relocates in June, do we release the payment hold immediately, or does CBP's audit timeline dictate the release? That's my maturity date on the exposure.",
+        "cfo_erm": "Your map locks the right variables, but I need two gates operationalized before Friday: (1) the exact CBP audit closure trigger that releases the payment hold—6, 12, or 18 months post-relocation—and (2) the wage-floor review date that flips the political-risk premium from 40% to 60%. Without those dates, the board sees a framework, not a decision tree. Lock those two and I'll sign off on the map."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "compliance_lawyer",
+      "intent": "Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and Aptiv invoices, and when Fusion re-certification flips from 70% to 75% RVC for forward shipments. Anything longer and the suppliers bleed cash during relocation capex; anything shorter and we're guessing CBP's audit timeline. Twelve months is defensible under standard examination load. That operationalizes the hold—without it, the board sees a cost range, not a decision rule.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "12-month CBP audit closure trigger locked, operationalizing payment hold release and RVC re-certification timeline.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Concrete audit closure trigger defined",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 3,
+          "reason": "Payment hold decision rule operationalized",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "rules_of_origin_burden",
+          "delta": -2.0,
+          "reason": "Defensible timeline reduces compliance uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.",
+        "supplier": "Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?",
+        "political_risk_insurer": "Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probability jumps from 35% to 60–70%, and that 12-month hold could stretch to 18 months. I'm adding a **wage-floor review trigger** to the political-risk premium: 40% base on current enforcement, 60% uplift if the review tightens labor content by Q4 2025. That's the forward-shock we need priced before we sign off on the map.",
+        "trade_credit_underwriter": "Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?",
+        "supply_chain_consultant": "Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released month one; Aptiv staggered 45 days (70% confidence), contingency $4M hold if they slip; Visteon deferred to 2026 *pending* Q4 wage-floor review outcome. That's the nearshoring strategy operationalized. Do we also need to flag available Mexico incentives or supply-chain subsidies that could accelerate Lear's timeline and de-risk Aptiv's slip probability?",
+        "cfo_erm": "Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's slip probability and front-loads the RVC gain. I'm pricing the wage-floor contingency as a $3–5M reserve *only if* Congress tightens labor content by Q4—if they don't, we release it. That's the decision rule the board needs. Lock it now and we've got a priced, executable map."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "political_risk_insurer",
+      "intent": "Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probability jumps from 35% to 60–70%, and that 12-month hold could stretch to 18 months. I'm adding a **wage-floor review trigger** to the political-risk premium: 40% base on current enforcement, 60% uplift if the review tightens labor content by Q4 2025. That's the forward-shock we need priced before we sign off on the map.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Wage-floor review trigger added to political-risk premium structure with tiered pricing.",
+      "side_effects": [
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Priced forward-shock trigger defined",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": 3.0,
+          "reason": "2026 review risk quantified and surfaced",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 2,
+          "reason": "Forward political risk priced",
+          "agent_id": null,
+          "_original_delta": 3.0,
+          "_scaled": true
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "political_risk_exposure",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.",
+        "supplier": "Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?",
+        "compliance_lawyer": "Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and Aptiv invoices, and when Fusion re-certification flips from 70% to 75% RVC for forward shipments. Anything longer and the suppliers bleed cash during relocation capex; anything shorter and we're guessing CBP's audit timeline. Twelve months is defensible under standard examination load. That operationalizes the hold—without it, the board sees a cost range, not a decision rule.",
+        "trade_credit_underwriter": "Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?",
+        "supply_chain_consultant": "Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released month one; Aptiv staggered 45 days (70% confidence), contingency $4M hold if they slip; Visteon deferred to 2026 *pending* Q4 wage-floor review outcome. That's the nearshoring strategy operationalized. Do we also need to flag available Mexico incentives or supply-chain subsidies that could accelerate Lear's timeline and de-risk Aptiv's slip probability?",
+        "cfo_erm": "Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's slip probability and front-loads the RVC gain. I'm pricing the wage-floor contingency as a $3–5M reserve *only if* Congress tightens labor content by Q4—if they don't, we release it. That's the decision rule the board needs. Lock it now and we've got a priced, executable map."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "supply_chain_consultant",
+      "intent": "Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released month one; Aptiv staggered 45 days (70% confidence), contingency $4M hold if they slip; Visteon deferred to 2026 *pending* Q4 wage-floor review outcome. That's the nearshoring strategy operationalized. Do we also need to flag available Mexico incentives or supply-chain subsidies that could accelerate Lear's timeline and de-risk Aptiv's slip probability?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Client action plan structured with supplier timelines, confidence levels, and contingency holds.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 4,
+          "reason": "Nearshoring strategy fully operationalized",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 3,
+          "reason": "Supplier-specific decision rules defined",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -3.0,
+          "reason": "Staggered timeline reduces concentration risk",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -2.0,
+          "reason": "Contingency holds protect against slip",
+          "agent_id": null
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 2.0,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.",
+        "supplier": "Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?",
+        "compliance_lawyer": "Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and Aptiv invoices, and when Fusion re-certification flips from 70% to 75% RVC for forward shipments. Anything longer and the suppliers bleed cash during relocation capex; anything shorter and we're guessing CBP's audit timeline. Twelve months is defensible under standard examination load. That operationalizes the hold—without it, the board sees a cost range, not a decision rule.",
+        "political_risk_insurer": "Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probability jumps from 35% to 60–70%, and that 12-month hold could stretch to 18 months. I'm adding a **wage-floor review trigger** to the political-risk premium: 40% base on current enforcement, 60% uplift if the review tightens labor content by Q4 2025. That's the forward-shock we need priced before we sign off on the map.",
+        "trade_credit_underwriter": "Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?",
+        "cfo_erm": "Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's slip probability and front-loads the RVC gain. I'm pricing the wage-floor contingency as a $3–5M reserve *only if* Congress tightens labor content by Q4—if they don't, we release it. That's the decision rule the board needs. Lock it now and we've got a priced, executable map."
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "cfo_erm",
+      "intent": "Here's what closes this: **Lear accelerates to March, Aptiv stays Q2 staggered, Visteon held pending Q4 wage-floor outcome.** That de-risks Aptiv's slip probability and front-loads the RVC gain. I'm pricing the wage-floor contingency as a $3–5M reserve *only if* Congress tightens labor content by Q4—if they don't, we release it. That's the decision rule the board needs. Lock it now and we've got a priced, executable map.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Final decision rule locked: Lear March acceleration, Aptiv Q2 staggered, Visteon deferred with wage-floor reserve.",
+      "side_effects": [
+        {
+          "variable": "risk_map_completeness",
+          "delta": 5,
+          "reason": "Complete executable map with priced contingencies",
+          "agent_id": null,
+          "_original_delta": 6.0,
+          "_scaled": true
+        },
+        {
+          "variable": "underwriting_discipline",
+          "delta": 4,
+          "reason": "Board-ready decision rules with triggers",
+          "agent_id": null,
+          "_original_delta": 5.0,
+          "_scaled": true
+        },
+        {
+          "variable": "supplier_relocation_exposure",
+          "delta": -4.0,
+          "reason": "Front-loaded RVC gain reduces slip risk",
+          "agent_id": null
+        },
+        {
+          "variable": "political_risk_exposure",
+          "delta": -2.0,
+          "reason": "Wage-floor contingency reserve priced",
+          "agent_id": null
+        },
+        {
+          "variable": "trade_credit_risk",
+          "delta": -3.0,
+          "reason": "Lear acceleration reduces payment hold duration",
+          "agent_id": null
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": -1,
+          "reason": "coupling: supplier_relocation_exposure → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "supplier_relocation_exposure"
+        },
+        {
+          "variable": "risk_map_completeness",
+          "delta": 1,
+          "reason": "coupling: underwriting_discipline → risk_map_completeness (ratio 0.3)",
+          "_coupled": true,
+          "_source": "underwriting_discipline"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "immediate",
+        "target_nha": "risk_surfacing",
+        "variable": "risk_map_completeness",
+        "multiplier": 0.0
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "auto_strategy": "Supply chain, when Aptiv hits their new facility in late Q2, do we re-certify Fusion shipments from 70% to 75% RVC on *new* shipments only, or does CBP let us amend the certification retroactively on units we've already shipped at 70%? Because if it's retroactive, the recapture tail shrinks—if it's forward-only, we're eating the full $2.8M no matter when they relocate.",
+        "supplier": "Lear at 85%, Aptiv at 70%—I get it. But here's what I need: if Aptiv slips 60 days, do they *survive* the capex burn plus a 90-day payment hold, or are we looking at restructuring? And same for Visteon deferred to 2026—are we betting they stay solvent two more years on current cash flow, or do we need a contingency credit line priced in now?",
+        "compliance_lawyer": "Here's what I need locked before Friday: **CBP audit closure trigger = 12 months post-relocation**. That's when we release payment holds on Lear and Aptiv invoices, and when Fusion re-certification flips from 70% to 75% RVC for forward shipments. Anything longer and the suppliers bleed cash during relocation capex; anything shorter and we're guessing CBP's audit timeline. Twelve months is defensible under standard examination load. That operationalizes the hold—without it, the board sees a cost range, not a decision rule.",
+        "political_risk_insurer": "Compliance locked the CBP closure at 12 months—good. But here's what I'm pricing: if Congress moves the wage floor in the 2026 review, audit probability jumps from 35% to 60–70%, and that 12-month hold could stretch to 18 months. I'm adding a **wage-floor review trigger** to the political-risk premium: 40% base on current enforcement, 60% uplift if the review tightens labor content by Q4 2025. That's the forward-shock we need priced before we sign off on the map.",
+        "trade_credit_underwriter": "Lear's solid—85% confidence, they'll weather the hold. But Aptiv at 70% confidence with a staggered timeline and Visteon deferred two years—I need their current debt-to-EBITDA and monthly burn rate. If Aptiv's overlapping a 90-day hold with $2–3M monthly relocation spend, are they solvent at day 60, or do we need to model a credit facility into the contingency reserve?",
+        "supply_chain_consultant": "Okay, the map's locked—but we're not done. I need to translate this into a **client action plan**: Lear relocates Q2 (85% confidence), capex released month one; Aptiv staggered 45 days (70% confidence), contingency $4M hold if they slip; Visteon deferred to 2026 *pending* Q4 wage-floor review outcome. That's the nearshoring strategy operationalized. Do we also need to flag available Mexico incentives or supply-chain subsidies that could accelerate Lear's timeline and de-risk Aptiv's slip probability?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "rules_of_origin_burden": [
+        {
+          "round": 1,
+          "value": 32
+        },
+        {
+          "round": 2,
+          "value": 34
+        },
+        {
+          "round": 3,
+          "value": 36
+        },
+        {
+          "round": 4,
+          "value": 43.0
+        },
+        {
+          "round": 5,
+          "value": 43.0
+        }
+      ],
+      "supplier_relocation_exposure": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 30.0
+        },
+        {
+          "round": 3,
+          "value": 30.0
+        },
+        {
+          "round": 4,
+          "value": 37.0
+        },
+        {
+          "round": 5,
+          "value": 30.0
+        }
+      ],
+      "trade_credit_risk": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 31.0
+        },
+        {
+          "round": 3,
+          "value": 31.0
+        },
+        {
+          "round": 4,
+          "value": 39.0
+        },
+        {
+          "round": 5,
+          "value": 34.0
+        }
+      ],
+      "political_risk_exposure": [
+        {
+          "round": 1,
+          "value": 28.0
+        },
+        {
+          "round": 2,
+          "value": 33.0
+        },
+        {
+          "round": 3,
+          "value": 33.15
+        },
+        {
+          "round": 4,
+          "value": 40.3
+        },
+        {
+          "round": 5,
+          "value": 41.8
+        }
+      ],
+      "risk_map_completeness": [
+        {
+          "round": 1,
+          "value": 31.0
+        },
+        {
+          "round": 2,
+          "value": 39.6
+        },
+        {
+          "round": 3,
+          "value": 37.800000000000004
+        },
+        {
+          "round": 4,
+          "value": 46.800000000000004
+        },
+        {
+          "round": 5,
+          "value": 61.50000000000001
+        }
+      ],
+      "underwriting_discipline": [
+        {
+          "round": 1,
+          "value": 39.0
+        },
+        {
+          "round": 2,
+          "value": 49.0
+        },
+        {
+          "round": 3,
+          "value": 49.0
+        },
+        {
+          "round": 4,
+          "value": 63.0
+        },
+        {
+          "round": 5,
+          "value": 77.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "success",
+    "reason": "success_criteria met: risk_map_completeness >= 60 AND underwriting_discipline >= 50",
+    "round_ended": 5,
+    "per_agent_scores": {
+      "auto_strategy": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 61.50000000000001,
+            "normalised": 0.6150000000000001
+          }
+        ],
+        "weighted_score": 0.4670000000000001
+      },
+      "supplier": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 30.0,
+            "normalised": 0.3
+          },
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 43.0,
+            "normalised": 0.43
+          }
+        ],
+        "weighted_score": 0.3433333333333333
+      },
+      "compliance_lawyer": {
+        "scores": [
+          {
+            "metric": "rules_of_origin_burden",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 77.0,
+            "normalised": 0.77
+          }
+        ],
+        "weighted_score": 0.5433333333333333
+      },
+      "political_risk_insurer": {
+        "scores": [
+          {
+            "metric": "political_risk_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 41.8,
+            "normalised": 0.418
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 77.0,
+            "normalised": 0.77
+          }
+        ],
+        "weighted_score": 0.5940000000000001
+      },
+      "trade_credit_underwriter": {
+        "scores": [
+          {
+            "metric": "trade_credit_risk",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.0,
+            "normalised": 0.34
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 77.0,
+            "normalised": 0.77
+          }
+        ],
+        "weighted_score": 0.48333333333333334
+      },
+      "supply_chain_consultant": {
+        "scores": [
+          {
+            "metric": "supplier_relocation_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 30.0,
+            "normalised": 0.3
+          },
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 61.50000000000001,
+            "normalised": 0.6150000000000001
+          }
+        ],
+        "weighted_score": 0.4575
+      },
+      "cfo_erm": {
+        "scores": [
+          {
+            "metric": "risk_map_completeness",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 61.50000000000001,
+            "normalised": 0.6150000000000001
+          },
+          {
+            "metric": "underwriting_discipline",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 77.0,
+            "normalised": 0.77
+          }
+        ],
+        "weighted_score": 0.6666666666666667
+      }
+    }
+  }
+}

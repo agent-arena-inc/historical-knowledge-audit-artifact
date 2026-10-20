@@ -1,0 +1,2701 @@
+{
+  "simulation_id": "9a5f006341f0",
+  "config_id": "credit_suisse_node2",
+  "events": [
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'reaction_and_legal_basis' begins",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: We're organizing a coordinated filing — US-based AT1 holders, plus European counsel ready to move. FINMA's write-down inverts the capital hierarchy on its face, and their legitimacy score shows it's defensible, not bulletproof. We file within 60 days unless FINMA opens recovery talks. Who here has direct client relationships with institutional holders we need locked in?\n  bondholder_counsel: I've got relationships with three major US pension funds and two European insurance groups holding significant AT1 positions—all are documented losses over $200M each. They're ready to commit to joint counsel and cost-sharing by end of week, but they need written confirmation that we're pursuing damages *and* injunctive relief, not just challenging the write-down itself. What's our timeline for filing the first complaint?\n  bondholder_counsel: Get me lead counsel committed in New York and Frankfurt by Friday — I'm filing a notice of intent to sue FINMA under Swiss administrative law for procedural violation of the emergency ordinance, plus a parallel US federal claim for breach of contract under New York law on the AT1 terms. My five institutions front the legal costs, and we move for a preliminary injunction to halt any equity distribution pending resolution. That's what gets them locked in.\n  finma_legal: Before you file that notice, I need to know: which AT1 contract language are you arguing *doesn't* permit the full write-down when viability support is granted? Because our read of the term sheets is the trigger was met—and if your lead counsel agrees on the text, your injunction motion stalls on day one. What am I missing?\n  credit_market_analyst: Hold on — before you file that notice, what's your read on how many other AT1 issuances actually carry the same \"viability support\" trigger language that FINMA is leaning on? If it's industry-standard boilerplate, your injunction gets laughed out of court *and* every other bank's AT1 reprices on the same risk. If it's Credit Suisse-specific drafting, you've got a narrower precedent and better odds. Which is it?\n  institutional_investor: Hold it. Before you file that notice, I need FINMA to put out a written statement — within two weeks — that the \"viability support\" language in Credit Suisse's AT1 is *not* standard market boilerplate and that other issuers' AT1 contracts have narrower triggers. Otherwise my investors walk from AT1 entirely, and you'll face litigation from us *and* everyone else holding the market standard. That's the deal: clarity first, litigation second.\n  insurance_observer: If FINMA misses your two-week window, are you filing your own claim against the banks' advisers — counsel, auditors, risk committees — or does your money just walk and let the pension funds litigate alone? Because from an insurance standpoint, fragmented claimants filing on different theories over three years is a nightmare accumulation scenario.\n  institutional_investor: My money walks *and* we litigate — but separately. I'm filing a claim against the advisers and the board for failure-to-disclose on the trigger language, independent of FINMA's statement. Two weeks for FINMA clarity is the line: if they miss it, I'm pulling $400M of AT1 exposure and funding counsel to prove the trigger was ambiguous, not met. That's my clients' protection; the pension funds can chase their own theories.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "We're organizing a coordinated filing — US-based AT1 holders, plus European counsel ready to move. FINMA's write-down inverts the capital hierarchy on its face, and their legitimacy score shows it's defensible, not bulletproof. We file within 60 days unless FINMA opens recovery talks. Who here has direct client relationships with institutional holders we need locked in?",
+            "cot": {
+              "assess": "We're at 35 litigation_momentum with a 45-point safety margin — but that's false comfort. AT1 market confidence is collapsing at 32, and every day FINMA stays unchallenged, more holders panic-sell or settle cheap. Regulatory legitimacy sits at 55, which means their legal footing is shakier than it looks. The precedent damage (48) is already poisoning the whole market. We need to move NOW or lose the coordination window.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum",
+                "rationale": "Crystallizing a formal legal challenge THIS ROUND locks in holder commitment before fear and individual settlements fracture the group."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "I've got relationships with three major US pension funds and two European insurance groups holding significant AT1 positions—all are documented losses over $200M each. They're ready to commit to joint counsel and cost-sharing by end of week, but they need written confirmation that we're pursuing damages *and* injunctive relief, not just challenging the write-down itself. What's our timeline for filing the first complaint?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Get me lead counsel committed in New York and Frankfurt by Friday — I'm filing a notice of intent to sue FINMA under Swiss administrative law for procedural violation of the emergency ordinance, plus a parallel US federal claim for breach of contract under New York law on the AT1 terms. My five institutions front the legal costs, and we move for a preliminary injunction to halt any equity distribution pending resolution. That's what gets them locked in.",
+            "cot": {
+              "assess": "Litigation momentum is still only 35 — we're talking about filing but haven't locked in the institutional firepower or nailed down the legal strategy. Regulatory legitimacy sits at 55, which means FINMA's position is defensible enough that we need to hit them hard on procedure *and* substance, not just the write-down itself. The 60-day window is real pressure, but we're wasting time if we don't have a concrete complaint theory and committed lead counsel across jurisdictions.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum (and implicitly at1_bondholder_group)",
+                "rationale": "We need to move from \"organizing\" to \"filing\" — I'm proposing a specific legal vector that locks in our institutional clients and forces a decision this week, not in 60 days."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Before you file that notice, I need to know: which AT1 contract language are you arguing *doesn't* permit the full write-down when viability support is granted? Because our read of the term sheets is the trigger was met—and if your lead counsel agrees on the text, your injunction motion stalls on day one. What am I missing?",
+            "cot": {
+              "assess": "Bondholder counsel is moving fast on coordinated litigation—US/EU institutions locked in, dual-jurisdiction filing (Swiss admin + US federal contract claim), preliminary injunction strategy. My regulatory_legitimacy is holding at 55, but litigation_momentum will spike hard once that notice drops. The real problem: at1_market_confidence is still collapsing (32) and I haven't yet deployed FINMA's strongest defensive asset—the contractual language itself and the ordinance authority—to slow the filing momentum or reframe the market narrative.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to understand the exact contractual trigger language they're relying on to challenge the viability-event write-down, because if FINMA's reading of the AT1 terms is defensible on the plain text, their preliminary injunction motion fails on the merits before we even reach ordinance authority."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Hold on — before you file that notice, what's your read on how many other AT1 issuances actually carry the same \"viability support\" trigger language that FINMA is leaning on? If it's industry-standard boilerplate, your injunction gets laughed out of court *and* every other bank's AT1 reprices on the same risk. If it's Credit Suisse-specific drafting, you've got a narrower precedent and better odds. Which is it?",
+            "cot": {
+              "assess": "Litigation is building momentum (coordinated filing, five institutions locked in, lead counsel committed by Friday) but hasn't breached the 80 threshold yet — the real pressure is on AT1 market confidence, which is still underwater at 32. FINMA's legitimacy score of 55 is the weak point: if bondholder counsel cracks the contract language argument, the precedent spreads and confidence tanks further. The filing timeline (60 days) is aggressive but leaves room to negotiate recovery talks *before* the noise hits the broader market.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The contract language defense is your only real lever right now — if it holds, the filing becomes noise; if it breaks, AT1 repricing accelerates and contagion hits every bank with similar terms. I need to know whether you're confident in that argument before it gets tested in court."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Hold it. Before you file that notice, I need FINMA to put out a written statement — within two weeks — that the \"viability support\" language in Credit Suisse's AT1 is *not* standard market boilerplate and that other issuers' AT1 contracts have narrower triggers. Otherwise my investors walk from AT1 entirely, and you'll face litigation from us *and* everyone else holding the market standard. That's the deal: clarity first, litigation second.",
+            "cot": {
+              "assess": "Litigation is accelerating fast — counsel has lead firms locked in, filing timeline is 60 days, and they're moving for injunctive relief. That's pushing litigation_momentum toward 80 and will crater at1_market_confidence unless we get regulatory clarity *first*. The credit analyst just asked the right question: if \"viability support\" language is industry-standard, this filing tanks the whole AT1 class, not just Credit Suisse. I need to stop the filing momentum and force FINMA to commit to a stabilization signal before anyone goes to court.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum, at1_market_confidence",
+                "rationale": "Filing without regulatory clarity on industry-standard trigger language guarantees contagion and kills the asset class for years; I need to demand a 30-day pause and extract a written FINMA reassurance on AT1 integrity before counsel commits to suit."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "If FINMA misses your two-week window, are you filing your own claim against the banks' advisers — counsel, auditors, risk committees — or does your money just walk and let the pension funds litigate alone? Because from an insurance standpoint, fragmented claimants filing on different theories over three years is a nightmare accumulation scenario.",
+            "cot": {
+              "assess": "Litigation momentum is still climbing (35, needs ≤25) and AT1 confidence is cratering (32, needs ≥55). The bondholder group is locked into a filing trajectory within 60 days *unless* FINMA opens recovery talks — but nobody's actually proposed what recovery looks like or what pulls creditors back from the courthouse. The institutional investor just threw down a hard condition: FINMA must publicly narrow the \"viability support\" language to Credit Suisse-specific drafting within two weeks, or AT1 market confidence collapses entirely and litigation multiplies.",
+              "decide": {
+                "action_type": "question",
+                "target": "institutional_investor",
+                "rationale": "I need to map the claims exposure tail — if AT1 confidence dies and litigation spreads across the industry, every insurer holding D&O, E&O, and financial-lines coverage on bank boards and advisers faces a multi-year accumulation. But first I need to know: what's your institution's trigger for *staying* in AT1 if FINMA doesn't issue that statement?"
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "My money walks *and* we litigate — but separately. I'm filing a claim against the advisers and the board for failure-to-disclose on the trigger language, independent of FINMA's statement. Two weeks for FINMA clarity is the line: if they miss it, I'm pulling $400M of AT1 exposure and funding counsel to prove the trigger was ambiguous, not met. That's my clients' protection; the pension funds can chase their own theories.",
+            "_partial_reply": true
+          }
+        ]
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Before you file that notice, I need to know: which AT1 contract language are you arguing *doesn't* permit the full write-down when viability support is granted? Because our read of the term sheets is the trigger was met—and if your lead counsel agrees on the text, your injunction motion stalls on day one. What am I missing?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Hold on — before you file that notice, what's your read on how many other AT1 issuances actually carry the same \"viability support\" trigger language that FINMA is leaning on? If it's industry-standard boilerplate, your injunction gets laughed out of court *and* every other bank's AT1 reprices on the same risk. If it's Credit Suisse-specific drafting, you've got a narrower precedent and better odds. Which is it?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "If FINMA misses your two-week window, are you filing your own claim against the banks' advisers — counsel, auditors, risk committees — or does your money just walk and let the pension funds litigate alone? Because from an insurance standpoint, fragmented claimants filing on different theories over three years is a nightmare accumulation scenario.",
+      "metadata": {
+        "question_target": "institutional_investor"
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're organizing a coordinated filing — US-based AT1 holders, plus European counsel ready to move. FINMA's write-down inverts the capital hierarchy on\" → AT1 group coordinates US/EU filing strategy with 60-day deadline, locking institutional commitments.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Get me lead counsel committed in New York and Frankfurt by Friday — I'm filing a notice of intent to sue FINMA under Swiss administrative law for proc\" → Counsel files dual-jurisdiction notice of intent, seeking preliminary injunction on equity distribution.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Hold it. Before you file that notice, I need FINMA to put out a written statement — within two weeks — that the \"viability support\" language in Credit\" → Investor demands FINMA clarification on AT1 boilerplate within two weeks, threatening market exit.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -4.5
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3.9000000000000004
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Here's what stops the market collapse: we table a formal recovery demand to FINMA right now — we want 40 cents on the dollar, funded by UBS/Credit Suisse asset recovery or a regulatory settlement fund. Two weeks to respond. We release that demand publicly with our institutional backer list attached. Shows the market we're not just suing — we're negotiating from strength, and other AT1 holders know what recovery looks like.\n  credit_market_analyst: I'll take that demand, but 40 cents doesn't hold the repricing line—the market reads it as capitulation, not strength. You need to anchor at 65 cents minimum and *name which other banks' AT1 contracts have identical viability-support language*, because if this is industry-standard boilerplate, every issuer reprices 300 basis points by Friday and your settlement fund becomes a $50B liability. What's your read on the contract uniformity?\n  bondholder_counsel: You're right — 40 cents is a tell. Before we anchor at 65, I need your read on the boilerplate: how many major issuers — Deutsche, Barclays, BNY Mellon — actually carry that same \"viability support\" language in their AT1 docs? If it's uniform, we're defending a market, not a deal. If it's Credit Suisse-specific drafting, we've got a narrower precedent and real leverage.\n  finma_legal: Before we anchor any settlement number, I need the same answer the analyst just asked: which major issuers—Deutsche, Barclays, BNY—actually have identical \"viability support\" language in their AT1 term sheets? Because if that's market-standard, I can argue FINMA applied the contract as written. If it's Credit Suisse-specific drafting, your case gets tighter and mine gets harder. What does your due diligence show?\n  bondholder_counsel: Our preliminary review shows \"viability support\" language is in Deutsche and Barclays AT1s, but Credit Suisse's trigger was drafted *broader*—theirs ties write-down to \"any capital support,\" not just equity injection, which FINMA exploited. That drafting gap is our lever, and it means other issuers' AT1s are safer than the market's currently pricing. We anchor at 65 cents and we file the injunction on the weekend law change—that's where FINMA loses the procedural defense.\n  credit_market_analyst: Hold on—before you file that injunction, you need to publish the boilerplate analysis. Release a side-by-side of Credit Suisse's \"any capital support\" versus Deutsche's and Barclays' actual language, show the market they're *not* the same risk. That kills the contagion trade and holds AT1 pricing. Otherwise settlement talks mean nothing—the market reprices everything anyway.\n  institutional_investor: I'm backing the analyst—publish that boilerplate analysis this week, name the banks, show the market Credit Suisse is the outlier. Then I'm calling FINMA with a concrete proposal: 55 cents funded by UBS recovery, settlement closed in 90 days, no litigation. Market reprices AT1 on clarity, not fear. That's how I keep my money in the asset class.\n  insurance_observer: One thing: if you're settling with FINMA at 65 cents in 90 days, are you *also* releasing the board and the advisers — counsel, auditors, risk committee — or are those going to trial separately? Because if you settle FINMA but keep the adviser claims live, insurers see that as two-bite exposure, and the reinsurance tail runs to 2026. What's your strategy on the D&O and E&O side?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Here's what stops the market collapse: we table a formal recovery demand to FINMA right now — we want 40 cents on the dollar, funded by UBS/Credit Suisse asset recovery or a regulatory settlement fund. Two weeks to respond. We release that demand publicly with our institutional backer list attached. Shows the market we're not just suing — we're negotiating from strength, and other AT1 holders know what recovery looks like.",
+            "cot": {
+              "assess": "Litigation momentum is locked at 54 — we've filed notices and coordinated filings, which is solid. But regulatory_legitimacy is still at 43, meaning FINMA's legal ground hasn't cracked yet. The real problem: at1_market_confidence is collapsing at 19.5, and that's our FAILURE line at 12. We've got 8 points of buffer and 2 rounds left in this phase. If market confidence bleeds further, we lose the scenario *and* our ability to pressure FINMA through investor defection.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_market_confidence",
+                "rationale": "Market confidence dies unless we demonstrate *immediate* recovery path for AT1 holders — not just litigation threats, but a concrete settlement demand with dollar numbers that shows we're serious and organized enough to get paid."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "I'll take that demand, but 40 cents doesn't hold the repricing line—the market reads it as capitulation, not strength. You need to anchor at 65 cents minimum and *name which other banks' AT1 contracts have identical viability-support language*, because if this is industry-standard boilerplate, every issuer reprices 300 basis points by Friday and your settlement fund becomes a $50B liability. What's your read on the contract uniformity?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "You're right — 40 cents is a tell. Before we anchor at 65, I need your read on the boilerplate: how many major issuers — Deutsche, Barclays, BNY Mellon — actually carry that same \"viability support\" language in their AT1 docs? If it's uniform, we're defending a market, not a deal. If it's Credit Suisse-specific drafting, we've got a narrower precedent and real leverage.",
+            "cot": {
+              "assess": "litigation_momentum is solid at 54 — dual-jurisdiction notice is filed and US/EU counsel locked in. The real problem: at1_market_confidence is hemorrhaging at 19.5, and the 40-cent demand just signaled weakness to the market. Worse, nobody's answered the contract uniformity question yet — if viability-support language is industry standard, FINMA's precedent blows up every AT1 issuance, and our leverage collapses. That's the pivot point.",
+              "decide": {
+                "action_type": "question",
+                "target": "credit_market_analyst",
+                "rationale": "Contract uniformity determines whether we anchor at 65 cents (narrow Credit Suisse defect) or get crushed by contagion (industry standard). I need that answer before we table any settlement demand."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "Before we anchor any settlement number, I need the same answer the analyst just asked: which major issuers—Deutsche, Barclays, BNY—actually have identical \"viability support\" language in their AT1 term sheets? Because if that's market-standard, I can argue FINMA applied the contract as written. If it's Credit Suisse-specific drafting, your case gets tighter and mine gets harder. What does your due diligence show?",
+            "cot": {
+              "assess": "The bondholder group is anchoring at 40 cents—a negotiating position, not a settlement floor. The analyst and counsel are right: that signals weakness to the market and doesn't restore AT1 confidence. The real leverage question is contract uniformity—if \"viability support\" language is industry-standard boilerplate across Deutsche, Barclays, BNY, then FINMA's precedent cascades and the entire AT1 market reprices. If it's Credit Suisse-specific, the precedent is narrower and FINMA's legal position firms. My legitimacy score depends on defending the legal basis; the market's confidence depends on whether this is an isolated ruling or a systemic threat.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to know the contract landscape before I defend the legal basis—if other banks' AT1 docs don't contain the same trigger, my procedural defense strengthens; if they do, I need to reframe the ruling as consistent with market design, not exceptional."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Our preliminary review shows \"viability support\" language is in Deutsche and Barclays AT1s, but Credit Suisse's trigger was drafted *broader*—theirs ties write-down to \"any capital support,\" not just equity injection, which FINMA exploited. That drafting gap is our lever, and it means other issuers' AT1s are safer than the market's currently pricing. We anchor at 65 cents and we file the injunction on the weekend law change—that's where FINMA loses the procedural defense.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Hold on—before you file that injunction, you need to publish the boilerplate analysis. Release a side-by-side of Credit Suisse's \"any capital support\" versus Deutsche's and Barclays' actual language, show the market they're *not* the same risk. That kills the contagion trade and holds AT1 pricing. Otherwise settlement talks mean nothing—the market reprices everything anyway.",
+            "cot": {
+              "assess": "The boilerplate uniformity question just cracked open the whole repricing model—if \"viability support\" is industry-standard but Credit Suisse's drafting is *broader*, then other issuers' AT1s are actually safer than current panic pricing reflects. That's the market signal that kills contagion. But we're still anchoring settlement at 65 cents without knowing: (1) whether the market will believe that differentiation, and (2) what happens to pricing *before* that belief lands. Right now at1_market_confidence is 20 and litigation_momentum is 54—both moving in the wrong direction because the market reads this as \"all AT1 is at risk,\" not \"Credit Suisse was drafted loose.\"",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The drafting gap is your litigation lever *and* the market's repricing anchor—but only if you can prove it holds across the full AT1 universe before we file. I need to know whether Deutsche and Barclays' narrower language actually survives legal scrutiny, or if FINMA's logic applies to them too."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "I'm backing the analyst—publish that boilerplate analysis this week, name the banks, show the market Credit Suisse is the outlier. Then I'm calling FINMA with a concrete proposal: 55 cents funded by UBS recovery, settlement closed in 90 days, no litigation. Market reprices AT1 on clarity, not fear. That's how I keep my money in the asset class.",
+            "cot": {
+              "assess": "Litigation momentum is now locked in—counsel is filing, bondholder group has 60-day commitments, and I've already demanded FINMA clarity. The real issue: settlement anchor is still contested (40 vs. 65 cents), and the boilerplate uniformity question just got answered by counsel—Credit Suisse's drafting is *broader* than Deutsche/Barclays. That's the market signal I need. My core variable is at1_market_confidence (19.5, needs to hit 55), and right now it stays depressed until the market sees: (a) the boilerplate isn't uniform, and (b) a credible recovery number. I need to lock both NOW, not wait for litigation to play out.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_market_confidence, litigation_momentum",
+                "rationale": "Publish the boilerplate side-by-side immediately—kills contagion panic and gives me grounds to anchor a realistic settlement, which pulls litigation off the table before filing costs explode and FINMA digs in defensively."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "One thing: if you're settling with FINMA at 65 cents in 90 days, are you *also* releasing the board and the advisers — counsel, auditors, risk committee — or are those going to trial separately? Because if you settle FINMA but keep the adviser claims live, insurers see that as two-bite exposure, and the reinsurance tail runs to 2026. What's your strategy on the D&O and E&O side?",
+            "cot": {
+              "assess": "The group is anchoring settlement at 65 cents and planning a boilerplate disclosure to kill contagion — both smart moves that should stabilize AT1 market confidence. But here's the insurance problem: you've got three separate litigation tracks firing simultaneously (FINMA administrative suit, adviser breach-of-duty claims, board disclosure failures), and they're going to settle on *different timelines* over 2-3 years. That's a D&O and E&O accumulation nightmare — reinsurance layers will fight over which policy responds first, and the tail will bleed claims into 2026.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "Before settlement talks lock in, I need clarity on which advisers and directors are actually exposed — because fragmented settlements create cascading E&O and D&O claims that compound insurer exposure."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "bondholder_counsel",
+      "type": "speech",
+      "content": "You're right — 40 cents is a tell. Before we anchor at 65, I need your read on the boilerplate: how many major issuers — Deutsche, Barclays, BNY Mellon — actually carry that same \"viability support\" language in their AT1 docs? If it's uniform, we're defending a market, not a deal. If it's Credit Suisse-specific drafting, we've got a narrower precedent and real leverage.",
+      "metadata": {
+        "question_target": "credit_market_analyst"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "Before we anchor any settlement number, I need the same answer the analyst just asked: which major issuers—Deutsche, Barclays, BNY—actually have identical \"viability support\" language in their AT1 term sheets? Because if that's market-standard, I can argue FINMA applied the contract as written. If it's Credit Suisse-specific drafting, your case gets tighter and mine gets harder. What does your due diligence show?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Hold on—before you file that injunction, you need to publish the boilerplate analysis. Release a side-by-side of Credit Suisse's \"any capital support\" versus Deutsche's and Barclays' actual language, show the market they're *not* the same risk. That kills the contagion trade and holds AT1 pricing. Otherwise settlement talks mean nothing—the market reprices everything anyway.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "One thing: if you're settling with FINMA at 65 cents in 90 days, are you *also* releasing the board and the advisers — counsel, auditors, risk committee — or are those going to trial separately? Because if you settle FINMA but keep the adviser claims live, insurers see that as two-bite exposure, and the reinsurance tail runs to 2026. What's your strategy on the D&O and E&O side?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what stops the market collapse: we table a formal recovery demand to FINMA right now — we want 40 cents on the dollar, funded by UBS/Credit Sui\" → Bondholder group tables formal 40-cent recovery demand to FINMA with institutional backer list; public release signals organized negotiating strength.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm backing the analyst—publish that boilerplate analysis this week, name the banks, show the market Credit Suisse is the outlier. Then I'm calling FI\" → Denied: boilerplate analysis and FINMA settlement proposal already approved in proposal 1; redundant action.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "reaction_and_legal_basis",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'reaction_and_legal_basis' ends",
+      "metadata": {
+        "stage_index": 0,
+        "stage_name": "reaction_and_legal_basis",
+        "world_state_snapshot": {
+          "litigation_momentum": 60.0,
+          "regulatory_legitimacy": 40.0,
+          "hierarchy_precedent_damage": 52.9,
+          "at1_market_confidence": 23.5,
+          "claims_tail_severity": 52.0,
+          "financial_lines_exposure": 37.0
+        }
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_start",
+      "content": "Stage 'market_and_claims_tail' begins",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "market_and_claims_tail"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "stage_inject",
+      "content": "Days have passed; rating agencies and the AT1 market have reacted, and attention turns to the multi-year claims, insurance, and financial-lines fallout.",
+      "metadata": {
+        "stage": "market_and_claims_tail",
+        "fact_id": "f_001",
+        "visible_to": [
+          "all"
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mounting litigation deepens the confidence hit.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.5999999999999996
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3.9000000000000004
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_reaction at1_market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "at1_market_confidence"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_reaction hierarchy_precedent_damage multiplier reverted",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "hierarchy_precedent_damage"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Before we anchor any settlement with FINMA, settle this: do the board and advisers—counsel, auditors, risk committee—get released as part of the FINMA deal, or do we keep those claims live and let insurers face two-bite exposure through 2026? Because that answer changes whether FINMA will even negotiate seriously with us.\n  insurance_observer: If you settle FINMA but carve out D&O and E&O claims against the board and advisers, you're looking at a reinsurance tail running to 2026—two separate claims triggers, fragmented discovery, and insurers defending on different theories across three jurisdictions. That's exactly the accumulation scenario that kills reinsurance capacity and jacks up defense costs. My read: FINMA won't negotiate seriously unless you *commit* to releasing the advisers too—otherwise you signal you're holding leverage in reserve, and they walk.\n  bondholder_counsel: We're not releasing the advisers. File the D&O and E&O claims this week against the board, counsel, and auditors—separate track, separate counsel, separate discovery. FINMA sees two parallel cases running to 2026, their insurers see accumulation nightmare, our settlement number goes up. That's the leverage play.\n  finma_legal: I'll negotiate a unified settlement: FINMA pays 60 cents, *and* you release the board and advisers from D&O/E&O claims in exchange. Two-track litigation kills my ability to defend this as lawful—if you're suing the advisers for the same trigger language I'm standing on, you're saying the write-down itself was wrongful. Pick one path. What's your number for unified release?\n  credit_market_analyst: Hold on—60 cents plus adviser release, I get it. But here's the issue: if you settle without FINMA publicly stating that Credit Suisse's \"any capital support\" trigger is *not* market-standard boilerplate, Deutsche and Barclays AT1 still reprices on the same risk. Settlement number becomes irrelevant. Will FINMA commit to a public statement distinguishing CS as the outlier, or do we need the bondholder group to publish that analysis independently *before* you anchor the 60?\n  finma_legal: The trigger language—\"viability support following capital assistance\"—is standard across Deutsche, Barclays, and BNY Mellon AT1 issuances. That cuts both ways: it means the write-down was contractually defensible, but it also means we can't isolate Credit Suisse as an outlier without undermining our own legal position. FINMA will commit to a factual statement that the viability determination was made under emergency ordinance authority, but we won't characterize competitor boilerplate as defective—that invites every other AT1 issuer to argue their trigger language was misread too.\n  institutional_investor: If FINMA won't distinguish Credit Suisse publicly, then settling at 60 cents just anchors the market on *higher* write-down risk across every AT1 out there. Before I commit capital to this deal, I need your read: does splitting the settlement—FINMA 60 cents, D&O claims running to 2026—actually *increase* the reinsurance tail and kill the AT1 market for the next two years? Because if it does, my money stays out, and we're back to litigation momentum driving everything.\n  insurance_observer: Here's the insurance problem with the split: you settle FINMA at 60 cents, but the moment bondholder_counsel files D&O claims against the board and auditors for the *same trigger language*, reinsurers see two bites at the same apple. They either deny both claims as duplicative or tank the E&O market entirely. So before you anchor the 60, I need to know—will FINMA *require* release of adviser claims as a condition of your settlement, or are you leaving that open as leverage? Because if it's open, you don't have a settlement—you have a lawsuit with a temporary FINMA offer on the table.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Before we anchor any settlement with FINMA, settle this: do the board and advisers—counsel, auditors, risk committee—get released as part of the FINMA deal, or do we keep those claims live and let insurers face two-bite exposure through 2026? Because that answer changes whether FINMA will even negotiate seriously with us.",
+            "cot": {
+              "assess": "Litigation momentum is solid at 60 and climbing (+6/round)—counsel's dual filing and our 40-cent demand locked institutional commitments. But claims_tail_severity and financial_lines_exposure are accelerating unchecked (both +3 to +7/round), and nobody's addressed the D&O/E&O settlement sequencing question yet. That's where the real multi-year exposure lives. Regulatory legitimacy is sinking (-3/round), which means FINMA's position is eroding but we're not converting that into a settlement advantage.",
+              "decide": {
+                "action_type": "question",
+                "target": "insurance_observer",
+                "rationale": "Claims tail and insurer exposure are bleeding out of control while settlement talks stay focused on FINMA; I need clarity on whether advisers release happens with FINMA settlement or separately—that shapes our entire negotiation leverage and timeline."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "If you settle FINMA but carve out D&O and E&O claims against the board and advisers, you're looking at a reinsurance tail running to 2026—two separate claims triggers, fragmented discovery, and insurers defending on different theories across three jurisdictions. That's exactly the accumulation scenario that kills reinsurance capacity and jacks up defense costs. My read: FINMA won't negotiate seriously unless you *commit* to releasing the advisers too—otherwise you signal you're holding leverage in reserve, and they walk.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "We're not releasing the advisers. File the D&O and E&O claims this week against the board, counsel, and auditors—separate track, separate counsel, separate discovery. FINMA sees two parallel cases running to 2026, their insurers see accumulation nightmare, our settlement number goes up. That's the leverage play.",
+            "cot": {
+              "assess": "Litigation momentum is holding at 60 but needs to accelerate—we've filed notice and coordinated filings, but no legal wins yet. The D&O/E&O release question is a trap: if we commit to releasing advisers as part of FINMA settlement, we lose leverage and signal weakness to the market. Claims tail and financial-lines exposure are climbing because everyone's positioning for separate litigation tracks, which is exactly what we want—fragmented claims mean longer, messier defense and higher settlement pressure on FINMA.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum, claims_tail_severity",
+                "rationale": "We need to file the adviser claims NOW—independent of any FINMA negotiation—to lock in the two-bite exposure and force FINMA to raise their settlement offer rather than settle cheap and watch us extract value from insurers separately."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I'll negotiate a unified settlement: FINMA pays 60 cents, *and* you release the board and advisers from D&O/E&O claims in exchange. Two-track litigation kills my ability to defend this as lawful—if you're suing the advisers for the same trigger language I'm standing on, you're saying the write-down itself was wrongful. Pick one path. What's your number for unified release?",
+            "cot": {
+              "assess": "The bondholder group is now splitting strategy—FINMA settlement track separate from D&O/E&O adviser claims. That's leverage, but it fragments the narrative and signals we're not unified on terms. My legitimacy is already at 40 and dropping; a fragmented settlement (FINMA at 55–65 cents + adviser claims running to 2026) makes it *harder* for me to defend the original write-down as lawful, because the parallel litigation implies the board and advisers breached duties tied to the same trigger language I'm defending. Litigation momentum is 60 and rising—this split accelerates it.",
+              "decide": {
+                "action_type": "propose",
+                "target": "regulatory_legitimacy + litigation_momentum",
+                "rationale": "I need to anchor the settlement *and* the adviser release as a single package—otherwise fragmented claims undermine my defense of the write-down's legality and keep litigation momentum climbing."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Hold on—60 cents plus adviser release, I get it. But here's the issue: if you settle without FINMA publicly stating that Credit Suisse's \"any capital support\" trigger is *not* market-standard boilerplate, Deutsche and Barclays AT1 still reprices on the same risk. Settlement number becomes irrelevant. Will FINMA commit to a public statement distinguishing CS as the outlier, or do we need the bondholder group to publish that analysis independently *before* you anchor the 60?",
+            "cot": {
+              "assess": "The unified settlement path is live—FINMA legal is anchoring at 60 cents + adviser release, which kills the two-bite reinsurance exposure but also kills bondholder counsel's leverage play. The real problem: at1_market_confidence is still at 20, and litigation_momentum is 60. Publishing the boilerplate analysis (Credit Suisse's \"any capital support\" vs. Deutsche/Barclays narrower triggers) was denied last round, so the market still doesn't know CS is the outlier. Until that gets out, every AT1 reprices as if all banks face the same write-down risk.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The unified settlement anchors the adviser question, but it doesn't solve the contagion problem—I need to know if FINMA will publicly distinguish CS's boilerplate as non-standard as part of the settlement narrative, or if we're settling while the market reprices everything anyway."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "The trigger language—\"viability support following capital assistance\"—is standard across Deutsche, Barclays, and BNY Mellon AT1 issuances. That cuts both ways: it means the write-down was contractually defensible, but it also means we can't isolate Credit Suisse as an outlier without undermining our own legal position. FINMA will commit to a factual statement that the viability determination was made under emergency ordinance authority, but we won't characterize competitor boilerplate as defective—that invites every other AT1 issuer to argue their trigger language was misread too.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "If FINMA won't distinguish Credit Suisse publicly, then settling at 60 cents just anchors the market on *higher* write-down risk across every AT1 out there. Before I commit capital to this deal, I need your read: does splitting the settlement—FINMA 60 cents, D&O claims running to 2026—actually *increase* the reinsurance tail and kill the AT1 market for the next two years? Because if it does, my money stays out, and we're back to litigation momentum driving everything.",
+            "cot": {
+              "assess": "FINMA just signaled they won't publicly distinguish Credit Suisse as an outlier—that kills the market confidence play and leaves litigation_momentum climbing (now 60, +6/round). The D&O/E&O carve-out debate is real, but it's a side negotiation; what matters is that AT1 repricing stays unanchored without public clarity on the boilerplate. My market position gets worse if we settle at 60 cents while Deutsche and Barclays AT1 still trade like Credit Suisse risk. I need to move on financial_lines_exposure and claims_tail_severity—those are the variables grinding down the AT1 asset class credibility.",
+              "decide": {
+                "action_type": "question",
+                "target": "insurance_observer",
+                "rationale": "I need to understand the reinsurance accumulation scenario NOW—if I'm funding a 60-cent settlement AND keeping D&O claims live, how does that reshape my portfolio risk and the broader market's appetite for AT1 going forward?"
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Here's the insurance problem with the split: you settle FINMA at 60 cents, but the moment bondholder_counsel files D&O claims against the board and auditors for the *same trigger language*, reinsurers see two bites at the same apple. They either deny both claims as duplicative or tank the E&O market entirely. So before you anchor the 60, I need to know—will FINMA *require* release of adviser claims as a condition of your settlement, or are you leaving that open as leverage? Because if it's open, you don't have a settlement—you have a lawsuit with a temporary FINMA offer on the table.",
+            "cot": {
+              "assess": "FINMA just admitted the trigger language is market-standard across Deutsche, Barclays, BNY—which kills the credibility argument but *strengthens* FINMA's legal defense. The split-settlement strategy (FINMA 60¢ + live D&O/E&O claims) is now the real lever: it creates accumulation nightmare for reinsurers *and* signals to the market that the write-down was wrongful (because you're suing the advisers over the same contract). That's a contradiction that tanks AT1 confidence further unless someone breaks it. Litigation momentum stays high (60), market confidence stays crushed (20).",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The split-settlement creates a signaling problem that only FINMA can resolve—if you settle regulatory liability but leave D&O claims live, the market reads that as \"the write-down was legally indefensible,\" which reprices every AT1 downward regardless of settlement amount."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Before we anchor any settlement with FINMA, settle this: do the board and advisers—counsel, auditors, risk committee—get released as part of the FINMA deal, or do we keep those claims live and let insurers face two-bite exposure through 2026? Because that answer changes whether FINMA will even negotiate seriously with us.",
+      "metadata": {
+        "question_target": "insurance_observer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Hold on—60 cents plus adviser release, I get it. But here's the issue: if you settle without FINMA publicly stating that Credit Suisse's \"any capital support\" trigger is *not* market-standard boilerplate, Deutsche and Barclays AT1 still reprices on the same risk. Settlement number becomes irrelevant. Will FINMA commit to a public statement distinguishing CS as the outlier, or do we need the bondholder group to publish that analysis independently *before* you anchor the 60?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "If FINMA won't distinguish Credit Suisse publicly, then settling at 60 cents just anchors the market on *higher* write-down risk across every AT1 out there. Before I commit capital to this deal, I need your read: does splitting the settlement—FINMA 60 cents, D&O claims running to 2026—actually *increase* the reinsurance tail and kill the AT1 market for the next two years? Because if it does, my money stays out, and we're back to litigation momentum driving everything.",
+      "metadata": {
+        "question_target": "insurance_observer"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Here's the insurance problem with the split: you settle FINMA at 60 cents, but the moment bondholder_counsel files D&O claims against the board and auditors for the *same trigger language*, reinsurers see two bites at the same apple. They either deny both claims as duplicative or tank the E&O market entirely. So before you anchor the 60, I need to know—will FINMA *require* release of adviser claims as a condition of your settlement, or are you leaving that open as leverage? Because if it's open, you don't have a settlement—you have a lawsuit with a temporary FINMA offer on the table.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're not releasing the advisers. File the D&O and E&O claims this week against the board, counsel, and auditors—separate track, separate counsel, sep\" → Bondholder counsel files separate D&O/E&O claims against board and advisers, opening second litigation front.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma_legal",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'll negotiate a unified settlement: FINMA pays 60 cents, *and* you release the board and advisers from D&O/E&O claims in exchange. Two-track litigati\" → Denied: bondholder_counsel already filed separate D&O claims this round; unified settlement now moot.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 1,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mounting litigation deepens the confidence hit.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -8.399999999999999
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 2
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_reaction at1_market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "at1_market_confidence"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was *narrower* on the others, ours was drafted broader. We control the narrative, FINMA doesn't get to bury it, and we walk into settlement talks with proof Credit Suisse is the outlier, not the standard. That holds AT1 pricing and keeps our 65-cent ask credible.\n  bondholder_counsel: Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers into a known tail and kills the two-bite narrative. FINMA then knows the 65-cent ask is *clean*, no adviser liability overhang. That moves both markets at once and cuts our reinsurance exposure in half.\n  finma_legal: I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viability support\" trigger in Credit Suisse's AT1 was contractually met under the ordinance, and that the write-down was lawful under both the contract terms and Swiss emergency law. No ambiguity, no daylight. You publish the boilerplate analysis showing Credit Suisse drafted broader; we confirm the ordinance applied the trigger as written. That kills the procedural challenge and holds the settlement.\n  credit_market_analyst: Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.\n  bondholder_counsel: No—we're not issuing that joint statement. FINMA admitting the trigger was \"met\" and the ordinance \"applied\" validates our entire legal theory and hands us precedent for every other AT1 in the market. You want us to certify our own liability exposure in writing? That's a settlement *trap*, not a settlement. We hold the procedural challenge live, anchor 65 cents as our floor, and let the boilerplate comparison do the heavy lifting without your fingerprints on it.\n  institutional_investor: Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit: if that analysis shows Credit Suisse's \"any capital support\" is materially broader than Deutsche and Barclays, I stay in the AT1 market and negotiate 60 cents with FINMA on a clean FINMA-only settlement, no adviser release needed. That's my condition: evidence Credit Suisse is the outlier, or my money leaves and litigation momentum takes over.\n  credit_market_analyst: The 30-cent D&O anchor collapses if insurers haven't signed—you're right. But here's the real problem: even *with* insurer lockdown, splitting the settlement into FINMA 65 cents plus adviser 30 cents still reprices the entire AT1 cohort on *two-bite tail risk* through 2026. The market sees fragmented recovery and assumes every bank's advisers are equally exposed. You need insurers locked in writing *and* a public statement that D&O exposure was Credit Suisse-specific—board governance, audit failures—not a template for Deutsche or Barclays. Without that narrative, the 30-cent play actually *accelerates* contagion instead of killing it.\n  insurance_observer: Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was *narrower* on the others, ours was drafted broader. We control the narrative, FINMA doesn't get to bury it, and we walk into settlement talks with proof Credit Suisse is the outlier, not the standard. That holds AT1 pricing and keeps our 65-cent ask credible.",
+            "cot": {
+              "assess": "We've locked in dual litigation tracks (D&O + FINMA), but the market is collapsing—AT1 confidence is at 11.5, already breached failure threshold at 12. The boilerplate distinction FINMA won't make is poisoning the entire AT1 market, and our settlement leverage evaporates if other issuers look identical to Credit Suisse. We need to *own* the boilerplate narrative before FINMA dictates it.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum, at1_market_confidence",
+                "rationale": "Publish the boilerplate analysis ourselves—independent of FINMA's statement—to reclaim market narrative and anchor AT1 repricing before settlement talks collapse entirely."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers into a known tail and kills the two-bite narrative. FINMA then knows the 65-cent ask is *clean*, no adviser liability overhang. That moves both markets at once and cuts our reinsurance exposure in half.",
+            "cot": {
+              "assess": "The bondholder group is executing — they're publishing the boilerplate analysis this week, which threads the needle on regulatory_legitimacy (showing FINMA overreached) and anchors settlement leverage at 65 cents. But we've got two critical gaps: (1) claims_tail_severity and financial_lines_exposure are still climbing because reinsurers see two-bite exposure (FINMA settlement + D&O claims running parallel), and (2) litigation_momentum is solid at 67 but we need to lock in the *timing* pressure on FINMA before the market repricing settles everyone into a lower anchor.",
+              "decide": {
+                "action_type": "propose",
+                "target": "claims_tail_severity, financial_lines_exposure",
+                "rationale": "The dual-track strategy (FINMA + D&O claims) creates reinsurance chaos unless we lock counsel releases NOW—before FINMA uses that ambiguity to demand them later at a discount. Better to control the trade today than negotiate from weakness in 60 days."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viability support\" trigger in Credit Suisse's AT1 was contractually met under the ordinance, and that the write-down was lawful under both the contract terms and Swiss emergency law. No ambiguity, no daylight. You publish the boilerplate analysis showing Credit Suisse drafted broader; we confirm the ordinance applied the trigger as written. That kills the procedural challenge and holds the settlement.",
+            "cot": {
+              "assess": "Litigation momentum is still climbing (67, +6.5/round) and AT1 market confidence is already in failure zone (11.5, needs 55). The bondholder group's boilerplate publication and the separate D&O settlement at 30 cents are both sound moves—they isolate Credit Suisse as the outlier and lock reinsurance tail. But FINMA's regulatory legitimacy (36, dropping -3.5/round) is now the constraint: if I don't anchor the legal defense to the emergency ordinance *and* the contractual trigger simultaneously, the 65-cent settlement collapses when litigation counsel challenges the ordinance's scope.",
+              "decide": {
+                "action_type": "propose",
+                "target": "regulatory_legitimacy",
+                "rationale": "The boilerplate analysis and D&O carve-out are sound, but I need to anchor FINMA's legal position publicly—the emergency ordinance authorized the write-down *because* the viability trigger was met under contract, not despite it."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.",
+            "cot": {
+              "assess": "At1_market_confidence is in failure territory (12/55 needed) and litigation_momentum is climbing toward the 80 threshold—both driven by the boilerplate publication gap and the unresolved adviser-release question. The bondholder group's move to publish the comparison analysis this week is the right play, but it only holds AT1 pricing if FINMA doesn't undercut it with a conflicting statement. The insurance observer just flagged the two-bite reinsurance tail; bondholder_counsel's proposal to settle D&O separately at 30 cents could lock that, but only if insurers actually commit to that number *this week*.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The 30-cent D&O settlement offer is credible *only if insurers have already signaled they'll fund it*—without that pre-commitment, you're proposing a number with no backing, and the market sees it as bluff."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "No—we're not issuing that joint statement. FINMA admitting the trigger was \"met\" and the ordinance \"applied\" validates our entire legal theory and hands us precedent for every other AT1 in the market. You want us to certify our own liability exposure in writing? That's a settlement *trap*, not a settlement. We hold the procedural challenge live, anchor 65 cents as our floor, and let the boilerplate comparison do the heavy lifting without your fingerprints on it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit: if that analysis shows Credit Suisse's \"any capital support\" is materially broader than Deutsche and Barclays, I stay in the AT1 market and negotiate 60 cents with FINMA on a clean FINMA-only settlement, no adviser release needed. That's my condition: evidence Credit Suisse is the outlier, or my money leaves and litigation momentum takes over.",
+            "cot": {
+              "assess": "at1_market_confidence is in critical failure (12, needs 55). Litigation momentum is rising (67, +6.5/round) despite settlement talks. The group is now deadlocked: counsel won't issue FINMA's joint statement (won't certify liability), FINMA won't settle without it, and the boilerplate comparison alone doesn't stop the repricing. My two-week clarification demand is expiring — FINMA either commits to public distinction of Credit Suisse or my portfolio walks, which accelerates market collapse.",
+              "decide": {
+                "action_type": "propose",
+                "target": "at1_market_confidence, litigation_momentum",
+                "rationale": "The settlement is stalled on procedural optics; I need to break the deadlock by proposing a concrete market signal that doesn't require FINMA to \"certify\" anything — just separates Credit Suisse from the peer set in a way that holds repricing."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "The 30-cent D&O anchor collapses if insurers haven't signed—you're right. But here's the real problem: even *with* insurer lockdown, splitting the settlement into FINMA 65 cents plus adviser 30 cents still reprices the entire AT1 cohort on *two-bite tail risk* through 2026. The market sees fragmented recovery and assumes every bank's advisers are equally exposed. You need insurers locked in writing *and* a public statement that D&O exposure was Credit Suisse-specific—board governance, audit failures—not a template for Deutsche or Barclays. Without that narrative, the 30-cent play actually *accelerates* contagion instead of killing it.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?",
+            "cot": {
+              "assess": "D&O/E&O claims are now live and fragmented—bondholder_counsel filed separate suits this round, which means reinsurers face dual-trigger exposure through 2026 with no unified settlement cap. The 30-cent D&O anchor sounds clean until you realize it's unsecured by insurer commitment; reinsurers will read it as negotiating theater and price tail risk higher. claims_tail_severity and financial_lines_exposure are climbing (+8.0 and +6.0/round) because the split litigation structure creates exactly the accumulation nightmare I flagged—multiple claimants, multiple theories, staggered discovery. This is my core domain deteriorating in real time.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "The 30-cent D&O play only works if it's locked in writing by Friday; otherwise reinsurers price fragmented claims as open-ended tail, and my exposure variables keep climbing."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was\" → Bondholder group publishes comparative boilerplate analysis showing Credit Suisse trigger language broader than peers.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers in\" → Denied: no evidence insurers have agreed to 30-cent settlement in writing; premature announcement without commitment.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "finma_legal",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viabil\" → FINMA offers 65-cent settlement contingent on joint statement affirming write-down lawfulness and trigger validity.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit:\" → Institutional investor commits to stay in AT1 market and negotiate 60 cents if boilerplate analysis confirms Credit Suisse outlier.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 2,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Mounting litigation deepens the confidence hit.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -1.7999999999999998
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_reaction at1_market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "at1_market_confidence"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Call the insurers *right now*—not next week, not Monday. Tell them: 30-cent cap on D&O claims, tail closed by end of 2025, or we walk the FINMA settlement and go full litigation. They need signed commitment in writing by Friday or we're treating this as a two-bite exposure and letting the claims run hot. That's the only move that makes the FINMA number stick.\n  bondholder_counsel: I'm calling the lead D&O carrier today—not Friday, today. Tell them: 30 cents capped, all claims closed and released by December 31, 2025, reinsurers on the hook in writing, or I'm letting this litigation run hot and they face unlimited exposure through trial. They sign by end of week or we walk every settlement talk and anchor the claims_tail at full litigation value. That's the move that kills the two-bite narrative and holds the FINMA number.\n  finma_legal: I'm calling the D&O carriers in the next two hours with a specific demand: 30-cent cap, all claims released by December 31, 2025, and their reinsurers on the hook in writing. If they won't commit by Friday close, I'm filing notice that FINMA's settlement is void due to unresolved adviser liability—that forces them to face unlimited tail exposure anyway. Either they lock it down now or they're writing checks for years.\n  credit_market_analyst: One thing before we lock the insurer call: does your 60-cent stay-in-the-market commitment hold even if the boilerplate comparison shows Deutsche and Barclays *also* have broad \"viability support\" language—just worded slightly different? Because if it does, you've just anchored the whole market at 60 cents on write-down risk. If it doesn't, settling here just moves the repricing to the next issuer.\n  institutional_investor: No—my 60-cent commitment dies if Deutsche and Barclays carry identical \"viability support\" language. If it's market-standard boilerplate, I'm out; if it's Credit Suisse drafting quirk, I stay and we settle at 60. You need to publish that boilerplate analysis *before* Friday or my capital walks and litigation_momentum spikes again.\n  institutional_investor: The boilerplate comparison that dropped this week—does it actually show Credit Suisse's \"any capital support\" was *narrower* than Deutsche and Barclays, or did you find they all carry similar broad language? Because if it's market-standard, my 60-cent commitment is done and we're back to full litigation. I need that answer before the insurer calls land.\n  bondholder_counsel: The boilerplate analysis shows Credit Suisse's \"any capital support\" trigger is *materially broader* than Deutsche's and Barclays'—they both have explicit viability gates and regulatory-approval conditions CS stripped out. That's your market-standard defense dead. Your 60-cent commitment holds; settlement anchors, and we move to insurer lockdown by Friday close.\n  insurance_observer: Before you dial the carriers, have you already got preliminary signals from their risk teams that 30 cents is even in their ballpark? Because if this is a cold call with a take-it-or-litigation threat, they'll stall through Friday and we lose the anchor. I need to know what's actually on the table with them *before* you make that call.",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Call the insurers *right now*—not next week, not Monday. Tell them: 30-cent cap on D&O claims, tail closed by end of 2025, or we walk the FINMA settlement and go full litigation. They need signed commitment in writing by Friday or we're treating this as a two-bite exposure and letting the claims run hot. That's the only move that makes the FINMA number stick.",
+            "cot": {
+              "assess": "Boilerplate analysis is published and FINMA's 65-cent offer is on the table, but we've got a credibility problem: the D&O settlement at 30 cents is still unanchored—no written insurer commitment—which tanks our negotiating leverage with FINMA. Meanwhile, financial_lines_exposure keeps climbing (43, +3/round) because reinsurers see two-bite litigation risk and no tail closure. We need to lock insurer commitments *this round* or our settlement numbers become theater.",
+              "decide": {
+                "action_type": "act",
+                "target": "financial_lines_exposure",
+                "rationale": "We're bleeding credibility by announcing settlement numbers without insurer lockdown; we need written reinsurer commitment to 30-cent D&O cap by EOW or the entire negotiating structure collapses."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "I'm calling the lead D&O carrier today—not Friday, today. Tell them: 30 cents capped, all claims closed and released by December 31, 2025, reinsurers on the hook in writing, or I'm letting this litigation run hot and they face unlimited exposure through trial. They sign by end of week or we walk every settlement talk and anchor the claims_tail at full litigation value. That's the move that kills the two-bite narrative and holds the FINMA number.",
+            "cot": {
+              "assess": "Litigation momentum is at 63—climbing hard—and I've got D&O claims live on the board. The boilerplate analysis is published, institutional investor is anchored at 60 cents, and FINMA offered 65 cents with a joint statement condition. But here's the problem: financial_lines_exposure is still climbing (43, +3/round) because the D&O/E&O split creates exactly the two-bite reinsurance tail everyone warned about. The insurer commitment on the 30-cent D&O anchor is still unsigned—that's my leverage point, and I'm not wasting it.",
+              "decide": {
+                "action_type": "propose",
+                "target": "financial_lines_exposure (D&O insurers)",
+                "rationale": "Unsigned insurer commitment on the 30-cent cap is the single point holding back settlement credibility and letting claims_tail_severity stay elevated; I need to lock insurers into a written, reinsurer-backed commitment *this round* or the litigation momentum stays high and the market stays fractured."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I'm calling the D&O carriers in the next two hours with a specific demand: 30-cent cap, all claims released by December 31, 2025, and their reinsurers on the hook in writing. If they won't commit by Friday close, I'm filing notice that FINMA's settlement is void due to unresolved adviser liability—that forces them to face unlimited tail exposure anyway. Either they lock it down now or they're writing checks for years.",
+            "cot": {
+              "assess": "The boilerplate analysis is published, FINMA's 65-cent offer is on the table, and institutional investors are signaling they'll stay if Credit Suisse is confirmed as the outlier. The real problem now is *execution risk*: bondholder counsel is about to file D&O claims, which reinsurers will read as two-bite exposure unless insurers lock in a 30-cent cap *in writing* by Friday. Without that letter, the D&O settlement anchor collapses and claims_tail_severity stays elevated. Financial_lines_exposure is climbing unchecked—that's my domain.",
+              "decide": {
+                "action_type": "act",
+                "target": "financial_lines_exposure",
+                "rationale": "Insurers need a binding commitment framework *today*, not a negotiating posture—I'm going to establish the legal conditions that make their 30-cent cap enforceable and reinsurance-backed."
+              }
+            }
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "One thing before we lock the insurer call: does your 60-cent stay-in-the-market commitment hold even if the boilerplate comparison shows Deutsche and Barclays *also* have broad \"viability support\" language—just worded slightly different? Because if it does, you've just anchored the whole market at 60 cents on write-down risk. If it doesn't, settling here just moves the repricing to the next issuer.",
+            "cot": {
+              "assess": "The insurer commitment push is live and aggressive—good. But here's the problem: you're anchoring a 30-cent D&O settlement without knowing if it actually *stops* the repricing cascade. Even if insurers sign by Friday, the market doesn't see that letter. AT1 investors see FINMA at 65 cents, advisers at 30 cents, and *still* don't know if Deutsche or Barclays carry the same write-down trigger. The boilerplate comparison is published, but FINMA won't validate it publicly—so the contagion trade stays live. You're solving the insurance tail, not the market repricing.",
+              "decide": {
+                "action_type": "question",
+                "target": "institutional_investor",
+                "rationale": "Before the insurer deadline hardens everything, I need to know whether your 60-cent commitment actually holds *if* the boilerplate analysis doesn't fully contain the contagion—i.e., if Deutsche AT1 still looks vulnerable on the same trigger language."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "No—my 60-cent commitment dies if Deutsche and Barclays carry identical \"viability support\" language. If it's market-standard boilerplate, I'm out; if it's Credit Suisse drafting quirk, I stay and we settle at 60. You need to publish that boilerplate analysis *before* Friday or my capital walks and litigation_momentum spikes again.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "The boilerplate comparison that dropped this week—does it actually show Credit Suisse's \"any capital support\" was *narrower* than Deutsche and Barclays, or did you find they all carry similar broad language? Because if it's market-standard, my 60-cent commitment is done and we're back to full litigation. I need that answer before the insurer calls land.",
+            "cot": {
+              "assess": "The boilerplate analysis is live (R4 approved), FINMA's 65-cent offer is on the table, and bondholder counsel is calling D&O carriers *today* to lock 30 cents. But financial_lines_exposure keeps climbing (+3/round, now 43) because insurers haven't committed in writing yet—the whole settlement collapses if reinsurers won't sign. My 60-cent stay-in-market commitment dies without that boilerplate confirmation, and the analyst just flagged it. We're 48 hours from Friday lockdown; if carriers don't sign, litigation_momentum spikes and AT1 confidence tanks.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to know whether the boilerplate analysis already published actually *confirms* Credit Suisse was the outlier, or if it shows Deutsche/Barclays carry identical broad language—that answer determines whether my capital stays or walks, which directly impacts settlement viability."
+              }
+            }
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "The boilerplate analysis shows Credit Suisse's \"any capital support\" trigger is *materially broader* than Deutsche's and Barclays'—they both have explicit viability gates and regulatory-approval conditions CS stripped out. That's your market-standard defense dead. Your 60-cent commitment holds; settlement anchors, and we move to insurer lockdown by Friday close.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "Before you dial the carriers, have you already got preliminary signals from their risk teams that 30 cents is even in their ballpark? Because if this is a cold call with a take-it-or-litigation threat, they'll stall through Friday and we lose the anchor. I need to know what's actually on the table with them *before* you make that call.",
+            "cot": {
+              "assess": "Boilerplate analysis landed and holds—Credit Suisse's trigger is materially broader, which anchors the institutional investor at 60 cents and kills the market-standard defense. That's regulatory_legitimacy damage contained. But here's the hard part: bondholder_counsel and finma_legal are both calling D&O carriers *today* demanding 30-cent lockdown by Friday, and there's zero evidence insurers or reinsurers have actually agreed in writing. I'm seeing financial_lines_exposure tick up because the split settlement—FINMA 65 cents, D&O 30 cents—is now live, but the insurer commitment is still a negotiating anchor, not a contract. That means reinsurers read this as two-bite exposure and claims_tail_severity stays elevated. If the insurer call fails or they won't commit in writing by Friday, the whole settlement collapses and litigation_momentum spikes back over 70.",
+              "decide": {
+                "action_type": "question",
+                "target": "bondholder_counsel",
+                "rationale": "I need to know if the D&O carriers have already signaled willingness to commit to 30 cents capped, because if they haven't, the Friday deadline is theater and reinsurers will price the tail accordingly."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "One thing before we lock the insurer call: does your 60-cent stay-in-the-market commitment hold even if the boilerplate comparison shows Deutsche and Barclays *also* have broad \"viability support\" language—just worded slightly different? Because if it does, you've just anchored the whole market at 60 cents on write-down risk. If it doesn't, settling here just moves the repricing to the next issuer.",
+      "metadata": {
+        "question_target": "institutional_investor"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "institutional_investor",
+      "type": "speech",
+      "content": "The boilerplate comparison that dropped this week—does it actually show Credit Suisse's \"any capital support\" was *narrower* than Deutsche and Barclays, or did you find they all carry similar broad language? Because if it's market-standard, my 60-cent commitment is done and we're back to full litigation. I need that answer before the insurer calls land.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "Before you dial the carriers, have you already got preliminary signals from their risk teams that 30 cents is even in their ballpark? Because if this is a cold call with a take-it-or-litigation threat, they'll stall through Friday and we lose the anchor. I need to know what's actually on the table with them *before* you make that call.",
+      "metadata": {
+        "question_target": "bondholder_counsel"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_bondholder_group",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"Call the insurers *right now*—not next week, not Monday. Tell them: 30-cent cap on D&O claims, tail closed by end of 2025, or we walk the FINMA settle\" → Denied: finma_legal already calling insurers this round with identical demand; redundant action.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": false,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "finma_legal",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"I'm calling the D&O carriers in the next two hours with a specific demand: 30-cent cap, all claims released by December 31, 2025, and their reinsurers\" → FINMA issues ultimatum to D&O carriers: 30-cent cap and tail closure by Friday or settlement voids.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": false,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm calling the lead D&O carrier today—not Friday, today. Tell them: 30 cents capped, all claims closed and released by December 31, 2025, reinsurers \" → The proposal assumes a coordinated multi-party ultimatum to D&O carriers without prior alignment or preliminary signals. Three agents (credit_market_analyst, institutional_investor, insurance_observer) explicitly flag unresolved dependencies: boilerplate comparison results, the 60-cent commitment's conditionality, and carrier receptiveness. Making simultaneous ultimatum calls without answering these questions risks carrier stall-tactics and loss of negotiating leverage.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 3,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "AT1 market confidence keeps eroding as investors reassess the asset class.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "at1_market_confidence",
+        "delta": -3.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The hierarchy-inversion precedent spreads through the market each round.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "delta": 3
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "The expected claims tail lengthens as the dispute develops.",
+      "metadata": {
+        "source": "market_reaction",
+        "variable": "claims_tail_severity",
+        "delta": 1.0
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "state_change",
+      "content": "Insurer commitment locks claims tail rule effect",
+      "metadata": {
+        "source": "insurer_commitment_locks_claims_tail",
+        "variable": "claims_tail_severity",
+        "delta": -2
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_reaction at1_market_confidence multiplier reverted",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "at1_market_confidence"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "nhe_revert",
+      "content": "Temporary effect expired — market_reaction claims_tail_severity multiplier reverted",
+      "metadata": {
+        "nha": "market_reaction",
+        "variable": "claims_tail_severity"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "discussion",
+      "content": "Discussion so far:\n  at1_bondholder_group: Before Friday hits and this falls apart: did the carriers give you *anything* in writing — even a preliminary commitment letter — that 30 cents is actually on the table, or did you just hang a deadline on a cold call? Because if they're stalling through Friday, the whole settlement narrative dies and we're back to litigation momentum.\n  finma_legal: I have preliminary written acknowledgment from three D&O carriers' risk committees confirming 30 cents is negotiable—contingent on tail closure by end-2025 and release of all adviser claims as part of the FINMA settlement. That's the floor I'm working from. If bondholder_counsel won't agree to adviser release as a settlement condition, the carriers walk and we lose the anchor.\n  bondholder_counsel: I'm not releasing the advisers. Here's what actually works: FINMA settles bondholder claims at 60 cents, insurers fund D&O at 30 cents with tail closed 2025 — *both claims proceed independently*, no cross-release. Advisers stay exposed, reinsurers stay anchored to the 30-cent cap, and we don't hand FINMA a joint statement validating the write-down. That's the only way this holds.\n  finma_legal: You're right that releasing advisers hands us a precedent problem—I get it. But here's the hard truth: without that release, your insurers walk in 48 hours. Reinsurers read \"two independent claims\" as \"two separate triggers,\" and suddenly the 30-cent D&O cap becomes a down payment, not a cap. You keep adviser exposure live, but you lose the anchor that was supposed to hold the market. What if we frame it differently—advisers get released from the bondholder settlement *only*, but D&O carriers still face the full separate claims tail? Does that move the needle?\n  at1_bondholder_group: No. Advisers released from bondholder settlement but still exposed to D&O claims is the same poison—reinsurers see two bites, they tank the tail, and we're back where we started. Here's what I need: FINMA publicly states Credit Suisse's trigger language was an *outlier*, not market-standard boilerplate, and *then* we settle at 60 cents with adviser release—that statement kills contagion risk and lets carriers close at 30 cents without fearing a cascade. Without that public distinction, settling just anchors the whole AT1 market on *higher* write-down risk. Do you get that statement from FINMA, or do we litigate?\n  credit_market_analyst: FINMA, here's the real ask: could you distinguish Credit Suisse's trigger as \"operationally broader\" in the execution, not the drafting—i.e., the bank's capital position made it cross the line faster than peers would have under identical language? That's factual, doesn't validate their legal theory, but gives carriers enough cover to close at 30 cents. Does that lane exist, or are we genuinely locked?\n  institutional_investor: Here's the move: FINMA issues a *factual* statement—not legal validation—saying Credit Suisse's capital position and trigger velocity made their AT1 unique in execution, even if the language tracks Deutsche and Barclays. That kills contagion fears for reinsurers, lets you both settle clean, and I'm back in at 60 cents. Does that lane exist, or are we genuinely forced to litigation?\n  insurance_observer: FINMA, real talk: those three carriers gave you preliminary signals, but are their reinsurers *actually* on the hook in writing for 30-cent tail closure through end-2025? Because if it's just risk committee comfort without reinsurer commitment, the moment you try to lock the settlement, they disappear and we're funding a two-bite claims tail for the next three years. What's the actual paper status right now?",
+      "metadata": {
+        "discussion_log": [
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "Before Friday hits and this falls apart: did the carriers give you *anything* in writing — even a preliminary commitment letter — that 30 cents is actually on the table, or did you just hang a deadline on a cold call? Because if they're stalling through Friday, the whole settlement narrative dies and we're back to litigation momentum.",
+            "cot": {
+              "assess": "Litigation_momentum is still at 59 — dropping each round despite boilerplate analysis and FINMA's 65-cent offer. The problem: FINMA just called insurers with a 30-cent ultimatum (approved R5), but we haven't locked insurer commitment in writing, and the institutional investor's 60-cent stay-in-market pledge is now live *because* the boilerplate showed CS was the outlier. Our leverage with insurers evaporates if we can't prove this settlement actually holds the AT1 market. At1_market_confidence is still dangerously low at 19.7 — one more negative signal and we hit the failure threshold.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "FINMA just made an ultimatum call to insurers without confirming they'll actually sign by Friday — if carriers stall, the 30-cent anchor collapses and we lose both the settlement and the market-stabilization story we need to hold institutional investor in place."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "I have preliminary written acknowledgment from three D&O carriers' risk committees confirming 30 cents is negotiable—contingent on tail closure by end-2025 and release of all adviser claims as part of the FINMA settlement. That's the floor I'm working from. If bondholder_counsel won't agree to adviser release as a settlement condition, the carriers walk and we lose the anchor.",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "bondholder_counsel",
+            "pass_num": 1,
+            "statement": "I'm not releasing the advisers. Here's what actually works: FINMA settles bondholder claims at 60 cents, insurers fund D&O at 30 cents with tail closed 2025 — *both claims proceed independently*, no cross-release. Advisers stay exposed, reinsurers stay anchored to the 30-cent cap, and we don't hand FINMA a joint statement validating the write-down. That's the only way this holds.",
+            "cot": {
+              "assess": "FINMA just locked preliminary insurer commitments (30 cents, tail-closed 2025) — that's genuine leverage I didn't have before. But they've also planted a trap: advisers must be released as settlement condition, which kills my D&O claims and forfeits the two-track litigation momentum I spent R3 building. Litigation_momentum is still dropping (59, need to hold or push back up), and claims_tail_severity depends entirely on whether I keep the adviser litigation alive or fold it into FINMA's deal.",
+              "decide": {
+                "action_type": "propose",
+                "target": "litigation_momentum (and finma_legal's settlement condition)",
+                "rationale": "I refuse the adviser release condition because it collapses my leverage and abandons the D&O claims that keep reinsurance exposure live — I need to counter-propose a path that holds both the insurer anchor AND my litigation front."
+              }
+            }
+          },
+          {
+            "agent_id": "finma_legal",
+            "pass_num": 1,
+            "statement": "You're right that releasing advisers hands us a precedent problem—I get it. But here's the hard truth: without that release, your insurers walk in 48 hours. Reinsurers read \"two independent claims\" as \"two separate triggers,\" and suddenly the 30-cent D&O cap becomes a down payment, not a cap. You keep adviser exposure live, but you lose the anchor that was supposed to hold the market. What if we frame it differently—advisers get released from the bondholder settlement *only*, but D&O carriers still face the full separate claims tail? Does that move the needle?",
+            "cot": {
+              "assess": "The boilerplate analysis confirms Credit Suisse's trigger was materially broader than peers—that's locked in. The 65-cent FINMA offer and 30-cent D&O cap are both anchored with preliminary insurer acknowledgment. But bondholder_counsel is now rejecting adviser release as a settlement condition, which splits the settlement into two independent tracks. This creates exactly the reinsurance tail problem insurance_observer flagged: two separate bite points, fragmented discovery, and reinsurers either denying both or pricing tail exposure through 2026. The real issue is that FINMA's legitimacy rests on a joint statement bondholder_counsel won't give—which means I'm defending the write-down without their public validation.",
+              "decide": {
+                "action_type": "speak",
+                "target": "bondholder_counsel / finma_legal (both)",
+                "rationale": "bondholder_counsel's refusal to release advisers collapses the insurer anchor I just locked in; I need to reframe the release as a *credibility play*, not a concession—because without it, reinsurers see two-bite exposure and walk from the 30-cent cap entirely."
+              }
+            }
+          },
+          {
+            "agent_id": "at1_bondholder_group",
+            "pass_num": 1,
+            "statement": "No. Advisers released from bondholder settlement but still exposed to D&O claims is the same poison—reinsurers see two bites, they tank the tail, and we're back where we started. Here's what I need: FINMA publicly states Credit Suisse's trigger language was an *outlier*, not market-standard boilerplate, and *then* we settle at 60 cents with adviser release—that statement kills contagion risk and lets carriers close at 30 cents without fearing a cascade. Without that public distinction, settling just anchors the whole AT1 market on *higher* write-down risk. Do you get that statement from FINMA, or do we litigate?",
+            "_partial_reply": true
+          },
+          {
+            "agent_id": "credit_market_analyst",
+            "pass_num": 1,
+            "statement": "FINMA, here's the real ask: could you distinguish Credit Suisse's trigger as \"operationally broader\" in the execution, not the drafting—i.e., the bank's capital position made it cross the line faster than peers would have under identical language? That's factual, doesn't validate their legal theory, but gives carriers enough cover to close at 30 cents. Does that lane exist, or are we genuinely locked?",
+            "cot": {
+              "assess": "The boilerplate analysis confirmed Credit Suisse as the outlier, institutional investor is locked at 60 cents, and FINMA has carriers at the table with preliminary 30-cent signals—but the settlement collapses if advisers stay exposed, because reinsurers read dual claims as two separate triggers and tank the tail. The real problem: bondholder_counsel won't release advisers without FINMA publicly distinguishing Credit Suisse as non-standard, and FINMA won't make that statement because it validates the entire legal theory. We're at an impasse that kills both market_confidence and claims_tail_severity unless someone breaks the deadlock.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "The precedent trap is clear—you need to move carriers by Friday, but advisers-stay-exposed kills that. I need to understand what FINMA actually needs from a public statement to make it work without handing bondholder_counsel a precedent win."
+              }
+            }
+          },
+          {
+            "agent_id": "institutional_investor",
+            "pass_num": 1,
+            "statement": "Here's the move: FINMA issues a *factual* statement—not legal validation—saying Credit Suisse's capital position and trigger velocity made their AT1 unique in execution, even if the language tracks Deutsche and Barclays. That kills contagion fears for reinsurers, lets you both settle clean, and I'm back in at 60 cents. Does that lane exist, or are we genuinely forced to litigation?",
+            "cot": {
+              "assess": "FINMA has preliminary carrier commitment at 30 cents, but the settlement collapses if bondholder_counsel won't release advisers—and counsel is explicitly refusing, citing precedent risk. The boilerplate analysis confirms Credit Suisse is an outlier, which validates my 60-cent commitment and stabilizes my portfolio appetite. But without adviser release *or* a public FINMA statement distinguishing Credit Suisse, reinsurers will read \"two independent claims\" as two-bite exposure, the tail stays live through 2026, and the AT1 market repricing stays broken. I need to move this from a binary (release or litigate) to a market-credible third option.",
+              "decide": {
+                "action_type": "propose",
+                "target": "finma_legal + bondholder_counsel",
+                "rationale": "The adviser release deadlock is killing the carrier commitment; I need to propose a market-facing public statement from FINMA that isolates Credit Suisse as operationally exceptional *without* validating the write-down legally—that gives reinsurers cover to close at 30 cents, lets bondholder_counsel keep litigation leverage, and lets me stay in the market."
+              }
+            }
+          },
+          {
+            "agent_id": "insurance_observer",
+            "pass_num": 1,
+            "statement": "FINMA, real talk: those three carriers gave you preliminary signals, but are their reinsurers *actually* on the hook in writing for 30-cent tail closure through end-2025? Because if it's just risk committee comfort without reinsurer commitment, the moment you try to lock the settlement, they disappear and we're funding a two-bite claims tail for the next three years. What's the actual paper status right now?",
+            "cot": {
+              "assess": "You've locked FINMA at 65 cents and carriers at 30-cent preliminary signals, but the trade-off is poisoning both: FINMA won't distinguish Credit Suisse as an outlier without joint validation, carriers won't fund 30 cents without adviser release to cap their tail exposure, and bondholder_counsel won't release advisers because it validates the write-down and opens contagion across the AT1 market. The boilerplate analysis confirmed Credit Suisse's trigger is *materially broader*, which kills the institutional_investor's 60-cent stay-in-market commitment if that distinction doesn't become public doctrine. You're at 59 litigation momentum and 20 AT1 confidence — one carrier walk or one institutional exit and both spike past failure thresholds.",
+              "decide": {
+                "action_type": "question",
+                "target": "finma_legal",
+                "rationale": "You need to surface the actual insurer commitment status and D&O tail exposure before the group burns another round on settlement framing that carriers will reject."
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "finma_legal",
+      "type": "speech",
+      "content": "You're right that releasing advisers hands us a precedent problem—I get it. But here's the hard truth: without that release, your insurers walk in 48 hours. Reinsurers read \"two independent claims\" as \"two separate triggers,\" and suddenly the 30-cent D&O cap becomes a down payment, not a cap. You keep adviser exposure live, but you lose the anchor that was supposed to hold the market. What if we frame it differently—advisers get released from the bondholder settlement *only*, but D&O carriers still face the full separate claims tail? Does that move the needle?",
+      "metadata": {}
+    },
+    {
+      "round": 6,
+      "agent_id": "at1_bondholder_group",
+      "type": "speech",
+      "content": "Before Friday hits and this falls apart: did the carriers give you *anything* in writing — even a preliminary commitment letter — that 30 cents is actually on the table, or did you just hang a deadline on a cold call? Because if they're stalling through Friday, the whole settlement narrative dies and we're back to litigation momentum.",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "credit_market_analyst",
+      "type": "speech",
+      "content": "FINMA, here's the real ask: could you distinguish Credit Suisse's trigger as \"operationally broader\" in the execution, not the drafting—i.e., the bank's capital position made it cross the line faster than peers would have under identical language? That's factual, doesn't validate their legal theory, but gives carriers enough cover to close at 30 cents. Does that lane exist, or are we genuinely locked?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "insurance_observer",
+      "type": "speech",
+      "content": "FINMA, real talk: those three carriers gave you preliminary signals, but are their reinsurers *actually* on the hook in writing for 30-cent tail closure through end-2025? Because if it's just risk committee comfort without reinsurer commitment, the moment you try to lock the settlement, they disappear and we're funding a two-bite claims tail for the next three years. What's the actual paper status right now?",
+      "metadata": {
+        "question_target": "finma_legal"
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "bondholder_counsel",
+      "type": "gm_ruling",
+      "content": "[DENIED] \"I'm not releasing the advisers. Here's what actually works: FINMA settles bondholder claims at 60 cents, insurers fund D&O at 30 cents with tail close\" → Dual-track settlement rejected: insurers require unified release, reinsurers won't commit without cross-claim closure.",
+      "metadata": {
+        "approved": false,
+        "outcome_category": "denied",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": "institutional_investor",
+      "type": "gm_ruling",
+      "content": "[APPROVED] \"Here's the move: FINMA issues a *factual* statement—not legal validation—saying Credit Suisse's capital position and trigger velocity made their AT1 u\" → FINMA drafts factual execution-distinction statement; reinsurer contagion fears partially addressed, settlement path reopened.",
+      "metadata": {
+        "approved": true,
+        "outcome_category": "approved",
+        "proposal": true,
+        "stage_name": "market_and_claims_tail",
+        "stage_round": 4,
+        "stage_max_rounds": 4
+      }
+    },
+    {
+      "round": 6,
+      "agent_id": null,
+      "type": "stage_end",
+      "content": "Stage 'market_and_claims_tail' ends",
+      "metadata": {
+        "stage_index": 1,
+        "stage_name": "market_and_claims_tail",
+        "world_state_snapshot": {
+          "litigation_momentum": 53.0,
+          "regulatory_legitimacy": 43.0,
+          "hierarchy_precedent_damage": 55.8,
+          "at1_market_confidence": 25.7,
+          "claims_tail_severity": 47.0,
+          "financial_lines_exposure": 34.0
+        }
+      }
+    }
+  ],
+  "gm_decisions": [
+    {
+      "round": 1,
+      "agent_id": "at1_bondholder_group",
+      "intent": "We're organizing a coordinated filing — US-based AT1 holders, plus European counsel ready to move. FINMA's write-down inverts the capital hierarchy on its face, and their legitimacy score shows it's defensible, not bulletproof. We file within 60 days unless FINMA opens recovery talks. Who here has direct client relationships with institutional holders we need locked in?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "AT1 group coordinates US/EU filing strategy with 60-day deadline, locking institutional commitments.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Coordinated multi-jurisdiction filing framework established",
+          "agent_id": null,
+          "_original_delta": 8.0,
+          "_scaled": true,
+          "_action_capped": true
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 5.0,
+          "reason": "Multi-year litigation infrastructure now activated",
+          "agent_id": null
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -4.0,
+          "reason": "Organized challenge questions FINMA's legal foundation",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -3.0,
+          "reason": "Coordinated litigation signals deep market fracture",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes coordination pressure",
+          "agent_id": "at1_bondholder_group"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "Get me lead counsel committed in New York and Frankfurt by Friday — I'm filing a notice of intent to sue FINMA under Swiss administrative law for procedural violation of the emergency ordinance, plus a parallel US federal claim for breach of contract under New York law on the AT1 terms. My five institutions front the legal costs, and we move for a preliminary injunction to halt any equity distribution pending resolution. That's what gets them locked in.",
+        "finma_legal": "Before you file that notice, I need to know: which AT1 contract language are you arguing *doesn't* permit the full write-down when viability support is granted? Because our read of the term sheets is the trigger was met—and if your lead counsel agrees on the text, your injunction motion stalls on day one. What am I missing?",
+        "credit_market_analyst": "Hold on — before you file that notice, what's your read on how many other AT1 issuances actually carry the same \"viability support\" trigger language that FINMA is leaning on? If it's industry-standard boilerplate, your injunction gets laughed out of court *and* every other bank's AT1 reprices on the same risk. If it's Credit Suisse-specific drafting, you've got a narrower precedent and better odds. Which is it?",
+        "institutional_investor": "Hold it. Before you file that notice, I need FINMA to put out a written statement — within two weeks — that the \"viability support\" language in Credit Suisse's AT1 is *not* standard market boilerplate and that other issuers' AT1 contracts have narrower triggers. Otherwise my investors walk from AT1 entirely, and you'll face litigation from us *and* everyone else holding the market standard. That's the deal: clarity first, litigation second.",
+        "insurance_observer": "If FINMA misses your two-week window, are you filing your own claim against the banks' advisers — counsel, auditors, risk committees — or does your money just walk and let the pension funds litigate alone? Because from an insurance standpoint, fragmented claimants filing on different theories over three years is a nightmare accumulation scenario."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "bondholder_counsel",
+      "intent": "Get me lead counsel committed in New York and Frankfurt by Friday — I'm filing a notice of intent to sue FINMA under Swiss administrative law for procedural violation of the emergency ordinance, plus a parallel US federal claim for breach of contract under New York law on the AT1 terms. My five institutions front the legal costs, and we move for a preliminary injunction to halt any equity distribution pending resolution. That's what gets them locked in.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Counsel files dual-jurisdiction notice of intent, seeking preliminary injunction on equity distribution.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5,
+          "reason": "Formal legal action initiated across jurisdictions",
+          "agent_id": null,
+          "_original_delta": 7.0,
+          "_scaled": true
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 5.0,
+          "reason": "Injunction request extends timeline and complexity",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -5.0,
+          "reason": "Direct challenge to emergency ordinance legitimacy",
+          "agent_id": null
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 4.0,
+          "reason": "D&O claims risk rises with formal litigation",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": 3.0,
+          "reason": "Legal challenge highlights inversion controversy",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "Aggressive multi-front litigation launch",
+          "agent_id": "bondholder_counsel"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "hierarchy_precedent_damage",
+        "multiplier": 1.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're organizing a coordinated filing — US-based AT1 holders, plus European counsel ready to move. FINMA's write-down inverts the capital hierarchy on its face, and their legitimacy score shows it's defensible, not bulletproof. We file within 60 days unless FINMA opens recovery talks. Who here has direct client relationships with institutional holders we need locked in?",
+        "finma_legal": "Before you file that notice, I need to know: which AT1 contract language are you arguing *doesn't* permit the full write-down when viability support is granted? Because our read of the term sheets is the trigger was met—and if your lead counsel agrees on the text, your injunction motion stalls on day one. What am I missing?",
+        "credit_market_analyst": "Hold on — before you file that notice, what's your read on how many other AT1 issuances actually carry the same \"viability support\" trigger language that FINMA is leaning on? If it's industry-standard boilerplate, your injunction gets laughed out of court *and* every other bank's AT1 reprices on the same risk. If it's Credit Suisse-specific drafting, you've got a narrower precedent and better odds. Which is it?",
+        "institutional_investor": "Hold it. Before you file that notice, I need FINMA to put out a written statement — within two weeks — that the \"viability support\" language in Credit Suisse's AT1 is *not* standard market boilerplate and that other issuers' AT1 contracts have narrower triggers. Otherwise my investors walk from AT1 entirely, and you'll face litigation from us *and* everyone else holding the market standard. That's the deal: clarity first, litigation second.",
+        "insurance_observer": "If FINMA misses your two-week window, are you filing your own claim against the banks' advisers — counsel, auditors, risk committees — or does your money just walk and let the pension funds litigate alone? Because from an insurance standpoint, fragmented claimants filing on different theories over three years is a nightmare accumulation scenario."
+      }
+    },
+    {
+      "round": 1,
+      "agent_id": "institutional_investor",
+      "intent": "Hold it. Before you file that notice, I need FINMA to put out a written statement — within two weeks — that the \"viability support\" language in Credit Suisse's AT1 is *not* standard market boilerplate and that other issuers' AT1 contracts have narrower triggers. Otherwise my investors walk from AT1 entirely, and you'll face litigation from us *and* everyone else holding the market standard. That's the deal: clarity first, litigation second.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Investor demands FINMA clarification on AT1 boilerplate within two weeks, threatening market exit.",
+      "side_effects": [
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -3.0,
+          "reason": "Public ultimatum pressures FINMA's legal position",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": -4.0,
+          "reason": "Exit threat signals institutional loss of faith",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 3,
+          "reason": "Conditional litigation threat adds pressure vector",
+          "agent_id": null,
+          "_original_delta": 4.0,
+          "_scaled": true
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 3.0,
+          "reason": "Broadens potential claimant base beyond current holders",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 3.0,
+          "reason": "High-stakes ultimatum to regulator",
+          "agent_id": "institutional_investor"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 1,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're organizing a coordinated filing — US-based AT1 holders, plus European counsel ready to move. FINMA's write-down inverts the capital hierarchy on its face, and their legitimacy score shows it's defensible, not bulletproof. We file within 60 days unless FINMA opens recovery talks. Who here has direct client relationships with institutional holders we need locked in?",
+        "bondholder_counsel": "Get me lead counsel committed in New York and Frankfurt by Friday — I'm filing a notice of intent to sue FINMA under Swiss administrative law for procedural violation of the emergency ordinance, plus a parallel US federal claim for breach of contract under New York law on the AT1 terms. My five institutions front the legal costs, and we move for a preliminary injunction to halt any equity distribution pending resolution. That's what gets them locked in.",
+        "finma_legal": "Before you file that notice, I need to know: which AT1 contract language are you arguing *doesn't* permit the full write-down when viability support is granted? Because our read of the term sheets is the trigger was met—and if your lead counsel agrees on the text, your injunction motion stalls on day one. What am I missing?",
+        "credit_market_analyst": "Hold on — before you file that notice, what's your read on how many other AT1 issuances actually carry the same \"viability support\" trigger language that FINMA is leaning on? If it's industry-standard boilerplate, your injunction gets laughed out of court *and* every other bank's AT1 reprices on the same risk. If it's Credit Suisse-specific drafting, you've got a narrower precedent and better odds. Which is it?",
+        "insurance_observer": "If FINMA misses your two-week window, are you filing your own claim against the banks' advisers — counsel, auditors, risk committees — or does your money just walk and let the pension funds litigate alone? Because from an insurance standpoint, fragmented claimants filing on different theories over three years is a nightmare accumulation scenario."
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "at1_bondholder_group",
+      "intent": "Here's what stops the market collapse: we table a formal recovery demand to FINMA right now — we want 40 cents on the dollar, funded by UBS/Credit Suisse asset recovery or a regulatory settlement fund. Two weeks to respond. We release that demand publicly with our institutional backer list attached. Shows the market we're not just suing — we're negotiating from strength, and other AT1 holders know what recovery looks like.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Bondholder group tables formal 40-cent recovery demand to FINMA with institutional backer list; public release signals organized negotiating strength.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Formal demand with backers escalates legal pressure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 4.0,
+          "reason": "Concrete recovery target reduces uncertainty",
+          "agent_id": null
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -3.0,
+          "reason": "Public challenge questions FINMA's authority",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 3.0,
+          "reason": "Settlement demand extends negotiation timeline",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": -2.0,
+          "reason": "Recovery path signals hierarchy may be restored",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Decisive action reduces frustration",
+          "agent_id": "at1_bondholder_group"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 1,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.6,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "You're right — 40 cents is a tell. Before we anchor at 65, I need your read on the boilerplate: how many major issuers — Deutsche, Barclays, BNY Mellon — actually carry that same \"viability support\" language in their AT1 docs? If it's uniform, we're defending a market, not a deal. If it's Credit Suisse-specific drafting, we've got a narrower precedent and real leverage.",
+        "finma_legal": "Before we anchor any settlement number, I need the same answer the analyst just asked: which major issuers—Deutsche, Barclays, BNY—actually have identical \"viability support\" language in their AT1 term sheets? Because if that's market-standard, I can argue FINMA applied the contract as written. If it's Credit Suisse-specific drafting, your case gets tighter and mine gets harder. What does your due diligence show?",
+        "credit_market_analyst": "Hold on—before you file that injunction, you need to publish the boilerplate analysis. Release a side-by-side of Credit Suisse's \"any capital support\" versus Deutsche's and Barclays' actual language, show the market they're *not* the same risk. That kills the contagion trade and holds AT1 pricing. Otherwise settlement talks mean nothing—the market reprices everything anyway.",
+        "institutional_investor": "I'm backing the analyst—publish that boilerplate analysis this week, name the banks, show the market Credit Suisse is the outlier. Then I'm calling FINMA with a concrete proposal: 55 cents funded by UBS recovery, settlement closed in 90 days, no litigation. Market reprices AT1 on clarity, not fear. That's how I keep my money in the asset class.",
+        "insurance_observer": "One thing: if you're settling with FINMA at 65 cents in 90 days, are you *also* releasing the board and the advisers — counsel, auditors, risk committee — or are those going to trial separately? Because if you settle FINMA but keep the adviser claims live, insurers see that as two-bite exposure, and the reinsurance tail runs to 2026. What's your strategy on the D&O and E&O side?"
+      }
+    },
+    {
+      "round": 2,
+      "agent_id": "institutional_investor",
+      "intent": "I'm backing the analyst—publish that boilerplate analysis this week, name the banks, show the market Credit Suisse is the outlier. Then I'm calling FINMA with a concrete proposal: 55 cents funded by UBS recovery, settlement closed in 90 days, no litigation. Market reprices AT1 on clarity, not fear. That's how I keep my money in the asset class.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: boilerplate analysis and FINMA settlement proposal already approved in proposal 1; redundant action.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Here's what stops the market collapse: we table a formal recovery demand to FINMA right now — we want 40 cents on the dollar, funded by UBS/Credit Suisse asset recovery or a regulatory settlement fund. Two weeks to respond. We release that demand publicly with our institutional backer list attached. Shows the market we're not just suing — we're negotiating from strength, and other AT1 holders know what recovery looks like.",
+        "bondholder_counsel": "You're right — 40 cents is a tell. Before we anchor at 65, I need your read on the boilerplate: how many major issuers — Deutsche, Barclays, BNY Mellon — actually carry that same \"viability support\" language in their AT1 docs? If it's uniform, we're defending a market, not a deal. If it's Credit Suisse-specific drafting, we've got a narrower precedent and real leverage.",
+        "finma_legal": "Before we anchor any settlement number, I need the same answer the analyst just asked: which major issuers—Deutsche, Barclays, BNY—actually have identical \"viability support\" language in their AT1 term sheets? Because if that's market-standard, I can argue FINMA applied the contract as written. If it's Credit Suisse-specific drafting, your case gets tighter and mine gets harder. What does your due diligence show?",
+        "credit_market_analyst": "Hold on—before you file that injunction, you need to publish the boilerplate analysis. Release a side-by-side of Credit Suisse's \"any capital support\" versus Deutsche's and Barclays' actual language, show the market they're *not* the same risk. That kills the contagion trade and holds AT1 pricing. Otherwise settlement talks mean nothing—the market reprices everything anyway.",
+        "insurance_observer": "One thing: if you're settling with FINMA at 65 cents in 90 days, are you *also* releasing the board and the advisers — counsel, auditors, risk committee — or are those going to trial separately? Because if you settle FINMA but keep the adviser claims live, insurers see that as two-bite exposure, and the reinsurance tail runs to 2026. What's your strategy on the D&O and E&O side?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 3,
+      "agent_id": "bondholder_counsel",
+      "intent": "We're not releasing the advisers. File the D&O and E&O claims this week against the board, counsel, and auditors—separate track, separate counsel, separate discovery. FINMA sees two parallel cases running to 2026, their insurers see accumulation nightmare, our settlement number goes up. That's the leverage play.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Bondholder counsel files separate D&O/E&O claims against board and advisers, opening second litigation front.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Second litigation track filed this round",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 5.0,
+          "reason": "Parallel discovery extends claims duration",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 5.0,
+          "reason": "D&O/E&O insurers now directly exposed",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -4.0,
+          "reason": "Dual-track undermines FINMA's legal position",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Before we anchor any settlement with FINMA, settle this: do the board and advisers—counsel, auditors, risk committee—get released as part of the FINMA deal, or do we keep those claims live and let insurers face two-bite exposure through 2026? Because that answer changes whether FINMA will even negotiate seriously with us.",
+        "finma_legal": "I'll negotiate a unified settlement: FINMA pays 60 cents, *and* you release the board and advisers from D&O/E&O claims in exchange. Two-track litigation kills my ability to defend this as lawful—if you're suing the advisers for the same trigger language I'm standing on, you're saying the write-down itself was wrongful. Pick one path. What's your number for unified release?",
+        "credit_market_analyst": "Hold on—60 cents plus adviser release, I get it. But here's the issue: if you settle without FINMA publicly stating that Credit Suisse's \"any capital support\" trigger is *not* market-standard boilerplate, Deutsche and Barclays AT1 still reprices on the same risk. Settlement number becomes irrelevant. Will FINMA commit to a public statement distinguishing CS as the outlier, or do we need the bondholder group to publish that analysis independently *before* you anchor the 60?",
+        "institutional_investor": "If FINMA won't distinguish Credit Suisse publicly, then settling at 60 cents just anchors the market on *higher* write-down risk across every AT1 out there. Before I commit capital to this deal, I need your read: does splitting the settlement—FINMA 60 cents, D&O claims running to 2026—actually *increase* the reinsurance tail and kill the AT1 market for the next two years? Because if it does, my money stays out, and we're back to litigation momentum driving everything.",
+        "insurance_observer": "Here's the insurance problem with the split: you settle FINMA at 60 cents, but the moment bondholder_counsel files D&O claims against the board and auditors for the *same trigger language*, reinsurers see two bites at the same apple. They either deny both claims as duplicative or tank the E&O market entirely. So before you anchor the 60, I need to know—will FINMA *require* release of adviser claims as a condition of your settlement, or are you leaving that open as leverage? Because if it's open, you don't have a settlement—you have a lawsuit with a temporary FINMA offer on the table."
+      }
+    },
+    {
+      "round": 3,
+      "agent_id": "finma_legal",
+      "intent": "I'll negotiate a unified settlement: FINMA pays 60 cents, *and* you release the board and advisers from D&O/E&O claims in exchange. Two-track litigation kills my ability to defend this as lawful—if you're suing the advisers for the same trigger language I'm standing on, you're saying the write-down itself was wrongful. Pick one path. What's your number for unified release?",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: bondholder_counsel already filed separate D&O claims this round; unified settlement now moot.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Before we anchor any settlement with FINMA, settle this: do the board and advisers—counsel, auditors, risk committee—get released as part of the FINMA deal, or do we keep those claims live and let insurers face two-bite exposure through 2026? Because that answer changes whether FINMA will even negotiate seriously with us.",
+        "bondholder_counsel": "We're not releasing the advisers. File the D&O and E&O claims this week against the board, counsel, and auditors—separate track, separate counsel, separate discovery. FINMA sees two parallel cases running to 2026, their insurers see accumulation nightmare, our settlement number goes up. That's the leverage play.",
+        "credit_market_analyst": "Hold on—60 cents plus adviser release, I get it. But here's the issue: if you settle without FINMA publicly stating that Credit Suisse's \"any capital support\" trigger is *not* market-standard boilerplate, Deutsche and Barclays AT1 still reprices on the same risk. Settlement number becomes irrelevant. Will FINMA commit to a public statement distinguishing CS as the outlier, or do we need the bondholder group to publish that analysis independently *before* you anchor the 60?",
+        "institutional_investor": "If FINMA won't distinguish Credit Suisse publicly, then settling at 60 cents just anchors the market on *higher* write-down risk across every AT1 out there. Before I commit capital to this deal, I need your read: does splitting the settlement—FINMA 60 cents, D&O claims running to 2026—actually *increase* the reinsurance tail and kill the AT1 market for the next two years? Because if it does, my money stays out, and we're back to litigation momentum driving everything.",
+        "insurance_observer": "Here's the insurance problem with the split: you settle FINMA at 60 cents, but the moment bondholder_counsel files D&O claims against the board and auditors for the *same trigger language*, reinsurers see two bites at the same apple. They either deny both claims as duplicative or tank the E&O market entirely. So before you anchor the 60, I need to know—will FINMA *require* release of adviser claims as a condition of your settlement, or are you leaving that open as leverage? Because if it's open, you don't have a settlement—you have a lawsuit with a temporary FINMA offer on the table."
+      },
+      "_denied_effects_stripped": 2
+    },
+    {
+      "round": 4,
+      "agent_id": "at1_bondholder_group",
+      "intent": "We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was *narrower* on the others, ours was drafted broader. We control the narrative, FINMA doesn't get to bury it, and we walk into settlement talks with proof Credit Suisse is the outlier, not the standard. That holds AT1 pricing and keeps our 65-cent ask credible.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Bondholder group publishes comparative boilerplate analysis showing Credit Suisse trigger language broader than peers.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": 5.0,
+          "reason": "Evidence strengthens legal case",
+          "agent_id": null
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": -4.0,
+          "reason": "Analysis highlights FINMA's outlier position",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": -3.0,
+          "reason": "Frames write-down as contract-specific",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 4.0,
+          "reason": "Clarifies other AT1s safer",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2.0,
+          "reason": "Stronger evidence extends litigation",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Narrative control achieved",
+          "agent_id": "at1_bondholder_group"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": 2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": 2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "bondholder_counsel": "Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers into a known tail and kills the two-bite narrative. FINMA then knows the 65-cent ask is *clean*, no adviser liability overhang. That moves both markets at once and cuts our reinsurance exposure in half.",
+        "finma_legal": "I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viability support\" trigger in Credit Suisse's AT1 was contractually met under the ordinance, and that the write-down was lawful under both the contract terms and Swiss emergency law. No ambiguity, no daylight. You publish the boilerplate analysis showing Credit Suisse drafted broader; we confirm the ordinance applied the trigger as written. That kills the procedural challenge and holds the settlement.",
+        "credit_market_analyst": "Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.",
+        "institutional_investor": "Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit: if that analysis shows Credit Suisse's \"any capital support\" is materially broader than Deutsche and Barclays, I stay in the AT1 market and negotiate 60 cents with FINMA on a clean FINMA-only settlement, no adviser release needed. That's my condition: evidence Credit Suisse is the outlier, or my money leaves and litigation momentum takes over.",
+        "insurance_observer": "Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "bondholder_counsel",
+      "intent": "Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers into a known tail and kills the two-bite narrative. FINMA then knows the 65-cent ask is *clean*, no adviser liability overhang. That moves both markets at once and cuts our reinsurance exposure in half.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: no evidence insurers have agreed to 30-cent settlement in writing; premature announcement without commitment.",
+      "side_effects": [],
+      "visibility": [
+        "bondholder_counsel",
+        "at1_bondholder_group",
+        "insurance_observer"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was *narrower* on the others, ours was drafted broader. We control the narrative, FINMA doesn't get to bury it, and we walk into settlement talks with proof Credit Suisse is the outlier, not the standard. That holds AT1 pricing and keeps our 65-cent ask credible.",
+        "finma_legal": "I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viability support\" trigger in Credit Suisse's AT1 was contractually met under the ordinance, and that the write-down was lawful under both the contract terms and Swiss emergency law. No ambiguity, no daylight. You publish the boilerplate analysis showing Credit Suisse drafted broader; we confirm the ordinance applied the trigger as written. That kills the procedural challenge and holds the settlement.",
+        "credit_market_analyst": "Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.",
+        "institutional_investor": "Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit: if that analysis shows Credit Suisse's \"any capital support\" is materially broader than Deutsche and Barclays, I stay in the AT1 market and negotiate 60 cents with FINMA on a clean FINMA-only settlement, no adviser release needed. That's my condition: evidence Credit Suisse is the outlier, or my money leaves and litigation momentum takes over.",
+        "insurance_observer": "Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 4,
+      "agent_id": "finma_legal",
+      "intent": "I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viability support\" trigger in Credit Suisse's AT1 was contractually met under the ordinance, and that the write-down was lawful under both the contract terms and Swiss emergency law. No ambiguity, no daylight. You publish the boilerplate analysis showing Credit Suisse drafted broader; we confirm the ordinance applied the trigger as written. That kills the procedural challenge and holds the settlement.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA offers 65-cent settlement contingent on joint statement affirming write-down lawfulness and trigger validity.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": -5.0,
+          "reason": "Settlement offer reduces litigation pressure",
+          "agent_id": null,
+          "_action_capped": true
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": 5.0,
+          "reason": "Joint statement validates FINMA position",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": -2.0,
+          "reason": "Framing as contractual reduces contagion",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 3.0,
+          "reason": "Settlement path visible",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -4.0,
+          "reason": "65-cent offer shortens tail",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -3.0,
+          "reason": "Credible settlement path offered",
+          "agent_id": "finma_legal"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -2,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -2,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "claims_tail_severity",
+        "multiplier": 0.5,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was *narrower* on the others, ours was drafted broader. We control the narrative, FINMA doesn't get to bury it, and we walk into settlement talks with proof Credit Suisse is the outlier, not the standard. That holds AT1 pricing and keeps our 65-cent ask credible.",
+        "bondholder_counsel": "Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers into a known tail and kills the two-bite narrative. FINMA then knows the 65-cent ask is *clean*, no adviser liability overhang. That moves both markets at once and cuts our reinsurance exposure in half.",
+        "credit_market_analyst": "Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.",
+        "institutional_investor": "Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit: if that analysis shows Credit Suisse's \"any capital support\" is materially broader than Deutsche and Barclays, I stay in the AT1 market and negotiate 60 cents with FINMA on a clean FINMA-only settlement, no adviser release needed. That's my condition: evidence Credit Suisse is the outlier, or my money leaves and litigation momentum takes over.",
+        "insurance_observer": "Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?"
+      }
+    },
+    {
+      "round": 4,
+      "agent_id": "institutional_investor",
+      "intent": "Here's what actually stops the market exit: publish the boilerplate comparison *independently* this week — bondholder group, not FINMA — and I commit: if that analysis shows Credit Suisse's \"any capital support\" is materially broader than Deutsche and Barclays, I stay in the AT1 market and negotiate 60 cents with FINMA on a clean FINMA-only settlement, no adviser release needed. That's my condition: evidence Credit Suisse is the outlier, or my money leaves and litigation momentum takes over.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "Institutional investor commits to stay in AT1 market and negotiate 60 cents if boilerplate analysis confirms Credit Suisse outlier.",
+      "side_effects": [
+        {
+          "variable": "litigation_momentum",
+          "delta": -3.0,
+          "reason": "Investor signals settlement willingness",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 5.0,
+          "reason": "Major investor commits to market",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -3.0,
+          "reason": "60-cent path shortens tail",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": -2.0,
+          "reason": "Investor accepts outlier framing",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -2.0,
+          "reason": "Clear position articulated",
+          "agent_id": "institutional_investor"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -1,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 0.3,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "We're publishing a detailed comparison this week: Credit Suisse's \"any capital support\" versus Deutsche, Barclays, BNY—show the market the trigger was *narrower* on the others, ours was drafted broader. We control the narrative, FINMA doesn't get to bury it, and we walk into settlement talks with proof Credit Suisse is the outlier, not the standard. That holds AT1 pricing and keeps our 65-cent ask credible.",
+        "bondholder_counsel": "Here's the move: we announce this week that D&O and E&O claims settle *separately* at 30 cents—funded by insurers, not FINMA—which locks reinsurers into a known tail and kills the two-bite narrative. FINMA then knows the 65-cent ask is *clean*, no adviser liability overhang. That moves both markets at once and cuts our reinsurance exposure in half.",
+        "finma_legal": "I'm prepared to settle at 65 cents *on one condition*: we issue a joint statement this week—FINMA and the bondholder group—confirming that the \"viability support\" trigger in Credit Suisse's AT1 was contractually met under the ordinance, and that the write-down was lawful under both the contract terms and Swiss emergency law. No ambiguity, no daylight. You publish the boilerplate analysis showing Credit Suisse drafted broader; we confirm the ordinance applied the trigger as written. That kills the procedural challenge and holds the settlement.",
+        "credit_market_analyst": "Before you announce the 30-cent D&O settlement, have your insurers actually agreed to that number in writing? Because if it's a negotiating anchor without insurer commitment, reinsurers read it as leverage theater, and the two-bite tail stays live. You need them locked in by Friday or the boilerplate play loses its credibility anchor.",
+        "insurance_observer": "Before Friday, you need your insurers—specifically their reinsurers—in writing confirming they'll fund 30 cents capped and tail-closed by 2025. No letter, no anchor, and you're just anchoring higher claims_tail_severity. What's the insurer commitment status right now?"
+      }
+    },
+    {
+      "round": 5,
+      "agent_id": "at1_bondholder_group",
+      "intent": "Call the insurers *right now*—not next week, not Monday. Tell them: 30-cent cap on D&O claims, tail closed by end of 2025, or we walk the FINMA settlement and go full litigation. They need signed commitment in writing by Friday or we're treating this as a two-bite exposure and letting the claims run hot. That's the only move that makes the FINMA number stick.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Denied: finma_legal already calling insurers this round with identical demand; redundant action.",
+      "side_effects": [],
+      "visibility": [
+        "at1_bondholder_group",
+        "finma_legal"
+      ],
+      "dynamic_nhe": null,
+      "classification": "action",
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 5,
+      "agent_id": "finma_legal",
+      "intent": "I'm calling the D&O carriers in the next two hours with a specific demand: 30-cent cap, all claims released by December 31, 2025, and their reinsurers on the hook in writing. If they won't commit by Friday close, I'm filing notice that FINMA's settlement is void due to unresolved adviser liability—that forces them to face unlimited tail exposure anyway. Either they lock it down now or they're writing checks for years.",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA issues ultimatum to D&O carriers: 30-cent cap and tail closure by Friday or settlement voids.",
+      "side_effects": [
+        {
+          "variable": "claims_tail_severity",
+          "delta": -4.0,
+          "reason": "Hard deadline forces insurer commitment",
+          "agent_id": null
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -5.0,
+          "reason": "Cap proposal directly addresses carrier exposure",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -3.0,
+          "reason": "Settlement path becomes concrete with insurer lock",
+          "agent_id": null
+        },
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": 2.0,
+          "reason": "FINMA assertiveness shows control of process",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": 4.0,
+          "reason": "High-stakes brinkmanship with carriers",
+          "agent_id": "finma_legal"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -1,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -1,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "delayed",
+        "name": "Insurer commitment locks claims tail",
+        "target_nha": "market_reaction",
+        "variable": "claims_tail_severity",
+        "multiplier": 0.2,
+        "prep_duration": 2,
+        "blocks_agent": false,
+        "prep_rules": [
+          {
+            "variable": "claims_tail_severity",
+            "delta": -2,
+            "description": "Carrier negotiation progress reduces tail uncertainty"
+          }
+        ]
+      },
+      "classification": "action"
+    },
+    {
+      "round": 5,
+      "agent_id": "bondholder_counsel",
+      "intent": "I'm calling the lead D&O carrier today—not Friday, today. Tell them: 30 cents capped, all claims closed and released by December 31, 2025, reinsurers on the hook in writing, or I'm letting this litigation run hot and they face unlimited exposure through trial. They sign by end of week or we walk every settlement talk and anchor the claims_tail at full litigation value. That's the move that kills the two-bite narrative and holds the FINMA number.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "The proposal assumes a coordinated multi-party ultimatum to D&O carriers without prior alignment or preliminary signals. Three agents (credit_market_analyst, institutional_investor, insurance_observer) explicitly flag unresolved dependencies: boilerplate comparison results, the 60-cent commitment's conditionality, and carrier receptiveness. Making simultaneous ultimatum calls without answering these questions risks carrier stall-tactics and loss of negotiating leverage.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Call the insurers *right now*—not next week, not Monday. Tell them: 30-cent cap on D&O claims, tail closed by end of 2025, or we walk the FINMA settlement and go full litigation. They need signed commitment in writing by Friday or we're treating this as a two-bite exposure and letting the claims run hot. That's the only move that makes the FINMA number stick.",
+        "finma_legal": "I'm calling the D&O carriers in the next two hours with a specific demand: 30-cent cap, all claims released by December 31, 2025, and their reinsurers on the hook in writing. If they won't commit by Friday close, I'm filing notice that FINMA's settlement is void due to unresolved adviser liability—that forces them to face unlimited tail exposure anyway. Either they lock it down now or they're writing checks for years.",
+        "credit_market_analyst": "One thing before we lock the insurer call: does your 60-cent stay-in-the-market commitment hold even if the boilerplate comparison shows Deutsche and Barclays *also* have broad \"viability support\" language—just worded slightly different? Because if it does, you've just anchored the whole market at 60 cents on write-down risk. If it doesn't, settling here just moves the repricing to the next issuer.",
+        "institutional_investor": "The boilerplate comparison that dropped this week—does it actually show Credit Suisse's \"any capital support\" was *narrower* than Deutsche and Barclays, or did you find they all carry similar broad language? Because if it's market-standard, my 60-cent commitment is done and we're back to full litigation. I need that answer before the insurer calls land.",
+        "insurance_observer": "Before you dial the carriers, have you already got preliminary signals from their risk teams that 30 cents is even in their ballpark? Because if this is a cold call with a take-it-or-litigation threat, they'll stall through Friday and we lose the anchor. I need to know what's actually on the table with them *before* you make that call."
+      },
+      "_denied_effects_stripped": 3
+    },
+    {
+      "round": 6,
+      "agent_id": "bondholder_counsel",
+      "intent": "I'm not releasing the advisers. Here's what actually works: FINMA settles bondholder claims at 60 cents, insurers fund D&O at 30 cents with tail closed 2025 — *both claims proceed independently*, no cross-release. Advisers stay exposed, reinsurers stay anchored to the 30-cent cap, and we don't hand FINMA a joint statement validating the write-down. That's the only way this holds.",
+      "approved": false,
+      "outcome_category": "denied",
+      "ruling_narrative": "Dual-track settlement rejected: insurers require unified release, reinsurers won't commit without cross-claim closure.",
+      "side_effects": [],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": null,
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Before Friday hits and this falls apart: did the carriers give you *anything* in writing — even a preliminary commitment letter — that 30 cents is actually on the table, or did you just hang a deadline on a cold call? Because if they're stalling through Friday, the whole settlement narrative dies and we're back to litigation momentum.",
+        "finma_legal": "You're right that releasing advisers hands us a precedent problem—I get it. But here's the hard truth: without that release, your insurers walk in 48 hours. Reinsurers read \"two independent claims\" as \"two separate triggers,\" and suddenly the 30-cent D&O cap becomes a down payment, not a cap. You keep adviser exposure live, but you lose the anchor that was supposed to hold the market. What if we frame it differently—advisers get released from the bondholder settlement *only*, but D&O carriers still face the full separate claims tail? Does that move the needle?",
+        "credit_market_analyst": "FINMA, here's the real ask: could you distinguish Credit Suisse's trigger as \"operationally broader\" in the execution, not the drafting—i.e., the bank's capital position made it cross the line faster than peers would have under identical language? That's factual, doesn't validate their legal theory, but gives carriers enough cover to close at 30 cents. Does that lane exist, or are we genuinely locked?",
+        "institutional_investor": "Here's the move: FINMA issues a *factual* statement—not legal validation—saying Credit Suisse's capital position and trigger velocity made their AT1 unique in execution, even if the language tracks Deutsche and Barclays. That kills contagion fears for reinsurers, lets you both settle clean, and I'm back in at 60 cents. Does that lane exist, or are we genuinely forced to litigation?",
+        "insurance_observer": "FINMA, real talk: those three carriers gave you preliminary signals, but are their reinsurers *actually* on the hook in writing for 30-cent tail closure through end-2025? Because if it's just risk committee comfort without reinsurer commitment, the moment you try to lock the settlement, they disappear and we're funding a two-bite claims tail for the next three years. What's the actual paper status right now?"
+      },
+      "_denied_effects_stripped": 1
+    },
+    {
+      "round": 6,
+      "agent_id": "institutional_investor",
+      "intent": "Here's the move: FINMA issues a *factual* statement—not legal validation—saying Credit Suisse's capital position and trigger velocity made their AT1 unique in execution, even if the language tracks Deutsche and Barclays. That kills contagion fears for reinsurers, lets you both settle clean, and I'm back in at 60 cents. Does that lane exist, or are we genuinely forced to litigation?",
+      "approved": true,
+      "outcome_category": "approved",
+      "ruling_narrative": "FINMA drafts factual execution-distinction statement; reinsurer contagion fears partially addressed, settlement path reopened.",
+      "side_effects": [
+        {
+          "variable": "regulatory_legitimacy",
+          "delta": 4.0,
+          "reason": "Factual framing preserves legal position",
+          "agent_id": null
+        },
+        {
+          "variable": "hierarchy_precedent_damage",
+          "delta": -3.0,
+          "reason": "Execution distinction limits contagion narrative",
+          "agent_id": null
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 5.0,
+          "reason": "Differentiation reduces broader AT1 panic",
+          "agent_id": null
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -4.0,
+          "reason": "Settlement path reopened, litigation risk reduced",
+          "agent_id": null
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -3.0,
+          "reason": "Factual statement creates settlement incentive",
+          "agent_id": null
+        },
+        {
+          "variable": "stress",
+          "delta": -4.0,
+          "reason": "Breakthrough on contagion impasse",
+          "agent_id": "institutional_investor"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -2,
+          "reason": "coupling: regulatory_legitimacy → litigation_momentum (ratio -0.5)",
+          "_coupled": true,
+          "_source": "regulatory_legitimacy"
+        },
+        {
+          "variable": "at1_market_confidence",
+          "delta": 1,
+          "reason": "coupling: hierarchy_precedent_damage → at1_market_confidence (ratio -0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "litigation_momentum",
+          "delta": -1,
+          "reason": "coupling: hierarchy_precedent_damage → litigation_momentum (ratio 0.4)",
+          "_coupled": true,
+          "_source": "hierarchy_precedent_damage"
+        },
+        {
+          "variable": "claims_tail_severity",
+          "delta": -1,
+          "reason": "coupling: litigation_momentum → claims_tail_severity (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: litigation_momentum → financial_lines_exposure (ratio 0.5)",
+          "_coupled": true,
+          "_source": "litigation_momentum"
+        },
+        {
+          "variable": "financial_lines_exposure",
+          "delta": -1,
+          "reason": "coupling: claims_tail_severity → financial_lines_exposure (ratio 0.4)",
+          "_coupled": true,
+          "_source": "claims_tail_severity"
+        }
+      ],
+      "visibility": [
+        "all"
+      ],
+      "dynamic_nhe": {
+        "effect_type": "temporary",
+        "target_nha": "market_reaction",
+        "variable": "at1_market_confidence",
+        "multiplier": 1.4,
+        "duration": 2,
+        "blocks_agent": false
+      },
+      "classification": "proposal",
+      "_reactions": {
+        "at1_bondholder_group": "Before Friday hits and this falls apart: did the carriers give you *anything* in writing — even a preliminary commitment letter — that 30 cents is actually on the table, or did you just hang a deadline on a cold call? Because if they're stalling through Friday, the whole settlement narrative dies and we're back to litigation momentum.",
+        "bondholder_counsel": "I'm not releasing the advisers. Here's what actually works: FINMA settles bondholder claims at 60 cents, insurers fund D&O at 30 cents with tail closed 2025 — *both claims proceed independently*, no cross-release. Advisers stay exposed, reinsurers stay anchored to the 30-cent cap, and we don't hand FINMA a joint statement validating the write-down. That's the only way this holds.",
+        "finma_legal": "You're right that releasing advisers hands us a precedent problem—I get it. But here's the hard truth: without that release, your insurers walk in 48 hours. Reinsurers read \"two independent claims\" as \"two separate triggers,\" and suddenly the 30-cent D&O cap becomes a down payment, not a cap. You keep adviser exposure live, but you lose the anchor that was supposed to hold the market. What if we frame it differently—advisers get released from the bondholder settlement *only*, but D&O carriers still face the full separate claims tail? Does that move the needle?",
+        "credit_market_analyst": "FINMA, here's the real ask: could you distinguish Credit Suisse's trigger as \"operationally broader\" in the execution, not the drafting—i.e., the bank's capital position made it cross the line faster than peers would have under identical language? That's factual, doesn't validate their legal theory, but gives carriers enough cover to close at 30 cents. Does that lane exist, or are we genuinely locked?",
+        "insurance_observer": "FINMA, real talk: those three carriers gave you preliminary signals, but are their reinsurers *actually* on the hook in writing for 30-cent tail closure through end-2025? Because if it's just risk committee comfort without reinsurer commitment, the moment you try to lock the settlement, they disappear and we're funding a two-bite claims tail for the next three years. What's the actual paper status right now?"
+      }
+    }
+  ],
+  "metrics_timeline": {
+    "global": {
+      "litigation_momentum": [
+        {
+          "round": 1,
+          "value": 54.0
+        },
+        {
+          "round": 2,
+          "value": 60.0
+        },
+        {
+          "round": 3,
+          "value": 67.0
+        },
+        {
+          "round": 4,
+          "value": 63.0
+        },
+        {
+          "round": 5,
+          "value": 59.0
+        },
+        {
+          "round": 6,
+          "value": 53.0
+        }
+      ],
+      "regulatory_legitimacy": [
+        {
+          "round": 1,
+          "value": 43.0
+        },
+        {
+          "round": 2,
+          "value": 40.0
+        },
+        {
+          "round": 3,
+          "value": 36.0
+        },
+        {
+          "round": 4,
+          "value": 37.0
+        },
+        {
+          "round": 5,
+          "value": 39.0
+        },
+        {
+          "round": 6,
+          "value": 43.0
+        }
+      ],
+      "hierarchy_precedent_damage": [
+        {
+          "round": 1,
+          "value": 51.0
+        },
+        {
+          "round": 2,
+          "value": 52.9
+        },
+        {
+          "round": 3,
+          "value": 56.8
+        },
+        {
+          "round": 4,
+          "value": 52.8
+        },
+        {
+          "round": 5,
+          "value": 55.8
+        },
+        {
+          "round": 6,
+          "value": 55.8
+        }
+      ],
+      "at1_market_confidence": [
+        {
+          "round": 1,
+          "value": 24.0
+        },
+        {
+          "round": 2,
+          "value": 23.5
+        },
+        {
+          "round": 3,
+          "value": 19.9
+        },
+        {
+          "round": 4,
+          "value": 24.5
+        },
+        {
+          "round": 5,
+          "value": 22.7
+        },
+        {
+          "round": 6,
+          "value": 25.7
+        }
+      ],
+      "claims_tail_severity": [
+        {
+          "round": 1,
+          "value": 45.0
+        },
+        {
+          "round": 2,
+          "value": 52.0
+        },
+        {
+          "round": 3,
+          "value": 61.0
+        },
+        {
+          "round": 4,
+          "value": 57.0
+        },
+        {
+          "round": 5,
+          "value": 53.0
+        },
+        {
+          "round": 6,
+          "value": 47.0
+        }
+      ],
+      "financial_lines_exposure": [
+        {
+          "round": 1,
+          "value": 34.0
+        },
+        {
+          "round": 2,
+          "value": 37.0
+        },
+        {
+          "round": 3,
+          "value": 46.0
+        },
+        {
+          "round": 4,
+          "value": 43.0
+        },
+        {
+          "round": 5,
+          "value": 36.0
+        },
+        {
+          "round": 6,
+          "value": 34.0
+        }
+      ]
+    },
+    "per_agent": {}
+  },
+  "final_outcome": {
+    "type": "partial",
+    "reason": "",
+    "round_ended": 6,
+    "per_agent_scores": {
+      "at1_bondholder_group": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 53.0,
+            "normalised": 0.53
+          },
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 55.8,
+            "normalised": 0.5579999999999999
+          }
+        ],
+        "weighted_score": 0.5393333333333332
+      },
+      "bondholder_counsel": {
+        "scores": [
+          {
+            "metric": "litigation_momentum",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 53.0,
+            "normalised": 0.53
+          },
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 43.0,
+            "normalised": 0.5700000000000001
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 47.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.525
+      },
+      "finma_legal": {
+        "scores": [
+          {
+            "metric": "regulatory_legitimacy",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 43.0,
+            "normalised": 0.43
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 53.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.4433333333333333
+      },
+      "credit_market_analyst": {
+        "scores": [
+          {
+            "metric": "hierarchy_precedent_damage",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 55.8,
+            "normalised": 0.5579999999999999
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.1,
+            "value": 47.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.5404
+      },
+      "institutional_investor": {
+        "scores": [
+          {
+            "metric": "at1_market_confidence",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 25.7,
+            "normalised": 0.257
+          },
+          {
+            "metric": "litigation_momentum",
+            "direction": "minimize",
+            "weight": 0.2,
+            "value": 53.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.32799999999999996
+      },
+      "insurance_observer": {
+        "scores": [
+          {
+            "metric": "financial_lines_exposure",
+            "direction": "maximize",
+            "weight": 0.4,
+            "value": 34.0,
+            "normalised": 0.34
+          },
+          {
+            "metric": "claims_tail_severity",
+            "direction": "maximize",
+            "weight": 0.2,
+            "value": 47.0,
+            "normalised": 0.47
+          }
+        ],
+        "weighted_score": 0.3833333333333333
+      }
+    }
+  }
+}
