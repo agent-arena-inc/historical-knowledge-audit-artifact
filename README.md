@@ -26,8 +26,9 @@ cd historical-knowledge-audit-artifact
 make all
 ```
 
-`make all` rebuilds the manifest, audit-instrument snapshot, and provisional
-evidence table from `data/cases`, then verifies file hashes and anonymity. The
+`make all` rebuilds the manifest, audit-instrument snapshot, provisional
+evidence table, and harmonized organizational decision-output table from
+`data/cases`, then verifies file hashes and anonymity. The
 scripts never modify source transcripts or cached model outputs. No network,
 third-party package, API credential, or proprietary simulation engine is needed
 for this recomputation level.
@@ -55,6 +56,7 @@ historical-knowledge-audit-artifact/
 └── scripts/
     ├── build_run_manifest.py
     ├── freeze_audit_instruments.py
+    ├── extract_decision_outputs.py
     ├── reproduce_provisional_table.py
     ├── stage_release.py
     └── verify_artifact.py

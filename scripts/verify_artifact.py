@@ -15,15 +15,24 @@ from pathlib import Path
 REQUIRED_RELEASE_FILES = [
     "README.md",
     "RELEASE_INVENTORY.md",
+    "SUBMISSION_CHECKLIST.md",
+    "TECHNICAL_APPENDIX.md",
     "docs/annotation_codebook.md",
     "docs/evidence_reconciliation.md",
+    "docs/model_provenance.md",
+    "docs/proposal_corrections.md",
     "docs/reproducibility_levels.md",
     "docs/transcript_schema.md",
     "schemas/annotation.schema.json",
     "data/annotations/annotation_template.csv",
+    "data/annotations/organizational_inference_template.csv",
     "data/audit_instruments/current_instruments.json",
+    "data/derived/decision_output_summary.md",
+    "data/derived/decision_outputs.csv",
     "data/manifests/run_manifest.csv",
+    "data/manifests/provenance_reconstruction.csv",
     "data/derived/provisional_evidence_table.csv",
+    "scripts/extract_decision_outputs.py",
 ]
 
 

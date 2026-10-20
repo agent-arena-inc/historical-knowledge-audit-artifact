@@ -18,6 +18,9 @@ simulation service.
 - [x] Organizational-inference table with candidate conclusions and explicit
       pending fields.
 - [x] Model-provenance gap inventory.
+- [x] Medium-confidence model-route reconstruction with unresolved fields kept
+      explicit.
+- [x] Harmonized run-level table for the 160 existing focal decision outputs.
 
 ## Required before Stage 1 submission
 

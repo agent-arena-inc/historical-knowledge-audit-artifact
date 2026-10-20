@@ -70,6 +70,9 @@ requires a suitable control or intervention.
 
 Candidate conclusions and the still-empty human-evidence fields are exposed in
 `data/annotations/organizational_inference_template.csv`.
+The 160 existing run-level outputs for the four focal stages are harmonized in
+`data/derived/decision_outputs.csv`, with path frequencies and selected-marker
+distributions in `data/derived/decision_output_summary.md`.
 
 ## F. Reproducibility
 
