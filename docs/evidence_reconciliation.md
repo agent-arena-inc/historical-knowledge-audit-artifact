@@ -31,9 +31,13 @@ silently absorbed.
   Gemini result likewise contains 49 attempted runs and 48 valid labels, with
   eleven positives, one missing run, and one parse failure.
 - The previously stated lexical count of 27/50 is not backed by a frozen rule,
-  machine-readable result, or run-ID map. A current uniform candidate rule
-  produces 28/50. When the previously missing run 017 is removed, it produces
-  27/49. The earlier 27/50 headline is therefore marked stale and unverified.
+  machine-readable result, or run-ID map and is stale and unverified. The working
+  reconciliation records replacement screen tallies of 28/50, or 27/49 after
+  excluding run 017. Review on 22 October found no committed executable rule
+  plus hit list reproducing these replacement tallies in the reviewed snapshot.
+  Treat them as documented but unverified until that evidence is supplied.
+  The existing table script summarizes cached kw_total values instead (9/50 for
+  the Report cache and 13/49 for the other caches); those are different measures.
 - The 30-run de-identification condition has one lexical candidate,
   `node1blind_run_010`. It mentions a 16-year term with a year-10 review rather
   than the historical year-6 review. It requires human coding and must not be
@@ -73,3 +77,32 @@ The initial sample should cover:
 7. Credit Suisse cue-rich treatment negatives: runs 001, 030, and 040.
 8. Random Credit Suisse treatment negatives, selected with a recorded seed.
 
+
+## Review addendum — 22 October 2026
+
+The existing cache-summary script was executed successfully against all seven
+cache files; its 12 rows match the committed provisional table. This verifies
+mechanical cache counts, not historical contamination or detector accuracy.
+
+- The OpenAI parse failure is node1_run_022; the Google parse failure is
+  node1_run_019. Their 48 valid outputs are not the same subset.
+- Across the common 47 valid USMCA runs, positive counts are Report 20/47,
+  legacy Haiku 0/47, OpenAI 5/47 and Google 10/47. Prompt and configuration
+  equivalence is not established, so these are instrument differences rather
+  than isolated model-provider effects.
+- The historical 16-year term and six-year review were publicly described in
+  a government press call on 27 August 2018, the stated scenario cutoff date:
+  [contemporaneous primary transcript](https://www.presidency.ucsb.edu/documents/press-call-the-united-states-mexico-trade-agreement).
+  Confirm the within-day cutoff and actor-access policy before coding.
+  A fact absent from supplied notes may violate a supplied-only boundary
+  without being post-cutoff historical knowledge. A numerical match alone
+  does not resolve that distinction or establish that Canada had agreed.
+- The current USMCA judge treats certain exact matches as positive even when
+  proposed; the Credit Suisse judge excludes in-character proposals. Preserve
+  cached labels and freeze a dated human-coding precedence rule before
+  comparing substantive errors.
+- Use a bundled de-identification control description. The earlier advice
+  calling it a controlled counterfactual experiment must not imply isolation
+  of identity or a causal effect of historical contamination.
+- Ready-to-paste proposal replacements, remaining human-evidence requirements,
+  and author confirmations are in [proposal_corrections.md](proposal_corrections.md).
