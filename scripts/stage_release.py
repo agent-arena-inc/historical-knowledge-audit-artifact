@@ -40,7 +40,8 @@ def copy_artifact_code(artifact_root: Path, destination: Path) -> None:
             continue
         rel = source.relative_to(artifact_root)
         if (
-            "__pycache__" in rel.parts
+            ".git" in rel.parts
+            or "__pycache__" in rel.parts
             or ".ruff_cache" in rel.parts
             or rel.suffix == ".pyc"
             or is_internal_only(rel)

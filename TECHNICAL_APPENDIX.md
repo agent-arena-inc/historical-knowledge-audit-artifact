@@ -44,11 +44,12 @@ information violation. Current automated counts are reconstructed in
 
 ## D. Human annotation and adjudication
 
-Two coders independently apply the frozen codebook to a sample containing
+During the development stage, two coders will independently apply the codebook
+to a frozen sample containing
 suspected positives, evaluator disagreements, randomly selected automated
 negatives, the USMCA de-identification candidate, and all five Credit Suisse
 seeded outputs. Coders receive the admissible input context but not original run
-IDs, selection strata, or automated labels. Disagreements are resolved through
+IDs, selection strata, or automated labels. Disagreements will be resolved through
 documented adjudication after both worksheets are frozen.
 
 The final report will distinguish human-to-human agreement, each automated

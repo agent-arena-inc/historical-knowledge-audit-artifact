@@ -1,7 +1,8 @@
 # Proposal corrections supported by the current artifact
 
-This memo supplies conservative wording for the proposal while independent
-human coding remains pending. It should be updated after adjudication.
+This drafting aid records evidence-consistent wording while independent human
+coding remains planned. It is not a list of required edits or new experiments.
+Use the generated cached-judgment table as the numerical reference.
 
 ## Central question
 
@@ -23,9 +24,12 @@ Use:
 > and invocation provenance for faithful reconstruction. These are automated
 > detector responses, not human-verified contamination rates.
 
-Do not use the earlier `27/50` lexical headline. The frozen current candidate
-rule yields `28/50`; excluding the run absent from an older cache yields
-`27/49`, not `27/50`.
+The earlier `27/50` lexical headline lacks its original frozen rule and run-ID
+map. Later working notes report `28/50` and `27/49` excluding run 017, but those
+replacement tallies are not reconstructed by the committed aggregation script.
+Use the reproducible cached-judge counts above for preliminary numerical claims.
+The table's `keyword_positive` field summarizes stored `kw_total` values and is
+a separate measure.
 
 For the 30-run de-identification condition, use:
 
@@ -52,7 +56,10 @@ For the five-run seeded condition, use:
 > figures characterize detector response rather than detector accuracy;
 > correctness must be assessed against independently labeled generated text.
 
-## Control-language corrections
+## Interpretation guidance
+
+These distinctions guide interpretation; existing proposal language that
+already respects them does not need additional editing.
 
 - Call the USMCA manipulation a **de-identification and anonymization controlled
   counterfactual experiment**.
