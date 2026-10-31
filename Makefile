@@ -1,5 +1,5 @@
 PYTHON ?= python3
-SOURCE_ROOT ?= $(if $(wildcard data/cases),data/cases,../AgentArena/demos)
+SOURCE_ROOT ?= data/cases
 VERIFY_MODE := $(if $(wildcard data/annotations/private_sample_key.csv),,--release-mode)
 
 .PHONY: manifest instruments table decisions verify all

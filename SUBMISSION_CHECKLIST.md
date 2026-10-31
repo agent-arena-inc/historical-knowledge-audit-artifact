@@ -23,13 +23,13 @@ completed evidence.
 
 ## Final submission handoff
 
-- [ ] Select the final submission commit after its verification workflow passes.
+- [ ] Freeze the final merged commit as Release `stage1-2026-10-31` after CI passes.
 - [ ] Confirm preliminary numerical claims in the submitted proposal and
       appendix match the generated cached-judgment table and its denominators.
       Do not use an unreproduced lexical tally as a verified headline result.
 - [ ] Upload the verified `reviewer-release.zip` to the submission portal or
       editor's review server; confirm the submitted materials are accessible
-      without access to this private repository.
+      through the portal or the fixed public Release assets.
 - [ ] Check the submitted proposal, appendix, and document metadata for author
       identifiers. Keep the archive and checksum as the frozen submission copy.
 

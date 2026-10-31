@@ -26,6 +26,7 @@ jobs:
           cd "$RUNNER_TEMP/reviewer-release"
           test ! -e .git
           make all
+          python scripts/verify_artifact.py --release-mode --reviewer-package --source-root data/cases
       - name: Archive reviewer release
         run: |
           python - <<'PY'

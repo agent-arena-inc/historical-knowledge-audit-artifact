@@ -5,7 +5,9 @@ recomputation and verification commands from an extracted reviewer ZIP.
 
 - Recorded execution time: 2026-10-28 23:33:30 +08:00.
 - Environment evidence: Windows-style output paths and `python3` commands.
-  OS version and Python version were not recorded.
+  The supplied handoff reports Windows 11, Python 3.11.9, `make all`,
+  no developer assistance, and no API costs. These details are not recorded
+  in the terminal log itself.
 - Distribution: extracted ZIP, according to the test handoff and working path.
 - Result: exit code 0; elapsed time 23 seconds.
 - [Original returned terminal log](terminal_output_B.txt), preserved byte-for-byte.
@@ -20,6 +22,10 @@ recomputation and verification commands from an extracted reviewer ZIP.
 | Verify release artifact | `artifact verification passed` |
 
 ## Scope and version limits
+
+No independent Test A report or predefined A/B comparison protocol is supplied.
+"Test B" identifies the returned execution record; it does not establish an
+experimental comparison.
 
 This is one reported external-user execution and supports the usability of the
 Level-1 ZIP instructions for that execution. It does not establish independent

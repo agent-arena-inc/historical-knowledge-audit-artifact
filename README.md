@@ -25,7 +25,9 @@ final inference assessment are planned for the development stage.
 
 ## Reproduce the supplied results
 
-Download **Code → Download ZIP** from this repository, extract it, and open a
+Use the frozen reviewer ZIP and checksum from the repository's **Releases** page
+for submission. **Code → Download ZIP** follows the selected branch and is not a
+frozen submission package. Extract the reviewer ZIP and open a
 terminal in the extracted directory containing `Makefile` and `README.md`.
 Reviewers using the submitted archive can start in its extracted directory.
 Python 3.10 or newer and `make` are sufficient:
@@ -80,11 +82,12 @@ successful Actions run and extract the download. The enclosed
 `reviewer-release.zip` is the self-contained reviewer package;
 `reviewer-release.zip.sha256` records its checksum.
 
-Upload the archive to the submission portal or the editor's review server.
-A private repository URL or an Actions download link alone does not give
-reviewers access. The repository can remain private; the archive supplies the
-materials needed to reproduce the reported cached analyses. Keep the submitted
-archive and checksum as the frozen submission version.
+The repository is public. Publish the verified ZIP and checksum as fixed Release
+assets for direct download; Actions artifacts are temporary build outputs.
+Upload the same ZIP to the submission portal or the editor's review server.
+Keep the submitted archive and checksum as the frozen submission version.
+The reviewer ZIP excludes Git metadata, workflow configuration, active coder
+materials, internal proposal revisions, and the internal submission checklist.
 
 To stage the same package locally, use an empty destination outside this
 checkout:
@@ -107,12 +110,14 @@ Separate evaluator-blinded coder packets and their private sample key belong
 to the internal study workspace and are excluded from the reviewer release.
 De-identified adjudicated annotations can be added after coding is frozen.
 
-See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) for the short submission
-handoff and the separate development plan. The
-[proposal wording memo](docs/proposal_corrections.md) is a drafting aid; the
-generated evidence table is the numerical reference.
-
 ## External usability evidence
 
 [Test B](docs/usability/test_b.md) records a successful execution from an extracted
 reviewer ZIP, with the original returned terminal log and its version limits.
+
+## Worked example and provenance limits
+
+Follow [USMCA run 006](docs/worked_example.md) from its input configuration and
+transcript through four cached audit judgments to the extracted organizational
+output. The manifest records run IDs, conditions, paths, hashes, and provenance
+status. It does not supply complete per-run model invocation configurations.

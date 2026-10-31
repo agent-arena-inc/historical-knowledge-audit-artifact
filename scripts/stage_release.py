@@ -21,11 +21,17 @@ INTERNAL_ONLY_PATHS = {
     Path("data/annotations/private_sample_key.csv"),
     Path("data/annotations/sample_plan.csv"),
     Path("scripts/build_coder_packets.py"),
+    Path("docs/proposal_corrections.md"),
+    Path("SUBMISSION_CHECKLIST.md"),
 }
 
 
 def is_internal_only(rel: Path) -> bool:
-    return rel in INTERNAL_ONLY_PATHS or rel.parts[:2] == ("data", "coder_packets")
+    return (
+        rel in INTERNAL_ONLY_PATHS
+        or rel.parts[:2] == ("data", "coder_packets")
+        or ".github" in rel.parts
+    )
 
 
 def require_empty_destination(destination: Path) -> None:

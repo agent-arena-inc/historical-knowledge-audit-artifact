@@ -15,14 +15,13 @@ from pathlib import Path
 REQUIRED_RELEASE_FILES = [
     "README.md",
     "RELEASE_INVENTORY.md",
-    "SUBMISSION_CHECKLIST.md",
     "TECHNICAL_APPENDIX.md",
     "docs/annotation_codebook.md",
     "docs/evidence_reconciliation.md",
     "docs/model_provenance.md",
-    "docs/proposal_corrections.md",
     "docs/reproducibility_levels.md",
     "docs/transcript_schema.md",
+    "docs/worked_example.md",
     "docs/usability/test_b.md",
     "docs/usability/terminal_output_B.txt",
     "schemas/annotation.schema.json",
@@ -57,6 +56,13 @@ INTERNAL_ONLY_PATHS = [
     "data/annotations/private_sample_key.csv",
     "data/coder_packets",
     "scripts/build_coder_packets.py",
+]
+
+
+REVIEWER_EXCLUDED_PATHS = [
+    "docs/proposal_corrections.md",
+    "SUBMISSION_CHECKLIST.md",
+    ".github",
 ]
 
 
@@ -216,7 +222,12 @@ def verify_anonymity(artifact_root: Path, identifiers: tuple[str, ...] = ()) -> 
     errors: list[str] = []
     text_suffixes = {".md", ".txt", ".csv", ".json", ".py", ".toml", ".yaml", ".yml"}
     for path in artifact_root.rglob("*"):
-        if not path.is_file() or path.suffix.lower() not in text_suffixes:
+        if ".git" in path.relative_to(artifact_root).parts:
+            continue
+        if not path.is_file() or (
+            path.suffix.lower() not in text_suffixes
+            and path.name not in {"Makefile", "Dockerfile", "LICENSE", ".gitignore"}
+        ):
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         patterns = dict(ANONYMITY_PATTERNS)
@@ -243,6 +254,10 @@ def main() -> None:
         help="verify a reviewer release with internal coding materials removed",
     )
     parser.add_argument(
+        "--reviewer-package", action="store_true",
+        help="also reject internal submission documents and workflow configuration",
+    )
+    parser.add_argument(
         "--identity-blocklist", type=Path,
         help="private UTF-8 file with one author identifier per line; keep outside the release",
     )
@@ -265,6 +280,11 @@ def main() -> None:
         errors.extend(verify_internal_files_absent(artifact_root))
     else:
         errors.extend(verify_coder_packets(artifact_root))
+    if args.reviewer_package:
+        errors.extend(
+            f"internal-only path present in reviewer package: {rel}"
+            for rel in REVIEWER_EXCLUDED_PATHS if (artifact_root / rel).exists()
+        )
     errors.extend(verify_anonymity(artifact_root, identifiers))
     if errors:
         for error in errors:

@@ -85,6 +85,26 @@ access arrangement for regenerating simulations. The current release establishes
 Level 1; Levels 2 and 3 remain bounded as documented in
 `docs/reproducibility_levels.md` and `docs/model_provenance.md`.
 
+### External execution evidence
+
+On October 28, 2026, an external tester returned a successful Level-1 ZIP
+execution log: 286 manifest rows (280 candidates), two instruments, 12 summary
+rows, 160 decision outputs, verification passed, exit code 0, and 23 seconds.
+The [Test B record](docs/usability/test_b.md) and original log are included.
+The supplied handoff additionally reports Windows 11 and Python 3.11.9; these
+versions and the absence of developer assistance or API costs are not recorded
+in the terminal log itself. This is an extracted-ZIP test, not a fresh clone
+or a formal A/B comparison. The log does not pin a commit or ZIP checksum and
+predates the anonymity repair; no external retest of the final package is claimed.
+
+### Concrete evidence chain
+
+The [worked example](docs/worked_example.md) traces USMCA run 006 from its
+configuration and transcript to cached audit judgments and the final extracted
+decision. It separates observed reuse from unvalidated contamination and causal
+influence. The manifest supplies run IDs, conditions, file hashes, and model
+provenance status; exact per-run model invocation configurations remain missing.
+
 ## G. Limitations
 
 Passing the audit battery does not establish absence of latent historical
