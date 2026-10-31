@@ -28,7 +28,7 @@ Status labels:
 | Final organizational-conclusion evidence table | Planned | Development-stage links from evidence to supported inference |
 | Complete historical audit invocation and API cost record | Planned where recoverable | Needed before claiming faithful Level-2 rerunnability |
 | Simulation-regeneration access arrangement | Planned | Needed before offering Level-3 regeneration |
-| External-user execution record | Planned usability check | Additional evidence that the instructions work outside the team |
+| [Test B external-user execution record](docs/usability/test_b.md) and original terminal log | Available | One successful Level-1 ZIP execution; exact tested revision was not captured |
 
 ## Stage 1 submission handoff
 

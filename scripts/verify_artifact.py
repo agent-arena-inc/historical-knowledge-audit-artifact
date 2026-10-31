@@ -23,6 +23,8 @@ REQUIRED_RELEASE_FILES = [
     "docs/proposal_corrections.md",
     "docs/reproducibility_levels.md",
     "docs/transcript_schema.md",
+    "docs/usability/test_b.md",
+    "docs/usability/terminal_output_B.txt",
     "schemas/annotation.schema.json",
     "data/annotations/annotation_template.csv",
     "data/annotations/organizational_inference_template.csv",

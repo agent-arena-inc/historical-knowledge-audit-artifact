@@ -111,3 +111,8 @@ See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) for the short submission
 handoff and the separate development plan. The
 [proposal wording memo](docs/proposal_corrections.md) is a drafting aid; the
 generated evidence table is the numerical reference.
+
+## External usability evidence
+
+[Test B](docs/usability/test_b.md) records a successful execution from an extracted
+reviewer ZIP, with the original returned terminal log and its version limits.

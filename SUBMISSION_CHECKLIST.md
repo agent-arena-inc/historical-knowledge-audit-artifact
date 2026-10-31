@@ -50,7 +50,9 @@ These items remain planned work; this release does not claim their completion.
       limits.
 - [ ] Establish an executable or controlled-access arrangement before offering
       Level-3 simulation regeneration.
-- [ ] Record an external user's execution as a usability check.
+- [x] Record an external user's execution as a usability check: [Test B](docs/usability/test_b.md)
+      and its original terminal log. Exact tested revision was not captured;
+      this record does not claim an external rerun of the anonymity repair.
 
 ## Interpretation of the preliminary evidence
 

@@ -18,6 +18,10 @@ Required materials for the reported analyses:
 This level verifies what follows from the supplied corpus. It does not require
 an API key or access to the simulation engine.
 
+An [external ZIP execution (Test B)](usability/test_b.md) completed all five
+Level-1 commands successfully. The original terminal log is included; it does
+not identify the tested commit or ZIP checksum.
+
 ## Level 2: Rerun audit instruments
 
 Required additional materials:
