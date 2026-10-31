@@ -33,6 +33,11 @@ completed evidence.
 - [ ] Check the submitted proposal, appendix, and document metadata for author
       identifiers. Keep the archive and checksum as the frozen submission copy.
 
+The anonymity checker scans all supported text files, including its own source.
+For author-specific checks, use `--identity-blocklist /path/to/private-list.txt`
+with one identifier per line. Keep this private file outside the artifact and
+never include it in the reviewer archive. Generic checks run without this option.
+
 ## Development-stage research plan
 
 These items remain planned work; this release does not claim their completion.
