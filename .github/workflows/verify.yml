@@ -20,3 +20,37 @@ jobs:
         run: make all
       - name: Confirm deterministic outputs
         run: git diff --exit-code
+      - name: Stage and verify reviewer release
+        run: |
+          python scripts/stage_release.py --source-root data/cases --destination "$RUNNER_TEMP/reviewer-release"
+          cd "$RUNNER_TEMP/reviewer-release"
+          test ! -e .git
+          make all
+          python scripts/verify_artifact.py --release-mode --reviewer-package --source-root data/cases
+      - name: Archive reviewer release
+        run: |
+          python - <<'PY'
+          import hashlib
+          import os
+          import shutil
+          from pathlib import Path
+
+          release = Path(os.environ["RUNNER_TEMP"]) / "reviewer-release"
+          if any(path.name == ".git" for path in release.rglob("*")):
+              raise SystemExit("Git metadata must not enter the reviewer archive")
+          archive = Path(shutil.make_archive(str(release), "zip", root_dir=release))
+          digest = hashlib.sha256(archive.read_bytes()).hexdigest()
+          archive.with_suffix(".zip.sha256").write_text(
+              f"{digest}  {archive.name}\n", encoding="utf-8"
+          )
+          print(f"reviewer archive verified: {archive.name}; sha256={digest}")
+          PY
+      - name: Upload reviewer package
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewer-release
+          path: |
+            ${{ runner.temp }}/reviewer-release.zip
+            ${{ runner.temp }}/reviewer-release.zip.sha256
+          if-no-files-found: error
+          retention-days: 90

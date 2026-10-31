@@ -1,53 +1,63 @@
-# Submission completion checklist
+# Stage 1 submission checklist
 
-This file separates what the current reviewer artifact already demonstrates
-from work that still requires human judgment, author decisions, or access to the
-simulation service.
+This checklist separates the supplied prototype, the submission handoff, and
+the development-stage research plan. Pending validation is not described as
+completed evidence.
 
-## Complete in the current artifact
+## Supplied prototype
 
 - [x] Self-contained two-case corpus export.
-- [x] Run manifest with file hashes and explicit condition denominators.
-- [x] Deterministic reconstruction of the provisional evidence table.
+- [x] Run manifest with source hashes and explicit candidate/pilot status.
+- [x] Deterministic reconstruction of the 12-row cached-judgment table.
 - [x] Snapshot of current audit prompts and lexical rules.
-- [x] Written annotation codebook and structured annotation template.
-- [x] Anonymous release checks and exclusion of active coder materials.
-- [x] One-command, dependency-free Level-1 recomputation (`make all`).
-- [x] Continuous verification on pushes and pull requests.
-- [x] Conservative proposal-correction memo and technical-appendix scaffold.
-- [x] Organizational-inference table with candidate conclusions and explicit
-      pending fields.
-- [x] Model-provenance gap inventory.
-- [x] Medium-confidence model-route reconstruction with unresolved fields kept
-      explicit.
-- [x] Harmonized run-level table for the 160 existing focal decision outputs.
+- [x] Annotation codebook, blank coding template, and organizational-inference
+      template with pending fields.
+- [x] Harmonized table for the 160 existing focal decision outputs.
+- [x] Model-provenance record with unresolved invocation fields kept explicit.
+- [x] Dependency-free Level-1 recomputation (`make all`) and continuous
+      verification on pushes and pull requests.
+- [x] Reviewer reading order, direct evidence links, and expected outputs.
+- [x] Release staging excludes Git metadata and active coder materials.
+- [x] Verification workflow builds and verifies a reviewer ZIP and checksum.
+- [x] Technical appendix distinguishes current capabilities from planned work.
 
-## Required before Stage 1 submission
+## Final submission handoff
 
-- [ ] Obtain two independent human labels for the frozen sample.
-- [ ] Adjudicate disagreements and publish de-identified labels plus an
-      adjudication log.
-- [ ] Replace provisional automated findings with a verified evidence table.
-- [ ] Select one organizational conclusion per case and link it to the relevant
-      output, information condition, leakage evidence, and inference status.
-- [ ] Freeze exact model/provider identifiers and document any API cost needed
-      to rerun model-based audits.
-- [ ] State the simulation-regeneration access arrangement without exposing the
-      proprietary engine.
-- [ ] Have a person outside the implementation team execute `make all` from a
-      fresh clone and record the result.
-- [ ] Align every numerical claim in the proposal and technical appendix with a
-      machine-readable row in the final evidence table.
-- [ ] Run the final anonymity audit on the proposal, appendix, repository, and
-      document metadata.
+- [ ] Freeze the final merged commit as Release `stage1-2026-10-31` after CI passes.
+- [ ] Confirm preliminary numerical claims in the submitted proposal and
+      appendix match the generated cached-judgment table and its denominators.
+      Do not use an unreproduced lexical tally as a verified headline result.
+- [ ] Upload the verified `reviewer-release.zip` to the submission portal or
+      editor's review server; confirm the submitted materials are accessible
+      through the portal or the fixed public Release assets.
+- [ ] Check the submitted proposal, appendix, and document metadata for author
+      identifiers. Keep the archive and checksum as the frozen submission copy.
 
-## Claims that must remain qualified
+The anonymity checker scans all supported text files, including its own source.
+For author-specific checks, use `--identity-blocklist /path/to/private-list.txt`
+with one identifier per line. Keep this private file outside the artifact and
+never include it in the reviewer archive. Generic checks run without this option.
 
-- Automated `0/50` means no automated positives under that instrument; it does
-  not establish absence of contamination.
-- Seeded inputs test detector response; output correctness requires independent
-  human labels.
-- The existing de-identification condition is a bundled counterfactual, not an
-  isolated identity manipulation.
-- Stability under a tested control supports robustness only under that control;
-  it does not establish uncontaminated or human-like reasoning.
+## Development-stage research plan
+
+These items remain planned work; this release does not claim their completion.
+
+- [ ] Obtain independent human labels and preserve each coder's original file.
+- [ ] Adjudicate disagreements and publish de-identified labels and a log.
+- [ ] Complete the validated evidence and organizational-conclusion tables.
+- [ ] Recover historical audit invocation details where available before
+      claiming faithful Level-2 rerunnability; otherwise retain the documented
+      limits.
+- [ ] Establish an executable or controlled-access arrangement before offering
+      Level-3 simulation regeneration.
+- [x] Record an external user's execution as a usability check: [Test B](docs/usability/test_b.md)
+      and its original terminal log. Exact tested revision was not captured;
+      this record does not claim an external rerun of the anonymity repair.
+
+## Interpretation of the preliminary evidence
+
+Cached model counts describe detector responses, not human-verified leakage
+rates. Seeded inputs do not by themselves establish positive generated outputs.
+The existing de-identification condition is a bundled transformation; stability
+under it supports robustness within that tested condition. These distinctions
+are already part of the proposed validation method.

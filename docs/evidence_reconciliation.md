@@ -31,9 +31,12 @@ silently absorbed.
   Gemini result likewise contains 49 attempted runs and 48 valid labels, with
   eleven positives, one missing run, and one parse failure.
 - The previously stated lexical count of 27/50 is not backed by a frozen rule,
-  machine-readable result, or run-ID map. A current uniform candidate rule
-  produces 28/50. When the previously missing run 017 is removed, it produces
-  27/49. The earlier 27/50 headline is therefore marked stale and unverified.
+  machine-readable result, or run-ID map. Later working notes report 28/50 and
+  27/49 after removing run 017, but the committed aggregation script does not
+  reconstruct those replacement tallies. They are not verified headline results
+  in this release. Its `keyword_positive` column instead summarizes stored
+  `kw_total` values, a separate cached measure. Preliminary numerical claims
+  should use the reproducible cached-judge table.
 - The 30-run de-identification condition has one lexical candidate,
   `node1blind_run_010`. It mentions a 16-year term with a year-10 review rather
   than the historical year-6 review. It requires human coding and must not be
@@ -72,4 +75,3 @@ The initial sample should cover:
 6. All five Credit Suisse seeded runs.
 7. Credit Suisse cue-rich treatment negatives: runs 001, 030, and 040.
 8. Random Credit Suisse treatment negatives, selected with a recorded seed.
-

@@ -2,17 +2,25 @@
 
 ## Level 1: Recompute reported analyses
 
-Required materials:
+The current release demonstrates this level for cached automated analyses and
+decision-output extraction. Human annotations and adjudication will be added
+when completed; they are not inputs to the current cached-result tables.
+
+Required materials for the reported analyses:
 
 - immutable transcripts and trajectory files;
 - cached automated judgments;
-- human annotations and adjudication records;
+- human annotations and adjudication records when reporting human-validated results;
 - a run manifest with exclusions and file hashes;
 - deterministic aggregation scripts; and
 - expected tables for comparison.
 
 This level verifies what follows from the supplied corpus. It does not require
 an API key or access to the simulation engine.
+
+An [external ZIP execution (Test B)](usability/test_b.md) completed all five
+Level-1 commands successfully. The original terminal log is included; it does
+not identify the tested commit or ZIP checksum.
 
 ## Level 2: Rerun audit instruments
 
@@ -41,4 +49,3 @@ Required additional materials:
 
 Claims about the effect of a simulation control require this level or must be
 narrowed to the supplied runs.
-
